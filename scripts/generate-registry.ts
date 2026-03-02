@@ -85,9 +85,30 @@ function extractDescription(content: string): string {
   return descMatch[1].replace(/\n\s*/g, " ").trim()
 }
 
+/** Sanitize a directory name into a valid OCX component name. */
+function sanitizeName(raw: string): string {
+  return raw
+    .toLowerCase()
+    .replace(/[^a-z0-9-]/g, "-")   // replace invalid chars with hyphens
+    .replace(/-{2,}/g, "-")         // collapse consecutive hyphens
+    .replace(/^-|-$/g, "")          // trim leading/trailing hyphens
+}
+
 /** Build a single component entry from a skill directory. */
 async function buildEntry(skillDir: string): Promise<ComponentEntry | null> {
-  const name = skillDir.split("/").pop()!
+  const rawName = skillDir.split("/").pop()!
+  const name = sanitizeName(rawName)
+
+  if (!name) {
+    console.warn(`  SKIP ${rawName}: name sanitizes to empty string`)
+    return null
+  }
+
+  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(name)) {
+    console.warn(`  SKIP ${rawName}: invalid name after sanitization: "${name}"`)
+    return null
+  }
+
   const skillMdPath = join(skillDir, "SKILL.md")
 
   // Every skill must have a SKILL.md

@@ -17,46 +17,110 @@ FORM_URL="${1:?Usage: $0 <form-url>}"
 
 echo "Form automation: $FORM_URL"
 
+# Cleanup handler
+cleanup() {
+  if [ -n "${SESSION_ID:-}" ]; then
+    infsh app run agent-browser --function close --session $SESSION_ID --input '{}' 2>/dev/null || true
+  fi
+}
+trap cleanup EXIT
+
 # Step 1: Navigate to form
-agent-browser open "$FORM_URL"
-agent-browser wait --load networkidle
+echo "Opening form..."
+RESULT=$(infsh app run agent-browser --function open --session new --input '{
+  "url": "'"$FORM_URL"'"
+}')
+SESSION_ID=$(echo $RESULT | jq -r '.session_id')
 
-# Step 2: Snapshot to discover form elements
+# Step 2: Display form structure
 echo ""
-echo "Form structure:"
-agent-browser snapshot -i
-
-# Step 3: Fill form fields (customize these refs based on snapshot output)
-#
-# Common field types:
-#   agent-browser fill @e1 "John Doe"           # Text input
-#   agent-browser fill @e2 "user@example.com"   # Email input
-#   agent-browser fill @e3 "SecureP@ss123"      # Password input
-#   agent-browser select @e4 "Option Value"     # Dropdown
-#   agent-browser check @e5                     # Checkbox
-#   agent-browser click @e6                     # Radio button
-#   agent-browser fill @e7 "Multi-line text"   # Textarea
-#   agent-browser upload @e8 /path/to/file.pdf # File upload
-#
-# Uncomment and modify:
-# agent-browser fill @e1 "Test User"
-# agent-browser fill @e2 "test@example.com"
-# agent-browser click @e3  # Submit button
-
-# Step 4: Wait for submission
-# agent-browser wait --load networkidle
-# agent-browser wait --url "**/success"  # Or wait for redirect
-
-# Step 5: Verify result
+echo "Form elements:"
+echo "---"
+echo $RESULT | jq -r '.elements_text'
+echo "---"
 echo ""
-echo "Result:"
-agent-browser get url
-agent-browser snapshot -i
 
-# Optional: Capture evidence
-agent-browser screenshot /tmp/form-result.png
-echo "Screenshot saved: /tmp/form-result.png"
+# ================================================================
+# DISCOVERY MODE: Shows form structure
+# After running once, update the FORM FILL section below with your refs
+# then delete or comment out this section
+# ================================================================
+echo "Discovery mode: Form structure shown above"
+echo ""
+echo "Next steps:"
+echo "  1. Note the refs for your form fields (e.g., @e1 for name, @e2 for email)"
+echo "  2. Update the FORM FILL section below"
+echo "  3. Set environment variables for form data"
+echo "  4. Comment out this discovery section"
+echo ""
+exit 0
 
-# Cleanup
-agent-browser close
+# ================================================================
+# FORM FILL: Uncomment and customize after discovery
+# ================================================================
+# echo "Filling form..."
+#
+# # Text input
+# infsh app run agent-browser --function interact --session $SESSION_ID --input '{
+#   "action": "fill", "ref": "@e1", "text": "'"${FORM_NAME:-John Doe}"'"
+# }'
+#
+# # Email input
+# infsh app run agent-browser --function interact --session $SESSION_ID --input '{
+#   "action": "fill", "ref": "@e2", "text": "'"${FORM_EMAIL:-john@example.com}"'"
+# }'
+#
+# # Dropdown/select
+# infsh app run agent-browser --function interact --session $SESSION_ID --input '{
+#   "action": "select", "ref": "@e3", "text": "Option 1"
+# }'
+#
+# # Checkbox
+# infsh app run agent-browser --function interact --session $SESSION_ID --input '{
+#   "action": "check", "ref": "@e4"
+# }'
+#
+# # Textarea
+# infsh app run agent-browser --function interact --session $SESSION_ID --input '{
+#   "action": "fill", "ref": "@e5", "text": "'"${FORM_MESSAGE:-Hello, this is a test message.}"'"
+# }'
+#
+# # Submit button
+# echo "Submitting form..."
+# infsh app run agent-browser --function interact --session $SESSION_ID --input '{
+#   "action": "click", "ref": "@e6"
+# }'
+#
+# # Wait for submission
+# infsh app run agent-browser --function interact --session $SESSION_ID --input '{
+#   "action": "wait", "wait_ms": 2000
+# }'
+#
+# # Step 3: Verify result
+# echo ""
+# echo "Verifying submission..."
+# RESULT=$(infsh app run agent-browser --function snapshot --session $SESSION_ID --input '{}')
+#
+# URL=$(echo $RESULT | jq -r '.url')
+# TITLE=$(echo $RESULT | jq -r '.title')
+# echo "Final URL: $URL"
+# echo "Page title: $TITLE"
+#
+# # Check for success indicators
+# ELEMENTS=$(echo $RESULT | jq -r '.elements_text')
+# if echo "$ELEMENTS" | grep -qi "thank you\|success\|submitted"; then
+#   echo "SUCCESS: Form submitted successfully"
+# elif echo "$URL" | grep -qi "error\|fail"; then
+#   echo "ERROR: Form submission may have failed"
+#   exit 1
+# else
+#   echo "UNKNOWN: Check the result manually"
+# fi
+#
+# # Optional: Capture evidence
+# infsh app run agent-browser --function screenshot --session $SESSION_ID --input '{
+#   "full_page": true
+# }' > form-result-screenshot.json
+# echo "Screenshot saved to form-result-screenshot.json"
+
 echo "Done"

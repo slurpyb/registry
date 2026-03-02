@@ -1,263 +1,272 @@
 # Command Reference
 
-Complete reference for all agent-browser commands. For quick start and common patterns, see SKILL.md.
+Complete reference for all agent-browser functions. For quick start, see [SKILL.md](../SKILL.md).
 
-## Navigation
+## Base Command
 
-```bash
-agent-browser open <url>      # Navigate to URL (aliases: goto, navigate)
-                              # Supports: https://, http://, file://, about:, data://
-                              # Auto-prepends https:// if no protocol given
-agent-browser back            # Go back
-agent-browser forward         # Go forward
-agent-browser reload          # Reload page
-agent-browser close           # Close browser (aliases: quit, exit)
-agent-browser connect 9222    # Connect to browser via CDP port
-```
-
-## Snapshot (page analysis)
+All commands follow this pattern:
 
 ```bash
-agent-browser snapshot            # Full accessibility tree
-agent-browser snapshot -i         # Interactive elements only (recommended)
-agent-browser snapshot -c         # Compact output
-agent-browser snapshot -d 3       # Limit depth to 3
-agent-browser snapshot -s "#main" # Scope to CSS selector
+infsh app run agent-browser --function <function> --session <session_id|new> --input '<json>'
 ```
 
-## Interactions (use @refs from snapshot)
+- `--function`: Function to call (open, snapshot, interact, screenshot, execute, close)
+- `--session`: Session ID from previous call, or `new` to start fresh
+- `--input`: JSON input for the function
+
+## Functions
+
+### open
+
+Navigate to URL and configure browser. This is the entry point for all sessions.
 
 ```bash
-agent-browser click @e1           # Click
-agent-browser click @e1 --new-tab # Click and open in new tab
-agent-browser dblclick @e1        # Double-click
-agent-browser focus @e1           # Focus element
-agent-browser fill @e2 "text"     # Clear and type
-agent-browser type @e2 "text"     # Type without clearing
-agent-browser press Enter         # Press key (alias: key)
-agent-browser press Control+a     # Key combination
-agent-browser keydown Shift       # Hold key down
-agent-browser keyup Shift         # Release key
-agent-browser hover @e1           # Hover
-agent-browser check @e1           # Check checkbox
-agent-browser uncheck @e1         # Uncheck checkbox
-agent-browser select @e1 "value"  # Select dropdown option
-agent-browser select @e1 "a" "b"  # Select multiple options
-agent-browser scroll down 500     # Scroll page (default: down 300px)
-agent-browser scrollintoview @e1  # Scroll element into view (alias: scrollinto)
-agent-browser drag @e1 @e2        # Drag and drop
-agent-browser upload @e1 file.pdf # Upload files
+infsh app run agent-browser --function open --session new --input '{
+  "url": "https://example.com",
+  "width": 1280,
+  "height": 720,
+  "user_agent": "Mozilla/5.0...",
+  "record_video": false,
+  "show_cursor": false,
+  "proxy_url": null,
+  "proxy_username": null,
+  "proxy_password": null
+}'
 ```
 
-## Get Information
+**Input Fields:**
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `url` | string | required | URL to navigate to |
+| `width` | int | 1280 | Viewport width in pixels |
+| `height` | int | 720 | Viewport height in pixels |
+| `user_agent` | string | null | Custom user agent string |
+| `record_video` | bool | false | Record video (returned on close) |
+| `show_cursor` | bool | false | Show cursor indicator in screenshots/video |
+| `proxy_url` | string | null | Proxy server URL |
+| `proxy_username` | string | null | Proxy auth username |
+| `proxy_password` | string | null | Proxy auth password |
+
+**Output:**
+
+```json
+{
+  "session_id": "abc123",
+  "url": "https://example.com",
+  "title": "Example Domain",
+  "elements": [...],
+  "elements_text": "@e1 [a] \"More information...\" href=\"...\"\n...",
+  "screenshot": "<File>"
+}
+```
+
+### snapshot
+
+Re-fetch page state with `@e` refs. Call after navigation or DOM changes.
 
 ```bash
-agent-browser get text @e1        # Get element text
-agent-browser get html @e1        # Get innerHTML
-agent-browser get value @e1       # Get input value
-agent-browser get attr @e1 href   # Get attribute
-agent-browser get title           # Get page title
-agent-browser get url             # Get current URL
-agent-browser get count ".item"   # Count matching elements
-agent-browser get box @e1         # Get bounding box
-agent-browser get styles @e1      # Get computed styles (font, color, bg, etc.)
+infsh app run agent-browser --function snapshot --session $SESSION_ID --input '{}'
 ```
 
-## Check State
+**Output:** Same as `open` (url, title, elements, elements_text, screenshot)
+
+### interact
+
+Perform actions on the page using `@e` refs.
 
 ```bash
-agent-browser is visible @e1      # Check if visible
-agent-browser is enabled @e1      # Check if enabled
-agent-browser is checked @e1      # Check if checked
+infsh app run agent-browser --function interact --session $SESSION_ID --input '{
+  "action": "click",
+  "ref": "@e1"
+}'
 ```
 
-## Screenshots and PDF
+**Input Fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `action` | string | Action to perform (see Actions table) |
+| `ref` | string | Element ref (e.g., `@e1`) |
+| `text` | string | Text for fill/type/press/select |
+| `direction` | string | Scroll direction: up, down, left, right |
+| `scroll_amount` | int | Scroll pixels (default 400) |
+| `wait_ms` | int | Wait duration in milliseconds |
+| `url` | string | URL for goto action |
+| `target_ref` | string | Target ref for drag action |
+| `file_paths` | array | File paths for upload action |
+
+**Actions:**
+
+| Action | Required Fields | Description |
+|--------|-----------------|-------------|
+| `click` | `ref` | Single click |
+| `dblclick` | `ref` | Double click |
+| `fill` | `ref`, `text` | Clear input and type text |
+| `type` | `text` | Type text without clearing |
+| `press` | `text` | Press key (Enter, Tab, Escape, etc.) |
+| `select` | `ref`, `text` | Select dropdown option by label |
+| `hover` | `ref` | Hover over element |
+| `check` | `ref` | Check checkbox |
+| `uncheck` | `ref` | Uncheck checkbox |
+| `drag` | `ref`, `target_ref` | Drag from ref to target_ref |
+| `upload` | `ref`, `file_paths` | Upload files to file input |
+| `scroll` | `direction` | Scroll page (optional: `scroll_amount`) |
+| `back` | - | Go back in browser history |
+| `wait` | `wait_ms` | Wait for specified milliseconds |
+| `goto` | `url` | Navigate to different URL |
+
+**Output:**
+
+```json
+{
+  "success": true,
+  "action": "click",
+  "message": null,
+  "screenshot": "<File>",
+  "snapshot": {
+    "url": "...",
+    "title": "...",
+    "elements": [...],
+    "elements_text": "..."
+  }
+}
+```
+
+### screenshot
+
+Take a screenshot of the current page.
 
 ```bash
-agent-browser screenshot          # Save to temporary directory
-agent-browser screenshot path.png # Save to specific path
-agent-browser screenshot --full   # Full page
-agent-browser pdf output.pdf      # Save as PDF
+infsh app run agent-browser --function screenshot --session $SESSION_ID --input '{
+  "full_page": true
+}'
 ```
 
-## Video Recording
+**Input Fields:**
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `full_page` | bool | false | Capture full scrollable page |
+
+**Output:**
+
+```json
+{
+  "screenshot": "<File>",
+  "width": 1280,
+  "height": 720
+}
+```
+
+### execute
+
+Run JavaScript code on the page.
 
 ```bash
-agent-browser record start ./demo.webm    # Start recording
-agent-browser click @e1                   # Perform actions
-agent-browser record stop                 # Stop and save video
-agent-browser record restart ./take2.webm # Stop current + start new
+infsh app run agent-browser --function execute --session $SESSION_ID --input '{
+  "code": "document.title"
+}'
 ```
 
-## Wait
+**Input Fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `code` | string | JavaScript code to execute |
+
+**Output:**
+
+```json
+{
+  "result": "Example Domain",
+  "error": null,
+  "screenshot": "<File>"
+}
+```
+
+**Examples:**
 
 ```bash
-agent-browser wait @e1                     # Wait for element
-agent-browser wait 2000                    # Wait milliseconds
-agent-browser wait --text "Success"        # Wait for text (or -t)
-agent-browser wait --url "**/dashboard"    # Wait for URL pattern (or -u)
-agent-browser wait --load networkidle      # Wait for network idle (or -l)
-agent-browser wait --fn "window.ready"     # Wait for JS condition (or -f)
+# Get page title
+'{"code": "document.title"}'
+
+# Count elements
+'{"code": "document.querySelectorAll(\"a\").length"}'
+
+# Extract text
+'{"code": "document.querySelector(\"h1\").textContent"}'
+
+# Get all links
+'{"code": "Array.from(document.querySelectorAll(\"a\")).map(a => a.href)"}'
+
+# Scroll to bottom
+'{"code": "window.scrollTo(0, document.body.scrollHeight)"}'
+
+# Get computed style
+'{"code": "getComputedStyle(document.body).backgroundColor"}'
 ```
 
-## Mouse Control
+### close
+
+Close the browser session. Returns video if recording was enabled.
 
 ```bash
-agent-browser mouse move 100 200      # Move mouse
-agent-browser mouse down left         # Press button
-agent-browser mouse up left           # Release button
-agent-browser mouse wheel 100         # Scroll wheel
+infsh app run agent-browser --function close --session $SESSION_ID --input '{}'
 ```
 
-## Semantic Locators (alternative to refs)
+**Output:**
+
+```json
+{
+  "success": true,
+  "video": "<File or null>"
+}
+```
+
+## Key Combinations
+
+For the `press` action, use these key names:
+
+| Key | Name |
+|-----|------|
+| Enter | `Enter` |
+| Tab | `Tab` |
+| Escape | `Escape` |
+| Backspace | `Backspace` |
+| Delete | `Delete` |
+| Arrow keys | `ArrowUp`, `ArrowDown`, `ArrowLeft`, `ArrowRight` |
+| Modifiers | `Control`, `Shift`, `Alt`, `Meta` |
+
+**Key combinations:**
 
 ```bash
-agent-browser find role button click --name "Submit"
-agent-browser find text "Sign In" click
-agent-browser find text "Sign In" click --exact      # Exact match only
-agent-browser find label "Email" fill "user@test.com"
-agent-browser find placeholder "Search" type "query"
-agent-browser find alt "Logo" click
-agent-browser find title "Close" click
-agent-browser find testid "submit-btn" click
-agent-browser find first ".item" click
-agent-browser find last ".item" click
-agent-browser find nth 2 "a" hover
+# Ctrl+A (select all)
+'{"action": "press", "text": "Control+a"}'
+
+# Ctrl+C (copy)
+'{"action": "press", "text": "Control+c"}'
+
+# Shift+Tab (focus previous)
+'{"action": "press", "text": "Shift+Tab"}'
 ```
 
-## Browser Settings
+## Error Handling
 
-```bash
-agent-browser set viewport 1920 1080          # Set viewport size
-agent-browser set device "iPhone 14"          # Emulate device
-agent-browser set geo 37.7749 -122.4194       # Set geolocation (alias: geolocation)
-agent-browser set offline on                  # Toggle offline mode
-agent-browser set headers '{"X-Key":"v"}'     # Extra HTTP headers
-agent-browser set credentials user pass       # HTTP basic auth (alias: auth)
-agent-browser set media dark                  # Emulate color scheme
-agent-browser set media light reduced-motion  # Light mode + reduced motion
+When an action fails, `success` is `false` and `message` contains the error:
+
+```json
+{
+  "success": false,
+  "action": "click",
+  "message": "Unknown ref: @e99. Run 'snapshot' to get current elements.",
+  "screenshot": "<File>",
+  "snapshot": {...}
+}
 ```
 
-## Cookies and Storage
-
-```bash
-agent-browser cookies                     # Get all cookies
-agent-browser cookies set name value      # Set cookie
-agent-browser cookies clear               # Clear cookies
-agent-browser storage local               # Get all localStorage
-agent-browser storage local key           # Get specific key
-agent-browser storage local set k v       # Set value
-agent-browser storage local clear         # Clear all
-```
-
-## Network
-
-```bash
-agent-browser network route <url>              # Intercept requests
-agent-browser network route <url> --abort      # Block requests
-agent-browser network route <url> --body '{}'  # Mock response
-agent-browser network unroute [url]            # Remove routes
-agent-browser network requests                 # View tracked requests
-agent-browser network requests --filter api    # Filter requests
-```
-
-## Tabs and Windows
-
-```bash
-agent-browser tab                 # List tabs
-agent-browser tab new [url]       # New tab
-agent-browser tab 2               # Switch to tab by index
-agent-browser tab close           # Close current tab
-agent-browser tab close 2         # Close tab by index
-agent-browser window new          # New window
-```
-
-## Frames
-
-```bash
-agent-browser frame "#iframe"     # Switch to iframe
-agent-browser frame main          # Back to main frame
-```
-
-## Dialogs
-
-```bash
-agent-browser dialog accept [text]  # Accept dialog
-agent-browser dialog dismiss        # Dismiss dialog
-```
-
-## JavaScript
-
-```bash
-agent-browser eval "document.title"          # Simple expressions only
-agent-browser eval -b "<base64>"             # Any JavaScript (base64 encoded)
-agent-browser eval --stdin                   # Read script from stdin
-```
-
-Use `-b`/`--base64` or `--stdin` for reliable execution. Shell escaping with nested quotes and special characters is error-prone.
-
-```bash
-# Base64 encode your script, then:
-agent-browser eval -b "ZG9jdW1lbnQucXVlcnlTZWxlY3RvcignW3NyYyo9Il9uZXh0Il0nKQ=="
-
-# Or use stdin with heredoc for multiline scripts:
-cat <<'EOF' | agent-browser eval --stdin
-const links = document.querySelectorAll('a');
-Array.from(links).map(a => a.href);
-EOF
-```
-
-## State Management
-
-```bash
-agent-browser state save auth.json    # Save cookies, storage, auth state
-agent-browser state load auth.json    # Restore saved state
-```
-
-## Global Options
-
-```bash
-agent-browser --session <name> ...    # Isolated browser session
-agent-browser --json ...              # JSON output for parsing
-agent-browser --headed ...            # Show browser window (not headless)
-agent-browser --full ...              # Full page screenshot (-f)
-agent-browser --cdp <port> ...        # Connect via Chrome DevTools Protocol
-agent-browser -p <provider> ...       # Cloud browser provider (--provider)
-agent-browser --proxy <url> ...       # Use proxy server
-agent-browser --proxy-bypass <hosts>  # Hosts to bypass proxy
-agent-browser --headers <json> ...    # HTTP headers scoped to URL's origin
-agent-browser --executable-path <p>   # Custom browser executable
-agent-browser --extension <path> ...  # Load browser extension (repeatable)
-agent-browser --ignore-https-errors   # Ignore SSL certificate errors
-agent-browser --help                  # Show help (-h)
-agent-browser --version               # Show version (-V)
-agent-browser <command> --help        # Show detailed help for a command
-```
-
-## Debugging
-
-```bash
-agent-browser --headed open example.com   # Show browser window
-agent-browser --cdp 9222 snapshot         # Connect via CDP port
-agent-browser connect 9222                # Alternative: connect command
-agent-browser console                     # View console messages
-agent-browser console --clear             # Clear console
-agent-browser errors                      # View page errors
-agent-browser errors --clear              # Clear errors
-agent-browser highlight @e1               # Highlight element
-agent-browser trace start                 # Start recording trace
-agent-browser trace stop trace.zip        # Stop and save trace
-agent-browser profiler start              # Start Chrome DevTools profiling
-agent-browser profiler stop trace.json    # Stop and save profile
-```
-
-## Environment Variables
-
-```bash
-AGENT_BROWSER_SESSION="mysession"            # Default session name
-AGENT_BROWSER_EXECUTABLE_PATH="/path/chrome" # Custom browser path
-AGENT_BROWSER_EXTENSIONS="/ext1,/ext2"       # Comma-separated extension paths
-AGENT_BROWSER_PROVIDER="browserbase"         # Cloud browser provider
-AGENT_BROWSER_STREAM_PORT="9223"             # WebSocket streaming port
-AGENT_BROWSER_HOME="/path/to/agent-browser"  # Custom install location
-```
+Common errors:
+- `Unknown ref: @eN` - Ref doesn't exist, re-snapshot needed
+- `'text' required for fill action` - Missing required field
+- `'target_ref' required for drag action` - Missing drag target
+- `Timeout 5000ms exceeded` - Element not found or not clickable

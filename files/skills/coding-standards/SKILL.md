@@ -1,530 +1,436 @@
 ---
 name: coding-standards
-description: Universal coding standards, best practices, and patterns for TypeScript, JavaScript, React, and Node.js development.
-origin: ECC
+description: "React 19 and TypeScript coding standards for Portfolio Buddy 2. Use when: writing new components, reviewing code, refactoring, or ensuring consistency. Contains component patterns, TypeScript rules, and best practices."
 ---
 
-# Coding Standards & Best Practices
+# Coding Standards - Portfolio Buddy 2
 
-Universal coding standards applicable across all projects.
-
-## When to Activate
-
-- Starting a new project or module
-- Reviewing code for quality and maintainability
-- Refactoring existing code to follow conventions
-- Enforcing naming, formatting, or structural consistency
-- Setting up linting, formatting, or type-checking rules
-- Onboarding new contributors to coding conventions
-
-## Code Quality Principles
-
-### 1. Readability First
-- Code is read more than written
-- Clear variable and function names
-- Self-documenting code preferred over comments
-- Consistent formatting
-
-### 2. KISS (Keep It Simple, Stupid)
-- Simplest solution that works
-- Avoid over-engineering
-- No premature optimization
-- Easy to understand > clever code
-
-### 3. DRY (Don't Repeat Yourself)
-- Extract common logic into functions
-- Create reusable components
-- Share utilities across modules
-- Avoid copy-paste programming
-
-### 4. YAGNI (You Aren't Gonna Need It)
-- Don't build features before they're needed
-- Avoid speculative generality
-- Add complexity only when required
-- Start simple, refactor when needed
-
-## TypeScript/JavaScript Standards
-
-### Variable Naming
-
-```typescript
-// ✅ GOOD: Descriptive names
-const marketSearchQuery = 'election'
-const isUserAuthenticated = true
-const totalRevenue = 1000
-
-// ❌ BAD: Unclear names
-const q = 'election'
-const flag = true
-const x = 1000
-```
-
-### Function Naming
-
-```typescript
-// ✅ GOOD: Verb-noun pattern
-async function fetchMarketData(marketId: string) { }
-function calculateSimilarity(a: number[], b: number[]) { }
-function isValidEmail(email: string): boolean { }
-
-// ❌ BAD: Unclear or noun-only
-async function market(id: string) { }
-function similarity(a, b) { }
-function email(e) { }
-```
-
-### Immutability Pattern (CRITICAL)
-
-```typescript
-// ✅ ALWAYS use spread operator
-const updatedUser = {
-  ...user,
-  name: 'New Name'
-}
-
-const updatedArray = [...items, newItem]
-
-// ❌ NEVER mutate directly
-user.name = 'New Name'  // BAD
-items.push(newItem)     // BAD
-```
-
-### Error Handling
-
-```typescript
-// ✅ GOOD: Comprehensive error handling
-async function fetchData(url: string) {
-  try {
-    const response = await fetch(url)
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}: ${response.statusText}`)
-    }
-
-    return await response.json()
-  } catch (error) {
-    console.error('Fetch failed:', error)
-    throw new Error('Failed to fetch data')
-  }
-}
-
-// ❌ BAD: No error handling
-async function fetchData(url) {
-  const response = await fetch(url)
-  return response.json()
-}
-```
-
-### Async/Await Best Practices
-
-```typescript
-// ✅ GOOD: Parallel execution when possible
-const [users, markets, stats] = await Promise.all([
-  fetchUsers(),
-  fetchMarkets(),
-  fetchStats()
-])
-
-// ❌ BAD: Sequential when unnecessary
-const users = await fetchUsers()
-const markets = await fetchMarkets()
-const stats = await fetchStats()
-```
-
-### Type Safety
-
-```typescript
-// ✅ GOOD: Proper types
-interface Market {
-  id: string
-  name: string
-  status: 'active' | 'resolved' | 'closed'
-  created_at: Date
-}
-
-function getMarket(id: string): Promise<Market> {
-  // Implementation
-}
-
-// ❌ BAD: Using 'any'
-function getMarket(id: any): Promise<any> {
-  // Implementation
-}
-```
-
-## React Best Practices
+## React 19 Patterns
 
 ### Component Structure
-
 ```typescript
-// ✅ GOOD: Functional component with types
-interface ButtonProps {
-  children: React.ReactNode
-  onClick: () => void
-  disabled?: boolean
-  variant?: 'primary' | 'secondary'
+// Good: Functional component with TypeScript
+interface MetricsTableProps {
+  data: Metric[]
+  onSelect: (id: string) => void
 }
 
-export function Button({
-  children,
-  onClick,
-  disabled = false,
-  variant = 'primary'
-}: ButtonProps) {
-  return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      className={`btn btn-${variant}`}
-    >
-      {children}
-    </button>
+export function MetricsTable({ data, onSelect }: MetricsTableProps) {
+  // Hooks at top
+  const [selected, setSelected] = useState<Set<string>>(new Set())
+
+  // Derived state with useMemo
+  const sortedData = useMemo(() =>
+    data.sort((a, b) => b.sharpe - a.sharpe),
+    [data]
   )
-}
 
-// ❌ BAD: No types, unclear structure
-export function Button(props) {
-  return <button onClick={props.onClick}>{props.children}</button>
+  // Event handlers with useCallback
+  const handleSelect = useCallback((id: string) => {
+    setSelected(prev => new Set(prev).add(id))
+    onSelect(id)
+  }, [onSelect])
+
+  // Render
+  return <div>...</div>
 }
 ```
 
-### Custom Hooks
-
-```typescript
-// ✅ GOOD: Reusable custom hook
-export function useDebounce<T>(value: T, delay: number): T {
-  const [debouncedValue, setDebouncedValue] = useState<T>(value)
-
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedValue(value)
-    }, delay)
-
-    return () => clearTimeout(handler)
-  }, [value, delay])
-
-  return debouncedValue
-}
-
-// Usage
-const debouncedQuery = useDebounce(searchQuery, 500)
-```
+### Hooks Rules
+1. **Only at top level** - No hooks in conditionals or loops
+2. **Custom hooks start with `use`** - useMetrics, usePortfolio, useSorting
+3. **Dependencies array complete** - All deps in useEffect/useMemo/useCallback
+4. **Cleanup on unmount** - Return cleanup function from useEffect
 
 ### State Management
 
-```typescript
-// ✅ GOOD: Proper state updates
-const [count, setCount] = useState(0)
+**Portfolio Buddy 2 uses PLAIN REACT HOOKS ONLY:**
+- **Local UI state** → `useState`
+- **Derived state** → `useMemo`
+- **Stable callbacks** → `useCallback`
+- **DOM/value refs** → `useRef`
 
-// Functional update for state based on previous state
-setCount(prev => prev + 1)
+**NO global state libraries:**
+- ❌ No TanStack Query
+- ❌ No Zustand
+- ❌ No Redux
+- ❌ No Jotai
 
-// ❌ BAD: Direct state reference
-setCount(count + 1)  // Can be stale in async scenarios
-```
-
-### Conditional Rendering
-
-```typescript
-// ✅ GOOD: Clear conditional rendering
-{isLoading && <Spinner />}
-{error && <ErrorMessage error={error} />}
-{data && <DataDisplay data={data} />}
-
-// ❌ BAD: Ternary hell
-{isLoading ? <Spinner /> : error ? <ErrorMessage error={error} /> : data ? <DataDisplay data={data} /> : null}
-```
-
-## API Design Standards
-
-### REST API Conventions
-
-```
-GET    /api/markets              # List all markets
-GET    /api/markets/:id          # Get specific market
-POST   /api/markets              # Create new market
-PUT    /api/markets/:id          # Update market (full)
-PATCH  /api/markets/:id          # Update market (partial)
-DELETE /api/markets/:id          # Delete market
-
-# Query parameters for filtering
-GET /api/markets?status=active&limit=10&offset=0
-```
-
-### Response Format
+**Pattern**: Props down, custom hooks for shared logic
 
 ```typescript
-// ✅ GOOD: Consistent response structure
-interface ApiResponse<T> {
-  success: boolean
-  data?: T
-  error?: string
-  meta?: {
-    total: number
-    page: number
-    limit: number
-  }
+// State management example
+const [files, setFiles] = useState<File[]>([])
+const [dateRange, setDateRange] = useState({ start: null, end: null })
+
+// Derived state
+const filteredData = useMemo(() =>
+  filterByDateRange(files, dateRange),
+  [files, dateRange]
+)
+
+// Stable callback
+const handleUpload = useCallback((newFile: File) => {
+  setFiles(prev => [...prev, newFile])
+}, [])
+```
+
+## TypeScript Standards
+
+### No `any` Types
+```typescript
+// Bad
+const data: any = fetchData()
+
+// Good
+interface TradeData {
+  symbol: string
+  date: Date
+  pnl: number
+}
+const data: TradeData[] = fetchData()
+```
+
+**Current Violations (Tech Debt)**:
+- usePortfolio.ts: 11 instances (trade/metrics types)
+- useMetrics.ts: 4 instances (sort comparisons)
+- dataUtils.ts: 1 instance (Metrics interface)
+- **Total: 15 violations to fix** (originally 16)
+
+### Strict Null Checks
+```typescript
+// Bad
+const value = data.find(x => x.id === id)
+value.name // Could be undefined!
+
+// Good
+const value = data.find(x => x.id === id)
+if (value) {
+  value.name // Type-safe
 }
 
-// Success response
-return NextResponse.json({
-  success: true,
-  data: markets,
-  meta: { total: 100, page: 1, limit: 10 }
-})
-
-// Error response
-return NextResponse.json({
-  success: false,
-  error: 'Invalid request'
-}, { status: 400 })
+// Or with optional chaining
+const name = data.find(x => x.id === id)?.name
 ```
 
-### Input Validation
-
+### Type Inference When Obvious
 ```typescript
-import { z } from 'zod'
+// Redundant
+const count: number = 5
+const name: string = 'Portfolio Buddy'
 
-// ✅ GOOD: Schema validation
-const CreateMarketSchema = z.object({
-  name: z.string().min(1).max(200),
-  description: z.string().min(1).max(2000),
-  endDate: z.string().datetime(),
-  categories: z.array(z.string()).min(1)
-})
+// Better (TypeScript infers)
+const count = 5
+const name = 'Portfolio Buddy'
 
-export async function POST(request: Request) {
-  const body = await request.json()
+// Explicit when needed
+const metrics: Metric[] = [] // Empty array needs type
+```
 
-  try {
-    const validated = CreateMarketSchema.parse(body)
-    // Proceed with validated data
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      return NextResponse.json({
-        success: false,
-        error: 'Validation failed',
-        details: error.errors
-      }, { status: 400 })
-    }
-  }
+## Component Size Limits
+
+### Max 200 Lines Per Component
+When component exceeds 200 lines:
+1. Extract sub-components
+2. Move logic to custom hooks
+3. Extract utilities to utils/
+
+### Current Violations
+
+**⚠️ MUST REFACTOR:**
+- **PortfolioSection.tsx**: 591 lines (295% of limit)
+  - Extract EquityChartSection
+  - Extract PortfolioStats
+  - Extract ContractControls
+  - Keep only orchestration logic
+
+**Should refactor:**
+- **App.tsx**: 351 lines (175% of limit)
+  - Extract sections into components
+- **MetricsTable.tsx**: 242 lines (121% of limit)
+  - Improved from 350 lines, still over limit
+
+### Refactoring Example
+```typescript
+// Before: 591 lines in PortfolioSection
+function PortfolioSection() {
+  // Contract multiplier logic (50 lines)
+  // Date filtering logic (40 lines)
+  // Chart configuration (100 lines)
+  // Statistics calculation (80 lines)
+  // Rendering logic (300+ lines)
+}
+
+// After: Split into focused pieces
+function PortfolioSection() {
+  const portfolio = usePortfolio(files, dateRange)
+  const contracts = useContractMultipliers(portfolio.strategies)
+
+  return (
+    <div>
+      <ContractControls {...contracts} />
+      <EquityChartSection data={portfolio.equity} />
+      <PortfolioStats metrics={portfolio.metrics} />
+    </div>
+  )
 }
 ```
 
 ## File Organization
 
-### Project Structure
-
+### Actual Directory Structure
 ```
 src/
-├── app/                    # Next.js App Router
-│   ├── api/               # API routes
-│   ├── markets/           # Market pages
-│   └── (auth)/           # Auth pages (route groups)
-├── components/            # React components
-│   ├── ui/               # Generic UI components
-│   ├── forms/            # Form components
-│   └── layouts/          # Layout components
-├── hooks/                # Custom React hooks
-├── lib/                  # Utilities and configs
-│   ├── api/             # API clients
-│   ├── utils/           # Helper functions
-│   └── constants/       # Constants
-├── types/                # TypeScript types
-└── styles/              # Global styles
+├── components/
+│   └── [AllComponents].tsx    (flat structure, no subdirs)
+├── hooks/
+│   ├── useContractMultipliers.ts
+│   ├── useMetrics.ts
+│   ├── usePortfolio.ts
+│   └── useSorting.ts
+├── utils/
+│   └── dataUtils.ts           (metric calculations, parsing)
+├── App.tsx
+└── main.tsx
 ```
 
-### File Naming
+**Note**: No `ui/` or `charts/` subdirectories - components are flat in `components/`
 
-```
-components/Button.tsx          # PascalCase for components
-hooks/useAuth.ts              # camelCase with 'use' prefix
-lib/formatDate.ts             # camelCase for utilities
-types/market.types.ts         # camelCase with .types suffix
+### Naming Conventions
+- **Components**: PascalCase - `MetricsTable.tsx`, `CorrelationHeatmap.tsx`
+- **Hooks**: camelCase with `use` prefix - `useMetrics.ts`, `useSorting.ts`
+- **Utils**: camelCase - `calculateMetrics()`, `parseCSV()`
+- **Types/Interfaces**: PascalCase - `interface Metric`, `type Trade`
+
+## Error Handling
+
+### Always Handle Errors
+```typescript
+// Bad
+const data = await supabase.storage.upload(file)
+
+// Good
+const { data, error } = await supabase.storage.upload(file)
+if (error) {
+  console.error('Upload failed:', error)
+  toast.error('Failed to upload file')
+  return
+}
 ```
 
-## Comments & Documentation
+### Use Try-Catch for Parsing
+```typescript
+// CSV parsing with error handling
+try {
+  const parsed = parseCSV(file)
+  setData(parsed.data)
+  if (parsed.errors.length > 0) {
+    setErrors(parsed.errors)
+  }
+} catch (error) {
+  console.error('Parse error:', error)
+  toast.error('Invalid CSV format')
+}
+```
+
+### Error Boundaries
+**Current Status**: No error boundaries implemented (tech debt)
+
+**Should add**:
+```typescript
+<ErrorBoundary fallback={<ErrorMessage />}>
+  <PortfolioSection />
+</ErrorBoundary>
+```
+
+## Performance
+
+### Memoization
+```typescript
+// Expensive calculations
+const metrics = useMemo(
+  () => calculateMetrics(portfolioData, riskFreeRate),
+  [portfolioData, riskFreeRate]
+)
+
+// Large data transformations
+const correlationMatrix = useMemo(
+  () => buildCorrelationMatrix(selectedStrategies),
+  [selectedStrategies]
+)
+```
+
+### Callback Stability
+```typescript
+// Prevent child re-renders
+const handleSort = useCallback((column: string) => {
+  setSortColumn(column)
+  setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc')
+}, [])
+
+// Pass stable callback to children
+<SortableHeader onSort={handleSort} />
+```
+
+### Avoid Premature Optimization
+1. Build feature first
+2. Measure performance if issues arise
+3. Optimize based on profiling data
+4. Don't optimize without evidence
+
+## Chart.js Integration
+
+### Pattern for Chart Components
+```typescript
+import { Line } from 'react-chartjs-2'
+import { Chart as ChartJS, registerables } from 'chart.js'
+import zoomPlugin from 'chartjs-plugin-zoom'
+
+// Register plugins once
+ChartJS.register(...registerables, zoomPlugin)
+
+function EquityChart({ data }: { data: EquityData[] }) {
+  const chartData = useMemo(() => ({
+    labels: data.map(d => d.date),
+    datasets: [{
+      label: 'Equity',
+      data: data.map(d => d.value),
+      borderColor: 'rgb(75, 192, 192)',
+    }]
+  }), [data])
+
+  const options = useMemo(() => ({
+    responsive: true,
+    plugins: {
+      zoom: { enabled: true }
+    }
+  }), [])
+
+  return <Line data={chartData} options={options} />
+}
+```
+
+### Chart Libraries
+- ✅ **Use**: Chart.js + react-chartjs-2
+- ❌ **Don't use**: Recharts (installed but unused, should remove)
+
+## Testing Standards
+
+### What to Test
+- ✅ Critical calculations (Sharpe, Sortino, correlation)
+- ✅ Data transformations (CSV parsing, metric calculations)
+- ✅ Error states and edge cases
+- ✅ Hook return values
+- ❌ UI implementation details (className, DOM structure)
+- ❌ Third-party library internals
+
+### Test Structure
+```typescript
+describe('calculateMetrics', () => {
+  it('calculates Sharpe ratio correctly', () => {
+    const trades = mockTradeData()
+    const result = calculateMetrics(trades, 0.02)
+    expect(result.sharpe).toBeCloseTo(1.5, 2)
+  })
+
+  it('handles empty data gracefully', () => {
+    const result = calculateMetrics([], 0.02)
+    expect(result.sharpe).toBe(0)
+  })
+})
+```
+
+**Current Status**: No tests implemented (future work)
+
+## Import Organization
+
+### Order of Imports
+```typescript
+// 1. React and external libraries
+import { useState, useMemo, useCallback } from 'react'
+import { Line } from 'react-chartjs-2'
+
+// 2. Internal hooks
+import { useMetrics } from '@/hooks/useMetrics'
+import { usePortfolio } from '@/hooks/usePortfolio'
+
+// 3. Utils and helpers
+import { calculateMetrics, formatCurrency } from '@/utils/dataUtils'
+
+// 4. Types
+import type { Metric, Trade } from '@/types'
+
+// 5. Styles (if any)
+import './styles.css'
+```
+
+## Code Comments
 
 ### When to Comment
-
 ```typescript
-// ✅ GOOD: Explain WHY, not WHAT
-// Use exponential backoff to avoid overwhelming the API during outages
-const delay = Math.min(1000 * Math.pow(2, retryCount), 30000)
+// Good: Explain WHY, not WHAT
+// Annualize by multiplying by sqrt(252) trading days
+const sharpe = (avgReturn / stdDev) * Math.sqrt(252)
 
-// Deliberately using mutation here for performance with large arrays
-items.push(newItem)
-
-// ❌ BAD: Stating the obvious
-// Increment counter by 1
-count++
-
-// Set name to user's name
-name = user.name
+// Bad: Obvious what the code does
+// Calculate Sharpe ratio
+const sharpe = (avgReturn / stdDev) * Math.sqrt(252)
 ```
 
-### JSDoc for Public APIs
-
+### JSDoc for Complex Functions
 ```typescript
 /**
- * Searches markets using semantic similarity.
- *
- * @param query - Natural language search query
- * @param limit - Maximum number of results (default: 10)
- * @returns Array of markets sorted by similarity score
- * @throws {Error} If OpenAI API fails or Redis unavailable
- *
- * @example
- * ```typescript
- * const results = await searchMarkets('election', 5)
- * console.log(results[0].name) // "Trump vs Biden"
- * ```
+ * Calculate Sortino Ratio using downside deviation
+ * @param returns - Array of daily returns
+ * @param riskFreeRate - Annual risk-free rate (e.g., 0.02 for 2%)
+ * @param targetReturn - Target return threshold (default: 0)
+ * @returns Annualized Sortino Ratio
  */
-export async function searchMarkets(
-  query: string,
-  limit: number = 10
-): Promise<Market[]> {
+function calculateSortino(
+  returns: number[],
+  riskFreeRate: number,
+  targetReturn = 0
+): number {
   // Implementation
 }
 ```
 
-## Performance Best Practices
+## Git Commit Messages
 
-### Memoization
+### Format
+```
+<type>: <subject>
 
-```typescript
-import { useMemo, useCallback } from 'react'
-
-// ✅ GOOD: Memoize expensive computations
-const sortedMarkets = useMemo(() => {
-  return markets.sort((a, b) => b.volume - a.volume)
-}, [markets])
-
-// ✅ GOOD: Memoize callbacks
-const handleSearch = useCallback((query: string) => {
-  setSearchQuery(query)
-}, [])
+<body>
 ```
 
-### Lazy Loading
+### Types
+- `feat:` New feature
+- `fix:` Bug fix
+- `refactor:` Code restructuring
+- `perf:` Performance improvement
+- `docs:` Documentation
+- `test:` Test additions/changes
 
-```typescript
-import { lazy, Suspense } from 'react'
+### Examples from Recent Commits
+```
+Fix Sortino Ratio calculation by annualizing downside deviation and correcting variance calculation
 
-// ✅ GOOD: Lazy load heavy components
-const HeavyChart = lazy(() => import('./HeavyChart'))
+Refactor portfolio calculations and enhance Supabase client validation; add risk-free rate input and Sortino Ratio calculation
 
-export function Dashboard() {
-  return (
-    <Suspense fallback={<Spinner />}>
-      <HeavyChart />
-    </Suspense>
-  )
-}
+Enhance error handling and validation in Supabase data fetching; update MetricsTable and PortfolioSection to manage selectedTradeLists state
 ```
 
-### Database Queries
+## Code Review Checklist
 
-```typescript
-// ✅ GOOD: Select only needed columns
-const { data } = await supabase
-  .from('markets')
-  .select('id, name, status')
-  .limit(10)
-
-// ❌ BAD: Select everything
-const { data } = await supabase
-  .from('markets')
-  .select('*')
-```
-
-## Testing Standards
-
-### Test Structure (AAA Pattern)
-
-```typescript
-test('calculates similarity correctly', () => {
-  // Arrange
-  const vector1 = [1, 0, 0]
-  const vector2 = [0, 1, 0]
-
-  // Act
-  const similarity = calculateCosineSimilarity(vector1, vector2)
-
-  // Assert
-  expect(similarity).toBe(0)
-})
-```
-
-### Test Naming
-
-```typescript
-// ✅ GOOD: Descriptive test names
-test('returns empty array when no markets match query', () => { })
-test('throws error when OpenAI API key is missing', () => { })
-test('falls back to substring search when Redis unavailable', () => { })
-
-// ❌ BAD: Vague test names
-test('works', () => { })
-test('test search', () => { })
-```
-
-## Code Smell Detection
-
-Watch for these anti-patterns:
-
-### 1. Long Functions
-```typescript
-// ❌ BAD: Function > 50 lines
-function processMarketData() {
-  // 100 lines of code
-}
-
-// ✅ GOOD: Split into smaller functions
-function processMarketData() {
-  const validated = validateData()
-  const transformed = transformData(validated)
-  return saveData(transformed)
-}
-```
-
-### 2. Deep Nesting
-```typescript
-// ❌ BAD: 5+ levels of nesting
-if (user) {
-  if (user.isAdmin) {
-    if (market) {
-      if (market.isActive) {
-        if (hasPermission) {
-          // Do something
-        }
-      }
-    }
-  }
-}
-
-// ✅ GOOD: Early returns
-if (!user) return
-if (!user.isAdmin) return
-if (!market) return
-if (!market.isActive) return
-if (!hasPermission) return
-
-// Do something
-```
-
-### 3. Magic Numbers
-```typescript
-// ❌ BAD: Unexplained numbers
-if (retryCount > 3) { }
-setTimeout(callback, 500)
-
-// ✅ GOOD: Named constants
-const MAX_RETRIES = 3
-const DEBOUNCE_DELAY_MS = 500
-
-if (retryCount > MAX_RETRIES) { }
-setTimeout(callback, DEBOUNCE_DELAY_MS)
-```
-
-**Remember**: Code quality is not negotiable. Clear, maintainable code enables rapid development and confident refactoring.
+Before submitting code:
+- [ ] TypeScript strict mode passes (no `any` unless documented as tech debt)
+- [ ] Component under 200 lines (or has refactor plan)
+- [ ] Error handling in place
+- [ ] Memoization for expensive calculations
+- [ ] Stable callbacks with useCallback
+- [ ] Proper TypeScript types (no `any`)
+- [ ] Imports organized by category
+- [ ] JSDoc on complex functions
+- [ ] Console.logs removed
+- [ ] Chart.js used (not Recharts)

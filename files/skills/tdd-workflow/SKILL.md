@@ -1,410 +1,224 @@
 ---
 name: tdd-workflow
-description: Use this skill when writing new features, fixing bugs, or refactoring code. Enforces test-driven development with 80%+ coverage including unit, integration, and E2E tests.
-origin: ECC
+description: Test-Driven Development methodology for Node.js/TypeScript projects.
 ---
 
-# Test-Driven Development Workflow
+# TDD Workflow Skill
 
-This skill ensures all code development follows TDD principles with comprehensive test coverage.
+## Overview
+Test-Driven Development methodology for Node.js/TypeScript projects.
 
-## When to Activate
+## The RED-GREEN-REFACTOR Cycle
 
-- Writing new features or functionality
-- Fixing bugs or issues
-- Refactoring existing code
-- Adding API endpoints
-- Creating new components
+### RED Phase: Design Failing Tests
 
-## Core Principles
+Write tests BEFORE implementation:
 
-### 1. Tests BEFORE Code
-ALWAYS write tests first, then implement code to make tests pass.
+1. **Identify Behavior**: What should the code do?
+2. **Design Test Cases**: Cover all scenarios
+3. **Write Tests**: Use AAA pattern
+4. **Run Tests**: Confirm they FAIL
+5. **Verify Failure**: Tests fail for the RIGHT reason
 
-### 2. Coverage Requirements
-- Minimum 80% coverage (unit + integration + E2E)
-- All edge cases covered
-- Error scenarios tested
-- Boundary conditions verified
+### GREEN Phase: Minimal Implementation
 
-### 3. Test Types
+Make tests pass with minimal code:
 
-#### Unit Tests
-- Individual functions and utilities
-- Component logic
-- Pure functions
-- Helpers and utilities
+1. **Focus**: One failing test at a time
+2. **Implement**: Just enough to pass
+3. **Verify**: Run tests, confirm GREEN
+4. **Iterate**: Next failing test
+5. **Complete**: All tests passing
 
-#### Integration Tests
-- API endpoints
-- Database operations
-- Service interactions
-- External API calls
+### REFACTOR Phase: Improve Design
 
-#### E2E Tests (Playwright)
-- Critical user flows
-- Complete workflows
-- Browser automation
-- UI interactions
+Improve code while keeping tests green:
 
-## TDD Workflow Steps
+1. **Review**: Identify code smells
+2. **Plan**: Choose refactoring
+3. **Apply**: Make the change
+4. **Verify**: Tests still GREEN
+5. **Repeat**: Until quality gates met
 
-### Step 1: Write User Journeys
-```
-As a [role], I want to [action], so that [benefit]
-
-Example:
-As a user, I want to search for markets semantically,
-so that I can find relevant markets even without exact keywords.
-```
-
-### Step 2: Generate Test Cases
-For each user journey, create comprehensive test cases:
+## AAA Pattern
 
 ```typescript
-describe('Semantic Search', () => {
-  it('returns relevant markets for query', async () => {
-    // Test implementation
-  })
+describe('Calculator', () => {
+  it('should add two numbers correctly', () => {
+    // Arrange - Set up test conditions
+    const calculator = createCalculator();
 
-  it('handles empty query gracefully', async () => {
-    // Test edge case
-  })
+    // Act - Execute the behavior
+    const result = calculator.add(2, 3);
 
-  it('falls back to substring search when Redis unavailable', async () => {
-    // Test fallback behavior
-  })
-
-  it('sorts results by similarity score', async () => {
-    // Test sorting logic
-  })
-})
+    // Assert - Verify the outcome
+    expect(result).toBe(5);
+  });
+});
 ```
 
-### Step 3: Run Tests (They Should Fail)
-```bash
-npm test
-# Tests should fail - we haven't implemented yet
+## Test Naming Convention
+
+Format: `should {expectedBehavior} when {scenario}`
+
+Examples:
+```typescript
+it('should return empty array when input is empty', ...);
+it('should throw ValidationError when email is invalid', ...);
+it('should emit event when state changes', ...);
 ```
 
-### Step 4: Implement Code
-Write minimal code to make tests pass:
+## Test Categories
+
+### Unit Tests
+- Test pure functions and logic
+- No I/O, no side effects
+- Fast execution
+- High isolation
 
 ```typescript
-// Implementation guided by tests
-export async function searchMarkets(query: string) {
-  // Implementation here
-}
+describe('validateEmail', () => {
+  it('should return true for valid email', () => {
+    expect(validateEmail('user@example.com')).toBe(true);
+  });
+});
 ```
 
-### Step 5: Run Tests Again
-```bash
-npm test
-# Tests should now pass
-```
+### Integration Tests
+- Test module boundaries
+- Include I/O operations
+- Test with real (or fake) dependencies
 
-### Step 6: Refactor
-Improve code quality while keeping tests green:
-- Remove duplication
-- Improve naming
-- Optimize performance
-- Enhance readability
-
-### Step 7: Verify Coverage
-```bash
-npm run test:coverage
-# Verify 80%+ coverage achieved
-```
-
-## Testing Patterns
-
-### Unit Test Pattern (Jest/Vitest)
 ```typescript
-import { render, screen, fireEvent } from '@testing-library/react'
-import { Button } from './Button'
+describe('UserService', () => {
+  it('should persist user to database', async () => {
+    const db = createTestDatabase();
+    const service = createUserService({ db });
 
-describe('Button Component', () => {
-  it('renders with correct text', () => {
-    render(<Button>Click me</Button>)
-    expect(screen.getByText('Click me')).toBeInTheDocument()
-  })
+    await service.createUser({ email: 'test@example.com' });
 
-  it('calls onClick when clicked', () => {
-    const handleClick = jest.fn()
-    render(<Button onClick={handleClick}>Click</Button>)
-
-    fireEvent.click(screen.getByRole('button'))
-
-    expect(handleClick).toHaveBeenCalledTimes(1)
-  })
-
-  it('is disabled when disabled prop is true', () => {
-    render(<Button disabled>Click</Button>)
-    expect(screen.getByRole('button')).toBeDisabled()
-  })
-})
+    const user = await db.users.findFirst();
+    expect(user.email).toBe('test@example.com');
+  });
+});
 ```
 
-### API Integration Test Pattern
+### Contract Tests
+- Verify API contracts
+- Type safety at boundaries
+- Response shape validation
+
 ```typescript
-import { NextRequest } from 'next/server'
-import { GET } from './route'
+describe('API Contract', () => {
+  it('should return user with expected shape', async () => {
+    const response = await api.getUser('1');
 
-describe('GET /api/markets', () => {
-  it('returns markets successfully', async () => {
-    const request = new NextRequest('http://localhost/api/markets')
-    const response = await GET(request)
-    const data = await response.json()
-
-    expect(response.status).toBe(200)
-    expect(data.success).toBe(true)
-    expect(Array.isArray(data.data)).toBe(true)
-  })
-
-  it('validates query parameters', async () => {
-    const request = new NextRequest('http://localhost/api/markets?limit=invalid')
-    const response = await GET(request)
-
-    expect(response.status).toBe(400)
-  })
-
-  it('handles database errors gracefully', async () => {
-    // Mock database failure
-    const request = new NextRequest('http://localhost/api/markets')
-    // Test error handling
-  })
-})
+    expect(response).toMatchObject({
+      id: expect.any(String),
+      email: expect.any(String),
+      createdAt: expect.any(Date),
+    });
+  });
+});
 ```
 
-### E2E Test Pattern (Playwright)
+## Test Doubles
+
+### Stub
+Returns canned data:
 ```typescript
-import { test, expect } from '@playwright/test'
-
-test('user can search and filter markets', async ({ page }) => {
-  // Navigate to markets page
-  await page.goto('/')
-  await page.click('a[href="/markets"]')
-
-  // Verify page loaded
-  await expect(page.locator('h1')).toContainText('Markets')
-
-  // Search for markets
-  await page.fill('input[placeholder="Search markets"]', 'election')
-
-  // Wait for debounce and results
-  await page.waitForTimeout(600)
-
-  // Verify search results displayed
-  const results = page.locator('[data-testid="market-card"]')
-  await expect(results).toHaveCount(5, { timeout: 5000 })
-
-  // Verify results contain search term
-  const firstResult = results.first()
-  await expect(firstResult).toContainText('election', { ignoreCase: true })
-
-  // Filter by status
-  await page.click('button:has-text("Active")')
-
-  // Verify filtered results
-  await expect(results).toHaveCount(3)
-})
-
-test('user can create a new market', async ({ page }) => {
-  // Login first
-  await page.goto('/creator-dashboard')
-
-  // Fill market creation form
-  await page.fill('input[name="name"]', 'Test Market')
-  await page.fill('textarea[name="description"]', 'Test description')
-  await page.fill('input[name="endDate"]', '2025-12-31')
-
-  // Submit form
-  await page.click('button[type="submit"]')
-
-  // Verify success message
-  await expect(page.locator('text=Market created successfully')).toBeVisible()
-
-  // Verify redirect to market page
-  await expect(page).toHaveURL(/\/markets\/test-market/)
-})
+const stubApi = {
+  getUser: () => Promise.resolve({ id: '1', name: 'Test' }),
+};
 ```
 
-## Test File Organization
+### Mock
+Verifies interactions:
+```typescript
+const mockLogger = {
+  info: jest.fn(),
+  error: jest.fn(),
+};
+// Later: expect(mockLogger.info).toHaveBeenCalledWith('message');
+```
+
+### Fake
+Working implementation:
+```typescript
+const createFakeDatabase = () => {
+  const store = new Map();
+  return {
+    save: (entity) => store.set(entity.id, entity),
+    findById: (id) => store.get(id),
+  };
+};
+```
+
+### Spy
+Records calls:
+```typescript
+const spy = jest.spyOn(service, 'notify');
+await service.process();
+expect(spy).toHaveBeenCalledTimes(1);
+```
+
+## Test Organization
 
 ```
 src/
-├── components/
-│   ├── Button/
-│   │   ├── Button.tsx
-│   │   ├── Button.test.tsx          # Unit tests
-│   │   └── Button.stories.tsx       # Storybook
-│   └── MarketCard/
-│       ├── MarketCard.tsx
-│       └── MarketCard.test.tsx
-├── app/
-│   └── api/
-│       └── markets/
-│           ├── route.ts
-│           └── route.test.ts         # Integration tests
-└── e2e/
-    ├── markets.spec.ts               # E2E tests
-    ├── trading.spec.ts
-    └── auth.spec.ts
+  services/
+    user-service.ts
+    user-service.test.ts      # Co-located unit tests
+  api/
+    handlers.ts
+    handlers.test.ts
+tests/
+  integration/                 # Integration tests
+    user-flow.test.ts
+  fixtures/                    # Shared test data
+    users.ts
+  helpers/                     # Test utilities
+    test-context.ts
 ```
 
-## Mocking External Services
+## Anti-Patterns
 
-### Supabase Mock
+### Testing Implementation Details
 ```typescript
-jest.mock('@/lib/supabase', () => ({
-  supabase: {
-    from: jest.fn(() => ({
-      select: jest.fn(() => ({
-        eq: jest.fn(() => Promise.resolve({
-          data: [{ id: 1, name: 'Test Market' }],
-          error: null
-        }))
-      }))
-    }))
-  }
-}))
+// Bad - testing internal state
+expect(service._cache.size).toBe(1);
+
+// Good - testing behavior
+expect(service.getCachedValue('key')).toBe('value');
 ```
 
-### Redis Mock
+### Overly Specific Assertions
 ```typescript
-jest.mock('@/lib/redis', () => ({
-  searchMarketsByVector: jest.fn(() => Promise.resolve([
-    { slug: 'test-market', similarity_score: 0.95 }
-  ])),
-  checkRedisHealth: jest.fn(() => Promise.resolve({ connected: true }))
-}))
+// Bad - brittle
+expect(result).toEqual({
+  id: '123',
+  name: 'Test',
+  createdAt: new Date('2024-01-01'),
+  updatedAt: new Date('2024-01-01'),
+});
+
+// Good - flexible
+expect(result).toMatchObject({
+  id: expect.any(String),
+  name: 'Test',
+});
 ```
 
-### OpenAI Mock
+### Test Interdependence
 ```typescript
-jest.mock('@/lib/openai', () => ({
-  generateEmbedding: jest.fn(() => Promise.resolve(
-    new Array(1536).fill(0.1) // Mock 1536-dim embedding
-  ))
-}))
+// Bad - tests depend on order
+let user;
+it('should create user', () => { user = createUser(); });
+it('should update user', () => { updateUser(user); }); // Depends on previous
+
+// Good - independent tests
+it('should update user', () => {
+  const user = createUser();
+  updateUser(user);
+});
 ```
-
-## Test Coverage Verification
-
-### Run Coverage Report
-```bash
-npm run test:coverage
-```
-
-### Coverage Thresholds
-```json
-{
-  "jest": {
-    "coverageThresholds": {
-      "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": 80
-      }
-    }
-  }
-}
-```
-
-## Common Testing Mistakes to Avoid
-
-### ❌ WRONG: Testing Implementation Details
-```typescript
-// Don't test internal state
-expect(component.state.count).toBe(5)
-```
-
-### ✅ CORRECT: Test User-Visible Behavior
-```typescript
-// Test what users see
-expect(screen.getByText('Count: 5')).toBeInTheDocument()
-```
-
-### ❌ WRONG: Brittle Selectors
-```typescript
-// Breaks easily
-await page.click('.css-class-xyz')
-```
-
-### ✅ CORRECT: Semantic Selectors
-```typescript
-// Resilient to changes
-await page.click('button:has-text("Submit")')
-await page.click('[data-testid="submit-button"]')
-```
-
-### ❌ WRONG: No Test Isolation
-```typescript
-// Tests depend on each other
-test('creates user', () => { /* ... */ })
-test('updates same user', () => { /* depends on previous test */ })
-```
-
-### ✅ CORRECT: Independent Tests
-```typescript
-// Each test sets up its own data
-test('creates user', () => {
-  const user = createTestUser()
-  // Test logic
-})
-
-test('updates user', () => {
-  const user = createTestUser()
-  // Update logic
-})
-```
-
-## Continuous Testing
-
-### Watch Mode During Development
-```bash
-npm test -- --watch
-# Tests run automatically on file changes
-```
-
-### Pre-Commit Hook
-```bash
-# Runs before every commit
-npm test && npm run lint
-```
-
-### CI/CD Integration
-```yaml
-# GitHub Actions
-- name: Run Tests
-  run: npm test -- --coverage
-- name: Upload Coverage
-  uses: codecov/codecov-action@v3
-```
-
-## Best Practices
-
-1. **Write Tests First** - Always TDD
-2. **One Assert Per Test** - Focus on single behavior
-3. **Descriptive Test Names** - Explain what's tested
-4. **Arrange-Act-Assert** - Clear test structure
-5. **Mock External Dependencies** - Isolate unit tests
-6. **Test Edge Cases** - Null, undefined, empty, large
-7. **Test Error Paths** - Not just happy paths
-8. **Keep Tests Fast** - Unit tests < 50ms each
-9. **Clean Up After Tests** - No side effects
-10. **Review Coverage Reports** - Identify gaps
-
-## Success Metrics
-
-- 80%+ code coverage achieved
-- All tests passing (green)
-- No skipped or disabled tests
-- Fast test execution (< 30s for unit tests)
-- E2E tests cover critical user flows
-- Tests catch bugs before production
-
----
-
-**Remember**: Tests are not optional. They are the safety net that enables confident refactoring, rapid development, and production reliability.

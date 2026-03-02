@@ -1,202 +1,297 @@
 # Authentication Patterns
 
-Login flows, session persistence, OAuth, 2FA, and authenticated browsing.
+Login flows, OAuth, 2FA, and authenticated browsing.
 
-**Related**: [session-management.md](session-management.md) for state persistence details, [SKILL.md](../SKILL.md) for quick start.
+**Related**: [session-management.md](session-management.md) for session details, [SKILL.md](../SKILL.md) for quick start.
 
 ## Contents
 
 - [Basic Login Flow](#basic-login-flow)
-- [Saving Authentication State](#saving-authentication-state)
-- [Restoring Authentication](#restoring-authentication)
 - [OAuth / SSO Flows](#oauth--sso-flows)
 - [Two-Factor Authentication](#two-factor-authentication)
-- [HTTP Basic Auth](#http-basic-auth)
-- [Cookie-Based Auth](#cookie-based-auth)
-- [Token Refresh Handling](#token-refresh-handling)
+- [Session Reuse Patterns](#session-reuse-patterns)
+- [Cookie Extraction](#cookie-extraction)
 - [Security Best Practices](#security-best-practices)
 
 ## Basic Login Flow
 
+Standard username/password login:
+
 ```bash
-# Navigate to login page
-agent-browser open https://app.example.com/login
-agent-browser wait --load networkidle
+#!/bin/bash
+
+# Start session
+SESSION=$(infsh app run agent-browser --function open --session new --input '{
+  "url": "https://app.example.com/login"
+}' | jq -r '.session_id')
 
 # Get form elements
-agent-browser snapshot -i
-# Output: @e1 [input type="email"], @e2 [input type="password"], @e3 [button] "Sign In"
+# Expected: @e1 [input type="email"], @e2 [input type="password"], @e3 [button] "Sign In"
 
 # Fill credentials
-agent-browser fill @e1 "user@example.com"
-agent-browser fill @e2 "password123"
+infsh app run agent-browser --function interact --session $SESSION --input '{
+  "action": "fill", "ref": "@e1", "text": "user@example.com"
+}'
+
+infsh app run agent-browser --function interact --session $SESSION --input '{
+  "action": "fill", "ref": "@e2", "text": "'"$PASSWORD"'"
+}'
 
 # Submit
-agent-browser click @e3
-agent-browser wait --load networkidle
+infsh app run agent-browser --function interact --session $SESSION --input '{
+  "action": "click", "ref": "@e3"
+}'
+
+# Wait for redirect
+infsh app run agent-browser --function interact --session $SESSION --input '{
+  "action": "wait", "wait_ms": 2000
+}'
 
 # Verify login succeeded
-agent-browser get url  # Should be dashboard, not login
-```
+RESULT=$(infsh app run agent-browser --function snapshot --session $SESSION --input '{}')
+URL=$(echo $RESULT | jq -r '.url')
 
-## Saving Authentication State
+if [[ "$URL" == *"/login"* ]]; then
+  echo "Login failed - still on login page"
+  exit 1
+fi
 
-After logging in, save state for reuse:
-
-```bash
-# Login first (see above)
-agent-browser open https://app.example.com/login
-agent-browser snapshot -i
-agent-browser fill @e1 "user@example.com"
-agent-browser fill @e2 "password123"
-agent-browser click @e3
-agent-browser wait --url "**/dashboard"
-
-# Save authenticated state
-agent-browser state save ./auth-state.json
-```
-
-## Restoring Authentication
-
-Skip login by loading saved state:
-
-```bash
-# Load saved auth state
-agent-browser state load ./auth-state.json
-
-# Navigate directly to protected page
-agent-browser open https://app.example.com/dashboard
-
-# Verify authenticated
-agent-browser snapshot -i
+echo "Login successful"
+# Continue with authenticated actions...
 ```
 
 ## OAuth / SSO Flows
 
-For OAuth redirects:
+For OAuth redirects (Google, GitHub, etc.):
 
 ```bash
-# Start OAuth flow
-agent-browser open https://app.example.com/auth/google
+#!/bin/bash
 
-# Handle redirects automatically
-agent-browser wait --url "**/accounts.google.com**"
-agent-browser snapshot -i
+SESSION=$(infsh app run agent-browser --function open --session new --input '{
+  "url": "https://app.example.com/auth/google"
+}' | jq -r '.session_id')
 
-# Fill Google credentials
-agent-browser fill @e1 "user@gmail.com"
-agent-browser click @e2  # Next button
-agent-browser wait 2000
-agent-browser snapshot -i
-agent-browser fill @e3 "password"
-agent-browser click @e4  # Sign in
+# Wait for redirect to Google
+infsh app run agent-browser --function interact --session $SESSION --input '{
+  "action": "wait", "wait_ms": 3000
+}'
 
-# Wait for redirect back
-agent-browser wait --url "**/app.example.com**"
-agent-browser state save ./oauth-state.json
+# Snapshot to see Google login form
+RESULT=$(infsh app run agent-browser --function snapshot --session $SESSION --input '{}')
+echo $RESULT | jq '.elements_text'
+
+# Fill Google email
+infsh app run agent-browser --function interact --session $SESSION --input '{
+  "action": "fill", "ref": "@e1", "text": "user@gmail.com"
+}'
+
+# Click Next
+infsh app run agent-browser --function interact --session $SESSION --input '{
+  "action": "click", "ref": "@e2"
+}'
+
+# Wait and snapshot for password field
+infsh app run agent-browser --function interact --session $SESSION --input '{
+  "action": "wait", "wait_ms": 2000
+}'
+RESULT=$(infsh app run agent-browser --function snapshot --session $SESSION --input '{}')
+
+# Fill password
+infsh app run agent-browser --function interact --session $SESSION --input '{
+  "action": "fill", "ref": "@e1", "text": "'"$GOOGLE_PASSWORD"'"
+}'
+
+# Click Sign in
+infsh app run agent-browser --function interact --session $SESSION --input '{
+  "action": "click", "ref": "@e2"
+}'
+
+# Wait for redirect back to app
+infsh app run agent-browser --function interact --session $SESSION --input '{
+  "action": "wait", "wait_ms": 5000
+}'
+
+# Verify we're back on the app
+RESULT=$(infsh app run agent-browser --function snapshot --session $SESSION --input '{}')
+URL=$(echo $RESULT | jq -r '.url')
+echo "Final URL: $URL"
 ```
 
 ## Two-Factor Authentication
 
-Handle 2FA with manual intervention:
+For 2FA, you may need human intervention or TOTP generation:
+
+### With TOTP Code
 
 ```bash
-# Login with credentials
-agent-browser open https://app.example.com/login --headed  # Show browser
-agent-browser snapshot -i
-agent-browser fill @e1 "user@example.com"
-agent-browser fill @e2 "password123"
-agent-browser click @e3
+# After password, check for 2FA prompt
+RESULT=$(infsh app run agent-browser --function snapshot --session $SESSION --input '{}')
+ELEMENTS=$(echo $RESULT | jq -r '.elements_text')
 
-# Wait for user to complete 2FA manually
-echo "Complete 2FA in the browser window..."
-agent-browser wait --url "**/dashboard" --timeout 120000
+if echo "$ELEMENTS" | grep -qi "verification\|2fa\|authenticator"; then
+  # Generate TOTP code (requires oathtool)
+  TOTP_CODE=$(oathtool --totp -b "$TOTP_SECRET")
 
-# Save state after 2FA
-agent-browser state save ./2fa-state.json
+  # Fill 2FA code
+  infsh app run agent-browser --function interact --session $SESSION --input '{
+    "action": "fill", "ref": "@e1", "text": "'"$TOTP_CODE"'"
+  }'
+
+  # Submit
+  infsh app run agent-browser --function interact --session $SESSION --input '{
+    "action": "click", "ref": "@e2"
+  }'
+fi
 ```
 
-## HTTP Basic Auth
+### With Manual Intervention
 
-For sites using HTTP Basic Authentication:
+For SMS or hardware token 2FA:
 
 ```bash
-# Set credentials before navigation
-agent-browser set credentials username password
+# Record video so user can see the 2FA prompt
+SESSION=$(infsh app run agent-browser --function open --session new --input '{
+  "url": "https://app.example.com/login",
+  "record_video": true
+}' | jq -r '.session_id')
 
-# Navigate to protected resource
-agent-browser open https://protected.example.com/api
+# ... login flow ...
+
+# At 2FA step, prompt user
+echo "2FA code sent. Enter the code:"
+read -r CODE
+
+infsh app run agent-browser --function interact --session $SESSION --input '{
+  "action": "fill", "ref": "@e1", "text": "'"$CODE"'"
+}'
 ```
 
-## Cookie-Based Auth
+## Session Reuse Patterns
 
-Manually set authentication cookies:
-
-```bash
-# Set auth cookie
-agent-browser cookies set session_token "abc123xyz"
-
-# Navigate to protected page
-agent-browser open https://app.example.com/dashboard
-```
-
-## Token Refresh Handling
-
-For sessions with expiring tokens:
+Since sessions maintain cookies, you can reuse authenticated sessions:
 
 ```bash
 #!/bin/bash
-# Wrapper that handles token refresh
+# login-and-work.sh
 
-STATE_FILE="./auth-state.json"
+# Login once
+login() {
+  SESSION=$(infsh app run agent-browser --function open --session new --input '{
+    "url": "https://app.example.com/login"
+  }' | jq -r '.session_id')
 
-# Try loading existing state
-if [[ -f "$STATE_FILE" ]]; then
-    agent-browser state load "$STATE_FILE"
-    agent-browser open https://app.example.com/dashboard
+  # ... login steps ...
 
-    # Check if session is still valid
-    URL=$(agent-browser get url)
-    if [[ "$URL" == *"/login"* ]]; then
-        echo "Session expired, re-authenticating..."
-        # Perform fresh login
-        agent-browser snapshot -i
-        agent-browser fill @e1 "$USERNAME"
-        agent-browser fill @e2 "$PASSWORD"
-        agent-browser click @e3
-        agent-browser wait --url "**/dashboard"
-        agent-browser state save "$STATE_FILE"
-    fi
-else
-    # First-time login
-    agent-browser open https://app.example.com/login
-    # ... login flow ...
-fi
+  echo $SESSION
+}
+
+# Do work with authenticated session
+do_work() {
+  local SESSION=$1
+
+  # Navigate to protected page
+  infsh app run agent-browser --function interact --session $SESSION --input '{
+    "action": "goto", "url": "https://app.example.com/dashboard"
+  }'
+
+  # Extract data
+  infsh app run agent-browser --function snapshot --session $SESSION --input '{}'
+}
+
+# Main
+SESSION=$(login)
+do_work $SESSION
+
+# Don't close if you want to reuse!
+# infsh app run agent-browser --function close --session $SESSION --input '{}'
+```
+
+## Cookie Extraction
+
+Extract cookies for use in other tools:
+
+```bash
+# Get cookies via JavaScript
+RESULT=$(infsh app run agent-browser --function execute --session $SESSION --input '{
+  "code": "document.cookie"
+}')
+COOKIES=$(echo $RESULT | jq -r '.result')
+echo "Cookies: $COOKIES"
+
+# Get all cookies including httpOnly (more complete)
+RESULT=$(infsh app run agent-browser --function execute --session $SESSION --input '{
+  "code": "JSON.stringify(performance.getEntriesByType(\"resource\").map(r => r.name))"
+}')
 ```
 
 ## Security Best Practices
 
-1. **Never commit state files** - They contain session tokens
-   ```bash
-   echo "*.auth-state.json" >> .gitignore
-   ```
+### 1. Never Hardcode Credentials
 
-2. **Use environment variables for credentials**
-   ```bash
-   agent-browser fill @e1 "$APP_USERNAME"
-   agent-browser fill @e2 "$APP_PASSWORD"
-   ```
+```bash
+# Good: Use environment variables
+'{"action": "fill", "ref": "@e2", "text": "'"$PASSWORD"'"}'
 
-3. **Clean up after automation**
-   ```bash
-   agent-browser cookies clear
-   rm -f ./auth-state.json
-   ```
+# Bad: Hardcoded
+'{"action": "fill", "ref": "@e2", "text": "mypassword123"}'
+```
 
-4. **Use short-lived sessions for CI/CD**
-   ```bash
-   # Don't persist state in CI
-   agent-browser open https://app.example.com/login
-   # ... login and perform actions ...
-   agent-browser close  # Session ends, nothing persisted
-   ```
+### 2. Use Secure Environment Variables
+
+```bash
+# Set securely
+export PASSWORD=$(cat /path/to/secure/password)
+
+# Or use a secrets manager
+export PASSWORD=$(vault read -field=password secret/app)
+```
+
+### 3. Don't Log Sensitive Data
+
+```bash
+# Good: Redact sensitive info
+echo "Logging in as $USERNAME"
+
+# Bad: Logging passwords
+echo "Password: $PASSWORD"  # Never do this!
+```
+
+### 4. Close Sessions After Use
+
+```bash
+# Always clean up
+trap 'infsh app run agent-browser --function close --session $SESSION --input "{}" 2>/dev/null' EXIT
+```
+
+### 5. Use Video Recording for Debugging Only
+
+Video may capture sensitive information:
+
+```bash
+# Only enable when debugging
+if [ "$DEBUG" = "true" ]; then
+  RECORD_VIDEO="true"
+else
+  RECORD_VIDEO="false"
+fi
+```
+
+### 6. Verify Login Success
+
+Always confirm authentication worked:
+
+```bash
+# Check URL changed from login page
+URL=$(echo $RESULT | jq -r '.url')
+if [[ "$URL" == *"/login"* ]] || [[ "$URL" == *"/signin"* ]]; then
+  echo "ERROR: Login failed"
+  exit 1
+fi
+
+# Or check for specific element on authenticated page
+ELEMENTS=$(echo $RESULT | jq -r '.elements_text')
+if ! echo "$ELEMENTS" | grep -q "Logout\|Dashboard\|Welcome"; then
+  echo "ERROR: Not authenticated"
+  exit 1
+fi
+```

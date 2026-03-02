@@ -1,76 +1,63 @@
 #!/bin/bash
 # Template: Authenticated Session Workflow
-# Purpose: Login once, save state, reuse for subsequent runs
-# Usage: ./authenticated-session.sh <login-url> [state-file]
-#
-# RECOMMENDED: Use the auth vault instead of this template:
-#   echo "<pass>" | agent-browser auth save myapp --url <login-url> --username <user> --password-stdin
-#   agent-browser auth login myapp
-# The auth vault stores credentials securely and the LLM never sees passwords.
+# Purpose: Login once, perform actions, clean up
+# Usage: ./authenticated-session.sh <login-url>
 #
 # Environment variables:
 #   APP_USERNAME - Login username/email
 #   APP_PASSWORD - Login password
 #
 # Two modes:
-#   1. Discovery mode (default): Shows form structure so you can identify refs
-#   2. Login mode: Performs actual login after you update the refs
+#   1. Discovery mode (default): Shows login form structure
+#   2. Login mode: Performs actual login after you update refs
 #
 # Setup steps:
 #   1. Run once to see form structure (discovery mode)
 #   2. Update refs in LOGIN FLOW section below
 #   3. Set APP_USERNAME and APP_PASSWORD
-#   4. Delete the DISCOVERY section
+#   4. Comment out the DISCOVERY section
 
 set -euo pipefail
 
-LOGIN_URL="${1:?Usage: $0 <login-url> [state-file]}"
-STATE_FILE="${2:-./auth-state.json}"
+LOGIN_URL="${1:?Usage: $0 <login-url>}"
 
 echo "Authentication workflow: $LOGIN_URL"
 
-# ================================================================
-# SAVED STATE: Skip login if valid saved state exists
-# ================================================================
-if [[ -f "$STATE_FILE" ]]; then
-    echo "Loading saved state from $STATE_FILE..."
-    if agent-browser --state "$STATE_FILE" open "$LOGIN_URL" 2>/dev/null; then
-        agent-browser wait --load networkidle
-
-        CURRENT_URL=$(agent-browser get url)
-        if [[ "$CURRENT_URL" != *"login"* ]] && [[ "$CURRENT_URL" != *"signin"* ]]; then
-            echo "Session restored successfully"
-            agent-browser snapshot -i
-            exit 0
-        fi
-        echo "Session expired, performing fresh login..."
-        agent-browser close 2>/dev/null || true
-    else
-        echo "Failed to load state, re-authenticating..."
-    fi
-    rm -f "$STATE_FILE"
-fi
+# Cleanup handler
+cleanup() {
+  if [ -n "${SESSION_ID:-}" ]; then
+    echo "Closing session..."
+    infsh app run agent-browser --function close --session $SESSION_ID --input '{}' 2>/dev/null || true
+  fi
+}
+trap cleanup EXIT
 
 # ================================================================
-# DISCOVERY MODE: Shows form structure (delete after setup)
+# DISCOVERY MODE: Shows login form structure
+# Delete this section after setup
 # ================================================================
 echo "Opening login page..."
-agent-browser open "$LOGIN_URL"
-agent-browser wait --load networkidle
+RESULT=$(infsh app run agent-browser --function open --session new --input '{
+  "url": "'"$LOGIN_URL"'"
+}')
+SESSION_ID=$(echo $RESULT | jq -r '.session_id')
 
 echo ""
 echo "Login form structure:"
 echo "---"
-agent-browser snapshot -i
+echo $RESULT | jq -r '.elements_text'
 echo "---"
 echo ""
-echo "Next steps:"
-echo "  1. Note the refs: username=@e?, password=@e?, submit=@e?"
-echo "  2. Update the LOGIN FLOW section below with your refs"
-echo "  3. Set: export APP_USERNAME='...' APP_PASSWORD='...'"
-echo "  4. Delete this DISCOVERY MODE section"
+echo "Discovery mode complete."
 echo ""
-agent-browser close
+echo "Next steps:"
+echo "  1. Identify the refs: username=@e?, password=@e?, submit=@e?"
+echo "  2. Update the LOGIN FLOW section below with your refs"
+echo "  3. Set environment variables:"
+echo "     export APP_USERNAME='your-username'"
+echo "     export APP_PASSWORD='your-password'"
+echo "  4. Comment out this DISCOVERY MODE section"
+echo ""
 exit 0
 
 # ================================================================
@@ -79,27 +66,73 @@ exit 0
 # : "${APP_USERNAME:?Set APP_USERNAME environment variable}"
 # : "${APP_PASSWORD:?Set APP_PASSWORD environment variable}"
 #
-# agent-browser open "$LOGIN_URL"
-# agent-browser wait --load networkidle
-# agent-browser snapshot -i
+# echo "Opening login page..."
+# RESULT=$(infsh app run agent-browser --function open --session new --input '{
+#   "url": "'"$LOGIN_URL"'",
+#   "record_video": false
+# }')
+# SESSION_ID=$(echo $RESULT | jq -r '.session_id')
 #
-# # Fill credentials (update refs to match your form)
-# agent-browser fill @e1 "$APP_USERNAME"
-# agent-browser fill @e2 "$APP_PASSWORD"
-# agent-browser click @e3
-# agent-browser wait --load networkidle
+# echo "Filling credentials..."
+# # Update @e1, @e2, @e3 to match your form
+# infsh app run agent-browser --function interact --session $SESSION_ID --input '{
+#   "action": "fill", "ref": "@e1", "text": "'"$APP_USERNAME"'"
+# }'
+#
+# infsh app run agent-browser --function interact --session $SESSION_ID --input '{
+#   "action": "fill", "ref": "@e2", "text": "'"$APP_PASSWORD"'"
+# }'
+#
+# echo "Submitting..."
+# infsh app run agent-browser --function interact --session $SESSION_ID --input '{
+#   "action": "click", "ref": "@e3"
+# }'
+#
+# # Wait for redirect
+# infsh app run agent-browser --function interact --session $SESSION_ID --input '{
+#   "action": "wait", "wait_ms": 3000
+# }'
 #
 # # Verify login succeeded
-# FINAL_URL=$(agent-browser get url)
-# if [[ "$FINAL_URL" == *"login"* ]] || [[ "$FINAL_URL" == *"signin"* ]]; then
-#     echo "Login failed - still on login page"
-#     agent-browser screenshot /tmp/login-failed.png
-#     agent-browser close
-#     exit 1
+# RESULT=$(infsh app run agent-browser --function snapshot --session $SESSION_ID --input '{}')
+# URL=$(echo $RESULT | jq -r '.url')
+#
+# if [[ "$URL" == *"/login"* ]] || [[ "$URL" == *"/signin"* ]]; then
+#   echo "ERROR: Login failed - still on login page"
+#   echo "URL: $URL"
+#   infsh app run agent-browser --function screenshot --session $SESSION_ID --input '{}' > login-failed.json
+#   exit 1
 # fi
 #
-# # Save state for future runs
-# echo "Saving state to $STATE_FILE"
-# agent-browser state save "$STATE_FILE"
-# echo "Login successful"
-# agent-browser snapshot -i
+# echo "Login successful!"
+# echo "Current URL: $URL"
+# echo ""
+#
+# # ================================================================
+# # AUTHENTICATED ACTIONS: Add your post-login automation here
+# # ================================================================
+# echo "Performing authenticated actions..."
+#
+# # Example: Navigate to dashboard
+# # infsh app run agent-browser --function interact --session $SESSION_ID --input '{
+# #   "action": "goto", "url": "https://app.example.com/dashboard"
+# # }'
+#
+# # Example: Click a menu item
+# # infsh app run agent-browser --function interact --session $SESSION_ID --input '{
+# #   "action": "click", "ref": "@e5"
+# # }'
+#
+# # Example: Extract data
+# # RESULT=$(infsh app run agent-browser --function execute --session $SESSION_ID --input '{
+# #   "code": "document.querySelector(\".user-data\").textContent"
+# # }')
+# # echo "Data: $(echo $RESULT | jq -r '.result')"
+#
+# # Example: Take screenshot of authenticated page
+# # infsh app run agent-browser --function screenshot --session $SESSION_ID --input '{
+# #   "full_page": true
+# # }' > authenticated-page.json
+#
+# echo ""
+# echo "Authenticated session complete"

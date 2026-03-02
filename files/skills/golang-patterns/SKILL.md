@@ -1,25 +1,24 @@
 ---
 name: golang-patterns
-description: Idiomatic Go patterns, best practices, and conventions for building robust, efficient, and maintainable Go applications.
-origin: ECC
+description: 堅牢で効率的かつ保守可能なGoアプリケーションを構築するための慣用的なGoパターン、ベストプラクティス、規約。
 ---
 
-# Go Development Patterns
+# Go開発パターン
 
-Idiomatic Go patterns and best practices for building robust, efficient, and maintainable applications.
+堅牢で効率的かつ保守可能なアプリケーションを構築するための慣用的なGoパターンとベストプラクティス。
 
-## When to Activate
+## いつ有効化するか
 
-- Writing new Go code
-- Reviewing Go code
-- Refactoring existing Go code
-- Designing Go packages/modules
+- 新しいGoコードを書くとき
+- Goコードをレビューするとき
+- 既存のGoコードをリファクタリングするとき
+- Goパッケージ/モジュールを設計するとき
 
-## Core Principles
+## 核となる原則
 
-### 1. Simplicity and Clarity
+### 1. シンプルさと明確さ
 
-Go favors simplicity over cleverness. Code should be obvious and easy to read.
+Goは巧妙さよりもシンプルさを好みます。コードは明白で読みやすいものであるべきです。
 
 ```go
 // Good: Clear and direct
@@ -43,9 +42,9 @@ func GetUser(id string) (*User, error) {
 }
 ```
 
-### 2. Make the Zero Value Useful
+### 2. ゼロ値を有用にする
 
-Design types so their zero value is immediately usable without initialization.
+型を設計する際、そのゼロ値が初期化なしですぐに使用できるようにします。
 
 ```go
 // Good: Zero value is useful
@@ -70,9 +69,9 @@ type BadCounter struct {
 }
 ```
 
-### 3. Accept Interfaces, Return Structs
+### 3. インターフェースを受け取り、構造体を返す
 
-Functions should accept interface parameters and return concrete types.
+関数はインターフェースパラメータを受け取り、具体的な型を返すべきです。
 
 ```go
 // Good: Accepts interface, returns concrete type
@@ -90,9 +89,9 @@ func ProcessData(r io.Reader) (io.Reader, error) {
 }
 ```
 
-## Error Handling Patterns
+## エラーハンドリングパターン
 
-### Error Wrapping with Context
+### コンテキスト付きエラーラッピング
 
 ```go
 // Good: Wrap errors with context
@@ -111,7 +110,7 @@ func LoadConfig(path string) (*Config, error) {
 }
 ```
 
-### Custom Error Types
+### カスタムエラー型
 
 ```go
 // Define domain-specific errors
@@ -132,7 +131,7 @@ var (
 )
 ```
 
-### Error Checking with errors.Is and errors.As
+### errors.IsとErrors.Asを使用したエラーチェック
 
 ```go
 func HandleError(err error) {
@@ -155,7 +154,7 @@ func HandleError(err error) {
 }
 ```
 
-### Never Ignore Errors
+### エラーを決して無視しない
 
 ```go
 // Bad: Ignoring error with blank identifier
@@ -171,9 +170,9 @@ if err != nil {
 _ = writer.Close() // Best-effort cleanup, error logged elsewhere
 ```
 
-## Concurrency Patterns
+## 並行処理パターン
 
-### Worker Pool
+### ワーカープール
 
 ```go
 func WorkerPool(jobs <-chan Job, results chan<- Result, numWorkers int) {
@@ -194,7 +193,7 @@ func WorkerPool(jobs <-chan Job, results chan<- Result, numWorkers int) {
 }
 ```
 
-### Context for Cancellation and Timeouts
+### キャンセルとタイムアウト用のContext
 
 ```go
 func FetchWithTimeout(ctx context.Context, url string) ([]byte, error) {
@@ -216,7 +215,7 @@ func FetchWithTimeout(ctx context.Context, url string) ([]byte, error) {
 }
 ```
 
-### Graceful Shutdown
+### グレースフルシャットダウン
 
 ```go
 func GracefulShutdown(server *http.Server) {
@@ -237,7 +236,7 @@ func GracefulShutdown(server *http.Server) {
 }
 ```
 
-### errgroup for Coordinated Goroutines
+### 協調的なGoroutine用のerrgroup
 
 ```go
 import "golang.org/x/sync/errgroup"
@@ -265,7 +264,7 @@ func FetchAll(ctx context.Context, urls []string) ([][]byte, error) {
 }
 ```
 
-### Avoiding Goroutine Leaks
+### Goroutineリークの回避
 
 ```go
 // Bad: Goroutine leak if context is cancelled
@@ -295,9 +294,9 @@ func safeFetch(ctx context.Context, url string) <-chan []byte {
 }
 ```
 
-## Interface Design
+## インターフェース設計
 
-### Small, Focused Interfaces
+### 小さく焦点を絞ったインターフェース
 
 ```go
 // Good: Single-method interfaces
@@ -321,7 +320,7 @@ type ReadWriteCloser interface {
 }
 ```
 
-### Define Interfaces Where They're Used
+### 使用する場所でインターフェースを定義
 
 ```go
 // In the consumer package, not the provider
@@ -341,7 +340,7 @@ type Service struct {
 // It doesn't need to know about this interface
 ```
 
-### Optional Behavior with Type Assertions
+### 型アサーションを使用してオプション動作を実装
 
 ```go
 type Flusher interface {
@@ -361,9 +360,9 @@ func WriteAndFlush(w io.Writer, data []byte) error {
 }
 ```
 
-## Package Organization
+## パッケージ構成
 
-### Standard Project Layout
+### 標準プロジェクトレイアウト
 
 ```text
 myproject/
@@ -385,7 +384,7 @@ myproject/
 └── Makefile
 ```
 
-### Package Naming
+### パッケージ命名
 
 ```go
 // Good: Short, lowercase, no underscores
@@ -399,7 +398,7 @@ package json_parser
 package userService // Redundant 'Service' suffix
 ```
 
-### Avoid Package-Level State
+### パッケージレベルの状態を避ける
 
 ```go
 // Bad: Global mutable state
@@ -419,9 +418,9 @@ func NewServer(db *sql.DB) *Server {
 }
 ```
 
-## Struct Design
+## 構造体設計
 
-### Functional Options Pattern
+### 関数型オプションパターン
 
 ```go
 type Server struct {
@@ -463,7 +462,7 @@ server := NewServer(":8080",
 )
 ```
 
-### Embedding for Composition
+### コンポジション用の埋め込み
 
 ```go
 type Logger struct {
@@ -491,9 +490,9 @@ s := NewServer(":8080")
 s.Log("Starting...") // Calls embedded Logger.Log
 ```
 
-## Memory and Performance
+## メモリとパフォーマンス
 
-### Preallocate Slices When Size is Known
+### サイズがわかっている場合はスライスを事前割り当て
 
 ```go
 // Bad: Grows slice multiple times
@@ -515,7 +514,7 @@ func processItems(items []Item) []Result {
 }
 ```
 
-### Use sync.Pool for Frequent Allocations
+### 頻繁な割り当て用のsync.Pool使用
 
 ```go
 var bufferPool = sync.Pool{
@@ -537,7 +536,7 @@ func ProcessRequest(data []byte) []byte {
 }
 ```
 
-### Avoid String Concatenation in Loops
+### ループ内での文字列連結を避ける
 
 ```go
 // Bad: Creates many string allocations
@@ -567,9 +566,9 @@ func join(parts []string) string {
 }
 ```
 
-## Go Tooling Integration
+## Goツール統合
 
-### Essential Commands
+### 基本コマンド
 
 ```bash
 # Build and run
@@ -595,7 +594,7 @@ gofmt -w .
 goimports -w .
 ```
 
-### Recommended Linter Configuration (.golangci.yml)
+### 推奨リンター設定（.golangci.yml）
 
 ```yaml
 linters:
@@ -622,20 +621,20 @@ issues:
   exclude-use-default: false
 ```
 
-## Quick Reference: Go Idioms
+## クイックリファレンス：Goイディオム
 
-| Idiom | Description |
+| イディオム | 説明 |
 |-------|-------------|
-| Accept interfaces, return structs | Functions accept interface params, return concrete types |
-| Errors are values | Treat errors as first-class values, not exceptions |
-| Don't communicate by sharing memory | Use channels for coordination between goroutines |
-| Make the zero value useful | Types should work without explicit initialization |
-| A little copying is better than a little dependency | Avoid unnecessary external dependencies |
-| Clear is better than clever | Prioritize readability over cleverness |
-| gofmt is no one's favorite but everyone's friend | Always format with gofmt/goimports |
-| Return early | Handle errors first, keep happy path unindented |
+| インターフェースを受け取り、構造体を返す | 関数はインターフェースパラメータを受け取り、具体的な型を返す |
+| エラーは値である | エラーを例外ではなく一級値として扱う |
+| メモリ共有で通信しない | goroutine間の調整にチャネルを使用 |
+| ゼロ値を有用にする | 型は明示的な初期化なしで機能すべき |
+| 少しのコピーは少しの依存よりも良い | 不要な外部依存を避ける |
+| 明確さは巧妙さよりも良い | 巧妙さよりも可読性を優先 |
+| gofmtは誰の好みでもないが皆の友達 | 常にgofmt/goimportsでフォーマット |
+| 早期リターン | エラーを最初に処理し、ハッピーパスのインデントを浅く保つ |
 
-## Anti-Patterns to Avoid
+## 避けるべきアンチパターン
 
 ```go
 // Bad: Naked returns in long functions
@@ -671,4 +670,4 @@ func (c *Counter) Increment() { c.n++ }        // Pointer receiver
 // Pick one style and be consistent
 ```
 
-**Remember**: Go code should be boring in the best way - predictable, consistent, and easy to understand. When in doubt, keep it simple.
+**覚えておいてください**: Goコードは最良の意味で退屈であるべきです - 予測可能で、一貫性があり、理解しやすい。迷ったときは、シンプルに保ってください。
