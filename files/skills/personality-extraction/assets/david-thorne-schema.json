@@ -1,0 +1,146 @@
+{
+  "author": "David Thorne",
+  "source": "27bslash6.com",
+  "schema_version": "1.0",
+  "description": "Validated rhetorical move taxonomy derived from corpus analysis using langextract-mcp. Seven move types covering the full range of Thorne's humour construction mechanics.",
+
+  "taxonomy": {
+    "BURDEN_TRANSFER": {
+      "definition": "Shifts obligation, blame, or discomfort onto the target while the author maintains innocence, generosity, or reasonableness. The target is left holding a problem the author created.",
+      "distinguishing_feature": "The author appears cooperative or even generous on the surface. The burden is transferred through framing, not through explicit demand.",
+      "corpus_frequency": "high"
+    },
+    "FEIGNED_SINCERITY": {
+      "definition": "Performs a social or professional register — concern, apology, acceptance, enthusiasm, gratitude — with technical correctness while the actual meaning is the opposite. Indistinguishable from genuine sentiment on the surface.",
+      "distinguishing_feature": "The register is performed correctly. It cannot be challenged without the challenger appearing unreasonable or paranoid.",
+      "corpus_frequency": "high"
+    },
+    "ABSURDIST_ESCALATION": {
+      "definition": "Introduces a plausible or mundane premise then compounds it with increasingly specific, impossible, or disturbing detail, each step presented as a natural continuation of the last.",
+      "distinguishing_feature": "The escalation is incremental. No single step is flagged as absurd — the cumulative effect produces the humour.",
+      "corpus_frequency": "very_high"
+    },
+    "IRONIC_IMPERSONATION": {
+      "definition": "Writes entirely as another person, adopting their voice, logic, and worldview, to expose the absurdity or menace of that perspective from the inside without authorial comment.",
+      "distinguishing_feature": "The author disappears. The character condemns themselves through their own framing. No ironic distance is signalled.",
+      "corpus_frequency": "medium"
+    },
+    "PSEUDO_ACADEMIC_REGISTER": {
+      "definition": "Applies formal, clinical, legal, or scientific language and structure to trivial, absurd, or grotesque subject matter. The mismatch between register and content produces the effect.",
+      "distinguishing_feature": "The language is genuinely formal — not a parody of formality. The absurdity comes from the subject matter, not from the register itself.",
+      "corpus_frequency": "medium"
+    },
+    "RADICAL_UNDERSTATEMENT": {
+      "definition": "Follows an elaborate, disturbing, or absurd sequence with a single flat sentence that reveals the author's true position through its brevity and emotional vacancy.",
+      "distinguishing_feature": "Length and emotional flatness are the mechanism. The sentence is often 3-8 words. It lands because of what precedes it.",
+      "corpus_frequency": "medium"
+    },
+    "RECONTEXTUALISATION": {
+      "definition": "Takes something the target said, did, or implied and reframes it entirely — as a compliment, a request, a logical proof, or a different category of thing — so that engaging with the reframe validates the author's absurd premise.",
+      "distinguishing_feature": "The target must either accept the reframe or explicitly correct it — both options benefit the author. Engagement is the trap.",
+      "corpus_frequency": "high"
+    }
+  },
+
+  "extraction_config": {
+    "model_id": "gemini-2.5-flash",
+    "temperature": 0.2,
+    "extraction_passes": 2,
+    "max_char_buffer": 1000,
+    "recommended_chunk_size_words": 400
+  },
+
+  "examples": [
+    {
+      "text": "I value the drawing at $233.95 so trust that this settles the matter.",
+      "extractions": [
+        {
+          "extraction_class": "rhetorical_move",
+          "extraction_text": "I value the drawing at $233.95 so trust that this settles the matter.",
+          "attributes": {
+            "move": "BURDEN_TRANSFER",
+            "mechanism": "Assigns an authoritative monetary value to a worthless object and presents the recipient's acceptance as a foregone conclusion, leaving them to dispute a settlement they never agreed to."
+          }
+        }
+      ]
+    },
+    {
+      "text": "Although I have two clients expecting completed work this afternoon, I will, of course, drop everything and do whatever it takes to facilitate the speedy return of Missy.",
+      "extractions": [
+        {
+          "extraction_class": "rhetorical_move",
+          "extraction_text": "Although I have two clients expecting completed work this afternoon, I will, of course, drop everything and do whatever it takes to facilitate the speedy return of Missy.",
+          "attributes": {
+            "move": "FEIGNED_SINCERITY",
+            "mechanism": "Performs extreme professional sacrifice for a trivial cause using corporate language, making the insincerity impossible to challenge without the challenger appearing unreasonable."
+          }
+        }
+      ]
+    },
+    {
+      "text": "I'm surprised you managed to attend work at all what with thinking about Missy out there cold, frightened and alone... possibly lying on the side of the road, her back legs squashed by a vehicle, calling out \"Shannon, where are you?\"",
+      "extractions": [
+        {
+          "extraction_class": "rhetorical_move",
+          "extraction_text": "I'm surprised you managed to attend work at all what with thinking about Missy out there cold, frightened and alone... possibly lying on the side of the road, her back legs squashed by a vehicle, calling out \"Shannon, where are you?\"",
+          "attributes": {
+            "move": "ABSURDIST_ESCALATION",
+            "mechanism": "Introduces the plausible premise of concern for a lost pet and compounds it with increasingly graphic and anthropomorphic details, each presented as a natural continuation to heighten the recipient's guilt."
+          }
+        }
+      ]
+    },
+    {
+      "text": "Hello, my name is Simon and these are my good ideas for websites that would definitely make lots of money. Do not copy these ideas because they are mine.",
+      "extractions": [
+        {
+          "extraction_class": "rhetorical_move",
+          "extraction_text": "Hello, my name is Simon and these are my good ideas for websites that would definitely make lots of money. Do not copy these ideas because they are mine.",
+          "attributes": {
+            "move": "IRONIC_IMPERSONATION",
+            "mechanism": "Adopts Simon's voice with complete fidelity to his self-importance and paranoia, letting the character's own framing signal the worthlessness of what follows before a single idea is stated."
+          }
+        }
+      ]
+    },
+    {
+      "text": "As regulations govern only actions within certain defined limits and thereby justify all similar actions that lie outside those limits, I request that my offence is changed from 'unsecured trash' to 'secured trash barring the possibility of bears formulating a strategy in which to take advantage of the thirty seconds between deposit and collection.'",
+      "extractions": [
+        {
+          "extraction_class": "rhetorical_move",
+          "extraction_text": "As regulations govern only actions within certain defined limits and thereby justify all similar actions that lie outside those limits, I request that my offence is changed from 'unsecured trash' to 'secured trash barring the possibility of bears formulating a strategy in which to take advantage of the thirty seconds between deposit and collection.'",
+          "attributes": {
+            "move": "PSEUDO_ACADEMIC_REGISTER",
+            "mechanism": "Applies a formally structured legal argument to redefine a simple municipal offence, framing a trivial trash issue as a complex legal and strategic problem involving wildlife conspiracy."
+          }
+        }
+      ]
+    },
+    {
+      "text": "I liked that cat.",
+      "extractions": [
+        {
+          "extraction_class": "rhetorical_move",
+          "extraction_text": "I liked that cat.",
+          "attributes": {
+            "move": "RADICAL_UNDERSTATEMENT",
+            "mechanism": "Three words following a detailed account of a man's physical suffering and humiliation reveal the author's complete satisfaction with the outcome through total emotional flatness."
+          }
+        }
+      ]
+    },
+    {
+      "text": "While I have no idea what a foggot is, I will assume it is a term of endearment.",
+      "extractions": [
+        {
+          "extraction_class": "rhetorical_move",
+          "extraction_text": "While I have no idea what a foggot is, I will assume it is a term of endearment.",
+          "attributes": {
+            "move": "RECONTEXTUALISATION",
+            "mechanism": "Reframes an intended slur as a compliment by performing ignorance, forcing the sender to either correct the reframe — confirming their own hostility — or accept the author's version of events."
+          }
+        }
+      ]
+    }
+  ]
+}

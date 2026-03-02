@@ -1,0 +1,18 @@
+{
+  "name": "ocx-slurpyb",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "bunx ocx build . --out dist",
+    "deploy": "bun run build && wrangler deploy",
+    "dev": "bun run build && wrangler dev"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "wrangler": "^4.54.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
