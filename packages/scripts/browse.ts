@@ -7,9 +7,9 @@
 import { Glob } from "bun"
 
 const PORT = 3333
-const ROOT = new URL("..", import.meta.url).pathname
+const ROOT = new URL("../..", import.meta.url).pathname
 const DIST = `${ROOT}dist`
-const REG = `${ROOT}_registry`
+const REG = `${ROOT}packages/registry`
 const FILES = `${ROOT}files`
 
 // ── Load core data ──────────────────────────────────────────────────

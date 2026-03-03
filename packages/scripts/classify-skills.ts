@@ -5,8 +5,8 @@
  * Batch-classifies skills into a hierarchical taxonomy + quality score
  * using Qwen3-235B via Chutes API. Sends 50 skills per request.
  *
- * Input:  _registry/skill-index.json
- * Output: _registry/taxonomy.json
+ * Input:  packages/registry/skill-index.json
+ * Output: packages/registry/taxonomy.json
  *
  * Usage:
  *   CHUTES_API_TOKEN=... bun scripts/classify-skills.ts
@@ -17,9 +17,9 @@
 import { readFileSync, existsSync, mkdirSync } from "node:fs"
 import { join } from "node:path"
 
-const ROOT = join(import.meta.dirname, "..")
-const INDEX_PATH = join(ROOT, "_registry/skill-index.json")
-const TAXONOMY_PATH = join(ROOT, "_registry/taxonomy.json")
+const ROOT = join(import.meta.dirname, "..", "..")
+const INDEX_PATH = join(ROOT, "packages/registry/skill-index.json")
+const TAXONOMY_PATH = join(ROOT, "packages/registry/taxonomy.json")
 
 const DRY_RUN = process.argv.includes("--dry-run")
 const RESUME = process.argv.includes("--resume")

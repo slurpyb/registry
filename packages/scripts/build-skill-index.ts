@@ -5,7 +5,7 @@
  * Extracts name + description from skill-report.json (or SKILL.md frontmatter)
  * into a lightweight index for classification and embedding.
  *
- * Output: _registry/skill-index.json
+ * Output: packages/registry/skill-index.json
  *
  * Usage:
  *   bun scripts/build-skill-index.ts
@@ -14,9 +14,9 @@
 import { readdir, readFile, mkdir } from "node:fs/promises"
 import { join } from "node:path"
 
-const ROOT = join(import.meta.dirname, "..")
+const ROOT = join(import.meta.dirname, "..", "..")
 const SKILLS_DIR = join(ROOT, "files/skills")
-const REGISTRY_DIR = join(ROOT, "_registry")
+const REGISTRY_DIR = join(ROOT, "packages/registry")
 const INDEX_PATH = join(REGISTRY_DIR, "skill-index.json")
 
 interface SkillIndexEntry {

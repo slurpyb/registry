@@ -1,0 +1,17 @@
+{
+  "name": "@ocx-slurpyb/scripts",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "CLI helpers, enrichment scripts, and build tooling",
+  "scripts": {
+    "enrich": "bun enrich-index.ts",
+    "generate": "bun generate-registry.ts",
+    "browse": "bun browse.ts",
+    "classify": "bun classify-skills.ts"
+  },
+  "dependencies": {
+    "jsonc-parser": "^3.3.1",
+    "zod": "^4.3.6"
+  }
+}

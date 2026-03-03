@@ -15,9 +15,9 @@
 import { readFileSync } from "node:fs"
 import { join } from "node:path"
 
-const ROOT = join(import.meta.dirname, "..")
+const ROOT = join(import.meta.dirname, "..", "..")
 const REGISTRY_PATH = join(ROOT, "registry.jsonc")
-const INDEX_PATH = join(ROOT, "_registry/skill-index.json")
+const INDEX_PATH = join(ROOT, "packages/registry/skill-index.json")
 
 const BUNDLES_SRC = "/Users/jordan/j/llms/packages/repos/antigravity-awesome-skills-main/data/bundles.json"
 const WORKFLOWS_SRC = "/Users/jordan/j/llms/packages/repos/antigravity-awesome-skills-main/data/workflows.json"

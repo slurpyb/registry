@@ -1,0 +1,12 @@
+{
+  "name": "@ocx-slurpyb/registry",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "OCX registry build and configuration",
+  "scripts": {
+    "build": "bunx ocx build ../.. --out ../../dist && bun run enrich",
+    "enrich": "bun ../../scripts/enrich-index.ts",
+    "build:dry-run": "bunx ocx build ../.. --out ../../dist --dry-run"
+  }
+}

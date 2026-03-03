@@ -105,23 +105,42 @@ const skip = o.f === true
 
 ## Registry Structure
 
+This is a Bun monorepo with the following layout:
+
 ```
-my-registry/
-├── registry.jsonc         # Registry manifest (required)
-├── files/                  # Component source files
+ocx-slurpyb/
+├── package.json            # Root workspace manifest
+├── registry.jsonc          # OCX registry manifest (required)
+├── wrangler.jsonc          # Cloudflare Workers config
+├── files/                  # Component source files (OCX convention)
 │   ├── skills/
 │   │   └── my-skill/
 │   │       └── SKILL.md
-│   ├── plugin/
+│   ├── plugins/
 │   │   └── my-plugin.ts
-│   └── agent/
-│       └── my-agent.md
+│   ├── agents/
+│   │   └── my-agent.md
+│   └── commands/
+│       └── my-command.md
+├── apps/                   # Application packages (future: website)
+├── packages/
+│   ├── registry/           # Registry metadata and enrichment data
+│   │   ├── skill-index.json
+│   │   └── taxonomy.json
+│   ├── scripts/            # CLI helpers, enrichment, build tooling
+│   │   ├── enrich-index.ts
+│   │   ├── generate-registry.ts
+│   │   ├── browse.ts
+│   │   └── ...
+│   ├── mcp/                # MCP server for registry discovery
+│   │   └── mcp-server.ts
+│   └── docs/               # Documentation (symlinked externally)
 ├── dist/                   # Built output (generated)
 │   ├── index.json          # Registry index
 │   ├── .well-known/
 │   │   └── ocx.json        # Discovery endpoint
-│   └── ...                 # Component files
-└── wrangler.jsonc          # Cloudflare config
+│   └── components/         # Component files
+└── AGENTS.md               # Project conventions (this file)
 ```
 
 ### registry.jsonc

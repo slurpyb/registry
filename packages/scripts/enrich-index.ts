@@ -8,8 +8,9 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises"
 import { join } from "node:path"
 
-const ROOT = join(import.meta.dir, "..")
-const REGISTRY_DIR = join(ROOT, "_registry")
+// Script runs from packages/scripts, but ROOT is the monorepo root
+const ROOT = join(import.meta.dir, "..", "..")
+const REGISTRY_DIR = join(ROOT, "packages", "registry")
 const OUT_DIR = join(ROOT, "dist", "_data")
 
 interface SkillEntry {

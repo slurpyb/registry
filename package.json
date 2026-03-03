@@ -1,13 +1,17 @@
 {
   "name": "ocx-slurpyb",
-  "module": "index.ts",
+  "version": "0.0.1",
   "type": "module",
   "private": true,
+  "workspaces": ["apps/*", "packages/*"],
   "scripts": {
-    "build": "bunx ocx build . --out dist && bun scripts/enrich-index.ts",
+    "build": "bunx ocx build . --out dist && bun packages/scripts/enrich-index.ts",
     "deploy": "bun run build && wrangler deploy",
     "dev": "bun run build && wrangler dev",
-    "enrich": "bun scripts/enrich-index.ts"
+    "enrich": "bun packages/scripts/enrich-index.ts",
+    "mcp": "bun packages/mcp/mcp-server.ts",
+    "generate": "bun packages/scripts/generate-registry.ts",
+    "browse": "bun packages/scripts/browse.ts"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260301.1",

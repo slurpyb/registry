@@ -4,7 +4,7 @@
  * Transport: stdio (standard for Claude Code local MCP servers)
  *
  * Usage in claude_desktop_config.json or .mcp.json:
- *   { "command": "bun", "args": ["src/mcp-server.ts"], "cwd": "/path/to/ocx-slurpyb" }
+ *   { "command": "bun", "args": ["packages/mcp/mcp-server.ts"], "cwd": "/path/to/ocx-slurpyb" }
  */
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
@@ -35,8 +35,10 @@ interface DomainSummary {
 
 // ─── Data Loading ────────────────────────────────────────────────────────────
 
-const ROOT = join(import.meta.dir, "..")
+// Server runs from packages/mcp, but ROOT is the monorepo root
+const ROOT = join(import.meta.dir, "..", "..")
 const DATA_DIR = join(ROOT, "dist", "_data")
+const REGISTRY_DIR = join(ROOT, "packages", "registry")
 
 let registry: EnrichedEntry[]
 let domains: DomainSummary
@@ -46,8 +48,8 @@ try {
   domains = JSON.parse(readFileSync(join(DATA_DIR, "domains.json"), "utf-8"))
 } catch {
   // Fall back to building from source if dist/_data doesn't exist
-  const skillIndex = JSON.parse(readFileSync(join(ROOT, "_registry", "skill-index.json"), "utf-8"))
-  const taxonomy = JSON.parse(readFileSync(join(ROOT, "_registry", "taxonomy.json"), "utf-8"))
+  const skillIndex = JSON.parse(readFileSync(join(REGISTRY_DIR, "skill-index.json"), "utf-8"))
+  const taxonomy = JSON.parse(readFileSync(join(REGISTRY_DIR, "taxonomy.json"), "utf-8"))
 
   const taxMap = new Map(taxonomy.map((t: any) => [t.name, t]))
   registry = skillIndex.map((skill: any) => {
