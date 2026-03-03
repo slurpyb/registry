@@ -4,15 +4,22 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "bunx ocx build . --out dist",
+    "build": "bunx ocx build . --out dist && bun scripts/enrich-index.ts",
     "deploy": "bun run build && wrangler deploy",
-    "dev": "bun run build && wrangler dev"
+    "dev": "bun run build && wrangler dev",
+    "enrich": "bun scripts/enrich-index.ts"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260301.1",
     "@types/bun": "latest",
     "wrangler": "^4.54.0"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "jsonc-parser": "^3.3.1",
+    "zod": "^4.3.6"
   }
 }

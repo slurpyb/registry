@@ -138,7 +138,7 @@ async function findSkillDirs(
     for (const entry of entries) {
       if (!entry.isDirectory()) continue
       if (SKIP_DIRS.has(entry.name)) continue
-      if (entry.name.startsWith(".") && entry.name !== ".curated" && entry.name !== ".agents") continue
+      if (entry.name.startsWith(".") && entry.name !== ".curated" && entry.name !== ".agents" && entry.name !== ".experimental" && entry.name !== ".template") continue
       candidates.push(...(await findSkillDirs(join(dir, entry.name), repo, depth + 1, maxDepth)))
     }
   } catch { /* skip */ }

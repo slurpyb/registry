@@ -19,6 +19,7 @@ import { join, relative } from "node:path"
 const ROOT = join(import.meta.dirname, "..")
 const FILES_DIR = join(ROOT, "files")
 const SKILLS_DIR = join(FILES_DIR, "skills")
+const PLUGINS_DIR = join(FILES_DIR, "plugins")
 const REGISTRY_PATH = join(ROOT, "registry.jsonc")
 const DRY_RUN = process.argv.includes("--dry-run")
 
@@ -48,7 +49,7 @@ interface Registry {
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
 
-/** Recursively collect all files under a directory (skips .DS_Store). */
+/** Recursively collect all files under a directory (skips .DS_Store but follows hidden dirs). */
 async function collectFiles(dir: string): Promise<string[]> {
   const results: string[] = []
   const entries = await readdir(dir, { withFileTypes: true })
@@ -148,6 +149,63 @@ async function buildEntry(skillDir: string): Promise<ComponentEntry | null> {
   }
 }
 
+/** Build a single component entry from a plugin directory. */
+async function buildPluginEntry(pluginDir: string): Promise<ComponentEntry | null> {
+  const pluginLabel = relative(PLUGINS_DIR, pluginDir) || pluginDir
+  const manifestPath = join(pluginDir, ".claude-plugin", "plugin.json")
+  let rawManifest: string
+
+  try {
+    rawManifest = await readFile(manifestPath, "utf-8")
+  } catch {
+    console.warn(`  SKIP ${pluginLabel}: missing .claude-plugin/plugin.json`)
+    return null
+  }
+
+  let manifest: Record<string, unknown>
+
+  try {
+    manifest = JSON.parse(rawManifest)
+  } catch {
+    console.warn(`  SKIP ${pluginLabel}: invalid JSON in plugin manifest`)
+    return null
+  }
+
+  const rawName = typeof manifest.name === "string" ? manifest.name.trim() : ""
+  const name = sanitizeName(rawName)
+  if (!name) {
+    console.warn(`  SKIP ${pluginLabel}: invalid or missing name in plugin manifest`)
+    return null
+  }
+
+  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(name)) {
+    console.warn(`  SKIP ${pluginLabel}: name "${name}" is not a valid component name`)
+    return null
+  }
+
+  const description = typeof manifest.description === "string" ? manifest.description.trim() : ""
+  if (!description) {
+    console.warn(`  SKIP ${pluginLabel}: missing description in plugin manifest`)
+    return null
+  }
+
+  const allFiles = await collectFiles(pluginDir)
+  const files: FileMapping[] = allFiles.map((absPath) => {
+    const relPath = relative(FILES_DIR, absPath)
+    return {
+      path: relPath,
+      target: relPath,
+    }
+  })
+
+  return {
+    name,
+    type: "plugin",
+    description,
+    files,
+  }
+}
+
 // ── Main ────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -165,6 +223,39 @@ async function main() {
 
   for (const dir of dirs) {
     const entry = await buildEntry(dir)
+    if (entry) {
+      entries.push(entry)
+      const fileCount = entry.files.length
+      console.log(`  OK  ${entry.name} (${fileCount} file${fileCount !== 1 ? "s" : ""})`)
+    }
+  }
+
+  console.log("\nScanning plugin directories...")
+
+  let pluginDirs: string[] = []
+  let pluginsDirMissing = false
+
+  try {
+    const pluginEntries = await readdir(PLUGINS_DIR, { withFileTypes: true })
+    pluginDirs = pluginEntries
+      .filter((d) => d.isDirectory() && d.name !== ".DS_Store")
+      .map((d) => join(PLUGINS_DIR, d.name))
+      .sort()
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException)?.code === "ENOENT") {
+      pluginsDirMissing = true
+    } else {
+      throw err
+    }
+  }
+
+  const pluginCountMessage = pluginsDirMissing
+    ? "Found 0 plugin directories (plugins folder missing)\n"
+    : `Found ${pluginDirs.length} plugin directories\n`
+  console.log(pluginCountMessage)
+
+  for (const dir of pluginDirs) {
+    const entry = await buildPluginEntry(dir)
     if (entry) {
       entries.push(entry)
       const fileCount = entry.files.length

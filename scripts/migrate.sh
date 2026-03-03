@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SKILLS_SRC="$HOME/j/llms/skills"
+SKILLS_SRC="$1"
 SKILLS_DST="./files/skills"
 
 mkdir -p "$SKILLS_DST"
