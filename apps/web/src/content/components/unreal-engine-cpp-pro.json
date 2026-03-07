@@ -1,0 +1,142 @@
+{
+  "name": "unreal-engine-cpp-pro",
+  "type": "skill",
+  "description": "Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, and best practices.",
+  "domain": "gaming",
+  "subdomain": "game-dev",
+  "specialty": "UE5 C++",
+  "quality": 5,
+  "qualityReason": "Expert-level C++ guidance",
+  "bundleHints": [
+    "unreal-stack",
+    "game-dev"
+  ],
+  "tags": [
+    "best-practices",
+    "c++",
+    "game-development",
+    "performance",
+    "performance-optimization",
+    "ue5",
+    "unreal-engine",
+    "uobject"
+  ],
+  "capabilities": [
+    "Guide on proper UPROPERTY usage for garbage collection safety",
+    "Recommendations for disabling tick and using timers for performance",
+    "Advice on soft references vs hard references for asset loading",
+    "Blueprint exposure patterns using UFUNCTION and UPROPERTY specifiers",
+    "Debug logging techniques using UE_LOG with custom categories",
+    "Naming convention enforcement following Epic Games standards"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 70 static findings are false positives. The scanner incorrectly flagged Unreal Engine lifecycle methods (BeginPlay, EndPlay, Tick) as system reconnaissance, soft reference patterns (TSoftClassPtr) as weak cryptographic algorithms, and markdown code fences as shell backtick execution. This is a legitimate Unreal Engine 5 C++ development guide with no security concerns.",
+  "valueStatement": "Writing performant Unreal Engine 5 C++ code requires understanding UObject hygiene, garbage collection, and reflection macros. This skill provides expert guidelines to help you write production-ready game code.",
+  "userTitle": "Master Unreal Engine 5 C++ Development",
+  "limitations": [
+    "Does not include actual C++ code generation or file creation",
+    "Not a substitute for Unreal Engine documentation or source code",
+    "Does not cover Blueprint-only workflows or visual scripting",
+    "Cannot build or compile Unreal projects directly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Gameplay programmers building systems in UE5",
+      "title": "Gameplay Programmer",
+      "description": "Writing efficient Actor and Component classes with proper GC annotations and performance patterns."
+    },
+    {
+      "targetUser": "Tech leads enforcing consistent Unreal C++ patterns",
+      "title": "Technical Director",
+      "description": "Establishing team coding standards and reviewing C++ pull requests for UE5 best practices."
+    },
+    {
+      "targetUser": "Developers transitioning from Blueprint to C++ in Unreal",
+      "title": "Mid-level UE Developer",
+      "description": "Learning advanced topics like soft references, interface patterns, and memory optimization."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic UPROPERTY Help",
+      "prompt": "How do I properly declare a UObject pointer member variable in Unreal Engine 5 C++? What specifiers should I use for garbage collection?",
+      "scenario": "Beginner developer learning UE5 C++ fundamentals"
+    },
+    {
+      "title": "Performance Optimization",
+      "prompt": "What is the recommended approach to avoid casting in Tick functions? How should I cache component references in Unreal Engine 5?",
+      "scenario": "Developer optimizing performance-critical game code"
+    },
+    {
+      "title": "Blueprint Integration",
+      "prompt": "How do I expose a C++ function to Blueprints using UFUNCTION? What is the difference between BlueprintReadWrite and BlueprintReadOnly?",
+      "scenario": "Developer creating Blueprint-callable C++ functions"
+    },
+    {
+      "title": "Asset Loading Strategy",
+      "prompt": "Explain the difference between TSubclassOf, TSoftClassPtr, and TSoftObjectPtr in Unreal Engine 5. When should I use each?",
+      "scenario": "Developer managing dynamic asset loading and references"
+    }
+  ],
+  "bestPractices": [
+    "Disable tick by default (bCanEverTick = false) and only enable when absolutely necessary, preferring timers and event-driven logic instead.",
+    "Always use UPROPERTY() for UObject pointers to prevent garbage collection issues and memory leaks.",
+    "Cache component references in BeginPlay rather than calling GetComponentByClass in Tick functions to avoid performance overhead."
+  ],
+  "antiPatterns": [
+    "Using Cast<T>() inside Tick functions - this creates performance overhead on every frame and should be avoided in hot code paths.",
+    "Storing hard references (TSubclassOf) to large assets - this forces entire subtrees to load and can cause memory spikes during level transitions.",
+    "Skipping EndPlay cleanup for delegates and timers - this causes crashes when actors are destroyed but callbacks still fire."
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with both UE4 and UE5?",
+      "answer": "This skill focuses on Unreal Engine 5.x. Some patterns may work in UE4, but UE5 introduced changes to garbage collection and the reflection system."
+    },
+    {
+      "question": "Can this skill help me write Blueprint-friendly C++?",
+      "answer": "Yes, the skill covers UFUNCTION specifiers like BlueprintCallable, BlueprintReadWrite, and BlueprintImplementableEvent for Blueprint integration."
+    },
+    {
+      "question": "Do I need to know C++ before using this skill?",
+      "answer": "Basic C++ knowledge is required. This skill teaches Unreal-specific patterns and conventions, not general C++ programming."
+    },
+    {
+      "question": "Does this skill create code files for me?",
+      "answer": "No, this skill provides guidance and best practices. For code generation, use Claude Code or Codex with appropriate prompts."
+    },
+    {
+      "question": "How is this different from official Unreal documentation?",
+      "answer": "This skill distills expert knowledge into concise, actionable guidelines. The official docs are comprehensive but can be overwhelming for learning."
+    },
+    {
+      "question": "Can I use this for commercial game development?",
+      "answer": "Yes, the patterns and practices in this skill follow Epic Games' coding standards used in production games."
+    }
+  ],
+  "seoKeywords": [
+    "Unreal Engine 5 C++",
+    "UE5 C++ development",
+    "Unreal Engine game development",
+    "UE5 performance optimization",
+    "UObject garbage collection",
+    "Blueprint C++ integration",
+    "Claude Code Unreal",
+    "Codex Unreal Engine",
+    "Unreal C++ best practices",
+    "UE5 memory management"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/unreal-engine-cpp-pro",
+  "sourceType": "community",
+  "dependencies": []
+}

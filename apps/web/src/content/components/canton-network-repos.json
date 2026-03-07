@@ -1,0 +1,143 @@
+{
+  "name": "canton-network-repos",
+  "type": "skill",
+  "description": "Canton Network open-source ecosystem guide covering DAML SDK, Canton runtime, and Splice applications. Use when working with Canton Network, DAML smart contracts, or building decentralized applications.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "design automation",
+  "quality": 5,
+  "qualityReason": "Specific integration with clear use case",
+  "bundleHints": [
+    "design-automation",
+    "mcp-tools"
+  ],
+  "tags": [
+    "automation",
+    "blockchain",
+    "brand-templates",
+    "canton",
+    "canva",
+    "daml",
+    "design",
+    "distributed-ledger",
+    "mcp"
+  ],
+  "capabilities": [
+    "Explain DAML SDK, Canton, and Splice repository hierarchies",
+    "Provide version compatibility guidance (LF versions, SDK versions)",
+    "Show build commands for community Canton and Splice applications",
+    "Troubleshoot LF version and package ID mismatch errors",
+    "Detail enterprise vs community feature differences",
+    "Explain package ID derivation and upgrade validation"
+  ],
+  "author": "0xBigBoss",
+  "icon": "🏗️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown content about the Canton Network ecosystem. No executable code, scripts, network operations, or file system access. Contains only informational content and example commands for reference. The static findings listed in the prompt DO NOT EXIST in the actual skill-report.json which shows zero findings across all severity levels.",
+  "valueStatement": "Get expert guidance on working with Canton Network, DAML, and Splice open-source repositories. Covers version compatibility, build processes, and troubleshooting for distributed ledger development.",
+  "userTitle": "Understand Canton Network repositories",
+  "limitations": [
+    "Cannot execute builds or run commands",
+    "Cannot access external repositories or documentation",
+    "Cannot install or update SDK versions",
+    "Does not provide real-time version checking"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Blockchain developers",
+      "title": "Build Canton participants",
+      "description": "Build open-source Canton participant nodes and understand enterprise vs community differences."
+    },
+    {
+      "targetUser": "DAML developers",
+      "title": "Resolve LF version issues",
+      "description": "Debug DAML-LF version mismatches and understand package ID derivations."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Configure Splice applications",
+      "description": "Set up Splice applications with correct SDK versions and build configurations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "LF version help",
+      "scenario": "Getting LF version errors",
+      "prompt": "I'm getting 'Unknown Daml-LF version' errors when building. How do I fix version compatibility between DAML SDK, Canton, and Splice?"
+    },
+    {
+      "title": "Build instructions",
+      "scenario": "Building from source",
+      "prompt": "What are the build commands for community Canton participant and Splice applications?"
+    },
+    {
+      "title": "Enterprise vs community",
+      "scenario": "Comparing editions",
+      "prompt": "What are the key differences between Canton Enterprise and Community editions?"
+    },
+    {
+      "title": "Repository structure",
+      "scenario": "Understanding codebases",
+      "prompt": "Explain the repository hierarchy and relationships between DAML SDK, Canton, and Splice."
+    }
+  ],
+  "bestPractices": [
+    "Keep SDK, Canton, and Splice versions aligned according to the version mapping table",
+    "Use consistent LF target versions across all DAR files to avoid package ID mismatches",
+    "Rebuild Canton DARs when updating SDK versions to maintain compatibility"
+  ],
+  "antiPatterns": [
+    "Mixing LF versions between enterprise and community packages",
+    "Using SDK snapshots older than the LF version you need",
+    "Building Splice without setting the DAML_COMPILER_VERSION environment variable"
+  ],
+  "faq": [
+    {
+      "question": "Which DAML SDK version supports LF 2.2?",
+      "answer": "LF 2.2 is available in DAML SDK v3.4.9. Earlier versions including the May 2025 snapshot do not include it."
+    },
+    {
+      "question": "Can community Canton build LF 2.2 packages?",
+      "answer": "Yes, by updating Canton daml.yaml files to SDK 3.4.9 and rebuilding, community DARs match enterprise package IDs."
+    },
+    {
+      "question": "What causes package ID mismatches?",
+      "answer": "Package IDs derive from LF version, SDK version, and content. Different LF versions or SDK versions produce different IDs."
+    },
+    {
+      "question": "How do enterprise and community editions differ?",
+      "answer": "Enterprise supports parallel transaction processing, Oracle DB, HA domains, and advanced pruning. Community is PostgreSQL-only with sequential processing."
+    },
+    {
+      "question": "What environment variables are required for building?",
+      "answer": "Splice builds require DAML_COMPILER_VERSION environment variable set to match your SDK version."
+    },
+    {
+      "question": "How does Canton relate to DAML?",
+      "answer": "Canton implements the Canton Protocol using DAML for smart contracts. DAML provides the LF language and compiler; Canton provides the runtime."
+    }
+  ],
+  "seoKeywords": [
+    "Canton Network",
+    "DAML SDK",
+    "DAML LF",
+    "Canton participant",
+    "Splice",
+    "distributed ledger",
+    "smart contracts",
+    "Claude Code",
+    "Codex",
+    "blockchain development"
+  ],
+  "sourceUrl": "https://github.com/0xBigBoss/claude-code/tree/main/.claude/skills/canton-network-repos",
+  "sourceType": "community",
+  "dependencies": []
+}

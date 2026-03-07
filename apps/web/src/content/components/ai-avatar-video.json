@@ -1,0 +1,150 @@
+{
+  "name": "ai-avatar-video",
+  "type": "skill",
+  "description": "Create AI avatar and talking head videos with OmniHuman, Fabric, PixVerse via inference.sh CLI. Models: OmniHuman 1.5, OmniHuman 1.0, Fabric 1.0, PixVerse Lipsync. Capabilities: audio-driven avatars, lipsync videos, talking head generation, virtual presenters. Use for: AI presenters, explainer videos, virtual influencers, dubbing, marketing videos.",
+  "domain": "ai-ml",
+  "subdomain": "computer-vision",
+  "specialty": "talking avatars",
+  "quality": 5,
+  "qualityReason": "Specific video models used",
+  "bundleHints": [
+    "ai-video",
+    "avatar-generation",
+    "talking-head"
+  ],
+  "tags": [
+    "ai video",
+    "audio-driven",
+    "avatar",
+    "fabric",
+    "lipsync",
+    "omnihuman",
+    "pixverse",
+    "talking head",
+    "video generation"
+  ],
+  "capabilities": [
+    "Generate talking head videos from static images and audio files",
+    "Create lipsync videos where static images speak to your audio",
+    "Support for multiple AI models: OmniHuman 1.5, OmniHuman 1.0, Fabric 1.0, PixVerse",
+    "Multi-character avatar generation with OmniHuman 1.5",
+    "Dub existing videos into different languages with new audio",
+    "Integrate with text-to-speech apps for complete video workflows"
+  ],
+  "author": "inference-sh",
+  "icon": "🎥",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation file containing example CLI commands. Static scanner misidentified markdown code blocks as code execution patterns. No actual security vulnerabilities found.",
+  "valueStatement": "Create professional talking head videos with AI avatars using text, audio, or images. Perfect for product demos, tutorials, and virtual presenters without filming.",
+  "userTitle": "Generate AI Talking Head Videos",
+  "limitations": [
+    "Requires login to inference.sh CLI platform",
+    "Works with external APIs - requires internet connection",
+    "Avatar quality depends on input image quality and lighting",
+    "Processing time varies by model and complexity",
+    "Only supports images that can be publicly accessed via URL",
+    "Limited to models available through inference.sh platform"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Marketing teams, product managers",
+      "title": "Product Demo Videos",
+      "description": "Create professional product demonstrations with AI presenters without filming. Ideal for SaaS companies showcasing features."
+    },
+    {
+      "targetUser": "Teachers, content creators, educators",
+      "title": "Educational Content",
+      "description": "Generate consistent explainer videos and tutorials. Perfect for online courses and educational platforms."
+    },
+    {
+      "targetUser": "Localization teams, international brands",
+      "title": "Multilingual Content",
+      "description": "Dub existing videos into multiple languages with AI avatars speaking the new language. Expand your global audience."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Basic Avatar Video",
+      "prompt": "Generate a talking head video from this image: [IMAGE_URL] using the specified audio: [AUDIO_URL]. Use the OmniHuman 1.5 model for best quality.",
+      "scenario": "Beginner: Simple avatar video creation"
+    },
+    {
+      "title": "Create Lipsync Video",
+      "prompt": "Create a lipsync video where this static image speaks the provided audio. Use the PixVerse Lipsync model for realistic lip movements.",
+      "scenario": "Intermediate: Lipsync with static images"
+    },
+    {
+      "title": "Create Multi-Language Dub",
+      "prompt": "Create a dubbed version of this video in English: [VIDEO_URL] using these translated subtitles as audio: [TRANSLATED_AUDIO_URL]. Use LatentSync for video-to-audio sync.",
+      "scenario": "Advanced: Video dubbing and localization"
+    },
+    {
+      "title": "Create TTS + Avatar Workflow",
+      "prompt": "First generate speech from this text: [TEXT] using kokoro-tts. Then create a talking head video from this image: [IMAGE_URL] with the generated speech as audio.",
+      "scenario": "Advanced: Complete text-to-video workflow"
+    }
+  ],
+  "bestPractices": [
+    "Use high-quality front-facing portrait photos with good lighting for best avatar results",
+    "Ensure audio is clear with minimal background noise for accurate lipsync",
+    "Use Claude Code's multi-step workflow for complex video generation tasks",
+    "Verify URL accessibility before using images or audio in commands",
+    "Test with small segments before generating full-length videos"
+  ],
+  "antiPatterns": [
+    "Don't use low-quality images with poor lighting - avatar quality will be poor",
+    "Avoid using copyrighted images for commercial avatar videos without permission",
+    "Don't mix languages in the same video without proper dubbing workflow",
+    "Don't forget to save output files immediately after generation",
+    "Avoid using very long audio tracks without testing lip sync quality"
+  ],
+  "faq": [
+    {
+      "question": "What is inference.sh and why do I need it?",
+      "answer": "Inference.sh is a cloud platform that provides AI model APIs. The inference.sh CLI allows you to run these AI models locally without managing infrastructure. You need it to access OmniHuman, Fabric, and PixVerse models for avatar video generation."
+    },
+    {
+      "question": "Which model should I use for my avatar videos?",
+      "answer": "Use OmniHuman 1.5 for multi-character videos and best quality. Use Fabric 1.0 for static images that need to speak. Use PixVerse Lipsync for highly realistic lip sync on existing images."
+    },
+    {
+      "question": "Can I create videos in languages other than English?",
+      "answer": "Yes, you can create videos in any language supported by the kokoro-tts text-to-speech model. Use the dubbing workflow to create multilingual versions of existing videos."
+    },
+    {
+      "question": "How do I authenticate with inference.sh?",
+      "answer": "Run infsh login in your terminal. You'll need to authenticate with your inference.sh account credentials. This provides access to all available AI models."
+    },
+    {
+      "question": "What image formats work best for avatar videos?",
+      "answer": "Use high-resolution portrait photos (400x400 or larger) with front-facing orientation. JPG and PNG formats work well. Good lighting and neutral background produce better results."
+    },
+    {
+      "question": "Can I use this skill with Claude Code?",
+      "answer": "Yes, this skill is compatible with Claude, Codex, and Claude Code. You can use the command examples in SKILL.md with Claude Code to build automated video generation workflows."
+    }
+  ],
+  "seoKeywords": [
+    "AI avatar",
+    "talking head video",
+    "lipsync",
+    "virtual presenter",
+    "AI spokesperson",
+    "video avatar",
+    "HeyGen alternative",
+    "Synthesia alternative",
+    "Claude Code",
+    "video generation"
+  ],
+  "sourceUrl": "https://github.com/inference-sh/skills/tree/main/skills/ai-avatar-video/",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,144 @@
+{
+  "name": "binary-re-synthesis",
+  "type": "skill",
+  "description": "Use when ready to document findings, generate a report, or summarize binary analysis results. Compiles analysis findings into structured reports - correlates facts from triage/static/dynamic phases, validates hypotheses, generates documentation with evidence chains. Keywords - \"summarize findings\", \"generate report\", \"document analysis\", \"what did we find\", \"write up results\", \"export findings",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "report generation",
+  "quality": 5,
+  "qualityReason": "Critical synthesis phase",
+  "bundleHints": [
+    "security-reporting",
+    "research-docs"
+  ],
+  "tags": [
+    "analysis",
+    "binary-analysis",
+    "correlation",
+    "documentation",
+    "findings",
+    "reporting",
+    "reverse-engineering",
+    "security",
+    "security-research",
+    "structured-report"
+  ],
+  "capabilities": [
+    "Correlate facts from triage, static, and dynamic analysis phases",
+    "Validate hypotheses against collected evidence with confidence scoring",
+    "Generate structured markdown reports with executive summaries",
+    "Document binary capabilities including network, filesystem, and crypto features",
+    "Create evidence-indexed conclusions for stakeholder handoff",
+    "Export findings in JSON and STIX/TAXII formats for threat intelligence sharing"
+  ],
+  "author": "2389-research",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown methodology and templates. No executable code, no file system access, no network operations. Contains no code execution paths. Static findings are false positives caused by pattern matching on benign security documentation describing malware analysis methodology. Safe for publication.",
+  "valueStatement": "Binary reverse engineering produces scattered facts and hypotheses that are difficult to organize and present. This skill provides systematic synthesis methodology to compile findings into confidence-calibrated reports with traceable evidence chains for stakeholders.",
+  "userTitle": "Synthesize binary analysis findings into structured reports",
+  "limitations": [
+    "Does not perform actual binary analysis - requires findings from other phases",
+    "Does not execute or interact with binaries directly",
+    "Templates require human completion with specific analysis data",
+    "Quality of output depends on completeness of preceding analysis phases"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security researchers",
+      "title": "Document malware analysis",
+      "description": "Compile IoT malware findings into shareable reports for security teams and threat intelligence platforms."
+    },
+    {
+      "targetUser": "Embedded systems engineers",
+      "title": "Summarize firmware analysis",
+      "description": "Document binary capabilities for firmware security review and vulnerability assessment reporting."
+    },
+    {
+      "targetUser": "Incident responders",
+      "title": "Create IOC reports",
+      "description": "Generate structured indicators of compromise from binary analysis for incident documentation and sharing."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic synthesis request",
+      "scenario": "Beginner user wanting to summarize findings",
+      "prompt": "We have completed analysis of [binary name]. Please synthesize our findings into a report that includes: what the binary does, its key capabilities, evidence supporting our conclusions, and any remaining unknowns."
+    },
+    {
+      "title": "Stakeholder report",
+      "scenario": "User needing executive summary",
+      "prompt": "Create a binary analysis report for non-technical stakeholders. Focus on: executive summary, business risk assessment, and actionable recommendations. Technical details should be in appendices."
+    },
+    {
+      "title": "Threat intelligence export",
+      "scenario": "User needing structured IOCs",
+      "prompt": "Generate a STIX-compliant export of our binary analysis findings including malware type, capabilities, and external indicators like network destinations and file system paths."
+    },
+    {
+      "title": "Multi-phase correlation",
+      "scenario": "Advanced user correlating across phases",
+      "prompt": "Correlate our triage findings ([arch], [dependencies]), static analysis (functions at [addresses], strings [list]), and dynamic analysis (syscalls observed: [list]). Validate the hypothesis that [hypothesis statement] with confidence score."
+    }
+  ],
+  "bestPractices": [
+    "Complete triage, static, and dynamic analysis phases before synthesis to ensure comprehensive evidence",
+    "Assign confidence levels based on evidence strength and explicitly document contradicting evidence",
+    "Record synthesis output to episodic memory for cross-session continuity and future reference"
+  ],
+  "antiPatterns": [
+    "Attempting synthesis without completing prior analysis phases - leads to speculation instead of evidence-based conclusions",
+    "Presenting hypotheses as facts without explicit confidence calibration and evidence citations",
+    "Failing to document remaining unknowns - unacknowledged gaps create false confidence"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill analyze binaries directly?",
+      "answer": "No. This skill synthesizes findings from binary-re:triage, binary-re:static-analysis, and binary-re:dynamic-analysis. Run those phases first."
+    },
+    {
+      "question": "What confidence levels are used?",
+      "answer": "High means multiple independent sources confirm; Medium means some evidence with no contradictions; Low means limited evidence; Speculative is pattern-based guess."
+    },
+    {
+      "question": "Can I export findings for threat intelligence sharing?",
+      "answer": "Yes. Output formats include JSON for tools/databases and STIX/TAXII for threat intelligence platforms and incident response."
+    },
+    {
+      "question": "How does this integrate with other binary-re skills?",
+      "answer": "It reads episodic memory from previous phases and writes synthesis conclusions back for cross-session persistence."
+    },
+    {
+      "question": "What if I have conflicting evidence?",
+      "answer": "Document both supporting and contradicting evidence. Mark hypotheses as Uncertain and explain the conflict in the report."
+    },
+    {
+      "question": "How is this different from standard documentation?",
+      "answer": "It enforces evidence-based methodology with confidence calibration, hypothesis tracking, and structured evidence chains for reproducibility."
+    }
+  ],
+  "seoKeywords": [
+    "binary reverse engineering",
+    "binary analysis synthesis",
+    "reverse engineering report",
+    "binary analysis documentation",
+    "malware analysis",
+    "security research",
+    "Claude Code",
+    "evidence-based reporting",
+    "binary analysis workflow",
+    "threat intelligence"
+  ],
+  "sourceUrl": "https://github.com/2389-research/claude-plugins/tree/main/binary-re/skills/synthesis",
+  "sourceType": "community",
+  "dependencies": []
+}

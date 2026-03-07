@@ -1,0 +1,144 @@
+{
+  "name": "chat-compactor",
+  "type": "skill",
+  "description": "Generate structured session summaries optimized for future AI agent consumption. Use when (1) ending a coding/debugging session, (2) user says \"compact\", \"summarize session\", \"save context\", or \"wrap up\", (3) context window is getting long and continuity matters, (4) before switching tasks or taking a break. Produces machine-readable handoff documents that let the next session start fluently without re-explaining.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "messaging components",
+  "quality": 5,
+  "qualityReason": "Production-ready UI building blocks",
+  "bundleHints": [
+    "chat-app",
+    "frontend-components"
+  ],
+  "tags": [
+    "chat",
+    "context-preservation",
+    "continuity",
+    "documentation",
+    "handoff",
+    "nextjs",
+    "react",
+    "session-management",
+    "typing-indicators",
+    "ui-components"
+  ],
+  "capabilities": [
+    "Generate structured markdown summaries with decision tables and rationale",
+    "Document dead ends and failed approaches to prevent re-exploration",
+    "Capture environment details, file changes, and gotchas for future reference",
+    "Create prioritized next steps lists with clear action items",
+    "Save session files with consistent naming conventions",
+    "Optimize summaries for quick scanning by AI agents"
+  ],
+  "author": "ZhanlinCui",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static analysis findings are false positives. The 'external_commands' pattern matched markdown code fence backticks (```) not shell execution. The 'weak cryptographic algorithm' finding at line 3 incorrectly flagged YAML frontmatter text. This skill contains only instructional markdown content with no executable code, network access, or security risks.",
+  "valueStatement": "Lose critical context when sessions end. This skill produces structured handoff documents that preserve decisions, dead ends, and next steps for seamless AI agent continuity.",
+  "userTitle": "Generate Session Summaries for AI Continuity",
+  "limitations": [
+    "Requires access to full conversation history for accurate summarization",
+    "Cannot automatically save files to disk without user confirmation",
+    "Summary quality depends on conversation clarity and detail",
+    "Does not integrate with external project management or note-taking tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers using AI pair programming",
+      "title": "End-of-Session Handoff",
+      "description": "Developer finishing a debugging session generates a summary so the next AI session can immediately continue without re-explaining the problem context and attempted solutions."
+    },
+    {
+      "targetUser": "Project leads managing complex multi-session projects",
+      "title": "Long Project Continuity",
+      "description": "Team lead maintains project momentum across multiple AI sessions by creating structured handoff documents that preserve architectural decisions and implementation status."
+    },
+    {
+      "targetUser": "Power users working on extended AI-assisted tasks",
+      "title": "Context Window Management",
+      "description": "User proactively compacts lengthy conversations before the context window fills, preserving essential information while freeing up tokens for continued work."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Session Summary",
+      "prompt": "Compact this session. Generate a structured summary with: what was accomplished, key decisions made, current state of the code, and next steps. Save as session-summary.md",
+      "scenario": "Quick end-of-session wrap up"
+    },
+    {
+      "title": "Detailed Handoff Document",
+      "prompt": "Create a comprehensive handoff document for the next AI agent. Include decision tables with alternatives rejected, all modified files with change descriptions, dead ends that should not be retried, and environment gotchas discovered.",
+      "scenario": "Complex debugging session with multiple decision points"
+    },
+    {
+      "title": "Mid-Session Context Checkpoint",
+      "prompt": "Generate a lightweight checkpoint summary before we continue. Capture current state, what's working, what's blocked, and immediate next steps. Keep it under 300 tokens.",
+      "scenario": "Long session approaching context limits"
+    },
+    {
+      "title": "Project Transition Summary",
+      "prompt": "We're switching from feature A to feature B. Create a handoff document for feature A that captures: completed work, pending items, file locations, naming conventions established, and any quirks the next session should know.",
+      "scenario": "Task switching within a larger project"
+    }
+  ],
+  "bestPractices": [
+    "Document the 'why' behind decisions, not just the 'what' - future agents need rationale",
+    "Always list failed approaches in dead ends section to prevent wasted effort",
+    "Keep summaries scannable with clear headings, tables, and bullet points"
+  ],
+  "antiPatterns": [
+    "Writing narrative prose instead of structured, scannable content",
+    "Creating vague summaries like 'made good progress' without specific outcomes",
+    "Omitting failure documentation - dead ends are the most valuable content"
+  ],
+  "faq": [
+    {
+      "question": "When should I use this skill?",
+      "answer": "Use at session end, when the user says 'compact' or 'summarize', before context switches, when context window exceeds 50%, or before taking breaks on ongoing work."
+    },
+    {
+      "question": "Where are session files saved?",
+      "answer": "Sessions are saved to the project root or a designated sessions directory with naming format: session-[topic]-[date].md"
+    },
+    {
+      "question": "What makes a good session summary?",
+      "answer": "Good summaries are scannable in under 30 seconds, actionable with clear next steps, defensive by documenting dead ends, and minimal with no unnecessary content."
+    },
+    {
+      "question": "Can I customize the output format?",
+      "answer": "Yes, the structured format is a template. You can request modifications like adding sections, changing table formats, or adjusting detail levels based on your needs."
+    },
+    {
+      "question": "Should I create a summary for every session?",
+      "answer": "Not necessarily. Use for meaningful work sessions where continuity matters. Quick Q&A or standalone tasks typically don't need session documentation."
+    },
+    {
+      "question": "How detailed should the dead ends section be?",
+      "answer": "Include enough detail to prevent retrying: what approach was tried, why it failed, and any error messages or symptoms. This prevents the most common AI re-exploration loops."
+    }
+  ],
+  "seoKeywords": [
+    "Claude session summary",
+    "Codex context preservation",
+    "Claude Code handoff",
+    "AI agent continuity",
+    "session compaction",
+    "context window management",
+    "AI productivity tool",
+    "session documentation",
+    "Claude workflow",
+    "AI memory management"
+  ],
+  "sourceUrl": "https://github.com/ZhanlinCui/Ultimate-Agent-Skills-Collection/tree/main/chat-compactor",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "skill-permissions",
+  "type": "skill",
+  "description": "Skill permission analysis, one-time authorization, analyze skill permissions, batch authorization",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "authorization analysis",
+  "quality": 5,
+  "qualityReason": "Critical security control",
+  "bundleHints": [
+    "appsec-toolkit",
+    "security-audit",
+    "access-control"
+  ],
+  "tags": [
+    "authorization",
+    "batch-auth",
+    "configuration",
+    "permissions",
+    "security"
+  ],
+  "capabilities": [
+    "Scan all installed skills to identify required permissions",
+    "Analyze SKILL.md files to extract bash command patterns",
+    "Generate safe permission rules with wildcards",
+    "Block dangerous commands like rm, sudo, and curl|bash",
+    "Execute one-time authorizations for specific or all skills",
+    "Inject allow commands into skill documentation"
+  ],
+  "author": "guo-yu",
+  "icon": "🔐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate security utility skill for Claude Code. All 407 static findings are false positives - they document dangerous command patterns that the skill explicitly BLOCKS from authorization. The skill performs read-only analysis of skill permissions and generates safe authorization rules. Documentation includes defensive warnings about risky operations like rm, sudo, and curl|bash patterns.",
+  "valueStatement": "Claude Code skills require permissions to access files and run commands. This skill automatically analyzes what permissions each skill needs and generates safe authorization rules. It identifies dangerous patterns like recursive delete and privilege escalation, blocking them from authorization.",
+  "userTitle": "Manage Claude Code skill permissions",
+  "limitations": [
+    "Cannot modify skill source code, only documentation files",
+    "Requires existing skills with SKILL.md files to analyze",
+    "Cannot remove permissions, only add new ones",
+    "Permission changes require new session or /clear to take effect"
+  ],
+  "useCases": [
+    {
+      "targetUser": "New Claude Code users",
+      "title": "Quick permission setup",
+      "description": "Run /skill-permissions allow-all to authorize all installed skills at once for immediate productivity."
+    },
+    {
+      "targetUser": "Power users",
+      "title": "Permission auditing",
+      "description": "Analyze specific skills to understand exactly what commands they can run before authorizing."
+    },
+    {
+      "targetUser": "Skill developers",
+      "title": "Permission documentation",
+      "description": "Use inject command to add authorization commands to your skill documentation automatically."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Analyze all skills",
+      "scenario": "View permission summary",
+      "prompt": "/skill-permissions"
+    },
+    {
+      "title": "Check specific skill",
+      "scenario": "Analyze one skill",
+      "prompt": "/skill-permissions port-allocator"
+    },
+    {
+      "title": "Authorize one skill",
+      "scenario": "Grant permissions",
+      "prompt": "/skill-permissions allow port-allocator"
+    },
+    {
+      "title": "Full permission setup",
+      "scenario": "Authorize everything",
+      "prompt": "/skill-permissions allow-all"
+    }
+  ],
+  "bestPractices": [
+    "Run /skill-permissions first to review analysis before running allow commands",
+    "Use explicit allow commands like /skill-permissions allow port-allocator instead of allow-all",
+    "Review generated permission rules to understand what commands each skill can run",
+    "Use /clear after authorizing to apply permissions immediately"
+  ],
+  "antiPatterns": [
+    "Running /skill-permissions allow-all without reviewing what permissions are granted",
+    "Using /skill-permissions inject without understanding it modifies skill documentation files",
+    "Assuming all skills need the same permissions - review each skill individually",
+    "Ignoring the blocked commands warning - the blocklist exists to protect you"
+  ],
+  "faq": [
+    {
+      "question": "What does /skill-permissions do?",
+      "answer": "It analyzes all installed skills, identifies what bash commands they need, and generates safe permission rules to authorize them."
+    },
+    {
+      "question": "Is it safe to run allow-all?",
+      "answer": "It is safe but grants permissions broadly. Review the analysis output first, and prefer explicit allow commands for specific skills when possible."
+    },
+    {
+      "question": "What commands are blocked?",
+      "answer": "Dangerous patterns like rm, sudo, chmod 777, curl|bash, and fork bombs are blocked and will never be authorized."
+    },
+    {
+      "question": "How do permissions take effect?",
+      "answer": "Permission changes apply in the next Claude Code session, or run /clear immediately to apply them."
+    },
+    {
+      "question": "Can this skill modify my files?",
+      "answer": "Only the inject command modifies files (SKILL.md documentation). Analysis and allow commands only read and update ~/.claude/settings.json."
+    },
+    {
+      "question": "What is the inject command?",
+      "answer": "It adds /<skill-name> allow documentation to each skill's SKILL.md file, letting users authorize skills directly from their documentation."
+    }
+  ],
+  "seoKeywords": [
+    "skill permissions",
+    "Claude Code authorization",
+    "permission manager",
+    "skill security",
+    "Claude permissions",
+    "Codex permissions",
+    "Claude Code security",
+    "batch authorization",
+    "permission analysis",
+    "skill management"
+  ],
+  "sourceUrl": "https://github.com/guo-yu/skills/tree/master/skill-permissions",
+  "sourceType": "community",
+  "dependencies": []
+}

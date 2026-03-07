@@ -1,0 +1,145 @@
+{
+  "name": "blockrun",
+  "type": "skill",
+  "description": "Use when user needs capabilities Claude lacks (image generation, real-time X/Twitter data) or explicitly requests external models (\"blockrun\", \"use grok\", \"use gpt\", \"dall-e\", \"deepseek\")",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "cross-model routing",
+  "quality": 5,
+  "qualityReason": "Innovative capability extension",
+  "bundleHints": [
+    "agent-network",
+    "cross-model"
+  ],
+  "tags": [
+    "cross-model",
+    "crypto",
+    "crypto-wallet",
+    "gemini",
+    "gpt",
+    "grok",
+    "image-generation",
+    "micropayments",
+    "real-time",
+    "real-time-data"
+  ],
+  "capabilities": [
+    "Route requests to external LLMs (GPT, Grok, Gemini, DeepSeek) via x402 micropayments",
+    "Generate images using DALL-E or Nano Banana models",
+    "Access real-time X/Twitter data via xAI Live Search integration",
+    "Track per-call spending with budget limits and balance checks",
+    "Support multiple AI providers without managing individual API keys"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 64 patterns that are false positives: markdown code block delimiters misidentified as shell backticks (58), hidden directory path in documentation (4), and no actual crypto code present (2). The skill is documentation for a legitimate cross-model AI SDK using wallet-based micropayments. External command and filesystem risks are from documented Python SDK usage patterns, not executable malicious code.",
+  "valueStatement": "Access capabilities your AI lacks like image generation and real-time X data. Pay per token with crypto wallet instead of managing API keys.",
+  "userTitle": "Route AI tasks to external models with crypto micropayments",
+  "limitations": [
+    "Requires crypto wallet funding with USDC on Base network",
+    "Per-token costs accumulate and require active budget monitoring",
+    "Real-time X data requires explicit search parameters to activate",
+    "Cannot execute external models without user wallet authorization"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers using AI coding assistants",
+      "title": "AI Developer needing second opinions",
+      "description": "Route code reviews or complex reasoning tasks to GPT-5.2 while working primarily in Claude Code. Get alternative perspectives on architecture decisions."
+    },
+    {
+      "targetUser": "Marketing professionals and social media managers",
+      "title": "Social media manager requiring live data",
+      "description": "Access real-time X/Twitter posts and trending topics via Grok Live Search when your primary AI lacks live internet access."
+    },
+    {
+      "targetUser": "Content creators and designers",
+      "title": "Content creator needing image generation",
+      "description": "Generate images for blog posts or social media directly within your AI workflow using DALL-E integration without switching tools."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Image Generation",
+      "prompt": "blockrun generate an image of [describe your image]. Use DALL-E for photorealistic results.",
+      "scenario": "Quick image generation for beginners"
+    },
+    {
+      "title": "Real-time X Data Lookup",
+      "prompt": "use grok to check what [handle or topic] is posting on X right now. Enable live search.",
+      "scenario": "Getting current social media data"
+    },
+    {
+      "title": "Second Opinion on Code",
+      "prompt": "blockrun second opinion with GPT on this code: [paste code]. Review for bugs and suggest improvements.",
+      "scenario": "Code review with alternative AI perspective"
+    },
+    {
+      "title": "Budget-Controlled Multi-Model Task",
+      "prompt": "Use blockrun with max $2 budget. First check my balance, then use Grok with live search to research [topic], summarize findings with GPT-5.2, and generate a cover image with DALL-E. Report total spending.",
+      "scenario": "Complex multi-step task with spending control"
+    }
+  ],
+  "bestPractices": [
+    "Set explicit budget limits before starting multi-step tasks to prevent unexpected charges",
+    "Use max_search_results parameter with Grok Live Search to control per-query costs",
+    "Check wallet balance before large operations and monitor spending after each call",
+    "Choose cost-appropriate models: DeepSeek for simple tasks, GPT-5.2 for complex reasoning"
+  ],
+  "antiPatterns": [
+    "Making repeated Live Search calls without setting max_search_results - costs accumulate quickly at $0.025 per source",
+    "Using expensive models like GPT-5.2 for simple tasks that DeepSeek could handle at fraction of cost",
+    "Forgetting to report spending to users after completing paid operations - always show transaction summary",
+    "Calling external models for tasks Claude can handle natively - adds unnecessary cost and latency"
+  ],
+  "faq": [
+    {
+      "question": "How do I fund my BlockRun wallet?",
+      "answer": "Run setup_agent_wallet() to generate your wallet address and QR code. Send USDC on Base network to the displayed address. Minimum recommended: $1-5 for testing."
+    },
+    {
+      "question": "What happens if I exceed my budget?",
+      "answer": "BlockRun tracks spending per session. When budget is reached, it stops making calls and notifies you. You can set a new budget or continue manually."
+    },
+    {
+      "question": "Do I need separate API keys for each model provider?",
+      "answer": "No. BlockRun uses x402 micropayments from your wallet to pay providers directly. One wallet works across OpenAI, xAI, Google, and DeepSeek."
+    },
+    {
+      "question": "How much does a typical operation cost?",
+      "answer": "A 500-word GPT-5.2 prompt costs ~$0.001 input. A DALL-E image costs $0.04. Grok Live Search costs $0.025 per source (default 10 sources = $0.25)."
+    },
+    {
+      "question": "Can I use this with Claude Code?",
+      "answer": "Yes. BlockRun is designed for Claude, Codex, and Claude Code. It extends capabilities these AIs lack like image generation and real-time X data."
+    },
+    {
+      "question": "Where is my wallet data stored?",
+      "answer": "Wallet credentials are stored in $HOME/.blockrun/.session on your local machine. This is a standard hidden directory for CLI tool configuration."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "cross-model AI",
+    "micropayments",
+    "image generation",
+    "real-time X data",
+    "Grok integration",
+    "DALL-E",
+    "crypto wallet"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/blockrun",
+  "sourceType": "community",
+  "dependencies": []
+}

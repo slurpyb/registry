@@ -1,0 +1,143 @@
+{
+  "name": "qa-test-planner",
+  "type": "skill",
+  "description": "Generate comprehensive test plans, manual test cases, regression test suites, and bug reports for QA engineers. Includes Figma MCP integration for design validation.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "test case generation",
+  "quality": 5,
+  "qualityReason": "Comprehensive planning tool",
+  "bundleHints": [
+    "qa-suite",
+    "productivity"
+  ],
+  "tags": [
+    "bug-reporting",
+    "bug-reports",
+    "figma",
+    "manual-testing",
+    "qa",
+    "regression",
+    "regression-testing",
+    "test-planning",
+    "test-plans"
+  ],
+  "capabilities": [
+    "Generate comprehensive test plans with scope, strategy, risks, and timeline",
+    "Create detailed manual test cases with steps, preconditions, and expected results",
+    "Build regression test suites organized by priority and execution order",
+    "Validate implementations against Figma designs using MCP integration",
+    "Produce structured bug reports with reproduction steps and evidence"
+  ],
+  "author": "softaworks",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 295 patterns (131 external_commands, 163 weak_crypto) in documentation and code. All high-severity findings are FALSE POSITIVES - the 'weak cryptographic algorithm' patterns are security-related test case examples (e.g., SQL injection testing), and 'backtick execution' patterns are markdown code fences. The shell scripts use safe interactive prompts for generating test documentation without executing arbitrary commands. No malicious behavior or intent detected.",
+  "valueStatement": "QA teams spend hours creating test plans and manual test cases from scratch. This skill generates comprehensive test plans, test cases, regression suites, and bug reports automatically using proven QA methodologies and templates.",
+  "userTitle": "Create QA Test Plans and Test Cases",
+  "limitations": [
+    "Does not execute tests automatically - generates documentation only",
+    "Figma validation requires Figma MCP server to be configured",
+    "Test data must be provided by the user - no automatic test data generation",
+    "Cannot access live application environments or execute test automation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "QA Engineers",
+      "title": "New Feature Testing",
+      "description": "Generate a complete test plan and set of test cases for a new feature before development begins, ensuring testable requirements are documented early."
+    },
+    {
+      "targetUser": "UI/UX Testers",
+      "title": "UI Design Validation",
+      "description": "Compare implemented designs against Figma specifications, validating colors, spacing, typography, and component states before release."
+    },
+    {
+      "targetUser": "QA Leads",
+      "title": "Release Regression Testing",
+      "description": "Build a regression test suite that prioritizes critical business paths, enabling efficient release validation with smoke tests and targeted regression."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Test Plan",
+      "prompt": "Create a test plan for the {feature_name} feature. Include test scope, objectives, testing approach, environment requirements, entry/exit criteria, and risk assessment.",
+      "scenario": "When you need a complete test plan document for a new feature"
+    },
+    {
+      "title": "Generate Test Cases",
+      "prompt": "Generate {number} manual test cases for the {feature_name} feature. Include functional test cases covering positive and negative scenarios, edge cases, and boundary value testing.",
+      "scenario": "When you need detailed test cases with steps and expected results"
+    },
+    {
+      "title": "Regression Suite",
+      "prompt": "Build a regression test suite for the {module_name} module. Include smoke tests, critical path tests, and execution order. Prioritize tests by business impact.",
+      "scenario": "When preparing for a release and need to verify existing functionality"
+    },
+    {
+      "title": "Bug Report",
+      "prompt": "Create a bug report for the following issue: {bug_description}. Include reproducible steps, environment details, severity, priority, and expected vs actual behavior.",
+      "scenario": "When documenting a discovered bug with clear reproduction information"
+    }
+  ],
+  "bestPractices": [
+    "Always define clear preconditions and test data requirements before writing test steps",
+    "Include both positive and negative test cases to validate error handling",
+    "Link test cases to requirements for traceability and coverage tracking"
+  ],
+  "antiPatterns": [
+    "Writing vague test steps without specific expected results",
+    "Skipping edge cases and boundary value testing",
+    "Missing environment or preconditions documentation"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill execute tests automatically?",
+      "answer": "No, this skill generates test documentation (plans, cases, reports). Test execution requires manual QA work or automated test runners."
+    },
+    {
+      "question": "How do I use Figma validation?",
+      "answer": "Configure a Figma MCP server, then use prompts like 'Compare the login page against Figma at [URL]' to generate visual validation test cases."
+    },
+    {
+      "question": "Can I customize the templates?",
+      "answer": "Yes, reference templates in the references/ folder can be modified. The skill uses these as starting points for generation."
+    },
+    {
+      "question": "What test types are supported?",
+      "answer": "Functional, UI/Visual, Integration, Regression, Performance, and Security testing templates are included."
+    },
+    {
+      "question": "How are priorities assigned?",
+      "answer": "P0 (Critical) blocks release, P1 (High) affects major features, P2 (Medium) is nice to have, P3 (Low) is minor."
+    },
+    {
+      "question": "Can I generate multiple test cases at once?",
+      "answer": "Yes, specify the number in your prompt like 'Generate 20 test cases for the search feature' for bulk creation."
+    }
+  ],
+  "seoKeywords": [
+    "QA test planning",
+    "test case generator",
+    "manual testing",
+    "regression testing",
+    "bug reporting",
+    "Figma design validation",
+    "test plan template",
+    "QA documentation",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/softaworks/agent-toolkit/tree/main/skills/qa-test-planner/",
+  "sourceType": "community",
+  "dependencies": []
+}

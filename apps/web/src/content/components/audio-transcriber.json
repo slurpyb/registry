@@ -1,0 +1,140 @@
+{
+  "name": "audio-transcriber",
+  "type": "skill",
+  "description": "Transform audio recordings into professional Markdown documentation with intelligent summaries using LLM integration",
+  "domain": "automation",
+  "subdomain": "scripts",
+  "specialty": "Speech to Markdown",
+  "quality": 5,
+  "qualityReason": "Actionable documentation tool",
+  "bundleHints": [
+    "productivity-automation",
+    "meeting-tools"
+  ],
+  "tags": [
+    "audio-transcription",
+    "documentation",
+    "meeting-notes",
+    "professional",
+    "speech-to-text",
+    "summaries",
+    "whisper"
+  ],
+  "capabilities": [
+    "Transcribe audio files (MP3, WAV, M4A) to text using OpenAI Whisper or Faster-Whisper engine",
+    "Generate structured Markdown meeting notes with timestamps and speaker identification",
+    "Process transcripts through LLM (Claude or GitHub Copilot) for intelligent summarization",
+    "Support multiple Whisper models (tiny, base, small, medium, large) for quality/speed tradeoffs",
+    "Auto-detect available AI CLI tools and prompt engineering workflows"
+  ],
+  "author": "Eric Andrade",
+  "icon": "📝",
+  "version": "1.2.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 266 potential issues, but evaluation reveals these are primarily false positives. The flagged patterns in documentation files (README.md, SKILL.md, CHANGELOG.md) represent code examples, not executable code. The actual Python script (transcribe.py) uses hardcoded CLI tool invocations for legitimate transcription purposes. No command injection vectors or malicious intent detected. This is a standard audio transcription utility.",
+  "valueStatement": "Converts audio recordings into searchable text and generates professional meeting notes with AI-powered summaries using Claude or GitHub Copilot integration.",
+  "userTitle": "Transcribe Audio to Markdown",
+  "limitations": [
+    "Requires local Whisper model installation (first download may take time)",
+    "Audio quality affects transcription accuracy - clear audio produces better results",
+    "Processing long audio files can be slow without GPU acceleration",
+    "Requires Claude CLI or GitHub Copilot CLI installed for AI summarization features"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Business professionals and team leads who need to document meetings",
+      "title": "Meeting Transcription",
+      "description": "Automatically transcribe meeting recordings and generate professional meeting minutes with action items and decisions documented."
+    },
+    {
+      "targetUser": "Content creators, journalists, and researchers",
+      "title": "Podcast and Interview Notes",
+      "description": "Convert podcast episodes or interview recordings into searchable text with AI-generated summaries for content creators."
+    },
+    {
+      "targetUser": "Students and educators",
+      "title": "Lecture and Course Transcription",
+      "description": "Transform educational audio content into structured notes with key points extracted for study purposes."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Audio Transcription",
+      "prompt": "Transcribe this audio file to text. Output the complete transcription in Markdown format.",
+      "scenario": "Simple transcription without summarization"
+    },
+    {
+      "title": "Meeting Minutes Generation",
+      "prompt": "Analyze this meeting transcription and create structured meeting minutes including: attendees, agenda topics discussed, key decisions made, and action items with owners.",
+      "scenario": "Generate formal meeting documentation"
+    },
+    {
+      "title": "Executive Summary",
+      "prompt": "Read this transcript and create a concise executive summary highlighting the main points, key takeaways, and any important announcements. Use bullet points for easy reading.",
+      "scenario": "Quick overview for leadership"
+    },
+    {
+      "title": "Q&A Documentation",
+      "prompt": "Extract all questions and answers from this interview or Q&A session. Format as a structured document with questions clearly separated from answers.",
+      "scenario": "Interview or Q&A session processing"
+    }
+  ],
+  "bestPractices": [
+    "Use high-quality audio recordings for better transcription accuracy - minimize background noise",
+    "Start with the base Whisper model for fastest processing, upgrade to small or medium for improved accuracy",
+    "Provide custom prompts to guide the LLM output toward your desired format (meeting notes, summaries, Q&A)"
+  ],
+  "antiPatterns": [
+    "Do not expect perfect transcription of poor-quality audio with significant background noise",
+    "Avoid processing very long files without chunking - may cause memory issues",
+    "Do not skip the model download step if you want offline capability"
+  ],
+  "faq": [
+    {
+      "question": "What audio formats are supported?",
+      "answer": "The skill supports common audio formats including MP3, WAV, M4A, FLAC, and OGG. Any format readable by ffmpeg can be processed."
+    },
+    {
+      "question": "Do I need to install Whisper manually?",
+      "answer": "No, the install-requirements.sh script will automatically install faster-whisper or openai-whisper. The base model will be downloaded on first use."
+    },
+    {
+      "question": "Which is faster - faster-whisper or whisper?",
+      "answer": "Faster-Whisper is significantly faster and more memory-efficient as it uses CTranslate2. The script prioritizes faster-whisper and falls back to whisper if needed."
+    },
+    {
+      "question": "Can I use this offline?",
+      "answer": "Yes, after downloading the Whisper model, transcription works completely offline. AI summarization requires Claude CLI or GitHub Copilot CLI to be installed."
+    },
+    {
+      "question": "How accurate is the transcription?",
+      "answer": "Accuracy depends on audio quality and the model used. The base model provides good accuracy for clear audio. For better results, use small or medium models."
+    },
+    {
+      "question": "What if neither Claude nor Copilot is installed?",
+      "answer": "The script will detect missing CLIs and save only the transcription text without AI-generated summaries. You can add summaries later with Claude or Copilot."
+    }
+  ],
+  "seoKeywords": [
+    "audio transcription",
+    "speech to text",
+    "whisper transcription",
+    "meeting notes AI",
+    "audio to markdown",
+    "Claude Code transcription",
+    "Codex audio processing",
+    "Claude transcription skill",
+    "podcast transcription",
+    "voice recording to text"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/audio-transcriber",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "javascript-typescript-typescript-scaffold",
+  "type": "skill",
+  "description": "You are a TypeScript project architecture expert specializing in scaffolding production-ready Node.js and frontend applications. Generate complete project structures with modern tooling (pnpm, Vite, N",
+  "domain": "languages",
+  "subdomain": "typescript",
+  "specialty": "project scaffolding",
+  "quality": 5,
+  "qualityReason": "Clear trigger and purpose",
+  "bundleHints": [
+    "typescript-stack",
+    "fullstack-dev",
+    "modern-web"
+  ],
+  "tags": [
+    "architecture",
+    "nextjs",
+    "nodejs",
+    "pnpm",
+    "project-structure",
+    "scaffolding",
+    "tooling",
+    "typescript",
+    "vite"
+  ],
+  "capabilities": [
+    "Generate complete Next.js project structures with TypeScript, Tailwind CSS, and App Router",
+    "Create React + Vite single-page applications with path aliases and testing setup",
+    "Scaffold Node.js API projects with Express, TypeScript, and middleware architecture",
+    "Build TypeScript library packages with proper build configuration and exports",
+    "Configure development tools including Vitest, ESLint, and TypeScript compiler options",
+    "Set up project metadata including package.json scripts, tsconfig.json, and .gitignore files"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 36 static findings are false positives from markdown documentation. The detected patterns (shell backticks, dotenv references, database strings) appear only in code block examples demonstrating project setup commands. This is an educational skill providing TypeScript project scaffolding templates with no executable code or security risks.",
+  "valueStatement": "Create production-ready TypeScript projects with proper architecture, testing, and build tooling. Eliminate manual setup with comprehensive project templates for Next.js, React, Node.js APIs, and libraries.",
+  "userTitle": "Generate TypeScript Project Scaffolds",
+  "limitations": [
+    "Generates project structure and configuration files but does not create the actual files on disk",
+    "Requires manual execution of generated shell commands to initialize projects",
+    "Templates focus on common patterns and may not cover specialized architectures",
+    "Does not install dependencies or verify tool availability on the local system"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developer building React applications with server-side rendering",
+      "title": "Full-Stack Web Application Setup",
+      "description": "Developers starting new Next.js applications can generate complete project structures with TypeScript, API routes, component organization, and testing configuration."
+    },
+    {
+      "targetUser": "Backend developer building Node.js services or REST APIs",
+      "title": "Node.js Microservice Creation",
+      "description": "Backend developers creating Express APIs can scaffold projects with proper TypeScript configuration, route organization, middleware patterns, and test setup."
+    },
+    {
+      "targetUser": "Open source maintainer creating shared TypeScript packages or utilities",
+      "title": "Reusable TypeScript Library Development",
+      "description": "Library authors can generate TypeScript package structures with proper build configuration, type definitions, exports, and distribution setup for npm publishing."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Next.js Project",
+      "prompt": "Generate a Next.js 14 project with TypeScript, Tailwind CSS, and App Router. Include a home page and a dashboard route with basic layout components.",
+      "scenario": "Starting a new full-stack web application with modern Next.js features"
+    },
+    {
+      "title": "React + Vite SPA",
+      "prompt": "Create a React + Vite single-page application with TypeScript. Configure path aliases for @/ imports and set up Vitest for component testing.",
+      "scenario": "Building a client-side React application without server-side rendering"
+    },
+    {
+      "title": "Express API with TypeScript",
+      "prompt": "Scaffold a Node.js API project using Express and TypeScript. Include routes for users and health checks, middleware for error handling, and a test setup.",
+      "scenario": "Developing a backend REST API or microservice with Express"
+    },
+    {
+      "title": "TypeScript Library Package",
+      "prompt": "Generate a TypeScript library package structure with proper build configuration, type definitions, and exports for npm publishing. Include example source files and tests.",
+      "scenario": "Creating a reusable TypeScript package or utility library for distribution"
+    }
+  ],
+  "bestPractices": [
+    "Always use strict TypeScript compiler options including noImplicitAny, strictNullChecks, and noEmit for type safety",
+    "Organize project code by feature or layer (routes, controllers, services) to maintain separation of concerns and scalability",
+    "Include .env.example files with placeholder values to document required environment variables without exposing secrets"
+  ],
+  "antiPatterns": [
+    "Disabling strict TypeScript options or using 'any' type excessively, which defeats the purpose of using TypeScript",
+    "Committing .env files or node_modules/ directories to version control, which exposes sensitive data and bloats repositories",
+    "Skipping test configuration or tooling setup during scaffolding, which makes testing more difficult to add later"
+  ],
+  "faq": [
+    {
+      "question": "What TypeScript versions do these templates support?",
+      "answer": "All templates use TypeScript 5.3 or later with ES2022 target. The compiler options target modern Node.js and browser environments. You can adjust the target in tsconfig.json based on your runtime requirements."
+    },
+    {
+      "question": "Can I use npm instead of pnpm?",
+      "answer": "Yes, these templates work with any package manager. Replace 'pnpm' commands with 'npm' or 'yarn'. The project structures and configuration files are package-manager agnostic."
+    },
+    {
+      "question": "Do these templates include authentication setup?",
+      "answer": "No, authentication is not included by default. These templates provide the foundational project structure. You can add authentication libraries like NextAuth.js for Next.js or Passport.js for Express based on your requirements."
+    },
+    {
+      "question": "What testing framework is used?",
+      "answer": "Vitest is the recommended testing framework across all templates. It provides fast unit testing with native TypeScript support and a similar API to Jest. Configuration files are included for each project type."
+    },
+    {
+      "question": "Can I customize the project structure?",
+      "answer": "Yes, these templates serve as starting points. You can modify the directory structure, add or remove configuration files, and adjust the architecture to match your specific needs and preferences."
+    },
+    {
+      "question": "Are these templates production-ready?",
+      "answer": "The templates provide production-ready foundations including proper TypeScript configuration, build tooling, and test setup. However, you must add your business logic, error handling, security measures, and deployment configuration before deploying to production."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "TypeScript scaffolding",
+    "project generator",
+    "Node.js starter template",
+    "Next.js boilerplate",
+    "Vite React template",
+    "TypeScript project structure"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/javascript-typescript-typescript-scaffold",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "linear-projects-write",
+  "type": "skill",
+  "description": "Create and update Linear projects via CLI (write operations)",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "projects write",
+  "quality": 4,
+  "qualityReason": "Clear purpose and use",
+  "bundleHints": [
+    "linear-tools",
+    "project-management"
+  ],
+  "tags": [
+    "cli",
+    "creation",
+    "linear",
+    "project-management",
+    "projects",
+    "updates"
+  ],
+  "capabilities": [
+    "Create new Linear projects with name, teams, and description",
+    "Update existing projects with new name, description, lead, or status",
+    "Set project dates including start date and target date",
+    "Configure project priority levels from urgent to low",
+    "Support partial name matching for project identification",
+    "Output results in JSON format for automation"
+  ],
+  "author": "Bind",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill definition containing no executable source code. All 65 static findings are false positives caused by the analyzer misinterpreting documentation examples, version numbers, and environment variable references as security threats. The skill consists of SKILL.md (CLI documentation) and skill.json (configuration), referencing source files that do not exist in this registry. The previous AI audit correctly classified this as safe.",
+  "valueStatement": "Managing Linear projects manually takes time and can lead to inconsistent project setups. This skill provides simple CLI commands to create and update Linear projects directly from your terminal with standardized options for teams, leads, dates, and priorities.",
+  "userTitle": "Create and update Linear projects",
+  "limitations": [
+    "Requires LINEAR_API_KEY environment variable to be set",
+    "Source files not included in this registry definition",
+    "User names must exist in Linear to resolve project leads",
+    "Bun runtime must be installed to execute commands"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers",
+      "title": "Quick project setup",
+      "description": "Create new feature branches and projects in Linear with one command"
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Standardize project workflows",
+      "description": "Ensure all new projects follow consistent naming and priority conventions"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Automate project creation",
+      "description": "Integrate project creation into CI/CD pipelines for automated sprint setup"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create simple project",
+      "scenario": "Start a new feature",
+      "prompt": "Create a Linear project called [Project Name] for the [Team Name] team"
+    },
+    {
+      "title": "Create project with details",
+      "scenario": "Initiate a new initiative",
+      "prompt": "Create a new project with name [Name], teams [Team1,Team2], description [Description], lead [Lead Name], start date [YYYY-MM-DD], target date [YYYY-MM-DD], and priority [Priority Level]"
+    },
+    {
+      "title": "Update project status",
+      "scenario": "Change project state",
+      "prompt": "Update the [Project Name] project to show status [New Status] and target date [YYYY-MM-DD]"
+    },
+    {
+      "title": "Full project update",
+      "scenario": "Comprehensive project update",
+      "prompt": "Update project [Project Identifier] with new name [Name], description [Description], lead [Lead Name or none], status [Status], start date [YYYY-MM-DD], target date [YYYY-MM-DD], and priority [0-4]"
+    }
+  ],
+  "bestPractices": [
+    "Store LINEAR_API_KEY securely in environment variables or .env files",
+    "Use consistent naming conventions across all projects for easier searching",
+    "Set target dates during project creation to track delivery timelines",
+    "Add clear descriptions to help team members understand project scope"
+  ],
+  "antiPatterns": [
+    "Creating projects without descriptions makes tracking purpose difficult",
+    "Skipping team assignment limits visibility and access control",
+    "Using inconsistent naming conventions breaks partial name matching",
+    "Ignoring priority settings leads to unclear work prioritization"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. Install the skill and use Linear commands in your natural language prompts."
+    },
+    {
+      "question": "How many projects can I create or update?",
+      "answer": "The skill uses Linear API rate limits. For bulk operations, implement delays between requests to avoid hitting limits."
+    },
+    {
+      "question": "Does this integrate with existing Linear workspaces?",
+      "answer": "Yes. The skill connects to any Linear workspace where your API key has access. Team and user permissions apply."
+    },
+    {
+      "question": "Is my Linear data safe with this skill?",
+      "answer": "The skill only accesses Linear through authenticated API calls. Your API key is never stored or transmitted beyond Linear API endpoints."
+    },
+    {
+      "question": "Why is my project not found during updates?",
+      "answer": "Verify the project name or ID is correct. The skill supports partial name matching but case sensitivity applies. Check that you have access to the project."
+    },
+    {
+      "question": "How does this compare to Linear web interface?",
+      "answer": "This skill enables faster project creation through automation and templates. The web interface offers more configuration options and visual project boards."
+    }
+  ],
+  "seoKeywords": [
+    "Linear project management",
+    "create Linear projects",
+    "update Linear projects",
+    "CLI project tools",
+    "Linear API integration",
+    "project automation",
+    "Claude project management",
+    "Codex Linear integration",
+    "Claude Code Linear projects",
+    "developer productivity"
+  ],
+  "sourceUrl": "https://github.com/Bind/skillz.sh/tree/main/docs/registry/skills/linear-projects-write",
+  "sourceType": "community",
+  "dependencies": []
+}

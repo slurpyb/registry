@@ -1,0 +1,141 @@
+{
+  "name": "it-operations",
+  "type": "skill",
+  "description": "Manages IT infrastructure, monitoring, incident response, and service reliability. Provides frameworks for ITIL service management, observability strategies, automation, backup/recovery, capacity planning, and operational excellence practices.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "ITIL frameworks",
+  "quality": 4,
+  "qualityReason": "Broad operational scope",
+  "bundleHints": [
+    "it-ops",
+    "infrastructure-management"
+  ],
+  "tags": [
+    "automation",
+    "backup-recovery",
+    "capacity-planning",
+    "devops",
+    "incident-response",
+    "infrastructure",
+    "monitoring"
+  ],
+  "capabilities": [
+    "Implement monitoring and alerting strategies with SLI/SLO/SLA frameworks",
+    "Guide incident response with structured triage, escalation, and post-mortems",
+    "Create backup and disaster recovery plans with RPO/RTO definitions",
+    "Develop automation scripts for server provisioning and configuration management",
+    "Perform capacity planning and infrastructure cost optimization",
+    "Design runbooks and documentation for operational procedures"
+  ],
+  "author": "davila7",
+  "icon": "server",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing markdown files with IT operations guidance. Static scanner flagged 720 pattern matches but all are FALSE POSITIVES triggered by legitimate sysadmin examples. No executable code, no network calls, no file system access. Pure prompt-based skill for Claude to provide IT operations expertise.",
+  "valueStatement": "IT teams struggle with unreliable services, slow incident response, and manual processes. This skill provides frameworks for monitoring, incident management, automation, and disaster recovery to ensure service reliability and operational excellence.",
+  "userTitle": "Manage IT infrastructure and operations",
+  "limitations": [
+    "Does not execute commands on external systems",
+    "Does not access or modify production infrastructure",
+    "Does not integrate with specific monitoring tools directly",
+    "Does not replace human judgment for critical decisions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Site Reliability Engineers",
+      "title": "Establish SRE practices",
+      "description": "Define SLIs, SLOs, and error budgets for services while implementing proactive monitoring and incident response workflows."
+    },
+    {
+      "targetUser": "IT Operations Managers",
+      "title": "Build operational frameworks",
+      "description": "Create incident management processes, backup strategies, and capacity planning procedures for the organization."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Automate infrastructure tasks",
+      "description": "Develop automation scripts, configuration management playbooks, and self-healing systems to reduce manual toil."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Monitor setup",
+      "scenario": "Setting up monitoring",
+      "prompt": "Help me design a monitoring strategy for a web application including what metrics to track, alerting thresholds, and dashboard design principles."
+    },
+    {
+      "title": "Incident response",
+      "scenario": "Responding to incidents",
+      "prompt": "Walk me through the incident response process for a production outage including severity classification, roles, and communication templates."
+    },
+    {
+      "title": "DR planning",
+      "scenario": "Planning disaster recovery",
+      "prompt": "Create a disaster recovery plan for our database servers including RPO/RTO definitions, backup strategies, and failover procedures."
+    },
+    {
+      "title": "Automation project",
+      "scenario": "Automating operations",
+      "prompt": "Help me identify high-value automation opportunities in our operations workflow and design an automation script for server health checks."
+    }
+  ],
+  "bestPractices": [
+    "Implement monitoring before incidents occur rather than reactively adding alerts",
+    "Conduct blameless post-mortems focused on system improvements not individual blame",
+    "Automate repetitive tasks to reduce toil and free time for engineering work"
+  ],
+  "antiPatterns": [
+    "Ignoring warning signs until small incidents become major outages",
+    "Skipping post-mortems or failing to implement action items from reviews",
+    "Using manual processes for frequent tasks that should be automated"
+  ],
+  "faq": [
+    {
+      "question": "What monitoring tools does this skill support?",
+      "answer": "The skill covers Prometheus, Grafana, Datadog, New Relic, ELK Stack, and cloud-native monitoring solutions with implementation examples."
+    },
+    {
+      "question": "Can this skill help with Kubernetes operations?",
+      "answer": "Yes, the automation and monitoring guides include Kubernetes examples for operators, Prometheus monitoring, and self-healing systems."
+    },
+    {
+      "question": "Does this skill execute any code on my systems?",
+      "answer": "No, this skill only provides guidance and examples. All code snippets are educational references for you to adapt and run in your own environment."
+    },
+    {
+      "question": "How do I handle on-call rotations effectively?",
+      "answer": "The incident management guide covers on-call best practices including escalation policies, rotation schedules, and tools like PagerDuty integration."
+    },
+    {
+      "question": "What is the difference between monitoring and observability?",
+      "answer": "Monitoring answers is the system up with predefined dashboards. Observability helps investigate why the system is behaving this way through metrics, logs, and traces."
+    },
+    {
+      "question": "How does this compare to SRE practices?",
+      "answer": "This skill incorporates SRE principles including error budgets, toil reduction, automation-first approaches, and service level objectives aligned with business needs."
+    }
+  ],
+  "seoKeywords": [
+    "IT operations",
+    "infrastructure management",
+    "monitoring observability",
+    "incident response",
+    "disaster recovery",
+    "automation",
+    "ITIL",
+    "SRE",
+    "Claude Code",
+    "DevOps"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/it-operations",
+  "sourceType": "community",
+  "dependencies": []
+}

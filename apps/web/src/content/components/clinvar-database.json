@@ -1,0 +1,144 @@
+{
+  "name": "clinvar-database",
+  "type": "skill",
+  "description": "Query NCBI ClinVar for variant clinical significance. Search by gene/position, interpret pathogenicity classifications, access via E-utilities API or FTP, annotate VCFs, for genomic medicine.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "variant interpretation",
+  "quality": 5,
+  "qualityReason": "Precise genomic data access",
+  "bundleHints": [
+    "genomics-stack",
+    "variant-analysis"
+  ],
+  "tags": [
+    "clinical-significance",
+    "clinvar",
+    "e-utilities",
+    "genetic-medicine",
+    "genomic-medicine",
+    "genomics",
+    "ncbi",
+    "pathogenicity",
+    "variants",
+    "vcf-annotation"
+  ],
+  "capabilities": [
+    "Search ClinVar by gene, variant, or clinical significance using E-utilities API",
+    "Interpret ACMG/AMP classifications: Pathogenic, VUS, Benign, and review star ratings",
+    "Download bulk ClinVar data in XML, VCF, or tab-delimited formats via FTP",
+    "Annotate VCF files with clinical significance using bcftools or Python",
+    "Resolve conflicting variant interpretations using review status and evidence",
+    "Track variant classification updates and understand reclassification patterns"
+  ],
+  "author": "davila7",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill. Contains no executable code, scripts, or file system operations. Pure informational content about NCBI ClinVar database access and clinical significance interpretation. All 244 static findings are FALSE POSITIVES triggered by markdown documentation patterns misinterpreted as code.",
+  "valueStatement": "ClinVar is the authoritative database for genetic variant interpretations. This skill enables you to search for pathogenic variants, understand clinical significance classifications, and annotate genomic datasets using NCBI's E-utilities API and FTP downloads.",
+  "userTitle": "Query ClinVar for variant clinical significance",
+  "limitations": [
+    "Not for direct clinical diagnosis without genetics professional review",
+    "VCF format excludes variants larger than 10kb and complex structural variants",
+    "API rate limited to 3 requests/second without API key",
+    "VUS (uncertain significance) variants have insufficient evidence for clinical use"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Clinical Geneticists",
+      "title": "Find high-confidence pathogenic variants",
+      "description": "Search for pathogenic variants with expert panel review status to support clinical interpretation of patient sequencing data."
+    },
+    {
+      "targetUser": "Bioinformatics Researchers",
+      "title": "Annotate variant call sets",
+      "description": "Download ClinVar VCF and annotate sequencing results with clinical significance classifications for research analysis."
+    },
+    {
+      "targetUser": "Genetic Counselors",
+      "title": "Understand variant classifications",
+      "description": "Explain clinical significance categories, review status ratings, and conflicting interpretations to patients and families."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Search pathogenic variants",
+      "scenario": "Find pathogenic variants in a gene",
+      "prompt": "Search ClinVar for all Pathogenic variants in the BRCA1 gene with expert panel review. Show the review status and clinical significance for each variant."
+    },
+    {
+      "title": "Interpret clinical significance",
+      "scenario": "Understand a classification",
+      "prompt": "Explain the ClinVar clinical significance classification for a variant labeled 'Conflicting interpretations of pathogenicity'. How should this be interpreted?"
+    },
+    {
+      "title": "Download and process data",
+      "scenario": "Build a local variant database",
+      "prompt": "What FTP files should I download to build a local ClinVar database for variant annotation? Include file formats and download commands."
+    },
+    {
+      "title": "Annotate VCF files",
+      "scenario": "Add clinical significance to variants",
+      "prompt": "Show me how to use bcftools to annotate my VCF file with ClinVar clinical significance and review status information."
+    }
+  ],
+  "bestPractices": [
+    "Always check review status (star ratings) - prioritize ★★★ and ★★★★ variants for clinical use",
+    "Document the ClinVar version and access date for reproducibility in research",
+    "Cross-reference with population frequency data (gnomAD) and functional studies when available"
+  ],
+  "antiPatterns": [
+    "Using single-star variants for clinical decision-making without manual evidence review",
+    "Treating VUS (uncertain significance) variants as diagnostic evidence",
+    "Ignoring conflicting interpretations between submitters"
+  ],
+  "faq": [
+    {
+      "question": "Which ClinVar review status is most reliable?",
+      "answer": "Practice guideline and expert panel review are highest confidence. Two-star variants have moderate confidence from multiple submitters."
+    },
+    {
+      "question": "What is the difference between VCV, RCV, and SCV accessions?",
+      "answer": "VCV aggregates all data for a variant. RCV is variant-condition pair. SCV is individual submitter interpretation."
+    },
+    {
+      "question": "How do I get faster API responses from NCBI?",
+      "answer": "Register for a free NCBI API key to increase rate limits from 3 to 10 requests per second."
+    },
+    {
+      "question": "Is ClinVar data safe for direct clinical diagnosis?",
+      "answer": "No. ClinVar is a database of submitted interpretations. Always involve a genetics professional for clinical decision-making."
+    },
+    {
+      "question": "Why do some variants have conflicting classifications?",
+      "answer": "Different submitters may interpret evidence differently. Check individual submission details, review status, and evidence criteria."
+    },
+    {
+      "question": "How does ClinVar compare to other variant databases?",
+      "answer": "ClinVar is the most comprehensive public archive with submissions from clinical labs worldwide."
+    }
+  ],
+  "seoKeywords": [
+    "ClinVar",
+    "variant clinical significance",
+    "genomic medicine",
+    "NCBI ClinVar API",
+    "pathogenic variants",
+    "genetic variant database",
+    "VCF annotation",
+    "Claude Code skill",
+    "genomics research",
+    "ACMG classification"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/clinvar-database",
+  "sourceType": "community",
+  "dependencies": []
+}

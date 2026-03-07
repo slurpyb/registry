@@ -1,0 +1,142 @@
+{
+  "name": "data-processor",
+  "type": "skill",
+  "description": "Process and transform arrays of data with common operations like filtering, mapping, and aggregation",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "data transformation",
+  "quality": 3,
+  "qualityReason": "Generic functionality, overlaps with built-ins",
+  "bundleHints": [
+    "data-utilities",
+    "transformation-tools"
+  ],
+  "tags": [
+    "aggregate",
+    "arrays",
+    "data",
+    "filter",
+    "map",
+    "transform",
+    "transformation",
+    "utility"
+  ],
+  "capabilities": [
+    "Filter arrays based on custom conditions",
+    "Map fields to new values with transformations",
+    "Aggregate data using sum, average, count, min, max",
+    "Sort data by field in ascending or descending order",
+    "Remove duplicate records by specified field",
+    "Chain multiple operations for complex transformations"
+  ],
+  "author": "ArtemisAI",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown documentation and example code. No executable code, scripts, network calls, or filesystem operations exist. The skill describes data processing patterns for educational purposes only. All 33 static findings are false positives: the scanner misidentified markdown code block delimiters as shell commands and JavaScript array method names as cryptographic algorithms.",
+  "valueStatement": "Processing large datasets manually requires many tokens and risks errors. This skill provides reusable patterns for filtering, mapping, aggregating, and transforming array data in code, reducing token usage while ensuring consistent results.",
+  "userTitle": "Transform data arrays efficiently",
+  "limitations": [
+    "Input must be a valid JavaScript array of objects",
+    "Does not validate data schema or field types",
+    "No built-in error recovery for malformed data",
+    "Memory usage scales with dataset size"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data engineers",
+      "title": "Clean and normalize datasets",
+      "description": "Transform raw data into standardized formats by trimming strings, normalizing case, and removing duplicate entries"
+    },
+    {
+      "targetUser": "Business analysts",
+      "title": "Aggregate sales metrics",
+      "description": "Calculate sums, averages, and counts from transaction data to generate summary reports and KPIs"
+    },
+    {
+      "targetUser": "Backend developers",
+      "title": "Process API responses",
+      "description": "Filter and sort API results before returning to clients, reducing payload size and improving response times"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic filter",
+      "scenario": "Filter items by status",
+      "prompt": "Filter this array to keep only items where status equals 'active'"
+    },
+    {
+      "title": "Sort and limit",
+      "scenario": "Sort results by date",
+      "prompt": "Sort these records by createdDate in descending order and return the top 10"
+    },
+    {
+      "title": "Aggregate metrics",
+      "scenario": "Calculate totals",
+      "prompt": "Calculate the total revenue and average order value from this sales data"
+    },
+    {
+      "title": "Complex pipeline",
+      "scenario": "Full data pipeline",
+      "prompt": "Clean the data by trimming strings, normalize email to lowercase, remove duplicates by email, filter for verified users, and sort by signup date"
+    }
+  ],
+  "bestPractices": [
+    "Validate input data is an array before processing to catch errors early",
+    "Return statistics along with processed data to provide visibility into transformation results",
+    "Save intermediate results to disk when processing datasets larger than 10,000 records"
+  ],
+  "antiPatterns": [
+    "Processing entire datasets in memory without pagination or streaming",
+    "Applying transformations without checking for null or undefined values",
+    "Returning full datasets when only summary statistics are needed, wasting tokens"
+  ],
+  "faq": [
+    {
+      "question": "What data formats are supported?",
+      "answer": "This skill works with JavaScript arrays of objects. Each object should have consistent fields for operations like filter, map, and sort."
+    },
+    {
+      "question": "What are the size limits for processing?",
+      "answer": "Processing 1,000 records takes under 50ms, 10,000 records under 200ms, and 100,000 records under 2 seconds. Larger datasets may require chunked processing."
+    },
+    {
+      "question": "How do I chain multiple operations?",
+      "answer": "Pass multiple operations in a single object. The skill applies them in order: filter, map, sort, aggregate, unique. Each operation works on the result of the previous one."
+    },
+    {
+      "question": "Is my data safe during processing?",
+      "answer": "This skill only processes data in memory within your session. No data is sent to external services or written to disk unless you explicitly save it."
+    },
+    {
+      "question": "Why use code instead of natural language?",
+      "answer": "Processing 1,000 records in code uses about 500 tokens. Describing the same operations in natural language would use approximately 50,000 tokens."
+    },
+    {
+      "question": "How does this compare to SQL or database queries?",
+      "answer": "This skill is ideal for in-memory transformations on data already retrieved from databases or APIs. For large-scale filtering, database queries are more efficient."
+    }
+  ],
+  "seoKeywords": [
+    "data transformation",
+    "array processing",
+    "Claude Code data skills",
+    "filter arrays",
+    "map objects",
+    "aggregate data",
+    "data pipeline",
+    "JavaScript arrays",
+    "Claude data processing",
+    "Codex transformations"
+  ],
+  "sourceUrl": "https://github.com/ArtemisAI/code-execution-with-MCP/tree/main/skills/data-processor",
+  "sourceType": "community",
+  "dependencies": []
+}

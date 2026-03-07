@@ -1,0 +1,143 @@
+{
+  "name": "aiops",
+  "type": "skill",
+  "description": "Generic AIOps (AI for IT Operations) patterns and best practices for 2025. Provides comprehensive implementation strategies for intelligent monitoring, automation, incident response, and observability across any infrastructure. Framework-agnostic approach supporting multiple monitoring platforms, cloud providers, and automation tools.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "AI operations",
+  "quality": 4,
+  "qualityReason": "Broad but valuable AIOps scope",
+  "bundleHints": [
+    "ai-devops",
+    "smart-operations",
+    "observability-ai"
+  ],
+  "tags": [
+    "ai-automation",
+    "aiops",
+    "automation",
+    "incident-response",
+    "intelligent-monitoring",
+    "it-operations",
+    "monitoring",
+    "observability"
+  ],
+  "capabilities": [
+    "Build intelligent monitoring and alerting systems with ML-powered anomaly detection",
+    "Create automated incident response workflows with safety checks and retry logic",
+    "Integrate with Prometheus, Loki, Jaeger, and Datadog monitoring platforms",
+    "Implement predictive analytics for capacity planning and incident prediction",
+    "Deploy self-healing capabilities with automated remediation actions",
+    "Manage SLO compliance and error budgets for service reliability"
+  ],
+  "author": "Azeem-2",
+  "icon": "🤖",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing code patterns for AIOps implementation. Static findings are false positives: C2 keywords are standard DevOps terminology, weak crypto flags are incorrect, subprocess patterns are legitimate kubectl automation, and API key references are placeholder parameter names. Prior AI audit confirmed low risk with no file system access beyond normal execution.",
+  "valueStatement": "AIOps skills help you build automated incident response, anomaly detection, and self-healing infrastructure. These patterns work with any monitoring platform to reduce MTTR and improve reliability.",
+  "userTitle": "Implement intelligent AIOps strategies for infrastructure",
+  "limitations": [
+    "Code examples require adaptation for your specific environment and infrastructure",
+    "No runtime execution - this is a patterns and best practices reference",
+    "Authentication credentials must be configured separately for each integration",
+    "Kubernetes commands assume kubectl access and proper cluster permissions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Site Reliability Engineers",
+      "title": "Automate incident response",
+      "description": "Build automated runbooks that detect, classify, and remediate issues without human intervention"
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Deploy self-healing systems",
+      "description": "Create policies that automatically restart services, scale resources, or isolate failures"
+    },
+    {
+      "targetUser": "Platform Engineers",
+      "title": "Implement unified observability",
+      "description": "Build dashboards and alerting across metrics, logs, and traces from multiple sources"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Alert triage",
+      "scenario": "Analyze incoming alert",
+      "prompt": "Help me analyze this alert. The severity is [critical|high|medium|low], the service is [name], and the message is: [alert message]. What should our response plan include?"
+    },
+    {
+      "title": "Capacity planning",
+      "scenario": "Predict future needs",
+      "prompt": "Our [CPU|memory|storage] usage has been [describe trend] over the past [time period]. Using the AIOps patterns, help me create a capacity prediction model and scaling recommendations."
+    },
+    {
+      "title": "Build automation",
+      "scenario": "Create remediation action",
+      "prompt": "I need to create an automated remediation action for [specific failure type]. Following AIOps best practices, what should the action sequence, safety checks, and rollback plan include?"
+    },
+    {
+      "title": "Root cause analysis",
+      "scenario": "Investigate incident",
+      "prompt": "We experienced an incident affecting [service name]. Help me correlate metrics, logs, and traces to identify the root cause using the observability patterns from the AIOps skill."
+    }
+  ],
+  "bestPractices": [
+    "Always implement dry-run mode for automation actions before enabling auto-execution in production",
+    "Use circuit breakers and timeout limits on all automated remediation actions",
+    "Maintain human escalation paths even for low-severity automated responses"
+  ],
+  "antiPatterns": [
+    "Never execute automation without condition checking and pre-approval safeguards",
+    "Avoid hardcoding credentials - use secrets management and environment variables",
+    "Do not enable auto-remediation for critical services without thorough testing"
+  ],
+  "faq": [
+    {
+      "question": "Which monitoring platforms are supported?",
+      "answer": "Prometheus, Loki, Jaeger, and Datadog integrations are included. Additional sources can be added via the abstract DataSource class."
+    },
+    {
+      "question": "What are the recommended retry and timeout settings?",
+      "answer": "Default retry is 3 attempts with exponential backoff starting at 2 seconds. Default timeout is 300 seconds per action."
+    },
+    {
+      "question": "How do I integrate with my existing tools?",
+      "answer": "Implement the abstract DataSource class for your platform. Use the AutomationEngine handlers to connect to your runbook systems."
+    },
+    {
+      "question": "Is my data safe when using these patterns?",
+      "answer": "Yes. Patterns run in your environment. No data is sent to external services beyond your configured monitoring endpoints."
+    },
+    {
+      "question": "What if automation causes unintended changes?",
+      "answer": "All automation actions include safety mechanisms: pre-conditions, timeouts, rollback handlers, and logging to execution history."
+    },
+    {
+      "question": "How does this compare to existing AIOps tools?",
+      "answer": "These are implementation patterns you can adapt. Unlike vendor tools, this gives you full control over the ML models, automation logic, and integrations."
+    }
+  ],
+  "seoKeywords": [
+    "aiops",
+    "ai for it operations",
+    "claude code",
+    "incident response automation",
+    "anomaly detection",
+    "observability",
+    "claude",
+    "codex",
+    "monitoring",
+    "self-healing"
+  ],
+  "sourceUrl": "https://github.com/Azeem-2/HackthonII/tree/master/.claude/skills/aiops",
+  "sourceType": "community",
+  "dependencies": []
+}

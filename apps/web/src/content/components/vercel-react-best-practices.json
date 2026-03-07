@@ -1,0 +1,141 @@
+{
+  "name": "vercel-react-best-practices",
+  "type": "skill",
+  "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "performance optimization",
+  "quality": 5,
+  "qualityReason": "Authoritative and specific",
+  "bundleHints": [
+    "react-stack",
+    "performance-optimization"
+  ],
+  "tags": [
+    "bundle-size",
+    "code-review",
+    "nextjs",
+    "optimization",
+    "performance",
+    "react",
+    "rendering",
+    "vercel"
+  ],
+  "capabilities": [
+    "Guides AI agents in writing React/Next.js code following Vercel engineering standards",
+    "Provides 45 prioritized performance rules across 8 categories from critical to advanced",
+    "Delivers code examples comparing incorrect vs. correct implementations",
+    "Covers bundle size optimization, data fetching waterfalls, server-side performance, and re-render optimization",
+    "References specific impact metrics to guide automated refactoring decisions"
+  ],
+  "author": "vercel-labs",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is pure documentation containing no executable code. All static scanner findings are false positives: backticks in markdown code fences are not shell execution, 'crypto' references are React APIs (React.cache), bracket patterns are markdown link syntax, and storage mentions are documentation about caching patterns. The skill provides 45 React/Next.js performance optimization rules for AI-assisted code generation and refactoring.",
+  "valueStatement": "React applications often suffer from performance issues like unnecessary re-renders, large bundle sizes, and sequential data fetching waterfalls. This skill provides 45 prioritized rules from Vercel Engineering to eliminate these bottlenecks and build high-performance web applications.",
+  "userTitle": "Optimize React and Next.js Performance",
+  "limitations": [
+    "Contains only documentation and code examples - does not execute code or modify projects directly",
+    "Focused on React and Next.js - does not cover other frameworks or vanilla JavaScript",
+    "Rules are guidelines - actual implementation depends on specific project context",
+    "Does not provide runtime performance profiling or measurements"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers building new React/Next.js features",
+      "title": "Writing New React Components",
+      "description": "When generating new React components or pages, this skill ensures proper patterns from the start including data fetching, state management, and bundle optimization."
+    },
+    {
+      "targetUser": "Engineering teams maintaining React applications",
+      "title": "Code Review and Refactoring",
+      "description": "When reviewing or refactoring existing React code, identify and fix performance anti-patterns like waterfalls, unnecessary re-renders, and large bundle sizes."
+    },
+    {
+      "targetUser": "AI development tools and Claude users",
+      "title": "AI-Assisted Code Generation",
+      "description": "Provides AI agents with Vercel's internal standards for generating production-ready React code that meets performance expectations out of the box."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Generate Optimized Component",
+      "prompt": "Generate a Next.js page that fetches user data and posts in parallel. Apply the vercel-react-best-practices skill rules for async-parallel and server-parallel-fetching. Include proper loading states and error handling.",
+      "scenario": "Creating a new page with data fetching"
+    },
+    {
+      "title": "Review Component Performance",
+      "prompt": "Review the following React component for performance issues using the vercel-react-best-practices skill. Check for: waterfalls in async operations, unnecessary re-renders, missing memoization, and bundle optimization opportunities.",
+      "scenario": "Analyzing existing component for optimization opportunities"
+    },
+    {
+      "title": "Optimize Bundle Size",
+      "prompt": "Analyze the following code for bundle size issues using bundle-* rules from vercel-react-best-practices. Identify barrel file imports, heavy components that should use dynamic imports, and conditional loading opportunities.",
+      "scenario": "Reducing application bundle size"
+    },
+    {
+      "title": "Fix Re-render Issues",
+      "prompt": "The following React component is re-rendering too frequently. Apply rerender-* rules from vercel-react-best-practices to identify missing memoization, improper dependencies, derived state issues, and unnecessary subscriptions.",
+      "scenario": "Improving component rendering performance"
+    }
+  ],
+  "bestPractices": [
+    "Eliminate waterfalls first - parallelize independent async operations using Promise.all() before optimizing other areas, as this provides the largest performance gains",
+    "Use dynamic imports (next/dynamic) for heavy components and libraries that are not needed on initial page load to reduce Time to Interactive",
+    "Apply memoization at the right level - extract expensive computations to memoized child components rather than wrapping simple expressions in useMemo"
+  ],
+  "antiPatterns": [
+    "Sequential await statements that create waterfalls - each sequential await blocks the next, doubling or tripling page load time",
+    "Importing entire barrel files (index.ts) which bundle all exports - import directly from the specific module to enable tree-shaking",
+    "Subscribing components to more state than needed - only subscribe to the specific values used in render, not parent state that triggers unnecessary re-renders"
+  ],
+  "faq": [
+    {
+      "question": "What priority order should I follow when applying these rules?",
+      "answer": "Start with CRITICAL rules (eliminating waterfalls, bundle optimization) as they provide the largest gains. Then move to HIGH priority (server-side performance), followed by MEDIUM (re-renders, rendering), and finally LOW (advanced patterns)."
+    },
+    {
+      "question": "Does this skill modify my code directly?",
+      "answer": "No, this skill provides documentation and guidance for AI agents. It does not execute code or modify files directly. It serves as a knowledge base for writing and reviewing React/Next.js code."
+    },
+    {
+      "question": "Which Next.js and React versions do these rules apply to?",
+      "answer": "These rules target modern Next.js (App Router) and React 18+ features including Suspense, Transitions, useOptimistic, and React.cache(). Some rules may not apply to older versions."
+    },
+    {
+      "question": "How do I apply these rules to existing codebases?",
+      "answer": "Use the skill during code review or refactoring sessions. The rules include specific code examples showing incorrect patterns and their corrected versions, making it easy to identify and fix issues."
+    },
+    {
+      "question": "Can I use these rules for non-Next.js React apps?",
+      "answer": "Most rules apply to any React application using React 18+. Server-side rules (server-cache-react, server-parallel-fetching) are specific to Next.js App Router."
+    },
+    {
+      "question": "How are these rules different from official React docs?",
+      "answer": "These rules capture Vercel's internal engineering standards and real-world performance optimizations learned from deploying millions of Next.js applications. They prioritize rules by actual performance impact."
+    }
+  ],
+  "seoKeywords": [
+    "React performance optimization",
+    "Next.js best practices",
+    "React best practices",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "React re-render optimization",
+    "Bundle size optimization",
+    "React data fetching",
+    "Next.js performance"
+  ],
+  "sourceUrl": "https://github.com/vercel-labs/agent-skills/tree/main/skills/react-best-practices/",
+  "sourceType": "community",
+  "dependencies": []
+}

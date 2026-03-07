@@ -1,0 +1,141 @@
+{
+  "name": "code-patterns-practices",
+  "type": "skill",
+  "description": "React Native coding patterns, best practices, and common solutions for mobile development. Use when implementing features or refactoring code.",
+  "domain": "mobile",
+  "subdomain": "cross-platform",
+  "specialty": "React Native patterns",
+  "quality": 4,
+  "qualityReason": "Specific mobile framework",
+  "bundleHints": [
+    "react-native-stack",
+    "mobile-dev"
+  ],
+  "tags": [
+    "best-practices",
+    "feature-implementation",
+    "mobile-development",
+    "patterns",
+    "react-native",
+    "refactoring",
+    "typescript"
+  ],
+  "capabilities": [
+    "Provides custom hook patterns for extracting reusable logic from components",
+    "Shows compound component patterns for building flexible and declarative component APIs",
+    "Demonstrates render props technique for sharing component logic between components",
+    "Explains state management approaches using React Context and Zustand store",
+    "Covers data fetching patterns with async/await and proper cleanup handling",
+    "Details performance optimization using memoization, lazy loading, and error boundaries"
+  ],
+  "author": "BabakBar",
+  "icon": "📱",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing React Native coding patterns. All static findings are false positives caused by the scanner misinterpreting code examples and documentation syntax as security issues. The skill has minimal tool permissions (Read, Write, Edit), contains no executable code, and poses no security risk.",
+  "valueStatement": "This skill provides React Native coding patterns and best practices for building mobile apps. Use it to implement common patterns like custom hooks, compound components, and state management in your mobile projects.",
+  "userTitle": "Apply React Native Code Patterns",
+  "limitations": [
+    "Does not write or test actual code in your project files",
+    "Does not execute or run React Native applications",
+    "Does not provide backend API implementation guidance",
+    "Focused specifically on React Native, not general web React patterns"
+  ],
+  "useCases": [
+    {
+      "targetUser": "React Native developers",
+      "title": "Implement new features",
+      "description": "Apply established patterns when building new screens, components, or features in React Native apps."
+    },
+    {
+      "targetUser": "Mobile app architects",
+      "title": "Choose architecture patterns",
+      "description": "Select appropriate state management and component patterns for mobile app architecture decisions."
+    },
+    {
+      "targetUser": "Frontend developers new to React Native",
+      "title": "Learn React Native patterns",
+      "description": "Understand React Native-specific patterns like safe area handling and keyboard avoiding view."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Custom hook",
+      "scenario": "Create reusable logic hook",
+      "prompt": "Show me how to create a custom hook in React Native for handling toggle state."
+    },
+    {
+      "title": "Component API",
+      "scenario": "Build flexible component",
+      "prompt": "How do I implement compound components pattern in React Native for tabs navigation?"
+    },
+    {
+      "title": "State store",
+      "scenario": "Manage global state",
+      "prompt": "What is the best pattern for managing global user state in a React Native app with Zustand?"
+    },
+    {
+      "title": "Performance",
+      "scenario": "Optimize renders",
+      "prompt": "How do I use useMemo and useCallback to optimize performance in a React Native list component?"
+    }
+  ],
+  "bestPractices": [
+    "Keep components small with single responsibility for easier testing and maintenance",
+    "Extract reusable logic into custom hooks rather than duplicating code across components",
+    "Handle loading and error states explicitly to improve user experience during async operations"
+  ],
+  "antiPatterns": [
+    "Avoid massive components over 300 lines that try to do too many things at once",
+    "Do not pass props through multiple levels (prop drilling); use Context or state stores instead",
+    "Never mutate state directly; always use state setter functions to trigger re-renders"
+  ],
+  "faq": [
+    {
+      "question": "What React Native versions are supported?",
+      "answer": "Patterns work with React Native 0.71+ and Expo SDK 49+. Check compatibility with specific hook dependencies."
+    },
+    {
+      "question": "Can I use these patterns with Expo?",
+      "answer": "Yes. All patterns are compatible with Expo managed workflow and bare React Native projects."
+    },
+    {
+      "question": "How do I handle async operations safely?",
+      "answer": "Use cancellation flags in useEffect to prevent updates on unmounted components. Check cancelled state before setting state."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This is a read-only guidance skill. It only reads your code to provide context-aware suggestions."
+    },
+    {
+      "question": "Why is my component re-rendering too much?",
+      "answer": "Check for inline function definitions in JSX. Use useCallback for event handlers and useMemo for expensive calculations."
+    },
+    {
+      "question": "How is this different from React web patterns?",
+      "answer": "React Native patterns address mobile-specific concerns like safe area insets, keyboard avoiding, and touch interactions."
+    }
+  ],
+  "seoKeywords": [
+    "react native patterns",
+    "react native best practices",
+    "mobile development patterns",
+    "typescript react native",
+    "react native coding",
+    "react native hooks",
+    "react native state management",
+    "claude code patterns",
+    "react native performance",
+    "react native components"
+  ],
+  "sourceUrl": "https://github.com/BabakBar/VibeKeeper/tree/main/.claude/skills/code-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

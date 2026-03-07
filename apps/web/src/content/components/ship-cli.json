@@ -1,0 +1,139 @@
+{
+  "name": "ship-cli",
+  "type": "skill",
+  "description": "Work management system replacing built-in todos with tracked tasks and stacked changes",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "task tracking",
+  "quality": 4,
+  "qualityReason": "Good specificity, niche tool",
+  "bundleHints": [
+    "workflow-automation",
+    "dev-tools",
+    "project-management"
+  ],
+  "tags": [
+    "cli",
+    "jujutsu",
+    "linear",
+    "stacked-changes",
+    "task-management",
+    "workflow"
+  ],
+  "capabilities": [
+    "Track tasks through Linear integration with status updates",
+    "Create and manage stacked changes with Jujutsu VCS",
+    "Sync work with trunk and submit stacked PRs",
+    "Handle webhook events for GitHub notifications",
+    "Manage milestones and task dependencies"
+  ],
+  "author": "EduSantosBrito",
+  "icon": "🚢",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based documentation skill with no executable code. Static analyzer flagged documentation text patterns incorrectly. The word 'hash' appears in JSON metadata fields (content_hash, tree_hash), backticks are markdown code formatting, and URLs are source references. All 99 findings are false positives. The skill provides workflow instructions for using external CLI tools and executes nothing itself.",
+  "valueStatement": "Managing work across tasks, commits, and PRs is fragmented and error-prone. This skill provides a unified workflow for Linear task management with stacked changes using Jujutsu.",
+  "userTitle": "Manage tasks and track stacked changes",
+  "limitations": [
+    "Requires the ship CLI tool to be installed separately",
+    "Works with Linear for task tracking - other tools not supported",
+    "Jujutsu (jj) must be configured for version control operations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Individual developers",
+      "title": "Track personal tasks",
+      "description": "Organize and track individual development tasks with integrated Linear and VCS workflow"
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Coordinate team work",
+      "description": "Manage team progress with milestones, dependencies, and stacked PR reviews"
+    },
+    {
+      "targetUser": "Open source contributors",
+      "title": "Submit clean PRs",
+      "description": "Create well-structured stacked changes for clean, reviewable pull requests"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Find ready tasks",
+      "scenario": "Check for available work",
+      "prompt": "ship: action=ready"
+    },
+    {
+      "title": "Start a task",
+      "scenario": "Begin working on an issue",
+      "prompt": "ship: action=start, taskId=TASK-123"
+    },
+    {
+      "title": "Create stacked change",
+      "scenario": "Start new work",
+      "prompt": "ship: action=stack-create, message=\"feat: add new feature\", bookmark=\"user/feature-slug\""
+    },
+    {
+      "title": "Submit work",
+      "scenario": "Push and create PR",
+      "prompt": "ship: action=stack-sync, workdir=/path && ship: action=stack-submit, workdir=/path"
+    }
+  ],
+  "bestPractices": [
+    "Always use workdir parameter for commands in workspaces",
+    "Run stack-sync before stack-submit to ensure clean history",
+    "Mark tasks as done only after PR is created and merged"
+  ],
+  "antiPatterns": [
+    "Running jj, gh pr, or git commands directly instead of using ship tool",
+    "Skipping stack-sync before submitting work",
+    "Moving to next task before current PR is merged"
+  ],
+  "faq": [
+    {
+      "question": "What tools do I need installed?",
+      "answer": "The ship CLI tool, Jujutsu (jj), and a Linear workspace for task tracking."
+    },
+    {
+      "question": "Does this work with GitHub?",
+      "answer": "Yes, ship integrates with GitHub for PR creation, reviews, and webhook notifications."
+    },
+    {
+      "question": "Can I use this with GitLab?",
+      "answer": "Currently ship targets GitHub. Other platforms require custom integration."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes, ship only reads and writes to your configured Linear and GitHub accounts."
+    },
+    {
+      "question": "Why use stacked changes?",
+      "answer": "Stacked changes enable smaller, focused PRs that are easier to review and maintain."
+    },
+    {
+      "question": "How is this different from git branches?",
+      "answer": "Stacked changes with Jujutsu track dependencies between commits, making complex work easier to manage."
+    }
+  ],
+  "seoKeywords": [
+    "task management",
+    "Linear integration",
+    "stacked changes",
+    "Jujutsu",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "workflow automation",
+    "git workflow",
+    "pull requests"
+  ],
+  "sourceUrl": "https://github.com/EduSantosBrito/ship-cli/tree/main/.opencode/skill/ship-cli",
+  "sourceType": "community",
+  "dependencies": []
+}

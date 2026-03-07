@@ -1,0 +1,141 @@
+{
+  "name": "azure-communication-chat-java",
+  "type": "skill",
+  "description": "Build real-time chat applications with Azure Communication Services Chat Java SDK. Use when implementing chat threads, messaging, participants, read receipts, typing notifications, or real-time chat features.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "real-time chat",
+  "quality": 5,
+  "qualityReason": "Clear SDK integration",
+  "bundleHints": [
+    "azure-communications",
+    "java-backend",
+    "chat-apps"
+  ],
+  "tags": [
+    "acs",
+    "azure",
+    "chat",
+    "java",
+    "messaging",
+    "real-time",
+    "realtime"
+  ],
+  "capabilities": [
+    "Create and manage chat threads with multiple participants",
+    "Send, update, and delete text and HTML messages",
+    "Add or remove participants from chat threads",
+    "Track and send read receipts for messages",
+    "Implement typing notifications",
+    "Paginate through large message histories"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is documentation for Azure Communication Services Chat Java SDK. All static analyzer findings are false positives caused by misinterpreting markdown code blocks as executable code. The file contains only API usage examples with placeholder values, no actual command execution, network calls, or cryptographic operations. Safe for publication.",
+  "valueStatement": "Creating chat features from scratch is complex and time-consuming. This skill provides ready-to-use Azure Communication Services Chat SDK patterns for threads, messages, participants, and read receipts in Java applications.",
+  "userTitle": "Build Real-Time Chat Apps with Azure Communication Services",
+  "limitations": [
+    "Requires Azure Communication Services resource and valid user access tokens",
+    "User tokens expire and require refresh logic implementation",
+    "Only supports Azure Communication Services platform, not other chat providers",
+    "Does not handle token generation, only consumption of provided tokens"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Java backend developers building customer-facing support features",
+      "title": "Customer Support Chat Integration",
+      "description": "Add real-time chat support to web applications using Azure Communication Services with participant management and message history"
+    },
+    {
+      "targetUser": "Enterprise developers creating workplace communication tools",
+      "title": "Team Collaboration Tool",
+      "description": "Implement internal team messaging with thread-based discussions, read receipts, and typing indicators"
+    },
+    {
+      "targetUser": "Full-stack developers adding social features to applications",
+      "title": "Multi-User Application Chat",
+      "description": "Enable user-to-user messaging in applications with proper participant controls and message persistence"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Chat Thread Setup",
+      "prompt": "Create a Java chat thread using Azure Communication Services with two participants named Alice and Bob. Include the dependency, client initialization with endpoint and token credential, and thread creation code.",
+      "scenario": "Beginner developer needs starter code for basic chat functionality"
+    },
+    {
+      "title": "Send and Retrieve Messages",
+      "prompt": "Show me how to send a text message and an HTML message to an Azure chat thread, then retrieve all messages with pagination. Include error handling for unauthorized access.",
+      "scenario": "Developer implementing core messaging features"
+    },
+    {
+      "title": "Participant Management System",
+      "prompt": "Generate Java code to list all participants in a chat thread, add a new participant with shared history for the last 7 days, and remove a participant by their user ID. Include proper error handling.",
+      "scenario": "Building admin controls for chat room management"
+    },
+    {
+      "title": "Complete Chat Feature with Read Receipts",
+      "prompt": "Create a comprehensive chat implementation with message sending, typing notifications, read receipt tracking, and message update/delete operations. Include pagination for large threads and proper exception handling for all HTTP status codes.",
+      "scenario": "Production-ready chat feature with full user experience"
+    }
+  ],
+  "bestPractices": [
+    "Implement token refresh logic using CommunicationTokenRefreshOptions since user access tokens expire",
+    "Use pagination with maxPageSize for threads with large message histories to improve performance",
+    "Set shareHistoryTime when adding participants to control how much historical content they can access"
+  ],
+  "antiPatterns": [
+    "Do not send read receipts unless the user has actually viewed the message content",
+    "Avoid filtering system messages like PARTICIPANT_ADDED from the message stream without explicit user preference",
+    "Do not hardcode endpoint URLs or access tokens in source code, use environment variables instead"
+  ],
+  "faq": [
+    {
+      "question": "How do I obtain a user access token for Azure Communication Services?",
+      "answer": "User access tokens are generated server-side using the Azure Communication Services Administration SDK with your connection string. The token should then be securely passed to the client application."
+    },
+    {
+      "question": "Can I use this skill with Azure Communication Services free tier?",
+      "answer": "Yes, the Azure Communication Services Chat SDK works with all service tiers including the free tier. Check Azure pricing for message and participant limits."
+    },
+    {
+      "question": "How long do user access tokens remain valid?",
+      "answer": "Token expiration is configurable when generated. Implement refresh logic using CommunicationTokenRefreshOptions to automatically obtain new tokens before expiration."
+    },
+    {
+      "question": "Can I add participants to an existing chat thread?",
+      "answer": "Yes, use the addParticipants method on ChatThreadClient. You can control message history visibility by setting shareHistoryTime on each new participant."
+    },
+    {
+      "question": "How do I handle message edit and delete events?",
+      "answer": "Check the editedOn and deletedOn properties on ChatMessage objects. These timestamps indicate when a message was modified or removed."
+    },
+    {
+      "question": "Is HTML content sanitized in chat messages?",
+      "answer": "Azure Communication Services accepts HTML content but does not sanitize it. Implement your own sanitization to prevent XSS attacks if displaying user-generated HTML content."
+    }
+  ],
+  "seoKeywords": [
+    "Azure Communication Services",
+    "Java chat SDK",
+    "real-time messaging",
+    "chat thread management",
+    "Claude Code Azure",
+    "Codex chat integration",
+    "Azure chat API",
+    "Java messaging library",
+    "Claude Azure skills"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-communication-chat-java",
+  "sourceType": "community",
+  "dependencies": []
+}

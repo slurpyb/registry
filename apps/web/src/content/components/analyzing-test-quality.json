@@ -1,0 +1,146 @@
+{
+  "name": "analyzing-test-quality",
+  "type": "skill",
+  "description": "Automatically activated when user asks about test quality, code coverage, test reliability, test maintainability, or wants to analyze their test suite. Provides framework-agnostic test quality analysis and improvement recommendations. Does NOT provide framework-specific patterns - use jest-testing or playwright-testing for those.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "Test suite analysis",
+  "quality": 5,
+  "qualityReason": "Comprehensive test quality focus",
+  "bundleHints": [
+    "testing-excellence",
+    "qa-engineering",
+    "reliable-tests"
+  ],
+  "tags": [
+    "code-coverage",
+    "coverage",
+    "framework-agnostic",
+    "maintainability",
+    "quality",
+    "quality-metrics",
+    "test-analysis",
+    "test-reliability",
+    "testing"
+  ],
+  "capabilities": [
+    "Calculates test metrics including test counts, ratios, and pattern usage",
+    "Detects common anti-patterns like test pollution, over-mocking, and flaky assertions",
+    "Analyzes code coverage across statements, branches, functions, and lines",
+    "Identifies flaky tests and reliability issues in test suites",
+    "Provides mutation testing guidance with Stryker configuration examples",
+    "Evaluates test pyramid balance and test organization quality"
+  ],
+  "author": "C0ntr0lledCha0s",
+  "icon": "🧪",
+  "version": "1.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-based testing utility skill with an auxiliary bash script for metrics calculation. The script only reads files using standard Unix utilities (find, grep, wc) and outputs metrics to stdout. No network calls, no sensitive data access, no command injection risk. All static findings are false positives from documentation code examples and structural syntax being misinterpreted by the pattern matcher.",
+  "valueStatement": "Poor test quality leads to false confidence and hidden bugs. This skill provides automated analysis of test suites including coverage metrics, anti-pattern detection, and actionable improvement recommendations across any testing framework.",
+  "userTitle": "Analyze test quality and coverage metrics",
+  "limitations": [
+    "Does not provide framework-specific testing patterns (use jest-testing or playwright-testing skills)",
+    "Cannot execute tests or generate coverage reports directly",
+    "Does not fix tests - only provides recommendations and guidance",
+    "Cannot analyze non-JavaScript/TypeScript test files"
+  ],
+  "useCases": [
+    {
+      "targetUser": "QA Engineers",
+      "title": "Test suite health check",
+      "description": "Evaluate test quality metrics and identify improvement areas across your entire test suite"
+    },
+    {
+      "targetUser": "Dev Leads",
+      "title": "Coverage gap analysis",
+      "description": "Identify untested code paths and prioritize which areas need additional test coverage"
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Anti-pattern identification",
+      "description": "Find and fix common testing mistakes like flaky tests, over-mocking, and assertion roulette"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick coverage check",
+      "scenario": "Get a quick overview of test coverage",
+      "prompt": "Analyze my test coverage and identify the main gaps in my test suite"
+    },
+    {
+      "title": "Reliability audit",
+      "scenario": "Find flaky tests",
+      "prompt": "Check my tests for flakiness issues, timing dependencies, and shared state problems"
+    },
+    {
+      "title": "Anti-pattern review",
+      "scenario": "Review test quality",
+      "prompt": "Review my test files and identify anti-patterns like over-mocking, assertion roulette, and mystery guests"
+    },
+    {
+      "title": "Full assessment",
+      "scenario": "Complete test analysis",
+      "prompt": "Run a full test quality assessment including metrics, coverage, anti-patterns, and provide a prioritized improvement roadmap"
+    }
+  ],
+  "bestPractices": [
+    "Use AAA (Arrange-Act-Assert) pattern for clear and maintainable test structure",
+    "Keep tests independent with proper setup and teardown for each test case",
+    "Test behavior, not implementation details to avoid brittle tests",
+    "Aim for meaningful coverage that validates actual functionality"
+  ],
+  "antiPatterns": [
+    "Multiple unrelated assertions in a single test (assertion roulette)",
+    "Hidden dependencies in tests without explicit setup (mystery guest pattern)",
+    "Over-mocking external dependencies which hides bugs and makes tests brittle",
+    "Using setTimeout instead of proper wait conditions for async tests"
+  ],
+  "faq": [
+    {
+      "question": "What frameworks does this skill support?",
+      "answer": "Framework-agnostic. Works with Jest, Vitest, Mocha, Playwright, and any testing framework using standard patterns."
+    },
+    {
+      "question": "Does it generate coverage reports?",
+      "answer": "No. It analyzes existing coverage data and provides recommendations. Run your framework's coverage command first."
+    },
+    {
+      "question": "How is this different from jest-testing?",
+      "answer": "jest-testing provides Jest-specific patterns. This skill analyzes test quality across any framework without framework details."
+    },
+    {
+      "question": "Is my test data safe?",
+      "answer": "Yes. The skill only reads files to analyze patterns. No data is sent anywhere or stored externally."
+    },
+    {
+      "question": "Can it fix the issues it finds?",
+      "answer": "No. It identifies problems and provides recommendations. You must implement the fixes yourself."
+    },
+    {
+      "question": "Does it work with other languages?",
+      "answer": "The bash script focuses on JS/TS files. The analysis principles apply broadly but implementation is language-specific."
+    }
+  ],
+  "seoKeywords": [
+    "test quality analysis",
+    "code coverage metrics",
+    "test suite analysis",
+    "Claude Code testing skill",
+    "anti-pattern detection",
+    "mutation testing",
+    "flaky test detection",
+    "test maintainability",
+    "testing best practices",
+    "test reliability assessment"
+  ],
+  "sourceUrl": "https://github.com/C0ntr0lledCha0s/claude-code-plugin-automations/tree/main/testing-expert/skills/analyzing-test-quality",
+  "sourceType": "community",
+  "dependencies": []
+}

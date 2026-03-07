@@ -1,0 +1,139 @@
+{
+  "name": "flow-receiving-review",
+  "type": "skill",
+  "description": "Handle code review feedback with technical rigor. Don't blindly agree - verify before implementing.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "review handling",
+  "quality": 5,
+  "qualityReason": "Critical process step",
+  "bundleHints": [
+    "flow-dev",
+    "quality-process"
+  ],
+  "tags": [
+    "code-review",
+    "feedback",
+    "process",
+    "quality",
+    "technical-rigor",
+    "workflow"
+  ],
+  "capabilities": [
+    "Guide users through a 3-step process: Understand, Verify, Implement",
+    "Provide templates for agreeing, asking clarification, and respectfully disagreeing",
+    "Identify red flags that indicate blind compliance with incorrect feedback",
+    "Help users push back on feedback with technical reasoning and evidence",
+    "Cross-reference with flow-review command for comprehensive review workflow"
+  ],
+  "author": "Dimon94",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based documentation skill with no executable code. The static findings are all false positives: metadata URL is source reference (not network call), backticks are markdown formatting (not shell execution), path references are markdown links (not traversal attacks), and workflow terms are skill names (not C2 commands). This is a low-risk instructional skill.",
+  "valueStatement": "Code review feedback can be incorrect or misguided. This skill provides a systematic 3-step process to verify feedback, ask clarifying questions, and respond appropriately—ensuring technical rigor over blind compliance.",
+  "userTitle": "Verify code review feedback before implementing",
+  "limitations": [
+    "Does not execute code or run tests automatically",
+    "Does not access codebase to verify feedback correctness",
+    "Does not communicate with external reviewers or platforms",
+    "Requires manual verification steps by the user"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Professional code review response",
+      "description": "Developers can use this skill to maintain technical standards when responding to review comments"
+    },
+    {
+      "targetUser": "AI coding assistants",
+      "title": "Structured feedback handling",
+      "description": "AI agents can use this skill to process review feedback systematically before implementing changes"
+    },
+    {
+      "targetUser": "Tech leads and reviewers",
+      "title": "Quality review guidelines",
+      "description": "Team leads can use this skill to ensure review feedback is technically sound before submission"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Agree with feedback",
+      "scenario": "Acknowledging a valid code review comment",
+      "prompt": "Good catch! You're right that [issue]. I've updated [file] to [fix]. Verified by running [test/command]."
+    },
+    {
+      "title": "Ask for clarification",
+      "scenario": "When review feedback is unclear",
+      "prompt": "I want to make sure I understand correctly. Are you suggesting [interpretation]? If so, I'm wondering about [concern]. Could you elaborate?"
+    },
+    {
+      "title": "Respectfully disagree",
+      "scenario": "When feedback appears incorrect",
+      "prompt": "I considered [suggestion], but I went with [current approach] because: 1. [Reason 1] 2. [Reason 2]. The trade-off is [X]. What do you think about [alternative]?"
+    },
+    {
+      "title": "Request evidence",
+      "scenario": "When unable to reproduce the issue",
+      "prompt": "I'm having trouble reproducing [issue]. Could you share: steps to reproduce, expected vs actual behavior, and environment details?"
+    }
+  ],
+  "bestPractices": [
+    "Always verify feedback correctness before implementing - reviewers can make mistakes",
+    "Ask clarifying questions when feedback is unclear rather than guessing intent",
+    "Provide evidence and reasoning when pushing back on feedback"
+  ],
+  "antiPatterns": [
+    "Blindly implementing feedback you do not understand or agree with",
+    "Silently disagreeing without raising concerns constructively",
+    "Skipping verification steps because it seems faster to just make the change"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill integrate with other CC-DevFlow commands?",
+      "answer": "Yes, it integrates with /flow-review command and references spec-reviewer and code-quality-reviewer agents."
+    },
+    {
+      "question": "What platforms support this skill?",
+      "answer": "This skill supports Claude, Codex, and Claude Code. It works in any environment where these AI tools are available."
+    },
+    {
+      "question": "Can this skill run tests automatically?",
+      "answer": "No, this is a prompt-based skill. You must manually verify feedback and run tests yourself."
+    },
+    {
+      "question": "Is my review data stored or shared?",
+      "answer": "No, this skill is purely instructional. It does not store, transmit, or share any data."
+    },
+    {
+      "question": "How do I handle aggressive or dismissive reviewers?",
+      "answer": "Focus on technical facts. Use the response templates to maintain professionalism while standing your ground."
+    },
+    {
+      "question": "How is this different from flow-review skill?",
+      "answer": "flow-review handles giving feedback to others. flow-receiving-review handles receiving and responding to feedback."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "code review",
+    "feedback verification",
+    "code review process",
+    "technical rigor",
+    "software development",
+    "code quality",
+    "developer workflow",
+    "Codex",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/Dimon94/cc-devflow/tree/main/.claude/skills/flow-receiving-review",
+  "sourceType": "community",
+  "dependencies": []
+}

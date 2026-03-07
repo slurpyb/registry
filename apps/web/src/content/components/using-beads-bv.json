@@ -1,0 +1,145 @@
+{
+  "name": "using-beads-bv",
+  "type": "skill",
+  "description": "Use when coordinating dependency-aware task planning with beads (bd) CLI and bv graph sidecar - covers ready work selection, priority management, and robot flags for deterministic outputs",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "dependency planning",
+  "quality": 5,
+  "qualityReason": "Sophisticated task coordination",
+  "bundleHints": [
+    "project-management",
+    "workflow"
+  ],
+  "tags": [
+    "bd",
+    "beads",
+    "bv",
+    "dependency-management",
+    "deterministic",
+    "issue-tracking",
+    "priority",
+    "task-planning",
+    "workflow"
+  ],
+  "capabilities": [
+    "Find issues ready to work using `bd ready` command",
+    "View issue details with dependencies via `bd show <id>`",
+    "Get JSON execution plans with `bv --robot-plan`",
+    "View graph metrics including PageRank and critical path with `bv --robot-insights`",
+    "Create and manage dependent issues with `bd create` and `bd dep add`",
+    "Claim and close work items with `bd update` and `bd close`"
+  ],
+  "author": "AgentWorkforce",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown guidance for using beads/bv CLI tools. No executable code, no network calls, no file system access, no command execution. All 61 static findings are false positives from misinterpreting markdown command examples as executable backtick syntax.",
+  "valueStatement": "Manage complex multi-agent workflows with dependency tracking. Beads provides a lightweight issue database where bd CLI handles task management and bv delivers graph metrics for execution planning with deterministic robot flags.",
+  "userTitle": "Coordinate dependency-aware task planning",
+  "limitations": [
+    "Requires beads and bv CLI tools to be installed locally",
+    "Interactive TUI will block sessions without using `--robot-*` flags",
+    "Does not replace TodoWrite for simple single-session tasks",
+    "Depends on proper beads database setup for dependency tracking"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Multi-agent system architects",
+      "title": "Coordinate agent task dependencies",
+      "description": "Plan and track work across multiple AI agents with clear dependency chains and parallel execution paths"
+    },
+    {
+      "targetUser": "DevOps leads",
+      "title": "Manage sprint execution metrics",
+      "description": "Use bv graph insights to identify critical path items and optimize team workflow sequencing"
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Track priority work allocation",
+      "description": "Apply P0-P4 numeric priorities and visualize what work items unblock other deliverables"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Find ready work",
+      "scenario": "Show available tasks",
+      "prompt": "Show me all issues ready to work using beads"
+    },
+    {
+      "title": "Get execution plan",
+      "scenario": "Plan task execution",
+      "prompt": "Generate an execution plan for the current sprint using bv"
+    },
+    {
+      "title": "Create dependent tasks",
+      "scenario": "Link related work",
+      "prompt": "Create a new issue for feature X and another for its tests, then make the tests depend on the feature"
+    },
+    {
+      "title": "View graph insights",
+      "scenario": "Analyze project health",
+      "prompt": "Show me the project graph metrics including critical path and any cycles"
+    }
+  ],
+  "bestPractices": [
+    "Always use `--robot-*` flags with bv to avoid blocking TUI sessions",
+    "Use P0-P4 numeric priorities instead of high/medium/low labels",
+    "Include beads issue IDs (e.g., bd-123) in all commit messages for traceability",
+    "Run `bd sync` before ending any session to commit changes"
+  ],
+  "antiPatterns": [
+    "Using bv without robot flags and getting stuck in interactive TUI",
+    "Managing tasks in markdown files instead of beads database",
+    "Missing issue IDs in commit messages breaks traceability",
+    "Using high/medium/low priority labels instead of P0-P4 format"
+  ],
+  "faq": [
+    {
+      "question": "What are the P0-P4 priority levels?",
+      "answer": "P0 blocks everything (critical), P1 needs immediate attention, P2 is standard work, P3 is nice to have, P4 is future backlog."
+    },
+    {
+      "question": "How do I avoid blocking in bv?",
+      "answer": "Always use `--robot-*` flags: `--robot-plan`, `--robot-insights`, `--robot-priority`, or `--robot-help`."
+    },
+    {
+      "question": "Can I use this for single-agent tasks?",
+      "answer": "No. Use TodoWrite for simple single-session tasks. Beads is designed for multi-agent coordination with dependencies."
+    },
+    {
+      "question": "How do I create dependent issues?",
+      "answer": "Create both issues with `bd create`, then link them with `bd dep add <depends-on-id> <issue-id>`."
+    },
+    {
+      "question": "What data does this skill access?",
+      "answer": "This is a documentation-only skill. It describes how to use beads/bv CLI tools which access your local beads database."
+    },
+    {
+      "question": "How is this different from TodoWrite?",
+      "answer": "TodoWrite is for personal task tracking. Beads is for shared, dependency-aware task management across multiple agents and sessions."
+    }
+  ],
+  "seoKeywords": [
+    "beads bd CLI",
+    "bv graph sidecar",
+    "task dependency planning",
+    "issue tracking CLI",
+    "Claude Code skill",
+    "multi-agent coordination",
+    "priority management",
+    "execution planning",
+    "workflow automation",
+    "agent coordination"
+  ],
+  "sourceUrl": "https://github.com/AgentWorkforce/relay/tree/main/.claude/skills/using-beads-bv",
+  "sourceType": "community",
+  "dependencies": []
+}

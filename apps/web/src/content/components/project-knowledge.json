@@ -1,0 +1,141 @@
+{
+  "name": "project-knowledge",
+  "type": "skill",
+  "description": "Load project architecture and structure knowledge. Use when you need to understand how this project is organized.",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "project onboarding",
+  "quality": 4,
+  "qualityReason": "Effective knowledge transfer",
+  "bundleHints": [
+    "onboarding-kit",
+    "learning-path"
+  ],
+  "tags": [
+    "architecture",
+    "context",
+    "documentation",
+    "knowledge",
+    "onboarding",
+    "structure",
+    "understanding"
+  ],
+  "capabilities": [
+    "Load architecture documentation from memory/knowledge/codebase/architecture.json",
+    "Read coding conventions from memory/knowledge/codebase/conventions.json",
+    "Access common code patterns from memory/knowledge/codebase/patterns.json",
+    "Retrieve known gotchas and pitfalls from memory/knowledge/codebase/gotchas.json",
+    "Follow structured format for knowledge updates after discoveries",
+    "Merge new knowledge updates after task completion"
+  ],
+  "author": "Clouder0",
+  "icon": "📁",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill with no executable code. Only permits the Read tool to access knowledge files. No network, file writing, or code execution capabilities. All 15 static findings are false positives triggered by benign JSON field names and documentation strings that do not represent actual security risks.",
+  "valueStatement": "AI assistants often lack context about project structure and conventions. This skill provides organized access to architecture, patterns, and gotchas so assistants understand how components connect and follow established practices.",
+  "userTitle": "Load project architecture knowledge",
+  "limitations": [
+    "Only reads knowledge files, does not create or modify them directly",
+    "Depends on existing knowledge files being present in memory/knowledge/codebase/",
+    "Cannot access project files outside the knowledge directory",
+    "Knowledge updates are merged only after task completion, not in real-time"
+  ],
+  "useCases": [
+    {
+      "targetUser": "New developers",
+      "title": "Quick project onboarding",
+      "description": "New team members understand project structure and coding standards quickly through organized knowledge files."
+    },
+    {
+      "targetUser": "AI assistants",
+      "title": "Better context for AI",
+      "description": "AI assistants gain project-specific context to provide more accurate and relevant code suggestions."
+    },
+    {
+      "targetUser": "Architecture decisions",
+      "title": "Consistent design choices",
+      "description": "Team members reference established patterns when making architectural decisions to maintain consistency."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Load architecture",
+      "scenario": "Starting new work",
+      "prompt": "Load the project architecture knowledge file to understand how this project is structured."
+    },
+    {
+      "title": "Check conventions",
+      "scenario": "Writing new code",
+      "prompt": "What coding conventions should I follow for this project? Load the conventions file."
+    },
+    {
+      "title": "Find patterns",
+      "scenario": "Implementing feature",
+      "prompt": "What patterns are used in this codebase? Show me the patterns file."
+    },
+    {
+      "title": "Avoid pitfalls",
+      "scenario": "Debugging issues",
+      "prompt": "What gotchas should I be aware of in this project? Load the gotchas knowledge file."
+    }
+  ],
+  "bestPractices": [
+    "Load relevant knowledge files before starting tasks to understand project context",
+    "Update knowledge files when discovering new patterns, conventions, or gotchas",
+    "Use the structured JSON format for knowledge_updates with appropriate confidence levels"
+  ],
+  "antiPatterns": [
+    "Starting work without loading relevant knowledge files",
+    "Ignoring established patterns and conventions",
+    "Failing to document discovered gotchas for future reference"
+  ],
+  "faq": [
+    {
+      "question": "What tools does this skill support?",
+      "answer": "This skill supports Claude, Codex, and Claude Code AI assistants."
+    },
+    {
+      "question": "What is the maximum file size for knowledge files?",
+      "answer": "Knowledge files have no strict size limit but should remain focused for quick loading."
+    },
+    {
+      "question": "How does this integrate with existing workflows?",
+      "answer": "Load knowledge files at the start of tasks using the Read tool with the @memory/knowledge path."
+    },
+    {
+      "question": "Is my project data safe?",
+      "answer": "Yes. This skill only reads files you explicitly specify. No data is sent externally."
+    },
+    {
+      "question": "Why are my updates not visible immediately?",
+      "answer": "Knowledge updates are merged after task completion to maintain consistency across sessions."
+    },
+    {
+      "question": "How is this different from general documentation?",
+      "answer": "This skill provides AI-specific, structured knowledge formatted for optimal assistant understanding and action."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "project knowledge",
+    "architecture",
+    "codebase patterns",
+    "onboarding",
+    "context loading",
+    "development workflow",
+    "coding conventions"
+  ],
+  "sourceUrl": "https://github.com/Clouder0/dotagent/tree/main/.claude/skills/project-knowledge",
+  "sourceType": "community",
+  "dependencies": []
+}

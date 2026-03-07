@@ -1,0 +1,143 @@
+{
+  "name": "github-project-management",
+  "type": "skill",
+  "description": "Comprehensive GitHub project management with swarm-coordinated issue tracking, project board automation, and sprint planning",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "swarm coordination",
+  "quality": 5,
+  "qualityReason": "End-to-end project AI",
+  "bundleHints": [
+    "project-management",
+    "swarm-orchestration"
+  ],
+  "tags": [
+    "agile",
+    "automation",
+    "github",
+    "issue-tracking",
+    "project-boards",
+    "project-management",
+    "sprint-planning",
+    "swarm",
+    "swarm-coordination"
+  ],
+  "capabilities": [
+    "Create and manage GitHub issues with swarm coordination",
+    "Automate project board synchronization and card management",
+    "Plan and track sprints with velocity and burndown metrics",
+    "Decompose issues into subtasks with progress tracking",
+    "Coordinate multi-agent swarms for complex project tasks",
+    "Generate analytics and reports for team performance"
+  ],
+  "author": "Claude Code",
+  "icon": "📦",
+  "version": "2.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing markdown guidance for GitHub project management workflows. Static findings are false positives triggered by documentation patterns showing example shell commands. No executable code, no network operations, no file system access. External tools (gh CLI, ruv-swarm) are invoked by the user, not by this skill.",
+  "valueStatement": "Managing GitHub issues, project boards, and sprints across multiple repositories is complex and time-consuming. This skill provides automated swarm-coordinated workflows to create issues, sync project boards, and track sprints efficiently with AI agent coordination.",
+  "userTitle": "Manage GitHub Projects with AI Swarm Coordination",
+  "limitations": [
+    "Requires GitHub CLI (gh) installed and authenticated",
+    "Depends on ruv-swarm or claude-flow MCP server configuration",
+    "GitHub API rate limits apply for high-volume operations",
+    "Cannot function without proper repository access permissions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development Team Leads",
+      "title": "Coordinate Team Sprints",
+      "description": "Plan sprints, assign tasks, track velocity, and manage project boards with automated swarm coordination across team members."
+    },
+    {
+      "targetUser": "Software Developers",
+      "title": "Track Issue Progress",
+      "description": "Create feature issues, decompose complex tasks, monitor subtask completion, and update project boards automatically."
+    },
+    {
+      "targetUser": "Project Managers",
+      "title": "Monitor Project Health",
+      "description": "View sprint progress, track team performance metrics, identify blockers, and generate reports for stakeholder updates."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Issue",
+      "scenario": "Create a new feature issue",
+      "prompt": "Create a GitHub issue titled [title] with body: [description]. Add labels: enhancement, swarm-ready. Assign to [username]."
+    },
+    {
+      "title": "Sync Board",
+      "scenario": "Sync issues to project board",
+      "prompt": "Sync all issues with label 'swarm-ready' to the Development project board. Auto-assign cards to agents based on workload."
+    },
+    {
+      "title": "Start Sprint",
+      "scenario": "Initialize a new sprint",
+      "prompt": "Initialize Sprint 24 using ruv-swarm with auto-populate from backlog, capacity planning, and velocity tracking enabled."
+    },
+    {
+      "title": "Generate Report",
+      "scenario": "Create sprint summary",
+      "prompt": "Generate a sprint summary report showing burndown, velocity, completed items, and blockers for the current sprint."
+    }
+  ],
+  "bestPractices": [
+    "Initialize swarm coordination for complex issues involving multiple agents",
+    "Use consistent labeling strategy for easy filtering and automation",
+    "Configure bidirectional sync between GitHub and project boards for real-time updates"
+  ],
+  "antiPatterns": [
+    "Creating issues without labels, making automated triage impossible",
+    "Manually updating project boards instead of using automated sync",
+    "Running swarms on simple single-agent tasks that do not need coordination"
+  ],
+  "faq": [
+    {
+      "question": "What GitHub permissions are required?",
+      "answer": "Repository write access for issue creation and project board management. Admin access needed for webhook configuration."
+    },
+    {
+      "question": "How many issues can this skill handle?",
+      "answer": "GitHub API rate limits apply. Free accounts: 60 requests per hour. Teams and Enterprises: 5,000 requests per hour."
+    },
+    {
+      "question": "Can I use this with GitHub Enterprise?",
+      "answer": "Yes. Configure gh CLI with your Enterprise URL. The MCP tools must point to your enterprise GitHub instance."
+    },
+    {
+      "question": "Is my data sent to external servers?",
+      "answer": "All data stays within your GitHub instance. External tools process data locally on your machine."
+    },
+    {
+      "question": "What if project board sync fails?",
+      "answer": "Run board-diagnose to check permissions and rate limits. Enable bidirectional sync validation in settings."
+    },
+    {
+      "question": "How does this compare to GitHub Actions?",
+      "answer": "This skill provides AI-driven coordination with natural language prompts. GitHub Actions are better for automated CI/CD workflows."
+    }
+  ],
+  "seoKeywords": [
+    "github project management",
+    "claude code skill",
+    "issue tracking automation",
+    "project board sync",
+    "sprint planning",
+    "ai swarm coordination",
+    "github issues",
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/github-project-management",
+  "sourceType": "community",
+  "dependencies": []
+}

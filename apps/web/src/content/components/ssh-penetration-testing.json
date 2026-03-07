@@ -1,0 +1,144 @@
+{
+  "name": "ssh-penetration-testing",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"pentest SSH services\", \"enumerate SSH configurations\", \"brute force SSH credentials\", \"exploit SSH vulnerabilities\", \"perform SSH tunneling\", or \"audit SSH security\". It provides comprehensive SSH penetration testing methodologies and techniques.",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "SSH security",
+  "quality": 5,
+  "qualityReason": "Comprehensive security assessment",
+  "bundleHints": [
+    "security-toolkit",
+    "pentest-suite"
+  ],
+  "tags": [
+    "enumeration",
+    "network-security",
+    "penetration-testing",
+    "security-audit",
+    "ssh",
+    "tunneling",
+    "vulnerability-assessment"
+  ],
+  "capabilities": [
+    "Enumerate SSH service versions, configurations, and supported algorithms using Nmap scripts and ssh-audit",
+    "Perform credential testing with Hydra, Medusa, and Metasploit frameworks for authorized password security assessments",
+    "Identify weak SSH configurations including deprecated algorithms, weak ciphers, and insecure protocol versions",
+    "Document SSH tunneling and port forwarding techniques (local, remote, dynamic/SOCKS) for network pivoting assessments",
+    "Conduct post-exploitation reconnaissance including privilege checking, key discovery, and persistence mechanisms",
+    "Generate comprehensive security reports with enumeration findings, credential test results, and vulnerability assessments"
+  ],
+  "author": "sickn33",
+  "icon": "🔒",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains documentation and examples for authorized SSH penetration testing. All detected security patterns (external commands, network access, filesystem operations, Metasploit references) represent legitimate professional security tools and methodologies. The skill explicitly requires written authorization and is designed for security professionals conducting authorized assessments. Hardcoded IPs are private network examples (192.168.1.x), not actual targets. This is educational content for security testing, not executable attack code.",
+  "valueStatement": "Security professionals need comprehensive SSH assessment capabilities to identify vulnerabilities before attackers exploit them. This skill provides authorized penetration testing workflows for enumerating SSH configurations, testing credential strength, exploiting known vulnerabilities, and documenting tunneling techniques used in real-world attacks.",
+  "userTitle": "Test SSH Security with Professional Penetration Methods",
+  "limitations": [
+    "Requires manual execution of all commands - this is documentation, not automated attack code",
+    "All activities require explicit written authorization from system owners before testing",
+    "Rate limiting and intrusion prevention systems may block credential testing attempts",
+    "Key-based authentication and two-factor authentication prevent password-based testing methods",
+    "Cannot bypass modern security controls without authorization and legitimate access credentials"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Penetration Testing Professional",
+      "title": "Authorized Security Assessment",
+      "description": "Penetration testers conducting authorized SSH security assessments for organizations. Use this skill to systematically enumerate SSH services, test credential strength, identify vulnerabilities, and document findings for security reports."
+    },
+    {
+      "targetUser": "Information Security Auditor",
+      "title": "Internal Security Audit",
+      "description": "Security teams auditing internal SSH infrastructure for compliance and vulnerabilities. Use this skill to assess SSH configuration hardening, test authentication mechanisms, and verify security controls across the enterprise."
+    },
+    {
+      "targetUser": "Security Researcher or Student",
+      "title": "Security Research and Education",
+      "description": "Security researchers and students learning SSH penetration testing methodologies in controlled lab environments. Use this skill to understand attack techniques, practice with professional tools, and develop defensive strategies."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic SSH Enumeration",
+      "prompt": "Scan the network 192.168.1.0/24 for SSH services and enumerate their configurations. Identify versions, algorithms, and any weak configurations.",
+      "scenario": "Initial reconnaissance phase of authorized SSH security assessment"
+    },
+    {
+      "title": "SSH Credential Testing",
+      "prompt": "Test SSH credentials for user 'admin' on target 192.168.1.100 using the password list at /usr/share/wordlists/rockyou.txt with Hydra. Use rate limiting to avoid detection.",
+      "scenario": "Authorized password security assessment for known username"
+    },
+    {
+      "title": "SSH Vulnerability Assessment",
+      "prompt": "Perform a comprehensive SSH audit on target 192.168.1.100 using ssh-audit. Identify weak algorithms, deprecated ciphers, and known vulnerabilities. Provide hardening recommendations.",
+      "scenario": "Configuration review and hardening assessment"
+    },
+    {
+      "title": "SSH Tunneling and Pivoting",
+      "prompt": "Establish a SOCKS proxy through SSH at 192.168.1.100 and use it to scan the internal network 192.168.2.0/24. Document the tunneling setup and internal findings.",
+      "scenario": "Network pivoting and internal reconnaissance through compromised SSH access"
+    }
+  ],
+  "bestPractices": [
+    "Always obtain written authorization before conducting any SSH penetration testing activities",
+    "Use private network IP ranges (192.168.x.x, 10.x.x.x, 172.16-31.x.x) for documentation and testing examples",
+    "Implement rate limiting in credential testing to avoid account lockouts and intrusion detection triggers",
+    "Document all findings thoroughly including timestamps, tools used, commands executed, and results obtained"
+  ],
+  "antiPatterns": [
+    "Never run penetration testing tools against systems without explicit written permission from owners",
+    "Avoid using default wordlists without filtering - remove common false positives and inappropriate content",
+    "Do not bypass rate limiting or intrusion detection systems without authorization - this may constitute unauthorized access",
+    "Never store or transmit discovered credentials insecurely - use encrypted storage and secure communication channels"
+  ],
+  "faq": [
+    {
+      "question": "Is this skill safe to use?",
+      "answer": "Yes, this skill is safe for authorized security testing. It contains documentation and examples for legitimate penetration testing methodologies. All activities require explicit written authorization from system owners. The skill uses private network IP ranges (192.168.1.x) for examples and includes legal disclaimers."
+    },
+    {
+      "question": "What tools do I need to use this skill?",
+      "answer": "Required tools include Nmap with SSH scripts, Hydra or Medusa for credential testing, ssh-audit for configuration analysis, Metasploit Framework, and Python with Paramiko library. These are standard penetration testing tools available in security distributions like Kali Linux."
+    },
+    {
+      "question": "Can I automate attacks with this skill?",
+      "answer": "No, this skill provides documentation and command examples, not automated attack code. All commands must be manually executed by authorized users. The skill requires human judgment and authorization for each testing phase."
+    },
+    {
+      "question": "Why does the skill reference Metasploit and brute-force tools?",
+      "answer": "Metasploit, Hydra, and similar tools are industry-standard frameworks for authorized security testing. Security professionals use these tools to identify vulnerabilities before malicious actors exploit them. The skill documents their legitimate use in authorized assessments."
+    },
+    {
+      "question": "What are the legal requirements for using this skill?",
+      "answer": "You must have explicit written authorization from system owners before conducting any testing. Unauthorized access to computer systems is illegal. Document all testing activities, stay within authorized scope, and follow responsible disclosure practices for any vulnerabilities found."
+    },
+    {
+      "question": "Can this skill bypass SSH security controls?",
+      "answer": "This skill documents testing methods for identifying weak SSH configurations and credentials. It cannot bypass properly implemented security controls like key-based authentication, two-factor authentication, or modern intrusion prevention systems. Its purpose is to help assess and improve security posture, not bypass controls."
+    }
+  ],
+  "seoKeywords": [
+    "SSH penetration testing",
+    "Claude security skills",
+    "SSH vulnerability assessment",
+    "Claude Code pentesting",
+    "SSH brute force testing",
+    "SSH security audit",
+    "network security assessment",
+    "SSH tunneling techniques",
+    "Metasploit SSH modules",
+    "authorized security testing"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ssh-penetration-testing",
+  "sourceType": "community",
+  "dependencies": []
+}

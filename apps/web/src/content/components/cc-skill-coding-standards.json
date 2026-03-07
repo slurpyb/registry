@@ -1,0 +1,146 @@
+{
+  "name": "cc-skill-coding-standards",
+  "type": "skill",
+  "description": "Universal coding standards, best practices, and patterns for TypeScript, JavaScript, React, and Node.js development.",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "skill extraction",
+  "quality": 5,
+  "qualityReason": "Enables self-improving agent system",
+  "bundleHints": [
+    "learning-system",
+    "agent-evolution"
+  ],
+  "tags": [
+    "automation",
+    "best-practices",
+    "claude-code",
+    "coding-standards",
+    "continuous-learning",
+    "javascript",
+    "pattern-reuse",
+    "react",
+    "skill-extraction",
+    "typescript"
+  ],
+  "capabilities": [
+    "Apply universal coding standards across TypeScript, JavaScript, React, and Node.js projects",
+    "Enforce naming conventions for variables, functions, and components",
+    "Implement immutability patterns and proper error handling",
+    "Review code against best practices for React hooks and state management",
+    "Validate API design standards and REST conventions",
+    "Check file organization and project structure compliance"
+  ],
+  "author": "affaan-m",
+  "icon": "📦",
+  "version": "1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 73 static analysis findings are false positives. The detected patterns (backtick execution, weak crypto, system reconnaissance) are Markdown code blocks and documentation examples, not executable code. This is a pure documentation skill with no executable functionality. No security risks identified.",
+  "valueStatement": "Inconsistent code quality leads to bugs and technical debt. This skill provides universal coding standards, best practices, and patterns for TypeScript, JavaScript, React, and Node.js development to help you write clean, maintainable code.",
+  "userTitle": "Enforce Coding Standards Across Your Codebase",
+  "limitations": [
+    "Cannot automatically refactor existing code - provides guidance only",
+    "Does not run static analysis or linting tools directly",
+    "Standards are opinionated and may differ from your team's conventions",
+    "Does not replace comprehensive code review processes"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Senior developers conducting code reviews",
+      "title": "Code Review Assistant",
+      "description": "Use this skill during code reviews to validate that pull requests follow established coding standards and best practices."
+    },
+    {
+      "targetUser": "Tech leads and engineering managers",
+      "title": "Onboarding New Developers",
+      "description": "Help new team members understand your codebase standards and conventions by providing consistent examples and patterns."
+    },
+    {
+      "targetUser": "Full-stack developers refactoring codebases",
+      "title": "Code Quality Improvement",
+      "description": "Apply these standards when refactoring legacy code to improve maintainability and reduce technical debt."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Review Code Against Standards",
+      "prompt": "Review this code against the coding standards and best practices defined in the cc-skill-coding-standards skill. Identify any violations and suggest improvements.",
+      "scenario": "Use during code review to check compliance with standards"
+    },
+    {
+      "title": "Refactor for Best Practices",
+      "prompt": "Refactor this code to follow TypeScript and React best practices from the cc-skill-coding-standards skill. Focus on immutability, error handling, and component structure.",
+      "scenario": "Use when improving code quality in existing code"
+    },
+    {
+      "title": "Generate Standards-Compliant Code",
+      "prompt": "Generate a [component/function/module] that follows the coding standards from cc-skill-coding-standards. Include proper types, error handling, and documentation.",
+      "scenario": "Use when creating new code to ensure standards compliance"
+    },
+    {
+      "title": "Explain Standards Violations",
+      "prompt": "Explain why this code violates the coding standards in cc-skill-coding-standards. Reference specific principles like KISS, DRY, or YAGNI.",
+      "scenario": "Use to educate team members on why certain patterns matter"
+    }
+  ],
+  "bestPractices": [
+    "Always use descriptive variable and function names that explain intent rather than abbreviated forms",
+    "Apply immutability patterns consistently using spread operators instead of direct mutation",
+    "Implement comprehensive error handling for async operations with try/catch blocks and response validation",
+    "Use TypeScript types and interfaces instead of 'any' to maintain type safety"
+  ],
+  "antiPatterns": [
+    "Avoid mutation of objects and arrays directly - use spread operators or immutable update patterns",
+    "Do not use 'any' type in TypeScript - always define proper interfaces and type annotations",
+    "Never omit error handling in async functions - always include try/catch with proper error messages",
+    "Avoid deeply nested conditionals - use early returns and guard clauses for clarity"
+  ],
+  "faq": [
+    {
+      "question": "Are these coding standards mandatory for all projects?",
+      "answer": "No, these are recommended best practices. Adapt them to your team's specific needs and existing conventions. The standards provide a foundation for consistent, high-quality code."
+    },
+    {
+      "question": "Can I use these standards with languages other than TypeScript and JavaScript?",
+      "answer": "While many principles like KISS, DRY, and YAGNI apply universally, the specific examples target TypeScript and JavaScript ecosystems. Adapt the concepts to your language of choice."
+    },
+    {
+      "question": "How do I enforce these standards in my team?",
+      "answer": "Combine these standards with linting tools (ESLint, Prettier), pre-commit hooks, and code review checklists. Use the skill during reviews to catch violations early."
+    },
+    {
+      "question": "What if the standards conflict with my existing codebase?",
+      "answer": "Apply standards incrementally. Prioritize new code and high-risk areas when refactoring. Gradual adoption is better than attempting a complete rewrite."
+    },
+    {
+      "question": "Do these standards replace the need for code reviews?",
+      "answer": "No, these standards complement code reviews. They provide objective criteria for evaluation, but reviews also capture context-specific decisions and architectural considerations."
+    },
+    {
+      "question": "How often should I update these standards?",
+      "answer": "Review and update standards quarterly or when adopting new frameworks. Balance stability with evolution - resist frequent changes but adapt to new best practices in the ecosystem."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "coding standards",
+    "TypeScript best practices",
+    "React patterns",
+    "JavaScript conventions",
+    "Node.js guidelines",
+    "code quality",
+    "clean code"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cc-skill-coding-standards",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,144 @@
+{
+  "name": "replicate-handler",
+  "type": "skill",
+  "description": "Integrate with Replicate AI for running models (image generation, LLMs, etc.).",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "Replicate AI",
+  "quality": 4,
+  "qualityReason": "Solid platform integration",
+  "bundleHints": [
+    "ai-integration",
+    "replicate"
+  ],
+  "tags": [
+    "ai-integration",
+    "ai-platform",
+    "api-client",
+    "api-integration",
+    "image-generation",
+    "llm-hosting",
+    "machine-learning",
+    "model-inference",
+    "replicate",
+    "typescript"
+  ],
+  "capabilities": [
+    "Provides complete TypeScript type definitions for the Replicate SDK",
+    "Supports synchronous model execution using replicate.run for quick tasks",
+    "Enables asynchronous predictions with polling patterns for long-running models",
+    "Includes integration patterns with Inngest for handling video generation and compute-intensive tasks",
+    "Handles model predictions with status tracking (starting, processing, succeeded, failed, canceled)",
+    "Supports webhook configuration for prediction callbacks"
+  ],
+  "author": "AayushBaniya2006",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill provides TypeScript type definitions and usage patterns for the Replicate AI API. Static analysis detected 55 potential issues, but manual review confirms these are false positives. The skill requires network access for legitimate API calls and environment variable access for authentication tokens. No security vulnerabilities identified.",
+  "valueStatement": "Running machine learning models in production requires reliable API integration and proper handling of long-running tasks. This skill provides TypeScript patterns for Replicate AI integration with support for both quick runs and asynchronous model execution.",
+  "userTitle": "Integrate Replicate AI Models into Your Projects",
+  "limitations": [
+    "Requires valid Replicate API token stored in environment variables",
+    "Does not include error handling or retry logic implementations",
+    "TypeScript definitions are provided as reference only and require the official replicate npm package",
+    "Long-running task patterns require additional tools like Inngest for production use"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers building AI-powered applications",
+      "title": "Implement AI Image Generation",
+      "description": "Integrate Stable Diffusion or other image generation models into your application with proper async handling and status tracking."
+    },
+    {
+      "targetUser": "Backend engineers deploying machine learning services",
+      "title": "Run LLM Inference in Production",
+      "description": "Execute large language model predictions with timeout handling and webhook notifications for completion events."
+    },
+    {
+      "targetUser": "DevOps engineers building media processing pipelines",
+      "title": "Process Video Generation Tasks",
+      "description": "Handle long-running video generation workloads with polling patterns that prevent timeout issues in serverless environments."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Model Execution",
+      "prompt": "Show me how to run a Replicate model for text-to-image generation using the replicate.run method",
+      "scenario": "Quick execution of models that complete in seconds"
+    },
+    {
+      "title": "Setup API Authentication",
+      "prompt": "Help me configure the REPLICATE_API_TOKEN environment variable and initialize the Replicate client in my TypeScript project",
+      "scenario": "Initial setup and configuration"
+    },
+    {
+      "title": "Handle Long-Running Predictions",
+      "prompt": "Implement a polling pattern with Inngest for a video generation model that might take several minutes to complete",
+      "scenario": "Production deployment of compute-intensive models"
+    },
+    {
+      "title": "Add Webhook Notifications",
+      "prompt": "Configure webhook callbacks for model completion events and implement the webhook validation logic using the provided types",
+      "scenario": "Event-driven architecture with async model execution"
+    }
+  ],
+  "bestPractices": [
+    "Store API tokens in environment variables and never commit them to version control",
+    "Use the predictions API with polling for models that take longer than 30 seconds to complete",
+    "Implement proper error handling for failed predictions and network timeouts"
+  ],
+  "antiPatterns": [
+    "Using replicate.run for video generation or other long-running tasks without timeout handling",
+    "Hardcoding API tokens directly in source code instead of using environment variables",
+    "Polling prediction status in tight loops without sleep intervals between requests"
+  ],
+  "faq": [
+    {
+      "question": "What is Replicate AI and why would I use this skill?",
+      "answer": "Replicate is a platform for running machine learning models in the cloud. This skill provides TypeScript integration patterns and type definitions to help you implement Replicate API calls in your applications."
+    },
+    {
+      "question": "Do I need to install any npm packages to use this skill?",
+      "answer": "Yes, you need to install the official replicate package using npm install replicate. This skill provides usage patterns and type references for that package."
+    },
+    {
+      "question": "How do I get a Replicate API token?",
+      "answer": "You need to sign up for a Replicate account at replicate.com and generate an API token from your account settings. Store this token in your environment variables as REPLICATE_API_TOKEN."
+    },
+    {
+      "question": "What is the difference between replicate.run and the predictions API?",
+      "answer": "replicate.run is a simplified method for quick tasks that complete in seconds. The predictions API gives you more control for long-running tasks, allowing you to create a prediction and poll for completion without blocking."
+    },
+    {
+      "question": "Why does the skill mention Inngest for long-running tasks?",
+      "answer": "Inngest provides step.sleep functionality that allows you to poll for prediction completion without consuming server resources or hitting timeout limits in serverless environments."
+    },
+    {
+      "question": "Is this skill safe to use with sensitive data?",
+      "answer": "The skill itself only provides TypeScript patterns and type definitions. When using Replicate API, your data is sent to Replicate servers. Review Replicate privacy policy and data handling practices before sending sensitive information."
+    }
+  ],
+  "seoKeywords": [
+    "Replicate AI",
+    "machine learning integration",
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "TypeScript API client",
+    "AI model deployment",
+    "image generation",
+    "LLM integration",
+    "async predictions"
+  ],
+  "sourceUrl": "https://github.com/AayushBaniya2006/blinkfund/tree/main/.claude/skills/replicate-handler",
+  "sourceType": "community",
+  "dependencies": []
+}

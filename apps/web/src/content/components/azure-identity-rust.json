@@ -1,0 +1,140 @@
+{
+  "name": "azure-identity-rust",
+  "type": "skill",
+  "description": "Authentication library for Azure SDK clients using Microsoft Entra ID. Provides credential types for local development, managed identities, and service principals.",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "azure auth",
+  "quality": 4,
+  "qualityReason": "Good but niche",
+  "bundleHints": [
+    "azure-security",
+    "rust-auth",
+    "appsec"
+  ],
+  "tags": [
+    "authentication",
+    "azure",
+    "credential",
+    "identity",
+    "microsoft-entra-id",
+    "rust",
+    "service-principal"
+  ],
+  "capabilities": [
+    "Guide users through DeveloperToolsCredential setup for local development with Azure CLI or azd",
+    "Explain ManagedIdentityCredential configuration for Azure-hosted resources like VMs, App Service, and AKS",
+    "Show ClientSecretCredential implementation for service principal authentication",
+    "Provide credential chain order and selection guidance for different environments",
+    "Document environment variable configuration for Azure authentication"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only documentation skill containing only reference material for the Azure Identity SDK for Rust. The static analyzer scanned 0 files (0 lines) and detected no security issues. The skill provides documentation on credential types and usage patterns without any executable code. No suspicious patterns, risky operations, or potential attack vectors were identified.",
+  "valueStatement": "This skill helps developers implement authentication for Azure SDK Rust applications using Microsoft Entra ID credentials, enabling secure access to Azure services locally and in production environments.",
+  "userTitle": "Authenticate Azure Services in Rust",
+  "limitations": [
+    "Does not execute authentication - provides guidance only",
+    "Does not handle token caching or refresh logic directly",
+    "Cannot provision Azure resources or manage service principals",
+    "Does not provide runtime credential rotation or secret management"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Rust developers working with Azure services locally",
+      "title": "Local Development Setup",
+      "description": "Configure authentication for developing Azure SDK Rust applications on a local machine using DeveloperToolsCredential"
+    },
+    {
+      "targetUser": "DevOps engineers deploying Rust apps to Azure",
+      "title": "Production Azure Deployment",
+      "description": "Set up ManagedIdentityCredential for Rust applications deployed to Azure App Service, VMs, or AKS"
+    },
+    {
+      "targetUser": "Platform engineers setting up Azure CI/CD pipelines",
+      "title": "CI/CD Pipeline Authentication",
+      "description": "Configure service principal authentication using ClientSecretCredential for automated builds and deployments"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Getting Started with Azure Auth",
+      "prompt": "How do I set up authentication for Azure SDK in Rust using DeveloperToolsCredential?",
+      "scenario": "User wants to authenticate using Azure CLI for local development"
+    },
+    {
+      "title": "Configure Managed Identity",
+      "prompt": "How do I use ManagedIdentityCredential for my Rust app running on Azure App Service?",
+      "scenario": "User wants to enable managed identity for Azure-hosted application"
+    },
+    {
+      "title": "Service Principal Setup",
+      "prompt": "Show me how to authenticate using ClientSecretCredential with environment variables in Rust",
+      "scenario": "User needs to set up service principal authentication for production"
+    },
+    {
+      "title": "Credential Selection Guide",
+      "prompt": "Which credential type should I use for development vs production in Azure?",
+      "scenario": "User wants to understand when to use each credential type"
+    }
+  ],
+  "bestPractices": [
+    "Use DeveloperToolsCredential for local development - it automatically uses Azure CLI which is already authenticated",
+    "Prefer ManagedIdentityCredential in production to eliminate secret management overhead",
+    "Reuse credential instances across multiple Azure SDK clients for efficiency"
+  ],
+  "antiPatterns": [
+    "Hardcoding client secrets in source code - use environment variables or managed identities",
+    "Using the same credential type for development and production without considering security implications",
+    "Creating new credential instances for each request instead of reusing them"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between DeveloperToolsCredential and AzureCliCredential?",
+      "answer": "DeveloperToolsCredential tries multiple credential types in order (Azure CLI, then Azure Developer CLI). AzureCliCredential only uses Azure CLI. Use DeveloperToolsCredential for flexibility or AzureCliCredential if you only want Azure CLI."
+    },
+    {
+      "question": "Do I need to install Azure CLI to use this skill?",
+      "answer": "For local development with DeveloperToolsCredential, yes - Azure CLI or Azure Developer CLI must be installed and authenticated. For production with ManagedIdentityCredential, no CLI is required."
+    },
+    {
+      "question": "How do I enable Managed Identity on Azure App Service?",
+      "answer": "Go to your App Service in Azure Portal, navigate to Identity, and enable System-assigned or User-assigned managed identity. The Rust app can then use ManagedIdentityCredential without any secrets."
+    },
+    {
+      "question": "Can I use multiple credentials with one client?",
+      "answer": "Yes, you can use DefaultAzureCredential which chains multiple credentials, or create a custom chain. The credential that successfully authenticates first is used."
+    },
+    {
+      "question": "What happens if authentication fails?",
+      "answer": "The credential returns an error with details about why authentication failed. Check that your Azure AD application has the required permissions and that credentials are properly configured."
+    },
+    {
+      "question": "Is this skill compatible with all Azure services?",
+      "answer": "Yes, azure_identity works with any Azure SDK for Rust service that supports Microsoft Entra ID authentication, including Key Vault, Storage, Cosmos DB, and many others."
+    }
+  ],
+  "seoKeywords": [
+    "Azure Identity SDK Rust",
+    "Microsoft Entra ID Rust",
+    "Azure authentication Rust",
+    "Managed Identity Rust",
+    "Client Secret Credential Rust",
+    "Azure CLI authentication Rust",
+    "Claude Azure auth",
+    "Codex Azure credentials",
+    "Claude Code Azure SDK"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-identity-rust",
+  "sourceType": "community",
+  "dependencies": []
+}

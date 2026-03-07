@@ -1,0 +1,139 @@
+{
+  "name": "mixpanel-automation",
+  "type": "skill",
+  "description": "Automate Mixpanel tasks via Rube MCP (Composio): events, segmentation, funnels, cohorts, user profiles, JQL queries. Always search tools first for current schemas.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "Analytics automation",
+  "quality": 5,
+  "qualityReason": "Comprehensive data tasks",
+  "bundleHints": [
+    "mcp-toolkit",
+    "analytics"
+  ],
+  "tags": [
+    "analytics",
+    "automation",
+    "data-analysis",
+    "mixpanel",
+    "product-analytics"
+  ],
+  "capabilities": [
+    "Aggregate and analyze event data with configurable time ranges and units",
+    "Run segmentation queries broken down by custom properties",
+    "Query and analyze conversion funnels with drop-off metrics",
+    "List and analyze user cohorts for targeted insights",
+    "Query and update user profiles in Mixpanel",
+    "Execute custom JQL queries for advanced analytics"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill provides documentation and workflows for automating Mixpanel analytics via Rube MCP (Composio). The static analyzer flagged 96 potential issues, but all are false positives: backticks are markdown code formatting, cryptographic algorithm warnings are in YAML frontmatter, and hardcoded URLs point to legitimate public endpoints. This is a documentation skill with no executable code.",
+  "valueStatement": "Automate Mixpanel analytics workflows including event tracking, segmentation, funnels, cohorts, and user profile management through Rube MCP integration.",
+  "userTitle": "Automate Mixpanel Analytics Tasks",
+  "limitations": [
+    "Requires Rube MCP server and active Mixpanel connection",
+    "Cannot create funnels or cohorts programmatically (API read-only)",
+    "JQL is a legacy feature with potential availability changes",
+    "Date ranges and query complexity subject to Mixpanel plan limits"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product managers and data analysts",
+      "title": "Product Analytics Dashboard",
+      "description": "Build automated reports tracking key metrics like daily active users, event counts, and conversion rates over time."
+    },
+    {
+      "targetUser": "Growth teams and marketing analysts",
+      "title": "User Cohort Analysis",
+      "description": "Identify and analyze user segments based on behavior patterns, subscription status, or custom properties."
+    },
+    {
+      "targetUser": "UX researchers and conversion rate optimization specialists",
+      "title": "Funnel Optimization",
+      "description": "Monitor conversion funnels to identify drop-off points and optimize user journey flows."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Get Event Count Summary",
+      "prompt": "Use the Mixpanel automation skill to get the total count of 'purchase' events for the last 7 days, broken down by day.",
+      "scenario": "Quick metric lookup"
+    },
+    {
+      "title": "Segment Users by Property",
+      "prompt": "Run a segmentation analysis on the 'sign_up' event, segmented by 'properties[\"country\"]' for the last 30 days. Limit to top 10 segments.",
+      "scenario": "User segmentation analysis"
+    },
+    {
+      "title": "Analyze Funnel Conversion",
+      "prompt": "Query the 'onboarding' funnel to see conversion rates from step 1 to step 3 over the last 14 days. Show breakdown by 'properties[\"plan\"]'.",
+      "scenario": "Funnel performance review"
+    },
+    {
+      "title": "Batch Update User Profiles",
+      "prompt": "Update all users in the 'premium_trial' cohort to set 'properties[\"trial_status\"]' to 'expired' where 'properties[\"trial_end_date\"]' is before today.",
+      "scenario": "Bulk user profile management"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before running workflows",
+    "Verify connection status shows ACTIVE before executing Mixpanel operations",
+    "Use date filters and property expressions to limit query scope and avoid timeouts"
+  ],
+  "antiPatterns": [
+    "Running queries without first checking Rube MCP connection status",
+    "Using incorrect date formats (must be YYYY-MM-DD)",
+    "Forgetting that event names and property names are case-sensitive in Mixpanel"
+  ],
+  "faq": [
+    {
+      "question": "Do I need API keys to use this skill?",
+      "answer": "No. Rube MCP uses OAuth connection to Mixpanel. You authenticate through Mixpanel directly when setting up the connection."
+    },
+    {
+      "question": "Can I create funnels through this skill?",
+      "answer": "No. Funnels must be created in the Mixpanel UI first. This skill can only query existing funnels."
+    },
+    {
+      "question": "What is JQL in Mixpanel?",
+      "answer": "JQL (JavaScript Query Language) is a legacy query feature in Mixpanel that allows custom analytics queries using JavaScript-like syntax."
+    },
+    {
+      "question": "How do I handle paginated results?",
+      "answer": "For profile queries, use the session_id from the first response for consistent pagination. Event queries use date-based pagination."
+    },
+    {
+      "question": "What date format does Mixpanel require?",
+      "answer": "All dates must be in YYYY-MM-DD format. Other formats will cause errors."
+    },
+    {
+      "question": "Can I update user profiles in bulk?",
+      "answer": "Yes, use MIXPANEL_PROFILE_BATCH_UPDATE to apply operations like $set, $unset, $add, or $append to multiple profiles at once."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Mixpanel",
+    "analytics automation",
+    "product analytics",
+    "event tracking",
+    "funnel analysis",
+    "cohort analysis",
+    "user profiles"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/mixpanel-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

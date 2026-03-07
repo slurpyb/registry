@@ -1,0 +1,141 @@
+{
+  "name": "expo-cicd-workflows",
+  "type": "skill",
+  "description": "Helps understand and write EAS workflow YAML files for Expo projects. Use this skill when the user asks about CI/CD or workflows in an Expo or EAS context, mentions .eas/workflows/, or wants help with EAS build pipelines or deployment automation.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "EAS workflows",
+  "quality": 5,
+  "qualityReason": "Essential CI/CD integration",
+  "bundleHints": [
+    "mobile-cicd",
+    "expo-toolkit"
+  ],
+  "tags": [
+    "ci-cd",
+    "deployment",
+    "eas",
+    "expo",
+    "workflows",
+    "yaml-configuration"
+  ],
+  "capabilities": [
+    "Generate EAS workflow YAML files from requirements",
+    "Fetch the official EAS schema for current job types and parameters",
+    "Validate workflow files against the official schema",
+    "Explain workflow structure, triggers, jobs, and expressions",
+    "Debug workflow validation errors and suggest fixes"
+  ],
+  "author": "expo",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT License",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected patterns related to network calls and shell examples. Evaluation confirms these are legitimate: network access is limited to official Expo documentation endpoints, shell examples are documentation strings (not executable), and SHA-256 is a secure hashing algorithm. No malicious intent found. Safe for publication.",
+  "valueStatement": "Expo developers struggle to write correct EAS workflow YAML files due to complex schema requirements. This skill fetches the official schema, provides syntax guidance, and validates workflow files against the latest specifications.",
+  "userTitle": "Create and validate EAS CI/CD workflows",
+  "limitations": [
+    "Does not execute workflows or interact with EAS CLI directly",
+    "Cannot create or modify Expo project files outside workflow YAML",
+    "Does not provision EAS build credentials or secrets",
+    "Does not submit apps to app stores"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Expo developers new to EAS CI/CD",
+      "title": "New EAS Workflow Setup",
+      "description": "A developer wants to set up automated builds for their Expo app. The skill helps create a workflow file with development and preview builds triggered on pull requests."
+    },
+    {
+      "targetUser": "DevOps engineers and team leads",
+      "title": "Workflow Validation",
+      "description": "A team has written workflow YAML and wants to verify it conforms to the current schema before committing. The skill validates and reports any errors."
+    },
+    {
+      "targetUser": "Developers debugging CI/CD issues",
+      "title": "Workflow Troubleshooting",
+      "description": "A workflow is failing validation. The skill reviews the errors, explains what each means, and suggests corrections based on the official schema."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Workflow Generation",
+      "prompt": "Create an EAS workflow file for my Expo app. I want builds to run automatically when I push to main or open a pull request. Include a job that builds for development and another for production builds.",
+      "scenario": "Simple workflow creation request"
+    },
+    {
+      "title": "Workflow with Conditions",
+      "prompt": "Write an EAS workflow that only runs production builds when files in the app/ directory change. Skip production builds for documentation-only changes.",
+      "scenario": "Creating conditional workflow logic"
+    },
+    {
+      "title": "Workflow Validation",
+      "prompt": "Validate my workflow file at .eas/workflows/build.yml against the official EAS schema. Report any errors and suggest fixes.",
+      "scenario": "Validating an existing workflow"
+    },
+    {
+      "title": "Custom Job with Dependencies",
+      "prompt": "Create an EAS workflow with three jobs: lint, build, and test. The build job should only run after lint passes. All jobs should run on the latest Ubuntu image.",
+      "scenario": "Creating multi-job workflow with dependencies"
+    }
+  ],
+  "bestPractices": [
+    "Always validate workflow files against the official schema before committing",
+    "Fetch the latest schema when creating workflows for new Expo SDK versions",
+    "Use conditional triggers to skip unnecessary builds and save resources",
+    "Reference job outputs using the needs context for multi-job workflows"
+  ],
+  "antiPatterns": [
+    "Hardcoding specific OS versions instead of using runner aliases like 'ubuntu-latest'",
+    "Skipping validation and committing workflow files with schema errors",
+    "Creating monolithic single-job workflows instead of splitting into lint, build, test",
+    "Not using conditions to filter when builds run for different changes"
+  ],
+  "faq": [
+    {
+      "question": "What is EAS Workflow?",
+      "answer": "EAS Workflow is a CI/CD system for Expo apps. It defines automated tasks (jobs) that run when triggers like pull requests occur. Workflows are YAML files in .eas/workflows/."
+    },
+    {
+      "question": "How do I create my first EAS workflow?",
+      "answer": "Describe your requirements to Claude with this skill active. The skill will fetch the schema, generate a valid YAML file, and help you validate it before committing."
+    },
+    {
+      "question": "What triggers can I use for EAS workflows?",
+      "answer": "EAS workflows support 'pull_request', 'push', and 'workflow_dispatch' triggers. Use conditions to filter when specific jobs run based on changed files or branch names."
+    },
+    {
+      "question": "Can I run workflows locally?",
+      "answer": "EAS workflows run on Expo's infrastructure. For local testing, use 'eas build --local' or run equivalent commands manually. The skill focuses on workflow YAML, not execution."
+    },
+    {
+      "question": "How do I validate my workflow file?",
+      "answer": "Use the validation script: 'node scripts/validate.js .eas/workflows/your-workflow.yml'. The skill includes this script to fetch the latest schema and check for errors."
+    },
+    {
+      "question": "What job types does EAS support?",
+      "answer": "EAS supports 'build' jobs for native builds, 'custom' jobs with custom commands, and 'eas' jobs for internal Expo processes. Fetch the schema to see current options."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "EAS workflows",
+    "Expo CI/CD",
+    "EAS Build",
+    "Expo deployment",
+    "workflow YAML",
+    "Expo automation",
+    "eas.json"
+  ],
+  "sourceUrl": "https://github.com/expo/skills/tree/main/plugins/expo-deployment/skills/expo-cicd-workflows/",
+  "sourceType": "community",
+  "dependencies": []
+}

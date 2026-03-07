@@ -1,0 +1,146 @@
+{
+  "name": "vercel-deploy",
+  "type": "skill",
+  "description": "Use when deploying Next.js applications to Vercel.\nTriggers for: vercel.json configuration, build optimization, environment variable setup,\ncustom domain configuration, API proxy setup, or deployment troubleshooting.\nNOT for: backend-only deployments, non-Vercel hosting, or local development setup.\n",
+  "domain": "devops",
+  "subdomain": "cloud",
+  "specialty": "Next.js deployment",
+  "quality": 5,
+  "qualityReason": "Specific deployment focus",
+  "bundleHints": [
+    "nextjs-deploy",
+    "fullstack-devops"
+  ],
+  "tags": [
+    "api-proxy",
+    "build-optimization",
+    "custom-domain",
+    "deployment",
+    "devops",
+    "environment-setup",
+    "frontend",
+    "nextjs",
+    "vercel",
+    "vercel.json"
+  ],
+  "capabilities": [
+    "Configure vercel.json with build commands, regions, and output directories",
+    "Set up environment variables for production and preview deployments",
+    "Configure custom domains with DNS settings and HTTPS certificates",
+    "Create API proxy rewrites and redirects for backend integration",
+    "Optimize build settings for performance and caching",
+    "Set up custom error pages and security headers"
+  ],
+  "author": "Awais68",
+  "icon": "🚀",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill with 144 false positive static findings. Scanner confused documentation examples with executable code. No network calls, no command execution, no file writes. The verify.py script only reads and validates SKILL.md format using regex parsing.",
+  "valueStatement": "Deploy Next.js applications to Vercel with optimized build settings, environment variables, and custom domain configuration. Expert guidance for production-ready deployments.",
+  "userTitle": "Deploy Next.js to Vercel",
+  "limitations": [
+    "Does not execute deployments (requires Vercel CLI or Git integration)",
+    "Does not manage non-Vercel hosting platforms",
+    "Does not configure local development environments",
+    "Does not handle backend-only deployments without frontend"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend Developers",
+      "title": "Deploy Next.js App",
+      "description": "Configure and deploy a Next.js application to Vercel with optimal build settings and environment variables."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "CI/CD Pipeline Setup",
+      "description": "Set up automated deployments with Vercel CLI in CI/CD pipelines using tokens and environment variables."
+    },
+    {
+      "targetUser": "Full-Stack Developers",
+      "title": "Custom Domain Setup",
+      "description": "Configure custom domains, DNS records, and API proxying for production applications on Vercel."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Vercel Setup",
+      "scenario": "First-time Vercel deployment",
+      "prompt": "Help me deploy my Next.js app to Vercel. I need to create a vercel.json configuration file with the correct build settings."
+    },
+    {
+      "title": "Environment Variables",
+      "scenario": "Configure production variables",
+      "prompt": "Set up environment variables for my Next.js app on Vercel. Which variables need the NEXT_PUBLIC_ prefix and which should stay server-only?"
+    },
+    {
+      "title": "Custom Domain",
+      "scenario": "Add custom domain",
+      "prompt": "Configure a custom domain for my Vercel deployment. How do I set up DNS records and HTTPS?"
+    },
+    {
+      "title": "API Proxy",
+      "scenario": "Configure API routing",
+      "prompt": "Set up API proxy rewrites in vercel.json to route /api requests to my backend API at api.example.com."
+    }
+  ],
+  "bestPractices": [
+    "Always use NEXT_PUBLIC_ prefix only for variables that need client access",
+    "Test builds locally with npm run build before deploying to Vercel",
+    "Use vercel.json regions to deploy closest to your users",
+    "Configure custom error pages before going live"
+  ],
+  "antiPatterns": [
+    "Never commit .env.local files to version control",
+    "Avoid using wildcard domains without proper DNS configuration",
+    "Do not expose sensitive API keys with NEXT_PUBLIC_ prefix",
+    "Never hardcode API URLs; use environment variables instead"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill deploy my application?",
+      "answer": "No. This skill provides configuration guidance. Run vercel --prod or use Vercel Git integration to actually deploy."
+    },
+    {
+      "question": "What Next.js versions are supported?",
+      "answer": "Supports Next.js 13+ with App Router. Works with Pages Router but some features are optimized for App Router."
+    },
+    {
+      "question": "How do I deploy from CI/CD?",
+      "answer": "Use vercel --token=$VERCEL_TOKEN --yes in your pipeline. Get VERCEL_TOKEN from Vercel Dashboard."
+    },
+    {
+      "question": "Is my code safe with this skill?",
+      "answer": "Yes. This is a read-only documentation skill. It only reads your configuration files to provide guidance."
+    },
+    {
+      "question": "Why is my build failing on Vercel?",
+      "answer": "Common causes: missing dependencies, incorrect build command, environment variables not set, or platform-specific code."
+    },
+    {
+      "question": "How is this different from Vercel CLI?",
+      "answer": "This skill provides configuration guidance and troubleshooting. Vercel CLI is the actual tool that performs deployments."
+    }
+  ],
+  "seoKeywords": [
+    "vercel deployment",
+    "nextjs vercel",
+    "vercel deploy",
+    "claude code vercel",
+    "vercel cli",
+    "vercel json",
+    "nextjs deployment",
+    "claude vercel",
+    "vercel nextjs",
+    "vercel devops"
+  ],
+  "sourceUrl": "https://github.com/Awais68/hackathon-2-phase-ii-full-stack-web-app/tree/main/.claude/skills/vercel-deploy",
+  "sourceType": "community",
+  "dependencies": []
+}

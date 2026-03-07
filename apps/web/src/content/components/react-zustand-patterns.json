@@ -1,0 +1,144 @@
+{
+  "name": "react-zustand-patterns",
+  "type": "skill",
+  "description": "Zustand state management patterns for React. Use when working with Zustand stores, debugging state timing issues, or implementing async actions. Works for both React web and React Native.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Zustand",
+  "quality": 5,
+  "qualityReason": "Specific state management library expertise",
+  "bundleHints": [
+    "react-stack",
+    "state-management",
+    "zustand-ecosystem"
+  ],
+  "tags": [
+    "async-actions",
+    "debugging",
+    "frontend",
+    "patterns",
+    "react",
+    "state",
+    "state-management",
+    "timing",
+    "zustand"
+  ],
+  "capabilities": [
+    "Explain set() synchronous behavior vs React batched renders",
+    "Fix stale closure issues using get() after async operations",
+    "Implement proper async actions with error handling",
+    "Optimize selectors to prevent unnecessary re-renders",
+    "Debug state changes with devtools middleware",
+    "Use persist middleware for localStorage state"
+  ],
+  "author": "CJHarmath",
+  "icon": "⚛️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing educational content about Zustand state management patterns. All 52 static findings are false positives: markdown code block delimiters were misidentified as shell command execution, TypeScript syntax patterns as cryptographic algorithms, and feature documentation as executable code. No executable code, network calls, file system access, or credential handling exists.",
+  "valueStatement": "Zustand's simplicity hides timing complexities that cause subtle bugs. Learn patterns for synchronous set() behavior, stale closure prevention, async actions, and selector optimization to write reliable React state management.",
+  "userTitle": "Apply Zustand state management patterns",
+  "limitations": [
+    "Does not generate new store code from specifications",
+    "Does not test or validate existing Zustand implementations",
+    "Does not integrate with build tools or IDE plugins",
+    "Does not provide runtime performance profiling"
+  ],
+  "useCases": [
+    {
+      "targetUser": "React Developers",
+      "title": "Fix State Timing Bugs",
+      "description": "Debug why components see stale values after set() calls due to React's batched render behavior"
+    },
+    {
+      "targetUser": "Full-Stack Engineers",
+      "title": "Build Async Store Actions",
+      "description": "Implement robust async data fetching with proper loading states, error handling, and race condition prevention"
+    },
+    {
+      "targetUser": "Frontend Teams",
+      "title": "Optimize Render Performance",
+      "description": "Prevent unnecessary re-renders by fixing selectors that return new objects on every render cycle"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Understanding set()",
+      "scenario": "Confused about state timing",
+      "prompt": "Explain how set() works synchronously but React re-renders are batched. Show why getState() returns new values immediately but components might see old values"
+    },
+    {
+      "title": "Stale Closures",
+      "scenario": "Async callback issues",
+      "prompt": "How do I avoid stale closures in Zustand? Show why data captured in a callback becomes stale after await and how to use get() correctly"
+    },
+    {
+      "title": "Async Actions",
+      "scenario": "Building async stores",
+      "prompt": "Write a complete async action pattern in Zustand with loading state, error handling, and race condition protection using get() checks"
+    },
+    {
+      "title": "Selector Optimization",
+      "scenario": "Fixing re-renders",
+      "prompt": "Fix this selector that causes unnecessary re-renders: const data = useStore((s) => ({ name: s.name, count: s.count }))"
+    }
+  ],
+  "bestPractices": [
+    "Always use get() or getState() after any await to ensure fresh state values",
+    "Use shallow comparison or multiple selectors to prevent object creation in selectors",
+    "Add devtools middleware during development to trace state changes"
+  ],
+  "antiPatterns": [
+    "Relying on closure-captured values after async operations without using get()",
+    "Returning new objects from selectors that cause unnecessary component re-renders",
+    "Skipping the async keyword on store actions that return promises"
+  ],
+  "faq": [
+    {
+      "question": "Is Zustand compatible with React Native?",
+      "answer": "Yes. Zustand works identically in React Native. Use persist middleware with asyncStorage for mobile persistence."
+    },
+    {
+      "question": "What Zustand versions are supported?",
+      "answer": "Patterns cover both Zustand 4.x and 5.x. Key differences include shallow import location and useShallow hook."
+    },
+    {
+      "question": "How do I debug state changes in production?",
+      "answer": "Remove devtools middleware in production builds. Use manual logging with get() for production debugging if needed."
+    },
+    {
+      "question": "Is my data safe with persist middleware?",
+      "answer": "Persist middleware stores data in localStorage or AsyncStorage. Avoid persisting sensitive data without encryption."
+    },
+    {
+      "question": "Why do my selectors cause infinite re-renders?",
+      "answer": "Selectors returning new objects (like { ...state }) change reference on every render. Use shallow comparison or multiple selectors."
+    },
+    {
+      "question": "How does Zustand compare to Redux?",
+      "answer": "Zustand is simpler with less boilerplate. Redux offers more middleware and debugging tools. Both handle async with middleware patterns."
+    }
+  ],
+  "seoKeywords": [
+    "zustand patterns",
+    "react state management",
+    "zustand async actions",
+    "react zustand tutorial",
+    "zustand debugging",
+    "zustand selectors",
+    "claude code zustand",
+    "react native zustand",
+    "zustand middleware",
+    "zustand store patterns"
+  ],
+  "sourceUrl": "https://github.com/CJHarmath/claude-agents-skills/tree/main/skills/react-zustand-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

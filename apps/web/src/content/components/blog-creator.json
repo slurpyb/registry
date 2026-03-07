@@ -1,0 +1,141 @@
+{
+  "name": "blog-creator",
+  "type": "skill",
+  "description": "Create SEO-optimized MDX blog posts with proper frontmatter",
+  "domain": "marketing",
+  "subdomain": "content-marketing",
+  "specialty": "SEO blog posts",
+  "quality": 5,
+  "qualityReason": "Clear content structure",
+  "bundleHints": [
+    "content-creation",
+    "seo-stack"
+  ],
+  "tags": [
+    "blog",
+    "blogging",
+    "content",
+    "content-generation",
+    "frontmatter",
+    "mdx",
+    "nextjs",
+    "seo",
+    "writing"
+  ],
+  "capabilities": [
+    "Generate MDX blog posts with proper frontmatter structure",
+    "Add SEO-optimized title, description, and meta tags",
+    "Configure featured images with correct paths",
+    "Apply relevant tags for related articles functionality",
+    "Follow kebab-case slug naming conventions"
+  ],
+  "author": "AayushBaniya2006",
+  "icon": "✍️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown files with guidelines for creating MDX blog posts. No executable code, scripts, network calls, file system operations, or cryptographic functions detected. All 60 static findings are false positives triggered by markdown syntax and JSON field names.",
+  "valueStatement": "Creating SEO-friendly blog posts requires proper formatting, metadata, and structure. This skill provides clear guidelines for creating MDX blog posts with correct frontmatter, tags, and image handling for maximum search visibility.",
+  "userTitle": "Create SEO-Optimized MDX Blog Posts",
+  "limitations": [
+    "Does not generate actual content - only provides structure and guidelines",
+    "Does not interact with file system to create files",
+    "Does not validate or publish posts to any platform"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content Writers",
+      "title": "Create Blog Post Structure",
+      "description": "Generate properly formatted blog posts with correct frontmatter for SEO optimization"
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Set Up Blog Content",
+      "description": "Configure blog posts with correct MDX syntax and file structure for Next.js projects"
+    },
+    {
+      "targetUser": "Technical Authors",
+      "title": "Maintain Content Standards",
+      "description": "Follow consistent naming conventions and metadata standards across all blog posts"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New Blog Post",
+      "scenario": "Create a new blog post",
+      "prompt": "Create a new MDX blog post about [TOPIC] with proper frontmatter including title, tags, featuredImage, createdDate, and description. Use kebab-case for the filename."
+    },
+    {
+      "title": "SEO Guidelines",
+      "scenario": "Get SEO recommendations",
+      "prompt": "What are the best practices for writing SEO-optimized frontmatter for a blog post about [TOPIC]? Include recommended description length and tag suggestions."
+    },
+    {
+      "title": "Image Configuration",
+      "scenario": "Add featured image",
+      "prompt": "Help me configure the featured image for my blog post. The image is located at [PATH]. What frontmatter field should I use and how should I reference it?"
+    },
+    {
+      "title": "Content Standards",
+      "scenario": "Validate blog format",
+      "prompt": "Review this blog post frontmatter and check if it follows the correct schema. [PASTE FRONTMATTER] What needs to be fixed?"
+    }
+  ],
+  "bestPractices": [
+    "Use kebab-case for filenames to generate clean URLs",
+    "Keep descriptions between 150-160 characters for optimal SEO",
+    "Include 3-5 relevant tags to enable related articles functionality"
+  ],
+  "antiPatterns": [
+    "Using single quotes instead of double quotes in frontmatter",
+    "Skipping the description field which is used for meta tags",
+    "Not using absolute paths for image references"
+  ],
+  "faq": [
+    {
+      "question": "What tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It provides prompts and guidance for creating blog content."
+    },
+    {
+      "question": "What file formats are supported?",
+      "answer": "The skill supports MDX format only. Files must have .mdx extension with YAML frontmatter."
+    },
+    {
+      "question": "Does this skill create actual files?",
+      "answer": "No. This skill provides structure and guidelines. The AI generates the content and you save it to your project."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes. This skill contains only documentation. No code executes, no files are read, and no data leaves your environment."
+    },
+    {
+      "question": "Why is my description not showing in SEO?",
+      "answer": "Check that you use double quotes, not single quotes, in frontmatter. Also verify the description field is present."
+    },
+    {
+      "question": "How is this different from other blog tools?",
+      "answer": "This skill focuses on MDX and frontmatter structure for Next.js projects. It ensures proper SEO metadata and component compatibility."
+    }
+  ],
+  "seoKeywords": [
+    "blog creator",
+    "MDX blog posts",
+    "SEO optimization",
+    "frontmatter",
+    "Claude blog",
+    "Codex blog",
+    "Claude Code blog",
+    "content creation",
+    "markdown blog",
+    "SEO metadata"
+  ],
+  "sourceUrl": "https://github.com/AayushBaniya2006/blinkfund/tree/main/.claude/skills/blog-creator",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,144 @@
+{
+  "name": "pydantic",
+  "type": "skill",
+  "description": "Data validation and settings management using Python type annotations with Pydantic v2",
+  "domain": "languages",
+  "subdomain": "python",
+  "specialty": "validation",
+  "quality": 5,
+  "qualityReason": "Core Python validation library",
+  "bundleHints": [
+    "python-types",
+    "api-development"
+  ],
+  "tags": [
+    "data validation",
+    "data-models",
+    "pydantic",
+    "pydantic v2",
+    "python",
+    "settings",
+    "type annotations",
+    "type safety",
+    "type-safety",
+    "validation"
+  ],
+  "capabilities": [
+    "Define data models with automatic type validation",
+    "Convert between data formats (JSON, dict, Python objects)",
+    "Create custom field validators with decorators",
+    "Handle nested models and complex relationships",
+    "Generate JSON schemas from models",
+    "Validate email addresses and URLs with built-in types"
+  ],
+  "author": "bossjones",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 46 static findings are false positives. The detected 'Ruby/shell backtick execution' patterns are Python code examples using markdown code fences (not shell backticks). 'C2 keywords' and 'weak cryptographic algorithm' findings are triggered by metadata field names like 'tree_hash' and 'content_hash' which are benign identifiers. No actual command execution, cryptographic code, or network activity exists. This is a documentation skill containing only Pydantic v2 code examples.",
+  "valueStatement": "Stop debugging data type errors and start catching them before they break your code. Pydantic validates your data structures using Python type annotations, automatically converting and validating inputs with detailed error messages.",
+  "userTitle": "Validate data with Pydantic type annotations",
+  "limitations": [
+    "Requires Python 3.8+ for full functionality",
+    "Type coercion may hide data quality issues",
+    "Complex validation rules can impact performance",
+    "Some advanced features require optional dependencies"
+  ],
+  "useCases": [
+    {
+      "targetUser": "API developers",
+      "title": "Validate API request/response data",
+      "description": "Ensure your REST APIs receive and return properly formatted data with automatic validation and clear error messages."
+    },
+    {
+      "targetUser": "Data engineers",
+      "title": "Structure configuration files",
+      "description": "Define strict schemas for YAML/JSON configuration files to catch errors early and provide helpful validation feedback."
+    },
+    {
+      "targetUser": "Backend developers",
+      "title": "Model database entities",
+      "description": "Create type-safe data models that validate business logic before database operations, preventing invalid data storage."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic model validation",
+      "scenario": "Create a user registration model",
+      "prompt": "Create a Pydantic model for user registration with email, password, age (must be 18+), and username (alphanumeric only). Include proper validation."
+    },
+    {
+      "title": "Nested model structure",
+      "scenario": "Build an e-commerce order system",
+      "prompt": "Design Pydantic models for an e-commerce order with Customer, Address, Product, and Order models. Include validation for email, phone, and price calculations."
+    },
+    {
+      "title": "Custom validators",
+      "scenario": "Validate business rules",
+      "prompt": "Create a DateRange model with custom validation ensuring start_date is before end_date, and both dates are in the future. Add helpful error messages."
+    },
+    {
+      "title": "Advanced serialization",
+      "scenario": "Control API response format",
+      "prompt": "Build a User model with password field that should never be serialized. Add custom serializers for datetime fields and demonstrate different output modes."
+    }
+  ],
+  "bestPractices": [
+    "Always use specific field types like EmailStr instead of plain str for better validation",
+    "Wrap model creation in try-except blocks to handle ValidationError gracefully",
+    "Use ConfigDict to set model-wide behaviors like strict mode or extra field handling"
+  ],
+  "antiPatterns": [
+    "Don't rely on type coercion to fix bad data - validate inputs at the source",
+    "Avoid overly complex nested models that are hard to validate and maintain",
+    "Never use Pydantic models for security validation without additional checks"
+  ],
+  "faq": [
+    {
+      "question": "What's the difference between Pydantic v1 and v2?",
+      "answer": "Pydantic v2 is faster, has better error messages, and uses model_config instead of Config class. Migration requires updating import paths and validator syntax."
+    },
+    {
+      "question": "How do I validate a list of emails?",
+      "answer": "Use typing.List[EmailStr] or list[EmailStr] in Python 3.9+. Pydantic validates each item in the list automatically."
+    },
+    {
+      "question": "Can Pydantic validate JSON directly?",
+      "answer": "Yes, use model_validate_json() method to parse and validate JSON strings in one step. It returns a validated model instance."
+    },
+    {
+      "question": "How do I exclude fields from serialization?",
+      "answer": "Use Field(exclude=True) or model_dump(exclude={'field_name'}). SecretStr fields are automatically excluded."
+    },
+    {
+      "question": "What's the best way to handle optional fields?",
+      "answer": "Use Optional[Type] = None or Type | None in Python 3.10+. Set meaningful defaults when possible."
+    },
+    {
+      "question": "Can I use Pydantic with FastAPI?",
+      "answer": "Yes, FastAPI has native Pydantic integration. Use Pydantic models for request/response schemas and get automatic validation and documentation."
+    }
+  ],
+  "seoKeywords": [
+    "pydantic",
+    "python validation",
+    "type annotations",
+    "data models",
+    "Claude Code",
+    "pydantic v2",
+    "python typing",
+    "data validation",
+    "Claude",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/bossjones/logging-lab/tree/main/.claude/skills/pydantic",
+  "sourceType": "community",
+  "dependencies": []
+}

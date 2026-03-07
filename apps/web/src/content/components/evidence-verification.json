@@ -1,0 +1,140 @@
+{
+  "name": "evidence-verification",
+  "type": "skill",
+  "description": "This skill teaches agents how to collect and verify evidence before marking tasks complete. Inspired by production-grade development practices, it ensures all claims are backed by executable proof:...",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "proof validation",
+  "quality": 5,
+  "qualityReason": "Ensures production-grade rigor",
+  "bundleHints": [
+    "ci-cd-gates",
+    "quality-assurance"
+  ],
+  "tags": [
+    "deployment",
+    "documentation",
+    "executable-proof",
+    "quality-assurance",
+    "testing",
+    "verification"
+  ],
+  "capabilities": [
+    "Collect test execution evidence with exit codes and coverage metrics",
+    "Document build success including artifacts created and error counts",
+    "Run linter and type checker verification with documented results",
+    "Create structured evidence reports for task completion",
+    "Verify deployment health checks and smoke test results",
+    "Store evidence in shared context for team visibility"
+  ],
+  "author": "ArieGoldkin",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill with no executable code. All 159 static findings are false positives caused by the scanner misinterpreting documentation patterns (markdown code blocks, legitimate command examples, and standard technical terminology) as security threats. The skill contains only templates and workflow documentation for evidence collection.",
+  "valueStatement": "AI agents often claim tasks are complete without proof. This skill ensures every claim is backed by executable evidence like test results, build status, and coverage metrics. It prevents hallucinations and ensures production quality by requiring verifiable proof before marking tasks done.",
+  "userTitle": "Verify work with evidence before completion",
+  "limitations": [
+    "Skill provides templates and guidance but does not execute commands itself",
+    "Evidence collection depends on the AI agent running verification commands",
+    "Does not automatically fix failing tests or build errors",
+    "Requires user to have test, build, and lint commands configured"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI Developers",
+      "title": "Task Completion Verification",
+      "description": "Ensure AI agents provide proof of work before marking tasks complete with structured evidence reports."
+    },
+    {
+      "targetUser": "QA Engineers",
+      "title": "Quality Gate Enforcement",
+      "description": "Enforce minimum quality standards by requiring test coverage, build success, and lint checks before deployment."
+    },
+    {
+      "targetUser": "DevOps Teams",
+      "title": "Deployment Verification",
+      "description": "Verify production deployments with health checks, smoke tests, and rollback capability confirmation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Test Verification",
+      "scenario": "Verify tests pass",
+      "prompt": "Run the test suite and document the evidence. Capture the exit code, number of tests passed, failed, and skipped. Include coverage percentage if available. Store this evidence before marking the task complete."
+    },
+    {
+      "title": "Build Verification",
+      "scenario": "Verify build succeeds",
+      "prompt": "Run the build command and document the evidence. Capture the exit code, any errors or warnings, and list the artifacts created. Note the bundle size and build duration."
+    },
+    {
+      "title": "Code Quality Check",
+      "scenario": "Run linting and type checks",
+      "prompt": "Execute the linter and type checker. Document the exit codes, error counts, and warning counts. Only proceed if both checks pass with zero errors."
+    },
+    {
+      "title": "Full Evidence Report",
+      "scenario": "Complete verification package",
+      "prompt": "Run tests, build, linter, and type checker. Create a combined evidence report showing exit codes, coverage metrics, artifact details, and quality standard achieved. Include timestamp and environment details."
+    }
+  ],
+  "bestPractices": [
+    "Always capture exit codes - zero means success, non-zero indicates failure",
+    "Run verification commands fresh for each change - do not rely on stale results",
+    "Store evidence in shared context so team members can review verification status"
+  ],
+  "antiPatterns": [
+    "Skipping evidence collection and assuming the code works correctly",
+    "Recording 'tests passed' without actually running the test command",
+    "Ignoring failed evidence because the code looks correct"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It provides structured prompts for evidence collection."
+    },
+    {
+      "question": "What minimum evidence is required?",
+      "answer": "At minimum, capture one verification type with exit code and timestamp recorded before marking complete."
+    },
+    {
+      "question": "How does evidence integrate with my workflow?",
+      "answer": "Evidence is stored in shared context under quality_evidence. Other skills can read this to verify completion status."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. This skill only reads verification outputs you run. No data is sent externally or stored beyond your project."
+    },
+    {
+      "question": "What if tests or build fail?",
+      "answer": "Document the failure with evidence. Do not mark the task complete. Fix the issues and re-run verification until all evidence passes."
+    },
+    {
+      "question": "How is this different from a test runner?",
+      "answer": "This skill does not run tests. It provides templates for documenting evidence from tests, builds, and checks you run."
+    }
+  ],
+  "seoKeywords": [
+    "evidence verification",
+    "AI quality assurance",
+    "test verification",
+    "Claude Code verification",
+    "code completion verification",
+    "deployment verification",
+    "test coverage validation",
+    "build verification",
+    "code review checklist",
+    "production readiness"
+  ],
+  "sourceUrl": "https://github.com/ArieGoldkin/ai-agent-hub/tree/main/skills/evidence-verification",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "segment-cdp",
+  "type": "skill",
+  "description": "Expert patterns for Segment Customer Data Platform including Analytics.js, server-side tracking, tracking plans with Protocols, identity resolution, destinations configuration, and data governance best practices. Use when: segment, analytics.js, customer data platform, cdp, tracking plan.",
+  "domain": "data",
+  "subdomain": "analytics",
+  "specialty": "CDP patterns",
+  "quality": 5,
+  "qualityReason": "Expert patterns with comprehensive coverage",
+  "bundleHints": [
+    "customer-data-platform",
+    "analytics"
+  ],
+  "tags": [
+    "analytics",
+    "cdp",
+    "customer-data-platform",
+    "data-governance",
+    "identity-resolution",
+    "segment",
+    "tracking"
+  ],
+  "capabilities": [
+    "Implement client-side tracking with Analytics.js for web applications",
+    "Set up server-side tracking using @segment/analytics-node for backend events",
+    "Design tracking plans with Object + Action naming conventions",
+    "Configure identity resolution and anonymous user tracking",
+    "Set up destination integrations for data routing",
+    "Apply data governance policies with Segment Protocols"
+  ],
+  "author": "sickn33",
+  "icon": "📊",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation patterns for Segment CDP integration. Static analysis flagged 'DES' within the word 'Design' as a weak cryptographic algorithm - this is a false positive. No executable code with cryptographic operations exists. The skill is safe for publication.",
+  "valueStatement": "Integrate Segment Customer Data Platform with Claude Code to implement client-side and server-side tracking, design tracking plans, and manage data governance across your application.",
+  "userTitle": "Segment CDP Integration Patterns",
+  "limitations": [
+    "Requires existing Segment account and write key configuration",
+    "Does not include Segment API credentials management",
+    "Does not provide real-time data validation dashboard",
+    "No native support for legacy analytics implementations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers building e-commerce applications",
+      "title": "E-commerce Tracking Setup",
+      "description": "Implement comprehensive event tracking for an e-commerce platform including product views, cart updates, and checkout flows using Analytics.js"
+    },
+    {
+      "targetUser": "Backend engineers requiring privacy-conscious event collection",
+      "title": "Server-Side Event Collection",
+      "description": "Set up secure server-side tracking for sensitive backend events like webhook processing and API calls using analytics-node"
+    },
+    {
+      "targetUser": "Data engineers and analytics architects",
+      "title": "Tracking Plan Governance",
+      "description": "Design and enforce tracking plan schemas to ensure data quality and consistency across multiple teams and data sources"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Client-Side Tracking",
+      "prompt": "Show me how to implement basic page and track calls using Analytics.js for a new web application",
+      "scenario": "Setting up initial client-side tracking"
+    },
+    {
+      "title": "Server-Side Event Tracking",
+      "prompt": "Create a Node.js function that sends server-side events to Segment using the analytics-node library",
+      "scenario": "Backend event tracking implementation"
+    },
+    {
+      "title": "Tracking Plan Schema",
+      "prompt": "Design a tracking plan schema for a SaaS subscription event including required properties, types, and validation rules",
+      "scenario": "Creating tracking plan definitions"
+    },
+    {
+      "title": "Identity Resolution Setup",
+      "prompt": "Explain how to implement user identification and anonymous ID merging in Analytics.js",
+      "scenario": "User identity management"
+    }
+  ],
+  "bestPractices": [
+    "Use consistent Object + Action naming convention for events (e.g., 'Order Completed', 'Product Viewed')",
+    "Call analytics.identify() before track() calls to associate events with user data",
+    "Include required properties in tracking plan and validate with Segment Protocols"
+  ],
+  "antiPatterns": [
+    "Using dynamic event names constructed from user input - event names should be predefined",
+    "Tracking properties as events instead of using properties within events",
+    "Missing identify call before track - always identify users first for proper attribution"
+  ],
+  "faq": [
+    {
+      "question": "What is Segment CDP?",
+      "answer": "Segment Customer Data Platform is a customer data infrastructure that collects, routes, and transforms data between your applications and downstream tools."
+    },
+    {
+      "question": "What is the difference between Analytics.js and analytics-node?",
+      "answer": "Analytics.js is the client-side JavaScript library for browser tracking. analytics-node is the server-side Node.js library for backend event collection."
+    },
+    {
+      "question": "Do I need a Segment account to use this skill?",
+      "answer": "Yes, you need a Segment workspace with a write key to send events. You can sign up at segment.com."
+    },
+    {
+      "question": "What is a tracking plan?",
+      "answer": "A tracking plan is a document that defines the events, properties, and users you want to track with consistent naming conventions and validation rules."
+    },
+    {
+      "question": "How does identity resolution work in Segment?",
+      "answer": "Segment uses anonymous IDs to track users before identification. When analytics.identify() is called, Segment merges anonymous events with the identified user profile."
+    },
+    {
+      "question": "What are Segment Protocols?",
+      "answer": "Segment Protocols is a feature that enforces tracking plan rules, validates incoming events, and monitors data quality across your sources."
+    }
+  ],
+  "seoKeywords": [
+    "segment cdp",
+    "customer data platform",
+    "analytics.js",
+    "segment tracking",
+    "claude code",
+    "claude",
+    "codex",
+    "claude-code",
+    "event tracking",
+    "data governance"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/segment-cdp",
+  "sourceType": "community",
+  "dependencies": []
+}

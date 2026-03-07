@@ -1,0 +1,142 @@
+{
+  "name": "tailwind-design-system",
+  "type": "skill",
+  "description": "Build scalable design systems with Tailwind CSS, design tokens, component libraries, and responsive patterns. Use when creating component libraries, implementing design systems, or standardizing UI patterns.",
+  "domain": "design",
+  "subdomain": "design-systems",
+  "specialty": "scalable systems",
+  "quality": 5,
+  "qualityReason": "Design system scalability",
+  "bundleHints": [
+    "design-system",
+    "component-library"
+  ],
+  "tags": [
+    "components",
+    "css",
+    "design-system",
+    "design-tokens",
+    "responsive",
+    "system-scale",
+    "tailwind",
+    "ui"
+  ],
+  "capabilities": [
+    "Generate Tailwind CSS configuration with semantic design tokens",
+    "Create component variants using CVA (Class Variance Authority)",
+    "Build compound components with proper React patterns",
+    "Implement responsive grid systems and layouts",
+    "Add dark mode support with CSS variables",
+    "Create accessible form components with validation"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 78 potential issues, all confirmed as false positives. The 'backtick execution' patterns are Markdown code fences (```) for code samples. URLs are documentation references. localStorage usage is standard theme persistence. No executable code or security risks present.",
+  "valueStatement": "Creating consistent design systems is complex and time-consuming. This skill provides proven patterns for building scalable component libraries with Tailwind CSS, design tokens, and accessibility built-in.",
+  "userTitle": "Build design systems with Tailwind CSS",
+  "limitations": [
+    "Requires React and TypeScript project setup",
+    "Does not include visual design or branding guidance",
+    "Focused on utility-first CSS approach only",
+    "Does not provide design tool integrations (Figma, Sketch)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers building MVP products",
+      "title": "Startup Component Library",
+      "description": "Build a complete component library from scratch for a new product, including buttons, cards, forms, and dialogs with consistent styling."
+    },
+    {
+      "targetUser": "Tech leads modernizing legacy codebases",
+      "title": "Design System Migration",
+      "description": "Migrate an existing CSS or styled-components codebase to Tailwind CSS with proper design token structure and component patterns."
+    },
+    {
+      "targetUser": "Developers building admin dashboards and SaaS applications",
+      "title": "Accessible Form Implementation",
+      "description": "Create accessible form components with proper validation, error states, and keyboard navigation following WCAG guidelines."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Button Component",
+      "prompt": "Create a reusable Button component using Tailwind CSS and CVA. Include variants for primary, secondary, outline, and ghost styles. Add size variants (sm, md, lg) and a disabled state.",
+      "scenario": "Starting a new component library and need foundational components."
+    },
+    {
+      "title": "Design Token Configuration",
+      "prompt": "Generate a Tailwind CSS configuration file with semantic color tokens. Include primary, secondary, destructive, muted, accent, background, foreground, and border colors. Support both light and dark mode using CSS variables.",
+      "scenario": "Setting up the foundation for a design system."
+    },
+    {
+      "title": "Compound Card Component",
+      "prompt": "Build a Card component using the compound component pattern. Create Card, CardHeader, CardTitle, CardDescription, CardContent, and CardFooter subcomponents. Use forwardRef for proper React composition.",
+      "scenario": "Creating flexible layout components for content display."
+    },
+    {
+      "title": "Dark Mode Theme Provider",
+      "prompt": "Implement a complete dark mode solution with a ThemeProvider component. Support system preference detection, localStorage persistence, and manual toggle. Include a ThemeToggle button component with sun/moon icons.",
+      "scenario": "Adding theme switching to an existing application."
+    }
+  ],
+  "bestPractices": [
+    "Use CSS variables for runtime theming and design tokens",
+    "Compose variants with CVA for type-safe component APIs",
+    "Always include focus-visible states for keyboard accessibility"
+  ],
+  "antiPatterns": [
+    "Using arbitrary values like h-[500px] instead of extending the theme",
+    "Hardcoding colors directly in components instead of semantic tokens",
+    "Skipping dark mode styles when building new components"
+  ],
+  "faq": [
+    {
+      "question": "What is CVA and why should I use it?",
+      "answer": "CVA (Class Variance Authority) is a library for creating type-safe component variants. It allows you to define base styles and variant options that compose cleanly, with full TypeScript support."
+    },
+    {
+      "question": "How do I add custom colors to my design system?",
+      "answer": "Extend the Tailwind theme in tailwind.config.ts using CSS variables. Define the color in both light and dark mode in your globals.css file for full theming support."
+    },
+    {
+      "question": "Can I use this skill with vanilla CSS or other frameworks?",
+      "answer": "This skill focuses on Tailwind CSS specifically. For vanilla CSS or other frameworks like styled-components, different patterns and approaches would be needed."
+    },
+    {
+      "question": "How do I handle component accessibility?",
+      "answer": "Always include proper ARIA attributes, focus states, and keyboard navigation. Use semantic HTML elements and ensure proper heading hierarchy. Test with screen readers."
+    },
+    {
+      "question": "What is the compound component pattern?",
+      "answer": "Compound components work together to create a flexible UI. Examples include Select with SelectTrigger, SelectValue, SelectContent or Card with CardHeader, CardTitle, CardContent. This pattern enables clean composition."
+    },
+    {
+      "question": "How do I migrate from Bootstrap or Material UI?",
+      "answer": "Start by setting up design tokens that match your existing design. Then migrate components one at a time, starting with foundational elements like buttons and inputs. Use the implementation playbook for patterns."
+    }
+  ],
+  "seoKeywords": [
+    "Tailwind CSS design system",
+    "component library",
+    "design tokens",
+    "Claude skill",
+    "Codex skill",
+    "Claude Code",
+    "responsive components",
+    "CVA variants",
+    "dark mode",
+    "accessible UI"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/tailwind-design-system",
+  "sourceType": "community",
+  "dependencies": []
+}

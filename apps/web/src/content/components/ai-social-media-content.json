@@ -1,0 +1,157 @@
+{
+  "name": "ai-social-media-content",
+  "type": "skill",
+  "description": "Create AI-powered social media content for TikTok, Instagram, YouTube, Twitter/X.\nGenerate: images, videos, reels, shorts, thumbnails, captions, hashtags.\nTools: FLUX, Veo, Seedance, Wan, Kokoro TTS, Claude for copywriting.\nUse for: content creators, social media managers, influencers, brands.\nTriggers: social media content, tiktok, instagram reels, youtube shorts, twitter post,\ncontent creator, ai influencer, social content, reels, shorts, viral content,\nthumbnail generator, caption generator, hashtag generator, ugc content\n",
+  "domain": "ai-ml",
+  "subdomain": "computer-vision",
+  "specialty": "Social content",
+  "quality": 4,
+  "qualityReason": "Multi-platform content creation",
+  "bundleHints": [
+    "social-ai",
+    "content-automation",
+    "marketing-ai"
+  ],
+  "tags": [
+    "captions",
+    "claude",
+    "claude code",
+    "content creation",
+    "copywriting",
+    "hashtag-generation",
+    "image generation",
+    "instagram",
+    "reels",
+    "social media",
+    "thumbnails",
+    "tiktok",
+    "video generation"
+  ],
+  "capabilities": [
+    "Generate vertical videos for TikTok, Instagram Reels, and YouTube Shorts",
+    "Create horizontal images for Twitter/X and YouTube thumbnails",
+    "Design Instagram carousels with consistent visual themes",
+    "Generate engaging captions and viral hooks with Claude",
+    "Create AI avatars with voiceovers using Kokoro TTS",
+    "Batch generate multiple content pieces for a week of posts",
+    "Design product showcases and lifestyle content"
+  ],
+  "author": "inference-sh",
+  "icon": "📱",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static scanner detected 41 potential issues including Ruby/shell backtick execution patterns, pipe to shell scheduling, and weak cryptographic algorithms. Upon manual evaluation, all findings are false positives. The 'external_commands' detected are infsh CLI invocations (inference.sh), not backticks. The 'pipe to shell' at line 21 is a standard curl-pipe-to-sh installation method. Hardcoded URLs (inference.sh domains and placeholder avatar.jpg) are harmless. All other detections are part of documentation text, comments, or example workflows. No malicious intent found. This is a legitimate skill documentation file for AI social media content generation.",
+  "valueStatement": "Create engaging social media posts for TikTok, Instagram, YouTube, and Twitter using AI tools. Generate images, videos, captions, and hashtags automatically.",
+  "userTitle": "Generate AI Social Media Content",
+  "limitations": [
+    "Requires inference.sh CLI installation and login",
+    "Depends on available AI models and API quotas",
+    "Content quality depends on prompt accuracy and detail",
+    "Video generation takes time and resources",
+    "Cannot generate original audio or music tracks",
+    "Text-safe zones must be manually checked for UI overlays"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Individual content creators managing social presence",
+      "title": "Content Creators",
+      "description": "Automatically generate daily TikTok and Reels content for personal brands and channels"
+    },
+    {
+      "targetUser": "Marketing teams managing brand social presence",
+      "title": "Social Media Managers",
+      "description": "Batch create platform-specific content for multiple client accounts efficiently"
+    },
+    {
+      "targetUser": "Business owners needing marketing materials",
+      "title": "Small Businesses",
+      "description": "Create professional product visuals and promotional content without hiring design teams"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Beginner: Generate a TikTok Video",
+      "prompt": "Generate a TikTok-style video about [topic]. Use vertical 9:16 format. Write a bash command using infsh app run with appropriate AI model. Include prompt with cinematic details, engaging visual elements, and trending style.",
+      "scenario": "User wants to create a simple TikTok video about a topic they choose"
+    },
+    {
+      "title": "Intermediate: Create an Instagram Carousel",
+      "prompt": "Generate a 5-image Instagram carousel for [topic]. Write bash commands to generate each image with consistent aesthetic and style. Include prompts that tell a story across the carousel.",
+      "scenario": "User wants to create a multi-image Instagram post for storytelling"
+    },
+    {
+      "title": "Advanced: Full Talking Head Production",
+      "prompt": "Generate a complete talking head video workflow: 1) Write a 30-second script with Claude, 2) Generate voiceover with Kokoro TTS, 3) Create AI avatar video. Provide complete bash commands for each step with appropriate AI models and parameters.",
+      "scenario": "User wants to create a professional talking head video like a YouTuber"
+    },
+    {
+      "title": "Expert: Multi-Platform Content Pipeline",
+      "prompt": "Design a workflow to repurpose one concept into 3 formats: TikTok vertical video, Twitter infographic image, and YouTube thumbnail. Write bash commands for each step including prompt engineering for each platform format and requirements. Include best practices for format conversion.",
+      "scenario": "User wants to maximize content reach across platforms efficiently"
+    }
+  ],
+  "bestPractices": [
+    "Always test prompts with simple concepts before generating full content",
+    "Use vertical 9:16 format for TikTok, Reels, and Shorts",
+    "Leave space on edges for platform UI elements like profile icons",
+    "Consistently use the same aesthetic and color palette across content",
+    "Hook viewers in the first 3 seconds with compelling visuals",
+    "Batch generate multiple pieces to maintain consistent quality",
+    "Review generated content for text readability and color contrast"
+  ],
+  "antiPatterns": [
+    "Avoid generating content with unrelated topics to maintain consistency",
+    "Don't use complex prompts that might confuse AI models and cause errors",
+    "Avoid generating at scale without testing quality first",
+    "Don't ignore platform-specific requirements like duration limits",
+    "Avoid generating content with copyrighted characters or trademarks"
+  ],
+  "faq": [
+    {
+      "question": "What AI models are used for content generation?",
+      "answer": "The skill supports multiple models: google/veo-3 and google/veo-3-1 for videos, falai/flux-dev for images, infsh/kokoro-tts for voiceovers, and Claude models for copywriting. Choose models based on your specific content needs."
+    },
+    {
+      "question": "Do I need to pay for AI generation services?",
+      "answer": "Yes, inference.sh requires an account and AI generation is billed by the provider (Google, Fal.ai, etc.). Check pricing plans before generating large volumes of content."
+    },
+    {
+      "question": "Can I generate videos with custom audio?",
+      "answer": "The skill generates visual content. For custom audio, use separate text-to-speech tools or royalty-free music libraries. The skill's Kokoro TTS option generates voiceovers but only for speaking content."
+    },
+    {
+      "question": "What are the best formats for each platform?",
+      "answer": "TikTok, Instagram Reels, and YouTube Shorts: vertical 9:16, 1080x1920 resolution, 15-60 seconds. Twitter/X: square 1:1 or horizontal 16:9, 1920x1080. YouTube thumbnail: 16:9, 1280x720. Instagram feed: 1:1 or 4:5 square."
+    },
+    {
+      "question": "How do I ensure consistent branding across posts?",
+      "answer": "Use consistent prompts with similar aesthetic keywords, maintain the same color palette, and keep visual style uniform. Batch generation with template prompts helps maintain consistency."
+    },
+    {
+      "question": "Is the content copyright-free to use commercially?",
+      "answer": "AI-generated content may have copyright implications depending on your jurisdiction and usage. Always review terms of service for each AI provider. Generated content should be reviewed and potentially modified to avoid copyright issues."
+    }
+  ],
+  "seoKeywords": [
+    "claude",
+    "claude code",
+    "social media content",
+    "ai video generator",
+    "tiktok captions",
+    "instagram reels",
+    "youtube thumbnails",
+    "twitter posts",
+    "ai content creation",
+    "flux veo"
+  ],
+  "sourceUrl": "https://github.com/inference-sh/skills/tree/main/skills/ai-social-media-content/",
+  "sourceType": "community",
+  "dependencies": []
+}

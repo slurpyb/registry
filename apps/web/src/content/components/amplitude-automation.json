@@ -1,0 +1,144 @@
+{
+  "name": "amplitude-automation",
+  "type": "skill",
+  "description": "Automate Amplitude tasks via Rube MCP (Composio): events, user activity, cohorts, user identification. Always search tools first for current schemas.",
+  "domain": "data",
+  "subdomain": "analytics",
+  "specialty": "Event automation",
+  "quality": 4,
+  "qualityReason": "Specific analytics platform automation",
+  "bundleHints": [
+    "product-analytics",
+    "data-automation",
+    "mcp-integration"
+  ],
+  "tags": [
+    "amplitude",
+    "analytics",
+    "cohorts",
+    "composio",
+    "data-automation",
+    "mcp",
+    "product-analytics",
+    "rube-mcp",
+    "user-events"
+  ],
+  "capabilities": [
+    "Send events to Amplitude for tracking user actions",
+    "Retrieve user activity and event history from Amplitude",
+    "Find and identify users by various identifiers",
+    "Manage cohorts: list, view details, update membership",
+    "Browse event categories to discover available event types"
+  ],
+  "author": "sickn33",
+  "icon": "📊",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 87 static findings are false positives. The skill is documentation for Amplitude API operations via Rube MCP. Backtick characters in markdown code blocks were misidentified as shell execution. URLs and API operations are legitimate product analytics functionality, not security risks.",
+  "valueStatement": "This skill enables Claude to automate Amplitude product analytics workflows including event tracking, user activity lookup, cohort management, and user identification through Rube MCP.",
+  "userTitle": "Automate Amplitude Analytics Tasks",
+  "limitations": [
+    "Requires Rube MCP server with active Amplitude connection",
+    "User ID resolution requires calling FIND_USER before activity lookup",
+    "Event timestamps must be in milliseconds (13-digit epoch)",
+    "Cohort membership updates are asynchronous and require status polling"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product managers and developers building analytics into apps",
+      "title": "Track User Events",
+      "description": "Automatically send tracking events to Amplitude when users perform key actions in your application."
+    },
+    {
+      "targetUser": "Data analysts and product analysts",
+      "title": "Analyze User Behavior",
+      "description": "Look up user activity history to understand how users interact with your product."
+    },
+    {
+      "targetUser": "Marketing teams and growth engineers",
+      "title": "Manage User Segments",
+      "description": "Create and update cohort membership to segment users for targeted analysis or campaigns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Send Single Event",
+      "prompt": "Use the amplitude-automation skill to send a 'page_view' event to Amplitude with user_id 'user123'.",
+      "scenario": "Track a single user action"
+    },
+    {
+      "title": "Find User Activity",
+      "prompt": "Find user 'user456' in Amplitude, then get their recent activity.",
+      "scenario": "Look up user event history"
+    },
+    {
+      "title": "Update Cohort",
+      "prompt": "List the available cohorts, then add user 'user789' to the 'premium_users' cohort.",
+      "scenario": "Add user to a cohort"
+    },
+    {
+      "title": "Identify User Properties",
+      "prompt": "Set user properties for user 'user101' with plan='enterprise' and company='Acme Corp' using the IDENTIFY operation.",
+      "scenario": "Update user profile data"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before use",
+    "Verify Amplitude connection status is ACTIVE before running workflows",
+    "Use batch events when sending multiple events to reduce API calls",
+    "Handle async operations like cohort updates with status polling"
+  ],
+  "antiPatterns": [
+    "Do not call GET_USER_ACTIVITY directly with application user IDs - must resolve to Amplitude internal ID first",
+    "Do not use seconds for timestamps - must use milliseconds (13-digit epoch)",
+    "Do not assume user property changes are immediate - they are eventually consistent"
+  ],
+  "faq": [
+    {
+      "question": "What is Rube MCP?",
+      "answer": "Rube MCP is a Model Context Protocol server by Composio that provides integration with various tools including Amplitude analytics."
+    },
+    {
+      "question": "Do I need an Amplitude API key?",
+      "answer": "No API key is required. The skill uses OAuth authentication through the Rube MCP connection flow."
+    },
+    {
+      "question": "Why do I need to find the user first?",
+      "answer": "Amplitude uses internal user IDs separate from your application user IDs. FIND_USER resolves your user_id to Amplitude's internal ID required for activity queries."
+    },
+    {
+      "question": "Why are my events not showing immediately?",
+      "answer": "Event ingestion is asynchronous. The API returns success but data takes a few minutes to become queryable in Amplitude dashboards."
+    },
+    {
+      "question": "Can I update cohort membership in real-time?",
+      "answer": "Cohort membership updates are asynchronous. You must poll CHECK_COHORT_STATUS until the operation completes."
+    },
+    {
+      "question": "What user property operations are available?",
+      "answer": "Amplitude IDENTIFY supports: $set (overwrite), $setOnce (set if not exists), $add (increment), $append (add to list), and $unset (remove)."
+    }
+  ],
+  "seoKeywords": [
+    "Amplitude automation",
+    "product analytics",
+    "Claude Codex",
+    "Claude Code",
+    "event tracking",
+    "user analytics",
+    "cohort management",
+    "MCP integration",
+    "data automation",
+    "analytics API"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/amplitude-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

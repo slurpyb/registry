@@ -1,0 +1,138 @@
+{
+  "name": "azure-storage-blob-rust",
+  "type": "skill",
+  "description": "A community-maintained Rust SDK for Azure Blob Storage. Provides idiomatic Rust bindings for uploading, downloading, and managing blob data in Azure Storage accounts.",
+  "domain": "cloud",
+  "subdomain": "cloud",
+  "specialty": "Blob SDK Rust",
+  "quality": 4,
+  "qualityReason": "Community-maintained, good specificity",
+  "bundleHints": [
+    "azure-rust",
+    "cloud-storage"
+  ],
+  "tags": [
+    "azure",
+    "blob-storage",
+    "cloud-storage",
+    "rust",
+    "sdk"
+  ],
+  "capabilities": [
+    "Generate Rust code for Azure Blob Storage operations",
+    "Explain blob upload and download patterns",
+    "Provide authentication configuration examples",
+    "Show container and blob management workflows",
+    "Help with error handling and retry strategies"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only documentation skill with no executable code. Static analysis scanned 0 files and found 0 security issues. The skill provides guidance on using the Azure Blob Storage Rust SDK - a legitimate cloud storage library. No dangerous patterns, no network access, no filesystem operations, and no external commands are present. Risk assessment: SAFE.",
+  "valueStatement": "This skill helps developers integrate Azure Blob Storage into Rust applications by providing guidance on SDK usage, common operations, and best practices for cloud blob management.",
+  "userTitle": "Use Azure Blob Storage with Rust",
+  "limitations": [
+    "This skill provides guidance only - it does not execute Azure operations",
+    "Requires valid Azure Storage credentials to use in production",
+    "Does not cover Azure Data Lake or advanced analytics features",
+    "May not reflect latest Azure SDK updates"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineers building backup systems",
+      "title": "Cloud Backup Solution",
+      "description": "Implement automated backup to Azure Blob Storage for application data and logs"
+    },
+    {
+      "targetUser": "Application developers building media-heavy apps",
+      "title": "Media Asset Storage",
+      "description": "Store and serve images, videos, and documents in cloud-native blob storage"
+    },
+    {
+      "targetUser": "Data engineers building ETL pipelines",
+      "title": "Data Lake Ingestion",
+      "description": "Stream large datasets into Azure for analytics and machine learning pipelines"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Blob Upload",
+      "prompt": "Show me how to upload a file to Azure Blob Storage using the Rust SDK",
+      "scenario": "Getting started with simple file upload"
+    },
+    {
+      "title": "Download with Streaming",
+      "prompt": "How do I download a blob from Azure Storage and stream it in Rust?",
+      "scenario": "Efficiently reading blob data without loading entire file"
+    },
+    {
+      "title": "Container Management",
+      "prompt": "Create example code for creating, listing, and deleting blob containers",
+      "scenario": "Managing storage container lifecycle"
+    },
+    {
+      "title": "SAS Token Auth",
+      "prompt": "How do I authenticate to Azure Blob Storage using Shared Access Signature (SAS) tokens?",
+      "scenario": "Secure authenticated access without connection strings"
+    }
+  ],
+  "bestPractices": [
+    "Use Azure Identity for production authentication instead of storing connection strings",
+    "Implement retry logic with exponential backoff for transient failures",
+    "Use block blobs for large files and leverage parallel uploads",
+    "Enable logging and diagnostics to monitor blob operations"
+  ],
+  "antiPatterns": [
+    "Do not hardcode connection strings in source code - use environment variables",
+    "Avoid loading entire large blobs into memory - use streaming instead",
+    "Do not ignore error handling for network operations",
+    "Avoid using account name and key authentication in production"
+  ],
+  "faq": [
+    {
+      "question": "What is Azure Blob Storage?",
+      "answer": "Azure Blob Storage is Microsoft's cloud object storage solution for storing massive amounts of unstructured data like text, images, videos, and documents."
+    },
+    {
+      "question": "Is this skill official Microsoft code?",
+      "answer": "No, this is a community skill providing guidance. The actual SDK is maintained by the Azure team at github.com/Azure/azure-sdk-for-rust."
+    },
+    {
+      "question": "Do I need an Azure account to use this skill?",
+      "answer": "You need an Azure Storage account to execute the code examples. You can create a free account at azure.com for testing."
+    },
+    {
+      "question": "What Rust version is required?",
+      "answer": "The Azure Blob Storage SDK requires Rust 1.56 or later with async support via tokio."
+    },
+    {
+      "question": "Can this skill handle large files?",
+      "answer": "Yes, the SDK supports block blobs for large files up to 4.75 TB and provides chunked upload capabilities."
+    },
+    {
+      "question": "Is the data encrypted at rest?",
+      "answer": "Yes, Azure Storage encrypts all data at rest by default using Microsoft-managed keys. You can also use customer-managed keys for additional control."
+    }
+  ],
+  "seoKeywords": [
+    "Azure Blob Storage Rust SDK",
+    "Azure cloud storage Rust",
+    "Claude Codex Azure blob",
+    "Rust Azure upload download",
+    "blob storage cloud integration",
+    "Azure SDK Rust examples",
+    "Rust cloud storage library",
+    "Microsoft Azure Rust client"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-storage-blob-rust",
+  "sourceType": "community",
+  "dependencies": []
+}

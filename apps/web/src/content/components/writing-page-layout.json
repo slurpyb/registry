@@ -1,0 +1,139 @@
+{
+  "name": "writing-page-layout",
+  "type": "skill",
+  "description": "Use this skill when you need to write code for a page layout in the Next.js",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "page layout",
+  "quality": 5,
+  "qualityReason": "Specific and actionable",
+  "bundleHints": [
+    "frontend-development",
+    "nextjs-stack",
+    "ui-ux"
+  ],
+  "tags": [
+    "component-design",
+    "frontend",
+    "nextjs",
+    "page-layout",
+    "react",
+    "ui-structure"
+  ],
+  "capabilities": [
+    "Generates clean, modular page layouts for Next.js app directory",
+    "Enforces 40-line maximum per file for maintainable code",
+    "Separates TypeScript types and interfaces to dedicated files",
+    "Follows Next.js conventions for page structure"
+  ],
+  "author": "Emz1998",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. This skill contains only documentation (SKILL.md) with no executable code. Backticks flagged as 'shell command execution' are markdown inline code formatting. No cryptographic algorithms present. Safe for publication.",
+  "valueStatement": "Writing page layouts in Next.js can lead to inconsistent project structure and difficult-to-maintain code. This skill provides clear guidelines for creating modular, well-organized page layouts following Next.js best practices.",
+  "userTitle": "Create Next.js Page Layouts",
+  "limitations": [
+    "Only provides guidance for Next.js page layouts",
+    "Does not generate full application code",
+    "Limited to standard Next.js patterns and conventions",
+    "Cannot create complex nested layouts or advanced routing"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers new to Next.js or the project",
+      "title": "Quick Start for New Next.js Pages",
+      "description": "Get immediate guidance on creating well-structured page layouts when starting a new page in your Next.js project."
+    },
+    {
+      "targetUser": "Team leads and code reviewers",
+      "title": "Enforce Team Code Standards",
+      "description": "Ensure all team members create pages with consistent structure and proper separation of concerns."
+    },
+    {
+      "targetUser": "Senior developers and maintainers",
+      "title": "Refactor Existing Pages",
+      "description": "Use as a checklist to refactor and improve existing page layouts for better modularity and organization."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Page Layout",
+      "prompt": "Use the writing-page-layout skill to create a page layout for a new page in my Next.js app.",
+      "scenario": "Starting a new page and need structure guidance"
+    },
+    {
+      "title": "Page with TypeScript Types",
+      "prompt": "Use the writing-page-layout skill to create a page layout that includes proper TypeScript type definitions.",
+      "scenario": "Creating a type-safe page with defined interfaces"
+    },
+    {
+      "title": "Optimized Page Layout",
+      "prompt": "Use the writing-page-layout skill to create an optimized page layout considering performance and maintainability.",
+      "scenario": "Building a production-ready page with best practices"
+    },
+    {
+      "title": "Custom Convention Page",
+      "prompt": "Use the writing-page-layout skill to create a page layout following my project conventions at src/app/pages.",
+      "scenario": "Working with specific project folder structure"
+    }
+  ],
+  "bestPractices": [
+    "Keep page layouts under 40 lines for better readability and maintainability",
+    "Extract all types and interfaces to a separate types file in src/app/types",
+    "Follow Next.js app directory conventions for component organization"
+  ],
+  "antiPatterns": [
+    "Putting all types and interfaces directly in the page file",
+    "Creating page layouts exceeding 40 lines without clear modularization",
+    "Mixing business logic with presentation components in page files"
+  ],
+  "faq": [
+    {
+      "question": "What does this skill actually do?",
+      "answer": "This skill provides instructions and guidelines for writing well-structured page layouts in Next.js. It does not generate code or execute commands."
+    },
+    {
+      "question": "Do I need coding experience to use this skill?",
+      "answer": "Basic familiarity with Next.js and TypeScript is recommended to apply the guidelines effectively."
+    },
+    {
+      "question": "Does this skill modify my files?",
+      "answer": "No. This skill only provides guidance through prompts. It does not read, write, or modify any files."
+    },
+    {
+      "question": "Can I use this with plain JavaScript?",
+      "answer": "The guidelines focus on TypeScript patterns. For JavaScript projects, adapt the type separation guidance as needed."
+    },
+    {
+      "question": "What is the 40-line limit recommendation?",
+      "answer": "This is a guideline to encourage modular design. Complex pages may need more lines but should remain well-organized."
+    },
+    {
+      "question": "Does this work with the Pages Router?",
+      "answer": "The skill targets the App Router structure (page.tsx files). For Pages Router, similar principles apply but adapt to pages/index.js patterns."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Next.js page layout",
+    "page.tsx",
+    "Next.js project structure",
+    "React page component",
+    "Next.js app directory",
+    "frontend development",
+    "TypeScript layout"
+  ],
+  "sourceUrl": "https://github.com/Emz1998/nexly-notes/tree/main/archive/skills/code-style/pages",
+  "sourceType": "community",
+  "dependencies": []
+}

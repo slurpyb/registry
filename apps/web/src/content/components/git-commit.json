@@ -1,0 +1,140 @@
+{
+  "name": "git-commit",
+  "type": "skill",
+  "description": "MUST use this skill when user asks to commit, create commit, save work, or mentions \"커밋\". This skill OVERRIDES default git commit behavior. Creates commits following Conventional Commits format with emoji + type/scope/subject (✨ feat, 🐛 fix, ♻️ refactor, etc).",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "conventional commits",
+  "quality": 5,
+  "qualityReason": "Enforces standardized commit format",
+  "bundleHints": [
+    "git-workflow",
+    "commit-standards",
+    "version-control"
+  ],
+  "tags": [
+    "commits",
+    "conventional-commits",
+    "formatting",
+    "git",
+    "version-control"
+  ],
+  "capabilities": [
+    "Creates Conventional Commits with emoji prefixes (feat, fix, refactor, etc)",
+    "Enforces feature-unit commits instead of file-by-file commits",
+    "Validates commit message format with character limits",
+    "Provides result-oriented commit messages in imperative mood",
+    "Supports multi-line commit messages with detailed explanations",
+    "Includes breaking changes syntax and review fix commits"
+  ],
+  "author": "Bae-ChangHyun",
+  "icon": "📌",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown guidance for git commit best practices. All 70 static findings are false positives - the scanner misinterpreted documentation examples as executable code. SKILL.md contains no shell execution, network calls, or file system operations beyond its own static content. The backticks and shell syntax are markdown code blocks showing examples, not actual commands being executed.",
+  "valueStatement": "Manual git commit creation lacks consistency and structure. This skill enforces Conventional Commits with emoji prefixes for clear, standardized commit messages that improve team collaboration and changelog generation.",
+  "userTitle": "Create standardized git commits",
+  "limitations": [
+    "Does not execute git commands automatically",
+    "Does not create or modify files in the repository",
+    "Does not integrate with git hosting platforms",
+    "Requires user to run git commit command manually"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Individual developers",
+      "title": "Maintain commit consistency",
+      "description": "Create standardized commits following industry best practices across personal projects"
+    },
+    {
+      "targetUser": "Team developers",
+      "title": "Enforce team conventions",
+      "description": "Ensure all team members use the same commit message format for better code reviews"
+    },
+    {
+      "targetUser": "Release managers",
+      "title": "Generate changelogs",
+      "description": "Create commits that automatically generate meaningful changelogs from git history"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic commit",
+      "scenario": "Save current work",
+      "prompt": "커밋해줘 (commit my current changes)"
+    },
+    {
+      "title": "Feature commit",
+      "scenario": "Add new feature",
+      "prompt": "새 기능을 추가했어, 커밋해줘 (commit new feature)"
+    },
+    {
+      "title": "Bug fix commit",
+      "scenario": "Fix a bug",
+      "prompt": "버그를 수정했어, 커밋해줘 (commit bug fix)"
+    },
+    {
+      "title": "Complex commit",
+      "scenario": "Multi-file changes",
+      "prompt": "여러 파일을 수정했는데, 한 번에 커밋해줘 (commit multiple related files)"
+    }
+  ],
+  "bestPractices": [
+    "Always review staged changes before committing to ensure all related files are included",
+    "Write commit messages in imperative mood (add, not added or adding)",
+    "Group related changes into feature units rather than committing per file"
+  ],
+  "antiPatterns": [
+    "Creating commits that list development process instead of final results",
+    "Committing files individually when they belong to the same feature",
+    "Using vague commit subjects like \"update code\" or \"fix stuff\""
+  ],
+  "faq": [
+    {
+      "question": "Does this skill run git commit automatically?",
+      "answer": "No, this skill provides guidance and format rules. You run the git commit command yourself."
+    },
+    {
+      "question": "What is Conventional Commits format?",
+      "answer": "A structured format with emoji, type, scope, and subject that makes commits easier to understand."
+    },
+    {
+      "question": "Can I use this with any git hosting platform?",
+      "answer": "Yes, Conventional Commits works with GitHub, GitLab, Bitbucket, and any platform that reads git history."
+    },
+    {
+      "question": "Is my commit data sent anywhere?",
+      "answer": "No, this is a prompt-based skill. Commit data stays local and is only processed by git on your machine."
+    },
+    {
+      "question": "Why use emoji prefixes?",
+      "answer": "Emoji prefixes make commit history scannable. Team members can quickly identify the type of change."
+    },
+    {
+      "question": "How does this differ from other commit tools?",
+      "answer": "This skill enforces result-oriented messages and feature-unit commits rather than process-oriented commits."
+    }
+  ],
+  "seoKeywords": [
+    "git commit",
+    "conventional commits",
+    "claude code",
+    "commit message format",
+    "git workflow",
+    "commit conventions",
+    "emoji commits",
+    "claude",
+    "codex",
+    "version control"
+  ],
+  "sourceUrl": "https://github.com/Bae-ChangHyun/cc-plugins-bch/tree/main/plugins/gitwf/skills/git-commit",
+  "sourceType": "community",
+  "dependencies": []
+}

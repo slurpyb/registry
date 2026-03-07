@@ -1,0 +1,142 @@
+{
+  "name": "tavily-web",
+  "type": "skill",
+  "description": "Web search, content extraction, crawling, and research capabilities using Tavily API",
+  "domain": "tools",
+  "subdomain": "search",
+  "specialty": "Content extraction",
+  "quality": 5,
+  "qualityReason": "Clear focus on extraction and crawling",
+  "bundleHints": [
+    "research-tools",
+    "web-scraping",
+    "search-suite"
+  ],
+  "tags": [
+    "content extraction",
+    "content-extraction",
+    "crawling",
+    "real-time",
+    "research",
+    "tavily",
+    "web search",
+    "web-crawling"
+  ],
+  "capabilities": [
+    "Search the web for current information using Tavily API",
+    "Extract content from specific URLs",
+    "Crawl websites for research purposes",
+    "Perform deep research on topics",
+    "Get contextual answers from web sources"
+  ],
+  "author": "sickn33",
+  "icon": "🔍",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All four static findings are false positives. The skill file (SKILL.md) is a simple markdown documentation file with no executable code. The scanner misidentified a bash installation command as 'Ruby/shell backtick execution', a GitHub URL as 'hardcoded URL', and falsely detected 'weak cryptographic algorithms' in plain text descriptions. This is a legitimate web search skill with no security concerns.",
+  "valueStatement": "Enable your AI assistant to search the web, extract content from URLs, and perform research tasks using the Tavily API.",
+  "userTitle": "Search the Web with Tavily",
+  "limitations": [
+    "Requires a Tavily API key to function",
+    "API rate limits apply based on Tavily subscription",
+    "Only works within the Tavily API service endpoints",
+    "No local file system access for crawled content"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Researchers, students, and knowledge workers",
+      "title": "Research Assistant",
+      "description": "Search for current information and gather sources for research projects"
+    },
+    {
+      "targetUser": "Writers, journalists, and content creators",
+      "title": "Content Verification",
+      "description": "Verify facts and get up-to-date information from the web"
+    },
+    {
+      "targetUser": "Developers and technical writers",
+      "title": "Technical Documentation Lookup",
+      "description": "Find and extract information from technical documentation and APIs"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Web Search",
+      "prompt": "Search the web for information about [TOPIC]",
+      "scenario": "When you need quick current information on a topic"
+    },
+    {
+      "title": "Extract URL Content",
+      "prompt": "Extract the main content from [URL] and summarize it",
+      "scenario": "When you need to get information from a specific webpage"
+    },
+    {
+      "title": "Deep Research",
+      "prompt": "Perform a deep research on [TOPIC], covering key aspects and sources",
+      "scenario": "When you need comprehensive research on a complex topic"
+    },
+    {
+      "title": "Compare Sources",
+      "prompt": "Search for multiple sources about [TOPIC] and compare their viewpoints",
+      "scenario": "When you need balanced information from different perspectives"
+    }
+  ],
+  "bestPractices": [
+    "Configure your Tavily API key via environment variables for security",
+    "Use specific search queries for more accurate results",
+    "Review extracted content for accuracy before using in important work"
+  ],
+  "antiPatterns": [
+    "Do not use for illegal content extraction or scraping protected sites",
+    "Avoid making excessive API calls that could hit rate limits",
+    "Do not rely solely on web search for critical factual information without verification"
+  ],
+  "faq": [
+    {
+      "question": "How do I get a Tavily API key?",
+      "answer": "Visit the Tavily website to sign up for an account and obtain an API key. Configure it via environment variables as shown in the skill documentation."
+    },
+    {
+      "question": "Can this skill bypass paywalls?",
+      "answer": "No. The skill only extracts publicly accessible content. Paywalled content cannot be accessed."
+    },
+    {
+      "question": "How accurate are the search results?",
+      "answer": "Search quality depends on your query specificity and the Tavily API. More specific queries yield better results."
+    },
+    {
+      "question": "Is there a rate limit?",
+      "answer": "Yes, Tavily has rate limits based on your subscription tier. Check Tavily documentation for details."
+    },
+    {
+      "question": "Can I use this for commercial research?",
+      "answer": "Yes, as long as you comply with Tavily's terms of service and the website's terms of use for any content accessed."
+    },
+    {
+      "question": "Does this work with all AI assistants?",
+      "answer": "This skill is designed for Claude, Codex, and Claude Code. Compatibility may vary with other AI assistants."
+    }
+  ],
+  "seoKeywords": [
+    "Claude web search",
+    "Codex search skill",
+    "Claude Code Tavily",
+    "web research skill",
+    "content extraction",
+    "URL crawling",
+    "AI research assistant",
+    "Tavily API integration",
+    "web search capability",
+    "document scraping"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/tavily-web",
+  "sourceType": "community",
+  "dependencies": []
+}

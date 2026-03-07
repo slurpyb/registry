@@ -1,0 +1,141 @@
+{
+  "name": "deploy",
+  "type": "skill",
+  "description": "Sets up deployment, analytics, and health monitoring for projects. Use when user mentions デプロイ, deploy, Vercel, Netlify, 公開, アナリティクス, analytics, GA, Google Analytics, 環境診断, health check. Do NOT load for: 実装作業, ローカル開発, レビュー, セットアップ.",
+  "domain": "devops",
+  "subdomain": "cloud",
+  "specialty": "Vercel/Netlify deployment",
+  "quality": 5,
+  "qualityReason": "Precise triggers, multi-platform support",
+  "bundleHints": [
+    "frontend-deployment",
+    "jamstack"
+  ],
+  "tags": [
+    "analytics",
+    "deploy",
+    "health-check",
+    "health-monitoring",
+    "multi-language",
+    "netlify",
+    "vercel"
+  ],
+  "capabilities": [
+    "Create Vercel/Netlify project configurations",
+    "Set up GitHub Actions for automated deployments",
+    "Configure Google Analytics or Vercel Analytics tracking",
+    "Diagnose missing dependencies and configuration files",
+    "Guide environment variable setup",
+    "Generate preview deployment workflows"
+  ],
+  "author": "Chachamaru127",
+  "icon": "🚀",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill providing workflow guidance. All 25 static findings are FALSE POSITIVES - the scanner misinterpreted YAML frontmatter as cryptographic patterns, Markdown inline code formatting (backticks) as shell execution, and legitimate JSON metadata as C2/network indicators. No executable code, scripts, or command execution logic exists. The skill only generates human-readable configuration guidance.",
+  "valueStatement": "This skill automates deployment configuration for Vercel and Netlify, integrates Google Analytics or Vercel Analytics, and diagnoses environment setup. It guides users through deployment workflows without executing arbitrary code.",
+  "userTitle": "Set up deployment, analytics, and health monitoring",
+  "limitations": [
+    "Does not execute deployments - only provides configuration guidance",
+    "Does not access external APIs directly",
+    "Does not modify production systems without user confirmation",
+    "Cannot install packages or run shell commands autonomously"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Deploy web applications",
+      "description": "Configure Vercel or Netlify for Next.js, React, or static sites with automated preview deployments."
+    },
+    {
+      "targetUser": "Product managers",
+      "title": "Add analytics tracking",
+      "description": "Set up Google Analytics or Vercel Analytics to track page views, events, and user behavior."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Diagnose environment issues",
+      "description": "Check for missing tools, invalid configs, and verify deployment readiness before release."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic deployment",
+      "scenario": "Deploy project to Vercel",
+      "prompt": "Deploy my project to Vercel. Set up automatic deployments and preview URLs for pull requests."
+    },
+    {
+      "title": "Analytics setup",
+      "scenario": "Add Google Analytics",
+      "prompt": "Add Google Analytics 4 to my Next.js project. Configure page view tracking and a conversion event."
+    },
+    {
+      "title": "Netlify deployment",
+      "scenario": "Deploy static site",
+      "prompt": "Set up Netlify deployment for my static site. Include environment variables and branch deploys."
+    },
+    {
+      "title": "Health check",
+      "scenario": "Verify environment",
+      "prompt": "Check if my environment is ready for deployment. What tools and configs are missing?"
+    }
+  ],
+  "bestPractices": [
+    "Review generated configuration files before applying changes",
+    "Use environment variables for sensitive credentials, never hardcode them",
+    "Test preview deployments before merging to production branch"
+  ],
+  "antiPatterns": [
+    "Running deployment commands without reviewing the generated config",
+    "Skipping environment health checks before production release",
+    "Deploying without setting up proper analytics tracking for business metrics"
+  ],
+  "faq": [
+    {
+      "question": "What platforms does this skill support?",
+      "answer": "Vercel, Netlify, Google Analytics 4, and Vercel Analytics are fully supported."
+    },
+    {
+      "question": "What are the deployment limits?",
+      "answer": "This skill generates configurations only. Actual deployment limits depend on your hosting provider plan."
+    },
+    {
+      "question": "Can I use this with existing projects?",
+      "answer": "Yes. The skill analyzes your project structure and adds configurations without overwriting existing code."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes. This skill only reads project files and generates configuration. No data is sent to external services."
+    },
+    {
+      "question": "What if deployment fails?",
+      "answer": "The health-check sub-skill helps diagnose issues. Common fixes include missing dependencies or incorrect environment variables."
+    },
+    {
+      "question": "How is this different from other deployment tools?",
+      "answer": "This is a guidance skill, not an execution tool. It provides step-by-step instructions you review before applying."
+    }
+  ],
+  "seoKeywords": [
+    "deploy skill",
+    "Vercel deployment",
+    "Netlify deployment",
+    "Google Analytics integration",
+    "Claude Code deployment",
+    "Claude deployment skill",
+    "environment health check",
+    "CI/CD setup",
+    "vercel-analytics",
+    "codex deployment"
+  ],
+  "sourceUrl": "https://github.com/Chachamaru127/claude-code-harness/tree/main/skills/deploy",
+  "sourceType": "community",
+  "dependencies": []
+}

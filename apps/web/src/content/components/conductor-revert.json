@@ -1,0 +1,142 @@
+{
+  "name": "conductor-revert",
+  "type": "skill",
+  "description": "Git-aware undo by logical work unit (track, phase, or task)",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "logical undo",
+  "quality": 5,
+  "qualityReason": "Precise, git-aware undo mechanism",
+  "bundleHints": [
+    "conductor-suite",
+    "git-workflow",
+    "productivity-stack"
+  ],
+  "tags": [
+    "git",
+    "revert",
+    "task-history",
+    "track-reversion",
+    "undo",
+    "version control",
+    "workflow"
+  ],
+  "capabilities": [
+    "Revert entire git tracks, specific phases, or individual tasks",
+    "Detect and report merge conflicts before they occur",
+    "Display full execution plan with affected files before any changes",
+    "Update plan.md and track status after successful reverts",
+    "Handle edge cases like already-reverted commits or unpushed changes",
+    "Require explicit YES confirmation before executing any git commands"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 59 static analysis findings are false positives. The detected 'external_commands' patterns are Markdown documentation examples, not executable code. The skill describes safe git revert operations with explicit safety rules forbidding dangerous commands like git reset --hard and git push --force. Requires explicit user confirmation before any changes.",
+  "valueStatement": "Safely undo git commits by track, phase, or task with full history preservation. This skill provides structured revert workflows with explicit confirmation and conflict detection.",
+  "userTitle": "Revert git changes by logical work unit",
+  "limitations": [
+    "Requires git repository with Conductor tracks initialized",
+    "Cannot revert commits that do not follow the expected naming format",
+    "Requires manual intervention for merge conflicts",
+    "Only works with commits that reference track identifiers in messages"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers who need to safely roll back problematic changes",
+      "title": "Undo a failed feature implementation",
+      "description": "Revert all commits for a specific task that introduced bugs or did not meet requirements"
+    },
+    {
+      "targetUser": "Team leads managing iterative development workflows",
+      "title": "Restore previous working state",
+      "description": "Revert an entire phase of work to return to a known good state before a major refactor"
+    },
+    {
+      "targetUser": "Engineers who prototype features that may be abandoned",
+      "title": "Clean up experimental work",
+      "description": "Remove all traces of an experimental track that was not merged to production"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Revert a specific task",
+      "prompt": "Revert task 2.3 in the auth_20250115 track. Show me what commits will be affected and confirm before proceeding.",
+      "scenario": "You need to undo a specific task that introduced a bug"
+    },
+    {
+      "title": "Revert an entire phase",
+      "prompt": "Revert phase 2 of the dashboard_20250112 track. I want to see the full plan with all affected files before confirming.",
+      "scenario": "An entire phase of work needs to be rolled back"
+    },
+    {
+      "title": "Interactive revert selection",
+      "prompt": "Help me revert some recent work. Show me the available tracks and tasks I can revert.",
+      "scenario": "You are unsure which specific changes to revert"
+    },
+    {
+      "title": "Full track removal",
+      "prompt": "Revert the entire experiment_20250120 track. This experimental feature was not approved and needs to be fully removed from history.",
+      "scenario": "Removing all traces of an abandoned experimental feature"
+    }
+  ],
+  "bestPractices": [
+    "Always review the full execution plan before confirming any revert operation",
+    "Run tests after revert completion to verify the application works correctly",
+    "Communicate with your team before reverting shared or reviewed work"
+  ],
+  "antiPatterns": [
+    "Do not use this skill to hide mistakes from team members - discuss issues openly",
+    "Avoid reverting work that others have built upon without coordination",
+    "Do not skip the explicit confirmation step - always review the plan first"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between git revert and git reset?",
+      "answer": "Git revert creates new commits that undo previous changes while preserving history. Git reset removes commits entirely, rewriting history. This skill uses only git revert for safety and audit trails."
+    },
+    {
+      "question": "Can I revert commits that have already been pushed to remote?",
+      "answer": "Yes. Reverting pushed commits creates new revert commits that you can safely push. This is the recommended approach over force pushing, which can cause problems for collaborators."
+    },
+    {
+      "question": "What happens if a merge conflict occurs during revert?",
+      "answer": "The skill halts immediately and displays conflict details. You must manually resolve conflicts before continuing. The skill preserves completed reverts and provides guidance for resolution."
+    },
+    {
+      "question": "Can I undo a revert if I made a mistake?",
+      "answer": "Yes. You can run git revert on the revert commits to restore the original changes. The skill provides undo instructions in the verification output."
+    },
+    {
+      "question": "What if the skill cannot find commits for my track?",
+      "answer": "This may mean the track was never committed, or commits used a different naming format. The skill will offer to delete the track directory or cancel the operation."
+    },
+    {
+      "question": "Does this skill modify my plan.md automatically?",
+      "answer": "Yes. After successful git reverts, the skill updates plan.md to mark reverted tasks as pending. These changes are not committed - they reflect the new state of your work."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code git revert",
+    "Codex undo commits",
+    "Claude git workflow",
+    "git revert by task",
+    "safe git undo",
+    "git history preservation",
+    "Claude Code version control",
+    "git revert automation",
+    "Codex git skills",
+    "git conflict detection"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/conductor-revert",
+  "sourceType": "community",
+  "dependencies": []
+}

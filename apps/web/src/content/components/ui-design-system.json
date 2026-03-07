@@ -1,0 +1,137 @@
+{
+  "name": "ui-design-system",
+  "type": "skill",
+  "description": "UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and developer handoff tools. Use for creating design systems, maintaining visual consistency, and facilitating design-dev collaboration.",
+  "domain": "design",
+  "subdomain": "design-systems",
+  "specialty": "token generation",
+  "quality": 5,
+  "qualityReason": "Specific tools and deliverables",
+  "bundleHints": [
+    "design-system",
+    "ui-ux-toolkit"
+  ],
+  "tags": [
+    "accessibility",
+    "component-docs",
+    "design-tokens",
+    "developer-handoff",
+    "responsive-design",
+    "system-tokens",
+    "typography",
+    "ui-components"
+  ],
+  "capabilities": [
+    "Generates complete color palettes from a single brand color including primary, secondary, semantic, and neutral scales",
+    "Creates typography systems with modular scales, font weights, line heights, and letter spacing for three style presets",
+    "Builds 8-point spacing grids with semantic values from xs to 3xl for consistent component rhythm",
+    "Exports tokens in JSON, CSS, and SCSS formats for direct integration into any project"
+  ],
+  "author": "alirezarezvani",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 200 static findings are false positives. The scanner misinterpreted legitimate design token terminology (design system, generate, token) and console output text as security threats. The code is a pure Python design token generator using standard color manipulation (colorsys) with no network access, file writes, cryptographic operations, or external commands.",
+  "valueStatement": "Creating consistent design tokens manually is time-consuming and error-prone. This tool generates complete design systems including color palettes, typography scales, spacing grids, and component styles from a single brand color input.",
+  "userTitle": "Generate design system tokens from brand colors",
+  "limitations": [
+    "Does not generate dark mode variants automatically - requires manual adjustment of color values",
+    "Does not support custom spacing grids beyond the 8-point system",
+    "Does not include animation timing tokens beyond duration and easing presets"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Create design systems",
+      "description": "Generate ready-to-use CSS variables and SCSS maps for new project design systems"
+    },
+    {
+      "targetUser": "UI designers",
+      "title": "Maintain brand consistency",
+      "description": "Ensure all design decisions follow a consistent scale and token system across components"
+    },
+    {
+      "targetUser": "Design system engineers",
+      "title": "Automate developer handoff",
+      "description": "Generate documentation-ready token exports for design system repositories"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Generate basic tokens",
+      "scenario": "Create tokens from brand color",
+      "prompt": "Generate design tokens for a brand color of #0066CC with modern style in JSON format"
+    },
+    {
+      "title": "Create CSS variables",
+      "scenario": "Export for CSS project",
+      "prompt": "Generate design tokens for a brand color of #3B82F6 using playful style and export as CSS variables"
+    },
+    {
+      "title": "Create SCSS for project",
+      "scenario": "Export for SCSS project",
+      "prompt": "Generate design tokens for a brand color of #8B5CF6 using classic style and export as SCSS"
+    },
+    {
+      "title": "Full design system",
+      "scenario": "Generate complete system",
+      "prompt": "Generate a complete design system for brand color #10B981 with modern style, including all color palettes, typography scales, spacing systems, and breakpoints"
+    }
+  ],
+  "bestPractices": [
+    "Use the modern style for clean, minimalist interfaces and classic style for traditional corporate designs",
+    "Export tokens in CSS format for direct use in web projects and SCSS for preprocessing with design token variables",
+    "Use the summary output first to review all generated tokens before committing to a specific format"
+  ],
+  "antiPatterns": [
+    "Do not manually edit generated tokens without updating the source brand color first",
+    "Do not mix different spacing systems (4pt, 8pt, 10pt) within the same project",
+    "Do not use semantic color tokens (success, warning, error) directly for brand-specific components"
+  ],
+  "faq": [
+    {
+      "question": "What design token formats are supported?",
+      "answer": "Three formats are available: JSON for data interchange, CSS for direct web use, and SCSS for preprocessing workflows."
+    },
+    {
+      "question": "How do I integrate generated tokens into my project?",
+      "answer": "Copy the exported tokens into your project's styles directory and import them or include them in your build process."
+    },
+    {
+      "question": "Can I customize the typography scale?",
+      "answer": "The tool supports three style presets (modern, classic, playful) with predefined font family combinations."
+    },
+    {
+      "question": "What color formats does the tool accept?",
+      "answer": "Accepts hex color codes with or without hash prefix (for example: #0066CC or 0066CC)."
+    },
+    {
+      "question": "How are color scales generated?",
+      "answer": "Color scales are generated algorithmically using HSL color space manipulation to create 10 steps from 50 to 900."
+    },
+    {
+      "question": "Does this tool support dark mode?",
+      "answer": "Dark mode variants are not generated automatically. Manual adjustment of color values for dark backgrounds is required."
+    }
+  ],
+  "seoKeywords": [
+    "claude code design tokens",
+    "claude design token generator",
+    "codex ui design system",
+    "claude design token palette",
+    "claude codex typography system",
+    "claude code accessibility",
+    "claude codex css design system",
+    "claude codex scss tokens"
+  ],
+  "sourceUrl": "https://github.com/alirezarezvani/claude-skills/tree/main/product-team/ui-design-system",
+  "sourceType": "community",
+  "dependencies": []
+}

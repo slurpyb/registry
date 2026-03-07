@@ -1,0 +1,142 @@
+{
+  "name": "component-refactoring",
+  "type": "skill",
+  "description": "Refactor high-complexity React components in Dify frontend. Use when `pnpm analyze-component --json` shows complexity > 50 or lineCount > 300, when the user asks for code splitting, hook extraction, or complexity reduction, or when `pnpm analyze-component` warns to refactor before testing; avoid for simple/well-structured components, third-party wrappers, or when the user explicitly wants testing without refactoring.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "React optimization",
+  "quality": 5,
+  "qualityReason": "Specific metrics and clear triggers",
+  "bundleHints": [
+    "react-optimization",
+    "frontend-quality"
+  ],
+  "tags": [
+    "code-quality",
+    "code-splitting",
+    "complexity-reduction",
+    "dify",
+    "frontend",
+    "hook-extraction",
+    "react",
+    "refactoring"
+  ],
+  "capabilities": [
+    "Analyze React component complexity using pnpm analyze-component",
+    "Extract custom hooks from complex state management logic",
+    "Split large components into focused sub-components",
+    "Apply Dify-specific conventions for hook and component organization",
+    "Reduce cognitive complexity to improve testability",
+    "Generate refactoring prompts for automated assistance"
+  ],
+  "author": "langgenius",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation and guidance skill for React component refactoring. Static analyzer flagged 214 potential issues in markdown documentation files, all of which are false positives: backticks in code examples were detected as shell commands, code patterns triggered crypto/blocker alerts, and Object.keys() was flagged as certificate/key files. The skill provides reference documentation only and does not execute any code.",
+  "valueStatement": "Complex React components become hard to test and maintain. This skill provides patterns and workflows to refactor high-complexity components by extracting hooks, splitting sub-components, and applying Dify-specific conventions.",
+  "userTitle": "Refactor Complex React Components",
+  "limitations": [
+    "Skill provides guidance but does not automatically modify code",
+    "Requires pnpm and Dify frontend environment to run analysis commands",
+    "Does not handle runtime behavior or performance optimization",
+    "May not apply to non-Dify React codebases without adaptation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers working with large React codebases",
+      "title": "Reduce Component Complexity",
+      "description": "When a React component exceeds complexity threshold (>50) or line count (>300), use this skill to systematically reduce complexity through hook extraction and component splitting."
+    },
+    {
+      "targetUser": "Dify contributors maintaining frontend consistency",
+      "title": "Standardize Hook Patterns",
+      "description": "Apply Dify conventions for organizing custom hooks in hooks/ subdirectories or alongside components with use- prefix naming."
+    },
+    {
+      "targetUser": "QA engineers and developers writing component tests",
+      "title": "Prepare Components for Testing",
+      "description": "Refactor complex components before writing tests to ensure components are testable and meet complexity thresholds."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Complexity Check",
+      "prompt": "Check the complexity of web/app/components/example.tsx using pnpm analyze-component. What is the complexity score and what are the main complexity drivers?",
+      "scenario": "Quick assessment of a single component"
+    },
+    {
+      "title": "Hook Extraction Plan",
+      "prompt": "Analyze web/app/components/form-config/index.tsx and identify opportunities to extract custom hooks. Show me the proposed hook structure with Dify conventions.",
+      "scenario": "Planning hook extraction for a complex form component"
+    },
+    {
+      "title": "Component Splitting Strategy",
+      "prompt": "The Configuration component at web/app/components/config/index.tsx has complexity 85. Suggest how to split it into sub-components while maintaining Dify patterns.",
+      "scenario": "Planning component split for a very complex component"
+    },
+    {
+      "title": "Full Refactoring Workflow",
+      "prompt": "Run pnpm analyze-component on web/app/components/app/configuration/index.tsx and generate a complete refactoring plan including hook extractions, sub-component splits, and complexity reduction targets.",
+      "scenario": "Comprehensive refactoring assessment"
+    }
+  ],
+  "bestPractices": [
+    "Run complexity analysis before refactoring to establish baseline metrics",
+    "Extract hooks early when state management exceeds 3-5 useState calls",
+    "Follow Dify naming conventions: hooks in hooks/ dir or use-*.ts prefix"
+  ],
+  "antiPatterns": [
+    "Refactoring components that already meet complexity thresholds unnecessarily",
+    "Extracting hooks that are only used in a single component (prefer inline)",
+    "Creating too many small components that hurt code navigation"
+  ],
+  "faq": [
+    {
+      "question": "What complexity score is acceptable?",
+      "answer": "Target complexity should be below 50. Scores 51-75 indicate refactoring is needed before testing. Scores above 75 require immediate refactoring."
+    },
+    {
+      "question": "Can I use this skill for non-Dify React projects?",
+      "answer": "Yes, the complexity analysis patterns and hook extraction techniques apply generally to React. However, the file organization conventions are specific to Dify."
+    },
+    {
+      "question": "Does this skill modify my code automatically?",
+      "answer": "No, this skill provides analysis and guidance. You run the suggested refactoring commands yourself using pnpm refactor-component in your local environment."
+    },
+    {
+      "question": "What tools does this skill use?",
+      "answer": "The skill references Dify's pnpm analyze-component and pnpm refactor-component CLI tools. These must be run in the web/ directory of a Dify project."
+    },
+    {
+      "question": "How do I know when to refactor vs rewrite?",
+      "answer": "If complexity exceeds 75 or the component has fundamental architectural issues, consider rewriting. Refactoring works best when the component has valuable business logic worth preserving."
+    },
+    {
+      "question": "What is cognitive complexity?",
+      "answer": "Cognitive complexity measures how difficult code is to understand. It differs from cyclomatic complexity by focusing on human readability, not just execution paths. SonarJS calculates it based on nested structures, switches, and control flow patterns."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "React refactoring",
+    "component complexity",
+    "React hooks extraction",
+    "code splitting React",
+    "cognitive complexity",
+    "frontend optimization",
+    "Dify frontend"
+  ],
+  "sourceUrl": "https://github.com/langgenius/dify/tree/main/.agents/skills/component-refactoring/",
+  "sourceType": "community",
+  "dependencies": []
+}

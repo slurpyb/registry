@@ -1,0 +1,137 @@
+{
+  "name": "workflow-orchestration",
+  "type": "skill",
+  "description": "Coordinates multi-step CI/CD pipelines by chaining autonomous-ci, code-review, smart-commit, and jules-integration plugins. Use when executing validation-to-PR workflows or recovering from CI failures.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "CI/CD chaining",
+  "quality": 5,
+  "qualityReason": "Robust CI/CD orchestration",
+  "bundleHints": [
+    "ci-cd-pipeline",
+    "devops-orchestration"
+  ],
+  "tags": [
+    "automation",
+    "ci-cd",
+    "orchestration",
+    "pipeline",
+    "plugins",
+    "validation",
+    "workflow"
+  ],
+  "capabilities": [
+    "Executes pre-commit validation pipelines with autonomous-ci and code-review",
+    "Generates conventional commit messages via smart-commit integration",
+    "Creates pull requests through jules-integration delegation",
+    "Diagnoses and recovers from CI failures using systematic debugging",
+    "Maintains state awareness through CHANGELOG.md and git state analysis",
+    "Requires human approval before commits and PR creation"
+  ],
+  "author": "ANcpLua",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a pure documentation file (290 lines) describing workflow orchestration processes. It contains no executable code, scripts, network calls, or file system operations. The static findings are all false positives: backticks in markdown documentation are formatting syntax, not code execution; references to git commands and scripts are documentation examples, not actual operations. This skill orchestrates other skills but has no direct execution capabilities.",
+  "valueStatement": "Managing multi-step development workflows requires coordinating multiple plugins and maintaining state awareness. This skill provides structured pipelines that chain validation, code review, commit generation, and PR creation into cohesive workflows with human approval gates.",
+  "userTitle": "Orchestrate CI/CD pipelines with chained plugins",
+  "limitations": [
+    "Does not install or configure required plugins (autonomous-ci, code-review, smart-commit must be pre-installed)",
+    "Cannot execute code or modify files directly without invoking other skills",
+    "Requires manual approval for critical operations (commits, PR creation)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Validate code before commit",
+      "description": "Run validation, security review, and generate commit messages automatically before committing changes"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Recover from CI failures",
+      "description": "Diagnose CI failures, identify root causes, and apply fixes using systematic debugging approaches"
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Automate PR creation",
+      "description": "Chain validation, review, and PR delegation into a single workflow with quality gates and human approval"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Pre-commit validation",
+      "scenario": "Validate changes before committing",
+      "prompt": "Run the pre-commit pipeline using the workflow-orchestration skill. Validate with local-validate.sh, run code review, and generate a commit message."
+    },
+    {
+      "title": "Create pull request",
+      "scenario": "Prepare and create a PR",
+      "prompt": "Execute the full PR creation pipeline. Run validation, review, generate commit, get my approval, then delegate to Jules to create the PR."
+    },
+    {
+      "title": "Fix CI failure",
+      "scenario": "Diagnose and recover from CI failure",
+      "prompt": "The CI just failed. Use the CI-recover pipeline to diagnose the issue, identify the root cause, and fix it using systematic debugging."
+    },
+    {
+      "title": "Full workflow audit",
+      "scenario": "Review pending changes and plan execution",
+      "prompt": "Read CHANGELOG.md and git status to understand current context. Then run the appropriate workflow-orchestration pipeline for my pending changes."
+    }
+  ],
+  "bestPractices": [
+    "Always run local-validate.sh before claiming pipeline completion to ensure quality gates pass",
+    "Read CHANGELOG.md before starting to understand pending work and avoid duplicate efforts",
+    "Require human approval at critical decision points rather than automating commits autonomously"
+  ],
+  "antiPatterns": [
+    "Skipping validation checks and proceeding directly to commit without running local-validate.sh",
+    "Bypassing human approval gates for commits or PR creation",
+    "Modifying files directly without following the documented pipeline stages"
+  ],
+  "faq": [
+    {
+      "question": "Which Claude tools support this skill?",
+      "answer": "This skill works with Claude and Claude Code. It invokes other plugins like autonomous-ci and code-review which must be installed separately."
+    },
+    {
+      "question": "What are the rate limits or usage quotas?",
+      "answer": "No specific limits exist. Pipeline execution speed depends on external plugins and CI system response times."
+    },
+    {
+      "question": "How does it integrate with existing plugins?",
+      "answer": "The skill orchestrates by invoking other skills (autonomous-ci, code-review, smart-commit, jules-integration). Each plugin must be installed and configured."
+    },
+    {
+      "question": "Is my code or data accessed externally?",
+      "answer": "No. This skill only reads local files (CHANGELOG.md, git state) and coordinates other local skills. No data leaves your environment."
+    },
+    {
+      "question": "What if a pipeline step fails?",
+      "answer": "The skill provides structured error handling. Validation failures stop the pipeline. Review failures report issues and continue. CI recovery uses systematic debugging with retry logic."
+    },
+    {
+      "question": "How does this compare to manual workflows?",
+      "answer": "This skill automates coordination but keeps humans in the loop for approvals. It ensures consistent execution of validation, review, and documentation steps."
+    }
+  ],
+  "seoKeywords": [
+    "Claude workflow automation",
+    "Claude Code CI/CD orchestration",
+    "multi-step pipeline automation",
+    "plugin chaining workflow",
+    "PR creation automation",
+    "CI failure recovery",
+    "validation-to-commit pipeline",
+    "development workflow coordination"
+  ],
+  "sourceUrl": "https://github.com/ANcpLua/ancplua-claude-plugins/tree/main/agents/workflow-orchestrator/skills/workflow-orchestration",
+  "sourceType": "community",
+  "dependencies": []
+}

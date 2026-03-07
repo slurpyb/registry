@@ -1,0 +1,139 @@
+{
+  "name": "project-structure",
+  "type": "skill",
+  "description": "Organize project folders following industry best practices. Use when setting up new projects, reorganizing codebases, or when folder structure becomes messy. Covers Next.js, Bulletproof React, and FSD patterns.",
+  "domain": "web-development",
+  "subdomain": "fullstack",
+  "specialty": "folder organization",
+  "quality": 5,
+  "qualityReason": "Industry-standard structuring",
+  "bundleHints": [
+    "project-setup",
+    "code-quality"
+  ],
+  "tags": [
+    "architecture",
+    "best-practices",
+    "modular",
+    "nextjs",
+    "organization",
+    "project-structure"
+  ],
+  "capabilities": [
+    "Provide project structure templates for Next.js, Bulletproof React, and FSD patterns",
+    "Suggest appropriate folder organization based on project context and team size",
+    "Recommend naming conventions for files and folders",
+    "Guide folder cleanup workflows using safe practices like legacy folder movement",
+    "Create hybrid patterns combining multiple architectural approaches"
+  ],
+  "author": "Doyajin174",
+  "icon": "📁",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown guidance. All detected findings are FALSE POSITIVES - bash commands and URLs are in documentation code blocks, not executable code. The skill provides project structure best practices without any actual code execution, network operations, or file system access.",
+  "valueStatement": "Messy folder structures slow down development and make codebases hard to navigate. This skill provides proven patterns from Next.js, Bulletproof React, and Feature-Sliced Design to help you organize projects that scale.",
+  "userTitle": "Organize project folders with best practices",
+  "limitations": [
+    "Does not automatically reorganize folders without user approval",
+    "Does not delete files or folders without explicit user commands",
+    "Does not execute commands in production environments automatically",
+    "Does not validate existing folder structures against all possible patterns"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Set up React projects",
+      "description": "Choose between Bulletproof React or FSD patterns based on project size and team experience"
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Organize monorepos",
+      "description": "Structure projects with context-based separation for work, personal, and open-source projects"
+    },
+    {
+      "targetUser": "Tech leads",
+      "title": "Establish team standards",
+      "description": "Define consistent folder structures that scale across multiple projects and team members"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New project setup",
+      "scenario": "Starting a new project",
+      "prompt": "Help me set up a project structure for a new React application with the Bulletproof React pattern"
+    },
+    {
+      "title": "Reorganize codebase",
+      "scenario": "Cleaning up messy folders",
+      "prompt": "My project folders are disorganized. Analyze my current structure and suggest how to reorganize using safe migration to _legacy/"
+    },
+    {
+      "title": "Choose architecture",
+      "scenario": "Selecting the right pattern",
+      "prompt": "I'm building a large React application with 10+ features. Compare Bulletproof React vs Feature-Sliced Design for my use case"
+    },
+    {
+      "title": "Hybrid structure",
+      "scenario": "Combining frameworks",
+      "prompt": "Create a hybrid project structure combining Next.js App Router with feature-based organization for a dashboard application"
+    }
+  ],
+  "bestPractices": [
+    "Use context-based organization at the root level (work, personal, study) rather than technology-based",
+    "Move old code to _legacy/ folders with timestamps instead of deleting",
+    "Choose architecture patterns based on team size and project complexity"
+  ],
+  "antiPatterns": [
+    "Using language or technology as the primary categorization at the project root",
+    "Storing projects on desktop or in deeply nested folder structures",
+    "Mixing multiple categorization schemes within the same project"
+  ],
+  "faq": [
+    {
+      "question": "Which pattern should I choose for a small project?",
+      "answer": "Start with basic Next.js colocation or a simple feature-based structure. Avoid over-engineering with FSD for small projects."
+    },
+    {
+      "question": "How do I safely clean up legacy code?",
+      "answer": "Create a _legacy/ folder and move old code there with a date stamp. Never use rm or rm -rf commands. Always verify before moving files."
+    },
+    {
+      "question": "Can this skill work with any framework?",
+      "answer": "Yes. The principles apply to any project. Specific patterns target React and Next.js, but core organization concepts are universal."
+    },
+    {
+      "question": "Does this skill access my files automatically?",
+      "answer": "No. This skill provides guidance only. All file operations require explicit user approval through the AI tool being used."
+    },
+    {
+      "question": "What if my project does not fit any pattern?",
+      "answer": "Combine elements from multiple patterns or create hybrid structures. The skill can help you design custom solutions for your specific needs."
+    },
+    {
+      "question": "How is this different from scaffolding tools?",
+      "answer": "This skill provides guidance on choosing and evolving structures. It explains why patterns work rather than just generating files."
+    }
+  ],
+  "seoKeywords": [
+    "project structure",
+    "folder organization",
+    "Next.js architecture",
+    "Bulletproof React",
+    "feature-sliced design",
+    "codebase organization",
+    "project scaffolding",
+    "best practices",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/Doyajin174/myskills/tree/main/.public/skills/project-structure",
+  "sourceType": "community",
+  "dependencies": []
+}

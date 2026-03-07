@@ -1,0 +1,149 @@
+{
+  "name": "prototype-to-production",
+  "type": "skill",
+  "description": "Convert design prototypes (HTML, CSS, Figma exports) into production-ready components. Analyzes prototype structure, extracts design tokens, identifies reusable patterns, and generates typed React components. Adapts to existing project tech stack with React + TypeScript as default.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "design conversion",
+  "quality": 5,
+  "qualityReason": "Clear transformation workflow",
+  "bundleHints": [
+    "frontend-stack",
+    "design-implementation"
+  ],
+  "tags": [
+    "atomic-design",
+    "components",
+    "conversion",
+    "css",
+    "design",
+    "design tokens",
+    "design-tokens",
+    "figma",
+    "html",
+    "production",
+    "prototype",
+    "react",
+    "typed components",
+    "typescript"
+  ],
+  "capabilities": [
+    "Analyzes HTML prototypes to identify component boundaries and structure",
+    "Extracts design tokens (colors, typography, spacing) from CSS styles",
+    "Detects project tech stack (React, Vue, Svelte, Angular) and TypeScript support",
+    "Generates typed React components with forwardRef pattern and accessibility",
+    "Applies atomic design methodology to decompose complex prototypes",
+    "Converts inline styles to Tailwind CSS or styled-component patterns"
+  ],
+  "author": "ArieGoldkin",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill with no executable code. Static findings are false positives caused by the scanner misinterpreting React/TypeScript syntax (className, onClick) as shell commands and cryptographic patterns. No scripts, network calls, or credential access exist in this skill.",
+  "valueStatement": "Transforming design prototypes into production code is time-consuming and error-prone. This skill provides a systematic workflow to analyze prototypes, extract design tokens, and generate type-safe React components that match your existing project conventions.",
+  "userTitle": "Convert prototypes to production components",
+  "limitations": [
+    "Does not execute code or modify files directly - provides guidance only",
+    "Does not connect to external APIs or fetch remote resources",
+    "Does not handle backend logic or database integration"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend Developers",
+      "title": "Productionize prototypes",
+      "description": "Convert HTML/CSS mockups into maintainable React components with proper typing"
+    },
+    {
+      "targetUser": "UI/UX Designers",
+      "title": "Handoff to code",
+      "description": "Prepare Figma exports with clear component structure for developer implementation"
+    },
+    {
+      "targetUser": "Full-Stack Engineers",
+      "title": "Rapid component creation",
+      "description": "Quickly build production UI from super-design iterations without manual conversion"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic conversion",
+      "scenario": "Convert HTML prototype",
+      "prompt": "Use the prototype-to-production skill to convert this HTML prototype to a React TypeScript component. Extract design tokens and apply atomic design principles."
+    },
+    {
+      "title": "Figma export",
+      "scenario": "Convert Figma design",
+      "prompt": "Apply the prototype-to-production skill to convert this Figma-exported HTML into production-ready React components. Include accessibility attributes."
+    },
+    {
+      "title": "Design tokens",
+      "scenario": "Extract design system",
+      "prompt": "Use the prototype-to-production skill to extract design tokens from the prototype CSS. Create a design-tokens.json file with colors, typography, and spacing."
+    },
+    {
+      "title": "Multi-component",
+      "scenario": "Complex prototype",
+      "prompt": "Decompose this complex prototype into atomic components using the prototype-to-production workflow. Generate component-base.tsx and component-with-variants.tsx templates."
+    }
+  ],
+  "bestPractices": [
+    "Always extract repeated patterns (2+ occurrences) into reusable components",
+    "Include accessibility attributes (aria-*, keyboard support) from the start",
+    "Extract design tokens before component generation for consistency",
+    "Match the generated code to your project naming conventions (PascalCase for components)"
+  ],
+  "antiPatterns": [
+    "Converting a clickable div instead of using semantic button elements",
+    "Skipping design token extraction leading to hardcoded values across components",
+    "Not considering responsive breakpoints from the prototype",
+    "Ignoring accessibility requirements in favor of visual-only implementation"
+  ],
+  "faq": [
+    {
+      "question": "Which frameworks does this skill support?",
+      "answer": "React (default), Vue, Svelte, and Angular. Detects framework from package.json and generates appropriate component format."
+    },
+    {
+      "question": "Does this skill work with Figma exports?",
+      "answer": "Yes. It detects Figma-specific class names (figma- prefix) and converts exported HTML to React components."
+    },
+    {
+      "question": "How are design tokens extracted?",
+      "answer": "The skill analyzes inline styles and CSS classes to identify colors, typography, spacing, and border radius patterns."
+    },
+    {
+      "question": "Is my code sent to external servers?",
+      "answer": "No. This is a prompt-based skill with no network access. All processing happens within your AI context."
+    },
+    {
+      "question": "Can I use this with Tailwind CSS?",
+      "answer": "Yes. The skill supports converting inline styles to Tailwind classes when Tailwind is detected in the project."
+    },
+    {
+      "question": "How does this compare to manual conversion?",
+      "answer": "Provides systematic workflow, extracts consistent design tokens, and generates properly typed components following best practices."
+    }
+  ],
+  "seoKeywords": [
+    "prototype to production",
+    "convert HTML to React",
+    "design tokens extraction",
+    "Figma to React",
+    "atomic design components",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "React TypeScript components",
+    "prototype conversion"
+  ],
+  "sourceUrl": "https://github.com/ArieGoldkin/ai-agent-hub/tree/main/skills/prototype-to-production",
+  "sourceType": "community",
+  "dependencies": []
+}

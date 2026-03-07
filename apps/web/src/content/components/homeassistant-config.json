@@ -1,0 +1,145 @@
+{
+  "name": "homeassistant-config",
+  "type": "skill",
+  "description": "Create and manage Home Assistant YAML configuration files including automations, scripts, templates, blueprints, Lovelace dashboards, and file organization. Use when working with Home Assistant configuration files (.yaml, .yml) or discussing HA automations, scripts, sensors, or dashboards.",
+  "domain": "mobile",
+  "subdomain": "cross-platform",
+  "specialty": "YAML config",
+  "quality": 4,
+  "qualityReason": "Focused on Home Assistant config",
+  "bundleHints": [
+    "home-automation",
+    "smart-home"
+  ],
+  "tags": [
+    "automation",
+    "automations",
+    "blueprints",
+    "file-organization",
+    "home-assistant",
+    "lovelace",
+    "scripts",
+    "smart-home",
+    "yaml"
+  ],
+  "capabilities": [
+    "Validate YAML syntax and Home Assistant structure",
+    "Find duplicate automations and scripts",
+    "Create automations with modern 2024+ syntax",
+    "Build Lovelace dashboards with cards and views",
+    "Write Jinja2 template sensors",
+    "Create reusable blueprints with inputs"
+  ],
+  "author": "ESJavadex",
+  "icon": "🏠",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "The static analyzer produced extensive false positives due to pattern-matching limitations when analyzing Home Assistant YAML configuration documentation. Key findings: 'Weak cryptographic algorithm' (150+ occurrences) incorrectly flags YAML keywords like 'mode: restart' - not actual crypto operations. 'Ruby/shell backtick execution' (448+ occurrences) incorrectly flags markdown code formatting backticks as command execution. 'System reconnaissance' flags documentation of file operations like 'find' and 'grep' commands. The Python validation scripts use standard file operations (read_text, os.walk, yaml.safe_load) for legitimate configuration validation. No malicious code, network calls, credential exfiltration, or actual dangerous patterns detected. This is a legitimate Home Assistant configuration management skill.",
+  "valueStatement": "Home Assistant configuration files require precise YAML syntax and proper structure. This skill provides validation tools, example configurations, and best practices for automations, scripts, templates, blueprints, and Lovelace dashboards.",
+  "userTitle": "Create Home Assistant automations and dashboards",
+  "limitations": [
+    "Does not execute or deploy configurations to Home Assistant",
+    "Does not access Home Assistant API or entity states",
+    "Does not validate runtime integration compatibility",
+    "Scripts require Python and PyYAML installed"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Home automation beginners",
+      "title": "Create first automation",
+      "description": "Set up motion-activated lights with proper YAML structure and syntax"
+    },
+    {
+      "targetUser": "Experienced users",
+      "title": "Build complex dashboards",
+      "description": "Design Lovelace dashboards with custom cards, conditional displays, and responsive layouts"
+    },
+    {
+      "targetUser": "Power users",
+      "title": "Optimize configuration",
+      "description": "Find duplicate automations, refactor scripts, and implement blueprints for reusability"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic automation",
+      "scenario": "Create a motion light automation",
+      "prompt": "Create an automation that turns on the living room light when motion is detected after sunset, with a 5-minute delay before turning off"
+    },
+    {
+      "title": "Template sensor",
+      "scenario": "Calculate energy usage",
+      "prompt": "Write a template sensor that calculates the total power usage from multiple smart plugs and shows daily energy cost"
+    },
+    {
+      "title": "Lovelace dashboard",
+      "scenario": "Build a room card",
+      "prompt": "Create a Mushroom cards configuration for the living room that shows temperature, humidity, and light controls in a compact layout"
+    },
+    {
+      "title": "Blueprint creation",
+      "scenario": "Create reusable template",
+      "prompt": "Create a blueprint for motion-activated lighting with configurable motion sensor, target light, wait time, and day/night brightness settings"
+    }
+  ],
+  "bestPractices": [
+    "Always use 2 spaces for indentation, never tabs",
+    "Quote boolean-like values: 'on', 'off', 'yes', 'no'",
+    "Use plural form for triggers, conditions, and actions",
+    "Add unique IDs to automations for UI editing support"
+  ],
+  "antiPatterns": [
+    "Using tabs instead of spaces in YAML files",
+    "Unquoted strings that look like booleans",
+    "Missing mode specification in automations",
+    "Hardcoding entity IDs instead of using variables"
+  ],
+  "faq": [
+    {
+      "question": "What versions of Home Assistant are supported?",
+      "answer": "This skill uses 2024+ syntax with modern trigger, condition, and action formats. Most patterns work with 2022.4+."
+    },
+    {
+      "question": "What are the validation script requirements?",
+      "answer": "Scripts require Python 3 and PyYAML installed. Run pip install pyyaml before using validation tools."
+    },
+    {
+      "question": "Can I integrate with existing Home Assistant?",
+      "answer": "This skill generates configuration files. You must manually copy or deploy files to your Home Assistant instance."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. Scripts only read files for validation. No data is sent externally or stored beyond the session."
+    },
+    {
+      "question": "Why does the skill need filesystem access?",
+      "answer": "File access is required to validate YAML syntax, check for duplicates, and analyze configuration structure."
+    },
+    {
+      "question": "How does this compare to Home Assistant Studio?",
+      "answer": "This skill provides Claude Code integration for generating and validating configurations. Studio is a web-based editor."
+    }
+  ],
+  "seoKeywords": [
+    "Home Assistant configuration",
+    "Claude automation skill",
+    "Home Assistant YAML validation",
+    "Claude Code smart home",
+    "Home Assistant automations",
+    "Lovelace dashboard configuration",
+    "Home Assistant blueprints",
+    "Jinja2 templates",
+    "Claude home automation",
+    "Codex YAML configuration"
+  ],
+  "sourceUrl": "https://github.com/ESJavadex/claude-homeassistant-plugins/tree/main/homeassistant-config/skills/homeassistant-config",
+  "sourceType": "community",
+  "dependencies": []
+}

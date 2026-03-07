@@ -1,0 +1,139 @@
+{
+  "name": "wp-migrate",
+  "type": "skill",
+  "description": "WordPress site migration and deployment using wp-migrate.sh. Use when migrating WordPress sites, syncing databases, managing backups, testing migrations, debugging migration issues, or working with WordPress deployment workflows including Duplicator, Jetpack Backup, and Solid Backups archives. Also use for code modifications, testing, git workflows, PR creation, and release management for this project.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "site migration",
+  "quality": 5,
+  "qualityReason": "Complete migration workflow",
+  "bundleHints": [
+    "wordpress-ops",
+    "deployment-tools"
+  ],
+  "tags": [
+    "backup",
+    "debugging",
+    "deployment",
+    "migration",
+    "rsync",
+    "sync",
+    "wordpress"
+  ],
+  "capabilities": [
+    "Migrate WordPress sites between servers via SSH using rsync",
+    "Import backup archives from Duplicator, Jetpack Backup, and Solid Backups",
+    "Perform URL search-replace to align destination domains",
+    "Create automatic backups before migration with rollback support"
+  ],
+  "author": "BWBama85",
+  "icon": "�️",
+  "version": "2.7.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation-only project for WordPress migration. All 1073 static findings are FALSE POSITIVES - the scanner detected shell syntax in documentation code blocks and misinterpreted SHA256 checksum references. There is no executable code with security vulnerabilities. The skill provides documentation examples for legitimate WordPress migration workflows using wp-migrate.sh.",
+  "valueStatement": "This skill provides expertise for migrating WordPress sites between servers and importing backup archives from Duplicator, Jetpack Backup, and Solid Backups. It handles database synchronization, URL search-replace, and provides rollback capabilities for safe deployments.",
+  "userTitle": "Migrate WordPress sites with wp-migrate.sh",
+  "limitations": [
+    "Does not execute migrations - provides documentation and guidance only",
+    "Requires wp-cli, rsync, and SSH access to target servers",
+    "Does not modify source files - edits must be made in src/ directory",
+    "Push mode requires SSH access to both source and destination servers"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Deploy WordPress to production",
+      "description": "Sync staging to production with maintenance mode, backups, and automated URL replacement"
+    },
+    {
+      "targetUser": "WordPress Developers",
+      "title": "Import backup archives",
+      "description": "Extract and import Duplicator, Jetpack, or Solid Backups archives with table prefix alignment"
+    },
+    {
+      "targetUser": "Site Administrators",
+      "title": "Rollback failed migrations",
+      "description": "Restore from automatic backups when migration issues occur with single command"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Migration",
+      "scenario": "Run a WordPress migration",
+      "prompt": "Help me migrate a WordPress site from staging to production using wp-migrate.sh. Source is local, destination is user@prod.example.com at /var/www/html."
+    },
+    {
+      "title": "Archive Import",
+      "scenario": "Import a backup archive",
+      "prompt": "I have a Duplicator backup archive at /backups/site.zip. Guide me through importing it to a new WordPress installation."
+    },
+    {
+      "title": "Dry Run Preview",
+      "scenario": "Preview before executing",
+      "prompt": "Show me what would happen if I ran this migration by using --dry-run and --verbose flags. Explain the output."
+    },
+    {
+      "title": "Rollback Recovery",
+      "scenario": "Restore from backup",
+      "prompt": "The migration failed. Help me use the --rollback flag to restore the site from the latest backup."
+    }
+  ],
+  "bestPractices": [
+    "Always run with --dry-run --verbose first to preview all operations",
+    "Use --yes flag for CI/CD pipelines to skip confirmation prompts",
+    "Test rollback procedures in a safe environment before production migrations"
+  ],
+  "antiPatterns": [
+    "Do not edit wp-migrate.sh directly - modify files in src/ directory",
+    "Do not skip backups - always let the script create timestamped backups",
+    "Do not run without verifying SSH connectivity and wp-cli availability first"
+  ],
+  "faq": [
+    {
+      "question": "What backup formats are supported?",
+      "answer": "Duplicator ZIP archives, Jetpack Backup ZIP/TAR.GZ, and Solid Backups ZIP with automatic format detection."
+    },
+    {
+      "question": "How does search-replace work?",
+      "answer": "The script detects source and destination URLs, then uses wp search-replace to update all references in the database."
+    },
+    {
+      "question": "What is the stellarsites flag for?",
+      "answer": "It excludes managed hosting mu-plugins when migrating to StellarSites hosting to avoid permission issues."
+    },
+    {
+      "question": "Does this support multisite?",
+      "answer": "Current version focuses on single-site WordPress installations. Multisite support is listed as a future enhancement."
+    },
+    {
+      "question": "How do I customize rsync options?",
+      "answer": "Use --rsync-opt flags multiple times: --rsync-opt '--exclude=uploads/' --rsync-opt '--bwlimit=1000'"
+    },
+    {
+      "question": "What happens to destination plugins?",
+      "answer": "Use --preserve-dest-plugins flag to keep plugins/themes not present in source after migration completes."
+    }
+  ],
+  "seoKeywords": [
+    "WordPress migration",
+    "wp-migrate",
+    "wp-migrate.sh",
+    "WordPress deployment",
+    "Duplicator import",
+    "Jetpack Backup",
+    "database sync",
+    "Claude migration",
+    "Codex WordPress",
+    "Clauode Code DevOps"
+  ],
+  "sourceUrl": "https://github.com/BWBama85/wp-migrate.sh/tree/main/.claude/skills/wp-migrate",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "auth-analyzer",
+  "type": "skill",
+  "description": "Review and analyze authentication and authorization patterns for security vulnerabilities.",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "Auth pattern review",
+  "quality": 5,
+  "qualityReason": "Security-focused analysis",
+  "bundleHints": [
+    "security-review",
+    "appsec"
+  ],
+  "tags": [
+    "access-control",
+    "authentication",
+    "authorization",
+    "compliance",
+    "pattern-review",
+    "security",
+    "vulnerabilities"
+  ],
+  "capabilities": [
+    "Review password hashing implementations for security weaknesses",
+    "Analyze JWT token generation and verification patterns",
+    "Evaluate session management security configurations",
+    "Check authorization controls for access control vulnerabilities",
+    "Identify authentication bypass and privilege escalation risks",
+    "Verify compliance with OWASP Top 10 and NIST guidelines"
+  ],
+  "author": "CuriousLearner",
+  "icon": "🔐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure prompt-based educational skill containing only instructional content and code examples demonstrating security patterns. No executable code, network calls, filesystem access, or external command execution exists. The static scanner incorrectly flagged educational code examples (marked as insecure patterns to avoid) as actual vulnerabilities. The skill teaches AI assistants to analyze authentication code for security flaws and provide remediation guidance.",
+  "valueStatement": "Authentication and authorization vulnerabilities create serious security risks in applications. This skill provides expert analysis of code patterns to identify and fix security flaws before they can be exploited.",
+  "userTitle": "Analyze authentication security",
+  "limitations": [
+    "Does not execute or test actual code files",
+    "Cannot access external systems or APIs",
+    "Provides analysis based on patterns shown in code examples only",
+    "Does not perform live penetration testing"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security auditors",
+      "title": "Code security review",
+      "description": "Review authentication code for vulnerabilities during security assessments and audits"
+    },
+    {
+      "targetUser": "Developer teams",
+      "title": "Secure coding guidance",
+      "description": "Learn best practices for implementing secure authentication and authorization in your applications"
+    },
+    {
+      "targetUser": "DevSecOps engineers",
+      "title": "Compliance checking",
+      "description": "Verify that authentication implementations meet security and compliance requirements"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic analysis",
+      "scenario": "Analyze authentication code",
+      "prompt": "Use the auth-analyzer skill to review this authentication code for security vulnerabilities and provide remediation advice"
+    },
+    {
+      "title": "JWT review",
+      "scenario": "Check JWT implementation",
+      "prompt": "@auth-analyzer Analyze this JWT implementation for security issues including signature verification, token expiration, and algorithm vulnerabilities"
+    },
+    {
+      "title": "Authorization audit",
+      "scenario": "Evaluate access controls",
+      "prompt": "@auth-analyzer Review this authorization system for broken access control, privilege escalation, and IDOR vulnerabilities"
+    },
+    {
+      "title": "Full security report",
+      "scenario": "Generate detailed report",
+      "prompt": "@auth-analyzer --report Analyze all authentication and authorization patterns in this code and generate a comprehensive security report with severity ratings"
+    }
+  ],
+  "bestPractices": [
+    "Always verify JWT signatures and specify allowed algorithms to prevent algorithm confusion attacks",
+    "Regenerate sessions after successful authentication to prevent session fixation",
+    "Implement proper authorization checks on every endpoint that accesses protected resources"
+  ],
+  "antiPatterns": [
+    "Storing passwords with MD5 or SHA1 without salt - enables rainbow table attacks",
+    "Verifying JWT tokens by decoding without signature validation",
+    "Trusting client-provided role values for authorization decisions"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "The auth-analyzer skill works with Claude, Codex, and Claude Code. Simply prefix your prompt with @auth-analyzer to activate the security expertise."
+    },
+    {
+      "question": "What authentication patterns does it analyze?",
+      "answer": "It reviews password hashing, JWT tokens, session management, OAuth flows, RBAC, ABAC, and checks for OWASP Top 10 compliance issues."
+    },
+    {
+      "question": "Does this skill modify my code?",
+      "answer": "No. The skill only analyzes code patterns and provides recommendations. It never writes or modifies any files or code in your project."
+    },
+    {
+      "question": "Is my code data sent to external services?",
+      "answer": "No. All analysis happens within your AI session. Code examples are processed locally and never transmitted to external servers."
+    },
+    {
+      "question": "Why are authentication vulnerabilities reported?",
+      "answer": "Broken access control and authentication failures are the top OWASP security risks. This skill helps identify these issues before deployment."
+    },
+    {
+      "question": "How does this compare to manual code review?",
+      "answer": "This skill provides consistent analysis based on established security patterns. It complements but does not replace thorough manual security review."
+    }
+  ],
+  "seoKeywords": [
+    "authentication security",
+    "authorization patterns",
+    "JWT security",
+    "session management",
+    "RBAC",
+    "OWASP",
+    "vulnerability analysis",
+    "security audit",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/CuriousLearner/devkit/tree/main/skills/auth-analyzer",
+  "sourceType": "community",
+  "dependencies": []
+}

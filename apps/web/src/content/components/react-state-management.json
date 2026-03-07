@@ -1,0 +1,142 @@
+{
+  "name": "react-state-management",
+  "type": "skill",
+  "description": "Master modern React state management with Redux Toolkit, Zustand, Jotai, and React Query. Use when setting up global state, managing server state, or choosing between state management solutions.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Global state",
+  "quality": 5,
+  "qualityReason": "Comprehensive state management decision guidance",
+  "bundleHints": [
+    "react-stack",
+    "state-management",
+    "frontend-architecture"
+  ],
+  "tags": [
+    "jotai",
+    "react",
+    "react-query",
+    "redux",
+    "server-state",
+    "state-management",
+    "zustand"
+  ],
+  "capabilities": [
+    "Guide selection between Redux Toolkit, Zustand, Jotai based on app complexity",
+    "Implement TypeScript-typed state management with proper typing patterns",
+    "Set up React Query for server state caching and synchronization",
+    "Create atomic state patterns with Jotai for granular updates",
+    "Implement optimistic updates and data persistence strategies",
+    "Debug state issues and migrate from legacy Redux patterns"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation skill for React state management patterns. Static analysis flagged external_commands, network, and sensitive data patterns, but evaluation confirms these are FALSE POSITIVES - the 'backticks' are TypeScript template literals in code examples, 'fetch' calls are legitimate API examples, and 'localStorage' access is proper state persistence teaching. No actual security risks identified.",
+  "valueStatement": "This skill helps developers choose and implement the right state management solution for React applications, from simple local state to complex global stores with server synchronization.",
+  "userTitle": "Implement React State Management",
+  "limitations": [
+    "Does not execute code - provides guidance and code examples only",
+    "Cannot access external projects without file paths provided",
+    "Cannot debug runtime issues in live applications",
+    "Does not install dependencies or modify package.json"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers starting new React projects",
+      "title": "New React Project Setup",
+      "description": "Choose and configure the appropriate state management solution when starting a new React application"
+    },
+    {
+      "targetUser": "Developers maintaining older React codebases",
+      "title": "Legacy Migration",
+      "description": "Migrate from older Redux patterns or class components to modern state management approaches"
+    },
+    {
+      "targetUser": "React developers looking to improve app performance",
+      "title": "Performance Optimization",
+      "description": "Reduce unnecessary re-renders and optimize state access patterns in existing applications"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic State Setup",
+      "prompt": "Show me how to set up Zustand for a simple React app with user authentication state and theme toggle.",
+      "scenario": "Setting up a new project with basic global state"
+    },
+    {
+      "title": "Redux Toolkit Setup",
+      "prompt": "Create a Redux Toolkit store with typed hooks and a user slice that handles async fetching.",
+      "scenario": "Implementing Redux Toolkit with TypeScript"
+    },
+    {
+      "title": "Server State with React Query",
+      "prompt": "Set up React Query for fetching user data with caching, optimistic updates on mutations, and error handling.",
+      "scenario": "Managing server state and API synchronization"
+    },
+    {
+      "title": "Atomic State Pattern",
+      "prompt": "Implement Jotai atoms for a shopping cart with derived atoms for totals and persistence to localStorage.",
+      "scenario": "Using atomic state for granular reactivity"
+    }
+  ],
+  "bestPractices": [
+    "Separate client state from server state - use React Query for server data and Zustand/Redux for UI state",
+    "Colocate state close to where it is used - avoid putting everything in global state",
+    "Use TypeScript for all state-related code to prevent runtime errors and enable better IDE support"
+  ],
+  "antiPatterns": [
+    "Storing server data in global state instead of using React Query - creates synchronization issues",
+    "Over-globalizing state - putting component-specific state in Redux/Zustand when useState suffices",
+    "Mutating state directly instead of using immutable update patterns - breaks reactivity"
+  ],
+  "faq": [
+    {
+      "question": "What is the best state management for a new React project?",
+      "answer": "For most new projects, Zustand offers the best balance of simplicity and power. Use React Query for server state. Only reach for Redux Toolkit when you have complex async workflows or need middleware."
+    },
+    {
+      "question": "When should I use React Query vs Redux?",
+      "answer": "Use React Query for server state (API data, caching, synchronization). Use Redux or Zustand for client state (UI state, user sessions, form data). Never duplicate server state in global stores."
+    },
+    {
+      "question": "Can I use multiple state solutions together?",
+      "answer": "Yes - this is recommended. Use React Query for server state, Zustand or Redux for client state, and useState for local component state. Each serves a different purpose."
+    },
+    {
+      "question": "How do I persist state across page reloads?",
+      "answer": "Use Zustand persist middleware, Jotai atomWithStorage, or Redux persist. For sensitive data, consider sessionStorage instead of localStorage."
+    },
+    {
+      "question": "What is the difference between Jotai and Zustand?",
+      "answer": "Jotai uses atomic state where each atom is independent and derived atoms recompute automatically. Zustand uses a single store with selectors. Jotai excels at granular updates, Zustand at simplicity."
+    },
+    {
+      "question": "How do I handle async actions in Redux Toolkit?",
+      "answer": "Use createAsyncThunk for async operations. It handles pending/fulfilled/rejected states automatically and integrates with Redux DevTools for debugging."
+    }
+  ],
+  "seoKeywords": [
+    "React state management",
+    "Redux Toolkit tutorial",
+    "Zustand React",
+    "Jotai atomic state",
+    "React Query TanStack",
+    "Claude Code React",
+    "Codex React patterns",
+    "React global state",
+    "React server state",
+    "React hooks state"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/react-state-management",
+  "sourceType": "community",
+  "dependencies": []
+}

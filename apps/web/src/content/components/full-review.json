@@ -1,0 +1,140 @@
+{
+  "name": "full-review",
+  "type": "skill",
+  "description": "Comprehensive code review using all available skills. Use before committing or when you want a thorough analysis of changes. Triggers on review code, check changes, full review, pre-commit review.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "comprehensive review",
+  "quality": 5,
+  "qualityReason": "Complete review coverage",
+  "bundleHints": [
+    "code-quality-suite",
+    "pre-commit-bundle"
+  ],
+  "tags": [
+    "code-review",
+    "git",
+    "pre-commit",
+    "quality-assurance",
+    "security",
+    "thorough-analysis"
+  ],
+  "capabilities": [
+    "Identifies changed files using git diff and git status",
+    "Maps file patterns to relevant specialized review skills",
+    "Runs security, DeFi, type safety, and performance checklists",
+    "Generates structured reports with critical, warning, and suggestion levels",
+    "Validates changes across TypeScript, Rust, React, and database layers",
+    "Offers optional auto-fix for critical issues"
+  ],
+  "author": "BarisSozen",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static analysis findings are false positives. The skill is documentation-only (SKILL.md) describing a legitimate code review workflow. Backticks flagged as shell execution are markdown code formatting. Numeric values flagged as weak crypto are JSON array indices. No executable code exists that poses security risks.",
+  "valueStatement": "This skill orchestrates multiple review skills to provide a complete analysis of code changes. It identifies modified files, applies relevant security and quality checks, and generates a structured report with severity levels before you commit.",
+  "userTitle": "Run comprehensive code review",
+  "limitations": [
+    "Does not automatically modify code without user approval",
+    "Requires git repository with changes to review",
+    "Cannot review files that are not tracked or staged",
+    "Relies on other installed skills for specialized review types"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers who want to maintain high code quality standards",
+      "title": "Pre-commit quality gate",
+      "description": "Run a full review before committing to catch security issues, type errors, and quality problems early. Prevents technical debt from entering the codebase."
+    },
+    {
+      "targetUser": "Full-stack developers working with TypeScript, Rust, and React",
+      "title": "Cross-stack change validation",
+      "description": "Review changes that span multiple languages and frameworks. Validates TypeScript interfaces match Rust types, React components follow patterns, and database schemas are consistent."
+    },
+    {
+      "targetUser": "DeFi developers building on Ethereum and other blockchains",
+      "title": "DeFi security audit",
+      "description": "Check DeFi-specific concerns like token decimals, slippage protection, BigInt precision, and proper error handling for reverts before deploying to production."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic full review",
+      "prompt": "Please run a full review of all my changes. I want a comprehensive analysis before I commit.",
+      "scenario": "Standard pre-commit review of all modified files"
+    },
+    {
+      "title": "Quick critical issues check",
+      "prompt": "Give me a quick review focusing only on critical security issues and must-fix problems in my changes.",
+      "scenario": "Time-sensitive commits that need fast feedback"
+    },
+    {
+      "title": "DeFi-specific review",
+      "prompt": "Focus on DeFi-specific concerns in my changes. Check token handling, slippage protection, BigInt usage, and error handling for reverts.",
+      "scenario": "Reviewing DeFi smart contract changes for blockchain applications"
+    },
+    {
+      "title": "Type safety audit",
+      "prompt": "Review my changes specifically for type safety issues. Check for 'as any' assertions, proper null handling, and consistency across TypeScript, Rust, and database types.",
+      "scenario": "Focus on type-related issues across the full stack"
+    }
+  ],
+  "bestPractices": [
+    "Run full-review before every commit to catch issues early and maintain code quality standards across the codebase.",
+    "Use quick-review mode for time-sensitive situations, but run comprehensive review before merging to main branches.",
+    "Address critical issues immediately before proceeding. These represent security vulnerabilities or runtime failures."
+  ],
+  "antiPatterns": [
+    "Skipping review and committing directly to main without validation, which allows technical debt and security issues to accumulate.",
+    "Ignoring warnings without investigation. Warnings often indicate maintainability issues that become critical over time.",
+    "Using full-review only after problems are discovered in production rather than as a preventive measure."
+  ],
+  "faq": [
+    {
+      "question": "What triggers the full-review skill?",
+      "answer": "Use phrases like review code, check changes, full review, pre-commit review, or comprehensive review. The skill will identify and analyze all modified files."
+    },
+    {
+      "question": "How long does a full review take?",
+      "answer": "The duration depends on the number of changed files and the skills invoked. A typical review of 5-10 files completes in under a minute. Large changes may take longer."
+    },
+    {
+      "question": "Can I skip certain check categories?",
+      "answer": "The skill runs all relevant checklists by default. You can request a focused review by specifying the category, such as security review or type safety review only."
+    },
+    {
+      "question": "What happens if critical issues are found?",
+      "answer": "The skill will offer to fix critical issues automatically after showing the proposed changes. You must approve before any modifications are applied to your codebase."
+    },
+    {
+      "question": "Does this skill modify my code?",
+      "answer": "No. The skill only analyzes and reports findings by default. Auto-fix is optional and requires your explicit approval before any changes are applied."
+    },
+    {
+      "question": "Which file types does the skill support?",
+      "answer": "The skill supports TypeScript, React, Rust, SQL, and general code files. Specialized checks are available for TanStack Query, Drizzle ORM, and DeFi-related code."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "code review",
+    "full review",
+    "comprehensive review",
+    "pre-commit review",
+    "code quality",
+    "security audit",
+    "git diff"
+  ],
+  "sourceUrl": "https://github.com/BarisSozen/claude/tree/main/.claude/skills/full-review",
+  "sourceType": "community",
+  "dependencies": []
+}

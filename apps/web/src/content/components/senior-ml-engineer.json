@@ -1,0 +1,142 @@
+{
+  "name": "senior-ml-engineer",
+  "type": "skill",
+  "description": "World-class ML engineering skill for productionizing ML models, MLOps, and building scalable ML systems. Expertise in PyTorch, TensorFlow, model deployment, feature stores, model monitoring, and ML infrastructure. Includes LLM integration, fine-tuning, RAG systems, and agentic AI. Use when deploying ML models, building ML platforms, implementing MLOps, or integrating LLMs into production systems.",
+  "domain": "ai-ml",
+  "subdomain": "ml-ops",
+  "specialty": "model deployment",
+  "quality": 5,
+  "qualityReason": "Production ML focus",
+  "bundleHints": [
+    "mlops-pipeline",
+    "ml-infrastructure"
+  ],
+  "tags": [
+    "feature-store",
+    "llm",
+    "llm-deployment",
+    "machine-learning",
+    "mlops",
+    "model-deployment",
+    "monitoring",
+    "pytorch",
+    "serving",
+    "tensorflow"
+  ],
+  "capabilities": [
+    "Deploy ML models to production with containerized serving infrastructure",
+    "Build RAG systems for LLM-powered applications with vector database integration",
+    "Implement MLOps pipelines with MLflow, monitoring, and automated retraining",
+    "Create production monitoring suites for model drift detection and performance tracking",
+    "Design scalable ML architectures with feature stores and distributed computing"
+  ],
+  "author": "alirezarezvani",
+  "icon": "🤖",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 78 static findings evaluated as false positives. The static scanner incorrectly flagged documentation text (headings, bullet points) containing common English words as 'weak cryptographic algorithm' patterns. Python scripts contain only standard library imports and logging. Bash code blocks in SKILL.md are documentation examples, not shell execution. No malicious code exists in this skill.",
+  "valueStatement": "Building ML pipelines requires expertise in model deployment, monitoring, and MLOps practices. This skill provides production-ready tools for deploying ML models, integrating LLMs, and building scalable RAG systems with enterprise-grade reliability.",
+  "userTitle": "Deploy Production ML Models",
+  "limitations": [
+    "Does not include pre-trained models - requires user-supplied trained models",
+    "No model training capabilities - focused on deployment and operations",
+    "Does not replace domain expertise for model selection and architecture design"
+  ],
+  "useCases": [
+    {
+      "targetUser": "ML Engineers",
+      "title": "Deploy models to production",
+      "description": "Package and deploy trained ML models with Docker, Kubernetes, and REST API endpoints"
+    },
+    {
+      "targetUser": "Data Scientists",
+      "title": "Build RAG applications",
+      "description": "Create retrieval-augmented generation systems using LlamaIndex and LangChain"
+    },
+    {
+      "targetUser": "DevOps Teams",
+      "title": "Implement MLOps",
+      "description": "Set up model versioning, monitoring, and automated retraining pipelines with MLflow"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Deploy model",
+      "scenario": "Deploy a trained PyTorch model",
+      "prompt": "Help me deploy my trained PyTorch classification model to production. I need a REST API endpoint, Docker container, and Kubernetes deployment configuration. Include monitoring for model latency and accuracy drift."
+    },
+    {
+      "title": "Build RAG system",
+      "scenario": "Create a RAG pipeline",
+      "prompt": "Build a RAG system for my documentation. I have PDF and markdown files. Use a vector database, implement chunking strategies, and create a query interface that works with my internal LLM API."
+    },
+    {
+      "title": "MLOps setup",
+      "scenario": "Set up ML pipeline",
+      "prompt": "Set up MLOps for my machine learning team. We need MLflow for model versioning, automated training pipelines triggered by data changes, and alerts for model performance degradation."
+    },
+    {
+      "title": "Advanced LLM integration",
+      "scenario": "Enterprise LLM deployment",
+      "prompt": "Design an enterprise LLM integration architecture. Include prompt caching, rate limiting, cost tracking by team, and integration with our existing authentication system. Support both OpenAI and self-hosted models."
+    }
+  ],
+  "bestPractices": [
+    "Design for 10x scale from day one with horizontal scaling architecture",
+    "Implement comprehensive monitoring including latency, drift detection, and data quality checks",
+    "Use feature stores to ensure consistency between training and inference"
+  ],
+  "antiPatterns": [
+    "Deploying models without version control or rollback capabilities",
+    "Skipping model drift detection until production issues arise",
+    "Hardcoding API keys or credentials instead of using secrets management"
+  ],
+  "faq": [
+    {
+      "question": "What ML frameworks does this skill support?",
+      "answer": "PyTorch, TensorFlow, Scikit-learn, and XGBoost are fully supported with deployment tools."
+    },
+    {
+      "question": "Can I use this for LLM fine-tuning?",
+      "answer": "The skill focuses on deployment and integration. For fine-tuning, use Claude's codex capabilities."
+    },
+    {
+      "question": "Does this include cloud credentials?",
+      "answer": "No. You provide your own AWS, GCP, or Azure credentials for deployment."
+    },
+    {
+      "question": "What monitoring tools are integrated?",
+      "answer": "MLflow, Weights & Biases, and Prometheus for metrics, plus custom dashboard templates."
+    },
+    {
+      "question": "Can I deploy on-premises?",
+      "answer": "Yes. Docker and Kubernetes configurations work on any K8s cluster or container runtime."
+    },
+    {
+      "question": "How do I handle model updates?",
+      "answer": "Use feature flags and canary deployments for safe rollouts with quick rollback capability."
+    }
+  ],
+  "seoKeywords": [
+    "mlops",
+    "machine learning",
+    "model deployment",
+    "llm integration",
+    "rag systems",
+    "ml pipeline",
+    "claude code",
+    "claude",
+    "codex",
+    "tensorflow"
+  ],
+  "sourceUrl": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-ml-engineer",
+  "sourceType": "community",
+  "dependencies": []
+}

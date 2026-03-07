@@ -1,0 +1,138 @@
+{
+  "name": "woocommerce-markdown",
+  "type": "skill",
+  "description": "Guidelines for creating and modifying markdown files in WooCommerce. Use when writing documentation, README files, or any markdown content.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "markdown standards",
+  "quality": 5,
+  "qualityReason": "Clear doc linting purpose",
+  "bundleHints": [
+    "docs-standards",
+    "woocommerce-docs"
+  ],
+  "tags": [
+    "documentation",
+    "linting",
+    "markdown",
+    "readme",
+    "style-guide",
+    "woocommerce"
+  ],
+  "capabilities": [
+    "Enforces WooCommerce markdownlint configuration",
+    "Validates heading styles, list formatting, and code blocks",
+    "Provides markdown error fixes and troubleshooting",
+    "Ensures UTF-8 encoding for special characters",
+    "Validates CLAUDE.md files for AI parsing"
+  ],
+  "author": "woocommerce",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "GPL-3.0",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is pure documentation containing markdown formatting guidelines. Static findings are false positives: backticks in code examples are markdown syntax, not shell execution; 'MD003/MD007' are linting rule numbers, not crypto algorithms; example URLs are documentation placeholders; relative paths are instructional examples. No executable code, network calls, or file operations exist.",
+  "valueStatement": "WooCommerce documentation requires specific markdown formatting standards. This skill ensures your markdown files follow WooCommerce linting rules and style guidelines.",
+  "userTitle": "Format WooCommerce Documentation",
+  "limitations": [
+    "Only applies to WooCommerce project markdown files",
+    "Requires markdownlint to be installed locally",
+    "Must run from WooCommerce repository root directory",
+    "Cannot auto-fix all markdown issues manually"
+  ],
+  "useCases": [
+    {
+      "targetUser": "WooCommerce developers",
+      "title": "Document new features",
+      "description": "Create README files and documentation that meet WooCommerce markdown standards"
+    },
+    {
+      "targetUser": "Technical writers",
+      "title": "Format documentation",
+      "description": "Ensure all markdown files follow WooCommerce style guide and pass linting"
+    },
+    {
+      "targetUser": "Contributors",
+      "title": "Fix linting errors",
+      "description": "Quickly identify and resolve markdown formatting issues in pull requests"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Check markdown formatting",
+      "scenario": "Verify a markdown file",
+      "prompt": "Check if this markdown file follows WooCommerce guidelines. List any violations and how to fix them."
+    },
+    {
+      "title": "Format code blocks",
+      "scenario": "Add language tags",
+      "prompt": "Review this markdown and ensure all code blocks have proper language specifications."
+    },
+    {
+      "title": "Fix list formatting",
+      "scenario": "Correct list indentation",
+      "prompt": "Fix the list formatting to use 4-space indentation and proper blank lines."
+    },
+    {
+      "title": "Create CLAUDE.md",
+      "scenario": "Write AI documentation",
+      "prompt": "Help me create a CLAUDE.md file following WooCommerce markdown guidelines."
+    }
+  ],
+  "bestPractices": [
+    "Always run markdownlint from the WooCommerce repository root to load proper configuration",
+    "Use markdownlint --fix first to auto-correct most formatting issues",
+    "Specify language for all code blocks to improve readability and syntax highlighting"
+  ],
+  "antiPatterns": [
+    "Don't use ASCII art for directory trees - use UTF-8 characters instead",
+    "Never skip heading levels (H1 → H3) - maintain proper hierarchy",
+    "Avoid using emphasis (bold/italic) as headings - use proper heading tags"
+  ],
+  "faq": [
+    {
+      "question": "Why must I run markdownlint from the repository root?",
+      "answer": "The WooCommerce project has a .markdownlint.json configuration file in the root that defines custom rules."
+    },
+    {
+      "question": "What if markdownlint --fix does not solve all issues?",
+      "answer": "Some issues like missing language specifications require manual fixes. The linter will indicate what needs attention."
+    },
+    {
+      "question": "Can I use this skill for non-WooCommerce markdown files?",
+      "answer": "The guidelines are specific to WooCommerce configuration. Other projects may have different markdownlint rules."
+    },
+    {
+      "question": "How do I handle UTF-8 encoding issues?",
+      "answer": "Use the provided tr command to remove control characters, or ensure your editor saves files in UTF-8 format."
+    },
+    {
+      "question": "What is the difference between MD031 and MD032 errors?",
+      "answer": "MD031 requires blank lines around code blocks, while MD032 requires blank lines around lists."
+    },
+    {
+      "question": "Are tabs allowed in WooCommerce markdown?",
+      "answer": "Yes, unlike standard markdownlint rules, WooCommerce allows hard tabs as configured in their settings."
+    }
+  ],
+  "seoKeywords": [
+    "WooCommerce markdown",
+    "markdown linting",
+    "documentation formatting",
+    "markdown guidelines",
+    "Claude Code",
+    "WooCommerce docs",
+    "markdown standards",
+    "technical writing",
+    "woocommerce development"
+  ],
+  "sourceUrl": "https://github.com/woocommerce/woocommerce/tree/trunk/.ai/skills/woocommerce-markdown",
+  "sourceType": "community",
+  "dependencies": []
+}

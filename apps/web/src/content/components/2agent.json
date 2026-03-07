@@ -1,0 +1,143 @@
+{
+  "name": "2agent",
+  "type": "skill",
+  "description": "Configures 2-Agent workflow between PM and implementation roles. Use when user mentions 2-Agent, 2エージェント, PM連携設定, Cursor設定, Cursor連携, 2-agent運用. Do NOT load for: 単独運用, ワークフロー実行, ハンドオフ処理.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "dual-agent setup",
+  "quality": 4,
+  "qualityReason": "Clear trigger and defined scope",
+  "bundleHints": [
+    "agent-workflows",
+    "cursor-tools"
+  ],
+  "tags": [
+    "2agent",
+    "agent-handoff",
+    "cursor",
+    "cursor-integration",
+    "integration",
+    "pm-implementation",
+    "role-separation",
+    "setup",
+    "workflow",
+    "workflow-configuration"
+  ],
+  "capabilities": [
+    "Generates Cursor custom commands for PM workflows",
+    "Creates Claude memory structures for context persistence",
+    "Sets up workflow rules and coding standards",
+    "Manages version tracking for configuration updates",
+    "Initializes session logs and decision records",
+    "Copies template files from plugin to project directory"
+  ],
+  "author": "Chachamaru127",
+  "icon": "🤖",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing file setup instructions. All operations are confined to project directories using standard shell commands. No network access, no credential handling, no external data flow. All 167 static findings are false positives - they occur in markdown documentation files showing example commands, not executable code.",
+  "valueStatement": "Managing two AI agents with different roles is complex. This skill configures a clear division between Cursor for project management and Claude Code for implementation, with proper file structures and memory management.",
+  "userTitle": "Set up 2-Agent workflow with Cursor and Claude Code",
+  "limitations": [
+    "Does not execute code or run commands directly",
+    "Does not integrate with external APIs or services",
+    "Requires claude-code-harness plugin to be installed",
+    "Works only within project directories"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project Managers",
+      "title": "Define tasks in Cursor",
+      "description": "Set up Cursor as PM agent to plan and delegate tasks while Claude Code handles implementation."
+    },
+    {
+      "targetUser": "Development Teams",
+      "title": "Coordinate AI collaboration",
+      "description": "Establish clear handoff protocols between planning and coding phases across AI agents."
+    },
+    {
+      "targetUser": "Solo Developers",
+      "title": "Structure AI-assisted workflow",
+      "description": "Create organized workflow with memory persistence and decision tracking for better AI collaboration."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Initial Setup",
+      "scenario": "Setting up 2-agent workflow",
+      "prompt": "Set up 2-agent workflow between Cursor and Claude Code. I want Cursor to handle planning and I want Claude Code to handle implementation."
+    },
+    {
+      "title": "Update Configuration",
+      "scenario": "Updating existing setup",
+      "prompt": "Update the 2-agent configuration to the latest version. Preserve my existing tasks and decisions."
+    },
+    {
+      "title": "Generate Commands",
+      "scenario": "Creating Cursor commands",
+      "prompt": "Generate Cursor custom commands for project overview, planning with Claude Code, and handing off tasks."
+    },
+    {
+      "title": "Reset Workflow",
+      "scenario": "Reinitializing from scratch",
+      "prompt": "Reset the 2-agent setup. Create fresh memory files and reinitialize all configuration files."
+    }
+  ],
+  "bestPractices": [
+    "Use Cursor commands for planning phase before delegating to Claude Code",
+    "Review session logs regularly to track AI collaboration history",
+    "Update to latest version periodically to get new workflow improvements"
+  ],
+  "antiPatterns": [
+    "Using both agents on the same task without clear role separation",
+    "Skipping the initial setup and trying to configure manually",
+    "Modifying generated files without understanding the workflow structure"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between Cursor and Claude Code in this setup?",
+      "answer": "Cursor acts as PM agent for planning and task definition. Claude Code acts as implementation agent for coding tasks."
+    },
+    {
+      "question": "Does this skill work with VS Code?",
+      "answer": "No. This integration is specific to Cursor IDE which supports custom commands in .cursor/commands/."
+    },
+    {
+      "question": "What files are created by this skill?",
+      "answer": "Cursor commands, Claude rules, memory structures, and version tracking files in hidden project directories."
+    },
+    {
+      "question": "Is my project data safe?",
+      "answer": "Yes. All files are created in your project directory only. No data is sent to external servers."
+    },
+    {
+      "question": "How do I update the configuration later?",
+      "answer": "Run the update skill to get the latest templates while preserving your tasks and decisions."
+    },
+    {
+      "question": "Can I use this with other AI assistants?",
+      "answer": "This setup is designed specifically for Claude Code. Other AI assistants may not support the same rule format."
+    }
+  ],
+  "seoKeywords": [
+    "2-agent workflow",
+    "Claude Code",
+    "Cursor setup",
+    "AI collaboration",
+    "project management",
+    "multi-agent",
+    "workflow automation",
+    "Claude",
+    "Cursor",
+    "developer productivity"
+  ],
+  "sourceUrl": "https://github.com/Chachamaru127/claude-code-harness/tree/main/skills/2agent",
+  "sourceType": "community",
+  "dependencies": []
+}

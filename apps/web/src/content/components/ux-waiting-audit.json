@@ -1,0 +1,145 @@
+{
+  "name": "ux-waiting-audit",
+  "type": "skill",
+  "description": "Audit UX waiting states for web applications with long-running operations (30+ seconds). Use when asked to evaluate, audit, or analyze a product's loading states, wait times, progress indicators, or user experience during slow operations. Requires browser automation (Chrome MCP tools). Generates comprehensive reports with screenshots, checklist evaluation, and prioritized recommendations.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "waiting states",
+  "quality": 5,
+  "qualityReason": "Specialized audit for UX pain point",
+  "bundleHints": [
+    "ux-ops",
+    "design-system"
+  ],
+  "tags": [
+    "browser automation",
+    "loading",
+    "long-operations",
+    "progress",
+    "progress indicators",
+    "user experience",
+    "user-feedback",
+    "ux audit",
+    "ux-indicators",
+    "wait-times",
+    "waiting states"
+  ],
+  "capabilities": [
+    "Navigate to target URLs and trigger long-running operations",
+    "Capture screenshots at timed intervals during wait states",
+    "Execute DOM queries to detect loading indicators and progress elements",
+    "Evaluate against 10-point UX waiting checklist",
+    "Generate markdown reports with annotated screenshots",
+    "Provide prioritized recommendations for UX improvements"
+  ],
+  "author": "BayramAnnakov",
+  "icon": "⏱️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation and template skill containing JavaScript snippets for browser-based UX evaluation via Chrome MCP tools. All static findings are false positives: JavaScript template literals in docs were misidentified as Ruby shell backticks, documentation URLs flagged as hardcoded URLs, and template placeholders misclassified as cryptographic algorithms. No network calls, filesystem access, or external command execution in any executable code.",
+  "valueStatement": "AI agent products often have long wait times that cause user anxiety and abandonment. This skill audits how applications handle long-running operations using browser automation and generates comprehensive reports with prioritized recommendations.",
+  "userTitle": "Audit web app waiting states for UX improvements",
+  "limitations": [
+    "Requires Chrome MCP or similar browser automation tool",
+    "Cannot audit native mobile applications",
+    "Cannot test operations requiring complex authentication flows without user guidance",
+    "Cannot simulate network failures or test graceful degradation automatically"
+  ],
+  "useCases": [
+    {
+      "targetUser": "UX designers",
+      "title": "Evaluate competitor UX",
+      "description": "Audit how competitor products handle long-running AI operations and identify best practices."
+    },
+    {
+      "targetUser": "Product managers",
+      "title": "Assess own product",
+      "description": "Evaluate your application waiting UX and get prioritized improvement recommendations."
+    },
+    {
+      "targetUser": "Development teams",
+      "title": "Before launch review",
+      "description": "Audit new features with long operations before release to catch UX gaps early."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic audit request",
+      "scenario": "Simple audit of a URL",
+      "prompt": "Run a UX waiting audit on [URL]. The operation I want you to test is [describe operation] which takes about [X] seconds."
+    },
+    {
+      "title": "Detailed audit with context",
+      "scenario": "Full audit with guidance",
+      "prompt": "Audit the waiting UX at [URL]. I want you to test [specific operation]. Click the [button name] button to start. Expected duration is [X] seconds. Capture screenshots at T+0, T+10, T+30 and completion."
+    },
+    {
+      "title": "Comparative audit",
+      "scenario": "Compare two products",
+      "prompt": "Compare waiting UX between [URL1] and [URL2]. Test the [specific operation] on both. Which one handles the wait better and why? Use the 10-point checklist criteria."
+    },
+    {
+      "title": "Before and after review",
+      "scenario": "Evaluate improvements",
+      "prompt": "Audit the waiting UX at [URL] for the [feature name] operation. Generate a detailed report with screenshots. I will make improvements and then run another audit to compare results."
+    }
+  ],
+  "bestPractices": [
+    "Always screenshot first before attempting any interaction - visual inspection reveals UI state that DOM queries cannot",
+    "Ask users to manually trigger operations when possible to avoid complex navigation and authentication flows",
+    "Use the 10-point checklist systematically and provide specific evidence for each scoring decision"
+  ],
+  "antiPatterns": [
+    "Trying multiple selectors when DOM queries fail instead of taking a screenshot to understand the actual UI state",
+    "Assuming a spinner alone provides good UX - users need progress indicators, time estimates, and partial results",
+    "Auditing without user guidance when complex authentication or specific navigation steps are required"
+  ],
+  "faq": [
+    {
+      "question": "Which browsers are supported?",
+      "answer": "Chrome MCP is recommended. The skill works with any browser automation tool that provides screenshot, navigate, and execute_javascript capabilities."
+    },
+    {
+      "question": "How long should the tested operation be?",
+      "answer": "The skill is designed for operations lasting 30+ seconds. For faster operations, adjust screenshot intervals to T+0, T+50%, and completion."
+    },
+    {
+      "question": "Can I use this without browser automation?",
+      "answer": "Partial use is possible. You can use the checklist and report templates manually, but screenshots and DOM state capture require browser automation tools."
+    },
+    {
+      "question": "Is my data safe during the audit?",
+      "answer": "Yes. The skill runs entirely in your browser environment through automation tools. No data is sent to external servers by the skill itself."
+    },
+    {
+      "question": "The audit got stuck finding an element. What do I do?",
+      "answer": "Stop trying selectors. Take a screenshot immediately and analyze visually. Ask the user for guidance on button location or trigger the operation manually."
+    },
+    {
+      "question": "How is this different from Lighthouse or other auditing tools?",
+      "answer": "This skill focuses specifically on waiting UX during long operations. Lighthouse audits performance but not UX patterns like progress indicators, time estimates, or anxiety reduction."
+    }
+  ],
+  "seoKeywords": [
+    "UX waiting states",
+    "UX audit",
+    "waiting UX",
+    "progress indicators",
+    "loading states",
+    "user experience",
+    "AI agent UX",
+    "Claude Code",
+    "browser automation",
+    "UX evaluation"
+  ],
+  "sourceUrl": "https://github.com/BayramAnnakov/ux-waiting-audit/tree/main/",
+  "sourceType": "community",
+  "dependencies": []
+}

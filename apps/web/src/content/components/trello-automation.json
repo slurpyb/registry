@@ -1,0 +1,141 @@
+{
+  "name": "trello-automation",
+  "type": "skill",
+  "description": "Automate Trello boards, cards, and workflows via Rube MCP (Composio). Create cards, manage lists, assign members, and search across boards programmatically.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "Trello integration",
+  "quality": 4,
+  "qualityReason": "Useful for task automation",
+  "bundleHints": [
+    "workflow-automation",
+    "project-management"
+  ],
+  "tags": [
+    "automation",
+    "composio",
+    "mcp",
+    "rube mcp",
+    "task-management",
+    "trello",
+    "workflow"
+  ],
+  "capabilities": [
+    "Create new Trello cards with descriptions, due dates, and checklists",
+    "Move cards between lists to update task status",
+    "Search and filter cards across multiple boards",
+    "Assign team members to cards and boards",
+    "Add comments and URL attachments to existing cards",
+    "List boards, lists, and members to resolve IDs for operations"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill with no executable code. All static findings are false positives from markdown formatting (backticks for code blocks) and API parameter names (idList, idCard). The skill provides legitimate instructions for Trello automation via Rube MCP integration.",
+  "valueStatement": "Stop manually managing Trello boards. This skill helps Claude create cards, move tasks, assign members, and search boards programmatically through the Rube MCP integration.",
+  "userTitle": "Automate Trello Workflows with Claude",
+  "limitations": [
+    "Requires Rube MCP server connection and Trello OAuth authentication",
+    "All operations require numeric IDs, not display names (must resolve first)",
+    "Search indexing has delays; newly created cards may not appear immediately",
+    "Rate limited to 300 requests per 10 seconds per Trello token"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project Manager tracking team deliverables",
+      "title": "Project Manager: Auto-Create Tasks from Meetings",
+      "description": "Convert meeting notes into Trello cards automatically. Create cards with descriptions, assignees, and due dates based on action items discussed in meetings."
+    },
+    {
+      "targetUser": "Software Developer managing issue tracking",
+      "title": "Developer: Log Bugs and Issues to Board",
+      "description": "When Claude detects bugs during code review, automatically create cards on your Trello board with full descriptions, labels, and assignees."
+    },
+    {
+      "targetUser": "Content Creator or Marketing Team",
+      "title": "Content Creator: Plan Editorial Calendar",
+      "description": "Set up a content calendar with cards for articles, videos, and posts. Move cards from 'Ideas' to 'In Progress' to 'Published' lists as work progresses."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a New Task Card",
+      "prompt": "Create a Trello card on my board called 'Project Alpha' in the 'To Do' list. Title: 'Fix authentication bug', Description: 'Users report login fails on mobile devices', Due: tomorrow, Position: top",
+      "scenario": "Beginner user wants to quickly add a task to a specific board"
+    },
+    {
+      "title": "Move Card Through Workflow Stages",
+      "prompt": "Search for the card 'Q1 Report' on all my boards, then move it to the 'Done' list. Add a comment 'Completed final review' after moving.",
+      "scenario": "User wants to update card status and add progress notes"
+    },
+    {
+      "title": "Batch Create Cards from List",
+      "prompt": "Create these 5 cards on the 'Sprint 23' board in the 'Backlog' list: 1) 'Add user profile page', 2) 'Implement search filters', 3) 'Write API docs', 4) 'Set up CI pipeline', 5) 'Create onboarding flow'. Add the checklist 'Testing steps' to each card.",
+      "scenario": "User wants to create multiple related cards at once"
+    },
+    {
+      "title": "Assign and Notify Team Members",
+      "prompt": "Find the card 'Database migration' and assign it to team member 'Alice'. Add a comment '@Alice ready for your review' and attach the migration plan URL.",
+      "scenario": "User wants to delegate work and notify team members"
+    }
+  ],
+  "bestPractices": [
+    "Always resolve display names to IDs before operations: Search boards first to find the board ID, then get lists to find the list ID, then create cards with the resolved IDs.",
+    "Store returned IDs immediately after creating cards: When a new card is created, save the returned idCard value right away because downstream operations like adding checklists require this specific ID.",
+    "Use batch operations for large boards: If you need to read more than 1000 cards, use the TRELLO_GET_BATCH endpoint with multiple URLs to stay within the 300 requests per 10 seconds rate limit."
+  ],
+  "antiPatterns": [
+    "Don't use display names instead of IDs: Passing a board name like 'Project Alpha' instead of the 24-character hex ID will cause all API calls to fail.",
+    "Don't assume flat response structures: Many Trello API responses nest data under response.data.details or data.data, so parse responses defensively instead of assuming a flat array.",
+    "Don't create checklist items one by one for large checklists: Adding 50 checklist items requires 50 separate API calls and may hit rate limits; use TRELLO_GET_BATCH for bulk operations when possible."
+  ],
+  "faq": [
+    {
+      "question": "What is Rube MCP and why do I need it?",
+      "answer": "Rube MCP is a service that connects Claude Code to external apps like Trello. Add 'https://rube.app/mcp' as an MCP server in your client configuration, then authenticate with Trello through the connection management tool."
+    },
+    {
+      "question": "Why does this skill require IDs instead of names?",
+      "answer": "The Trello API uses 24-character hex IDs (like 5a1b2c3d4e5f6g7h8i9j0k1l) as unique identifiers. Display names can change and are not unique, so the skill always resolves names to IDs first before performing operations."
+    },
+    {
+      "question": "How do I authenticate my Trello account?",
+      "answer": "Call the RUBE_MANAGE_CONNECTIONS tool with toolkit set to 'trello'. If the connection status is not ACTIVE, use the provided auth link to complete OAuth authentication with Trello."
+    },
+    {
+      "question": "Why can't I find newly created cards in search?",
+      "answer": "Trello search indexing has a delay of several minutes. Newly created or updated cards may not appear in search results immediately. Use TRELLO_GET_BOARDS_CARDS_BY_ID_BOARD to list all cards on a specific board for real-time results."
+    },
+    {
+      "question": "What happens if I hit the rate limit?",
+      "answer": "Trello allows 300 requests per 10 seconds per token. If you exceed this, requests will fail temporarily. Use TRELLO_GET_BATCH to combine multiple read operations into a single request and reduce rate limit pressure."
+    },
+    {
+      "question": "Can I work with multiple Trello boards?",
+      "answer": "Yes. Use TRELLO_GET_MEMBERS_BOARDS_BY_ID_MEMBER with idMember='me' to list all accessible boards, then resolve each board's ID to perform operations across different boards in the same workflow."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Trello automation",
+    "task management",
+    "workflow automation",
+    "MCP integration",
+    "Composio",
+    "project management",
+    "Trello API"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/trello-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

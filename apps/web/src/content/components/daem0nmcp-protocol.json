@@ -1,0 +1,138 @@
+{
+  "name": "daem0nmcp-protocol",
+  "type": "skill",
+  "description": "Use when Daem0nMCP tools are available - enforces the sacred covenant (commune at session start, seek counsel before changes, inscribe decisions, seal outcomes)",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "MCP covenant enforcement",
+  "quality": 4,
+  "qualityReason": "Unique workflow protocol",
+  "bundleHints": [
+    "mcp",
+    "memory-systems"
+  ],
+  "tags": [
+    "context",
+    "decisions",
+    "memory",
+    "protocol",
+    "workflow"
+  ],
+  "capabilities": [
+    "Enforce session start with get_briefing() to load past decisions",
+    "Check context before making code changes with context_check()",
+    "Record decisions and rationale with remember()",
+    "Track implementation outcomes to learn from failures",
+    "Link related memories to build causal knowledge graphs"
+  ],
+  "author": "DasBluEyedDevil",
+  "icon": "🧠",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown guidelines for using external Daem0nMCP MCP tools. All 81 static findings are false positives caused by pattern matching without semantic context. The skill contains no executable code, scripts, network calls, file system access, or external commands.",
+  "valueStatement": "Memory tools require discipline to be useful. This skill enforces a workflow that checks context before changes, records decisions, tracks outcomes, and links related memories across sessions.",
+  "userTitle": "Use Daem0nMCP Memory Tools with Protocol Discipline",
+  "limitations": [
+    "Requires Daem0nMCP server to be running and accessible",
+    "Only works when Daem0nMCP MCP tools are available",
+    "Cannot function without MCP tool access",
+    "No offline memory capability"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project maintainers",
+      "title": "Track architectural decisions",
+      "description": "Record design choices, rationales, and outcomes to build institutional memory"
+    },
+    {
+      "targetUser": "Development teams",
+      "title": "Learn from failures",
+      "description": "Log failed approaches so the system surfaces warnings before repeating mistakes"
+    },
+    {
+      "targetUser": "Codebase contributors",
+      "title": "Link related decisions",
+      "description": "Connect causally related decisions to understand project evolution"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start a session",
+      "scenario": "Begin working on a project",
+      "prompt": "Check if Daem0nMCP tools are available. If so, call get_briefing() to load past decisions and context."
+    },
+    {
+      "title": "Before editing files",
+      "scenario": "About to make code changes",
+      "prompt": "Call context_check(description=\"what you are about to do\") and recall_for_file() for specific files. Acknowledge any warnings returned."
+    },
+    {
+      "title": "Record a decision",
+      "scenario": "Made an architectural or design choice",
+      "prompt": "Call remember(category=\"decision\", content=\"what you decided\", rationale=\"why you decided it\", file_path=\"relevant/file\", tags=[\"relevant\", \"tags\"]). Save the memory_id for later outcome tracking."
+    },
+    {
+      "title": "Complete implementation",
+      "scenario": "Finished implementing and testing",
+      "prompt": "Call record_outcome(memory_id=<id from remember>, outcome=\"what actually happened\", worked=true_or_false). Failed approaches are valuable learning opportunities."
+    }
+  ],
+  "bestPractices": [
+    "Always call get_briefing() at session start before doing anything else",
+    "Never skip context_check() before editing any file - warnings exist because someone failed before",
+    "Always call record_outcome() after implementation - failures get boosted in future searches and are valuable"
+  ],
+  "antiPatterns": [
+    "Skipping get_briefing() because the task seems simple - small changes compound into big problems",
+    "Forgetting to call remember() for significant decisions - you will not remember later",
+    "Recording successful outcomes but skipping failures - failures are the most valuable memories"
+  ],
+  "faq": [
+    {
+      "question": "What happens if I skip get_briefing()?",
+      "answer": "All Daem0nMCP tools will return COMMUNION_REQUIRED block until you call get_briefing() to establish the session."
+    },
+    {
+      "question": "Where are memories stored?",
+      "answer": "Memories are stored by the Daem0nMCP server. Check your server configuration for storage location and persistence settings."
+    },
+    {
+      "question": "Do memories persist across sessions?",
+      "answer": "Yes. The protocol is designed for persistence across sessions. Decisions, patterns, warnings, and learnings are retained."
+    },
+    {
+      "question": "Can multiple users share memories?",
+      "answer": "Memory sharing depends on Daem0nMCP server configuration. Some setups support team memory, others are per-user."
+    },
+    {
+      "question": "What is the preflight token?",
+      "answer": "After context_check(), you receive a cryptographic token valid for 5 minutes proving you consulted the memory system."
+    },
+    {
+      "question": "How is this different from regular context?",
+      "answer": "This protocol enforces systematic memory discipline - checking warnings, recording decisions, tracking outcomes, and linking relationships."
+    }
+  ],
+  "seoKeywords": [
+    "Daem0nMCP",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "memory management",
+    "context tracking",
+    "decision logging",
+    "project memory",
+    "MCP skills",
+    "AI workflow"
+  ],
+  "sourceUrl": "https://github.com/DasBluEyedDevil/Daem0n-MCP/tree/main/.claude/skills/daem0nmcp-protocol",
+  "sourceType": "community",
+  "dependencies": []
+}

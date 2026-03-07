@@ -1,0 +1,145 @@
+{
+  "name": "ai-partner-chat",
+  "type": "skill",
+  "description": "基于用户画像和向量化笔记提供个性化对话。当用户需要个性化交流、上下文感知的回应，或希望 AI 记住并引用其之前的想法和笔记时使用。",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "Personalized dialogue",
+  "quality": 4,
+  "qualityReason": "Clear use case with memory focus",
+  "bundleHints": [
+    "personal-ai",
+    "memory-enhanced-agents",
+    "adaptive-chat"
+  ],
+  "tags": [
+    "adaptive-response",
+    "context-aware",
+    "learning",
+    "learning-model",
+    "memory",
+    "memory-systems",
+    "notes",
+    "personalization",
+    "user-personalization",
+    "vector-database",
+    "vector-notes"
+  ],
+  "capabilities": [
+    "Automatically processes and vectorizes learning notes using BAAI/bge-m3 embeddings",
+    "Stores conversation history with importance scoring and semantic retrieval",
+    "Tracks learning emotions and thinking levels for personalized responses",
+    "Generates hierarchical tags for notes, conversations, and code snippets",
+    "Provides multi-source retrieval across notes, conversations, and code"
+  ],
+  "author": "Cz07cring",
+  "icon": "🧠",
+  "version": "2.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "After detailed analysis, this is a legitimate AI learning companion skill. All static findings are false positives: backticks are documentation examples, cryptographic patterns are benign tech lists, hidden file access is standard Claude Code skill storage, and SQLite/ChromaDB operations are intended local persistence. No malicious intent or credential exfiltration detected.",
+  "valueStatement": "An AI learning partner that remembers your notes and conversations across projects. It provides personalized responses by analyzing your learning patterns, emotions, and history using vector embeddings.",
+  "userTitle": "Build personalized AI learning companion",
+  "limitations": [
+    "Requires Python 3.8+ with virtual environment setup",
+    "First run downloads ~4.3GB embedding model from Hugging Face",
+    "All data stored locally in Claude Code skills directory",
+    "Relies on user creating notes directory and configuration files"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers",
+      "title": "Personal coding mentor",
+      "description": "Remembers your learning progress and provides context-aware coding assistance across projects"
+    },
+    {
+      "targetUser": "Students",
+      "title": "AI study companion",
+      "description": "Tracks study notes and conversations to help build long-term knowledge retention"
+    },
+    {
+      "targetUser": "Researchers",
+      "title": "Knowledge synthesis tool",
+      "description": "Organizes research notes and retrieves relevant past discussions automatically"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Add learning note",
+      "scenario": "Recording new study content",
+      "prompt": "Process my new note at notes/react-learning.md and add it to my knowledge base"
+    },
+    {
+      "title": "Recall past context",
+      "scenario": "Asking about previous discussions",
+      "prompt": "What did we discuss last week about React hooks and state management?"
+    },
+    {
+      "title": "Generate report",
+      "scenario": "Reviewing learning progress",
+      "prompt": "Generate a weekly learning report showing my progress and knowledge gaps"
+    },
+    {
+      "title": "Cross-project query",
+      "scenario": "Finding related knowledge",
+      "prompt": "Search all my notes and conversations about error handling patterns I've learned"
+    }
+  ],
+  "bestPractices": [
+    "Create detailed notes with code examples for better retrieval",
+    "Update user-persona.md with your learning background for personalized responses",
+    "Review weekly reports to track your learning progress and identify gaps"
+  ],
+  "antiPatterns": [
+    "Don't expect instant answers without context - the skill needs time to index your notes",
+    "Avoid storing sensitive information in notes as all content is persisted locally",
+    "Don't skip the persona configuration - it significantly affects response quality"
+  ],
+  "faq": [
+    {
+      "question": "How much storage does this skill use?",
+      "answer": "The embedding model is ~4.3GB cached. Each chunk uses ~5KB. 1000 chunks is about 5MB."
+    },
+    {
+      "question": "Can I use this across multiple projects?",
+      "answer": "Yes, the vector database is centralized in the skill directory. All projects share the same long-term memory."
+    },
+    {
+      "question": "Is my data secure?",
+      "answer": "All data is stored locally in ~/.claude/skills/ai-partner-chat/data/. No data is sent to external servers."
+    },
+    {
+      "question": "What happens to my data during updates?",
+      "answer": "The install script automatically backs up and restores your data directory during reinstallation."
+    },
+    {
+      "question": "Which embedding model is used?",
+      "answer": "BAAI/bge-m3, a 1024-dimensional multilingual model optimized for semantic understanding."
+    },
+    {
+      "question": "Can I customize the tag taxonomy?",
+      "answer": "Yes, create config/tags_taxonomy.json with your custom topic, tech, and domain tags."
+    }
+  ],
+  "seoKeywords": [
+    "AI learning companion",
+    "Claude Code skill",
+    "personalized AI assistant",
+    "vector database",
+    "long-term memory",
+    "learning notes tracker",
+    "cross-project knowledge",
+    "semantic search",
+    "ChromaDB",
+    "BAAI bge-m3"
+  ],
+  "sourceUrl": "https://github.com/Cz07cring/ai-partner-chat/tree/main/",
+  "sourceType": "community",
+  "dependencies": []
+}

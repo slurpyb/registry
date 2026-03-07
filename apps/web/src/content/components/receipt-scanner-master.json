@@ -1,0 +1,144 @@
+{
+  "name": "receipt-scanner-master",
+  "type": "skill",
+  "description": "Master receipt scanning operations including parsing, debugging, enhancing accuracy, and database integration. Use when working with receipts, images, OCR issues, expense categorization, or troubleshooting receipt uploads.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "OCR pipeline",
+  "quality": 4,
+  "qualityReason": "Good scope, practical application",
+  "bundleHints": [
+    "ocr-tools",
+    "expense-tracking"
+  ],
+  "tags": [
+    "automation",
+    "database",
+    "database-integration",
+    "debugging-ocr",
+    "expense-categorization",
+    "expenses",
+    "image-processing",
+    "ocr",
+    "receipt-parsing",
+    "receipts"
+  ],
+  "capabilities": [
+    "Parse receipt images (JPG, PNG, WebP, PDF) into structured data",
+    "Debug OCR accuracy issues and extraction errors",
+    "Enhance receipt parsing engine and AI prompts",
+    "Troubleshoot database integration issues",
+    "Test receipt uploads through web interface",
+    "Validate extracted data against actual receipts"
+  ],
+  "author": "EGAdams",
+  "icon": "🧾",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill (SKILL.md) describing a receipt scanning system. No executable code exists in the skill itself. All static scanner findings are false positives arising from the scanner misinterpreting documentation examples (bash commands, API placeholders, config templates) as actual code. The scanner's heuristic about 'code execution + network + credential access' was triggered by documentation describing legitimate OCR workflow patterns (file upload, API call, database storage). No malicious intent or executable code present.",
+  "valueStatement": "Receipt scanning requires accurate OCR extraction and database integration. This skill provides complete guidance for parsing receipt images, debugging extraction errors, and building reliable expense tracking workflows with Google Gemini AI.",
+  "userTitle": "Scan receipts with AI OCR",
+  "limitations": [
+    "Requires Gemini API key for OCR processing",
+    "Needs local API server running for full functionality",
+    "Only processes image and PDF receipt files",
+    "Categorized items must be saved manually after parsing"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Small business owners",
+      "title": "Track business expenses",
+      "description": "Scan and categorize receipts from business purchases for tax and accounting purposes."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Build receipt integration",
+      "description": "Integrate OCR receipt parsing into expense tracking applications with database storage."
+    },
+    {
+      "targetUser": "Bookkeepers",
+      "title": "Automate data entry",
+      "description": "Convert paper receipts to digital expense records with automated categorization."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Parse a receipt",
+      "scenario": "Extract data from image",
+      "prompt": "Use the Receipt Scanner Master skill to parse the receipt image at [file_path]. Extract all line items, prices, merchant name, and totals. Report the total amount spent."
+    },
+    {
+      "title": "Debug OCR errors",
+      "scenario": "Fix price misreading",
+      "prompt": "The receipt parser keeps reading prices incorrectly. Use the skill to enhance the Gemini prompt with digit recognition rules for 4 vs 9 confusion."
+    },
+    {
+      "title": "Integrate with database",
+      "scenario": "Save parsed receipts",
+      "prompt": "Show me how to modify the receipt endpoints to validate parsed data before saving to the expenses database. Include math validation for line totals."
+    },
+    {
+      "title": "Build complete workflow",
+      "scenario": "Create end-to-end system",
+      "prompt": "Create a complete receipt scanning workflow. Include image preprocessing, Gemini API integration, data validation, database storage, and error handling."
+    }
+  ],
+  "bestPractices": [
+    "Start with high-quality images: clear, well-lit, straight photos work best for OCR accuracy",
+    "Test incrementally: parse, validate, then save. Do not skip validation steps",
+    "Build a validation suite: collect problematic receipts and test regularly to identify patterns"
+  ],
+  "antiPatterns": [
+    "Skipping validation: Always verify line totals match quantity times unit price",
+    "Saving without categorization: Items without categories are not saved to the database",
+    "Ignoring image quality: Blurry or dark receipts cause OCR errors and misread prices"
+  ],
+  "faq": [
+    {
+      "question": "What image formats are supported?",
+      "answer": "Receipt Scanner Master supports JPG, PNG, WebP, and PDF files for receipt parsing."
+    },
+    {
+      "question": "What is the file size limit?",
+      "answer": "Maximum file size is 10MB by default. Configure RECEIPT_MAX_SIZE_MB in settings to change."
+    },
+    {
+      "question": "Can I use this without a database?",
+      "answer": "Yes, you can parse receipts without saving. Use /api/parse-receipt to get extracted data only."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Receipts are processed locally and stored in app/data/receipts/ with Gemini API calls for OCR."
+    },
+    {
+      "question": "Why are prices misread?",
+      "answer": "Common issues: blurry images, poor lighting, digit confusion (4/9, 3/8). Improve image quality or enhance the prompt."
+    },
+    {
+      "question": "How does this compare to other OCR tools?",
+      "answer": "Uses Google Gemini AI for extraction with fallback models. More customizable than basic OCR libraries."
+    }
+  ],
+  "seoKeywords": [
+    "receipt scanner",
+    "OCR extraction",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "expense tracking",
+    "Google Gemini",
+    "receipt parsing",
+    "image to data",
+    "financial records"
+  ],
+  "sourceUrl": "https://github.com/EGAdams/planner/tree/main/nonprofit_finance_db/.claude/skills/receipt-scanner",
+  "sourceType": "community",
+  "dependencies": []
+}

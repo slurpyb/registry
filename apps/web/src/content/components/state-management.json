@@ -1,0 +1,139 @@
+{
+  "name": "state-management",
+  "type": "skill",
+  "description": "TanStack Query + Zustand patterns.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "React state",
+  "quality": 5,
+  "qualityReason": "Modern frontend patterns",
+  "bundleHints": [
+    "react-stack",
+    "frontend-toolkit"
+  ],
+  "tags": [
+    "caching",
+    "client-state",
+    "react",
+    "state-management",
+    "tanstack-query",
+    "zustand"
+  ],
+  "capabilities": [
+    "TanStack Query patterns for server state including query keys factory and mutations",
+    "Zustand patterns for client state with typed stores and persist middleware",
+    "React Hook Form + Zod patterns for type-safe form validation",
+    "Performance optimization using selectors to prevent unnecessary re-renders",
+    "Optimistic updates and cache invalidation strategies",
+    "URL state management with nuqs or searchParams patterns"
+  ],
+  "author": "Barnhardt-Enterprises-Inc",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only TypeScript code patterns for state management. All 53 static findings are FALSE POSITIVES. The scanner incorrectly identified TypeScript template literals (backticks) as Ruby shell execution, repository URLs as network vulnerabilities, and standard metadata fields as C2 keywords. No executable code, network calls, file system access, or external commands exist in this skill.",
+  "valueStatement": "Managing server state and client state in React applications creates complexity that slows development and hurts user experience. This skill provides proven patterns for separating server state from client state using TanStack Query for data fetching and Zustand for UI state.",
+  "userTitle": "Implement State Management Patterns",
+  "limitations": [
+    "Contains documentation and code patterns only, no runtime code execution",
+    "Does not generate complete project boilerplate or scaffolding",
+    "Assumes existing React or Next.js project with dependencies installed"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Fetch and cache server data",
+      "description": "Implement data fetching with TanStack Query including cache management and background refetching"
+    },
+    {
+      "targetUser": "React developers",
+      "title": "Manage UI state globally",
+      "description": "Create client-side state stores with Zustand for theme, sidebar, and user preferences"
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Build validated forms",
+      "description": "Create type-safe forms with React Hook Form and Zod validation"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Query Hook",
+      "scenario": "Fetch data from API",
+      "prompt": "Create a TanStack Query hook to fetch users from /api/users endpoint with loading and error states"
+    },
+    {
+      "title": "Persisted Store",
+      "scenario": "Persist user preferences",
+      "prompt": "Implement a Zustand store with persist middleware to save user theme preference to localStorage"
+    },
+    {
+      "title": "Query Keys Factory",
+      "scenario": "Organize query keys",
+      "prompt": "Create a query keys factory for a posts feature with support for list, detail, and filter queries"
+    },
+    {
+      "title": "Optimized Selectors",
+      "scenario": "Prevent re-renders",
+      "prompt": "Show how to use Zustand selectors properly to prevent unnecessary re-renders in a large application"
+    }
+  ],
+  "bestPractices": [
+    "Separate server state from client state concerns using appropriate libraries",
+    "Use selectors in Zustand to select only the state slices components need",
+    "Implement optimistic updates for mutations to improve perceived performance"
+  ],
+  "antiPatterns": [
+    "Storing server-fetched data in global client state like Zustand",
+    "Using the entire store instead of selectors causing unnecessary re-renders",
+    "Fetching data directly in components without caching or TanStack Query"
+  ],
+  "faq": [
+    {
+      "question": "What React versions are supported?",
+      "answer": "Works with React 18+ and Next.js App Router. Requires TypeScript 5.0+ for best type inference."
+    },
+    {
+      "question": "What are the performance limits?",
+      "answer": "Pattern guidance follows library recommendations. Large apps benefit from selector-based re-render optimization."
+    },
+    {
+      "question": "How does this integrate with Next.js?",
+      "answer": "Compatible with Server Components and Client Components. TanStack Query prefetching works in loaders."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Documentation only skill. No code execution, no network calls, no file system access beyond reading patterns."
+    },
+    {
+      "question": "Why is my component re-rendering too much?",
+      "answer": "Use Zustand selectors to select specific state slices. Avoid destructuring the entire store in components."
+    },
+    {
+      "question": "When should I use TanStack Query vs Zustand?",
+      "answer": "Use TanStack Query for server state (API data). Use Zustand for client state (UI, preferences, session)."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "TanStack Query",
+    "Zustand",
+    "React state management",
+    "React Query",
+    "client state",
+    "server state",
+    "form state"
+  ],
+  "sourceUrl": "https://github.com/Barnhardt-Enterprises-Inc/quetrex-claude/tree/main/skills/state-management",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "browser-extension-builder",
+  "type": "skill",
+  "description": "Expert in building browser extensions that solve real problems - Chrome, Firefox, and cross-browser extensions. Covers extension architecture, manifest v3, content scripts, popup UIs, monetization strategies, and Chrome Web Store publishing. Use when: browser extension, chrome extension, firefox addon, extension, manifest v3.",
+  "domain": "mobile",
+  "subdomain": "cross-platform",
+  "specialty": "extension development",
+  "quality": 5,
+  "qualityReason": "Comprehensive extension guidance",
+  "bundleHints": [
+    "browser-tools",
+    "extension-dev"
+  ],
+  "tags": [
+    "browser-extensions",
+    "chrome",
+    "firefox",
+    "manifest-v3",
+    "monetization",
+    "web-development"
+  ],
+  "capabilities": [
+    "Design and architect browser extension project structure",
+    "Create Manifest V3 configuration files with proper permissions",
+    "Implement content scripts that modify web page content",
+    "Build popup interfaces and background service workers",
+    "Implement Chrome Storage API for data persistence",
+    "Apply communication patterns between extension components"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 36 potential issues, all of which are false positives from code examples in documentation. The flagged patterns (shell command syntax, innerHTML usage, URLs, storage keys) appear exclusively within markdown code blocks as educational examples for browser extension development. No executable code or security threats were found. This is a legitimate documentation skill.",
+  "valueStatement": "Building browser extensions requires understanding complex APIs, Manifest V3 requirements, and cross-browser compatibility. This skill provides expert guidance on extension architecture, content scripts, storage patterns, and publishing to web stores.",
+  "userTitle": "Build Browser Extensions with Claude",
+  "limitations": [
+    "Cannot publish extensions to web stores on your behalf",
+    "Does not handle browser extension store review processes",
+    "Requires manual testing in actual browser environments",
+    "Does not provide hosting or deployment infrastructure"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Individual developers building personal productivity tools",
+      "title": "Build a Productivity Extension",
+      "description": "Create a Chrome extension that enhances your browsing experience with helpful tools and shortcuts."
+    },
+    {
+      "targetUser": "Web developers targeting multiple browser platforms",
+      "title": "Develop Cross-Browser Extensions",
+      "description": "Build extensions that work seamlessly across Chrome, Firefox, and other browsers using standard APIs."
+    },
+    {
+      "targetUser": "Entrepreneurs building commercial browser extensions",
+      "title": "Monetize Browser Extensions",
+      "description": "Create and publish browser extensions with monetization strategies for the Chrome Web Store."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a Simple Extension",
+      "prompt": "Help me create a simple browser extension that highlights specific text on web pages. I need the manifest.json, content script, and popup UI files.",
+      "scenario": "Starting your first browser extension project"
+    },
+    {
+      "title": "Add Storage to Extension",
+      "prompt": "I have a basic browser extension. Help me add Chrome Storage API so users can save their settings across sessions.",
+      "scenario": "Adding data persistence to an existing extension"
+    },
+    {
+      "title": "Implement Communication Pattern",
+      "prompt": "Show me how to set up message passing between my extension's popup, background service worker, and content scripts. I need to send data from the popup to modify page content.",
+      "scenario": "Enabling communication between extension components"
+    },
+    {
+      "title": "Publish to Chrome Web Store",
+      "prompt": "I have a completed browser extension. Guide me through the process of preparing it for publication on the Chrome Web Store, including packaging, screenshots, and store listing requirements.",
+      "scenario": "Preparing an extension for public release"
+    }
+  ],
+  "bestPractices": [
+    "Request minimum permissions needed for your extension to function, and use optional permissions for features that can be enabled later",
+    "Keep background service workers lightweight since Manifest V3 terminates idle workers to save resources",
+    "Use stable DOM selectors and add error handling to prevent breakage when websites update their structure"
+  ],
+  "antiPatterns": [
+    "Requesting broad permissions like <all_urls> or tabs when you only need access to specific sites",
+    "Performing heavy processing in background workers instead of offloading to content scripts or using alarms",
+    "Using fragile selectors that break when websites change, without error handling or monitoring"
+  ],
+  "faq": [
+    {
+      "question": "What is Manifest V3 and why does it matter?",
+      "answer": "Manifest V3 is the latest version of the browser extension manifest format. It introduces service workers instead of background pages, new permission models, and enhanced security. Chrome Web Store requires MV3 for new extensions."
+    },
+    {
+      "question": "Can this skill publish my extension to the Chrome Web Store?",
+      "answer": "No. This skill provides code and guidance for building extensions, but you must manually create a developer account, pay the fee, package your extension, and submit it through the Chrome Web Store dashboard."
+    },
+    {
+      "question": "Do extensions work the same across Chrome and Firefox?",
+      "answer": "Most modern extension APIs are similar, but there are differences. This skill covers cross-browser patterns, but you should test your extension in each target browser and review their specific documentation."
+    },
+    {
+      "question": "How do I debug my browser extension?",
+      "answer": "Use Chrome DevTools for content scripts (inspect elements on the page), and chrome://extensions for debugging background service workers and popup UIs. Reload your extension after code changes."
+    },
+    {
+      "question": "What are the storage limits for browser extensions?",
+      "answer": "Chrome Storage local has a 5MB limit, while sync storage is limited to 100KB total with 8KB per item. For larger data, consider IndexedDB or server-side storage."
+    },
+    {
+      "question": "Can I use frameworks like React in my extension?",
+      "answer": "Yes, but you must build your frontend code for the extension environment. Most modern frameworks work with extensions using build tools. This skill focuses on vanilla JavaScript for clarity and to avoid build complexity."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "browser extension development",
+    "Chrome extensions",
+    "Firefox extensions",
+    "Manifest V3",
+    "web development",
+    "content scripts",
+    "browser extension architecture"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/browser-extension-builder",
+  "sourceType": "community",
+  "dependencies": []
+}

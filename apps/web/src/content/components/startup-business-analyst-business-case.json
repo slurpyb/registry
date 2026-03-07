@@ -1,0 +1,136 @@
+{
+  "name": "startup-business-analyst-business-case",
+  "type": "skill",
+  "description": "Generate comprehensive investor-ready business case document with",
+  "domain": "business",
+  "subdomain": "finance",
+  "specialty": "Business case",
+  "quality": 5,
+  "qualityReason": "Investor-ready documentation",
+  "bundleHints": [
+    "startup-toolkit",
+    "pitch-deck"
+  ],
+  "tags": [
+    "business-case",
+    "financial-projections",
+    "investor-pitch",
+    "market-analysis",
+    "startup-planning",
+    "strategy"
+  ],
+  "capabilities": [
+    "Creates comprehensive 10-section business case documents with executive summary, market analysis, and financial projections",
+    "Generates investor-ready funding requests with use of proceeds breakdown and milestone timelines",
+    "Produces competitive analysis matrices and differentiation positioning",
+    "Develops financial models with unit economics, CAC, LTV, and 3-year projections",
+    "Structures team composition analysis with hiring plans and equity considerations",
+    "Identifies and documents risk factors with mitigation strategies"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Prompt-only skill with no executable code. Static analysis detected no suspicious patterns (risk score: 0/100). The skill declares standard tool access (Read, Write, Bash, WebSearch, WebFetch) for legitimate business document creation. No prompt injection attempts or malicious patterns found. Safe for publication.",
+  "valueStatement": "Startups need comprehensive business cases to secure funding and guide strategy, but creating investor-ready documents is time-consuming and complex. This skill streamlines business case creation with structured frameworks for market analysis, financial projections, and strategic planning.",
+  "userTitle": "Generate investor-ready business case documents",
+  "limitations": [
+    "Requires user-provided data for accurate market sizing and financial projections",
+    "Cannot independently verify external market data or competitor information",
+    "Does not replace professional financial or legal advice for fundraising",
+    "Output quality depends on accuracy and completeness of user inputs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Startup founders preparing for seed funding rounds",
+      "title": "Seed-stage startup fundraising",
+      "description": "Pre-seed and seed startups create investor-ready business cases for angel investors and early-stage VCs, including TAM/SAM/SOM analysis and 3-year financial projections."
+    },
+    {
+      "targetUser": "Product managers and business development teams",
+      "title": "Strategic planning for product launches",
+      "description": "Product teams develop comprehensive business cases for new product initiatives, including competitive analysis, go-to-market strategy, and resource requirements."
+    },
+    {
+      "targetUser": "Business analysts and project managers in enterprises",
+      "title": "Internal project approval documentation",
+      "description": "Corporate teams create structured business cases for internal stakeholder approval, including ROI analysis, risk assessment, and implementation timelines."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic business case overview",
+      "prompt": "Create a business case for [company name] that solves [problem] for [target customers]. Include executive summary, problem statement, solution overview, and basic market opportunity. We are at [stage] and seeking [funding amount]."
+    },
+    {
+      "title": "Competitive analysis and positioning",
+      "prompt": "Generate a competitive analysis section for our business case. Our main competitors are [competitor list]. Our key differentiators are [differentiators]. Create a competitive matrix and positioning map showing how we compare on [factors]."
+    },
+    {
+      "title": "Financial projections with unit economics",
+      "prompt": "Build a 3-year financial projection model for a [business model type] business. Current metrics: [current MRR, customers, growth rate]. Industry benchmarks: [CAC, LTV, gross margin]. Include revenue model, expense projections, unit economics, and path to profitability."
+    },
+    {
+      "title": "Complete investor-ready business case",
+      "prompt": "Create a comprehensive investor-ready business case for [company]. Audience: [VCs/angels/strategic partners]. Stage: [pre-seed/seed/Series A]. Available materials: [pitch deck, financial model, market research]. Include all 10 sections: executive summary, problem and market opportunity, solution and product, competitive analysis, business model and GTM, financial projections, team and organization, traction and milestones, risks and mitigation, and funding request with use of proceeds."
+    }
+  ],
+  "bestPractices": [
+    "Lead with customer problem and quantify pain with specific data points before presenting your solution",
+    "Support all market size claims with cited sources and clearly state calculation methodology",
+    "Acknowledge risks and competition honestly with concrete mitigation strategies rather than dismissing concerns"
+  ],
+  "antiPatterns": [
+    "Using unsupported claims or generic statements without data backing (for example: huge market without TAM calculation)",
+    "Ignoring or downplaying competition instead of clearly articulating differentiation and defensibility",
+    "Creating overly optimistic projections that lack realistic assumptions and scenario analysis"
+  ],
+  "faq": [
+    {
+      "question": "What information do I need to provide before generating a business case?",
+      "answer": "At minimum: company name and description, stage (pre-seed, seed, Series A), problem being solved, target customers, and funding goal. For best results, also provide existing pitch deck, market research, financial model, and competitive analysis if available."
+    },
+    {
+      "question": "How long does it take to generate a complete business case?",
+      "answer": "A comprehensive business case typically takes 1-2 hours to create with all 10 sections. The process includes information gathering, analysis, document creation, and review cycles for refinement."
+    },
+    {
+      "question": "Can this skill verify market data and competitor information?",
+      "answer": "No. This skill structures and formats information you provide. You are responsible for verifying market data accuracy, competitor analysis, and financial assumptions. Always cite sources and validate external data independently."
+    },
+    {
+      "question": "What format will the business case be delivered in?",
+      "answer": "Business cases are generated as markdown documents that can be easily converted to PDF or Word format. The output follows a structured template with clear sections, tables for financial data, and formatting suitable for investor distribution."
+    },
+    {
+      "question": "How often should I update my business case document?",
+      "answer": "Update your business case quarterly to reflect current metrics and milestones. Also refresh before each funding round, major pivot, or significant business change. Keep the executive summary and traction sections most current."
+    },
+    {
+      "question": "Can this skill help with pitch deck creation too?",
+      "answer": "Yes. The business case content can be adapted into pitch deck slides. The skill can provide an executive summary slide and suggest how to condense each section into presentation format with key visuals and talking points."
+    }
+  ],
+  "seoKeywords": [
+    "business case generator",
+    "Claude business planning",
+    "Codex startup tools",
+    "Claude Code investor pitch",
+    "investor-ready documents",
+    "startup financial projections",
+    "market analysis template",
+    "fundraising business case",
+    "strategic planning assistant",
+    "pitch deck preparation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/startup-business-analyst-business-case",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/foundations/containers/Wrapper.astro";
+import Button from "@/components/foundations/elements/Button.astro";
+import Text from "@/components/foundations/elements/Text.astro";
+import { SITE_NAME } from "@/site.config";
+
+const seo = {
+    title: `${SITE_NAME} — Home`,
+    description: "A production-ready Astro + Tailwind CSS boilerplate.",
+    canonical: "/",
+};
+---
+
+<BaseLayout seo={seo}>
+    <Wrapper class="py-24 lg:py-32">
+        <Text tag="h1" variant="displayXL" class="text-base-900 mb-4">
+            Welcome to your new site
+        </Text>
+        <Text tag="p" variant="textLG" class="text-base-500 mb-8 max-w-xl">
+            Edit <code>src/site.config.ts</code> to configure your brand, then replace
+            the logo, nav links, and footer.
+        </Text>
+        <Button isLink href="/about" variant="default" size="base">
+            Get started
+        </Button>
+    </Wrapper>
+</BaseLayout>

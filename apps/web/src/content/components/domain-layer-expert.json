@@ -1,0 +1,143 @@
+{
+  "name": "domain-layer-expert",
+  "type": "skill",
+  "description": "Guides users in creating rich domain models with behavior, value objects, and domain logic. Activates when users define domain entities, business rules, or validation logic.",
+  "domain": "languages",
+  "subdomain": "rust",
+  "specialty": "DDD in Rust",
+  "quality": 5,
+  "qualityReason": "Specific language + pattern",
+  "bundleHints": [
+    "rust-ddd",
+    "domain-modeling"
+  ],
+  "tags": [
+    "behavior-modeling",
+    "ddd-patterns",
+    "domain-driven-design",
+    "domain-logic",
+    "rust",
+    "software-architecture",
+    "value-objects"
+  ],
+  "capabilities": [
+    "Identifies and refactors anemic domain models into rich behavioral models",
+    "Creates type-safe value objects with embedded validation logic",
+    "Implements entities with identity and domain-specific behavior",
+    "Adds domain events for capturing state changes",
+    "Refactors primitive obsession by creating domain-specific types",
+    "Applies business rules and invariants at the domain layer"
+  ],
+  "author": "EmilLindfors",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. Static analyzer misidentified Rust code examples as shell commands, YAML frontmatter as cryptographic algorithms, and legitimate patterns as reconnaissance. No executable code or security risks present.",
+  "valueStatement": "Domain models often become simple data containers with no behavior. This skill guides developers in creating expressive, type-safe domain models using value objects, entities with identity, and domain events following DDD principles.",
+  "userTitle": "Design Rich Domain Models in Rust",
+  "limitations": [
+    "Does not generate persistence or infrastructure code",
+    "Does not design database schemas or repository patterns",
+    "Does not implement application services or use cases",
+    "Focuses on Rust domain patterns, may not suit other languages"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers adopting DDD patterns",
+      "title": "Refactor Anemic User Model",
+      "description": "Transform a data-only User struct with getters and setters into a rich domain model with behavioral methods like deactivate() and change_email() that enforce business rules."
+    },
+    {
+      "targetUser": "Software architects establishing coding standards",
+      "title": "Create Validated Value Types",
+      "description": "Replace primitive types like String and i32 with domain-specific types like Email, Money, and Age that encapsulate validation logic."
+    },
+    {
+      "targetUser": "Event-driven architecture practitioners",
+      "title": "Add Domain Events to Order Workflow",
+      "description": "Implement an Order aggregate that emits UserCreated, EmailChanged, and other domain events when state changes occur."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple Domain Model",
+      "prompt": "Create a domain model for a [concept] with proper validation. Include a value object for [field] and an entity with behavior methods.",
+      "scenario": "When user wants a basic domain model with value objects and entities"
+    },
+    {
+      "title": "Refactor Anemic Model",
+      "prompt": "This struct is anemic. Refactor it into a rich domain model with behavior: [code]. Move validation into value objects and add domain methods.",
+      "scenario": "When user shares an anemic domain model that needs refactoring"
+    },
+    {
+      "title": "Add Business Rules",
+      "prompt": "Add business rule validation to this domain model: [code]. The rules are: [rule1], [rule2]. Return errors with descriptive messages.",
+      "scenario": "When user needs to add validation and business rules to existing domain logic"
+    },
+    {
+      "title": "Implement Domain Events",
+      "prompt": "Modify this aggregate to emit domain events on state changes: [code]. Include event struct definitions and a mechanism for event collection.",
+      "scenario": "When user wants to add event sourcing or event-driven patterns"
+    }
+  ],
+  "bestPractices": [
+    "Create value objects that wrap primitives and contain validation logic",
+    "Keep entities focused on identity and behavior, delegate data to value objects",
+    "Model domain events when state changes need to trigger other behaviors",
+    "Enforce invariants and business rules at creation time and state transitions"
+  ],
+  "antiPatterns": [
+    "Using public fields on domain entities without encapsulation",
+    "Putting validation in application services instead of domain types",
+    "Mixing infrastructure concerns like database IDs with domain identity",
+    "Creating anemic models that are just data containers with no behavior"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between a value object and an entity?",
+      "answer": "Value objects are defined by their attributes and are immutable. Entities have a unique identity that persists through state changes. Use value objects for concepts like Email or Money, entities for things like User or Order."
+    },
+    {
+      "question": "When should I use domain events?",
+      "answer": "Use domain events when state changes in one aggregate need to trigger behavior in other parts of the system. Events decouple the aggregate from its consumers and enable event-driven architectures."
+    },
+    {
+      "question": "How do I handle validation errors?",
+      "answer": "Return Result types from constructors and methods. Create a ValidationError enum with specific variants for different failure modes. Keep error messages descriptive and actionable."
+    },
+    {
+      "question": "Should I use Option or Result for optional values?",
+      "answer": "Use Option when a value may legitimately be absent. Use Result when absence represents a failure condition. In domain models, prefer Result for validation failures and Option for optional attributes."
+    },
+    {
+      "question": "How do I test domain models?",
+      "answer": "Test domain behavior with unit tests covering valid state transitions, invalid operations, and error cases. Use property-based testing for value objects. Test invariants with multiple operations."
+    },
+    {
+      "question": "Can this skill help with existing Rust projects?",
+      "answer": "Yes. Share your existing domain models and the skill will suggest improvements for encapsulation, validation placement, and behavioral enrichment while maintaining compatibility."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "domain-driven design",
+    "DDD",
+    "Rust domain modeling",
+    "value objects",
+    "entity pattern",
+    "software architecture",
+    "rich domain models"
+  ],
+  "sourceUrl": "https://github.com/EmilLindfors/claude-marketplace/tree/main/plugins/rust-hexagonal/skills/domain-layer-expert",
+  "sourceType": "community",
+  "dependencies": []
+}

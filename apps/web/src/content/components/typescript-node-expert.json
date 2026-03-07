@@ -1,0 +1,144 @@
+{
+  "name": "typescript-node-expert",
+  "type": "skill",
+  "description": "Expert TypeScript/Node.js developer for building high-quality, performant, and maintainable CLI tools and libraries. Enforces best practices, strict typing, and modern patterns.",
+  "domain": "languages",
+  "subdomain": "typescript",
+  "specialty": "enterprise patterns",
+  "quality": 5,
+  "qualityReason": "Advanced enterprise use",
+  "bundleHints": [
+    "typescript-pro",
+    "enterprise-development"
+  ],
+  "tags": [
+    "best-practices",
+    "cli",
+    "complex-types",
+    "decorators",
+    "enterprise",
+    "generics",
+    "nodejs",
+    "performance",
+    "type-safety",
+    "typescript"
+  ],
+  "capabilities": [
+    "Enforce strict TypeScript configuration with full type safety",
+    "Guide async/await patterns including parallel execution and error handling",
+    "Provide streaming patterns for memory-efficient large data processing",
+    "Define error handling patterns with custom error classes and Result types",
+    "Structure CLI applications using Commander.js with proper user feedback",
+    "Configure testing standards with Vitest including coverage requirements"
+  ],
+  "author": "DammianMiller",
+  "icon": "📘",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 89 static findings are FALSE POSITIVES. This skill is a pure documentation file (SKILL.md) containing TypeScript/Node.js code examples for educational purposes. The static analyzer incorrectly flagged documentation code snippets as executable security risks. There is no actual executable code, scripts, network calls, filesystem access, or command execution in this skill. The earlier audit in skill-report.json correctly assessed this as 'safe'.",
+  "valueStatement": "Building TypeScript projects without strict typing leads to bugs and maintenance issues. This skill provides expert guidance on strict TypeScript configuration, async patterns, and performance best practices for production-ready Node.js applications.",
+  "userTitle": "Write Strict TypeScript Code",
+  "limitations": [
+    "Does not execute code or run tests",
+    "Does not access external APIs or services",
+    "Does not modify project files directly",
+    "Provides guidance only, not automated code generation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developers",
+      "title": "Build TypeScript APIs",
+      "description": "Create production-ready Node.js APIs with strict typing, proper error handling, and async patterns."
+    },
+    {
+      "targetUser": "CLI Tool Authors",
+      "title": "Develop CLI Applications",
+      "description": "Build command-line tools with Commander.js, progress indicators, and user-friendly feedback."
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Review TypeScript Code",
+      "description": "Validate TypeScript projects against strict standards, performance patterns, and best practices."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New Function",
+      "scenario": "Creating a typed function",
+      "prompt": "Write a TypeScript function that fetches user data from a database. Use strict typing, proper error handling, and explicit return types."
+    },
+    {
+      "title": "Error Handling",
+      "scenario": "Implementing error patterns",
+      "prompt": "Create a custom error class hierarchy for my API with ValidationError and NotFoundError. Show the Result pattern for expected failures."
+    },
+    {
+      "title": "Performance",
+      "scenario": "Optimizing async operations",
+      "prompt": "Refactor this sequential API call pattern to run in parallel using Promise.all. Show how to handle partial failures."
+    },
+    {
+      "title": "Project Review",
+      "scenario": "Reviewing TypeScript project",
+      "prompt": "Review my Node.js project for TypeScript strictness compliance. Check tsconfig settings, any usage, return types, and async patterns."
+    }
+  ],
+  "bestPractices": [
+    "Always enable strict mode in tsconfig.json with noUncheckedIndexedAccess and exactOptionalPropertyTypes",
+    "Use Promise.all for parallel operations instead of sequential await calls",
+    "Implement custom error classes with the AppError base class for consistent error handling"
+  ],
+  "antiPatterns": [
+    "Never use 'any' type - use 'unknown' with type guards instead",
+    "Avoid loading large files entirely into memory - use streaming patterns",
+    "Do not throw errors for expected failures - use Result pattern for recoverable errors"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with JavaScript projects?",
+      "answer": "This skill focuses on TypeScript-specific patterns. JavaScript projects can use general Node.js guidance but will not benefit from strict typing recommendations."
+    },
+    {
+      "question": "What TypeScript version is supported?",
+      "answer": "The skill targets TypeScript 5.x with ES2022+ features and NodeNext module resolution for modern Node.js LTS versions."
+    },
+    {
+      "question": "Can this skill modify my tsconfig.json?",
+      "answer": "No. This skill provides guidance and code examples. You must manually apply configuration changes to your project files."
+    },
+    {
+      "question": "Is my code data safe?",
+      "answer": "Yes. This skill only reads your prompts and provides guidance. No code is transmitted externally or stored beyond the conversation."
+    },
+    {
+      "question": "Why does the skill forbid 'any' type?",
+      "answer": "The 'any' type bypasses TypeScript's type checking, defeating the purpose of using TypeScript. It leads to runtime errors that static analysis could catch."
+    },
+    {
+      "question": "How does this compare to other TypeScript linters?",
+      "answer": "This skill provides architectural guidance and patterns. Use ESLint and TypeScript's built-in checks for automated enforcement of these practices."
+    }
+  ],
+  "seoKeywords": [
+    "typescript",
+    "nodejs",
+    "strict typing",
+    "async patterns",
+    "typescript expert",
+    "claude code",
+    "claude",
+    "codex",
+    "node.js best practices",
+    "typescript performance"
+  ],
+  "sourceUrl": "https://github.com/DammianMiller/universal-agent-memory/tree/main/.factory/skills/typescript-node-expert",
+  "sourceType": "community",
+  "dependencies": []
+}

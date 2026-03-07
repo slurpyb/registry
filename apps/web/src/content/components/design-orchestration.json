@@ -1,0 +1,140 @@
+{
+  "name": "design-orchestration",
+  "type": "skill",
+  "description": "Orchestrates design workflows by routing work through brainstorming, multi-agent review, and execution readiness in the correct order. Prevents premature implementation, skipped validation, and unreviewed high-risk designs.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "design workflow routing",
+  "quality": 5,
+  "qualityReason": "Prevents premature implementation",
+  "bundleHints": [
+    "design-process",
+    "workflow-automation"
+  ],
+  "tags": [
+    "design",
+    "governance",
+    "multi-agent",
+    "orchestration",
+    "process",
+    "validation",
+    "workflow"
+  ],
+  "capabilities": [
+    "Routes design work through mandatory brainstorming, risk assessment, and execution phases",
+    "Enforces multi-agent review for high-risk designs",
+    "Blocks implementation without validated design approval",
+    "Classifies designs as low, moderate, or high risk based on defined factors",
+    "Maintains decision logs and validates required artifacts exist"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 23 high-severity and 6 medium-severity patterns. Manual review confirms these are FALSE POSITIVES: backticks are markdown code formatting for skill names, and 'cryptographic algorithm' mentions are YAML frontmatter misinterpreted by the scanner. This is a legitimate workflow orchestration skill with no actual code execution, network requests, or malicious patterns.",
+  "valueStatement": "This skill ensures design ideas are properly brainstormed, reviewed by multiple agents, and validated before reaching implementation. It prevents costly mistakes by enforcing a structured workflow.",
+  "userTitle": "Orchestrate Design Workflows",
+  "limitations": [
+    "Does not generate designs itself - only orchestrates other skills",
+    "Requires external skills (brainstorming, multi-agent-brainstorming) to function",
+    "Does not execute implementation - only gates access to it",
+    "Depends on other skills providing required artifacts"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers and architects",
+      "title": "Feature Design Governance",
+      "description": "Apply structured review process to new feature designs before implementation begins"
+    },
+    {
+      "targetUser": "Technical leads and engineering managers",
+      "title": "Risk-Aware Decision Making",
+      "description": "Ensure high-risk system changes receive proper multi-agent validation"
+    },
+    {
+      "targetUser": "Development teams following design-first practices",
+      "title": "Design Quality Enforcement",
+      "description": "Prevent premature implementation by requiring validated design artifacts"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New Feature Design Review",
+      "prompt": "Use design-orchestration to review the following feature proposal: [Describe your feature idea]. Follow the workflow: first invoke brainstorming if no design exists, then assess risk, and require multi-agent review for high-risk items.",
+      "scenario": "Starting a new feature that needs design validation"
+    },
+    {
+      "title": "Existing Design Validation",
+      "prompt": "Use design-orchestration to validate the attached design. Check for: Understanding Lock, Decision Log, design approval status. Block execution if any required artifacts are missing.",
+      "scenario": "Validating an existing design before implementation"
+    },
+    {
+      "title": "High-Risk Change Assessment",
+      "prompt": "Use design-orchestration to assess this change. Classify as low, moderate, or high risk based on user impact, irreversibility, operational cost, complexity, uncertainty, and novelty. Require multi-agent-brainstorming for high-risk items.",
+      "scenario": "Assessing risk level of a proposed change"
+    },
+    {
+      "title": "Execution Readiness Check",
+      "prompt": "Use design-orchestration to verify execution readiness. Confirm: design is approved, Decision Log is complete, major assumptions are documented, known risks are acknowledged. Block if conditions fail.",
+      "scenario": "Verifying all prerequisites before starting implementation"
+    }
+  ],
+  "bestPractices": [
+    "Always invoke this skill first when starting any design work to establish proper workflow",
+    "Complete all required artifacts (Understanding Lock, Decision Log) before attempting to proceed to next phases",
+    "Trust the risk classification and allow the skill to enforce appropriate review levels"
+  ],
+  "antiPatterns": [
+    "Attempting to skip required review phases for time savings",
+    "Bypassing this skill to go directly from idea to implementation",
+    "Providing incomplete design artifacts and expecting execution to proceed"
+  ],
+  "faq": [
+    {
+      "question": "What is design-orchestration?",
+      "answer": "Design-orchestration is a meta-skill that controls the flow between other design skills. It ensures designs are properly brainstormed, reviewed, and validated before implementation begins."
+    },
+    {
+      "question": "Does this skill generate designs?",
+      "answer": "No. This skill does not generate designs. It routes work to other skills (brainstorming, multi-agent-brainstorming) and enforces validation requirements."
+    },
+    {
+      "question": "When should I use this skill?",
+      "answer": "Use this skill whenever you propose a new feature, system, or change where correctness matters more than speed, or when a design decision carries meaningful risk."
+    },
+    {
+      "question": "What happens if I skip the required review?",
+      "answer": "The skill will block execution. Skipping required escalation or validation is prohibited. The workflow will return to the appropriate prior phase."
+    },
+    {
+      "question": "How does risk classification work?",
+      "answer": "The skill classifies designs as low, moderate, or high risk based on factors including user impact, irreversibility, operational cost, complexity, uncertainty, and novelty."
+    },
+    {
+      "question": "What artifacts must exist before execution?",
+      "answer": "Before execution, you need: approved design (single-agent or multi-agent), complete Decision Log, documented major assumptions, and acknowledged known risks."
+    }
+  ],
+  "seoKeywords": [
+    "Claude design workflow",
+    "Codex design orchestration",
+    "Claude Code design process",
+    "design review skill",
+    "workflow orchestration",
+    "design governance",
+    "multi-agent design",
+    "design validation skill",
+    "AI design workflow",
+    "skill orchestration"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/design-orchestration",
+  "sourceType": "community",
+  "dependencies": []
+}

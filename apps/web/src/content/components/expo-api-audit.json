@@ -1,0 +1,136 @@
+{
+  "name": "expo-api-audit",
+  "type": "skill",
+  "description": "Comprehensive audit of Expo/React Native app API integration layer. Use when asked to: (1) Review API interactions, auth handling, or token management, (2) Find hardcoded data or screens bypassing API, (3) Verify user interactions properly sync to backend, (4) Analyze offline behavior and caching, (5) Audit Orval/OpenAPI code generation, (6) Check for API security issues. Supports TanStack Query, Zustand, axios, Expo Router, expo-secure-store, and expo-constants patterns.",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "API security",
+  "quality": 5,
+  "qualityReason": "Comprehensive security audit",
+  "bundleHints": [
+    "mobile-security",
+    "api-security"
+  ],
+  "tags": [
+    "api-audit",
+    "auth-handling",
+    "expo",
+    "mobile-development",
+    "react-native",
+    "security-review"
+  ],
+  "capabilities": [
+    "Audits API layer for hardcoded data and direct fetch/axios calls bypassing generated hooks",
+    "Reviews authentication token storage to ensure expo-secure-store is used instead of AsyncStorage",
+    "Identifies forms and user interactions that fail to sync data to the backend",
+    "Analyzes offline behavior including caching patterns and network mode configuration",
+    "Checks Orval/OpenAPI generated code against OpenAPI spec for completeness",
+    "Reviews Zustand stores to ensure they contain only client state, not server data"
+  ],
+  "author": "CJHarmath",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The flagged patterns (external commands, network calls, credential access) appear only in documentation code examples within SKILL.md and keywords in the JSON report. This skill provides static analysis guidance for reviewing Expo/React Native code - it does not execute any code or make network calls. Safe for publication.",
+  "valueStatement": "Expo and React Native apps often have hidden API integration issues including hardcoded data, missing offline handling, and insecure token storage. This skill systematically audits your entire API layer to find violations, security risks, and data consistency problems before they impact users.",
+  "userTitle": "Audit Expo API Integration Layer",
+  "limitations": [
+    "Does not execute or modify code - only audits and reports findings",
+    "Requires the codebase to use Expo Router or conventional file structures for accurate detection",
+    "Cannot verify API behavior at runtime - only analyzes static code patterns",
+    "Does not test actual API endpoints for correctness or availability"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Mobile developers preparing apps for production release",
+      "title": "Pre-Release Security Audit",
+      "description": "Run a comprehensive audit before production release to catch hardcoded credentials, insecure token storage, and missing auth handling that could expose user data."
+    },
+    {
+      "targetUser": "QA engineers and developers debugging user-reported data issues",
+      "title": "Debugging Data Sync Issues",
+      "description": "When users report that form submissions or data changes are not persisting, this skill identifies which screens and components are missing API mutations."
+    },
+    {
+      "targetUser": "Engineering leads assessing technical debt in mobile applications",
+      "title": "Legacy Codebase Assessment",
+      "description": "Analyze an existing Expo codebase to understand API layer architecture, identify violated patterns, and create a prioritized refactoring roadmap."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Security Scan",
+      "prompt": "Run a quick API security audit on my Expo app. Check for: (1) hardcoded API URLs or tokens, (2) tokens stored in AsyncStorage instead of expo-secure-store, (3) direct fetch/axios calls bypassing generated hooks. Report any critical security issues found."
+    },
+    {
+      "title": "Full Integration Audit",
+      "prompt": "Perform a complete API integration audit of my Expo/React Native app. Cover: auth token handling, Orval generation health, direct API violations, screen data sources, user interaction sync patterns, offline behavior, and error handling. Format findings by severity with file locations."
+    },
+    {
+      "title": "Offline Behavior Review",
+      "prompt": "Audit my Expo app's offline behavior. Check query networkMode settings, cache persistence, offline queue implementation, error boundary coverage, and reconnection handling. Report any gaps in offline support that could affect user experience."
+    },
+    {
+      "title": "Zustand Store Analysis",
+      "prompt": "Review my Zustand stores to ensure they only contain client state. Flag any stores holding server data (users, items, fetched entities) that should be moved to React Query or API hooks. Also check for persist middleware duplicating cache."
+    }
+  ],
+  "bestPractices": [
+    "Run audits early in development to catch violations before they become entrenched patterns across the codebase",
+    "Use the generated findings to create actionable tickets rather than fixing everything at once",
+    "Combine this skill with manual testing to validate that the patterns found actually cause user-facing issues"
+  ],
+  "antiPatterns": [
+    "Using hardcoded URLs or mock data that bypasses the API layer completely",
+    "Storing authentication tokens in AsyncStorage instead of expo-secure-store",
+    "Storing fetched business data in Zustand stores instead of using React Query or server state"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill modify my code?",
+      "answer": "No. This skill only analyzes your codebase and reports findings. It does not create, modify, or delete any files."
+    },
+    {
+      "question": "What frameworks does this skill support?",
+      "answer": "It supports Expo Router, TanStack Query, Zustand, axios, Orval, expo-secure-store, and expo-constants patterns common in Expo/React Native apps."
+    },
+    {
+      "question": "Can I use this on a non-Expo React Native app?",
+      "answer": "Partial support. The core API auditing concepts apply, but Expo-specific checks (expo-secure-store, expo-constants) will have no findings."
+    },
+    {
+      "question": "What output formats are supported?",
+      "answer": "The skill can produce markdown reports, JSON findings for programmatic use, task lists for issue trackers, or fix PR descriptions."
+    },
+    {
+      "question": "How long does a full audit take?",
+      "answer": "A full audit typically takes 30-60 seconds for a medium-sized codebase. Quick security scans complete in under 10 seconds."
+    },
+    {
+      "question": "Does this check for API correctness?",
+      "answer": "No. This skill audits code patterns, not API behavior. It cannot verify that API endpoints return correct data or work as expected."
+    }
+  ],
+  "seoKeywords": [
+    "expo api audit",
+    "react native api integration",
+    "claude code api audit",
+    "claude codex api review",
+    "expo-secure-store audit",
+    "orval openapi audit",
+    "tanstack query audit",
+    "offline first audit",
+    "react native security audit",
+    "claude api integration"
+  ],
+  "sourceUrl": "https://github.com/CJHarmath/claude-agents-skills/tree/main/skills/expo-api-audit",
+  "sourceType": "community",
+  "dependencies": []
+}

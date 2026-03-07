@@ -1,0 +1,140 @@
+{
+  "name": "skill-lookup",
+  "type": "skill",
+  "description": "Activates when the user asks about Agent Skills, wants to find reusable AI capabilities, needs to install skills, or mentions skills for Claude. Use for discovering, retrieving, and installing skills.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "skill discovery",
+  "quality": 5,
+  "qualityReason": "Core discovery mechanism",
+  "bundleHints": [
+    "mcp-tools",
+    "skill-discovery",
+    "agent-ecosystem"
+  ],
+  "tags": [
+    "ai-agents",
+    "mcp",
+    "search",
+    "skill-discovery",
+    "skill-management",
+    "workflow-automation"
+  ],
+  "capabilities": [
+    "Search skills by keyword, category, or tag",
+    "Retrieve complete skill metadata and file contents",
+    "Install skills to the local .claude/skills directory",
+    "List available skills with descriptions and file counts",
+    "Filter results by category (coding, automation, etc.)",
+    "Access skills compatible with Claude, Codex, and Claude Code"
+  ],
+  "author": "f",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "The static scanner detected 16 potential 'shell backtick execution' issues and 2 'weak cryptographic algorithm' warnings. All findings are FALSE POSITIVES. The backticks are Markdown code syntax for displaying MCP API function calls (search_skills, get_skill), not shell commands. This is a documentation file explaining how to use the prompts.chat MCP server. No actual code execution occurs.",
+  "valueStatement": "Search and install AI skills to extend Claude's capabilities. This skill provides access to the prompts.chat skill marketplace, allowing you to discover reusable AI agent components and add them to your workflow.",
+  "userTitle": "Find and Install AI Skills for Claude",
+  "limitations": [
+    "Only searches skills available on the prompts.chat marketplace",
+    "Requires internet connection to access the MCP server",
+    "Installation requires write access to the .claude/skills directory",
+    "Cannot modify or update existing skills once installed",
+    "Skill availability depends on the marketplace server status"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developer discovering new tools",
+      "title": "Developer discovering new tools",
+      "description": "A software developer wants to find a skill for code review, testing, or deployment automation and needs to browse available skills before installation."
+    },
+    {
+      "targetUser": "Team onboarding and sharing",
+      "title": "Team onboarding and sharing",
+      "description": "A team lead shares a collection of recommended skills with new team members, using this skill to retrieve and install them efficiently."
+    },
+    {
+      "targetUser": "Experimenting with AI workflows",
+      "title": "Experimenting with AI workflows",
+      "description": "A developer testing AI agents wants to quickly install multiple skills to evaluate their effectiveness in different workflows."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Beginner: I need a code review skill",
+      "prompt": "I need a code review skill for my projects. Search for skills that help with code reviews and show me the available options with their descriptions."
+    },
+    {
+      "title": "Intermediate: Find testing skills",
+      "prompt": "Find skills related to testing and quality assurance. Filter results by the 'coding' category and show me the top 5 skills with their file lists."
+    },
+    {
+      "title": "Advanced: Install a specific skill",
+      "prompt": "Install the 'git-hook' skill to my .claude/skills directory. Retrieve all files from the skill and confirm the installation was successful."
+    },
+    {
+      "title": "Expert: Search with multiple filters",
+      "prompt": "Search for skills that are both in the 'automation' category and tagged with 'workflow'. Show me results with author names and include a link to each skill."
+    }
+  ],
+  "bestPractices": [
+    "Always search for existing skills before creating your own to avoid duplicates",
+    "Review skill descriptions and file lists before installing to ensure they meet your needs",
+    "Install skills only from trusted sources on the prompts.chat marketplace",
+    "Check skill compatibility with your AI tool (Claude, Codex, or Claude Code) before installation",
+    "Regularly update installed skills to get the latest features and bug fixes"
+  ],
+  "antiPatterns": [
+    "Never create duplicate skills for the same functionality",
+    "Avoid installing skills that modify system files outside the .claude directory",
+    "Do not ignore search results and proceed with creating custom skills unnecessarily",
+    "Don't install skills that require elevated privileges or modify global configuration",
+    "Avoid using skills that perform operations on files you don't have permission to access"
+  ],
+  "faq": [
+    {
+      "question": "What is an Agent Skill?",
+      "answer": "An Agent Skill is a reusable AI capability that extends Claude's abilities. Skills can perform specific tasks like code review, documentation writing, testing, and more. They are stored as markdown files and can be installed to provide specialized functionality."
+    },
+    {
+      "question": "Where are skills installed?",
+      "answer": "Skills are installed to the .claude/skills directory in your project root. Each skill gets its own subdirectory containing its files (SKILL.md, scripts, configuration, etc.)."
+    },
+    {
+      "question": "Can I modify installed skills?",
+      "answer": "Skills are read-only once installed. If you need changes, you would need to modify the original skill on the marketplace or create your own custom skill based on the template."
+    },
+    {
+      "question": "What tools support skills?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. You can search and install skills compatible with any of these AI assistants."
+    },
+    {
+      "question": "Are all skills free to use?",
+      "answer": "Most skills on the prompts.chat marketplace are free and open source. Some creators may offer premium skills with additional features or support."
+    },
+    {
+      "question": "How do I uninstall a skill?",
+      "answer": "To uninstall a skill, simply delete the corresponding directory from .claude/skills. The skill will no longer be available unless you reinstall it from the marketplace."
+    }
+  ],
+  "seoKeywords": [
+    "Claude skills",
+    "Claude Code",
+    "AI agent skills",
+    "skill marketplace",
+    "MCP server",
+    "prompts.chat",
+    "Claude extensions",
+    "AI capabilities"
+  ],
+  "sourceUrl": "https://github.com/f/awesome-chatgpt-prompts/tree/main/plugins/claude/prompts.chat/skills/skill-lookup/",
+  "sourceType": "community",
+  "dependencies": []
+}

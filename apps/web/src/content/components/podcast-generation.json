@@ -1,0 +1,142 @@
+{
+  "name": "podcast-generation",
+  "type": "skill",
+  "description": "Generate AI-powered podcast-style audio narratives using Azure OpenAI's GPT Realtime Mini model via WebSocket. Use when building text-to-speech features, audio narrative generation, podcast creation from content, or integrating with Azure OpenAI Realtime API for real audio output. Covers full-stack implementation from React frontend to Python FastAPI backend with WebSocket streaming.",
+  "domain": "ai-ml",
+  "subdomain": "nlp",
+  "specialty": "audio narrative synthesis",
+  "quality": 5,
+  "qualityReason": "Innovative and well-scoped",
+  "bundleHints": [
+    "nlp-pipeline",
+    "audio-generation"
+  ],
+  "tags": [
+    "audio-generation",
+    "audio-narratives",
+    "azure-openai",
+    "gpt-realtime-mini",
+    "podcast",
+    "podcast-creation",
+    "realtime-api",
+    "text-to-speech"
+  ],
+  "capabilities": [
+    "Connect to Azure OpenAI Realtime API via WebSocket for streaming audio",
+    "Convert text prompts into spoken audio using GPT Realtime Mini model",
+    "Stream audio chunks in real-time with minimal latency",
+    "Generate transcript alongside audio output",
+    "Support multiple voice options including alloy, echo, fable, onyx, nova, and shimmer",
+    "Convert PCM audio data to WAV format for browser playback"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 23 potential issues, but evaluation confirms all are false positives. The skill uses environment variables for Azure API authentication (legitimate), makes network calls to Azure OpenAI WebSocket endpoint (expected for TTS functionality), and uses base64 encoding for audio data transfer (standard practice). No malicious intent or data exfiltration patterns found. This is a legitimate podcast generation skill using Azure OpenAI Realtime API.",
+  "valueStatement": "This skill enables developers to create podcast-style audio narratives using Azure OpenAI's GPT Realtime Mini model. It handles WebSocket connections, audio streaming, and format conversion to produce natural-sounding speech.",
+  "userTitle": "Generate AI Podcast Audio from Text",
+  "limitations": [
+    "Requires Azure OpenAI subscription and API credentials",
+    "Only supports English language output",
+    "Audio quality depends on Azure service availability",
+    "Requires stable WebSocket connection for streaming"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content creators, bloggers, and writers",
+      "title": "Content Creator Audio Blog",
+      "description": "Transform blog posts or articles into podcast-style audio for accessibility and wider reach."
+    },
+    {
+      "targetUser": "Educators and e-learning platform developers",
+      "title": "E-Learning Audio Narration",
+      "description": "Generate spoken audio narrations for educational content and online courses."
+    },
+    {
+      "targetUser": "Web developers building accessible applications",
+      "title": "Accessibility Audio Tool",
+      "description": "Convert text-based UI content to speech for screen reader compatibility."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Text to Speech",
+      "prompt": "Convert this text to podcast-style audio using the Azure OpenAI Realtime API: {text_input}",
+      "scenario": "Simple text narration request"
+    },
+    {
+      "title": "Custom Voice Selection",
+      "prompt": "Generate audio narration with the {voice_name} voice for this content: {text_content}",
+      "scenario": "Text-to-speech with specific voice"
+    },
+    {
+      "title": "Audio with Transcript",
+      "prompt": "Create podcast audio and transcript for: {article_content}. Include both audio output and text transcript.",
+      "scenario": "Simultaneous audio and transcript generation"
+    },
+    {
+      "title": "Batch Content Processing",
+      "prompt": "Process multiple text segments into audio files. Segment 1: {text1}, Segment 2: {text2}, Segment 3: {text3}. Generate individual audio files for each.",
+      "scenario": "Converting multiple text pieces to audio"
+    }
+  ],
+  "bestPractices": [
+    "Configure Azure environment variables before using the skill for authentication",
+    "Use appropriate voice selection based on content type (onyx for formal, fable for expressive)",
+    "Handle WebSocket connection errors gracefully with retry logic"
+  ],
+  "antiPatterns": [
+    "Do not expose API keys in client-side code - keep them server-side only",
+    "Avoid sending sensitive or personal information in text prompts without encryption",
+    "Do not assume infinite API quota - implement rate limiting and caching"
+  ],
+  "faq": [
+    {
+      "question": "What Azure services does this skill require?",
+      "answer": "This skill requires Azure OpenAI with GPT Realtime Mini deployment and valid API credentials."
+    },
+    {
+      "question": "Can I use this skill offline?",
+      "answer": "No, this skill requires an active internet connection to communicate with Azure OpenAI services."
+    },
+    {
+      "question": "What audio format does the skill output?",
+      "answer": "The skill outputs WAV format audio (24kHz, 16-bit, mono) encoded as base64 for easy transfer."
+    },
+    {
+      "question": "How many voices are available?",
+      "answer": "Six voices are supported: alloy, echo, fable, onyx, nova, and shimmer."
+    },
+    {
+      "question": "Is this skill suitable for production use?",
+      "answer": "Yes, with proper error handling and API key management, this can be used in production applications."
+    },
+    {
+      "question": "Does this skill store any audio data?",
+      "answer": "No, the skill processes audio in memory and returns it to the caller without persistent storage."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "text to speech",
+    "podcast generation",
+    "azure openai",
+    "audio narration",
+    "realtime api",
+    "ai voice",
+    "speech synthesis"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/podcast-generation",
+  "sourceType": "community",
+  "dependencies": []
+}

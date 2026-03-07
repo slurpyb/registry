@@ -1,0 +1,143 @@
+{
+  "name": "pitfalls-security",
+  "type": "skill",
+  "description": "Security patterns for session keys, caching, logging, and environment variables. Use when implementing authentication, caching sensitive data, or setting up logging. Triggers on: session key, private key, cache, logging, secrets, environment variable.",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "security patterns",
+  "quality": 5,
+  "qualityReason": "Critical security concerns addressed",
+  "bundleHints": [
+    "security-toolkit",
+    "appsec-suite"
+  ],
+  "tags": [
+    "authentication",
+    "best-practices",
+    "caching",
+    "environment-variables",
+    "logging",
+    "secrets",
+    "secrets-management",
+    "security",
+    "session-keys"
+  ],
+  "capabilities": [
+    "Guides secure session key implementation with expiry and permission limits",
+    "Shows correct environment variable handling for frontend and backend",
+    "Demonstrates safe caching strategies for non-sensitive data",
+    "Provides structured logging patterns that avoid secret exposure",
+    "Includes audit logging templates for sensitive operations",
+    "Offers checklists for verifying security implementations"
+  ],
+  "author": "BarisSozen",
+  "icon": "🔐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown guidance. No executable code, scripts, network calls, or filesystem access capabilities. The TypeScript examples are educational documentation showing security patterns (anti-patterns marked with ❌, correct patterns marked with ✅). All static findings are false positives triggered by pattern matching on educational examples rather than actual vulnerabilities.",
+  "valueStatement": "Security vulnerabilities in authentication, caching, and logging expose sensitive user data and credentials. This skill provides verified patterns to prevent common mistakes when handling session keys, environment variables, and sensitive data.",
+  "userTitle": "Implement secure authentication patterns",
+  "limitations": [
+    "Does not provide runtime security scanning of existing code",
+    "Does not generate security credentials or encryption keys",
+    "Does not integrate with external security scanning tools",
+    "Does not provide legal compliance verification"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Secure session management",
+      "description": "Implement session keys with proper expiry, permissions, and audit logging for user authentication"
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Environment variable safety",
+      "description": "Configure environment variables correctly to prevent secret exposure in frontend or backend code"
+    },
+    {
+      "targetUser": "Security auditors",
+      "title": "Review security implementations",
+      "description": "Verify code follows security best practices for caching, logging, and credential handling"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Session key setup",
+      "scenario": "Implementing user authentication",
+      "prompt": "Use the pitfalls-security skill to help me implement secure session key management with proper expiration and permission limits"
+    },
+    {
+      "title": "Environment variables",
+      "scenario": "Configuring secure API access",
+      "prompt": "Apply pitfalls-security patterns to set up environment variables for my backend API without exposing secrets in logs"
+    },
+    {
+      "title": "Caching strategy",
+      "scenario": "Optimizing data retrieval",
+      "prompt": "Use pitfalls-security to design a caching strategy that avoids storing any user credentials or sensitive data"
+    },
+    {
+      "title": "Audit logging",
+      "scenario": "Tracking security events",
+      "prompt": "Apply pitfalls-security to create an audit logging system that captures security-sensitive operations without logging secrets"
+    }
+  ],
+  "bestPractices": [
+    "Always use encryption like AES-256-GCM when storing any credentials",
+    "Implement proper session key expiry and permission limits",
+    "Add audit logging for all sensitive operations with before/after states"
+  ],
+  "antiPatterns": [
+    "Storing private keys in localStorage or plaintext files",
+    "Logging entire config objects that may contain secrets",
+    "Caching user-specific sensitive data like private keys or API tokens"
+  ],
+  "faq": [
+    {
+      "question": "Is this skill compatible with all Claude versions?",
+      "answer": "Yes, the security patterns work with Claude, Codex, and Claude Code across all current versions."
+    },
+    {
+      "question": "What data can I safely cache?",
+      "answer": "Only non-sensitive data like public token prices, pool reserves, and gas estimates. Never cache credentials or private keys."
+    },
+    {
+      "question": "How do I handle frontend environment variables?",
+      "answer": "Use VITE_ prefix for Vite frontend builds. Remember process.env does not work in browser contexts."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes, this skill only provides guidance patterns. No data is collected, stored, or transmitted externally."
+    },
+    {
+      "question": "Why are my secrets appearing in logs?",
+      "answer": "Avoid logging entire config objects. Use structured logging with explicit field filtering to exclude sensitive values."
+    },
+    {
+      "question": "How does this compare to standard security linters?",
+      "answer": "This skill provides implementation patterns. Combine it with linters like ESLint security plugins for automated scanning."
+    }
+  ],
+  "seoKeywords": [
+    "Claude security patterns",
+    "session key management",
+    "secrets management best practices",
+    "environment variables security",
+    "secure logging patterns",
+    "authentication security",
+    "Claude Code security",
+    "credential caching risks",
+    "API key protection",
+    "audit logging"
+  ],
+  "sourceUrl": "https://github.com/BarisSozen/claude/tree/main/.claude/skills/pitfalls-security",
+  "sourceType": "community",
+  "dependencies": []
+}

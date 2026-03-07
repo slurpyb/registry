@@ -1,0 +1,141 @@
+{
+  "name": "expo-deployment",
+  "type": "skill",
+  "description": "Deploying Expo apps to iOS App Store, Android Play Store, web hosting, and API routes",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "multi-platform deploy",
+  "quality": 5,
+  "qualityReason": "Comprehensive deployment coverage",
+  "bundleHints": [
+    "mobile-cicd",
+    "expo-toolkit"
+  ],
+  "tags": [
+    "android",
+    "deployment",
+    "eas",
+    "expo",
+    "ios",
+    "web-hosting"
+  ],
+  "capabilities": [
+    "Generate EAS CLI commands for iOS and Android builds",
+    "Configure eas.json with production build and submit profiles",
+    "Set up App Store Connect API keys and Google Play service accounts",
+    "Create CI/CD workflows for automated deployments",
+    "Submit builds to TestFlight for beta testing",
+    "Deploy web apps using EAS Hosting"
+  ],
+  "author": "expo",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. This is a documentation skill containing markdown files with example CLI commands. The scanner incorrectly flagged markdown code fences as shell backticks, algorithm names as weak crypto implementations, and configuration examples as credential access. No executable code exists in this skill.",
+  "valueStatement": "Deploying Expo apps to app stores requires understanding complex CLI commands, platform-specific configurations, and submission processes. This skill provides comprehensive guidance for deploying to iOS App Store, Android Play Store, TestFlight, and web using EAS CLI.",
+  "userTitle": "Deploy Expo apps to app stores",
+  "limitations": [
+    "Does not execute commands directly - provides command examples for user execution",
+    "Does not store or handle credentials - users must manage their own credentials",
+    "Does not modify project files without user confirmation",
+    "Cannot submit builds to stores without proper authentication configured"
+  ],
+  "useCases": [
+    {
+      "targetUser": "New Expo developers preparing their first production release",
+      "title": "First-time app submission",
+      "description": "First-time Expo developers need guidance setting up credentials and submitting their initial build to the iOS App Store or Google Play Store."
+    },
+    {
+      "targetUser": "DevOps engineers and team leads setting up automated release pipelines",
+      "title": "CI/CD automation",
+      "description": "Developers want to automate deployments using GitHub Actions or other CI providers with EAS Workflows for consistent, repeatable releases."
+    },
+    {
+      "targetUser": "QA teams and product managers managing beta testing programs",
+      "title": "Beta testing programs",
+      "description": "Teams need to quickly push updates to TestFlight or internal testing tracks for QA feedback before production release."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick build and submit",
+      "prompt": "Show me the EAS CLI commands to build and submit my Expo app to the iOS App Store for production release.",
+      "scenario": "User wants immediate commands for their first App Store submission"
+    },
+    {
+      "title": "Android Play Store setup",
+      "prompt": "How do I configure Google Play service account credentials for automated Android submissions using EAS?",
+      "scenario": "User needs help setting up Android Play Store credentials"
+    },
+    {
+      "title": "CI/CD workflow creation",
+      "prompt": "Create an EAS Workflow YAML file that builds for both iOS and Android on main branch pushes and submits automatically.",
+      "scenario": "User wants to set up automated CI/CD deployment"
+    },
+    {
+      "title": "EAS configuration optimization",
+      "prompt": "Review my eas.json configuration and suggest improvements for faster builds and proper version management for production releases.",
+      "scenario": "User wants to optimize their EAS configuration"
+    }
+  ],
+  "bestPractices": [
+    "Use App Store Connect API keys instead of Apple ID to avoid 2FA issues in CI/CD pipelines",
+    "Set up EAS Secrets for credentials instead of committing service account files to version control",
+    "Test builds on internal testing tracks before submitting to production to catch issues early"
+  ],
+  "antiPatterns": [
+    "Committing service account JSON keys or API credentials to version control",
+    "Using personal Apple ID accounts for team deployments instead of proper API keys",
+    "Skipping internal testing and submitting directly to production without validation"
+  ],
+  "faq": [
+    {
+      "question": "What credentials do I need for iOS App Store submission?",
+      "answer": "You need either an App Store Connect API key (recommended for CI/CD) or an Apple ID with App Manager role. The API key consists of a .p8 file, issuer ID, and key ID. Configure these in eas.json or use environment variables."
+    },
+    {
+      "question": "How do I automate deployments with GitHub Actions?",
+      "answer": "Use EAS Workflows to define build and submit steps in YAML. Combine with GitHub Actions to trigger workflows on branch pushes. EAS handles authentication using stored credentials or environment secrets."
+    },
+    {
+      "question": "Can I deploy to both iOS and Android with a single command?",
+      "answer": "Yes, use `eas build --profile production` without the `-p` flag to build for both platforms. Add `--submit` to automatically submit both builds after successful compilation."
+    },
+    {
+      "question": "What is the difference between internal, alpha, and production tracks?",
+      "answer": "Internal testing is for up to 100 testers within your organization. Alpha/closed beta extends testing to external testers. Production is the public release track visible to all users on the store."
+    },
+    {
+      "question": "How do I handle version numbers for submissions?",
+      "answer": "Set `appVersionSource: \"remote\"` in eas.json to let EAS manage version numbers from App Store Connect or Play Console. Alternatively, use `eas build:version:set` to manually set version numbers."
+    },
+    {
+      "question": "What happens if my submission gets rejected?",
+      "answer": "EAS provides submission status tracking. Address the rejection reasons, upload a new build with fixes, and resubmit. Use internal testing tracks to validate compliance before production submission."
+    }
+  ],
+  "seoKeywords": [
+    "Expo deployment",
+    "EAS CLI",
+    "iOS App Store deployment",
+    "Android Play Store deployment",
+    "Expo app submission",
+    "EAS Build",
+    "EAS Submit",
+    "TestFlight deployment",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/expo/skills/tree/main/plugins/expo-deployment/skills/expo-deployment/",
+  "sourceType": "community",
+  "dependencies": []
+}

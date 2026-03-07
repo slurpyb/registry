@@ -1,0 +1,142 @@
+{
+  "name": "azure-eventhub-rust",
+  "type": "skill",
+  "description": "Rust SDK for Azure Event Hubs - stream and ingest events with partitioned processing and producer-consumer patterns",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "event streaming",
+  "quality": 4,
+  "qualityReason": "Good but niche",
+  "bundleHints": [
+    "azure-events",
+    "rust-streaming",
+    "pipelines"
+  ],
+  "tags": [
+    "azure",
+    "eventhubs",
+    "messaging",
+    "partitioned",
+    "producer-consumer",
+    "rust",
+    "streaming"
+  ],
+  "capabilities": [
+    "Create ProducerClient to send events to Azure Event Hubs",
+    "Create ConsumerClient to receive events from specific partitions",
+    "Send single events or batch multiple events efficiently",
+    "Query event hub properties including partition IDs and sequence numbers",
+    "Implement checkpointing with Azure Blob storage for distributed consumers",
+    "Use Azure Developer Tools Credential for authentication"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains documentation-only content for the Azure Event Hubs Rust SDK. No executable code, scripts, or dangerous patterns detected. Static analysis scanned 0 files with 0 risk factors. The skill provides guidance on using Azure's official Rust client library for event streaming.",
+  "valueStatement": "Building event-driven applications in Rust requires reliable event ingestion. This skill provides official Azure Event Hubs SDK patterns for producers and consumers.",
+  "userTitle": "Stream Events with Azure Event Hubs in Rust",
+  "limitations": [
+    "Requires Azure subscription and Event Hubs namespace configuration",
+    "Environment variables must be set for namespace host and event hub name",
+    "Checkpoint store requires additional azure_messaging_eventhubs_checkpointstore_blob package",
+    "Does not cover advanced features like event processors or load balancing"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend engineers building data pipelines",
+      "title": "Real-time Data Ingestion Pipeline",
+      "description": "Build scalable event producers to ingest streaming data from IoT devices or application logs into Azure Event Hubs for downstream processing"
+    },
+    {
+      "targetUser": "Cloud architects designing event-driven systems",
+      "title": "Event-Driven Microservices",
+      "description": "Implement consumer clients to process events from specific partitions enabling parallel consumption across microservice instances"
+    },
+    {
+      "targetUser": "DevOps engineers monitoring distributed systems",
+      "title": "Telemetry Collection System",
+      "description": "Deploy Rust-based event collectors that batch and send telemetry data efficiently with proper error handling and retry logic"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Event Producer",
+      "prompt": "Create a Rust function that uses the Azure Event Hubs SDK to send a single event with a JSON payload to the configured event hub",
+      "scenario": "Getting started with event publishing"
+    },
+    {
+      "title": "Batch Event Submission",
+      "prompt": "Write Rust code that creates an event batch, adds multiple events with metadata, checks batch capacity, and sends the batch to Azure Event Hubs",
+      "scenario": "Optimizing throughput with batched sends"
+    },
+    {
+      "title": "Partition-Aware Consumer",
+      "prompt": "Implement a Rust consumer that opens receivers for all partitions, receives events from each partition concurrently, and prints event metadata",
+      "scenario": "Parallel event processing across partitions"
+    },
+    {
+      "title": "Checkpointed Distributed Consumer",
+      "prompt": "Build a Rust application that uses ConsumerClient with Blob checkpoint store to track processing progress and enable failover recovery for distributed consumption",
+      "scenario": "Production-grade consumer with fault tolerance"
+    }
+  ],
+  "bestPractices": [
+    "Reuse ProducerClient and ConsumerClient instances instead of creating new ones for each operation",
+    "Use batch sends instead of individual events to improve throughput and reduce latency",
+    "Implement checkpointing with Blob storage when running distributed consumers for reliable recovery"
+  ],
+  "antiPatterns": [
+    "Creating new client instances for every event instead of reusing connections",
+    "Sending events individually in a loop without batching when throughput matters",
+    "Ignoring batch capacity limits which can cause event loss or send failures"
+  ],
+  "faq": [
+    {
+      "question": "How do I authenticate to Azure Event Hubs with this Rust SDK?",
+      "answer": "Use the DeveloperToolsCredential from azure_identity crate for local development. For production, use ManagedIdentityCredential or ServicePrincipalCredential with appropriate Azure RBAC permissions."
+    },
+    {
+      "question": "What is the maximum batch size for Event Hubs?",
+      "answer": "The maximum batch size depends on your Event Hubs tier. Basic tier allows 256 KB per batch, Standard allows 1 MB, and Premium allows up to 4 MB. Use try_add_event_data to check capacity before adding events."
+    },
+    {
+      "question": "How do I handle partition rebalancing in distributed consumers?",
+      "answer": "Use the checkpoint store feature with azure_messaging_eventhubs_checkpointstore_blob. It coordinates partition ownership across consumer instances and enables automatic failover when instances go offline."
+    },
+    {
+      "question": "Can I send events to a specific partition?",
+      "answer": "Yes, include a partition_key in the event options when calling send_event or add_event_data. Events with the same partition key always route to the same partition, enabling ordered processing."
+    },
+    {
+      "question": "What happens if event send fails due to network issues?",
+      "answer": "The SDK returns a Result with an error variant. Implement retry logic with exponential backoff. Consider using transaction IDs for idempotent sends to avoid duplicates during retries."
+    },
+    {
+      "question": "How do I monitor Event Hubs throughput and latency?",
+      "answer": "Use Azure Monitor metrics for Event Hubs namespace. Track IncomingMessages, OutgoingMessages, and Requests metrics. For application-level monitoring, instrument send and receive operations with tracing spans."
+    }
+  ],
+  "seoKeywords": [
+    "Azure Event Hubs Rust",
+    "Claude Code skills",
+    "Rust event streaming",
+    "Codex Azure SDK",
+    "event ingestion Rust",
+    "partitioned streaming",
+    "Claude Code devops",
+    "Azure messaging Rust",
+    "Rust producer consumer",
+    "event-driven architecture"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-eventhub-rust",
+  "sourceType": "community",
+  "dependencies": []
+}

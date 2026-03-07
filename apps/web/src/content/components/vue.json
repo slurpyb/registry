@@ -1,0 +1,146 @@
+{
+  "name": "vue",
+  "type": "skill",
+  "description": "Vue.js progressive JavaScript framework. Use when building Vue components, working with reactivity (ref, reactive, computed, watch), or implementing Vue Composition API patterns.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Vue.js framework",
+  "quality": 5,
+  "qualityReason": "Core frontend skill, precise",
+  "bundleHints": [
+    "vue-stack",
+    "frontend",
+    "fullstack"
+  ],
+  "tags": [
+    "composition-api",
+    "frontend",
+    "javascript",
+    "reactivity",
+    "vue",
+    "vue3"
+  ],
+  "capabilities": [
+    "Guide Vue component architecture using Composition API patterns",
+    "Explain reactive primitives (ref, reactive, computed, watch) and their use cases",
+    "Provide examples for component communication (props, emits, v-model, slots)",
+    "Show TypeScript integration patterns with Vue components",
+    "Demonstrate advanced features like Suspense, async components, and provide/inject",
+    "Explain template refs and DOM access patterns in Vue"
+  ],
+  "author": "antfu",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing Vue.js reference materials. All 493 flagged patterns are in markdown documentation files and represent code examples, not executable code. No actual security risks identified. Safe for publication.",
+  "valueStatement": "Building Vue.js applications requires understanding reactive state management, component composition, and modern JavaScript patterns. This skill provides expert guidance on Vue Composition API, component design, and reactivity fundamentals.",
+  "userTitle": "Build Vue.js Components",
+  "limitations": [
+    "This is a documentation skill - it provides reference information, not code execution",
+    "Does not install or configure Vue projects",
+    "Does not run or test Vue code",
+    "Does not provide backend or deployment guidance"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers new to Vue 3",
+      "title": "Building a Reactive Component",
+      "description": "Learn how to create Vue components with reactive state using ref, reactive, and computed properties."
+    },
+    {
+      "targetUser": "Vue developers building reusable component libraries",
+      "title": "Component Communication Patterns",
+      "description": "Master props, custom events, v-model binding, and scoped slots for flexible component APIs."
+    },
+    {
+      "targetUser": "Developers adding TypeScript to Vue projects",
+      "title": "TypeScript with Vue Composition API",
+      "description": "Write type-safe Vue components with proper TypeScript annotations and inference."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Vue Component",
+      "prompt": "Show me how to create a basic Vue 3 component using the Composition API with script setup. Include reactive state with ref and a computed property.",
+      "scenario": "Learning Vue 3 basics"
+    },
+    {
+      "title": "Custom v-model Component",
+      "prompt": "How do I create a custom component that supports v-model? Show how to handle modelValue prop and update:modelValue emit events.",
+      "scenario": "Building form components with two-way binding"
+    },
+    {
+      "title": "Composable Pattern",
+      "prompt": "Explain the composable pattern in Vue 3. Show how to extract and reuse stateful logic across multiple components using the use prefix convention.",
+      "scenario": "Sharing logic between components"
+    },
+    {
+      "title": "TypeScript Component",
+      "prompt": "Write a Vue 3 component with full TypeScript support. Include typed props with defineProps, typed emits with defineEmits, and proper inference for refs.",
+      "scenario": "Type-safe Vue component development"
+    }
+  ],
+  "bestPractices": [
+    "Use script setup syntax for cleaner, more concise components with better TypeScript support",
+    "Use ref for primitives and reactive for objects - destructure reactive with toRefs()",
+    "Use computed for derived state instead of methods to benefit from caching"
+  ],
+  "antiPatterns": [
+    "Avoid using reactive on primitives - use ref instead",
+    "Do not destructure reactive objects without toRefs() - you lose reactivity",
+    "Avoid mutating props directly - emit events to update parent state"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between ref and reactive in Vue 3?",
+      "answer": "ref creates a reactive wrapper for any value type and requires .value access in script. reactive creates a proxy for objects and maintains deep reactivity. ref is preferred for primitives; reactive for nested objects."
+    },
+    {
+      "question": "How do I share state between components in Vue?",
+      "answer": "Options include props/emits for parent-child, provide/inject for ancestor-descendant, Pinia for global state, and composables for reusable stateful logic."
+    },
+    {
+      "question": "What is the Composition API?",
+      "answer": "The Composition API is a set of functions (ref, reactive, computed, watch, lifecycle hooks) that allow organizing code by feature rather than options object. It enables better TypeScript support and logic reuse."
+    },
+    {
+      "question": "How do I use v-model on a custom component?",
+      "answer": "Accept a modelValue prop and emit update:modelValue. For multiple models, use defineModel or custom naming with v-model:propName."
+    },
+    {
+      "question": "What are lifecycle hooks available in Composition API?",
+      "answer": "onMounted, onUpdated, onUnmounted, onBeforeMount, onBeforeUpdate, onBeforeUnmount, onErrorCaptured, and others matching Options API hooks."
+    },
+    {
+      "question": "How do I access DOM elements in Vue 3?",
+      "answer": "Use template refs with ref() function. Assign the ref to an element with ref attribute. Access the element via ref.value after component mount."
+    }
+  ],
+  "seoKeywords": [
+    "Vue.js",
+    "Vue 3",
+    "Composition API",
+    "Vue components",
+    "reactivity",
+    "ref",
+    "reactive",
+    "computed",
+    "watch",
+    "Vue directives",
+    "Vue slots",
+    "Vue props",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/antfu/skills/tree/main/skills/vue/",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,139 @@
+{
+  "name": "architecture-navigator",
+  "type": "skill",
+  "description": "Understand and navigate the DevPrep AI 7-folder architecture. Use this skill when asked about code organization, where to place new features, what modules exist, or when starting development tasks that need architecture context. Auto-triggers on keywords like \"where should\", \"add module\", \"architecture\", \"structure\", \"organize\", \"place code\", \"what modules\".",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "Codebase navigation",
+  "quality": 5,
+  "qualityReason": "Onboarding and navigation focus",
+  "bundleHints": [
+    "codebase-navigation",
+    "project-onboarding"
+  ],
+  "tags": [
+    "architecture",
+    "best-practices",
+    "code-organization",
+    "dev-environment",
+    "documentation",
+    "folder-structure",
+    "onboarding"
+  ],
+  "capabilities": [
+    "Scan codebase to generate real-time architecture maps",
+    "Answer where should X go placement questions using a decision tree",
+    "List existing modules with file counts and purposes",
+    "Validate code organization against 7-folder structure rules",
+    "Explain import direction rules and forbidden patterns"
+  ],
+  "author": "ArieGoldkin",
+  "icon": "🗺️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation and architecture guidance skill. Contains one read-only bash script that scans project directories using standard POSIX utilities (find, wc, basename, date). Script only reads project structure and outputs markdown summary to stdout. No network access, no file writes beyond stdout, no sensitive data handling. All 156 static findings are FALSE POSITIVES - documentation examples and standard file reading operations.",
+  "valueStatement": "Developers spend time searching for where code should go in a project. This skill provides instant architecture intelligence for the DevPrep AI codebase, including folder maps, placement rules, and validation tools.",
+  "userTitle": "Navigate DevPrep AI architecture instantly",
+  "limitations": [
+    "Project-specific to DevPrep AI 7-folder architecture",
+    "Does not modify or write code to the filesystem",
+    "Does not execute application code or tests",
+    "Requires project root access to run scanner script"
+  ],
+  "useCases": [
+    {
+      "targetUser": "New developers",
+      "title": "Onboarding new team members",
+      "description": "New developers get instant architecture overview to understand project structure and where code belongs."
+    },
+    {
+      "targetUser": "Feature developers",
+      "title": "Adding new features",
+      "description": "Developers building new features receive precise placement guidance for code and files."
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Validating architecture compliance",
+      "description": "Reviewers verify code follows the 7-folder rules and import direction patterns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Architecture overview",
+      "scenario": "Get project structure",
+      "prompt": "What is the architecture structure of this project? What folders exist and what do they contain?"
+    },
+    {
+      "title": "Find module location",
+      "scenario": "Locate existing feature",
+      "prompt": "Where does the assessment module live? What files are in it?"
+    },
+    {
+      "title": "Code placement",
+      "scenario": "Add new feature",
+      "prompt": "Where should I add a new notification system with toast messages?"
+    },
+    {
+      "title": "Architecture validation",
+      "scenario": "Check compliance",
+      "prompt": "Does this code follow the 7-folder architecture rules? Check the import patterns."
+    }
+  ],
+  "bestPractices": [
+    "Scan architecture at the start of development conversations for context",
+    "Always provide exact file paths with reasoning when answering placement questions",
+    "Reference architecture-rules.md for detailed import direction rules"
+  ],
+  "antiPatterns": [
+    "Placing business logic in app instead of modules",
+    "Duplicating reusable components across feature modules instead of using shared",
+    "Allowing modules to import from other modules creating forbidden dependencies"
+  ],
+  "faq": [
+    {
+      "question": "What is the DevPrep AI 7-folder architecture?",
+      "answer": "A domain-driven structure with app, modules, shared, lib, store, styles, and types folders each with specific purposes."
+    },
+    {
+      "question": "Does this skill modify my codebase?",
+      "answer": "No. The scanner only reads project structure and outputs a markdown summary. It does not write files."
+    },
+    {
+      "question": "What keywords trigger this skill?",
+      "answer": "Phrases like where should, add module, architecture, structure, organize, place code, and what modules."
+    },
+    {
+      "question": "Can I use this skill for other projects?",
+      "answer": "No. This skill is designed specifically for the DevPrep AI 7-folder architecture with its rules."
+    },
+    {
+      "question": "How do I run the architecture scanner?",
+      "answer": "Execute bash ./.claude/skills/architecture-navigator/scripts/scan_architecture.sh from your project root."
+    },
+    {
+      "question": "What is the import direction rule?",
+      "answer": "Code flows one way: app to modules to shared to lib to store to types. Modules cannot import from other modules."
+    }
+  ],
+  "seoKeywords": [
+    "DevPrep AI architecture",
+    "7-folder structure",
+    "Claude Code skill",
+    "code organization",
+    "module placement",
+    "folder structure guide",
+    "project architecture",
+    "file organization",
+    "import rules",
+    "domain-driven design"
+  ],
+  "sourceUrl": "https://github.com/ArieGoldkin/devPrepAi/tree/main/.claude/skills/architecture-navigator",
+  "sourceType": "community",
+  "dependencies": []
+}

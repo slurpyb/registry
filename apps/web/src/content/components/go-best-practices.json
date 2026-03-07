@@ -1,0 +1,143 @@
+{
+  "name": "go-best-practices",
+  "type": "skill",
+  "description": "Provides Go patterns for type-first development with custom types, interfaces, functional options, and error handling. Must use when reading or writing Go files.",
+  "domain": "languages",
+  "subdomain": "go",
+  "specialty": "type-first",
+  "quality": 5,
+  "qualityReason": "Core Go philosophy",
+  "bundleHints": [
+    "go-stack",
+    "best-practices"
+  ],
+  "tags": [
+    "best-practices",
+    "error-handling",
+    "functional-options",
+    "go",
+    "golang",
+    "interfaces",
+    "patterns",
+    "programming",
+    "type-system"
+  ],
+  "capabilities": [
+    "Guide type-first development with custom types and structs",
+    "Define interfaces for behavior contracts",
+    "Implement functional options pattern for flexible configuration",
+    "Apply proper error handling with context and wrapping",
+    "Structure Go modules with cohesive package design",
+    "Create exhaustive switch statements with default error handling"
+  ],
+  "author": "0xBigBoss",
+  "icon": "🔷",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure markdown documentation skill containing only guidance for Go programming patterns. No executable code, network calls, filesystem access, or command execution capabilities exist. All 64 static findings are false positives: SHA256 content hashes in metadata were misidentified as cryptographic code, Go code examples using backticks for multi-line strings were misidentified as shell execution, and environment variable loading examples were misidentified as credential access. The previous audit on 2026-01-10 correctly assessed this as safe with no risk factors.",
+  "valueStatement": "Go projects often suffer from runtime errors that could be caught at compile time. This skill provides patterns for type-first development, interfaces, functional options, and proper error handling to prevent bugs before they happen.",
+  "userTitle": "Apply Go best practices for type-safe code",
+  "limitations": [
+    "Does not execute or test Go code",
+    "Does not provide compiler or tooling",
+    "Does not integrate with Go modules or dependencies",
+    "Does not generate complete project scaffolds"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Go developers",
+      "title": "Write type-safe Go code",
+      "description": "Design data structures and interfaces before implementation to make illegal states unrepresentable."
+    },
+    {
+      "targetUser": "Backend engineers",
+      "title": "Build maintainable APIs",
+      "description": "Create clean error handling patterns and functional options for configurable server implementations."
+    },
+    {
+      "targetUser": "AI assistants",
+      "title": "Generate idiomatic Go",
+      "description": "Follow established Go conventions when writing or reviewing Go code for any project."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic type design",
+      "scenario": "Designing a new data model",
+      "prompt": "Design a type-safe Go struct for a [entity] with proper custom types for domain primitives. Include validation at construction and proper error handling."
+    },
+    {
+      "title": "Interface definition",
+      "scenario": "Defining behavior contracts",
+      "prompt": "Define a Go interface for a [repository/service] that accepts context and returns typed results. Show how to accept interfaces and return structs."
+    },
+    {
+      "title": "Functional options",
+      "scenario": "Creating configurable constructors",
+      "prompt": "Implement a NewServer function using the functional options pattern with sensible defaults. Include examples for port, timeout, and custom configuration."
+    },
+    {
+      "title": "Complete implementation",
+      "scenario": "Building a full Go package",
+      "prompt": "Implement a complete Go package following type-first development: define types first, create interfaces, implement error wrapping with %w, and add table-driven tests."
+    }
+  ],
+  "bestPractices": [
+    "Define types and interfaces before implementation to let the compiler guide completeness.",
+    "Accept interfaces, return structs to maximize flexibility while controlling API surface.",
+    "Return new values instead of mutating inputs to make data flow explicit."
+  ],
+  "antiPatterns": [
+    "Using generic types like string or int instead of domain-specific custom types.",
+    "Returning errors without context using bare errors.New without wrapping.",
+    "Skipping default cases in switch statements, allowing silent failures."
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with Go 1.18+ generics?",
+      "answer": "Yes. The patterns focus on type-first development. Generics can complement custom types when appropriate."
+    },
+    {
+      "question": "What Go versions are supported?",
+      "answer": "Go 1.17 and later. Error wrapping with %w requires Go 1.13+."
+    },
+    {
+      "question": "Can this integrate with my existing Go project?",
+      "answer": "This is a prompt skill. It guides AI assistants working on your code but does not modify files directly."
+    },
+    {
+      "question": "Is any data sent to external servers?",
+      "answer": "No. This skill contains only documentation patterns. No network calls or data transmission occurs."
+    },
+    {
+      "question": "How does this compare to golangci-lint?",
+      "answer": "This skill provides design patterns. golangci-lint enforces code quality. Use both together."
+    },
+    {
+      "question": "Should I use this for every Go file?",
+      "answer": "Load this skill when working with Go files. The patterns apply to most Go code you write."
+    }
+  ],
+  "seoKeywords": [
+    "Go best practices",
+    "Go patterns",
+    "type-first development",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "Go interfaces",
+    "functional options Go",
+    "Go error handling",
+    "Go programming"
+  ],
+  "sourceUrl": "https://github.com/0xBigBoss/claude-code/tree/main/.claude/skills/go-best-practices",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "regulatory-affairs-head",
+  "type": "skill",
+  "description": "Senior Regulatory Affairs Manager expertise for HealthTech and MedTech companies. Provides strategic regulatory guidance, submission management, regulatory pathway analysis, global compliance coordination, and cross-functional team leadership. Use for regulatory strategy development, submission planning, regulatory risk assessment, and team coordination activities.",
+  "domain": "business",
+  "subdomain": "compliance",
+  "specialty": "HealthTech compliance",
+  "quality": 5,
+  "qualityReason": "High-stakes domain expertise",
+  "bundleHints": [
+    "healthtech-compliance",
+    "regulatory"
+  ],
+  "tags": [
+    "compliance",
+    "eu-mdr",
+    "fda",
+    "global-compliance",
+    "medical-devices",
+    "medtech",
+    "regulatory-affairs",
+    "regulatory-pathway",
+    "submission-management"
+  ],
+  "capabilities": [
+    "Develop comprehensive regulatory strategies for FDA 510(k), PMA, and EU MDR submissions",
+    "Coordinate cross-functional regulatory teams across product development lifecycle",
+    "Manage regulatory submission timelines and track approval progress",
+    "Conduct regulatory risk assessments and create mitigation plans",
+    "Prepare regulatory authority communications and documentation"
+  ],
+  "author": "alirezarezvani",
+  "icon": "⚖️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 76 static findings are false positives. The scanner incorrectly flagged regulatory documentation terminology (Module C2, Annex II, design controls) as security keywords and mistook markdown code fences for shell execution. The Python script performs standard JSON file I/O for local submission tracking. No malicious code exists.",
+  "valueStatement": "Medical device companies face complex global regulatory requirements that delay market access and increase compliance costs. This skill provides expert regulatory affairs guidance for FDA submissions, EU MDR compliance, ISO certifications, and cross-functional team coordination.",
+  "userTitle": "Lead Regulatory Strategy for Medical Devices",
+  "limitations": [
+    "Does not provide legal advice or replace regulatory consultants for specific submissions",
+    "Cannot submit regulatory documents to authorities on your behalf",
+    "Does not access real-time regulatory databases or authority systems",
+    "Assumes user has access to current regulatory guidance documents"
+  ],
+  "useCases": [
+    {
+      "targetUser": "HealthTech Startup Founders",
+      "title": "Build Regulatory Foundation",
+      "description": "Develop initial regulatory strategy and identify submission pathways for novel medical devices entering global markets."
+    },
+    {
+      "targetUser": "Regulatory Affairs Managers",
+      "title": "Optimize Submission Process",
+      "description": "Streamline FDA and EU MDR submission preparation, track progress, and coordinate cross-functional teams."
+    },
+    {
+      "targetUser": "Quality Assurance Teams",
+      "title": "Prepare for Certification Audits",
+      "description": "Coordinate ISO 13485 certification readiness and manage regulatory authority inspection preparation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Regulatory Strategy Development",
+      "scenario": "New device market entry",
+      "prompt": "Help me develop a regulatory strategy for a [device type] targeting [markets]. The device is classified as [Class I/II/III] and has these key features: [list features]. What submission pathways should I consider and what is the estimated timeline?"
+    },
+    {
+      "title": "FDA Submission Planning",
+      "scenario": "510(k) preparation",
+      "prompt": "Guide me through the 510(k) submission process for a [device type]. I need to identify a predicate device, understand substantial equivalence requirements, and create a preparation checklist."
+    },
+    {
+      "title": "EU MDR Compliance",
+      "scenario": "CE marking preparation",
+      "prompt": "Help me understand EU MDR 2017/745 requirements for my [Class I/IIa/IIb/III] medical device. What technical documentation do I need and how do I engage with a Notified Body?"
+    },
+    {
+      "title": "Cross-Functional Coordination",
+      "scenario": "Team alignment",
+      "prompt": "Create a regulatory coordination plan for my cross-functional team. We have [departments involved] working on [device name]. What meetings, deliverables, and handoff points do we need?"
+    }
+  ],
+  "bestPractices": [
+    "Start regulatory strategy early in product development to inform design decisions and avoid costly rework",
+    "Engage with regulatory authorities through pre-submission meetings to validate pathway and identify concerns",
+    "Maintain comprehensive documentation throughout development to support both FDA and EU MDR requirements"
+  ],
+  "antiPatterns": [
+    "Waiting until late-stage development to begin regulatory planning, which creates timeline pressure and design constraints",
+    "Using outdated regulatory guidance without checking for recent changes or new requirements",
+    "Treating regulatory affairs as an isolated function rather than integrating it across product development"
+  ],
+  "faq": [
+    {
+      "question": "What markets does this skill support?",
+      "answer": "This skill covers FDA (US), EU MDR, ISO standards, and general global regulatory pathways for medical devices and HealthTech products."
+    },
+    {
+      "question": "Can this skill prepare my actual regulatory submission?",
+      "answer": "No, this skill provides strategic guidance and templates. You must prepare actual submission documents using current authority templates and guidelines."
+    },
+    {
+      "question": "Does this skill replace a regulatory consultant?",
+      "answer": "No, this skill augments regulatory knowledge but does not provide legal advice or replace specialized consultants for complex submissions."
+    },
+    {
+      "question": "What device classes are supported?",
+      "answer": "All device classes (I, II, III) for both FDA and EU MDR classification systems are covered with appropriate pathways and requirements."
+    },
+    {
+      "question": "How does this skill handle software as medical device (SaMD)?",
+      "answer": "The skill includes specific guidance for SaMD including FDA software documentation requirements and cybersecurity considerations."
+    },
+    {
+      "question": "What tracking capabilities are included?",
+      "answer": "The included regulatory_tracker.py script helps monitor submission status, track deadlines, and generate compliance reports locally."
+    }
+  ],
+  "seoKeywords": [
+    "regulatory affairs",
+    "medical device compliance",
+    "FDA submission",
+    "EU MDR",
+    "ISO 13485",
+    "regulatory strategy",
+    "healthtech",
+    "medtech",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/regulatory-affairs-head",
+  "sourceType": "community",
+  "dependencies": []
+}

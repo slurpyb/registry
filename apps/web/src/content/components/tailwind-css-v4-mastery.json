@@ -1,0 +1,144 @@
+{
+  "name": "tailwind-css-v4-mastery",
+  "type": "skill",
+  "description": "Expert guidance for leveraging Tailwind CSS V4's new Oxide engine, CSS-first configuration, and modern styling paradigms. This skill transforms Claude into a Tailwind V4 architecture specialist, capable of designing component systems, optimizing performance, and executing complex styling challenges with precision.\n",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "V4 architecture",
+  "quality": 5,
+  "qualityReason": "Expert-level version mastery",
+  "bundleHints": [
+    "tailwind-v4",
+    "styling-architecture"
+  ],
+  "tags": [
+    "configuration",
+    "css",
+    "css-first",
+    "design-systems",
+    "frontend",
+    "modern-styling",
+    "oxide",
+    "styling",
+    "tailwind",
+    "tailwind-v4"
+  ],
+  "capabilities": [
+    "Migrate projects from Tailwind v3 to v4 with automated scripts",
+    "Design component systems using CSS-first @theme configuration",
+    "Optimize build performance with Oxide engine (10-100x faster)",
+    "Create multi-theme and enterprise brand systems",
+    "Troubleshoot breaking changes and gotchas",
+    "Generate CSS variables and modern styling patterns"
+  ],
+  "author": "Calel33",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing Tailwind CSS V4 guides and one benign migration shell script. The static analyzer generated 435 false positives by misinterpreting markdown backticks as shell execution, documentation URLs as network threats, and text patterns like 'md' as weak cryptography. All findings are false positives - no cryptographic code, no credential access, no exfiltration patterns, no malicious behavior exists. The migration script only performs standard file backup and sed operations for CSS migration purposes.",
+  "valueStatement": "Tailwind CSS V4 introduces revolutionary changes with its Oxide engine and CSS-first configuration. This skill provides expert guidance to navigate migration, optimize performance, and build modern design systems.",
+  "userTitle": "Master Tailwind CSS V4 with AI-powered guidance",
+  "limitations": [
+    "Requires modern browsers (Safari 16.4+, Chrome 111+, Firefox 128+)",
+    "No support for Tailwind v3 or legacy configuration files",
+    "Focused on CSS architecture, not framework-specific implementations",
+    "Migration script handles common patterns but may need manual review"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers upgrading existing projects",
+      "title": "Migrate from Tailwind v3 to v4",
+      "description": "Automated migration with breaking change detection, utility updates, and configuration conversion from JavaScript to CSS-first approach."
+    },
+    {
+      "targetUser": "Design system architects and UI engineers",
+      "title": "Build modern component libraries",
+      "description": "Create scalable design systems with CSS variables, multi-theme support, and component-scoped styling using V4's architecture."
+    },
+    {
+      "targetUser": "Performance-focused development teams",
+      "title": "Optimize build performance",
+      "description": "Achieve 10-100x faster builds with Oxide engine configuration, plugin selection, and CSS optimization patterns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Migration Check",
+      "scenario": "I have a v3 project - what breaks?",
+      "prompt": "I need to migrate my Tailwind v3 project to v4. Can you check what breaking changes affect my current setup? I use shadows, rounded corners, and opacity utilities extensively."
+    },
+    {
+      "title": "Component System Design",
+      "scenario": "Building a reusable button system",
+      "prompt": "Help me design a button component system in Tailwind V4 with primary/secondary variants, sizes, and dark mode support using @theme configuration."
+    },
+    {
+      "title": "Performance Optimization",
+      "scenario": "My builds are slow with PostCSS",
+      "prompt": "My Tailwind v4 builds are taking 2-3 seconds with PostCSS. How can I optimize this? I'm using Webpack in a Next.js project."
+    },
+    {
+      "title": "Multi-Brand Enterprise Setup",
+      "scenario": "Need theming for multiple brands",
+      "prompt": "I need to support 5 different brand themes in our enterprise app. Show me how to set up CSS variables and theme switching with data attributes in Tailwind V4."
+    }
+  ],
+  "bestPractices": [
+    "Always use -- prefix in @theme blocks: --color-primary not color-primary",
+    "Choose the right plugin for your build tool: @tailwindcss/vite for Vite, @tailwindcss/postcss for Webpack",
+    "Test border colors and ring widths after migration - defaults changed significantly"
+  ],
+  "antiPatterns": [
+    "Don't keep tailwind.config.js - V4 ignores it completely. Use @theme in CSS instead",
+    "Avoid defining complete color palettes - override only what you need from defaults",
+    "Never use opacity utilities - they're removed. Use color modifiers like bg-black/50 instead"
+  ],
+  "faq": [
+    {
+      "question": "Is this compatible with Tailwind v3 projects?",
+      "answer": "No, this skill focuses exclusively on Tailwind CSS V4. V3 uses different configuration and utility names."
+    },
+    {
+      "question": "What browsers does V4 support?",
+      "answer": "Modern browsers only: Safari 16.4+, Chrome 111+, Firefox 128+. Legacy support requires staying on v3."
+    },
+    {
+      "question": "Can I use this with any framework?",
+      "answer": "Yes, the skill works with React, Vue, Svelte, or vanilla HTML. Plugin selection varies by build tool."
+    },
+    {
+      "question": "Is my data safe during migration?",
+      "answer": "Yes, the migration script creates backups and only modifies CSS/HTML files, not your application logic."
+    },
+    {
+      "question": "What if the migration script breaks something?",
+      "answer": "The script backs up all files to .tailwind-v3-backup/. You can manually review changes or restore originals."
+    },
+    {
+      "question": "How does this compare to official Tailwind docs?",
+      "answer": "This skill provides decision trees, automated scripts, and practical patterns beyond basic documentation."
+    }
+  ],
+  "seoKeywords": [
+    "tailwind css v4",
+    "tailwind 4 migration",
+    "oxide engine",
+    "css-first configuration",
+    "tailwind performance",
+    "claude code",
+    "tailwind components",
+    "design systems",
+    "claude ai",
+    "codex"
+  ],
+  "sourceUrl": "https://github.com/Calel33/my-flash-ui-app--1-/tree/main/skills/tailwindv4",
+  "sourceType": "community",
+  "dependencies": []
+}

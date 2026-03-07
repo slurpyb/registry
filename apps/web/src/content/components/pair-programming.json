@@ -1,0 +1,147 @@
+{
+  "name": "pair-programming",
+  "type": "skill",
+  "description": "AI-assisted pair programming with multiple modes (driver/navigator/switch), real-time verification, quality monitoring, and comprehensive testing. Supports TDD, debugging, refactoring, and learning sessions. Features automatic role switching, continuous code review, security scanning, and performance optimization with truth-score verification.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "AI collaboration",
+  "quality": 5,
+  "qualityReason": "Comprehensive development mode",
+  "bundleHints": [
+    "collaborative-coding",
+    "ai-pair"
+  ],
+  "tags": [
+    "ai-assistance",
+    "code-review",
+    "collaborative",
+    "debugging",
+    "development",
+    "driver-navigator",
+    "learning",
+    "pair-programming",
+    "real-time",
+    "refactoring",
+    "tdd"
+  ],
+  "capabilities": [
+    "Switch between Driver and Navigator modes for different collaboration styles",
+    "Run Test-Driven Development cycles with auto-generated tests",
+    "Receive real-time code review with security and performance analysis",
+    "Use automated role switching for knowledge sharing sessions",
+    "Generate test coverage reports and quality metrics",
+    "Debug issues with AI-assisted root cause analysis"
+  ],
+  "author": "DNYoussef",
+  "icon": "👥",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown files describing CLI commands for the claude-flow pair programming tool. No executable code, scripts, or network capabilities exist. All 182 static findings are false positives triggered by documentation patterns: markdown backtick syntax for code formatting, security-related terminology in documentation examples, and standard CLI documentation patterns. The skill consists of 1203 lines of markdown documentation in SKILL.md.",
+  "valueStatement": "Writing code alone slows you down and limits your learning. This skill enables AI-assisted pair programming with flexible driver-navigator roles, automatic testing, and continuous code review. You get real-time quality feedback while accelerating development and learning best practices.",
+  "userTitle": "Collaborate with AI for Code Development",
+  "limitations": [
+    "Requires Claude Flow CLI installation to function",
+    "Only supports projects with command-line access",
+    "Does not integrate with all IDEs or editors",
+    "Quality depends on clear session objectives and human input"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Junior Developers",
+      "title": "Learn by Doing",
+      "description": "Work alongside AI to learn patterns, receive explanations, and build skills with guided feedback"
+    },
+    {
+      "targetUser": "Senior Engineers",
+      "title": "Accelerate Development",
+      "description": "Pair with AI for rapid prototyping, code reviews, and handling repetitive implementation tasks"
+    },
+    {
+      "targetUser": "Teams",
+      "title": "Improve Code Quality",
+      "description": "Run TDD sessions with automatic testing and continuous review to maintain high standards"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start Session",
+      "scenario": "Begin a pair programming session",
+      "prompt": "Start a pair programming session in [driver|navigator|switch|tdd|mentor|debug] mode to [implement feature|fix bug|learn pattern|refactor code]"
+    },
+    {
+      "title": "Generate Tests",
+      "scenario": "Create tests for existing code",
+      "prompt": "Generate comprehensive tests for the current code including edge cases and error scenarios"
+    },
+    {
+      "title": "Code Review",
+      "scenario": "Review code for issues",
+      "prompt": "Review the current code for security issues, performance problems, and style violations"
+    },
+    {
+      "title": "Debug Issue",
+      "scenario": "Fix a bug",
+      "prompt": "Help me debug this issue. Analyze the error, identify the root cause, and suggest a fix with explanation"
+    }
+  ],
+  "bestPractices": [
+    "Define clear goals before starting a session",
+    "Choose the right mode for your task type",
+    "Run tests after each code change",
+    "Use verification to maintain quality standards"
+  ],
+  "antiPatterns": [
+    "Starting sessions without clear objectives",
+    "Skipping tests for small changes",
+    "Ignoring truth score warnings",
+    "Running long sessions without breaks"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code for pair programming assistance"
+    },
+    {
+      "question": "What is the truth score?",
+      "answer": "Truth score measures code quality based on tests, coverage, and reviews. Scores above 0.95 are good"
+    },
+    {
+      "question": "Can I use this offline?",
+      "answer": "The skill requires Claude Flow CLI which needs internet for AI model access"
+    },
+    {
+      "question": "Is my code safe?",
+      "answer": "All processing happens locally. Code is only sent to configured AI endpoints based on your settings"
+    },
+    {
+      "question": "Why did my session disconnect?",
+      "answer": "Check network, reduce verification intensity, or use background session mode for long work"
+    },
+    {
+      "question": "How does this differ from coding alone?",
+      "answer": "AI provides real-time feedback, generates tests, reviews code, and explains decisions as you work"
+    }
+  ],
+  "seoKeywords": [
+    "pair programming",
+    "AI collaboration",
+    "Claude Code",
+    "software development",
+    "code review",
+    "test-driven development",
+    "debugging assistance",
+    "code quality",
+    "developer tools",
+    "claude"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/pair-programming",
+  "sourceType": "community",
+  "dependencies": []
+}

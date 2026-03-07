@@ -1,0 +1,143 @@
+{
+  "name": "azure-eventhub-dotnet",
+  "type": "skill",
+  "description": "This skill provides guidance and code assistance for working with Azure Event Hubs in .NET applications using the Azure.Messaging.EventHubs library. It helps developers implement event streaming, publish-subscribe patterns, and real-time data processing solutions.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "event streaming",
+  "quality": 5,
+  "qualityReason": "Specific SDK use case",
+  "bundleHints": [
+    "azure-events",
+    "dotnet-streaming",
+    "pipelines"
+  ],
+  "tags": [
+    "azure",
+    "dotnet",
+    "event-hubs",
+    "event-streaming",
+    "high-throughput",
+    "messaging",
+    "pubsub",
+    "streaming"
+  ],
+  "capabilities": [
+    "Generate producer code for publishing events to Event Hubs",
+    "Generate consumer code for processing events from Event Hubs",
+    "Explain Event Hubs concepts including partitions, consumer groups, and checkpoints",
+    "Provide guidance on connection string management and authentication",
+    "Assist with event batch processing and throughput optimization",
+    "Help troubleshoot common Event Hubs issues and errors"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only skill with no executable code. The static analyzer scanned 0 files (0 lines) and detected no security issues. The skill provides guidance on Azure Event Hubs .NET SDK usage through prompts and documentation. No dangerous patterns, network requests, filesystem access, environment variable usage, or external command execution were detected.",
+  "valueStatement": "This skill helps developers integrate Azure Event Hubs into .NET applications for real-time event streaming, enabling scalable pub-sub messaging and event-driven architectures.",
+  "userTitle": "Build Event Streaming with Azure Event Hubs",
+  "limitations": [
+    "Does not provide live Azure account or Event Hubs namespace",
+    "Cannot execute actual network requests to Azure services",
+    "Does not manage or provision Azure resources",
+    "Generated code samples require valid Azure subscription and Event Hubs instance"
+  ],
+  "useCases": [
+    {
+      "targetUser": ".NET developers building distributed applications",
+      "title": "Build event-driven microservices",
+      "description": "Create loosely coupled microservices that communicate through event streaming for scalable distributed systems"
+    },
+    {
+      "targetUser": "Data engineers and IoT developers",
+      "title": "Implement real-time data pipelines",
+      "description": "Process streaming data from IoT devices, click streams, or log aggregation in real-time"
+    },
+    {
+      "targetUser": "Enterprise developers modernizing infrastructure",
+      "title": "Modernize legacy messaging systems",
+      "description": "Migrate from traditional message queues to event streaming with Event Hubs integration"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic event producer",
+      "prompt": "Show me how to create an Event Hubs producer in .NET to send messages to a specific hub.",
+      "scenario": "Starting new project with Event Hubs integration"
+    },
+    {
+      "title": "Event consumer with checkpointing",
+      "prompt": "Create an Event Hubs consumer that processes events and saves checkpoints for reliable processing.",
+      "scenario": "Building reliable event processing pipeline"
+    },
+    {
+      "title": "Batch event publishing",
+      "prompt": "Generate code to publish events in batches for better throughput and performance.",
+      "scenario": "Optimizing high-volume event streaming"
+    },
+    {
+      "title": "Partition routing strategy",
+      "prompt": "Explain how to implement a partition routing strategy for ordered event processing.",
+      "scenario": "Implementing ordered event processing across multiple partitions"
+    }
+  ],
+  "bestPractices": [
+    "Use partition keys for related events to maintain ordering within a partition",
+    "Implement checkpointing in consumers to enable resume after failures",
+    "Use batch publishing for high-throughput scenarios to reduce network overhead"
+  ],
+  "antiPatterns": [
+    "Do not create a new producer for each message - reuse producer instances",
+    "Avoid processing events synchronously in the receive callback - use async processing",
+    "Do not ignore the PartitionContext when implementing checkpointing for reliable processing"
+  ],
+  "faq": [
+    {
+      "question": "What is Azure Event Hubs?",
+      "answer": "Azure Event Hubs is a fully managed real-time event streaming service from Microsoft Azure. It can ingest millions of events per second from various sources and deliver them to multiple consumers."
+    },
+    {
+      "question": "Do I need an Azure account to use this skill?",
+      "answer": "This skill provides code guidance and examples. To run the generated code, you need an Azure subscription and an Event Hubs namespace with an event hub."
+    },
+    {
+      "question": "What is the difference between partitions and consumer groups?",
+      "answer": "Partitions are physical divisions of the event stream that enable parallel processing. Consumer groups are logical views that allow multiple independent consumers to read the same stream at different positions."
+    },
+    {
+      "question": "How do I handle event ordering?",
+      "answer": "Events within a single partition are ordered. To maintain ordering across related events, use a partition key when sending events to ensure they go to the same partition."
+    },
+    {
+      "question": "What is checkpointing?",
+      "answer": "Checkpointing is the process of saving the position of processed events so that if the consumer restarts, it can resume from where it left off rather than reprocessing all events."
+    },
+    {
+      "question": "Can this skill help with Azure IoT Hub integration?",
+      "answer": "Yes, Azure IoT Hub can stream events to Event Hubs using built-in endpoints. This skill can help you create consumers that process these events from the IoT Hub-compatible endpoint."
+    }
+  ],
+  "seoKeywords": [
+    "Azure Event Hubs",
+    ".NET SDK",
+    "event streaming",
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "Azure messaging",
+    "pub-sub pattern",
+    "event-driven architecture",
+    "real-time data"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-eventhub-dotnet",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "forensics-osquery",
+  "type": "skill",
+  "description": "SQL-powered forensic investigation and system interrogation using osquery to query operating systems as relational databases. Enables rapid evidence collection, threat hunting, and incident response across Linux, macOS, and Windows endpoints. Use when: (1) Investigating security incidents and collecting forensic artifacts, (2) Threat hunting across endpoints for suspicious activity, (3) Analyzing running processes, network connections, and persistence mechanisms, (4) Collecting system state during incident response, (5) Querying file hashes, user activity, and system configuration for compromise indicators, (6) Building detection queries for continuous monitoring with osqueryd.\n",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "system forensics",
+  "quality": 5,
+  "qualityReason": "Powerful forensic tool",
+  "bundleHints": [
+    "incident-response",
+    "security-forensics"
+  ],
+  "tags": [
+    "dfir",
+    "endpoint-detection",
+    "evidence",
+    "forensics",
+    "incident-response",
+    "live-forensics",
+    "os-introspection",
+    "osquery",
+    "sql",
+    "threat-hunting"
+  ],
+  "capabilities": [
+    "Query running processes, network connections, and persistence mechanisms using SQL",
+    "Collect forensic artifacts across Linux, macOS, and Windows endpoints",
+    "Hunt for MITRE ATT&CK techniques with pre-built detection queries",
+    "Analyze persistence mechanisms like scheduled tasks, startup items, and registry keys",
+    "Detect credential dumping, lateral movement, and suspicious processes",
+    "Generate forensic timelines and evidence collection for incident response"
+  ],
+  "author": "AgentSecOps",
+  "icon": "🔍",
+  "version": "0.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 810 static findings are FALSE POSITIVES. This is a legitimate DFIR (Digital Forensics and Incident Response) skill using osquery SQL queries to detect malicious activity. The scanner detected detection queries for credential access, PowerShell commands, and suspicious processes - but these are intentionally designed to identify indicators of compromise, not perform malicious actions. Skill includes MITRE ATT&CK mapping and forensic packs for incident response.",
+  "valueStatement": "This skill provides SQL-powered forensic investigation using osquery to query operating systems as databases. Use it to collect forensic evidence, hunt for threats, and respond to incidents across Linux, macOS, and Windows endpoints.",
+  "userTitle": "Investigate security incidents with osquery SQL forensics",
+  "limitations": [
+    "Requires osquery installed on target systems",
+    "Cannot access systems without osquery daemon running",
+    "Some queries require administrator or root privileges",
+    "Does not perform live memory acquisition or disk imaging"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security Analysts",
+      "title": "Incident Response Triage",
+      "description": "Rapidly collect system state during security incidents including processes, connections, and user activity."
+    },
+    {
+      "targetUser": "Threat Hunters",
+      "title": "Hunt for Attack Techniques",
+      "description": "Execute MITRE ATT&CK mapped queries to detect adversary techniques across endpoints."
+    },
+    {
+      "targetUser": "SOC Teams",
+      "title": "Endpoint Visibility Queries",
+      "description": "Query fleets of systems for Indicators of Compromise (IOCs) using SQL-based osquery."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Process Query",
+      "scenario": "List suspicious processes",
+      "prompt": "Show me all running processes with deleted executables using osquery"
+    },
+    {
+      "title": "Network Analysis",
+      "scenario": "Find listening ports",
+      "prompt": "Find processes listening on external network interfaces with their full command lines"
+    },
+    {
+      "title": "Persistence Hunt",
+      "scenario": "Check startup mechanisms",
+      "prompt": "Query all persistence mechanisms including cron jobs, systemd services, and registry run keys"
+    },
+    {
+      "title": "Credential Access",
+      "scenario": "Detect credential theft",
+      "prompt": "Detect processes accessing /etc/shadow, SAM database, or browser credential files"
+    }
+  ],
+  "bestPractices": [
+    "Test queries in a lab environment before running on production systems",
+    "Use WHERE clauses to limit query scope and reduce performance impact",
+    "Export query results for evidence preservation with JSON or CSV output"
+  ],
+  "antiPatterns": [
+    "Do not run unbounded queries on production systems without filtering",
+    "Do not modify systems during live forensics - use read-only queries",
+    "Do not rely solely on osquery for real-time alerting without osqueryd"
+  ],
+  "faq": [
+    {
+      "question": "What is osquery?",
+      "answer": "Osquery is an open-source framework that exposes operating system information as queryable SQL tables for endpoint visibility."
+    },
+    {
+      "question": "Does this skill perform live forensics?",
+      "answer": "It collects forensic data through queries but does not perform memory acquisition or disk imaging."
+    },
+    {
+      "question": "What platforms are supported?",
+      "answer": "Linux, macOS, and Windows endpoints are supported with platform-specific queries."
+    },
+    {
+      "question": "Do I need special permissions?",
+      "answer": "Root or administrator privileges are required for kernel modules, process memory, and sensitive tables."
+    },
+    {
+      "question": "How is this different from EDR?",
+      "answer": "Osquery provides ad-hoc SQL queries for investigation; EDR provides continuous monitoring with alerting."
+    },
+    {
+      "question": "What MITRE ATT&CK techniques can be detected?",
+      "answer": "Coverage includes Initial Access, Execution, Persistence, Privilege Escalation, Credential Access, Discovery, Lateral Movement, and Collection techniques."
+    }
+  ],
+  "seoKeywords": [
+    "osquery forensics",
+    "incident response",
+    "threat hunting",
+    "endpoint investigation",
+    "digital forensics",
+    "SQL system queries",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/AgentSecOps/SecOpsAgentKit/tree/main/skills/incident-response/forensics-osquery",
+  "sourceType": "community",
+  "dependencies": []
+}

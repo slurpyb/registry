@@ -1,0 +1,141 @@
+{
+  "name": "security-scanning-security-sast",
+  "type": "skill",
+  "description": "Static Application Security Testing (SAST) for code vulnerability",
+  "domain": "security",
+  "subdomain": "devsecops",
+  "specialty": "Static analysis",
+  "quality": 5,
+  "qualityReason": "Specific technique with broad coverage",
+  "bundleHints": [
+    "sast-tooling",
+    "devsecops"
+  ],
+  "tags": [
+    "code-security",
+    "frameworks",
+    "multi-language",
+    "sast",
+    "security",
+    "static-analysis",
+    "vulnerability-scanning"
+  ],
+  "capabilities": [
+    "Guide configuration and execution of Bandit for Python security scanning",
+    "Set up Semgrep with custom rules for pattern-based vulnerability detection",
+    "Configure ESLint Security plugins for JavaScript and TypeScript analysis",
+    "Provide vulnerability pattern documentation for SQL injection, XSS, path traversal, and more",
+    "Offer framework-specific security guidance for Django, Flask, Express, Spring Boot, and Rails",
+    "Integrate SAST scanning into CI/CD pipelines with GitHub Actions and GitLab CI"
+  ],
+  "author": "sickn33",
+  "icon": "🔒",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only documentation skill providing SAST (Static Application Security Testing) guidance. The static analyzer scanned 0 executable files (0 lines of code) because the skill consists entirely of markdown documentation (SKILL.md). No suspicious patterns or risk factors were detected. The skill provides legitimate security guidance for configuring and running established SAST tools like Bandit, Semgrep, and ESLint Security.",
+  "valueStatement": "This skill provides comprehensive static application security testing guidance to identify vulnerabilities in code before deployment. It guides users through configuring and running multiple SAST tools for different languages and frameworks.",
+  "userTitle": "Scan Code for Security Vulnerabilities",
+  "limitations": [
+    "Does not execute scans directly - provides guidance and configuration for external tools",
+    "Cannot access source code without explicit user action",
+    "Does not perform runtime or dynamic security testing",
+    "Requires user to install and maintain SAST tools independently"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers and DevOps engineers preparing releases",
+      "title": "Pre-deployment Security Review",
+      "description": "Run comprehensive SAST scans before deploying code to production to catch vulnerabilities early."
+    },
+    {
+      "targetUser": "Security engineers and technical leads",
+      "title": "Legacy Code Security Assessment",
+      "description": "Audit inherited or older codebases for security issues and technical debt."
+    },
+    {
+      "targetUser": "DevOps teams and platform engineers",
+      "title": "CI/CD Security Gates",
+      "description": "Integrate automated security scanning into pull request workflows to block vulnerable code."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Python Security Scan",
+      "prompt": "Help me set up and run Bandit to scan my Python project for security vulnerabilities. I have a Django application in the current directory.",
+      "scenario": "Setting up basic Python SAST scanning"
+    },
+    {
+      "title": "Multi-language Security Audit",
+      "prompt": "I need to run a comprehensive security scan across a project with Python, JavaScript, and Go code. Show me how to configure Semgrep to scan all these languages and aggregate the results.",
+      "scenario": "Running multi-language SAST analysis"
+    },
+    {
+      "title": "Custom Security Rules",
+      "prompt": "Our organization has specific security policies. Create a Semgrep custom rule to detect our internal API keys being hardcoded in any source file.",
+      "scenario": "Creating organization-specific security rules"
+    },
+    {
+      "title": "CI/CD Integration Setup",
+      "prompt": "Set up a GitHub Actions workflow that runs SAST scans on every pull request. Include Bandit for Python, ESLint Security for JavaScript, and fail the build if HIGH or CRITICAL vulnerabilities are found.",
+      "scenario": "Configuring automated security scanning in CI"
+    }
+  ],
+  "bestPractices": [
+    "Run SAST scans early in development using pre-commit hooks to catch issues before they reach code review",
+    "Combine multiple SAST tools as each catches different vulnerability types - Bandit for Python, Semgrep for multi-language, ESLint for JS/TS",
+    "Tune false positives by configuring exclusions for test files, generated code, and known-safe patterns"
+  ],
+  "antiPatterns": [
+    "Running scans without reviewing or triaging results - high false positive rates can cause alert fatigue",
+    "Blocking deployments on any finding instead of prioritizing by severity (CRITICAL/HIGH only)",
+    "Uploading proprietary code to external scanning services without verifying data handling policies"
+  ],
+  "faq": [
+    {
+      "question": "What is SAST and how does it differ from DAST?",
+      "answer": "SAST (Static Application Security Testing) analyzes source code without executing it, finding vulnerabilities like hardcoded secrets and injection flaws. DAST (Dynamic Application Security Testing) tests running applications to find runtime issues. SAST catches problems early in development; DAST finds issues in deployed systems."
+    },
+    {
+      "question": "Which SAST tools does this skill support?",
+      "answer": "This skill covers multiple tools: Bandit (Python), Semgrep (multi-language), ESLint Security (JavaScript/TypeScript), SpotBugs (Java), Brakeman (Ruby), gosec (Go), and cargo-clippy (Rust). Each tool has specific strengths for different languages."
+    },
+    {
+      "question": "Can this skill detect all security vulnerabilities?",
+      "answer": "No. SAST tools have limitations - they cannot detect runtime vulnerabilities, authentication issues, or business logic flaws. They work best for known patterns like injection attacks and hardcoded secrets. Complement SAST with DAST and manual code review for comprehensive coverage."
+    },
+    {
+      "question": "How do I handle false positives from SAST tools?",
+      "answer": "Configure exclusion rules for test files, generated code, and false positives. Use severity filtering to focus on CRITICAL and HIGH issues. Document baseline exceptions in your configuration. Regularly update tool rules to reduce noise."
+    },
+    {
+      "question": "Is it safe to run external SAST tools on proprietary code?",
+      "answer": "Most SAST tools run locally. However, some cloud-based services upload code for analysis. Review tool privacy policies. For sensitive code, use self-hosted tools like Semgrep or Bandit that run entirely locally without data transmission."
+    },
+    {
+      "question": "How do I integrate SAST into my CI/CD pipeline?",
+      "answer": "Add scan steps after code checkout and dependency installation. Run tools like Bandit and Semgrep, output results to JSON. Use pipeline rules to fail builds on CRITICAL/HIGH findings. Upload reports as artifacts for review. Examples for GitHub Actions and GitLab CI are included in this skill."
+    }
+  ],
+  "seoKeywords": [
+    "Claude security scanning",
+    "Codex SAST tool",
+    "Claude Code vulnerability detection",
+    "static analysis security",
+    "code vulnerability scanner",
+    "bandit semgrep eslint security",
+    "secure coding practices",
+    "OWASP vulnerability detection",
+    "pre-deployment security scan",
+    "multi-language security scanner"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/security-scanning-security-sast",
+  "sourceType": "community",
+  "dependencies": []
+}

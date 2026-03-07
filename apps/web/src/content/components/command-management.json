@@ -1,0 +1,142 @@
+{
+  "name": "command-management",
+  "type": "skill",
+  "description": "Use PROACTIVELY this skill when you need to create or update custom commands following best practices",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "custom commands",
+  "quality": 5,
+  "qualityReason": "Well-scoped command lifecycle support",
+  "bundleHints": [
+    "workflow-automation",
+    "claude-code"
+  ],
+  "tags": [
+    "automation",
+    "best-practices",
+    "claude-code",
+    "custom-commands",
+    "productivity",
+    "slash-commands",
+    "templates"
+  ],
+  "capabilities": [
+    "Create project-specific slash commands in .claude/commands/",
+    "Create personal slash commands available across all projects in ~/.claude/commands/",
+    "Follow standardized template with YAML frontmatter and workflow sections",
+    "Test created commands using the SlashCommand tool",
+    "Organize commands using namespacing and subdirectories",
+    "Configure allowed tools and permissions for each command"
+  ],
+  "author": "Emz1998",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation and template skill with no executable code. Static analysis flagged 147 potential issues in documentation files (command examples, template placeholders, bash execution syntax). All findings are FALSE POSITIVES - the analyzer misidentified documentation examples and template syntax as security patterns. This skill only contains markdown documentation files that define command templates and usage guidelines.",
+  "valueStatement": "Developers spend time recreating common prompts and workflows. This skill provides templates and guidance for creating reusable slash commands in Claude Code, reducing repetitive work and standardizing team workflows.",
+  "userTitle": "Create custom slash commands",
+  "limitations": [
+    "Does not execute actual bash commands - only creates command files",
+    "Cannot modify built-in slash commands",
+    "Commands are limited to Claude Code environment",
+    "Does not provide command implementation logic"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Team leads and engineering managers",
+      "title": "Team workflow standardization",
+      "description": "Create consistent commands for common team workflows like code review, commit messages, or testing procedures. All team members use the same prompts with standardized outputs."
+    },
+    {
+      "targetUser": "Individual developers and power users",
+      "title": "Personal productivity automation",
+      "description": "Build personal commands for frequently used tasks like generating boilerplate code, running diagnostics, or creating documentation templates across any project."
+    },
+    {
+      "targetUser": "DevOps engineers and technical writers",
+      "title": "Onboarding and documentation",
+      "description": "Create commands that guide new team members through setup procedures, coding standards reviews, or deployment processes with consistent step-by-step instructions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic command creation",
+      "prompt": "Create a new slash command called /optimize that analyzes code for performance issues and suggests optimizations. Use the command-management skill template.",
+      "scenario": "Creating a simple command for code optimization"
+    },
+    {
+      "title": "Git workflow command",
+      "prompt": "Create a project command /commit that helps create git commits. Include git status, diff review, and commit message generation. Configure Bash tool permissions for git operations.",
+      "scenario": "Building a command for git commit workflow"
+    },
+    {
+      "title": "Personal cross-project command",
+      "description": "",
+      "prompt": "Create a personal command /security-review that reviews code for security vulnerabilities. Save it to the user commands directory so it works across all my projects.",
+      "scenario": "Creating a personal command available in any project"
+    },
+    {
+      "title": "Multi-phase workflow command",
+      "prompt": "Create a complex command /deploy that handles the deployment process. It should have three phases: pre-deployment checks, deployment execution, and post-deployment validation. Use phases and acceptance criteria.",
+      "scenario": "Building a multi-phase command with workflow stages"
+    }
+  ],
+  "bestPractices": [
+    "Keep command descriptions concise and action-oriented",
+    "Use the YAML frontmatter to define allowed tools explicitly for security",
+    "Test commands with the SlashCommand tool before deployment"
+  ],
+  "antiPatterns": [
+    "Avoid creating commands without proper YAML frontmatter",
+    "Do not save commands outside the .claude/commands/ or ~/.claude/commands/ directories",
+    "Avoid granting excessive tool permissions - use least-privilege principle"
+  ],
+  "faq": [
+    {
+      "question": "Where are custom slash commands stored?",
+      "answer": "Project commands go in .claude/commands/ within your repository. Personal commands go in ~/.claude/commands/ in your home directory and are available across all projects."
+    },
+    {
+      "question": "How do I test a newly created command?",
+      "answer": "Use the SlashCommand tool with the command name. For example, run /SlashCommand name=\"/your-command\" to test. You can also trigger it naturally by referencing the command in conversation."
+    },
+    {
+      "question": "Can I use arguments in slash commands?",
+      "answer": "Yes. Use $ARGUMENTS for all arguments or $1, $2, etc. for individual positional parameters. Define argument hints in the frontmatter for user guidance."
+    },
+    {
+      "question": "How do I restrict which tools a command can use?",
+      "answer": "Add the allowed-tools field in the YAML frontmatter. List specific tools with optional wildcards like Bash(git add:*). This follows the principle of least privilege."
+    },
+    {
+      "question": "What happens if I create a command with the same name as a built-in command?",
+      "answer": "Custom commands cannot override built-in slash commands. Use unique names for your custom commands to avoid conflicts."
+    },
+    {
+      "question": "Can I organize commands into categories?",
+      "answer": "Yes. Create subdirectories within .claude/commands/ for organization. The subdirectory name appears in the command description but does not affect the command name."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "slash command",
+    "custom command",
+    "command template",
+    "productivity",
+    "automation",
+    "workflow automation",
+    "cli commands"
+  ],
+  "sourceUrl": "https://github.com/Emz1998/avaris-ai/tree/master/.claude/skills/command-management",
+  "sourceType": "community",
+  "dependencies": []
+}

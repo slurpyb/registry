@@ -1,0 +1,136 @@
+{
+  "name": "error-recovery",
+  "type": "skill",
+  "description": "Strategies for handling subagent failures with retry logic and escalation patterns.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "failure recovery",
+  "quality": 5,
+  "qualityReason": "Critical for agent resilience",
+  "bundleHints": [
+    "multi-agent-system",
+    "agent-resilience"
+  ],
+  "tags": [
+    "error-handling",
+    "failure-recovery",
+    "multi-agent",
+    "orchestration",
+    "retry-logic"
+  ],
+  "capabilities": [
+    "Provides 5 distinct retry strategies for different failure types",
+    "Includes decision tree for choosing appropriate recovery method",
+    "Documents escalation paths for boundary/contract violations",
+    "Offers state tracking patterns for retry attempts",
+    "Contains integration examples for executor loops"
+  ],
+  "author": "Clouder0",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing 224 lines of markdown explaining error recovery patterns for multi-agent AI systems. The static scanner incorrectly flagged documentation examples describing authentication concepts (bcrypt, JWT, password hashing) as 'weak cryptographic algorithms'. These are purely instructional examples, not actual cryptographic implementations. No executable code, network calls, file system access, or command execution exists in this skill.",
+  "valueStatement": "Subagents often fail due to timeouts, unclear requirements, or scope issues. This skill provides proven retry patterns to recover from failures automatically.",
+  "userTitle": "Handle Agent Failures with Smart Retry Strategies",
+  "limitations": [
+    "Documentation only - no automated error recovery implementation",
+    "Requires manual integration into agent orchestration systems",
+    "Strategies assume access to task state and error information"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI system architects",
+      "title": "Build Resilient Multi-Agent Systems",
+      "description": "Implement robust error handling in agent orchestration platforms to handle transient failures and complex error scenarios."
+    },
+    {
+      "targetUser": "Claude Code users",
+      "title": "Handle Failed Subagent Tasks",
+      "description": "Apply retry strategies when Claude Code subagents fail due to timeouts, unclear requirements, or scope issues."
+    },
+    {
+      "targetUser": "Workflow automation developers",
+      "title": "Design Fault-Tolerant Workflows",
+      "description": "Create workflows that can recover from agent failures without manual intervention using proven retry patterns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Retry Setup",
+      "scenario": "Simple timeout or malformed output",
+      "prompt": "My subagent failed with a timeout. Apply Strategy 1 (Simple Retry) with max 3 attempts. Track attempts in state file."
+    },
+    {
+      "title": "Context Enhancement",
+      "scenario": "Agent needs more information",
+      "prompt": "The implementer said 'I don't have enough context about the database schema'. Use Strategy 2 to add relevant schema files and examples."
+    },
+    {
+      "title": "Scope Reduction",
+      "scenario": "Task too complex for single agent",
+      "prompt": "The agent completed partial authentication work then failed. Apply Strategy 3 to split 'Implement full auth system' into smaller subtasks."
+    },
+    {
+      "title": "Contract Escalation",
+      "scenario": "Boundary violation blocking progress",
+      "prompt": "Task is blocked with status 'boundary_violation'. Escalate to contract-resolver agent with current contracts and blocked reason."
+    }
+  ],
+  "bestPractices": [
+    "Always categorize the failure type before choosing a retry strategy",
+    "Track all retry attempts in state files for reflection and debugging",
+    "Preserve partial work from failed attempts when possible"
+  ],
+  "antiPatterns": [
+    "Don't retry blindly without analyzing the failure cause first",
+    "Avoid infinite retry loops - abort after 3 failed strategies",
+    "Don't discard partial work when agents complete some requirements"
+  ],
+  "faq": [
+    {
+      "question": "Which retry strategy should I try first?",
+      "answer": "Start with Strategy 2 (Context Enhancement) for unclear failures. Use Strategy 1 for transient issues like timeouts."
+    },
+    {
+      "question": "How many retry attempts are too many?",
+      "answer": "Abort after 3 failed strategies or 3 attempts of the same strategy. This prevents infinite loops."
+    },
+    {
+      "question": "Can I use these patterns with any AI platform?",
+      "answer": "Yes, the patterns are platform-agnostic. They work with Claude, Codex, Claude Code, and other agent systems."
+    },
+    {
+      "question": "What data should I track during retries?",
+      "answer": "Track attempt count, error messages, strategies tried, partial outputs, and any context added."
+    },
+    {
+      "question": "How do I handle agents that keep asking questions?",
+      "answer": "This indicates missing context. Use Strategy 2 to proactively provide the information they're asking for."
+    },
+    {
+      "question": "When should I escalate vs retry myself?",
+      "answer": "Escalate boundary/contract issues immediately. Retry implementation failures yourself first."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code error recovery",
+    "multi-agent retry logic",
+    "AI agent failure handling",
+    "subagent error patterns",
+    "Claude retry strategies",
+    "Codex error recovery",
+    "agent escalation patterns",
+    "failure recovery automation",
+    "AI workflow resilience"
+  ],
+  "sourceUrl": "https://github.com/Clouder0/dotagent/tree/main/.claude/skills/error-recovery",
+  "sourceType": "community",
+  "dependencies": []
+}

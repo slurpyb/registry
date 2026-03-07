@@ -1,0 +1,144 @@
+{
+  "name": "codebase-cleanup-refactor-clean",
+  "type": "skill",
+  "description": "You are a code refactoring expert specializing in clean code principles, SOLID design patterns, and modern software engineering best practices. Analyze and refactor the provided code to improve its quality, maintainability, and performance.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "code refactoring",
+  "quality": 5,
+  "qualityReason": "Actionable and well-scoped guidance",
+  "bundleHints": [
+    "code-quality-suite",
+    "refactoring-assistant"
+  ],
+  "tags": [
+    "best-practices",
+    "clean-code",
+    "code-quality",
+    "code-smells",
+    "maintainability",
+    "refactoring",
+    "software-design",
+    "solid-principles"
+  ],
+  "capabilities": [
+    "Analyzes code for SOLID violations, code smells, and performance bottlenecks",
+    "Applies refactoring patterns including Strategy, Factory, Observer, and Repository",
+    "Breaks down monolithic functions into single-responsibility methods under 20 lines",
+    "Generates comprehensive test suites achieving 80%+ coverage for refactored code",
+    "Provides before/after comparisons with complexity metrics and performance improvements",
+    "Creates migration guides for transitioning from legacy to modern architectures"
+  ],
+  "author": "sickn33",
+  "icon": "🧹",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 89 static analysis findings are false positives. The skill contains only markdown documentation with code examples for educational purposes. Detected patterns (backticks, file operations, network references) are part of fenced code blocks demonstrating refactoring concepts in Python, TypeScript, Go, and Java. No executable code, prompt injection attempts, or malicious patterns found. Safe for publication.",
+  "valueStatement": "Struggling with technical debt, duplicated code, and hard-to-maintain systems? This skill applies proven refactoring patterns and SOLID principles to transform messy codebases into clean, modular, testable architectures.",
+  "userTitle": "Refactor Code to Clean, SOLID Architecture",
+  "limitations": [
+    "Cannot refactor code without reading the actual source files first",
+    "Does not execute build commands or run test suites automatically",
+    "Requires existing test coverage to validate refactoring safety",
+    "Large-scale architectural changes may need multiple iterations",
+    "Cannot guarantee preservation of undocumented business logic"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developer maintaining legacy systems",
+      "title": "Legacy Monolith Modernization",
+      "description": "Transform 500-line monolithic functions into clean, modular architecture with separated concerns for validation, business logic, and data access."
+    },
+    {
+      "targetUser": "Tech lead planning quarterly refactoring sprint",
+      "title": "Technical Debt Cleanup Sprint",
+      "description": "Systematically eliminate code duplication, extract magic numbers to constants, and apply SOLID principles across high-risk, frequently-modified modules."
+    },
+    {
+      "targetUser": "Software architect starting new initiative",
+      "title": "Pre-Feature Architecture Review",
+      "description": "Evaluate codebase quality before major feature work, identifying refactoring opportunities that would reduce implementation risk and improve extensibility."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Code Cleanup",
+      "prompt": "Review the current codebase for code smells and quick wins. Identify magic numbers, improve variable names, remove dead code, and extract any duplicate code into reusable functions.",
+      "scenario": "Simple cleanup for better readability"
+    },
+    {
+      "title": "SOLID Principles Refactoring",
+      "prompt": "Analyze this code for SOLID violations. Refactor to follow Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion principles. Show before/after comparisons.",
+      "scenario": "Deep architectural improvements"
+    },
+    {
+      "title": "Monolith to Modular Architecture",
+      "prompt": "Break down this monolithic system into clean layers: domain entities, repositories, services, and validators. Apply dependency injection and separate concerns completely. Generate comprehensive tests.",
+      "scenario": "Major architectural restructuring"
+    },
+    {
+      "title": "Technical Debt Prioritization",
+      "prompt": "Audit the entire codebase and prioritize technical debt by business impact and risk. Provide a refactoring roadmap with effort estimates, ROI analysis, and recommended sprint scheduling.",
+      "scenario": "Planning refactoring initiatives"
+    }
+  ],
+  "bestPractices": [
+    "Always read existing code before proposing changes to understand context and business logic",
+    "Start with high-impact, low-effort refactorings like extracting magic numbers and improving names",
+    "Generate comprehensive tests before refactoring to ensure behavior preservation",
+    "Break large refactorings into small, reviewable commits that can be tested independently"
+  ],
+  "antiPatterns": [
+    "Avoid rewriting entire modules from scratch without understanding existing requirements",
+    "Do not apply design patterns everywhere - use them only when they solve actual problems",
+    "Never refactor without tests or mechanism to validate functional equivalence",
+    "Don't change multiple unrelated concerns in a single refactoring iteration"
+  ],
+  "faq": [
+    {
+      "question": "Will this skill modify my code automatically?",
+      "answer": "No. The skill analyzes code and suggests refactoring strategies. You review the plan, then Claude applies changes with your approval using Edit tools."
+    },
+    {
+      "question": "What types of code can this skill refactor?",
+      "answer": "Works with Python, TypeScript, JavaScript, Go, Java, C#, Ruby, and most mainstream languages. Focuses on structure and design, not language-specific optimizations."
+    },
+    {
+      "question": "How do I know if refactoring is safe?",
+      "answer": "The skill generates comprehensive tests before refactoring and validates changes afterward. It also identifies risk factors like low test coverage and recommends conservative approaches."
+    },
+    {
+      "question": "Can this skill fix performance issues?",
+      "answer": "Partially. It identifies algorithmic inefficiencies like O(n²) operations and suggests caching strategies. However, it does not replace dedicated performance profiling tools."
+    },
+    {
+      "question": "What if my codebase has no tests?",
+      "answer": "The skill will first recommend adding test coverage before refactoring. It can generate characterization tests for existing behavior, then proceed with conservative refactorings."
+    },
+    {
+      "question": "How long does a typical refactoring take?",
+      "answer": "Varies by scope. Quick cleanup (variable names, dead code) takes minutes. SOLID refactoring for a class takes 30-60 minutes. Major architectural restructuring may require multiple sessions across days."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code refactoring",
+    "Claude codebase cleanup",
+    "Codex SOLID principles",
+    "AI code quality",
+    "clean code assistant",
+    "automated refactoring",
+    "Claude Code design patterns",
+    "technical debt reduction",
+    "code modernization"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/codebase-cleanup-refactor-clean",
+  "sourceType": "community",
+  "dependencies": []
+}

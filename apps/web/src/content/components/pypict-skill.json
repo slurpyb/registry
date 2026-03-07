@@ -1,0 +1,144 @@
+{
+  "name": "pypict-skill",
+  "type": "skill",
+  "description": "Pairwise test generation",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "pairwise testing",
+  "quality": 5,
+  "qualityReason": "Efficient test case generation method",
+  "bundleHints": [
+    "testing-strategy",
+    "quality-assurance"
+  ],
+  "tags": [
+    "combinatorial",
+    "coverage",
+    "edge cases",
+    "optimization",
+    "pairwise",
+    "quality-assurance",
+    "test generation",
+    "test-generation",
+    "testing"
+  ],
+  "capabilities": [
+    "Generate pairwise test combinations using PICT methodology",
+    "Identify minimum test case sets for maximum coverage",
+    "Create test matrices for multi-parameter scenarios",
+    "Optimize test coverage while reducing test count",
+    "Support constraint-based test generation",
+    "Guide users on implementing combinatorial testing"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill contains only documentation for pairwise test generation (PICT). URLs at lines 4 and 22 are documentation references, not executable network code. The 'weak cryptographic algorithm' alerts are false positives - 'pict' refers to pairwise independent combinatorial testing, not cryptography. No security risks identified.",
+  "valueStatement": "This skill helps you generate comprehensive pairwise test cases using combinatorial testing techniques. It enables efficient test coverage by identifying the minimum number of test combinations needed to expose defects.",
+  "userTitle": "Generate Pairwise Test Cases",
+  "limitations": [
+    "Skill provides guidance patterns, not direct tool execution",
+    "Does not include the PICT tool installation or binary",
+    "User must have PICT or similar pairwise tool available",
+    "Complex constraint scenarios require manual configuration"
+  ],
+  "useCases": [
+    {
+      "targetUser": "QA Engineers",
+      "title": "QA Engineer Creating Test Plans",
+      "description": "QA engineers can use this skill to generate efficient test case combinations for multi-parameter features, reducing test execution time while maintaining coverage."
+    },
+    {
+      "targetUser": "Software Developers",
+      "title": "Developer Writing Unit Tests",
+      "description": "Developers can apply pairwise testing to create focused test suites that cover parameter interactions without exhaustive combination testing."
+    },
+    {
+      "targetUser": "Test Leads",
+      "title": "Test Lead Planning Coverage Strategy",
+      "description": "Test leads can leverage this skill to plan combinatorial testing strategies and communicate coverage optimization techniques to their teams."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Pairwise Test Generation",
+      "prompt": "Help me generate pairwise test cases for a login form with fields: username, password, remember_me, and language. Show me the test combinations.",
+      "scenario": "Generate simple pairwise combinations for a login form"
+    },
+    {
+      "title": "Multi-Parameter Configuration Testing",
+      "prompt": "I need pairwise test cases for an API configuration with these parameters: protocol (http, https), auth (none, basic, oauth), format (json, xml), and cache (true, false). Generate the minimum test set.",
+      "scenario": "Create test matrix for API configuration options"
+    },
+    {
+      "title": "Constraint-Based Test Generation",
+      "prompt": "Generate pairwise tests for a shopping cart with: product_type (book, electronics, clothing), shipping (standard, express, overnight), and gift_wrap (yes, no). Apply constraint: electronics cannot have gift_wrap. Show the valid combinations.",
+      "scenario": "Generate pairwise tests with exclusion constraints"
+    },
+    {
+      "title": "Edge Case Coverage Analysis",
+      "prompt": "Analyze this scenario and identify which pairwise combinations would likely catch the most defects: user registration with fields for email, phone, country, age_group, and subscription_type. What is your recommended test set?",
+      "scenario": "Plan test strategy with priority analysis"
+    }
+  ],
+  "bestPractices": [
+    "Start with identifying all parameters and their valid values before generating combinations",
+    "Apply constraints early to eliminate invalid combinations from the start",
+    "Focus on parameter pairs that are most likely to interact and cause defects",
+    "Use the minimum pairwise set rather than exhaustive combinations to save time"
+  ],
+  "antiPatterns": [
+    "Do not generate all possible combinations - use pairwise to reduce test count",
+    "Do not skip constraint definition when parameters have dependencies",
+    "Do not assume all parameter values are equally important - prioritize critical values"
+  ],
+  "faq": [
+    {
+      "question": "What is pairwise testing?",
+      "answer": "Pairwise testing is a combinatorial testing method that tests all possible pairs of input parameters. It provides good coverage while using far fewer test cases than testing all combinations."
+    },
+    {
+      "question": "Do I need to install any tools?",
+      "answer": "This skill provides guidance patterns. For actual test generation, you may want to use Microsoft PICT or similar pairwise testing tools. The skill teaches you how to structure tests and apply constraints."
+    },
+    {
+      "question": "How does pairwise testing save time?",
+      "answer": "If you have 10 parameters with 10 values each, exhaustive testing requires 10 billion tests. Pairwise testing reduces this to approximately 100-200 tests while still catching most defects from parameter interactions."
+    },
+    {
+      "question": "When should I use pairwise testing?",
+      "answer": "Use pairwise testing when you have multiple parameters that could interact in unexpected ways, such as configuration settings, form inputs, or API options. It is most effective when defects are caused by parameter combinations rather than single parameters."
+    },
+    {
+      "question": "What are constraints in pairwise testing?",
+      "answer": "Constraints define rules about which parameter combinations are valid. For example, if you have product_type and gift_wrap, you might add a constraint that says electronics cannot be gift wrapped."
+    },
+    {
+      "question": "Can pairwise testing guarantee 100% coverage?",
+      "answer": "No. Pairwise testing covers all 2-way parameter combinations but may miss issues that only appear with 3 or more specific parameters together. For high-risk systems, you may need higher-order combinatorial testing."
+    }
+  ],
+  "seoKeywords": [
+    "pairwise testing",
+    "test generation",
+    "combinatorial testing",
+    "pict tool",
+    "test automation",
+    "quality assurance",
+    "claude code",
+    "claude",
+    "codex",
+    "test case generation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/web-app/public/skills/pypict-skill",
+  "sourceType": "community",
+  "dependencies": []
+}

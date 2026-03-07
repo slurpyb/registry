@@ -1,0 +1,140 @@
+{
+  "name": "quiz-generator",
+  "type": "skill",
+  "description": "Generate 50-question interactive quizzes using the Quiz component with randomized batching.\nUse when creating end-of-chapter assessments. Displays 15-20 questions per session with\nimmediate feedback. NOT for static markdown quizzes.\n",
+  "domain": "education",
+  "subdomain": "assessment",
+  "specialty": "interactive quizzes",
+  "quality": 4,
+  "qualityReason": "Good educational tool",
+  "bundleHints": [
+    "learning-tools",
+    "education"
+  ],
+  "tags": [
+    "assessment",
+    "batching",
+    "education",
+    "feedback",
+    "quiz",
+    "randomized",
+    "testing"
+  ],
+  "capabilities": [
+    "Generate 50 conceptual questions per chapter at Apply level or higher",
+    "Balance answer distribution across 4 options (12-13 per index)",
+    "Validate option lengths within ±3 words to prevent guessing",
+    "Format quizzes for the Quiz component with JSX syntax",
+    "Redistribute answers using provided Python scripts"
+  ],
+  "author": "92Bilal26",
+  "icon": "📝",
+  "version": "5.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate educational quiz generation skill. All 415 static findings are FALSE POSITIVES caused by the scanner detecting backticks in markdown documentation (code formatting) and generic security terms in educational context. The Python scripts only perform safe file parsing and text manipulation for local quiz files. No network access, credential handling, or system modification capabilities exist.",
+  "valueStatement": "Creating assessment questions that test understanding requires significant effort. This skill provides a structured methodology to generate 50 college-level conceptual questions with balanced answer distribution, equal-length options, and immediate feedback explanations.",
+  "userTitle": "Generate 50-question conceptual quizzes",
+  "limitations": [
+    "Does not access lesson content automatically - questions must be authored manually",
+    "Does not validate technical accuracy against source material",
+    "Does not test the Quiz component rendering",
+    "Requires manual word count verification for all options"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Course Developers",
+      "title": "End-of-chapter assessments",
+      "description": "Create comprehensive 50-question quizzes to evaluate student understanding after completing chapter material."
+    },
+    {
+      "targetUser": "Technical Writers",
+      "title": "Documentation quality checks",
+      "description": "Generate quizzes to verify documentation clarity and identify topics needing additional explanation."
+    },
+    {
+      "targetUser": "Instructional Designers",
+      "title": "Spaced repetition banks",
+      "description": "Build large question banks enabling repeated practice with different question batches each session."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic quiz request",
+      "scenario": "Generate a simple quiz",
+      "prompt": "Generate a 50-question conceptual quiz for Chapter [X] on [topic]. Follow the Quiz Generator skill guidelines with 75%+ Apply level questions, balanced answer distribution, and 100-150 word explanations."
+    },
+    {
+      "title": "Detailed quiz request",
+      "scenario": "Add specific requirements",
+      "prompt": "Create a 50-question quiz for Chapter [X] covering [specific lessons/topics]. Ensure each question tests understanding, not recall. Include source attribution for each question. Verify all options are within ±3 words."
+    },
+    {
+      "title": "Quiz with distribution",
+      "scenario": "Specific answer patterns",
+      "prompt": "Generate 50 questions where correct answers follow Sequence [A-H] for even distribution (12-13 per option). Format for Quiz component. Include comprehensive explanations addressing all distractors."
+    },
+    {
+      "title": "Validation request",
+      "scenario": "Review existing quiz",
+      "prompt": "Review the attached quiz file against the quality checklist. Verify: 50 questions, correctOption indices 0-3, 12-13 per option, all options within ±3 words, source field on all 50, and 100-150 word explanations."
+    }
+  ],
+  "bestPractices": [
+    "Always verify answer distribution manually (12-13 per option for 50 questions)",
+    "Count words for all options in every question to ensure ±3 word range",
+    "Include source attribution in Lesson N: Title format for every question"
+  ],
+  "antiPatterns": [
+    "Using 1-4 indices instead of 0-3 for correctOption",
+    "Accepting uneven answer distribution (allows pattern guessing)",
+    "Creating questions that test recall instead of understanding"
+  ],
+  "faq": [
+    {
+      "question": "What question count is required?",
+      "answer": "Exactly 50 questions. This enables batching (15-20 per session) and meaningful retakes with new content each time."
+    },
+    {
+      "question": "How are answers distributed?",
+      "answer": "Each option (0-3) should appear 12-13 times. No 3+ consecutive same answers. Use redistribution scripts for even patterns."
+    },
+    {
+      "question": "What option length rule applies?",
+      "answer": "All 4 options must be within ±3 words of each other. Manually count words for all 50 questions."
+    },
+    {
+      "question": "Is data stored or transmitted?",
+      "answer": "No. This is a prompt-based skill. Quiz content exists only in your conversation and files you create."
+    },
+    {
+      "question": "Why do my quizzes fail validation?",
+      "answer": "Common issues: wrong index values (use 0-3 not 1-4), missing source fields, uneven distribution, or options exceeding ±3 word range."
+    },
+    {
+      "question": "How is this different from other quiz tools?",
+      "answer": "Focuses on conceptual understanding (Apply/Analyze levels), includes immediate feedback with comprehensive explanations, and enables spaced repetition through batching."
+    }
+  ],
+  "seoKeywords": [
+    "quiz generator",
+    "assessment questions",
+    "multiple choice quiz",
+    "educational content",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "test creation",
+    "quiz maker",
+    "education assessment"
+  ],
+  "sourceUrl": "https://github.com/92Bilal26/TaskPilotAI/tree/main/.claude/skills/quiz-generator",
+  "sourceType": "community",
+  "dependencies": []
+}

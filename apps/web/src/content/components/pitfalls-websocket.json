@@ -1,0 +1,142 @@
+{
+  "name": "pitfalls-websocket",
+  "type": "skill",
+  "description": "WebSocket server and client patterns with heartbeat and reconnection. Use when implementing real-time features, debugging connection issues, or reviewing WebSocket code. Triggers on: WebSocket, wss, heartbeat, reconnect, real-time.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "real-time patterns",
+  "quality": 5,
+  "qualityReason": "Specific real-time implementation",
+  "bundleHints": [
+    "real-time-stack",
+    "networking-tools"
+  ],
+  "tags": [
+    "connection-debugging",
+    "heartbeat",
+    "networking",
+    "real-time",
+    "real-time-features",
+    "reconnection",
+    "typescript",
+    "websocket",
+    "wss"
+  ],
+  "capabilities": [
+    "Review WebSocket server implementation for common pitfalls",
+    "Add ping-pong heartbeat pattern to detect dead connections",
+    "Implement client reconnection with exponential backoff",
+    "Validate WebSocket message formats and types",
+    "Debug connection drops and reconnection issues"
+  ],
+  "author": "BarisSozen",
+  "icon": "🔌",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only TypeScript code examples for educational purposes. No executable code, file system access, network calls, or command execution capabilities. All static findings are false positives caused by the scanner misinterpreting code examples in markdown documentation as executable patterns. The previous audit (skill-report.json) correctly identified this as safe.",
+  "valueStatement": "WebSocket implementations often fail silently due to missing heartbeat or reconnection logic. This skill provides verified patterns for robust real-time connections that survive network issues and handle message validation correctly.",
+  "userTitle": "Implement WebSocket servers with best practices",
+  "limitations": [
+    "Does not write code for you - provides patterns and review guidance",
+    "Does not test running WebSocket servers",
+    "Does not configure deployment environments or load balancers"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developer",
+      "title": "Build production WebSocket server",
+      "description": "Create WebSocket server with heartbeat, proper message handling, and connection lifecycle management"
+    },
+    {
+      "targetUser": "Full Stack Developer",
+      "title": "Implement resilient client",
+      "description": "Build WebSocket client that reconnects automatically after network interruptions"
+    },
+    {
+      "targetUser": "Code Reviewer",
+      "title": "Audit real-time code",
+      "description": "Review WebSocket implementation for missing heartbeat, error handling, or reconnection logic"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Check Server Setup",
+      "scenario": "Verify WebSocket server configuration",
+      "prompt": "Review my WebSocket server code. Check if it shares the HTTP port, has heartbeat implemented, and handles client connections correctly."
+    },
+    {
+      "title": "Add Heartbeat",
+      "scenario": "Add ping-pong to detect dead connections",
+      "prompt": "Add heartbeat ping-pong mechanism to my WebSocket server. Show how to detect dead connections and terminate them gracefully."
+    },
+    {
+      "title": "Client Reconnect",
+      "scenario": "Implement reconnection logic",
+      "prompt": "Implement WebSocket client reconnection with exponential backoff. Include connection state tracking and error logging."
+    },
+    {
+      "title": "Message Validation",
+      "scenario": "Validate incoming messages",
+      "prompt": "Review my WebSocket message handling. Add proper JSON parsing, type validation, and error responses for invalid messages."
+    }
+  ],
+  "bestPractices": [
+    "Use same port for WebSocket server and HTTP server to simplify deployment",
+    "Implement heartbeat every 30 seconds to detect stale connections early",
+    "Reset reconnection attempt counter on successful connection",
+    "Validate and type all incoming messages before processing"
+  ],
+  "antiPatterns": [
+    "Skipping heartbeat - leads to ghost connections consuming resources",
+    "No reconnection logic - clients stay disconnected after network issues",
+    "Processing raw messages without validation - security risk"
+  ],
+  "faq": [
+    {
+      "question": "What tools support this skill?",
+      "answer": "Works with Claude, Codex, and Claude Code. Uses natural language understanding for code review."
+    },
+    {
+      "question": "What are the connection timeout limits?",
+      "answer": "Heartbeat interval defaults to 30 seconds. Maximum reconnection delay is capped at 30 seconds."
+    },
+    {
+      "question": "Can I integrate with existing WebSocket libraries?",
+      "answer": "Patterns work with ws, Socket.io, and native WebSocket. Concepts apply to any WebSocket implementation."
+    },
+    {
+      "question": "Is my WebSocket data stored or logged?",
+      "answer": "No. This skill only reviews code you share. No data is stored or transmitted."
+    },
+    {
+      "question": "Why do connections drop unexpectedly?",
+      "answer": "Common causes: missing heartbeat causing timeout, load balancer idle timeout, network interruption, or server restart."
+    },
+    {
+      "question": "How does this compare to Socket.io?",
+      "answer": "Socket.io provides built-in reconnection. This skill helps when building custom WebSocket solutions or migrating from Socket.io."
+    }
+  ],
+  "seoKeywords": [
+    "websocket",
+    "real-time",
+    "heartbeat",
+    "reconnection",
+    "typescript",
+    "ws",
+    "websocket-server",
+    "websocket-client",
+    "claude",
+    "claude-code"
+  ],
+  "sourceUrl": "https://github.com/BarisSozen/claude/tree/main/.claude/skills/pitfalls-websocket",
+  "sourceType": "community",
+  "dependencies": []
+}

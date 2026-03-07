@@ -1,0 +1,141 @@
+{
+  "name": "monitoring-analytics",
+  "type": "skill",
+  "description": "Monitor Proxmox infrastructure health and performance. Track node statistics, analyze resource utilization, and identify optimization opportunities across your cluster.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "Proxmox monitoring",
+  "quality": 5,
+  "qualityReason": "Specific infrastructure focus",
+  "bundleHints": [
+    "infra-monitoring",
+    "proxmox-tools"
+  ],
+  "tags": [
+    "analytics",
+    "cluster",
+    "infrastructure",
+    "monitoring",
+    "node stats",
+    "optimization",
+    "performance",
+    "proxmox",
+    "resource utilization"
+  ],
+  "capabilities": [
+    "Get node statistics and performance metrics from Proxmox cluster",
+    "Monitor CPU, memory, and disk utilization across all nodes",
+    "Track VM and container performance data with detailed metrics",
+    "Analyze overall cluster resource allocation and identify optimization opportunities"
+  ],
+  "author": "DataKnifeAI",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure markdown documentation file with no executable code, scripts, or network capabilities. The skill defines prompt templates and tool descriptions for a Proxmox monitoring MCP integration. All 38 static findings are false positives caused by the scanner flagging markdown documentation as executable code.",
+  "valueStatement": "Managing Proxmox infrastructure requires tracking multiple nodes, VMs, and containers. This skill provides unified access to cluster metrics, helping you identify bottlenecks and optimize resource allocation across your environment.",
+  "userTitle": "Monitor Proxmox infrastructure health and performance",
+  "limitations": [
+    "Requires Proxmox VE MCP server to be configured and running",
+    "Cannot modify resources, only read metrics and performance data",
+    "Historical data availability depends on MCP server configuration",
+    "Network performance monitoring requires additional storage tool configuration"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Infrastructure administrators",
+      "title": "Cluster Health Monitoring",
+      "description": "Get comprehensive health status of all nodes and workloads in your Proxmox cluster"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Performance Bottleneck Detection",
+      "description": "Identify which nodes, VMs, or containers are causing performance issues"
+    },
+    {
+      "targetUser": "System planners",
+      "title": "Capacity Planning",
+      "description": "Analyze resource trends to plan infrastructure scaling and upgrades"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Health Check",
+      "scenario": "Get cluster overview",
+      "prompt": "Show me the current cluster health and performance status"
+    },
+    {
+      "title": "Resource Analysis",
+      "scenario": "Find high utilization",
+      "prompt": "Which nodes are running at high CPU or memory utilization"
+    },
+    {
+      "title": "VM Performance",
+      "scenario": "Check VM metrics",
+      "prompt": "Show me performance metrics for all virtual machines"
+    },
+    {
+      "title": "Full Analysis",
+      "scenario": "Complete infrastructure review",
+      "prompt": "Generate a complete performance analysis report for my Proxmox cluster including node status, VM metrics, and optimization recommendations"
+    }
+  ],
+  "bestPractices": [
+    "Establish baseline metrics before making infrastructure changes to measure impact accurately",
+    "Set alert thresholds for CPU, memory, and storage utilization to catch issues early",
+    "Review metrics regularly to identify gradual performance degradation before it becomes critical"
+  ],
+  "antiPatterns": [
+    "Waiting until resources are at 100% before investigating performance issues",
+    "Ignoring gradual increases in resource utilization over time until problems occur",
+    "Making infrastructure changes without comparing before and after metrics"
+  ],
+  "faq": [
+    {
+      "question": "Which Proxmox versions are supported?",
+      "answer": "Works with Proxmox VE 7.x and 8.x through the Proxmox VE MCP server integration."
+    },
+    {
+      "question": "How frequently are metrics updated?",
+      "answer": "Metric freshness depends on your MCP server configuration. Check your server settings for update intervals."
+    },
+    {
+      "question": "Can I integrate this with external monitoring tools?",
+      "answer": "This skill reads from Proxmox MCP. Export metrics to Grafana, Prometheus, or other tools via their respective integrations."
+    },
+    {
+      "question": "Is my Proxmox data sent anywhere?",
+      "answer": "No. The skill queries your local Proxmox MCP server. Data stays within your infrastructure."
+    },
+    {
+      "question": "Why am I getting authentication errors?",
+      "answer": "Ensure your Proxmox MCP server is configured with valid credentials and can reach your Proxmox API endpoint."
+    },
+    {
+      "question": "How does this compare to Proxmox built-in monitoring?",
+      "answer": "This skill provides AI-powered analysis and natural language summaries. Use both tools together for comprehensive coverage."
+    }
+  ],
+  "seoKeywords": [
+    "Proxmox monitoring",
+    "infrastructure analytics",
+    "cluster health check",
+    "resource utilization",
+    "VM performance monitoring",
+    "container metrics",
+    "capacity planning",
+    "Claude Code",
+    "Claude",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/DataKnifeAI/proxmox-ve-mcp/tree/main/.github/skills/monitoring-analytics",
+  "sourceType": "community",
+  "dependencies": []
+}

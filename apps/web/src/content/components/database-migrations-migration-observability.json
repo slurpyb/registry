@@ -1,0 +1,144 @@
+{
+  "name": "database-migrations-migration-observability",
+  "type": "skill",
+  "description": "Migration monitoring, CDC, and observability infrastructure",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "cdc monitoring",
+  "quality": 5,
+  "qualityReason": "Specific observability for data changes",
+  "bundleHints": [
+    "data-observability",
+    "cdc-pipeline"
+  ],
+  "tags": [
+    "cdc",
+    "data-pipeline",
+    "database",
+    "debezium",
+    "grafana",
+    "kafka",
+    "migrations",
+    "monitoring",
+    "observability",
+    "prometheus"
+  ],
+  "capabilities": [
+    "Create observable MongoDB migrations with metrics collection and structured logging",
+    "Set up Change Data Capture pipelines using Debezium and Kafka for real-time data sync",
+    "Configure Prometheus metrics for migration duration, throughput, and error tracking",
+    "Implement anomaly detection for low throughput and high error rates",
+    "Automate Grafana dashboard creation for migration monitoring",
+    "Integrate CI/CD pipelines with migration health checks and alerting"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 24 patterns but all are false positives. The skill uses standard monitoring libraries (prometheus-client, kafka-python, requests) for legitimate observability purposes. Network calls target infrastructure APIs (Kafka Connect, Grafana, Slack webhooks) as expected for monitoring. No shell execution, cryptographic operations, or suspicious patterns found. Minor risk due to network access for webhook integrations.",
+  "valueStatement": "Database migrations lack visibility into progress, errors, and data consistency. This skill provides enterprise-grade observability with real-time metrics, anomaly detection, and automated alerting.",
+  "userTitle": "Build migration observability and CDC pipelines",
+  "limitations": [
+    "Requires external infrastructure (Kafka, Prometheus, Grafana) to be pre-configured",
+    "Network access needed for Kafka Connect, Grafana API, and Slack webhook integrations",
+    "Supports MongoDB, PostgreSQL - additional databases require custom connector configuration",
+    "Does not provide automatic rollback - manual intervention required for failed migrations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Database engineers managing production migrations",
+      "title": "Zero-downtime production migrations",
+      "description": "Monitor large-scale database migrations in real-time with automated alerting when data lag exceeds thresholds or error rates spike."
+    },
+    {
+      "targetUser": "Data platform engineers building real-time sync",
+      "title": "CDC pipeline implementation",
+      "description": "Set up Change Data Capture from PostgreSQL to target systems with Debezium, tracking replication lag and event throughput."
+    },
+    {
+      "targetUser": "DevOps teams standardizing observability",
+      "title": "Migration dashboard automation",
+      "description": "Generate Grafana dashboards programmatically showing migration progress, data lag, and error rates with threshold-based alerting."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic migration monitoring setup",
+      "prompt": "Create an observable MongoDB migration script with Prometheus metrics for duration and document count. Include structured logging with winston.",
+      "scenario": "Setting up basic observability for a simple migration"
+    },
+    {
+      "title": "CDC pipeline with Debezium",
+      "prompt": "Set up a Debezium CDC connector for PostgreSQL with Kafka. Configure metrics for events processed, consumer lag, and replication lag.",
+      "scenario": "Building real-time data synchronization between databases"
+    },
+    {
+      "title": "Anomaly detection and alerting",
+      "prompt": "Implement anomaly detection for migration throughput and error rates. Send alerts to Slack when throughput drops below 50% of expected or error rate exceeds 1%.",
+      "scenario": "Proactive monitoring with automated incident notification"
+    },
+    {
+      "title": "Full observability stack",
+      "prompt": "Create a complete migration observability solution with Prometheus metrics, Grafana dashboard automation, Slack alerting, and CI/CD integration for health checks.",
+      "scenario": "Enterprise-grade migration monitoring for production deployments"
+    }
+  ],
+  "bestPractices": [
+    "Always use transactions with session-based execution for migration atomicity and rollback support",
+    "Set heartbeat intervals (10 seconds) in CDC connectors to detect replication stalls quickly",
+    "Configure multiple alerting channels (Slack, email) with severity-based routing for critical vs warning alerts"
+  ],
+  "antiPatterns": [
+    "Do not skip metrics registration - unobservable migrations cannot be monitored for anomalies",
+    "Avoid polling intervals longer than 30 seconds for progress tracking - delays anomaly detection",
+    "Never send credentials in dashboard configurations - use environment variables or secrets management"
+  ],
+  "faq": [
+    {
+      "question": "What databases are supported for CDC?",
+      "answer": "PostgreSQL is fully supported via pgoutput plugin. MongoDB, MySQL, and SQL Server require additional Debezium connector configuration."
+    },
+    {
+      "question": "How does anomaly detection work?",
+      "answer": "The system monitors rows per second and error rates. Alerts trigger when throughput drops below 50% of expected or error rate exceeds 1%."
+    },
+    {
+      "question": "Can I use this without Kafka?",
+      "answer": "Basic migration observability works without Kafka. CDC pipelines require Kafka for event streaming."
+    },
+    {
+      "question": "How are Grafana dashboards created?",
+      "answer": "Dashboards are auto-provisioned via the Grafana API using bearer token authentication. Dashboard JSON is generated programmatically."
+    },
+    {
+      "question": "What metrics are collected by default?",
+      "answer": "Migration duration, documents/rows processed, error counts, consumer lag, and replication lag in seconds."
+    },
+    {
+      "question": "How do I integrate with CI/CD?",
+      "answer": "Use the provided GitHub Actions workflow template with health check steps that verify migration completion and data lag thresholds."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "database migrations",
+    "CDC",
+    "Debezium",
+    "Kafka",
+    "Prometheus",
+    "Grafana",
+    "observability"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/database-migrations-migration-observability",
+  "sourceType": "community",
+  "dependencies": []
+}

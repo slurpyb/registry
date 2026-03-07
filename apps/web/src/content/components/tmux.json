@@ -1,0 +1,143 @@
+{
+  "name": "tmux",
+  "type": "skill",
+  "description": "Remote control tmux sessions for interactive CLIs, background tasks, and services. Supports sub-tasks, long-running processes, and service management with session persistence and automatic cleanup.",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "session management",
+  "quality": 5,
+  "qualityReason": "Essential terminal session management",
+  "bundleHints": [
+    "devops",
+    "cli-tools",
+    "terminal-workflow"
+  ],
+  "tags": [
+    "automation",
+    "background-tasks",
+    "interactive-clis",
+    "remote-control",
+    "service-management",
+    "session-persistence",
+    "sessions",
+    "terminal",
+    "tmux"
+  ],
+  "capabilities": [
+    "Create isolated tmux sessions for tasks, services, and agent operations",
+    "Send commands and capture output from running sessions",
+    "Monitor session status and automatically clean up old sessions",
+    "Use private sockets to avoid conflicts with personal tmux config",
+    "Wait for specific text patterns in session output with timeout"
+  ],
+  "author": "Dwsy",
+  "icon": "🖥️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate tmux terminal session manager skill. Static scanner produced 288 false positives due to misidentifying Bun's $ spawn syntax as backticks, tmux command flags as crypto algorithms, and standard terminal operations as suspicious. All external commands are safe tmux operations using Bun's proper argument escaping. No malicious intent or behavior confirmed.",
+  "valueStatement": "Running long tasks in terminals often blocks your workflow. This skill creates isolated tmux sessions for background processes, letting you run compiles, servers, and interactive tools without interruption.",
+  "userTitle": "Manage tmux sessions for background tasks",
+  "limitations": [
+    "Requires tmux installed on Linux or macOS systems",
+    "Cannot access existing user tmux sessions due to socket isolation",
+    "Session data stored in temporary directory cleared on reboot",
+    "Cannot run on Windows without WSL"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Run compilation in background",
+      "description": "Start long compilation processes in tmux sessions and check progress later without blocking your terminal."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Manage development services",
+      "description": "Start web servers, databases, and other services in persistent sessions that survive disconnections."
+    },
+    {
+      "targetUser": "Data scientists",
+      "title": "Interactive Python REPL sessions",
+      "description": "Create persistent Python environments for data analysis that maintain state across interactions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start background compilation",
+      "scenario": "Compiling a large project",
+      "prompt": "Create a tmux session to compile my project in the background. Run 'make clean && make all' and tell me how to monitor progress."
+    },
+    {
+      "title": "Run development server",
+      "scenario": "Starting a web server",
+      "prompt": "Start a development server in a tmux session. Use Python to serve the current directory on port 8000. Set it up as a service so I can check logs later."
+    },
+    {
+      "title": "Interactive debugging",
+      "scenario": "Debugging with Python REPL",
+      "prompt": "Create a Python REPL session in tmux. Set it up so I can send commands and capture output for debugging my script."
+    },
+    {
+      "title": "Long-running data processing",
+      "scenario": "Processing large datasets",
+      "prompt": "Start a data processing task in tmux that will run for several hours. Process all CSV files in the data/ directory and save results to output/. Monitor for completion."
+    }
+  ],
+  "bestPractices": [
+    "Always use the monitoring commands provided after creating a session to track progress",
+    "Set appropriate timeouts when waiting for text patterns to avoid infinite waits",
+    "Clean up completed sessions regularly to free system resources"
+  ],
+  "antiPatterns": [
+    "Do not create sessions without monitoring - always check if tasks complete successfully",
+    "Avoid storing sensitive data in session commands as they're saved in plain text",
+    "Never attach to sessions in automated scripts - use capture instead"
+  ],
+  "faq": [
+    {
+      "question": "Is this compatible with my existing tmux configuration?",
+      "answer": "Yes, it uses private sockets that don't interfere with your personal tmux sessions or configuration."
+    },
+    {
+      "question": "What happens to sessions when my computer restarts?",
+      "answer": "Sessions are stored in /tmp and will be lost on reboot. Use the cleanup command to manage old sessions."
+    },
+    {
+      "question": "Can I integrate this with my CI/CD pipeline?",
+      "answer": "Yes, the skill works well in automated environments. Use wait-for-text to detect completion before proceeding."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Session data is stored locally in temporary files. Avoid passing sensitive information in commands as they're saved in plain text."
+    },
+    {
+      "question": "The session command failed, how do I troubleshoot?",
+      "answer": "Use 'sync' to refresh session status, check tmux is installed, and verify socket permissions with 'ls -la /tmp/pi-tmux-sockets/'."
+    },
+    {
+      "question": "How does this compare to running tmux directly?",
+      "answer": "This provides programmatic control with automatic session tracking, cleanup, and isolation from your personal tmux setup."
+    }
+  ],
+  "seoKeywords": [
+    "tmux",
+    "terminal multiplexer",
+    "background tasks",
+    "session management",
+    "Claude",
+    "Claude Code",
+    "dev server",
+    "long running processes",
+    "automation",
+    "terminal"
+  ],
+  "sourceUrl": "https://github.com/Dwsy/agent/tree/main/skills/tmux",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,139 @@
+{
+  "name": "enact-json-formatter",
+  "type": "skill",
+  "description": "Formats and prettifies JSON with configurable indentation",
+  "domain": "tools",
+  "subdomain": "editors",
+  "specialty": "JSON prettify",
+  "quality": 4,
+  "qualityReason": "Reusable dev tool with config",
+  "bundleHints": [
+    "dev-utils",
+    "data-tools"
+  ],
+  "tags": [
+    "claude-code",
+    "cleanup",
+    "data",
+    "formatting",
+    "indent",
+    "json",
+    "utility"
+  ],
+  "capabilities": [
+    "Parses and validates JSON input strings",
+    "Formats JSON with configurable indentation (1-8 spaces)",
+    "Returns structured output indicating validity",
+    "Provides error messages for invalid JSON input"
+  ],
+  "author": "EnactProtocol",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 10 patterns as potential security issues. After evaluation, all findings are FALSE POSITIVES. The 'external_commands' pattern was triggered by code block markers in documentation examples, not actual command execution. The 'weak cryptographic algorithm' patterns were false positives likely caused by JSON field names or schema keywords. This is a simple JSON formatting utility with no network, filesystem, or command execution risks beyond standard script execution.",
+  "valueStatement": "JSON data is difficult to read when minified or improperly formatted. This skill validates and prettifies JSON strings with user-specified indentation to improve readability for debugging, logging, and data inspection.",
+  "userTitle": "Format JSON with configurable indentation",
+  "limitations": [
+    "Does not modify JSON in place; only formats provided input",
+    "Cannot validate JSON against a schema",
+    "Does not compress or minify JSON",
+    "Cannot convert between JSON and other formats like YAML"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers debugging API integrations",
+      "title": "Format API responses for debugging",
+      "description": "Quickly format raw API responses or logged JSON output to identify structure and locate errors in complex nested objects."
+    },
+    {
+      "targetUser": "DevOps engineers reviewing configs",
+      "title": "Clean up configuration data",
+      "description": "Transform minified or single-line JSON configuration files into readable multi-line format for easier editing and version control."
+    },
+    {
+      "targetUser": "Data engineers processing external feeds",
+      "title": "Validate incoming JSON data",
+      "description": "Check if a string is valid JSON and get formatted output for inspection when working with user input or external data sources."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic JSON formatting",
+      "prompt": "Use the enact/json-formatter skill to format this JSON with 2-space indentation:\n\n${json_input}",
+      "scenario": "Formatting a JSON string with default 2-space indentation"
+    },
+    {
+      "title": "Compact formatting with custom indent",
+      "prompt": "Use enact/json-formatter with ${indent} spaces to format:\n\n${json_input}",
+      "scenario": "Formatting with specific indentation level"
+    },
+    {
+      "title": "Format and validate unknown JSON",
+      "prompt": "Check if this is valid JSON and format it nicely:\n\n${raw_json}",
+      "scenario": "Validating and formatting unknown JSON data"
+    },
+    {
+      "title": "Format large JSON payloads",
+      "prompt": "Format this JSON document with ${indent} indentation for better readability:\n\n${large_json}",
+      "scenario": "Formatting large JSON payloads with custom indentation"
+    }
+  ],
+  "bestPractices": [
+    "Use 2-space indentation for general readability and consistency with common style guides",
+    "Use 4-space indentation for deeply nested structures to visualize hierarchy more clearly",
+    "Validate JSON before formatting to catch syntax errors early"
+  ],
+  "antiPatterns": [
+    "Using this skill to format JSON from untrusted sources without validation first",
+    "Expecting schema validation; this tool only checks JSON syntax, not structure",
+    "Formatting very large JSON payloads without considering timeout limits"
+  ],
+  "faq": [
+    {
+      "question": "What indentation options are supported?",
+      "answer": "The skill accepts any integer value for indentation. Common choices are 2 (default) or 4 spaces. Higher values like 8 may be used for very large nested objects."
+    },
+    {
+      "question": "Does this skill modify files on disk?",
+      "answer": "No. The skill only processes the JSON string provided as input and returns formatted output. It does not read or write any files."
+    },
+    {
+      "question": "Can I use this to format JSON from an API response?",
+      "answer": "Yes. Pass the API response body as the json parameter. The skill will validate and format it regardless of whether it was minified."
+    },
+    {
+      "question": "What happens with invalid JSON?",
+      "answer": "The skill returns valid: false and includes an error message describing the JSON syntax error. This helps identify issues in the input data."
+    },
+    {
+      "question": "Is there a size limit for JSON input?",
+      "answer": "The skill runs with a 30-second timeout. Very large JSON files (megabytes) may approach this limit depending on system resources."
+    },
+    {
+      "question": "Does this skill support JSON5 or other JSON variants?",
+      "answer": "No. This skill uses standard JSON.parse and JSON.stringify, which only support strict JSON syntax. Comments and trailing commas are not allowed."
+    }
+  ],
+  "seoKeywords": [
+    "JSON formatter",
+    "format JSON",
+    "prettify JSON",
+    "JSON indentation",
+    "JSON validation",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "JSON pretty print",
+    "JSON tools"
+  ],
+  "sourceUrl": "https://github.com/EnactProtocol/enact/tree/main/examples/json-formatter",
+  "sourceType": "community",
+  "dependencies": []
+}

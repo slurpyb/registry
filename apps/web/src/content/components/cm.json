@@ -1,0 +1,143 @@
+{
+  "name": "cm",
+  "type": "skill",
+  "description": "CASS Memory System - procedural memory for AI coding agents. Three-layer cognitive architecture with confidence decay, anti-pattern learning, cross-agent knowledge transfer, trauma guard safety system. Bun/TypeScript CLI.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "procedural memory",
+  "quality": 4,
+  "qualityReason": "Innovative agent memory system",
+  "bundleHints": [
+    "ai-agents",
+    "memory-systems"
+  ],
+  "tags": [
+    "ai-agents",
+    "anti-patterns",
+    "cognitive-architecture",
+    "confidence-decay",
+    "knowledge-management",
+    "knowledge-transfer",
+    "learning",
+    "memory",
+    "productivity",
+    "safety"
+  ],
+  "capabilities": [
+    "Extracts actionable rules and patterns from agent session logs",
+    "Shares knowledge between Claude, Codex, Cursor and other AI agents",
+    "Scores rule effectiveness with confidence decay over time",
+    "Prevents repeated mistakes with trauma guard safety system",
+    "Provides contextual guidance before starting coding tasks"
+  ],
+  "author": "Dicklesworthstone",
+  "icon": "🧠",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill describing a legitimate memory system. Static analyzer flagged 227 patterns, but all are false positives: the trauma guard safety examples were misidentified as dangerous commands, scoring terminology was confused with crypto, and documentation examples were flagged as executable code. No actual code or scripts are present.",
+  "valueStatement": "AI coding agents accumulate valuable knowledge but lose it between sessions. CM captures patterns and learnings across all your agents, turning scattered experiences into persistent procedural memory that improves over time with confidence scoring.",
+  "userTitle": "Build persistent cross-agent memory with CM",
+  "limitations": [
+    "Requires installation of separate CASS tool for session indexing",
+    "Needs API keys for LLM-powered reflection features",
+    "Cross-agent enrichment is opt-in for privacy",
+    "Performance depends on volume of session history"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers using multiple AI coding agents",
+      "title": "Share knowledge between agents",
+      "description": "When Cursor learns a debugging pattern, CM makes it available to Claude Code automatically."
+    },
+    {
+      "targetUser": "Teams managing complex codebases",
+      "title": "Build team playbook",
+      "description": "Convert individual agent experiences into shared team knowledge with proven patterns and anti-patterns."
+    },
+    {
+      "targetUser": "Solo developers building expertise",
+      "title": "Personal coding memory",
+      "description": "Never forget how you solved tricky bugs. CM remembers successful patterns and warns about problematic approaches."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Get context before coding",
+      "scenario": "Starting a new feature or bug fix",
+      "prompt": "Run cm context \"implement user authentication with JWT\" --json to get relevant patterns from your playbook"
+    },
+    {
+      "title": "Add team knowledge",
+      "scenario": "After solving a difficult problem",
+      "prompt": "Use cm playbook add \"Always validate JWT expiry before debugging auth errors\" --category security"
+    },
+    {
+      "title": "Review recent learnings",
+      "scenario": "Weekly retrospective or planning",
+      "prompt": "Run cm reflect --days 7 --json to see extracted patterns and provide feedback"
+    },
+    {
+      "title": "Prevent disasters",
+      "scenario": "Before running dangerous commands",
+      "prompt": "Install trauma guard with cm guard --install to block commands matching harmful patterns"
+    }
+  ],
+  "bestPractices": [
+    "Run cm context before starting non-trivial tasks to get relevant guidance",
+    "Leave inline feedback comments like // [cass: helpful b-8f3a2c] when rules help or hurt",
+    "Enable cross-agent enrichment only after reviewing privacy implications"
+  ],
+  "antiPatterns": [
+    "Don't manually add rules without evidence - let CM extract them from real sessions",
+    "Avoid sharing playbook files containing sensitive project information",
+    "Don't disable trauma guard without understanding why patterns were blocked"
+  ],
+  "faq": [
+    {
+      "question": "Is my session data sent to external services?",
+      "answer": "No. CM uses local-first design. All processing happens on your machine. Cross-agent enrichment is opt-in only."
+    },
+    {
+      "question": "What agents does CM support?",
+      "answer": "Any agent producing session logs. Built-in support for Claude Code, Codex, Cursor, Aider, PI, Gemini, and ChatGPT."
+    },
+    {
+      "question": "How does confidence decay work?",
+      "answer": "Rule confidence halves every 90 days without feedback. One harmful mark counts as 4 helpful marks. Rules progress from candidate to established to proven."
+    },
+    {
+      "question": "Can I use CM without an LLM API key?",
+      "answer": "Yes. Set CASS_MEMORY_LLM=none for LLM-free mode. You'll get deterministic reflection without semantic enhancement."
+    },
+    {
+      "question": "What happens if CM makes a mistake?",
+      "answer": "Use cm mark <rule-id> --harmful --reason or leave inline comments. CM learns from feedback and deprecates bad rules."
+    },
+    {
+      "question": "How is CM different from searching session history?",
+      "answer": "CM extracts actionable rules, validates against history, tracks effectiveness over time, and shares knowledge across agents."
+    }
+  ],
+  "seoKeywords": [
+    "AI memory system",
+    "Claude Code memory",
+    "Codex integration",
+    "cross-agent learning",
+    "procedural memory",
+    "AI coding assistant",
+    "session persistence",
+    "knowledge management",
+    "CM CASS memory",
+    "AI agent memory"
+  ],
+  "sourceUrl": "https://github.com/Dicklesworthstone/agent_flywheel_clawdbot_skills_and_integrations/tree/main/skills/cm",
+  "sourceType": "community",
+  "dependencies": []
+}

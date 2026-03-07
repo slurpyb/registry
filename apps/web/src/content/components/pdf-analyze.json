@@ -1,0 +1,144 @@
+{
+  "name": "pdf-analyze",
+  "type": "skill",
+  "description": "Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmatically process, generate, or analyze PDF documents at scale.",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "PDF extraction",
+  "quality": 4,
+  "qualityReason": "Comprehensive analysis focus",
+  "bundleHints": [
+    "document-processing",
+    "pdf-analysis"
+  ],
+  "tags": [
+    "data-retrieval",
+    "document",
+    "document-analysis",
+    "extraction",
+    "form-filling",
+    "forms",
+    "pdf",
+    "pdf-creation",
+    "table-extraction",
+    "text-extraction"
+  ],
+  "capabilities": [
+    "Extract text from PDF documents with layout preservation",
+    "Extract tables from PDFs and convert to structured formats like Excel",
+    "Fill fillable PDF forms with field validation",
+    "Add text annotations to non-fillable PDF forms",
+    "Merge and split PDF documents",
+    "Convert PDF pages to images for visual analysis"
+  ],
+  "author": "21pounder",
+  "icon": "📄",
+  "version": "1.0.0",
+  "license": "Proprietary. LICENSE.txt has complete terms",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate PDF processing toolkit. The static analyzer flagged 173 potential issues, but ALL are false positives. The 'Ruby/shell backtick execution' patterns are Markdown code formatting delimiters, not actual command execution. 'Weak cryptographic algorithm' detections are test fixture data with hash-like strings, not crypto operations. 'C2 keywords' refers to 'encrypt' in PDF password documentation. No network exfiltration, credential theft, or obfuscation patterns exist. The skill's behavior fully aligns with its stated purpose.",
+  "valueStatement": "PDF documents often contain important data that is difficult to access programmatically. This skill provides Claude with comprehensive tools to extract text and tables, fill forms, merge documents, and convert PDFs to images for analysis.",
+  "userTitle": "Process PDF documents for extraction and form filling",
+  "limitations": [
+    "Requires poppler-utils installed for command-line tools",
+    "OCR requires tesseract installation for scanned documents",
+    "Cannot edit existing PDF content beyond form fields and annotations",
+    "Complex PDF forms may require manual verification of output"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data analysts",
+      "title": "Extract tables from reports",
+      "description": "Pull structured data from financial reports, research papers, and statistical documents into CSV or Excel format."
+    },
+    {
+      "targetUser": "Administrative staff",
+      "title": "Automate form completion",
+      "description": "Fill out PDF forms programmatically with validated data for applications, surveys, and official documents."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Build PDF processing workflows",
+      "description": "Create document processing pipelines that merge, split, and transform PDFs for applications and services."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Extract PDF text",
+      "scenario": "Get text from a document",
+      "prompt": "Extract all text from document.pdf using pdfplumber and save it to extracted_text.txt"
+    },
+    {
+      "title": "List form fields",
+      "scenario": "Check PDF for fillable fields",
+      "prompt": "Check if application_form.pdf has fillable form fields, and if so, list all field names and types"
+    },
+    {
+      "title": "Extract tables",
+      "scenario": "Get structured data from tables",
+      "prompt": "Extract all tables from quarterly_report.pdf and save them to an Excel file with one sheet per table"
+    },
+    {
+      "title": "Fill PDF form",
+      "scenario": "Complete a fillable form",
+      "prompt": "Fill in the following fields in application_form.pdf using data from field_values.json and save to completed_form.pdf"
+    }
+  ],
+  "bestPractices": [
+    "Validate form field values before submission to catch errors early",
+    "Convert PDF to images first when working with non-fillable forms to visually verify annotation placement",
+    "Use the bounding box validation script to ensure annotations do not overlap or obscure existing content"
+  ],
+  "antiPatterns": [
+    "Skipping the form field validation step before filling PDFs",
+    "Not converting non-fillable PDFs to images for visual analysis first",
+    "Using hardcoded file paths instead of parameters for reusability"
+  ],
+  "faq": [
+    {
+      "question": "Which Python libraries does this skill use?",
+      "answer": "Primary libraries are pypdf for basic operations, pdfplumber for text and table extraction, and reportlab for creating new PDFs."
+    },
+    {
+      "question": "What are the system requirements?",
+      "answer": "Requires Python 3.8+ with pip install of pypdf, pdfplumber, reportlab, pdf2image, and PIL. Poppler must be installed for PDF to image conversion."
+    },
+    {
+      "question": "How do I fill a scanned PDF that is not fillable?",
+      "answer": "Use the non-fillable form workflow: convert PDF to images, manually determine text entry locations, create fields.json with bounding boxes, then use fill_pdf_form_with_annotations.py."
+    },
+    {
+      "question": "Is my data safe when processing PDFs?",
+      "answer": "Yes. All processing is local using Python libraries. No data is sent to external servers. Files are only read from and written to paths you specify."
+    },
+    {
+      "question": "Why does my filled PDF show annotations in the wrong position?",
+      "answer": "This usually indicates incorrect coordinate transformation. PDF coordinates start from bottom-left while image coordinates start from top-left. Verify your bounding box conversion logic."
+    },
+    {
+      "question": "How is this different from using pdf-lib in JavaScript?",
+      "answer": "The Python tools provide more mature text extraction and table parsing. pdf-lib is better suited for browser environments or Node.js projects that need to create or modify PDFs client-side."
+    }
+  ],
+  "seoKeywords": [
+    "Claude PDF processing",
+    "extract PDF text",
+    "fill PDF forms",
+    "PDF manipulation",
+    "table extraction from PDF",
+    "Claude Code PDF tools",
+    "merge split PDF",
+    "OCR PDF text extraction",
+    "pdf-lib JavaScript",
+    "pypdf Python"
+  ],
+  "sourceUrl": "https://github.com/21pounder/terminalAgent/tree/main/deepresearch/.claude/skills/pdf-analyze",
+  "sourceType": "community",
+  "dependencies": []
+}

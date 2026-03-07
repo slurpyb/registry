@@ -1,0 +1,148 @@
+{
+  "name": "threejs-builder",
+  "type": "skill",
+  "description": "Creates simple Three.js web apps with scene setup, lighting, geometries, materials, animations, and responsive rendering. Use for: \"Create a threejs scene/app/showcase\" or when user wants 3D web content. Supports ES modules, modern Three.js r150+ APIs.\n",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Three.js apps",
+  "quality": 5,
+  "qualityReason": "Complete 3D web app creation workflow",
+  "bundleHints": [
+    "3d-graphics",
+    "web-development",
+    "frontend"
+  ],
+  "tags": [
+    "3d",
+    "3d-web-content",
+    "frontend",
+    "geometries",
+    "graphics",
+    "lighting",
+    "materials",
+    "responsive-rendering",
+    "scene-setup",
+    "threejs",
+    "webgl"
+  ],
+  "capabilities": [
+    "Generates complete HTML files with Three.js ES module setup",
+    "Creates 3D scenes with geometries, materials, and lighting",
+    "Implements animations using setAnimationFrame loop pattern",
+    "Adds interactive camera controls and mouse interaction",
+    "Builds particle systems and instanced meshes for performance",
+    "Supports advanced topics like shaders, post-processing, and physics"
+  ],
+  "author": "CesarAugustusGroB",
+  "icon": "🎮",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing Three.js tutorials and code examples. All 140 static findings are false positives. The scanner misidentified JavaScript template literals (backticks) as Ruby/shell backtick execution, GLSL shader code as command execution, and legitimate graphics programming terms (raycaster, loader, copy) as security threats. This skill contains no executable code, no network calls, no file system access, and no security-sensitive operations.",
+  "valueStatement": "Creating 3D web content requires understanding WebGL, shaders, and 3D graphics programming. This skill generates complete Three.js applications with scene setup, lighting, materials, animations, and responsive rendering using modern ES modules.",
+  "userTitle": "Build 3D Web Apps with Three.js",
+  "limitations": [
+    "Creates simple applications, not complex games or experiences",
+    "Uses CDN imports, requires internet for initial library load",
+    "Focuses on basic to intermediate Three.js patterns",
+    "No server-side rendering or build tool integration"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Create 3D portfolio sites",
+      "description": "Build interactive 3D hero sections, product showcases, and animated backgrounds for modern web portfolios."
+    },
+    {
+      "targetUser": "Designers",
+      "title": "Prototype 3D interfaces",
+      "description": "Quickly visualize and test 3D UI concepts, product configurators, and interactive data visualizations."
+    },
+    {
+      "targetUser": "Educators",
+      "title": "Teach 3D web concepts",
+      "description": "Generate clean, educational Three.js examples for teaching WebGL, 3D math, and interactive graphics."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic 3D Scene",
+      "scenario": "Create a simple rotating cube",
+      "prompt": "Create a Three.js application with a rotating colorful cube, proper lighting, and responsive design. Use modern ES modules."
+    },
+    {
+      "title": "Interactive Product",
+      "scenario": "Build a 3D product viewer",
+      "prompt": "Create a Three.js scene showing a 3D product like a watch or shoe with orbit controls, realistic lighting, and smooth materials."
+    },
+    {
+      "title": "Particle System",
+      "scenario": "Generate floating particles",
+      "prompt": "Build a Three.js app with thousands of animated particles forming interesting patterns with mouse interaction."
+    },
+    {
+      "title": "Data Visualization",
+      "scenario": "3D chart or graph",
+      "prompt": "Create a 3D bar chart or scatter plot in Three.js with animated data transitions and interactive camera controls."
+    }
+  ],
+  "bestPractices": [
+    "Always include proper lighting since most materials require it",
+    "Use Math.min(window.devicePixelRatio, 2) to cap resolution",
+    "Import controls and loaders from examples/jsm/ path",
+    "Create geometries and materials once, reuse for performance"
+  ],
+  "antiPatterns": [
+    "Never create new geometries in the animation loop",
+    "Avoid legacy CommonJS patterns or global THREE variable",
+    "Do not forget to add objects to the scene or they will not render",
+    "Never skip the resize event listener for responsive design"
+  ],
+  "faq": [
+    {
+      "question": "Which browsers support Three.js?",
+      "answer": "Any browser with WebGL support including Chrome, Firefox, Safari, and Edge. Three.js falls back to canvas rendering if WebGL is unavailable."
+    },
+    {
+      "question": "Can I use this with React or Vue?",
+      "answer": "Yes. For React, consider react-three-fiber. For Vue, mount the Three.js canvas in a component mounted hook."
+    },
+    {
+      "question": "How do I add this to my existing website?",
+      "answer": "Copy the generated HTML or extract the JavaScript. Import Three.js from CDN or npm before your custom code."
+    },
+    {
+      "question": "Is Three.js free for commercial use?",
+      "answer": "Yes. Three.js uses MIT license. You can freely use it in commercial projects and client work."
+    },
+    {
+      "question": "Why is my scene black?",
+      "answer": "Most materials need lighting. Add AmbientLight or DirectionalLight, or use MeshBasicMaterial which does not require lights."
+    },
+    {
+      "question": "How can I optimize performance?",
+      "answer": "Reuse geometries and materials, limit shadow resolution, use InstancedMesh for many objects, and keep triangle counts reasonable."
+    }
+  ],
+  "seoKeywords": [
+    "threejs",
+    "3d web graphics",
+    "webgl",
+    "three.js tutorial",
+    "3d graphics programming",
+    "claude code",
+    "claude",
+    "codex",
+    "frontend development",
+    "javascript 3d"
+  ],
+  "sourceUrl": "https://github.com/CesarAugustusGroB/SHINOBI-WAY-the-inifinite-tower/tree/main/.claude/skills/threejs-builder",
+  "sourceType": "community",
+  "dependencies": []
+}

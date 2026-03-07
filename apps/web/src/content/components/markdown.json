@@ -1,0 +1,142 @@
+{
+  "name": "markdown",
+  "type": "skill",
+  "description": "Markdown linting and automated fixing using markdownlint-cli2. Use when Claude needs to: (1) Check markdown files for style issues, (2) Fix markdown formatting problems, (3) Ensure markdown follows best practices, (4) Validate markdown documents, or (5) Apply consistent markdown styling\n",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "linting",
+  "quality": 4,
+  "qualityReason": "Useful formatting automation",
+  "bundleHints": [
+    "docs-toolkit",
+    "markdown-tools"
+  ],
+  "tags": [
+    "documentation",
+    "fixing",
+    "formatting",
+    "linting",
+    "markdown",
+    "markdownlint",
+    "style",
+    "validation"
+  ],
+  "capabilities": [
+    "Check markdown files for style violations using markdownlint-cli2",
+    "Automatically fix 70-90% of formatting issues with --fix flag",
+    "Validate documents against configurable markdown rules",
+    "Identify issues requiring manual judgment like document hierarchy",
+    "Apply consistent markdown styling across multiple files",
+    "Generate custom rule configurations for project needs"
+  ],
+  "author": "46ki75",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill with no executable code. All flagged patterns are false positives from markdown documentation content. The skill provides instructions for using markdownlint-cli2, a legitimate open-source tool. No security concerns identified.",
+  "valueStatement": "Markdown files often contain style inconsistencies that reduce readability. This skill uses markdownlint-cli2 to automatically detect and fix common formatting problems while identifying issues that need human judgment.",
+  "userTitle": "Lint and fix markdown formatting automatically",
+  "limitations": [
+    "Requires markdownlint-cli2 to be installed on the system",
+    "Cannot automatically fix structural issues like multiple H1 headers",
+    "Line length and header hierarchy require human judgment to resolve",
+    "Does not handle intentional rule violations in code examples"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Technical Writers",
+      "title": "Standardize documentation style",
+      "description": "Ensure all project documentation follows consistent markdown conventions and style rules across dozens of files."
+    },
+    {
+      "targetUser": "Open Source Maintainers",
+      "title": "Clean up README files",
+      "description": "Validate and fix markdown formatting in README files, contribution guides, and documentation before releases."
+    },
+    {
+      "targetUser": "Content Creators",
+      "title": "Improve article readability",
+      "description": "Clean up markdown formatting in blog posts and educational content to meet publication standards."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick lint check",
+      "scenario": "Check for formatting issues",
+      "prompt": "Check this markdown file for style issues"
+    },
+    {
+      "title": "Auto-fix common issues",
+      "scenario": "Fix mechanical problems",
+      "prompt": "Run markdownlint-cli2 with --fix to automatically correct formatting issues in document.md"
+    },
+    {
+      "title": "Custom configuration",
+      "scenario": "Project-specific rules",
+      "prompt": "Lint this markdown with a custom config that sets line length to 120 characters and allows HTML"
+    },
+    {
+      "title": "Complete workflow",
+      "scenario": "Full document cleanup",
+      "prompt": "Apply the complete markdown workflow: auto-fix, check remaining errors, manually fix structural issues, and verify zero errors"
+    }
+  ],
+  "bestPractices": [
+    "Always run auto-fix first to handle mechanical issues before manual review",
+    "Create a project-specific markdownlint config file to define consistent rules",
+    "Verify final output shows zero errors before considering the work complete"
+  ],
+  "antiPatterns": [
+    "Manually fixing all issues without using auto-fix (wastes time on mechanical problems)",
+    "Disabling all rules that show errors instead of understanding and fixing issues",
+    "Skipping final verification step and assuming auto-fix resolved everything"
+  ],
+  "faq": [
+    {
+      "question": "What markdown rules does this skill check?",
+      "answer": "Supports all markdownlint rules including header levels, list formatting, trailing spaces, line length, blank lines, and code block formatting."
+    },
+    {
+      "question": "Can I customize which rules are enforced?",
+      "answer": "Yes. Create a .markdownlint.json file to enable, disable, or configure rules like line length thresholds and HTML allowances."
+    },
+    {
+      "question": "Does auto-fix modify my original files?",
+      "answer": "Yes. The --fix flag modifies files in place. Use version control or work on copies to preserve originals."
+    },
+    {
+      "question": "Why do some errors remain after auto-fix?",
+      "answer": "Auto-fix handles mechanical issues only. Structural problems like document hierarchy and line break placement require human judgment."
+    },
+    {
+      "question": "What files does this skill access?",
+      "answer": "Only markdown files you explicitly specify. No system files, credentials, or sensitive data are accessed."
+    },
+    {
+      "question": "How does this compare to other formatters?",
+      "answer": "Uses markdownlint-cli2 which follows comprehensive linting rules with detailed error codes, more thorough than basic formatters."
+    }
+  ],
+  "seoKeywords": [
+    "markdown linting",
+    "markdown formatting",
+    "markdown validation",
+    "markdownlint-cli2",
+    "Claude markdown",
+    "Codex markdown",
+    "Claude Code markdown",
+    "document style checker",
+    "markdown best practices",
+    "markdown automation"
+  ],
+  "sourceUrl": "https://github.com/46ki75/skills/tree/main/public/markdown",
+  "sourceType": "community",
+  "dependencies": []
+}

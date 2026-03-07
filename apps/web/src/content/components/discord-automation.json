@@ -1,0 +1,141 @@
+{
+  "name": "discord-automation",
+  "type": "skill",
+  "description": "Automate Discord tasks via Rube MCP (Composio): messages, channels, roles, webhooks, reactions. Always search tools first for current schemas.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "Discord automation",
+  "quality": 5,
+  "qualityReason": "Specific and actionable integration",
+  "bundleHints": [
+    "discord-tools",
+    "mcp",
+    "automation"
+  ],
+  "tags": [
+    "automation",
+    "bot",
+    "composio",
+    "discord",
+    "mcp",
+    "rube"
+  ],
+  "capabilities": [
+    "Send and edit messages in Discord channels via bot",
+    "Create and manage direct messages to Discord users",
+    "Create, assign, and delete roles in Discord servers",
+    "Create and manage webhooks for external integrations",
+    "View and manage message reactions (add/remove)",
+    "List guilds, channels, and members for automation"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation file (SKILL.md) that provides guidance on using Rube MCP for Discord automation. All static findings are false positives: backticks are markdown formatting for tool names, the URL is a legitimate service endpoint, and there is no executable code or malicious content. The skill is safe for publication.",
+  "valueStatement": "Manual Discord management takes time and is prone to errors. This skill enables Claude to automate Discord operations including messaging, role management, webhooks, and reactions through Rube MCP integration.",
+  "userTitle": "Automate Discord Tasks with Claude",
+  "limitations": [
+    "Requires Rube MCP server connection to function",
+    "Bot must have appropriate Discord permissions (SEND_MESSAGES, MANAGE_ROLES, etc.)",
+    "Rate limits apply to prevent Discord API throttling",
+    "Cannot edit messages sent by other bots or users"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Community managers and moderators",
+      "title": "Community Manager Notifications",
+      "description": "Automate welcome messages, announcements, and moderation alerts in Discord servers"
+    },
+    {
+      "targetUser": "DevOps engineers and developers",
+      "title": "DevOps Deployment Alerts",
+      "description": "Set up automated notifications for CI/CD pipelines, server status, and deployment events"
+    },
+    {
+      "targetUser": "Developers learning Discord API",
+      "title": "Bot Development Prototyping",
+      "description": "Quickly test and prototype Discord bot functionality before building a full bot"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Send a Welcome Message",
+      "prompt": "Use the discord-automation skill to send a welcome message to channel ID {channel_id} saying 'Welcome to our server!'",
+      "scenario": "When a new member joins the Discord server"
+    },
+    {
+      "title": "Create and Assign a Role",
+      "prompt": "Use the discord-automation skill to create a new role called 'Verified' in guild {guild_id} and assign it to user {user_id}",
+      "scenario": "When verifying new community members"
+    },
+    {
+      "title": "Set Up Webhook for Alerts",
+      "prompt": "Use the discord-automation skill to create a webhook in channel {channel_id} named 'DeployAlerts' and show me how to execute it",
+      "scenario": "When setting up external service notifications"
+    },
+    {
+      "title": "Manage Server Reactions",
+      "prompt": "Use the discord-automation skill to list all users who reacted with '✅' to message {message_id} in channel {channel_id}",
+      "scenario": "When tracking event RSVPs or approvals"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before starting a workflow",
+    "Verify connection status shows ACTIVE before running any Discord operations",
+    "Respect Discord rate limits and handle 429 responses with Retry-After headers"
+  ],
+  "antiPatterns": [
+    "Assuming the bot has permissions it does not have - always verify permission setup first",
+    "Ignoring rate limits which can lead to temporary API bans",
+    "Using user operations (discord toolkit) instead of bot operations (discordbot) for automation"
+  ],
+  "faq": [
+    {
+      "question": "What is Rube MCP?",
+      "answer": "Rube MCP is a service by Composio that provides Model Context Protocol access to various integrations including Discord. It acts as a bridge between Claude and Discord's API."
+    },
+    {
+      "question": "Do I need API keys to use this skill?",
+      "answer": "No. Rube MCP does not require API keys. You only need to add the MCP server endpoint and complete Discord OAuth authentication."
+    },
+    {
+      "question": "Can this skill send messages as me or as a bot?",
+      "answer": "The skill supports both. Use the discordbot toolkit for bot token operations or the discord toolkit for user OAuth operations. Bot operations are preferred for automation."
+    },
+    {
+      "question": "What permissions does the bot need?",
+      "answer": "Permissions vary by operation: SEND_MESSAGES for messaging, MANAGE_ROLES for role operations, MANAGE_WEBHOOKS for webhook management, and MANAGE_MESSAGES for reaction cleanup."
+    },
+    {
+      "question": "How do I get channel and user IDs?",
+      "answer": "Enable Developer Mode in Discord settings, then right-click on any channel, user, or message to copy its ID. IDs are 64-bit snowflake numbers."
+    },
+    {
+      "question": "Is this safe to use in production?",
+      "answer": "Yes, this skill provides documentation for using official Discord APIs. However, always test workflows in a development server first and follow Discord's rate limit guidelines."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Discord automation",
+    "Codex Discord bot",
+    "Claude Code Discord",
+    "Rube MCP Discord",
+    "Composio Discord integration",
+    "automate Discord messages",
+    "Discord role management",
+    "Discord webhooks automation",
+    "Discord bot tutorial",
+    "MCP Discord tools"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/discord-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

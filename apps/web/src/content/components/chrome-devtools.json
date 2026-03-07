@@ -1,0 +1,142 @@
+{
+  "name": "chrome-devtools",
+  "type": "skill",
+  "description": "Control Chrome browser programmatically using chrome-devtools-mcp. Use when user asks to automate Chrome, debug web pages, take screenshots, evaluate JavaScript, inspect network requests, or interact with browser DevTools. Also use when asked about browser automation, web scraping, or testing websites.",
+  "domain": "tools",
+  "subdomain": "browser",
+  "specialty": "browser automation",
+  "quality": 5,
+  "qualityReason": "Clear trigger and actionable use",
+  "bundleHints": [
+    "browser-automation-suite",
+    "web-dev-tools"
+  ],
+  "tags": [
+    "browser-automation",
+    "chrome",
+    "debugging",
+    "javascript",
+    "mcp",
+    "network-inspection",
+    "screenshots",
+    "testing"
+  ],
+  "capabilities": [
+    "Navigate to URLs and manage browser tabs programmatically",
+    "Capture screenshots of web pages in PNG format",
+    "Execute JavaScript code on web pages",
+    "Inspect console messages and network requests",
+    "Debug web pages by taking content snapshots",
+    "Automate form filling and element clicking"
+  ],
+  "author": "Cygnusfear",
+  "icon": "🖥️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill providing patterns for chrome-devtools-mcp server. Contains only markdown files with shell command examples for legitimate browser automation. No executable code, no credential access, no network exfiltration. Static findings are false positives from pattern detection in documentation text.",
+  "valueStatement": "Browser automation is slow and error-prone with manual commands. This skill provides optimized patterns to automate Chrome, debug pages, capture screenshots, and inspect network requests through chrome-devtools-mcp server.",
+  "userTitle": "Automate Chrome and Debug Web Pages",
+  "limitations": [
+    "Requires chrome-devtools-mcp server installation via MCP CLI",
+    "Only works with Google Chrome browser",
+    "Does not support Firefox, Safari, or other browsers",
+    "Requires Chrome to be installed on the system"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Web Developers",
+      "title": "Debug Local Development",
+      "description": "Check console errors and network requests on localhost development servers quickly."
+    },
+    {
+      "targetUser": "QA Engineers",
+      "title": "Automate Browser Testing",
+      "description": "Take screenshots and capture page content to verify UI changes and behavior."
+    },
+    {
+      "targetUser": "Data Engineers",
+      "title": "Extract Web Page Data",
+      "description": "Navigate to pages, execute scripts, and snapshot content for data extraction workflows."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Check Console Errors",
+      "scenario": "Debug localhost errors",
+      "prompt": "Check console errors on http://localhost:3000 using chrome-devtools skill"
+    },
+    {
+      "title": "Capture Screenshot",
+      "scenario": "Take page screenshot",
+      "prompt": "Take a full-page screenshot of https://example.com using chrome-devtools"
+    },
+    {
+      "title": "Inspect Network",
+      "scenario": "Debug network activity",
+      "prompt": "Show all network requests on https://httpbin.org using chrome-devtools"
+    },
+    {
+      "title": "Run JavaScript",
+      "scenario": "Execute page script",
+      "prompt": "Run JavaScript on https://example.com to count all div elements"
+    }
+  ],
+  "bestPractices": [
+    "Use shell mode with multiple commands in one pipeline for faster execution",
+    "Always use --isolated flag to prevent browser profile lock conflicts",
+    "Include timeout wrapper to prevent hanging commands"
+  ],
+  "antiPatterns": [
+    "Running separate shell sessions for each command causes browser lock issues",
+    "Skipping the cleanup step leads to browser already running errors",
+    "Using npx instead of bunx may cause compatibility issues"
+  ],
+  "faq": [
+    {
+      "question": "Which browsers are supported?",
+      "answer": "Only Google Chrome is supported. The MCP server uses Chrome DevTools protocol directly."
+    },
+    {
+      "question": "What is the maximum screenshot size?",
+      "answer": "Screenshots support full page capture. Large pages may take longer to process."
+    },
+    {
+      "question": "How do I connect to an existing Chrome instance?",
+      "answer": "Start Chrome with --remote-debugging-port=9222 flag and use --browserUrl parameter."
+    },
+    {
+      "question": "Is my browsing data safe?",
+      "answer": "The --isolated flag uses temporary browser profiles. Avoid visiting sensitive sites during automation."
+    },
+    {
+      "question": "Why am I getting browser lock errors?",
+      "answer": "Previous browser instances are holding the profile. Run pkill -9 -f chrome-devtools-mcp first."
+    },
+    {
+      "question": "How does this compare to Puppeteer or Playwright?",
+      "answer": "This uses Chrome DevTools MCP protocol directly. It is lighter weight but less feature-rich than those tools."
+    }
+  ],
+  "seoKeywords": [
+    "Chrome DevTools",
+    "browser automation",
+    "MCP",
+    "Chrome debugging",
+    "Claude Code",
+    "web testing",
+    "screenshot automation",
+    "network inspection",
+    "JavaScript execution",
+    "web scraping"
+  ],
+  "sourceUrl": "https://github.com/Cygnusfear/claude-stuff/tree/main/skills/chrome-devtools",
+  "sourceType": "community",
+  "dependencies": []
+}

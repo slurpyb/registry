@@ -1,0 +1,141 @@
+{
+  "name": "theme-handler",
+  "type": "skill",
+  "description": "Manage and update application themes using shadcn and tweakcn.",
+  "domain": "design",
+  "subdomain": "design-systems",
+  "specialty": "theme management",
+  "quality": 5,
+  "qualityReason": "Specific, modern design system integration",
+  "bundleHints": [
+    "design-systems",
+    "ui-ux",
+    "react-stack"
+  ],
+  "tags": [
+    "component-styling",
+    "design",
+    "design-tokens",
+    "shadcn",
+    "themes",
+    "tweakcn",
+    "ui",
+    "ui-consistency",
+    "ui-themes"
+  ],
+  "capabilities": [
+    "Lists 40+ curated themes from tweakcn library",
+    "Generates installation commands for shadcn CLI",
+    "Provides theme names and corresponding URLs",
+    "Supports modern design themes like Minimal, Cyberpunk, Neo Brutalism"
+  ],
+  "author": "AayushBaniya2006",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only instructions and theme references. No code execution, no network calls, no filesystem access. Static findings are false positives: scanner misidentified URL paths as backtick execution, common words as C2 indicators, and JSON structure as cryptographic patterns. All 102 detected issues are dismissed as harmless documentation content.",
+  "valueStatement": "Managing application themes manually requires finding theme URLs and running CLI commands. This skill provides a curated list of pre-configured themes and installation commands, making theme installation fast and error-free.",
+  "userTitle": "Install UI themes with shadcn and tweakcn",
+  "limitations": [
+    "Only supports themes from the tweakcn library",
+    "Requires pnpm and shadcn CLI to be installed",
+    "Does not apply themes automatically; user must run commands"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Apply pre-built themes",
+      "description": "Quickly browse and install curated themes for React applications using shadcn UI components."
+    },
+    {
+      "targetUser": "Design system maintainers",
+      "title": "Consistent styling",
+      "description": "Standardize application appearance by selecting from vetted theme collections."
+    },
+    {
+      "targetUser": "Product teams",
+      "title": "Rapid prototyping",
+      "description": "Apply professional themes instantly during prototyping without manual configuration."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Install a theme",
+      "scenario": "Want to apply a theme",
+      "prompt": "Install the Modern Minimal theme using the theme-handler skill."
+    },
+    {
+      "title": "Browse available themes",
+      "scenario": "Exploring theme options",
+      "prompt": "Show me the list of available themes in the theme-handler."
+    },
+    {
+      "title": "Apply specific theme",
+      "scenario": "Known theme name",
+      "prompt": "Update my application theme to Cyberpunk using theme-handler."
+    },
+    {
+      "title": "Filter by category",
+      "scenario": "Finding themes by style",
+      "prompt": "Find and install a retro-style theme using theme-handler."
+    }
+  ],
+  "bestPractices": [
+    "Preview themes at tweakcn.com before installing to ensure they match your design vision.",
+    "Test themes in a development environment before applying them to production.",
+    "Back up existing theme configuration files before making changes."
+  ],
+  "antiPatterns": [
+    "Installing themes without previewing them first may result in mismatched design aesthetics.",
+    "Applying multiple themes simultaneously can cause conflicts and unexpected styling.",
+    "Skipping dependency installation (pnpm, shadcn CLI) will prevent theme commands from working."
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code through their skill invocation system."
+    },
+    {
+      "question": "How many themes are available?",
+      "answer": "The skill includes 40+ themes including Modern Minimal, Cyberpunk, Claude, Vercel, and many more."
+    },
+    {
+      "question": "Does this work with other package managers?",
+      "answer": "The skill uses pnpm commands. You may adapt the commands for npm or yarn if shadcn supports them."
+    },
+    {
+      "question": "Is my data safe when installing themes?",
+      "answer": "Yes. This skill only provides instructions. The shadcn CLI fetches themes from tweakcn.com, a trusted source."
+    },
+    {
+      "question": "Themes are not applying correctly. What should I do?",
+      "answer": "Verify pnpm and shadcn CLI are installed. Check your theme configuration files for conflicts. Restart your dev server."
+    },
+    {
+      "question": "How is this different from manual theme installation?",
+      "answer": "This skill provides curated, tested theme URLs and ready-to-run commands, eliminating guesswork and configuration errors."
+    }
+  ],
+  "seoKeywords": [
+    "theme installation",
+    "shadcn themes",
+    "tweakcn themes",
+    "UI theming",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "React components",
+    "Tailwind themes",
+    "design system"
+  ],
+  "sourceUrl": "https://github.com/AayushBaniya2006/blinkfund/tree/main/.claude/skills/theme-handler",
+  "sourceType": "community",
+  "dependencies": []
+}

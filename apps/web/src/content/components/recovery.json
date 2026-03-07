@@ -1,0 +1,143 @@
+{
+  "name": "recovery",
+  "type": "skill",
+  "description": "Recover session state from memory-keeper after context loss.",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "session recovery",
+  "quality": 4,
+  "qualityReason": "Critical for agent persistence",
+  "bundleHints": [
+    "agent-framework",
+    "memory-systems"
+  ],
+  "tags": [
+    "agent-memory",
+    "context",
+    "context-loss",
+    "continuity",
+    "memory",
+    "memory-keeper",
+    "recovery",
+    "session",
+    "session-management",
+    "state-restoration"
+  ],
+  "capabilities": [
+    "Retrieves recent context items from memory-keeper database",
+    "Summarizes session state and progress",
+    "Identifies files modified in previous sessions",
+    "Locates next action items and blockers",
+    "Presents recovered state in human-readable format"
+  ],
+  "author": "Barnhardt-Enterprises-Inc",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 31 static findings are FALSE POSITIVES. SKILL.md contains only documentation for memory-keeper MCP tools using markdown code fences. The 'backticks' flagged are markdown delimiters, not shell execution. Function names like 'context_get' contain 'get' which triggered false 'cryptographic' flags. No code execution, network calls, filesystem access, or external commands exist. The skill-report.json already contains an accurate security audit confirming 'safe' status.",
+  "valueStatement": "Context loss disrupts workflow and wastes time recreating progress. This skill retrieves saved checkpoints and progress items from memory-keeper to restore session state instantly.",
+  "userTitle": "Recover lost session context",
+  "limitations": [
+    "Requires memory-keeper MCP server to be configured",
+    "Cannot recover context from sessions that did not checkpoint",
+    "Cannot restore if memory was explicitly cleared",
+    "Only works with context items stored by memory-keeper"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers working on long tasks",
+      "title": "Resume interrupted work",
+      "description": "Continue coding sessions after context exhaustion without losing progress or manually tracking state."
+    },
+    {
+      "targetUser": "AI agent users",
+      "title": "Restore from checkpoints",
+      "description": "Get quick summary of where work left off when reconnecting to an agent session."
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Track team progress",
+      "description": "Understand current task status and next steps when reviewing developer session history."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic recovery",
+      "scenario": "New session, want to resume",
+      "prompt": "Recover my session context. What was I working on?"
+    },
+    {
+      "title": "After context loss",
+      "scenario": "Context was exhausted",
+      "prompt": "Restore from my last checkpoint. Show me what files I modified and what I need to do next."
+    },
+    {
+      "title": "Progress check",
+      "scenario": "Need status update",
+      "prompt": "Give me a summary of my current task progress and next action."
+    },
+    {
+      "title": "Recovery verification",
+      "scenario": "Confirm recovery complete",
+      "prompt": "Verify my recovered context and confirm the next step before I proceed."
+    }
+  ],
+  "bestPractices": [
+    "Checkpoint frequently during complex tasks using memory-keeper",
+    "Review recovered context before continuing work",
+    "Use consistent naming conventions for checkpoints"
+  ],
+  "antiPatterns": [
+    "Working without checkpointing before long operations",
+    "Skipping verification of recovered context",
+    "Assuming all session data is automatically saved"
+  ],
+  "faq": [
+    {
+      "question": "Is this skill compatible with all Claude products?",
+      "answer": "Yes, works with Claude, Codex, and Claude Code when memory-keeper MCP is configured."
+    },
+    {
+      "question": "What data does this skill access?",
+      "answer": "Only context items stored in memory-keeper. No files, environment variables, or network calls."
+    },
+    {
+      "question": "Can I recover context from yesterday?",
+      "answer": "Yes, if memory-keeper MCP was running and checkpointing during your session."
+    },
+    {
+      "question": "What happens if no context is found?",
+      "answer": "The skill presents a clear message explaining why no context exists and offers next steps."
+    },
+    {
+      "question": "How do I integrate this with my workflow?",
+      "answer": "Use memory-keeper checkpoint functions regularly. Run recovery at the start of new sessions."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. This is a read-only skill that only retrieves your own stored context data."
+    }
+  ],
+  "seoKeywords": [
+    "recovery",
+    "context",
+    "session",
+    "memory-keeper",
+    "checkpoint",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "restore",
+    "resume"
+  ],
+  "sourceUrl": "https://github.com/Barnhardt-Enterprises-Inc/quetrex-claude/tree/main/skills/recovery",
+  "sourceType": "community",
+  "dependencies": []
+}

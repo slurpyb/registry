@@ -1,0 +1,140 @@
+{
+  "name": "log-analyzer",
+  "type": "skill",
+  "description": "Parse and analyze application logs to identify errors, patterns, and insights.",
+  "domain": "data",
+  "subdomain": "analytics",
+  "specialty": "error parsing",
+  "quality": 5,
+  "qualityReason": "Critical monitoring tool",
+  "bundleHints": [
+    "devops-toolkit",
+    "monitoring"
+  ],
+  "tags": [
+    "analytics",
+    "debugging",
+    "devops",
+    "insights",
+    "logs",
+    "monitoring",
+    "patterns"
+  ],
+  "capabilities": [
+    "Parse multiple log formats (JSON, syslog, Apache, custom)",
+    "Identify error patterns and frequency",
+    "Analyze performance metrics from logs",
+    "Generate timeline analysis of incidents",
+    "Provide root cause analysis and recommendations"
+  ],
+  "author": "CuriousLearner",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure prompt-based skill containing only documentation for log analysis. All 52 static findings are false positives caused by the scanner misidentifying documentation patterns. No executable code, network access, or file system operations exist. The skill only provides instructions for AI to analyze logs that users paste as text input.",
+  "valueStatement": "Log analysis is time-consuming and error-prone when done manually. This skill automatically parses logs, identifies patterns, and provides actionable insights.",
+  "userTitle": "Analyze Logs to Find Errors and Patterns",
+  "limitations": [
+    "Requires logs to be provided as text input",
+    "Cannot directly access log files on systems",
+    "Analysis quality depends on log format consistency",
+    "Limited to patterns visible in provided log samples"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Production Incident Analysis",
+      "description": "Quickly identify root causes during outages by analyzing error spikes and correlating events across services."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Application Debugging",
+      "description": "Parse application logs to find bugs, track error frequencies, and understand user-reported issues."
+    },
+    {
+      "targetUser": "System Administrators",
+      "title": "System Health Monitoring",
+      "description": "Analyze system logs to detect performance degradation, security issues, and resource problems."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Log Analysis",
+      "scenario": "Analyze application logs for errors",
+      "prompt": "Analyze these application logs and identify all errors, their frequency, and patterns: [paste logs here]"
+    },
+    {
+      "title": "Performance Analysis",
+      "scenario": "Find slow queries and performance issues",
+      "prompt": "Analyze these logs for performance issues, slow queries, and response time patterns: [paste logs here]"
+    },
+    {
+      "title": "Error Pattern Detection",
+      "scenario": "Identify recurring error patterns",
+      "prompt": "Find patterns in these error logs including timing, frequency, and correlation between different error types: [paste logs here]"
+    },
+    {
+      "title": "Incident Timeline",
+      "scenario": "Reconstruct incident timeline",
+      "prompt": "Create a timeline of events from these logs showing how the incident progressed, including error escalation and recovery: [paste logs here]"
+    }
+  ],
+  "bestPractices": [
+    "Provide logs in chronological order for accurate timeline analysis",
+    "Include timestamps in a consistent format when possible",
+    "Specify the time range or context for more targeted analysis"
+  ],
+  "antiPatterns": [
+    "Don't paste logs with sensitive data like passwords or API keys",
+    "Avoid truncating logs mid-error as it breaks pattern detection",
+    "Don't mix logs from different services without clear separation"
+  ],
+  "faq": [
+    {
+      "question": "What log formats are supported?",
+      "answer": "JSON, syslog, Apache/Nginx combined format, and most common application log formats with timestamps."
+    },
+    {
+      "question": "How much log data can I analyze?",
+      "answer": "You can analyze thousands of log lines. For very large files, focus on specific time ranges or error types."
+    },
+    {
+      "question": "Can it connect to my logging system?",
+      "answer": "No, you need to copy and paste the logs. The skill cannot directly access files or network services."
+    },
+    {
+      "question": "Is my log data secure?",
+      "answer": "Yes, the skill only processes the text you provide. It does not store or transmit your data elsewhere."
+    },
+    {
+      "question": "Why is not it finding the errors I see?",
+      "answer": "Ensure logs are complete and include error keywords. Try specifying the error pattern you are looking for."
+    },
+    {
+      "question": "How is this different from grep?",
+      "answer": "This skill understands log context, finds patterns, correlates events, and provides actionable insights beyond simple text matching."
+    }
+  ],
+  "seoKeywords": [
+    "log analyzer",
+    "log analysis",
+    "error detection",
+    "log parsing",
+    "Claude",
+    "Claude Code",
+    "monitoring",
+    "debugging",
+    "devops tools",
+    "system logs"
+  ],
+  "sourceUrl": "https://github.com/CuriousLearner/devkit/tree/main/skills/log-analyzer",
+  "sourceType": "community",
+  "dependencies": []
+}

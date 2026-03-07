@@ -1,0 +1,142 @@
+{
+  "name": "linux-privilege-escalation",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"escalate privileges on Linux\", \"find privesc vectors on Linux systems\", \"exploit sudo misconfigurations\", \"abuse SUID binaries\", \"exploit cron jobs for root access\", \"enumerate Linux systems for privilege escalation\", or \"gain root access from low-privilege shell\". It provides comprehensive techniques for identifying and exploiting privilege escalation paths on Linux systems.",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "Linux root access",
+  "quality": 5,
+  "qualityReason": "Highly specific pentesting",
+  "bundleHints": [
+    "pentesting-suite",
+    "linux-security"
+  ],
+  "tags": [
+    "exploitation",
+    "linux-security",
+    "misconfigurations",
+    "penetration-testing",
+    "privilege-escalation",
+    "red-team",
+    "security-assessment",
+    "vulnerability-assessment"
+  ],
+  "capabilities": [
+    "Enumerate system information including kernel version, users, groups, and network configuration",
+    "Identify sudo misconfigurations exploitable via GTFOBins techniques",
+    "Find and exploit SUID binaries for privilege escalation",
+    "Detect kernel vulnerabilities and suggest applicable exploits",
+    "Enumerate and exploit cron jobs, capabilities, and NFS misconfigurations",
+    "Generate reverse shell payloads for multiple languages and tools"
+  ],
+  "author": "zebbern",
+  "icon": "🔐",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "critical",
+  "safeToPublish": false,
+  "securitySummary": "This skill contains complete weaponized exploitation workflows for Linux privilege escalation. While framed as educational content for penetration testing, it provides ready-to-use commands for gaining unauthorized root access, credential theft via /etc/shadow access, SUID backdoor creation, kernel exploitation, and persistent reverse shell payloads. The static scanner correctly identified 44 high-risk patterns including sudo exploitation, SUID manipulation, and shadow file access. False positives include Ruby backtick detection (actually bash commands in markdown). This content should only be distributed in controlled professional security contexts with explicit authorization requirements.",
+  "valueStatement": "Security professionals need systematic methods to identify privilege escalation vectors on Linux systems during authorized penetration tests. This skill provides comprehensive enumeration and exploitation workflows covering kernel vulnerabilities, sudo misconfigurations, SUID binaries, and cron job weaknesses.",
+  "userTitle": "Execute Linux Privilege Escalation Assessments",
+  "limitations": [
+    "Requires existing shell access to target Linux system",
+    "Kernel exploits may crash systems and should be tested first",
+    "Modern mitigations like ASLR, SMEP, SMAP may block exploitation",
+    "Container environments limit many kernel-level techniques"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Penetration testers and red team operators",
+      "title": "Authorized Penetration Testing",
+      "description": "Security consultants performing internal network assessments use this skill to systematically identify privilege escalation paths and demonstrate business impact of initial access."
+    },
+    {
+      "targetUser": "System administrators and security engineers",
+      "title": "Security Audit and Compliance",
+      "description": "System administrators audit their own infrastructure to identify and remediate misconfigurations before attackers can exploit them."
+    },
+    {
+      "targetUser": "Security students and trainees",
+      "title": "Security Training and Education",
+      "description": "Security professionals studying for certifications like OSCP, GPEN, or CRT use this skill to understand common Linux privilege escalation techniques in lab environments."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic System Enumeration",
+      "prompt": "I have low-privilege shell access to a Linux system. Help me enumerate the system to identify potential privilege escalation vectors including kernel version, sudo permissions, SUID binaries, and running services.",
+      "scenario": "Initial reconnaissance after gaining shell access"
+    },
+    {
+      "title": "Sudo Privilege Analysis",
+      "prompt": "I can run 'sudo -l' and see I have NOPASSWD access to specific binaries. Analyze the output and provide GTFOBins exploitation techniques for each allowed command.",
+      "scenario": "Exploiting misconfigured sudo permissions"
+    },
+    {
+      "title": "SUID Binary Exploitation",
+      "prompt": "Find all SUID binaries on this system and identify which ones can be exploited for privilege escalation. Provide specific exploitation commands for each vulnerable binary.",
+      "scenario": "Abusing SUID misconfigurations"
+    },
+    {
+      "title": "Kernel Exploit Selection",
+      "prompt": "The kernel version is [VERSION]. Search for known exploits applicable to this kernel and provide compilation and execution instructions. Include fallback options if the primary exploit fails.",
+      "scenario": "Exploiting kernel vulnerabilities"
+    }
+  ],
+  "bestPractices": [
+    "Always obtain written authorization before testing and verify scope boundaries",
+    "Test kernel exploits in a lab environment before production use to avoid system crashes",
+    "Document all changes made during assessment for remediation and cleanup"
+  ],
+  "antiPatterns": [
+    "Running kernel exploits without understanding their mechanism or failure modes",
+    "Creating persistent backdoors beyond the authorized assessment period",
+    "Accessing or exfiltrating data beyond what is required to demonstrate privilege escalation"
+  ],
+  "faq": [
+    {
+      "question": "Is this skill legal to use?",
+      "answer": "Only use this skill on systems you own or have explicit written authorization to test. Unauthorized privilege escalation is illegal in most jurisdictions. Always operate within defined scope boundaries."
+    },
+    {
+      "question": "Will kernel exploits work on all Linux systems?",
+      "answer": "No. Modern kernels include mitigations like ASLR, SMEP, and SMAP that block many exploits. Container environments also limit kernel-level attacks. Always verify kernel version and test exploits first."
+    },
+    {
+      "question": "What should I do if an exploit crashes the system?",
+      "answer": "This is why testing in lab environments is critical. If a crash occurs during authorized testing, document the incident, restore from backup if needed, and report it to the system owner immediately."
+    },
+    {
+      "question": "How do I know if a SUID binary is exploitable?",
+      "answer": "Check GTFOBins (gtfobins.github.io) for the specific binary. Many common binaries like find, vim, python, and base64 have known exploitation techniques when running with SUID."
+    },
+    {
+      "question": "Can this skill be used in cloud environments like AWS or Azure?",
+      "answer": "Cloud instances have additional restrictions. Kernel exploits typically fail in containers. Focus on misconfigurations like sudo permissions, capabilities, and IAM role abuse instead."
+    },
+    {
+      "question": "What is the difference between this skill and tools like LinPEAS?",
+      "answer": "LinPEAS automates enumeration but does not provide exploitation guidance. This skill covers both enumeration AND provides specific exploitation commands for identified vulnerabilities."
+    }
+  ],
+  "seoKeywords": [
+    "Linux privilege escalation",
+    "penetration testing",
+    "security assessment",
+    "sudo exploitation",
+    "SUID binaries",
+    "Claude security skills",
+    "Codex penetration testing",
+    "Claude Code red team",
+    "kernel exploits",
+    "GTFOBins"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/linux-privilege-escalation",
+  "sourceType": "community",
+  "dependencies": []
+}

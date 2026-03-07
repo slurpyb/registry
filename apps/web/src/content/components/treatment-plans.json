@@ -1,0 +1,141 @@
+{
+  "name": "treatment-plans",
+  "type": "skill",
+  "description": "Generate concise (3-4 page), focused medical treatment plans in LaTeX/PDF format for all clinical specialties. Supports general medical treatment, rehabilitation therapy, mental health care, chronic disease management, perioperative care, and pain management. Includes SMART goal frameworks, evidence-based interventions with minimal text citations, regulatory compliance (HIPAA), and professional formatting. Prioritizes brevity and clinical actionability.",
+  "domain": "business",
+  "subdomain": "healthcare",
+  "specialty": "medical documentation",
+  "quality": 4,
+  "qualityReason": "Specialized and practical",
+  "bundleHints": [
+    "healthcare-ai",
+    "medical-docs"
+  ],
+  "tags": [
+    "clinical",
+    "documentation",
+    "healthcare",
+    "latex",
+    "medical",
+    "pdf",
+    "treatment-plans"
+  ],
+  "capabilities": [
+    "Generate 7 treatment plan types including general medical, rehabilitation, mental health, chronic disease, perioperative care, and pain management",
+    "Create one-page concise treatment plans (preferred format) or detailed 3-4 page plans",
+    "Apply SMART goal frameworks with evidence-based intervention guidelines",
+    "Validate treatment plans for completeness, compliance, and quality standards",
+    "Generate treatment timelines and schedules with visual formatting",
+    "Ensure HIPAA compliance with de-identification guidance for 18 PHI identifiers"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 512 static findings are FALSE POSITIVES. This is a legitimate medical treatment plan documentation skill. The static scanner incorrectly triggers on LaTeX package declarations (flagged as 'weak crypto'), medical terminology like 'system' (flagged as 'reconnaissance'), and markdown backticks (flagged as 'shell execution'). No malicious code, network access, credential handling, or exfiltration patterns exist. The skill only generates LaTeX templates and runs local validation scripts.",
+  "valueStatement": "Generate professional medical treatment plans in LaTeX format for any clinical specialty. Includes HIPAA compliance guidance, SMART goal frameworks, and validation tools for patient-centered care documentation.",
+  "userTitle": "Create Medical Treatment Plans",
+  "limitations": [
+    "Requires LaTeX compiler (pdflatex, xelatex) to generate final PDF output",
+    "Templates require manual customization with patient-specific information",
+    "Does not provide medical advice or clinical decision support",
+    "Does not integrate with electronic health record (EHR) systems"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Primary Care Physicians",
+      "title": "Chronic Disease Management",
+      "description": "Create structured diabetes, hypertension, or heart failure management plans with measurable goals and monitoring schedules."
+    },
+    {
+      "targetUser": "Physical Therapists",
+      "title": "Rehabilitation Programs",
+      "description": "Design physical therapy and occupational therapy plans with functional restoration milestones and timeline progressions."
+    },
+    {
+      "targetUser": "Mental Health Providers",
+      "title": "Psychiatric Treatment Plans",
+      "description": "Document mental health treatment goals, therapy interventions, and safety monitoring for depression, anxiety, or PTSD."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Treatment Plan",
+      "scenario": "Create a diabetes management plan",
+      "prompt": "Create a general medical treatment plan for a 55-year-old patient with Type 2 diabetes. Include SMART goals for blood sugar management, metformin prescription details, dietary intervention, and monitoring schedule."
+    },
+    {
+      "title": "Rehabilitation Plan",
+      "scenario": "Design post-stroke therapy plan",
+      "prompt": "Generate a rehabilitation treatment plan for a 65-year-old patient recovering from stroke. Include physical therapy milestones, occupational therapy goals, and 12-week timeline with expected outcomes."
+    },
+    {
+      "title": "Pain Management",
+      "scenario": "Develop chronic pain protocol",
+      "prompt": "Create a multimodal pain management plan for a 45-year-old patient with chronic lower back pain. Include opioid-sparing strategies, physical therapy requirements, and monthly monitoring parameters."
+    },
+    {
+      "title": "Surgical Care Pathway",
+      "scenario": "Perioperative care for hip replacement",
+      "prompt": "Generate a perioperative care plan for a 70-year-old patient scheduled for hip replacement surgery. Include preoperative optimization, ERAS protocol compliance, and postoperative recovery milestones."
+    }
+  ],
+  "bestPractices": [
+    "Start with the one-page treatment plan format for most clinical scenarios to ensure conciseness",
+    "Always include measurable outcomes with specific timeframes for goal tracking",
+    "Validate your completed plan using the validate_treatment_plan.py script before finalizing"
+  ],
+  "antiPatterns": [
+    "Avoid including identifiable patient information (use de-identified codes instead of names)",
+    "Do not skip the monitoring and safety sections even for routine cases",
+    "Avoid excessive citations - focus on clinical actionability over bibliographic completeness"
+  ],
+  "faq": [
+    {
+      "question": "Do I need LaTeX installed to use this skill?",
+      "answer": "Yes, a LaTeX distribution like TeX Live or MiKTeX is required to compile .tex files to PDF."
+    },
+    {
+      "question": "Are these treatment plans legally binding?",
+      "answer": "No, these are documentation templates. Always follow your institution's policies and local regulations."
+    },
+    {
+      "question": "Can I use this for pediatric patients?",
+      "answer": "Yes, but adapt goals and interventions for age-appropriate considerations and guardian involvement."
+    },
+    {
+      "question": "How do I ensure HIPAA compliance?",
+      "answer": "Use de-identification guidelines in regulatory_compliance.md. Remove all 18 PHI identifiers before sharing."
+    },
+    {
+      "question": "What clinical guidelines are built in?",
+      "answer": "Templates incorporate evidence-based intervention guidelines, SMART goal frameworks, and specialty-specific protocols."
+    },
+    {
+      "question": "Can I customize the templates?",
+      "answer": "Yes, all LaTeX templates are fully customizable. Modify sections, colors, and formatting to match your institution's standards."
+    }
+  ],
+  "seoKeywords": [
+    "treatment plan generator",
+    "medical documentation",
+    "LaTeX treatment plans",
+    "HIPAA compliant documentation",
+    "clinical treatment plans",
+    "SMART goals template",
+    "healthcare documentation",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/treatment-plans",
+  "sourceType": "community",
+  "dependencies": []
+}

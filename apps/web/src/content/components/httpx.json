@@ -1,0 +1,140 @@
+{
+  "name": "httpx",
+  "type": "skill",
+  "description": "A next-generation HTTP client for Python with both sync and async support, perfect for modern Python applications",
+  "domain": "languages",
+  "subdomain": "python",
+  "specialty": "HTTP client",
+  "quality": 5,
+  "qualityReason": "Next-gen Python HTTP client",
+  "bundleHints": [
+    "python-stack",
+    "api-tools"
+  ],
+  "tags": [
+    "api",
+    "async",
+    "http-client",
+    "modern-python",
+    "python",
+    "requests-replacement",
+    "rest",
+    "sync"
+  ],
+  "capabilities": [
+    "Make synchronous and asynchronous HTTP requests with the same API",
+    "Configure authentication including Basic, Bearer token, and custom auth",
+    "Stream large files and responses without loading into memory",
+    "Handle timeouts, retries, and redirect following",
+    "Use connection pooling and HTTP/2 multiplexing"
+  ],
+  "author": "bossjones",
+  "icon": "🌐",
+  "version": "0.24.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation for HTTPX, a legitimate Python HTTP client library. All 84 static findings are false positives. The scanner misidentified markdown code fences (triple backticks) as shell command execution, example URLs (example.com) as hardcoded endpoints, and documentation parameter names as credential access. No executable code, no external commands, no credential exfiltration, and no actual network/file operations exist in this documentation-only skill.",
+  "valueStatement": "Make HTTP requests in Python with both synchronous and asynchronous APIs. HTTPX supports HTTP/1.1 and HTTP/2, streaming, authentication, and timeouts for production applications.",
+  "userTitle": "Use HTTPX for Python HTTP Requests",
+  "limitations": [
+    "Does not include built-in retry logic (requires custom implementation)",
+    "WebSocket support requires separate httpx-ws package",
+    "SOCKS proxy support not included by default"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Python developers",
+      "title": "Build API clients",
+      "description": "Create REST API clients with authentication, timeouts, and error handling for Python applications."
+    },
+    {
+      "targetUser": "Data engineers",
+      "title": "Download data streams",
+      "description": "Stream large datasets from APIs without memory issues using async or sync patterns."
+    },
+    {
+      "targetUser": "Backend developers",
+      "title": "Integrate HTTP services",
+      "description": "Connect Python services to external APIs with proper authentication and connection management."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic GET request",
+      "scenario": "Fetch data from API",
+      "prompt": "Use httpx to make a GET request to https://api.example.com/data and print the JSON response with status code."
+    },
+    {
+      "title": "Async batch requests",
+      "scenario": "Multiple API calls",
+      "prompt": "Use httpx.AsyncClient to make 3 concurrent GET requests to user endpoints and return all results as a list."
+    },
+    {
+      "title": "Authenticated requests",
+      "scenario": "API with Bearer token",
+      "prompt": "Create an httpx client with Bearer token authentication and make a request to a protected endpoint."
+    },
+    {
+      "title": "Stream download",
+      "scenario": "Large file download",
+      "prompt": "Use httpx streaming to download a large file to disk while showing progress with tqdm."
+    }
+  ],
+  "bestPractices": [
+    "Use AsyncClient for I/O-bound operations to improve throughput",
+    "Configure timeouts explicitly to prevent hanging requests",
+    "Reuse client instances for connection pooling and efficiency"
+  ],
+  "antiPatterns": [
+    "Creating a new client for each request instead of reusing",
+    "Ignoring timeouts and letting requests hang indefinitely",
+    "Loading entire responses into memory for large files"
+  ],
+  "faq": [
+    {
+      "question": "What is HTTPX vs requests library?",
+      "answer": "HTTPX provides async support that requests lacks. Use HTTPX for async code and requests for simple sync scripts."
+    },
+    {
+      "question": "Does HTTPX support HTTP/2?",
+      "answer": "Yes. Install with uv add httpx[http2] to enable HTTP/2 support in your project."
+    },
+    {
+      "question": "How to handle timeouts in HTTPX?",
+      "answer": "Use httpx.Timeout(10.0, connect=5.0, read=8.0) to configure connect, read, and total timeout limits."
+    },
+    {
+      "question": "Can HTTPX upload files?",
+      "answer": "Yes. Use client.post(url, content=file_stream) or multipart=files parameter for form uploads."
+    },
+    {
+      "question": "How to use custom headers?",
+      "answer": "Pass headers={'Authorization': 'Bearer token'} to the Client constructor or individual requests."
+    },
+    {
+      "question": "What async runtimes support HTTPX?",
+      "answer": "HTTPX supports anyio, asyncio, and trio. Configure with trust_env=False for custom event loops."
+    }
+  ],
+  "seoKeywords": [
+    "httpx python",
+    "python http client",
+    "async http requests",
+    "rest api python",
+    "python requests library",
+    "http2 python",
+    "claude code httpx",
+    "claude httpx",
+    "codex httpx",
+    "python async http"
+  ],
+  "sourceUrl": "https://github.com/bossjones/logging-lab/tree/main/.claude/skills/httpx",
+  "sourceType": "community",
+  "dependencies": []
+}

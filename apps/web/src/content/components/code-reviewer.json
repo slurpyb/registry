@@ -1,0 +1,141 @@
+{
+  "name": "code-reviewer",
+  "type": "skill",
+  "description": "Use when asked to review MERN stack code - comprehensive code reviewer that checks project health, security, maintainability, performance, testing, and architecture. Combines general code quality analysis with MERN-specific expertise.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "MERN stack review",
+  "quality": 4,
+  "qualityReason": "Specific stack focus",
+  "bundleHints": [
+    "mern-stack",
+    "code-quality"
+  ],
+  "tags": [
+    "code-review",
+    "mern",
+    "performance",
+    "project-health",
+    "quality",
+    "security",
+    "testing"
+  ],
+  "capabilities": [
+    "Checks project health before code review",
+    "Reviews MERN code for security vulnerabilities",
+    "Identifies maintainability issues like god files",
+    "Flags performance problems like N+1 queries",
+    "Provides MERN-specific best practice checklists",
+    "Offers fix suggestions with code examples"
+  ],
+  "author": "9tykeshav",
+  "icon": "👀",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based skill containing only instructional markdown for code review. All static findings are FALSE POSITIVES - the scanner detected example code patterns in reference documentation (showing what to flag during reviews), not actual vulnerabilities. No executable code, scripts, network calls, or file system operations exist.",
+  "valueStatement": "Code reviews catch bugs before deployment but are time-consuming. This skill provides structured checklists, security patterns, and best practices for MERN stack reviews to ensure nothing critical is missed.",
+  "userTitle": "Review MERN code for security and quality",
+  "limitations": [
+    "Does not execute or test code",
+    "Cannot access external APIs or databases",
+    "Does not modify files directly",
+    "Only provides recommendations for manual fixes"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Review PR changes",
+      "description": "Check pull requests for security issues before merging to main branch"
+    },
+    {
+      "targetUser": "Security engineers",
+      "title": "Audit MERN security",
+      "description": "Scan Express and React code for OWASP Top 10 vulnerabilities and injection flaws"
+    },
+    {
+      "targetUser": "Tech leads",
+      "title": "Ensure code quality",
+      "description": "Verify new code follows team standards for architecture and maintainability"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick PR Review",
+      "scenario": "Review last commit",
+      "prompt": "Review the changes in my last commit. Check for security issues and MERN best practices."
+    },
+    {
+      "title": "Full Project Audit",
+      "scenario": "Complete codebase review",
+      "prompt": "Perform a full review of my MERN project. Start with project health, then review all key files for security and quality."
+    },
+    {
+      "title": "Security Focus",
+      "scenario": "Security assessment",
+      "prompt": "Focus on security review. Check for NoSQL injection, XSS, JWT issues, and hardcoded secrets."
+    },
+    {
+      "title": "Architecture Review",
+      "scenario": "Architecture analysis",
+      "prompt": "Review the architecture and structure of my MERN app. Check for god files, circular dependencies, and service layer patterns."
+    }
+  ],
+  "bestPractices": [
+    "Check project health first - build status, docs, and blockers before diving into code",
+    "Use structured output format with Critical, Important, and Suggestion categories",
+    "Apply reference files on-demand for MERN-specific edge cases"
+  ],
+  "antiPatterns": [
+    "Skipping project health checks and missing critical blockers",
+    "Classifying style issues as Critical severity",
+    "Claiming no issues found without actually searching for them"
+  ],
+  "faq": [
+    {
+      "question": "What frameworks does this skill support?",
+      "answer": "MERN stack: MongoDB, Express, React, Node.js. Works with any JavaScript/TypeScript codebase."
+    },
+    {
+      "question": "How deep does the code review go?",
+      "answer": "Adjusts depth based on scope: single file (deep), commit (medium), or full repo (broad sample)."
+    },
+    {
+      "question": "Does this skill modify my code?",
+      "answer": "No. It only provides recommendations and fix suggestions. You apply changes manually."
+    },
+    {
+      "question": "Is my code sent anywhere?",
+      "answer": "No. This is a prompt-based skill. Your code is processed locally by your AI tool only."
+    },
+    {
+      "question": "Why did the review skip some files?",
+      "answer": "For full repo reviews, it samples key files. For targeted reviews, it focuses on changed files only."
+    },
+    {
+      "question": "How is this different from linting tools?",
+      "answer": "Linters check syntax and style. This skill analyzes architecture, security patterns, and design decisions."
+    }
+  ],
+  "seoKeywords": [
+    "code review",
+    "MERN stack",
+    "security audit",
+    "React",
+    "Express",
+    "MongoDB",
+    "Node.js",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/9tykeshav/mern-ninja-cc/tree/main/skills/code-reviewer",
+  "sourceType": "community",
+  "dependencies": []
+}

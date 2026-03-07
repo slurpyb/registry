@@ -1,0 +1,145 @@
+{
+  "name": "tdd-workflows-tdd-cycle",
+  "type": "skill",
+  "description": "Use when working with tdd workflows tdd cycle",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "TDD cycle enforcement",
+  "quality": 5,
+  "qualityReason": "Strict cycle enforcement",
+  "bundleHints": [
+    "testing-workflow",
+    "quality-assurance",
+    "dev-process"
+  ],
+  "tags": [
+    "automation",
+    "best-practices",
+    "code-quality",
+    "discipline",
+    "red-green-refactor",
+    "refactoring",
+    "tdd",
+    "test-automation",
+    "testing",
+    "workflow"
+  ],
+  "capabilities": [
+    "Orchestrates multi-agent TDD workflow through six structured phases",
+    "Enforces strict red-green-refactor discipline with gate validations",
+    "Configures coverage thresholds (80% line, 75% branch, 100% critical path)",
+    "Supports both incremental test-by-test and comprehensive test suite modes",
+    "Tracks TDD metrics including phase timing and defect escape rates",
+    "Provides failure recovery with rollback to valid states"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 15 static analysis findings are false positives. The external_commands pattern matched documentation references (opening markdown files, flag examples) not actual shell execution. Cryptographic and reconnaissance patterns matched unrelated TDD workflow text. This skill safely orchestrates Claude Task agents for test-driven development workflows.",
+  "valueStatement": "Developers struggle to maintain TDD discipline while managing complex projects. This skill orchestrates specialized agents through strict red-green-refactor cycles with automated validation and coverage tracking.",
+  "userTitle": "Master Test-Driven Development Workflows",
+  "limitations": [
+    "Requires access to Claude Task tool with subagent capabilities",
+    "Depends on external test framework integration for execution",
+    "Not suitable for projects without automated testing infrastructure",
+    "Coverage thresholds may need adjustment for legacy codebases"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software engineers building new modules or features",
+      "title": "Greenfield Feature Development",
+      "description": "Develop new features test-first with strict TDD discipline, ensuring 100% coverage from the start."
+    },
+    {
+      "targetUser": "Teams modernizing legacy applications",
+      "title": "Legacy Code Test Coverage",
+      "description": "Add comprehensive test coverage to existing code using the test suite mode with batch development."
+    },
+    {
+      "targetUser": "Developers improving code maintainability",
+      "title": "Code Quality Improvement",
+      "description": "Refactor existing code while maintaining test coverage, using automated validation at each step."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic TDD Cycle",
+      "prompt": "Start a TDD workflow for implementing a user authentication module. Begin with Phase 1 requirements analysis and proceed through the red-green-refactor cycle."
+    },
+    {
+      "title": "Incremental Test Development",
+      "prompt": "Execute TDD workflow for a REST API endpoint with --incremental flag. Write one failing test at a time, make it pass, then refactor before proceeding."
+    },
+    {
+      "title": "Comprehensive Test Suite",
+      "prompt": "Execute TDD workflow for a payment processing module with --suite flag. Write all failing tests first, then implement to pass all tests, then refactor the entire module."
+    },
+    {
+      "title": "Coverage Improvement",
+      "prompt": "Analyze current test coverage for the user service module and execute Phase 11 to add performance tests and edge case coverage. Target 90% branch coverage."
+    }
+  ],
+  "bestPractices": [
+    "Always verify tests fail for the right reasons before implementing code",
+    "Implement only the minimum code required to pass tests - no extra features",
+    "Run tests after every refactoring change to ensure tests remain green",
+    "Stop immediately if TDD discipline is broken and rollback to valid state",
+    "Keep test execution under 5 seconds for unit tests to maintain feedback speed"
+  ],
+  "antiPatterns": [
+    "Writing implementation code before writing failing tests",
+    "Writing tests that already pass instead of driving new functionality",
+    "Skipping the refactor phase and accumulating technical debt",
+    "Modifying tests to make them pass rather than fixing implementation",
+    "Ignoring failing tests and proceeding to next feature"
+  ],
+  "faq": [
+    {
+      "question": "What is the red-green-refactor cycle?",
+      "answer": "RED: Write a failing test. GREEN: Implement minimum code to make it pass. REFACTOR: Improve code quality while keeping tests green. This cycle ensures test-first development with continuous quality improvement."
+    },
+    {
+      "question": "How do I choose between incremental and suite mode?",
+      "answer": "Use incremental mode for complex logic requiring careful step-by-step development. Use suite mode for straightforward features where you can design all tests upfront and implement in batch."
+    },
+    {
+      "question": "What happens if my tests fail during refactoring?",
+      "answer": "Stop immediately and rollback to the last valid state. Refactoring must not change behavior. If tests fail, you changed functionality rather than just improving structure."
+    },
+    {
+      "question": "Can I adjust the coverage thresholds?",
+      "answer": "Yes. Default thresholds are 80% line coverage, 75% branch coverage, and 100% critical path coverage. Adjust based on project requirements and legacy code constraints."
+    },
+    {
+      "question": "What tools does this skill require?",
+      "answer": "This skill requires the Claude Task tool with access to subagents for testing, code review, and backend development. It orchestrates specialized agents for each TDD phase."
+    },
+    {
+      "question": "How does failure recovery work?",
+      "answer": "If TDD discipline is broken, stop immediately, identify the violated phase, rollback to the last valid state using version control, resume from the correct phase, and document the lesson learned."
+    }
+  ],
+  "seoKeywords": [
+    "TDD workflow",
+    "test-driven development",
+    "Claude Code testing",
+    "automated testing",
+    "red-green-refactor",
+    "test automation",
+    "code coverage",
+    "Claude agent orchestration",
+    "Codex testing workflow",
+    "continuous refactoring"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/tdd-workflows-tdd-cycle",
+  "sourceType": "community",
+  "dependencies": []
+}

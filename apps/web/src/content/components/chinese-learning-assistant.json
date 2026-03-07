@@ -1,0 +1,141 @@
+{
+  "name": "chinese-learning-assistant",
+  "type": "skill",
+  "description": "HSK4級レベルから流暢さを目指す学習者向け。中国語表現の使用場面・自然さを分析し、作文を「ネイティブらしい流暢な表現」に改善。bilibili等のコンテンツ理解とネイティブとの会話をサポート。実際の用例をWeb検索で提示",
+  "domain": "languages",
+  "subdomain": "other",
+  "specialty": "fluency improvement",
+  "quality": 4,
+  "qualityReason": "Good specificity for language level",
+  "bundleHints": [
+    "language-learning-tools"
+  ],
+  "tags": [
+    "chinese",
+    "fluency",
+    "hsk4",
+    "language-learning",
+    "language-tools",
+    "native-like",
+    "web-search",
+    "writing-assistant"
+  ],
+  "capabilities": [
+    "Analyzes Chinese expressions for formality level, spoken/written distinction, and appropriate audience",
+    "Finds real-world usage examples from platforms like bilibili and Weibo through web search",
+    "Improves Chinese writing to sound natural and native-like rather than textbook-style",
+    "Provides multiple expression alternatives with context-specific usage guidance",
+    "Supports essay, conversation, and chat message writing styles",
+    "Validates suggested expressions against authentic current usage"
+  ],
+  "author": "0918nobita",
+  "icon": "📚",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Evaluated 5 files (2500 lines). Static findings are false positives: backtick patterns in markdown are documentation formatting and search query examples, not shell execution. No malicious code detected. Skill is a legitimate Chinese language learning tool with standard web search capability for finding authentic usage examples.",
+  "valueStatement": "Intermediate Chinese learners struggle to express themselves naturally. This skill analyzes expressions for natural usage context and transforms textbook Chinese into fluent, native-like writing with real-world examples from authentic sources.",
+  "userTitle": "Improve Your Chinese Writing to Sound Native",
+  "limitations": [
+    "Designed for HSK4-level learners; may not suit complete beginners or advanced speakers",
+    "Does not teach grammar fundamentals; focuses on natural expression improvement",
+    "Cannot provide real-time conversation practice; analyzes submitted text only",
+    "Does not include audio pronunciation features"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Chinese learners who communicate with native speakers online",
+      "title": "Writing Natural Chat Messages",
+      "description": "Transform stiff, textbook-style messages into casual, natural Chinese that sounds authentic when chatting with Chinese friends on WeChat or other platforms."
+    },
+    {
+      "targetUser": "Learners who consume Chinese media content regularly",
+      "title": "Understanding Online Content",
+      "description": "Analyze expressions seen in bilibili videos, Weibo posts, or Chinese social media to understand how natives actually use language in context."
+    },
+    {
+      "targetUser": "Students preparing for Chinese language proficiency exams",
+      "title": "Improving Essay Writing",
+      "description": "Elevate essay writing from academic textbook style to natural flowing prose with proper connectors and authentic expression choices."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Beginner: Simple Expression Analysis",
+      "prompt": "Please analyze this Chinese expression: [expression]. Tell me when and how native speakers use it. Provide 2-3 example sentences.",
+      "scenario": "Learning a new expression and wanting to understand its natural usage"
+    },
+    {
+      "title": "Intermediate: Writing Improvement",
+      "prompt": "Please improve this Chinese sentence to sound more natural: [sentence]. Explain why the original sounds unnatural and what makes the improved version better. Find real examples of the improved expression from bilibili or Weibo.",
+      "scenario": "Transforming textbook Chinese into natural, native-like expression"
+    },
+    {
+      "title": "Advanced: Full Essay Review",
+      "prompt": "Review this Chinese paragraph I wrote: [paragraph]. Identify areas where it sounds unnatural or too textbook-like. Provide improved versions with explanations of the natural alternatives. Include real examples showing how natives express the same ideas.",
+      "scenario": "Comprehensive review of longer writing pieces for fluency improvement"
+    },
+    {
+      "title": "Expert: Expression Comparison",
+      "prompt": "Compare these similar expressions: [expression1] vs [expression2]. When should I use each one? What nuances differ? Show me examples of both in authentic contexts from web search.",
+      "scenario": "Understanding subtle differences between similar expressions"
+    }
+  ],
+  "bestPractices": [
+    "Provide the specific context and audience for your writing so the skill can choose the most appropriate expressions",
+    "Ask for real examples from web search when learning new expressions to see current authentic usage",
+    "Request multiple alternatives to understand the range of natural options available"
+  ],
+  "antiPatterns": [
+    "Asking for literal translations without context, which leads to unnatural textbook Chinese",
+    "Expecting grammar explanations; focus on this skill on natural expression over grammar rules",
+    "Submitting very long texts without specifying the intended purpose or audience"
+  ],
+  "faq": [
+    {
+      "question": "What level of Chinese learner is this skill for?",
+      "answer": "This skill is designed for learners at approximately HSK4 level or above who already have basic grammar foundations and want to improve their expression naturalness."
+    },
+    {
+      "question": "Does this skill teach grammar?",
+      "answer": "No, this skill focuses on expression naturalness and fluency. Grammar correction is secondary and only addresses obvious errors that affect comprehension."
+    },
+    {
+      "question": "How does web search help with learning?",
+      "answer": "Web search finds real examples from bilibili, Weibo, and other Chinese platforms so you can see how expressions are actually used in context by native speakers."
+    },
+    {
+      "question": "Can this skill help with speaking practice?",
+      "answer": "Not directly. The skill analyzes written text and provides examples. For speaking, use the improved expressions in conversation practice with native speakers."
+    },
+    {
+      "question": "What types of writing can this skill help with?",
+      "answer": "The skill supports chat messages, social media posts, essays, emails, and general conversational writing in both formal and casual styles."
+    },
+    {
+      "question": "How is this different from machine translation?",
+      "answer": "Unlike translation tools, this skill focuses on making already-composed Chinese sound natural and native-like rather than translating from other languages."
+    }
+  ],
+  "seoKeywords": [
+    "Chinese language learning",
+    "Chinese writing improvement",
+    "Chinese fluency practice",
+    "native Chinese expressions",
+    "HSK4 learning",
+    "Chinese作文 correction",
+    "language learning assistant",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/0918nobita/rules/tree/main/skills/chinese-learning-assistant",
+  "sourceType": "community",
+  "dependencies": []
+}

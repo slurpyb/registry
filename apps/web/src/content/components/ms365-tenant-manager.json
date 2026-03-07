@@ -1,0 +1,143 @@
+{
+  "name": "ms365-tenant-manager",
+  "type": "skill",
+  "description": "Comprehensive Microsoft 365 tenant administration skill for setup, configuration, user management, security policies, and organizational structure optimization for Global Administrators",
+  "domain": "devops",
+  "subdomain": "cloud",
+  "specialty": "M365 administration",
+  "quality": 5,
+  "qualityReason": "Comprehensive admin scope",
+  "bundleHints": [
+    "enterprise-devops",
+    "m365-tools"
+  ],
+  "tags": [
+    "administration",
+    "global admin",
+    "microsoft 365",
+    "microsoft-365",
+    "powershell",
+    "security",
+    "security policies",
+    "tenant setup",
+    "tenant-management",
+    "user management"
+  ],
+  "capabilities": [
+    "Generate comprehensive tenant setup checklists with DNS records and security baselines",
+    "Create PowerShell scripts for bulk user creation, modification, and offboarding",
+    "Build Conditional Access policies and security audit reports",
+    "Recommend license assignments based on user roles and departments",
+    "Produce compliance documentation for GDPR, HIPAA, and security frameworks"
+  ],
+  "author": "alirezarezvani",
+  "icon": "☁️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate Microsoft 365 administration skill. Static findings are false positives: PowerShell generation is expected functionality for M365 management, documentation backticks are formatting not execution, URLs point to official Microsoft resources, and security references discuss enabling protections not implementing weaknesses.",
+  "valueStatement": "Microsoft 365 tenant management requires careful configuration across multiple services. This skill provides automated guidance, security policies, and PowerShell scripts for Global Administrators managing users, licenses, security, and compliance.",
+  "userTitle": "Manage Microsoft 365 tenants efficiently",
+  "limitations": [
+    "Requires Global Administrator or appropriate role-based permissions to execute generated scripts",
+    "Cannot access tenant directly - generates scripts and guidance for manual implementation",
+    "PowerShell modules must be installed locally (Microsoft.Graph, ExchangeOnlineManagement, MicrosoftTeams)",
+    "Some compliance features require specific license tiers (E3, E5)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "IT Administrators",
+      "title": "Automate tenant configuration",
+      "description": "Generate complete setup guides and PowerShell scripts for new Microsoft 365 tenants with security best practices."
+    },
+    {
+      "targetUser": "Security Teams",
+      "title": "Implement access policies",
+      "description": "Create Conditional Access policies requiring MFA and generate security audit scripts for compliance reporting."
+    },
+    {
+      "targetUser": "HR Managers",
+      "title": "Streamline user lifecycle",
+      "description": "Produce bulk user provisioning and offboarding scripts with license management and mailbox handling."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New tenant setup",
+      "scenario": "Setting up a new Microsoft 365 environment",
+      "prompt": "Create a complete Microsoft 365 tenant setup guide for a 50-person company including DNS records, security baseline, and recommended license distribution."
+    },
+    {
+      "title": "Bulk user creation",
+      "scenario": "Provisioning multiple users from CSV",
+      "prompt": "Generate a PowerShell script to create 25 new users from a CSV file and assign Microsoft 365 Business Standard licenses to each."
+    },
+    {
+      "title": "Security hardening",
+      "scenario": "Auditing tenant security posture",
+      "prompt": "Create a security audit script that checks MFA status, admin role assignments, inactive users, and Conditional Access policies."
+    },
+    {
+      "title": "License optimization",
+      "scenario": "Analyzing and reducing license costs",
+      "prompt": "Analyze license usage and recommend cost optimization for 100 users while maintaining necessary features for each department."
+    }
+  ],
+  "bestPractices": [
+    "Always test generated scripts in a non-production environment before running them in production",
+    "Review and understand each script before execution - the skill generates scripts for admin review",
+    "Use Azure Key Vault or managed identities for authentication, never hardcode credentials in scripts"
+  ],
+  "antiPatterns": [
+    "Running generated scripts without reading and understanding what each command does",
+    "Executing scripts with Global Administrator when more limited permissions would suffice",
+    "Skipping the dry-run mode (-WhatIf) when available for destructive operations"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill execute PowerShell commands directly?",
+      "answer": "No. The skill generates PowerShell scripts and guidance as output. You review the scripts before running them yourself."
+    },
+    {
+      "question": "What permissions do I need to run the generated scripts?",
+      "answer": "Permissions vary by task. User management needs User Administrator. Security policies need Security Administrator. Full tenant setup needs Global Administrator."
+    },
+    {
+      "question": "Can this skill connect to my tenant?",
+      "answer": "No. This skill generates scripts and documentation. You run the scripts locally with your credentials after reviewing them."
+    },
+    {
+      "question": "Which PowerShell modules are required?",
+      "answer": "The main modules are Microsoft.Graph for Graph API, ExchangeOnlineManagement for Exchange, and MicrosoftTeams for Teams administration."
+    },
+    {
+      "question": "Is this skill compliant with GDPR and HIPAA?",
+      "answer": "The skill can generate compliance-focused configurations and reports. Actual compliance depends on your specific implementation and policies."
+    },
+    {
+      "question": "Can I use this for hybrid AD environments?",
+      "answer": "The skill focuses on cloud-only scenarios. Hybrid environments require additional AD Connect configuration not covered by this skill."
+    }
+  ],
+  "seoKeywords": [
+    "microsoft 365 management",
+    "m365 tenant admin",
+    "claude code skill",
+    "powershell automation",
+    "user provisioning",
+    "license management",
+    "conditional access",
+    "security compliance",
+    "claude",
+    "codex"
+  ],
+  "sourceUrl": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/ms365-tenant-manager",
+  "sourceType": "community",
+  "dependencies": []
+}

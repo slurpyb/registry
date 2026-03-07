@@ -1,0 +1,141 @@
+{
+  "name": "ship-learn-next",
+  "type": "skill",
+  "description": "Transform learning content (like YouTube transcripts, articles, tutorials) into actionable implementation plans using the Ship-Learn-Next framework. Use when user wants to turn advice, lessons, or educational content into concrete action steps, reps, or a learning quest.",
+  "domain": "productivity",
+  "subdomain": "learning",
+  "specialty": "learning to action",
+  "quality": 5,
+  "qualityReason": "Clear transformation process",
+  "bundleHints": [
+    "learning-system",
+    "productivity-stack",
+    "skill-development"
+  ],
+  "tags": [
+    "action-plans",
+    "education",
+    "implementation",
+    "learning",
+    "planning",
+    "productivity"
+  ],
+  "capabilities": [
+    "Analyzes transcripts, articles, tutorials to extract actionable lessons",
+    "Creates structured Ship-Learn-Next cycles with SHIP-LEARN-NEXT phases",
+    "Designs progressive reps that build skills through repetition",
+    "Frames specific, measurable learning goals with clear success criteria",
+    "Generates complete quest plans with reflection questions",
+    "Saves plans as Markdown files with consistent naming conventions"
+  ],
+  "author": "softaworks",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The scanner misidentified documentation patterns as security issues. The skill contains only markdown documentation with example templates and conversation guides - no executable code, no cryptographic operations, and no system access patterns. This is a pure prompting skill with zero runtime risk.",
+  "valueStatement": "Users struggle to apply educational content because they consume without doing. This skill transforms passive learning (videos, articles, tutorials) into active practice through structured Ship-Learn-Next cycles that build real skills through repetition.",
+  "userTitle": "Convert Learning into Action",
+  "limitations": [
+    "Does not provide content - users must supply learning material",
+    "Does not execute or verify user actions",
+    "Does not track progress across sessions",
+    "Focuses on individual skill building, not team workflows"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Self-directed learners who consume content but struggle to apply it",
+      "title": "Video Tutorial to Practice Plan",
+      "description": "User watched a YouTube tutorial and wants to actually implement the techniques taught. The skill extracts key lessons and creates a practice plan with concrete reps."
+    },
+    {
+      "targetUser": "Online course students who want to move beyond passive watching",
+      "title": "Course Notes to Action Steps",
+      "description": "User has course notes or documentation and wants to practice immediately. The skill identifies the minimal starting point and creates a progressive skill-building path."
+    },
+    {
+      "targetUser": "Professionals seeking to apply business or technical advice",
+      "title": "Article to Implementation Guide",
+      "description": "User read an article with advice and wants to take action. The skill converts theoretical advice into specific, shippable tasks with measurable outcomes."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Request",
+      "prompt": "I watched this video about [topic]. Here's the transcript: [attach file]. Help me create an actionable plan to actually practice these techniques.",
+      "scenario": "User has learning content and wants immediate guidance"
+    },
+    {
+      "title": "Defined Goal",
+      "prompt": "I have this [article/tutorial/course notes] about [subject]. I want to achieve [specific goal] in [timeframe]. Create a Ship-Learn-Next plan with concrete reps.",
+      "scenario": "User has a clear goal and wants structured learning iterations"
+    },
+    {
+      "title": "Minimal Starting Point",
+      "prompt": "I have too much content to process. Help me identify the minimum I need to learn to [complete specific task] this week. Create a small, shippable first rep.",
+      "scenario": "User feels overwhelmed and needs a small starting point"
+    },
+    {
+      "title": "Reflection and Iteration",
+      "prompt": "I just completed Rep 1 of my learning quest: [describe what happened]. Based on what I learned, create a plan for Rep 2 that adds one new element.",
+      "scenario": "User completed an iteration and wants to plan the next step"
+    }
+  ],
+  "bestPractices": [
+    "Push for specific, measurable goals rather than vague intentions like 'learn X'",
+    "Start with embarrassingly small reps that can be completed in 1-7 days",
+    "Always include reflection questions after each shipped rep to capture learning"
+  ],
+  "antiPatterns": [
+    "Creating study plans instead of ship plans with actual deliverables",
+    "Listing all resources to read instead of identifying minimal resources for current rep",
+    "Letting users plan forever without committing to a first ship date"
+  ],
+  "faq": [
+    {
+      "question": "What is the Ship-Learn-Next framework?",
+      "answer": "A three-phase learning cycle: SHIP (create something real), LEARN (reflect honestly on results), NEXT (plan the next iteration based on learnings). It prioritizes doing over studying."
+    },
+    {
+      "question": "What content types work best with this skill?",
+      "answer": "YouTube transcripts, blog articles, course notes, tutorials, and any educational material with actionable advice. The skill extracts principles and converts them to practice tasks."
+    },
+    {
+      "question": "How long should each rep take?",
+      "answer": "Each rep should be completable in 1-7 days. Rep 1 should be the smallest possible version - embarrassingly small is better than too ambitious."
+    },
+    {
+      "question": "Does this skill track my progress between sessions?",
+      "answer": "No. This skill creates plans and helps plan iterations, but does not store or track progress. Users return after completing reps to plan the next step."
+    },
+    {
+      "question": "How many reps should I plan?",
+      "answer": "The skill typically creates 5 reps with increasing challenge. Each rep adds ONE new element. Details beyond Rep 2-3 will evolve based on actual learning."
+    },
+    {
+      "question": "What makes a good Ship-Learn-Next goal?",
+      "answer": "Good goals are specific and measurable: 'Get 2 responses from 10 cold emails' not 'Learn sales'. They produce real artifacts and have clear completion criteria."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "learning skill",
+    "action planner",
+    "implementation plan",
+    "productivity skill",
+    "learning to code",
+    "skill development",
+    "repetition learning"
+  ],
+  "sourceUrl": "https://github.com/softaworks/agent-toolkit/tree/main/skills/ship-learn-next/",
+  "sourceType": "community",
+  "dependencies": []
+}

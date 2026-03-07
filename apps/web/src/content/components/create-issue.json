@@ -1,0 +1,141 @@
+{
+  "name": "create-issue",
+  "type": "skill",
+  "description": "Create an issue in GitHub or Jira. Automatically detects if GitHub issues are enabled; if so creates a GitHub issue, otherwise creates a Jira issue.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "issue creation",
+  "quality": 5,
+  "qualityReason": "Smart platform detection",
+  "bundleHints": [
+    "issue-tracking",
+    "devops-automation",
+    "project-management"
+  ],
+  "tags": [
+    "automation",
+    "detection",
+    "devops",
+    "github",
+    "issue-tracking",
+    "jira"
+  ],
+  "capabilities": [
+    "Detects if GitHub issues are enabled for a repository",
+    "Creates GitHub issues using the gh CLI tool",
+    "Creates Jira issues using the jira CLI tool",
+    "Uses appropriate templates for Task, Bug, or Story issue types",
+    "Maps severity levels to Jira priorities (Critical, High, Medium, Low, Info)",
+    "Cleans up temporary files after issue creation"
+  ],
+  "author": "Cloud-Officer",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill creates issues in GitHub or Jira using standard CLI tools. All static findings are false positives: pattern matching incorrectly flagged GitHub URLs as C2 indicators and git-related terms as cryptographic algorithms. The skill uses legitimate gh and jira CLI commands for issue creation - this is standard developer tooling behavior.",
+  "valueStatement": "Developers spend valuable time manually creating issues across different trackers. This skill automates issue creation by detecting whether GitHub issues are enabled and using the appropriate CLI tool with proper templates.",
+  "userTitle": "Create GitHub or Jira Issues",
+  "limitations": [
+    "Requires gh CLI installed and authenticated for GitHub issues",
+    "Requires jira CLI installed and configured for Jira issues",
+    "Does not support creating issues without CLI tools",
+    "Cannot create issues on trackers other than GitHub or Jira"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers and QA engineers",
+      "title": "Quick Bug Reporting",
+      "description": "Rapidly document bugs with structured templates including environment details, reproduction steps, and impact assessment."
+    },
+    {
+      "targetUser": "Product managers and team leads",
+      "title": "Task Definition for Sprints",
+      "description": "Create well-structured user stories with acceptance criteria, dependencies, and technical details for sprint planning."
+    },
+    {
+      "targetUser": "Software engineers and architects",
+      "title": "Technical Task Documentation",
+      "description": "Document technical tasks with security considerations, testing strategies, and implementation details."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Bug Report",
+      "prompt": "Create a bug issue for this problem: [describe the bug]. The environment is [environment details]. The expected behavior is [what should happen].",
+      "scenario": "Quickly log a bug with essential details"
+    },
+    {
+      "title": "Feature Request",
+      "prompt": "Create a user story for: As a [user type], I want to [goal] so that [benefit]. Include acceptance criteria and technical notes.",
+      "scenario": "Formalizing feature requests for sprint planning"
+    },
+    {
+      "title": "Technical Task",
+      "prompt": "Create a technical task for [description]. Include security impact assessment, testing strategy, and technical implementation details.",
+      "scenario": "Documenting technical work with full context"
+    },
+    {
+      "title": "Custom Issue",
+      "prompt": "Create a [Task|Bug|Story] issue with title: [title] and body: [detailed description]. Assign to [username] if specified. Priority: [level].",
+      "scenario": "Full control over all issue parameters"
+    }
+  ],
+  "bestPractices": [
+    "Provide complete context: environment details, steps to reproduce, and expected behavior for bug reports",
+    "Use appropriate issue types (Task, Bug, Story) to match your project tracking workflow",
+    "Include security considerations in technical tasks to ensure compliance requirements are met"
+  ],
+  "antiPatterns": [
+    "Creating issues without descriptions or with vague content that lacks actionable detail",
+    "Using Jira when GitHub issues are enabled instead of letting the skill auto-detect",
+    "Skipping template sections instead of marking them as N/A when not applicable"
+  ],
+  "faq": [
+    {
+      "question": "What happens if both GitHub and Jira are configured?",
+      "answer": "The skill checks if GitHub issues are enabled first. If enabled, it uses GitHub. Otherwise, it defaults to Jira."
+    },
+    {
+      "question": "Do I need to install both gh and jira CLI tools?",
+      "answer": "You only need the CLI tool for the tracker you use. The skill will detect which one to use based on your repository configuration."
+    },
+    {
+      "question": "Can I create issues on self-hosted GitHub Enterprise?",
+      "answer": "Yes, as long as gh CLI is configured to authenticate with your GitHub Enterprise instance."
+    },
+    {
+      "question": "How are priorities mapped between severity and Jira?",
+      "answer": "Critical maps to Blocker, High to Critical, Medium to Major, and Low/Info to Minor."
+    },
+    {
+      "question": "What if the gh or jira command hangs?",
+      "answer": "The skill sets a 15-second timeout for Jira commands. If a command appears malformed or hangs, it will time out."
+    },
+    {
+      "question": "Where are temporary files created?",
+      "answer": "A temporary file named issue-body.md is created in the working directory and automatically deleted after the issue is created."
+    }
+  ],
+  "seoKeywords": [
+    "create issue",
+    "github issues",
+    "jira issues",
+    "issue tracker",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "bug report",
+    "task management",
+    "automation"
+  ],
+  "sourceUrl": "https://github.com/Cloud-Officer/claude-code-plugin-dev/tree/master/skills/create-issue",
+  "sourceType": "community",
+  "dependencies": []
+}

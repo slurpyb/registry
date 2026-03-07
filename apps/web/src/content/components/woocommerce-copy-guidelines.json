@@ -1,0 +1,140 @@
+{
+  "name": "woocommerce-copy-guidelines",
+  "type": "skill",
+  "description": "Guidelines for UI text and copy in WooCommerce. Use when writing user-facing text, labels, buttons, or messages.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "UI copywriting",
+  "quality": 5,
+  "qualityReason": "Specific UX copy guidance",
+  "bundleHints": [
+    "ux-copy",
+    "woocommerce-design"
+  ],
+  "tags": [
+    "copywriting",
+    "labels",
+    "sentence case",
+    "style guide",
+    "ui text",
+    "ux-writing",
+    "woocommerce"
+  ],
+  "capabilities": [
+    "Apply sentence case to UI labels, buttons, headings, and messages",
+    "Handle proper noun capitalization exceptions",
+    "Format acronyms correctly in user-facing text",
+    "Maintain brand name capitalization standards",
+    "Ensure consistency with existing WooCommerce patterns"
+  ],
+  "author": "woocommerce",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "GPL-3.0-or-later",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown guidelines for UI text. All 23 static findings are false positives: the scanner misidentified markdown code fences as shell backticks, plain text examples as system reconnaissance, and metadata fields as cryptographic issues. No executable code, network calls, file system access, or command execution exists.",
+  "valueStatement": "Inconsistent capitalization in UI text creates confusion and reduces accessibility. This skill provides clear rules for sentence case usage in WooCommerce copy, ensuring user-facing text is readable, modern, and accessible across all languages.",
+  "userTitle": "Apply consistent sentence case to UI text",
+  "limitations": [
+    "Does not validate text against accessibility guidelines beyond capitalization",
+    "Does not translate or localize text",
+    "Does not generate new copy content",
+    "Specific to WooCommerce patterns"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Plugin developers",
+      "title": "Write consistent WooCommerce UI",
+      "description": "Ensure plugin UI text follows WooCommerce sentence case standards for consistent user experience."
+    },
+    {
+      "targetUser": "Technical writers",
+      "title": "Review UI text formatting",
+      "description": "Verify that documentation and user-facing copy uses proper sentence case throughout."
+    },
+    {
+      "targetUser": "AI coding assistants",
+      "title": "Guide copy generation",
+      "description": "Apply sentence case rules when generating buttons, labels, messages, and interface text."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Format button text",
+      "scenario": "Creating action buttons",
+      "prompt": "Write sentence case button labels for these actions: save settings, add product, continue checkout, send test email"
+    },
+    {
+      "title": "Format labels",
+      "scenario": "Creating form labels",
+      "prompt": "Convert these labels to sentence case: Payment Method, Shipping Address, Order Notes, Tax Rate"
+    },
+    {
+      "title": "Handle brand names",
+      "scenario": "Brand name exceptions",
+      "prompt": "Write a message mentioning WooPayments, Stripe, PayPal, and WordPress in sentence case format"
+    },
+    {
+      "title": "Review notification",
+      "scenario": "Reviewing error messages",
+      "prompt": "Convert this title case notification to sentence case: Settings Saved Successfully, Unable To Connect To Payment Provider"
+    }
+  ],
+  "bestPractices": [
+    "Capitalize only the first word and proper nouns in UI text",
+    "Keep sentences short, action-oriented, and conversational",
+    "Use consistent patterns across similar UI elements"
+  ],
+  "antiPatterns": [
+    "Using title case for all words in labels and buttons",
+    "Capitalizing every word in error messages and notifications",
+    "Ignoring proper noun exceptions for brand names"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with all AI assistants?",
+      "answer": "Yes. It provides guidelines compatible with Claude, Codex, and Claude Code for writing consistent UI copy."
+    },
+    {
+      "question": "What is the main rule for sentence case?",
+      "answer": "Capitalize only the first word, proper nouns, and acronyms. All other words use lowercase."
+    },
+    {
+      "question": "Can I use this for non-WooCommerce projects?",
+      "answer": "Yes. The sentence case principles apply to any UI text regardless of the platform or framework."
+    },
+    {
+      "question": "Does this skill access any user data?",
+      "answer": "No. This skill contains only static guidelines and does not read, write, or transmit any data."
+    },
+    {
+      "question": "What exceptions exist for sentence case?",
+      "answer": "Always capitalize proper nouns, acronyms, and official brand names like PayPal, Stripe, and WooCommerce."
+    },
+    {
+      "question": "How is this different from title case?",
+      "answer": "Sentence case capitalizes only the first word while title case capitalizes most words. Sentence case is more accessible."
+    }
+  ],
+  "seoKeywords": [
+    "sentence case",
+    "UI text guidelines",
+    "WooCommerce copy",
+    "user interface text",
+    "accessibility guidelines",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "style guide",
+    "button labels"
+  ],
+  "sourceUrl": "https://github.com/woocommerce/woocommerce/tree/trunk/.ai/skills/woocommerce-copy-guidelines",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "git-protocol",
+  "type": "skill",
+  "description": "Git protocol implementation patterns using gitoxide for Guts repository operations",
+  "domain": "languages",
+  "subdomain": "rust",
+  "specialty": "gitoxide",
+  "quality": 4,
+  "qualityReason": "Niche systems-level Git protocol use",
+  "bundleHints": [
+    "rust-systems",
+    "version-control",
+    "low-level-git"
+  ],
+  "tags": [
+    "git",
+    "gitoxide",
+    "repository",
+    "rust-library",
+    "version-control"
+  ],
+  "capabilities": [
+    "Open and create Git repositories using gitoxide",
+    "Read and write Git objects (blobs, trees, commits, tags)",
+    "Implement Smart HTTP protocol endpoints for git-upload-pack and git-receive-pack",
+    "Generate and parse Git packfiles",
+    "Manage Git references and refs with atomic operations",
+    "Extended commit handling with Ed25519 cryptographic signatures"
+  ],
+  "author": "AbdelStark",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. Ed25519 is strong modern crypto (misclassified as weak). Backticks are markdown code fences, not shell execution. Git protocol operations are legitimate repository functionality. No malicious patterns detected.",
+  "valueStatement": "This skill provides implementation patterns for Git repository operations using the pure-Rust gitoxide library. It enables safe and efficient Git operations without external git binary dependencies.",
+  "userTitle": "Implement Git Protocol Operations",
+  "limitations": [
+    "This skill provides implementation patterns and documentation, not executable commands",
+    "Does not replace git CLI or provide direct git command execution",
+    "Requires gitoxide library integration into a Rust project",
+    "Not a standalone tool for end users"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Rust developers building version control tools",
+      "title": "Build Git-powered Applications",
+      "description": "Developers can use these patterns to build applications that interact with Git repositories using the pure-Rust gitoxide library instead of invoking the git CLI."
+    },
+    {
+      "targetUser": "Developers building Git hosting platforms",
+      "title": "Implement Git Hosting Services",
+      "description": "Create Git server functionality with custom protocol handlers for git-upload-pack and git-receive-pack operations."
+    },
+    {
+      "targetUser": "Security-conscious teams requiring cryptographic commit verification",
+      "title": "Extend Git with Cryptographic Verification",
+      "description": "Add Ed25519 signature verification to Git commits for enhanced integrity and authentication in custom Git workflows."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Open a Repository",
+      "prompt": "How do I open an existing Git repository or create a new one using gitoxide in Rust? Show me the code pattern.",
+      "scenario": "Need to work with a Git repository programmatically"
+    },
+    {
+      "title": "Read Git Objects",
+      "prompt": "Write Rust code to read Git objects (commits, trees, blobs) using gitoxide and decode their contents.",
+      "scenario": "Need to inspect repository history or file contents"
+    },
+    {
+      "title": "Implement Git HTTP Protocol",
+      "prompt": "Create HTTP endpoints for git-upload-pack and git-receive-pack using axum and gitoxide for a Git server.",
+      "scenario": "Building a Git HTTP server"
+    },
+    {
+      "title": "Generate Packfiles",
+      "prompt": "Show me how to generate Git packfiles containing specific objects using gitoxide for efficient data transfer.",
+      "scenario": "Need to implement Git clone or fetch functionality"
+    }
+  ],
+  "bestPractices": [
+    "Use gitoxide's high-level gix crate for common Git operations instead of spawning git processes",
+    "Implement atomic reference updates using PreviousValue::MustExistAndMatch for safe concurrent operations",
+    "Verify Ed25519 signatures on commits when using cryptographic extensions for integrity"
+  ],
+  "antiPatterns": [
+    "Do not invoke git CLI commands when gitoxide provides equivalent functionality",
+    "Do not skip reference verification when accepting pushes",
+    "Do not expose raw packfile generation without proper authentication"
+  ],
+  "faq": [
+    {
+      "question": "What is gitoxide?",
+      "answer": "Gitoxide is a pure-Rust implementation of Git that provides safe, efficient Git operations without depending on the git binary."
+    },
+    {
+      "question": "Can this skill run git commands directly?",
+      "answer": "No. This skill provides implementation patterns and code examples for using gitoxide programmatically. It does not execute git commands."
+    },
+    {
+      "question": "What is Ed25519 used for in this skill?",
+      "answer": "Ed25519 provides cryptographic signatures for commits, enabling verification of commit authenticity and integrity beyond standard Git hashes."
+    },
+    {
+      "question": "What is the Smart HTTP protocol?",
+      "answer": "Smart HTTP is a Git protocol that uses HTTP POST requests for efficient clone, fetch, and push operations between clients and servers."
+    },
+    {
+      "question": "How does packfile generation work?",
+      "answer": "Packfiles bundle Git objects efficiently for transfer. Gitoxide can generate packfiles containing specific objects based on want/have negotiation."
+    },
+    {
+      "question": "Is this skill production-ready?",
+      "answer": "This skill provides patterns and examples. Production use requires proper integration, testing, and security review of the complete implementation."
+    }
+  ],
+  "seoKeywords": [
+    "git protocol",
+    "gitoxide",
+    "git operations",
+    "version control",
+    "Claure",
+    "Codex",
+    "Claude Code",
+    "repository",
+    "commit",
+    "packfile"
+  ],
+  "sourceUrl": "https://github.com/AbdelStark/guts/tree/main/.claude/skills/git-protocol",
+  "sourceType": "community",
+  "dependencies": []
+}

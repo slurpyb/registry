@@ -1,0 +1,141 @@
+{
+  "name": "denario",
+  "type": "skill",
+  "description": "Multiagent AI system for scientific research assistance that automates research workflows from data analysis to publication. This skill should be used when generating research ideas from datasets, developing research methodologies, executing computational experiments, performing literature searches, or generating publication-ready papers in LaTeX format. Supports end-to-end research pipelines with customizable agent orchestration.",
+  "domain": "science",
+  "subdomain": "research",
+  "specialty": "automated research",
+  "quality": 5,
+  "qualityReason": "End-to-end research system",
+  "bundleHints": [
+    "scientific-ai",
+    "research-automation",
+    "multiagent-system"
+  ],
+  "tags": [
+    "automation",
+    "data-analysis",
+    "multiagent",
+    "publication",
+    "research",
+    "scientific"
+  ],
+  "capabilities": [
+    "Generate research hypotheses from dataset descriptions using AI agents",
+    "Develop structured research methodologies with statistical approaches",
+    "Execute computational experiments and generate visualizations",
+    "Produce publication-ready LaTeX papers formatted for academic journals",
+    "Orchestrate end-to-end research pipelines from data to publication",
+    "Integrate with common scientific libraries including pandas, sklearn, and scipy"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🔬",
+  "version": "1.0.0",
+  "license": "GPL-3.0 license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All 369 static findings are FALSE POSITIVES. The skill is documentation-only with bash command examples, API key configuration patterns, and file operations for research project management - all legitimate documented functionality for a scientific research automation tool.",
+  "valueStatement": "Transform datasets into publication-ready research by automating hypothesis generation, methodology development, computational experiments, and LaTeX paper writing. Multiagent AI coordinates specialized agents for end-to-end research pipelines.",
+  "userTitle": "Automate scientific research workflows",
+  "limitations": [
+    "Requires LLM API keys from supported providers (OpenAI, Google Vertex AI)",
+    "Python 3.12 or higher required; LaTeX needed for PDF paper generation",
+    "Quality of outputs depends on the detail provided in data descriptions",
+    "Internet connection required for LLM API calls during workflow execution"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Academic researchers",
+      "title": "Accelerate publication pipeline",
+      "description": "Automate the journey from raw dataset to formatted journal submission, reducing time spent on methodology design and paper writing."
+    },
+    {
+      "targetUser": "Data scientists",
+      "title": "Structured exploration workflows",
+      "description": "Transform exploratory data analysis into reproducible research projects with generated hypotheses, methods, and documentation."
+    },
+    {
+      "targetUser": "Graduate students",
+      "title": "Learn research best practices",
+      "description": "Follow AI-generated methodologies to understand structured approaches to computational research and scientific writing."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Climate analysis",
+      "scenario": "Analyze temperature data",
+      "prompt": "Analyze global temperature anomaly data from 1880-2023 using pandas, scipy, and matplotlib. Generate research questions about long-term warming trends, develop a methodology with linear regression, and create publication-ready paper."
+    },
+    {
+      "title": "Gene expression study",
+      "scenario": "Medical research workflow",
+      "prompt": "Process gene expression microarray data from 500 breast cancer patients with 20000 features. Generate hypotheses about treatment response predictors, create methodology with machine learning classification, and produce LaTeX paper."
+    },
+    {
+      "title": "Financial forecasting",
+      "scenario": "Time-series prediction",
+      "prompt": "Analyze monthly unemployment rates from 1950-2023 with GDP and inflation indicators. Generate SARIMAX forecasting methodology, execute analysis with confidence intervals, and write research paper."
+    },
+    {
+      "title": "Full research pipeline",
+      "scenario": "Complete automation",
+      "prompt": "Use denario to run complete research pipeline: set data description for my IoT sensor dataset, generate research idea for anomaly detection, develop methodology with sklearn, execute analysis, and generate APS-formatted LaTeX paper."
+    }
+  ],
+  "bestPractices": [
+    "Provide detailed data descriptions including format, size, known challenges, and available tools for better AI-generated outputs",
+    "Review and refine generated ideas and methodologies before executing computationally expensive analysis stages",
+    "Use version control by committing after each pipeline stage to track research evolution and enable reproducibility"
+  ],
+  "antiPatterns": [
+    "Providing vague data descriptions leads to generic, unusable research ideas and methodologies",
+    "Skipping methodology review before execution may result in inappropriate statistical approaches for your data",
+    "Running full pipeline without intermediate validation wastes compute on flawed research directions"
+  ],
+  "faq": [
+    {
+      "question": "What LLM providers does denario support?",
+      "answer": "OpenAI GPT-4/3.5, Google Vertex AI Gemini/PaLM, and any provider compatible with AG2 or LangGraph frameworks."
+    },
+    {
+      "question": "Is LaTeX required to use this skill?",
+      "answer": "LaTeX is only needed for PDF paper generation. You can use the full workflow without it and get LaTeX source files."
+    },
+    {
+      "question": "Can I use my own research methodology?",
+      "answer": "Yes, use set_method() with your markdown methodology or file path to bypass automated generation."
+    },
+    {
+      "question": "What Python version is required?",
+      "answer": "Python 3.12 or higher is required for this skill to function properly."
+    },
+    {
+      "question": "Can I provide pre-computed results?",
+      "answer": "Yes, use set_results() to load existing analysis results and skip the computational execution stage."
+    },
+    {
+      "question": "What journals are supported for paper formatting?",
+      "answer": "American Physical Society (APS) format is included. Check documentation for additional journal formats."
+    }
+  ],
+  "seoKeywords": [
+    "denario",
+    "scientific research automation",
+    "multiagent AI",
+    "research workflow",
+    "hypothesis generation",
+    "LaTeX paper generation",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "data analysis automation"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/denario",
+  "sourceType": "community",
+  "dependencies": []
+}

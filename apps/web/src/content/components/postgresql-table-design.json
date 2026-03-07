@@ -1,0 +1,144 @@
+{
+  "name": "postgresql-table-design",
+  "type": "skill",
+  "description": "Design a PostgreSQL-specific schema. Covers best-practices, data types, indexing, constraints, performance patterns, and advanced features",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "schema design",
+  "quality": 5,
+  "qualityReason": "Foundational and detailed",
+  "bundleHints": [
+    "postgres-stack",
+    "database-design"
+  ],
+  "tags": [
+    "advanced-features",
+    "best-practices",
+    "constraints",
+    "data-modeling",
+    "data-types",
+    "database",
+    "indexing",
+    "postgresql",
+    "schema-design",
+    "sql"
+  ],
+  "capabilities": [
+    "Provides guidance on PostgreSQL data types including BIGINT, TEXT, TIMESTAMPTZ, NUMERIC, JSONB, arrays, ranges, and composite types",
+    "Explains indexing strategies for B-tree, GIN, GiST, BRIN indexes including partial, covering, and expression indexes",
+    "Covers constraint types including primary keys, foreign keys, unique constraints, check constraints, and exclusion constraints",
+    "Offers patterns for partitioning, update-heavy tables, insert-heavy workloads, and upsert operations",
+    "Details PostgreSQL-specific features like MVCC, TOAST storage, row-level security, and generated columns",
+    "Recommends extensions including TimescaleDB, PostGIS, pgvector, and pg_trgm"
+  ],
+  "author": "wshobson",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation-only resource providing PostgreSQL schema design guidance. All 237 static findings are false positives triggered by SQL examples and technical terminology in markdown code blocks. The skill contains no executable code, network calls, or file system access. Safe for publication.",
+  "valueStatement": "PostgreSQL schema design requires knowledge of data types, indexing strategies, constraints, and performance patterns. This skill provides comprehensive guidance on PostgreSQL-specific best practices, advanced features, and common pitfalls to help you build efficient, maintainable database schemas.",
+  "userTitle": "Design PostgreSQL schemas with expert guidance",
+  "limitations": [
+    "Does not execute SQL commands or create actual database schemas",
+    "Does not analyze existing databases or provide migration scripts",
+    "Focuses on PostgreSQL-specific patterns and may not apply to other database systems",
+    "Does not provide application-level code or ORM configurations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers and database architects",
+      "title": "Design a new database schema",
+      "description": "Get guidance on table structure, data types, constraints, and indexing strategies when designing a new PostgreSQL database for an application."
+    },
+    {
+      "targetUser": "Database administrators and performance engineers",
+      "title": "Optimize existing schema performance",
+      "description": "Learn about indexing strategies, partitioning options, and performance patterns to improve query performance and reduce database bloat."
+    },
+    {
+      "targetUser": "Technical leads and code reviewers",
+      "title": "Review schema design decisions",
+      "description": "Validate data type choices, constraint usage, and normalization decisions against PostgreSQL best practices before implementation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic table design",
+      "prompt": "I need to create a users table with email, name, and timestamps. What is the recommended PostgreSQL schema?",
+      "scenario": "Beginner: Creating a simple reference table"
+    },
+    {
+      "title": "Choose appropriate data types",
+      "prompt": "I am storing product prices, IP addresses, and user preferences. What PostgreSQL data types should I use?",
+      "scenario": "Intermediate: Selecting specialized data types"
+    },
+    {
+      "title": "Design indexing strategy",
+      "prompt": "My orders table has queries filtering by user_id, status, and created_at. What indexes should I create?",
+      "scenario": "Intermediate: Optimizing query performance"
+    },
+    {
+      "title": "Handle high-volume time-series data",
+      "prompt": "I need to store millions of sensor readings per day with queries filtering by device and time range. How should I design the schema and partitioning?",
+      "scenario": "Advanced: Designing for high-volume workloads"
+    }
+  ],
+  "bestPractices": [
+    "Start with normalized schemas to third normal form and only denormalize when you have measured performance problems with specific high-value queries",
+    "Use TIMESTAMPTZ for all timestamp columns, TEXT for strings, NUMERIC for money, and BIGINT GENERATED ALWAYS AS IDENTITY for primary keys unless you need UUIDs",
+    "Create indexes for columns used in WHERE clauses, JOIN conditions, and ORDER BY clauses, and always add explicit indexes on foreign key columns"
+  ],
+  "antiPatterns": [
+    "Do not use VARCHAR(n) or CHAR(n) data types; use TEXT with CHECK constraints for length limits if needed",
+    "Do not use TIMESTAMP without time zone, the money type, or SERIAL; use TIMESTAMPTZ, NUMERIC, and GENERATED ALWAYS AS IDENTITY instead",
+    "Do not denormalize data prematurely before measuring actual performance issues; premature denormalization creates maintenance burden without proven benefits"
+  ],
+  "faq": [
+    {
+      "question": "When should I use UUID instead of BIGINT for primary keys?",
+      "answer": "Use UUID when you need global uniqueness across distributed systems, when merging databases, or when you want opaque non-sequential identifiers. Use BIGINT GENERATED ALWAYS AS IDENTITY for most other cases as it provides better performance and smaller storage."
+    },
+    {
+      "question": "Does PostgreSQL automatically create indexes on foreign key columns?",
+      "answer": "No, PostgreSQL does not automatically index foreign key columns. You must manually create indexes on FK columns to improve join performance and prevent locking issues during parent table modifications."
+    },
+    {
+      "question": "What is the difference between JSONB and JSON data types?",
+      "answer": "JSONB is preferred over JSON. JSONB stores data in binary format for faster processing and supports indexing with GIN indexes. Use JSON only if you must preserve the original ordering and formatting of JSON content."
+    },
+    {
+      "question": "When should I partition a table?",
+      "answer": "Partition tables larger than 100 million rows when queries consistently filter on a partition key like timestamp or region. Partitioning is also useful when you need to prune or bulk replace data periodically. Use declarative partitioning or TimescaleDB for automated management."
+    },
+    {
+      "question": "Why do I see gaps in my IDENTITY column sequence?",
+      "answer": "Gaps in sequences are normal and expected behavior in PostgreSQL. Rollbacks, crashes, and concurrent transactions create gaps. Do not try to make IDs consecutive as this is standard database behavior and does not indicate a problem."
+    },
+    {
+      "question": "How do I make text comparisons case-insensitive?",
+      "answer": "For simple ASCII case-insensitivity, create an expression index on LOWER(column) and query with WHERE LOWER(email) = LOWER(input). For locale-aware comparisons, use non-deterministic collations. Use CITEXT type only if you need case-insensitive constraints like UNIQUE or PRIMARY KEY."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "PostgreSQL",
+    "database design",
+    "schema design",
+    "SQL",
+    "indexing",
+    "data modeling",
+    "performance optimization"
+  ],
+  "sourceUrl": "https://github.com/wshobson/agents/tree/main/plugins/database-design/skills/postgresql",
+  "sourceType": "community",
+  "dependencies": []
+}

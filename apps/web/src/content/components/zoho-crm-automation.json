@@ -1,0 +1,147 @@
+{
+  "name": "zoho-crm-automation",
+  "type": "skill",
+  "description": "Automate Zoho CRM tasks via Rube MCP (Composio): create/update records, search contacts, manage leads, and convert leads. Always search tools first for current schemas.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "CRM automation",
+  "quality": 5,
+  "qualityReason": "Strong business integration",
+  "bundleHints": [
+    "mcp-integrations",
+    "sales-automation",
+    "crm-tools"
+  ],
+  "tags": [
+    "composio",
+    "crm-automation",
+    "customer-data",
+    "lead-management",
+    "record-management",
+    "sales-operations",
+    "zoho-crm"
+  ],
+  "capabilities": [
+    "Search and retrieve Zoho CRM records using flexible criteria operators (equals, contains, greater_than, between)",
+    "Create new CRM records including leads, contacts, accounts, and deals with proper field validation",
+    "Update existing records by record ID while preserving unchanged fields",
+    "Convert leads to contacts, accounts, and deals in a single irreversible operation",
+    "List available modules and retrieve field schemas to understand data structure",
+    "Manage tags and related records between different CRM modules"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 59 static analysis findings are false positives. The detected patterns are markdown code literals documenting API tool names (e.g., ZOHO_LIST_MODULES, RUBE_SEARCH_TOOLS) and the legitimate Rube MCP service endpoint. No malicious code execution, data exfiltration, or security vulnerabilities present. This is documentation-only content for a Zoho CRM integration skill.",
+  "valueStatement": "Eliminate manual data entry in Zoho CRM by automating record creation, lead conversion, and bulk updates. This skill provides structured workflows for searching records, managing contacts, and handling sales operations through Composio's Zoho toolkit.",
+  "userTitle": "Automate Zoho CRM Workflows with Rube MCP",
+  "limitations": [
+    "Requires active Rube MCP connection and authenticated Zoho CRM account via Composio toolkit",
+    "Module names and field names are case-sensitive and must use API names not display labels",
+    "Lead conversion is irreversible - converted leads are removed from the Leads module permanently",
+    "Rate limits apply based on Zoho CRM plan (5000 calls/day for free, 25000+/day for enterprise)",
+    "Custom fields and modules have user-defined API names that require discovery via GET_MODULE_FIELDS"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Sales representatives and revenue operations teams",
+      "title": "Sales Lead Enrichment",
+      "description": "Sales teams can automatically create lead records in Zoho CRM from web forms, enrich them with additional data, and track conversion through the sales pipeline"
+    },
+    {
+      "targetUser": "Data migration specialists and CRM administrators",
+      "title": "Bulk Contact Migration",
+      "description": "Migrate contact databases from spreadsheets or legacy systems into Zoho CRM with validation, field mapping, and duplicate checking"
+    },
+    {
+      "targetUser": "Sales managers and business development representatives",
+      "title": "Automated Lead Conversion",
+      "description": "Convert qualified leads into contacts, accounts, and deals automatically when they reach specific criteria, accelerating the sales cycle"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Search for a Contact by Email",
+      "prompt": "Search for a contact in Zoho CRM with the email address 'john@example.com'. Return their full name, phone number, and company.",
+      "scenario": "Quick lookup to verify if a prospect already exists in the CRM before creating a duplicate"
+    },
+    {
+      "title": "Create a New Lead",
+      "prompt": "Create a new lead in Zoho CRM with the following information: First Name: Jane, Last Name: Smith, Email: jane.smith@company.com, Phone: 555-0123, Company: Acme Corp, Lead Source: Website.",
+      "scenario": "Adding a new prospect from a web form or event signup to the CRM"
+    },
+    {
+      "title": "Update Existing Record",
+      "prompt": "Find the lead with email 'prospect@company.com' and update their phone number to '555-9999' and set the status to 'Qualified'.",
+      "scenario": "Updating prospect information after a qualification call or meeting"
+    },
+    {
+      "title": "Convert Lead to Customer",
+      "prompt": "Convert lead ID 123456789 to a contact and account. Create a deal with amount $50000, closing date 2026-03-31, and stage 'Qualification'.",
+      "scenario": "Formalizing a sales opportunity when a lead is ready to purchase"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first before any Zoho operation to get current tool schemas and ensure API compatibility",
+    "Use ZOHO_GET_MODULE_FIELDS to identify required fields before creating records - different modules have different mandatory fields",
+    "Search for existing records before creating new ones to prevent duplicate entries in your CRM database",
+    "Implement pagination when retrieving large datasets - use per_page=200 and check the more_records flag",
+    "Test search criteria syntax with simple queries first, then build complex criteria with AND/OR operators"
+  ],
+  "antiPatterns": [
+    "Do not skip calling RUBE_SEARCH_TOOLS at the start of your session - this ensures you have the latest tool definitions",
+    "Never use display labels instead of API field names - 'Last Name' will fail but 'Last_Name' will work",
+    "Avoid creating leads without checking for duplicates - use SEARCH_ZOHO_RECORDS with email criteria first",
+    "Do not assume all modules are accessible - user role permissions may restrict access to certain CRM modules",
+    "Never convert leads without confirmation - the operation is irreversible and permanently removes the lead record"
+  ],
+  "faq": [
+    {
+      "question": "What is Rube MCP and why do I need it?",
+      "answer": "Rube MCP is a service that provides access to Composio's toolkits including Zoho CRM. You must add https://rube.app/mcp as an MCP server in your client configuration and authenticate with Zoho before using this skill."
+    },
+    {
+      "question": "How do I authenticate with Zoho CRM?",
+      "answer": "Call RUBE_MANAGE_CONNECTIONS with toolkit 'zoho'. If not active, follow the returned OAuth link to authorize the connection. Status must show ACTIVE before running any CRM operations."
+    },
+    {
+      "question": "Why does my search return no results?",
+      "answer": "Module names and field names are case-sensitive. Ensure you use 'Leads' not 'leads', and field API names like 'Last_Name' not display labels. Also check that your search criteria syntax uses the correct format: 'Field:operator:value'."
+    },
+    {
+      "question": "Can I undo a lead conversion?",
+      "answer": "No. Lead conversion is irreversible - the lead record is permanently deleted from the Leads module. Always verify you have the correct lead before calling ZOHO_CONVERT_ZOHO_LEAD."
+    },
+    {
+      "question": "What are the API rate limits?",
+      "answer": "Rate limits depend on your Zoho CRM plan. Free plans allow 5000 API calls per day. Enterprise plans support 25000+ calls per day. Implement delays between bulk operations and respect 429 rate limit responses."
+    },
+    {
+      "question": "How do I handle custom fields in my CRM?",
+      "answer": "Call ZOHO_GET_MODULE_FIELDS for your module to retrieve all field definitions including custom fields. Custom fields will have API names like 'CustomField1' or user-defined names that you must use in data objects."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "Zoho CRM automation",
+    "CRM integration",
+    "lead management",
+    "sales automation",
+    "Composio",
+    "Rube MCP",
+    "customer relationship management"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/zoho-crm-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

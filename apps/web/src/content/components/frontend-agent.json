@@ -1,0 +1,140 @@
+{
+  "name": "frontend-agent",
+  "type": "skill",
+  "description": "Handles frontend/UX/route work for Unite-Hub. Fixes UI bugs, implements React components, updates layouts, ensures responsive design, and maintains shadcn/ui consistency.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "UI implementation",
+  "quality": 5,
+  "qualityReason": "Well-defined component scope",
+  "bundleHints": [
+    "react-stack",
+    "unite-hub-dev"
+  ],
+  "tags": [
+    "nextjs",
+    "react",
+    "responsive-layouts",
+    "shadcn",
+    "tailwind",
+    "ui-bug-fixing",
+    "ui-components"
+  ],
+  "capabilities": [
+    "Implements React 19 components with TypeScript",
+    "Creates Next.js 16 App Router pages and routes",
+    "Uses and customizes shadcn/ui components",
+    "Builds responsive layouts with Tailwind CSS",
+    "Adds workspace filtering for multi-tenant data isolation",
+    "Implements loading states, error handling, and accessibility features"
+  ],
+  "author": "CleanExpo",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill file containing only instructional content and code examples for frontend development. The SKILL.md file is markdown documentation that guides AI agents on implementing React/Next.js UI components. All static findings are false positives: markdown code fences were misidentified as shell backticks, emojis in comments were misclassified as cryptographic patterns, and legitimate API call examples were flagged as network access. No executable code, no credential access, and no actual file system operations exist in this file.",
+  "valueStatement": "Creates and fixes React components for Next.js applications. Implements shadcn/ui patterns, responsive layouts, and accessible user interfaces following design system guidelines.",
+  "userTitle": "Build React UI Components",
+  "limitations": [
+    "Requires access to the codebase to read existing patterns",
+    "Cannot generate visual designs from scratch without references",
+    "Does not modify backend API endpoints",
+    "Cannot deploy or build the application"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend Developers",
+      "title": "Component Implementation",
+      "description": "Create new React components following shadcn/ui patterns and design system guidelines"
+    },
+    {
+      "targetUser": "Full-Stack Engineers",
+      "title": "UI Bug Fixes",
+      "description": "Fix responsive layout issues and add proper loading and error states to existing pages"
+    },
+    {
+      "targetUser": "Product Teams",
+      "title": "New Feature Pages",
+      "description": "Build new dashboard pages with proper navigation, breadcrumbs, and data integration"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Component",
+      "scenario": "Build a new button component",
+      "prompt": "Create a new button component in src/components/ui that follows shadcn/ui patterns. Include loading state and disabled variants."
+    },
+    {
+      "title": "Fix Layout",
+      "scenario": "Responsive issues on mobile",
+      "prompt": "Fix the dashboard layout to be responsive on mobile devices. Use mobile-first approach with md and lg breakpoints."
+    },
+    {
+      "title": "Add Workspace Filter",
+      "scenario": "Multi-tenant data isolation",
+      "prompt": "Add workspace_id filtering to all Supabase queries in the contacts page to ensure data isolation between workspaces."
+    },
+    {
+      "title": "Implement Dialog",
+      "scenario": "Modal interaction pattern",
+      "prompt": "Implement a confirmation dialog component using shadcn/ui Dialog. Include success toast notification and error handling."
+    }
+  ],
+  "bestPractices": [
+    "Always filter database queries by workspace_id for multi-tenant isolation",
+    "Use design tokens (bg-bg-card, text-text-primary) instead of generic Tailwind classes",
+    "Implement loading and error states to prevent blank screens"
+  ],
+  "antiPatterns": [
+    "Using generic className like bg-white, text-gray-600, or hover:bg-gray-100",
+    "Creating uniform grid layouts without responsive breakpoints",
+    "Skipping workspace filtering on database queries"
+  ],
+  "faq": [
+    {
+      "question": "Which React versions are supported?",
+      "answer": "React 19 with Next.js 16 App Router. Use Server Components by default."
+    },
+    {
+      "question": "What is the component library?",
+      "answer": "shadcn/ui with custom design tokens. Never use default shadcn styles without customization."
+    },
+    {
+      "question": "How does workspace filtering work?",
+      "answer": "Always add .eq('workspace_id', workspaceId) to Supabase queries for data isolation."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. This skill only reads files and generates code. It cannot access credentials or export data."
+    },
+    {
+      "question": "Why are some CSS classes forbidden?",
+      "answer": "bg-white, text-gray-600, and generic patterns create inconsistent design. Use design system tokens instead."
+    },
+    {
+      "question": "How is this different from a code formatter?",
+      "answer": "This skill implements new features, not just format code. It reads existing patterns before making changes."
+    }
+  ],
+  "seoKeywords": [
+    "claude code frontend",
+    "react component development",
+    "nextjs ui",
+    "shadcn ui",
+    "tailwind css",
+    "responsive design",
+    "claude coding assistant",
+    "ui ux development",
+    "react hooks",
+    "accessibility"
+  ],
+  "sourceUrl": "https://github.com/CleanExpo/Unite-Hub/tree/main/.claude/skills/frontend",
+  "sourceType": "community",
+  "dependencies": []
+}

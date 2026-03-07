@@ -1,0 +1,140 @@
+{
+  "name": "stop-slop",
+  "type": "skill",
+  "description": "Remove AI writing patterns from prose. Use when drafting, editing, or reviewing text to eliminate predictable AI tells.",
+  "domain": "productivity",
+  "subdomain": "communication",
+  "specialty": "AI writing cleanup",
+  "quality": 5,
+  "qualityReason": "Improves content authenticity",
+  "bundleHints": [
+    "writing-tools",
+    "content-quality"
+  ],
+  "tags": [
+    "ai patterns",
+    "anti-ai",
+    "editing",
+    "humanization",
+    "prose",
+    "style",
+    "writing"
+  ],
+  "capabilities": [
+    "Identify throat-clearing openers like 'here is the thing' and 'let me be clear'",
+    "Flag formulaic structures including binary contrasts and dramatic fragmentation",
+    "Eliminate business jargon and replace with plain language",
+    "Vary sentence rhythm and break monotony in text flow",
+    "Cut emphasis crutches such as 'period full stop' and 'let that sink in'",
+    "Remove rhetorical setups and meta-commentary from prose"
+  ],
+  "author": "Hardik Pandya (https://hvpandya.com)",
+  "icon": "✏️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing writing guidelines. All 36 static findings are false positives: 'external_commands' are markdown code fences (not shell execution), 'hardcoded URLs' are author/resource links (not exfiltration), 'system reconnaissance' refers to writing patterns (not system commands), and 'weak cryptographic algorithm' references are writing terminology (not crypto implementations). No executable code, network calls, or file system access exists.",
+  "valueStatement": "AI-generated text often sounds robotic with predictable phrases and structures. This skill identifies and eliminates common AI writing patterns to create more natural, human-sounding prose. Perfect for editing, drafting, or reviewing any text.",
+  "userTitle": "Remove AI Writing Patterns",
+  "limitations": [
+    "Does not check grammar, spelling, or punctuation errors",
+    "Does not evaluate factual accuracy or argument quality",
+    "Does not generate new content, only refines existing text"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content editors",
+      "title": "Edit AI drafts",
+      "description": "Transform AI-generated first drafts into natural-sounding prose that passes AI detection tools."
+    },
+    {
+      "targetUser": "Technical writers",
+      "title": "Polish documentation",
+      "description": "Remove robotic patterns from technical documentation while preserving clarity and accuracy."
+    },
+    {
+      "targetUser": "Bloggers",
+      "title": "Humanize AI assistance",
+      "description": "Use AI writing assistance while maintaining an authentic human voice in your content."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick edit",
+      "scenario": "When drafting prose",
+      "prompt": "Apply stop-slop rules to this text. Remove AI patterns like throat-clearing openers, formulaic structures, and emphasis crutches."
+    },
+    {
+      "title": "Before submission",
+      "scenario": "When reviewing a draft",
+      "prompt": "Check this text for AI tells. Look for binary contrasts, dramatic fragmentation, rhetorical setups, and filler adverbs."
+    },
+    {
+      "title": "Style guide",
+      "scenario": "When following writing standards",
+      "prompt": "Apply stop-slop scoring. Rate 1-10 on directness, rhythm, trust, authenticity, and density. Target 35/50 minimum."
+    },
+    {
+      "title": "Complete rewrite",
+      "scenario": "When transforming AI text",
+      "prompt": "Rewrite this text using stop-slop principles. Cut all filler phrases. Break formulaic structures. Vary sentence length. Trust the reader."
+    }
+  ],
+  "bestPractices": [
+    "Apply stop-slop before finalizing any AI-assisted writing",
+    "Use the scoring rubric to systematically evaluate draft quality",
+    "Review the banned phrases and structures list to internalize patterns"
+  ],
+  "antiPatterns": [
+    "Leaving throat-clearing openers that announce rather than deliver",
+    "Using binary contrasts that create false drama in straightforward content",
+    "Ending every paragraph with a punchy one-liner for artificial emphasis"
+  ],
+  "faq": [
+    {
+      "question": "Does this make text completely AI undetectable?",
+      "answer": "No. This skill reduces obvious AI patterns but comprehensive AI detection requires additional approaches."
+    },
+    {
+      "question": "Does stop-slop work for technical documentation?",
+      "answer": "Yes. Remove robotic patterns while preserving accuracy and clarity in technical content."
+    },
+    {
+      "question": "How long does it take to apply these rules?",
+      "answer": "Quick edits take seconds. Full rewrites of long content may require multiple passes."
+    },
+    {
+      "question": "Can I use this with other writing skills?",
+      "answer": "Yes. Apply stop-slop after grammar tools and before final review of your content."
+    },
+    {
+      "question": "What is the scoring system?",
+      "answer": "Rate 1-10 on directness, rhythm, trust, authenticity, and density. Target 35/50 minimum."
+    },
+    {
+      "question": "Does this work for all writing styles?",
+      "answer": "Best for professional prose. Creative writing may intentionally use some patterns for effect."
+    }
+  ],
+  "seoKeywords": [
+    "stop-slop",
+    "remove AI patterns",
+    "writing style",
+    "AI detection",
+    "prose editing",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "content editing",
+    "natural writing"
+  ],
+  "sourceUrl": "https://github.com/hardikpandya/stop-slop/tree/main/",
+  "sourceType": "community",
+  "dependencies": []
+}

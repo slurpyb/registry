@@ -1,0 +1,140 @@
+{
+  "name": "azure-storage",
+  "type": "skill",
+  "description": "Azure Storage Services including Blob Storage, File Shares, Queue Storage, Table Storage, and Data Lake. Provides object storage, SMB file shares, async messaging, NoSQL key-value, and big data analytics capabilities. Includes access tiers (hot, cool, archive) and lifecycle management.",
+  "domain": "cloud",
+  "subdomain": "cloud",
+  "specialty": "Azure Blob Storage",
+  "quality": 5,
+  "qualityReason": "Specific Azure service coverage",
+  "bundleHints": [
+    "azure-stack",
+    "cloud-storage"
+  ],
+  "tags": [
+    "azure",
+    "blob",
+    "cloud-storage",
+    "microsoft-azure",
+    "object-storage",
+    "storage"
+  ],
+  "capabilities": [
+    "List and manage Azure Blob Storage containers and blobs",
+    "Manage Azure File Shares with SMB protocol",
+    "Work with Azure Queue Storage for async messaging",
+    "Query Azure Table Storage for NoSQL key-value data",
+    "Access Azure Data Lake for big data analytics",
+    "Use Azure CLI commands for storage operations"
+  ],
+  "author": "microsoft",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 146 static findings are FALSE POSITIVES. This is an official Microsoft skill containing only markdown documentation files with SDK usage examples. The scanner detected patterns in documentation that appear similar to security issues but are actually standard markdown code formatting (backticks), legitimate Azure documentation URLs, and Go import statements. No executable code, scripts, or malicious patterns exist.",
+  "valueStatement": "This official Microsoft skill provides comprehensive guidance for Azure Storage services including Blob, Files, Queue, Tables, and Data Lake. It offers MCP tools integration and CLI commands to help developers manage cloud storage resources efficiently.",
+  "userTitle": "Work with Azure Storage Services",
+  "limitations": [
+    "Requires Azure subscription and credentials",
+    "MCP server must be enabled for tool integration",
+    "Some features require specific Azure regions",
+    "CLI fallback needed when MCP is not configured"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineers managing Azure cloud storage",
+      "title": "Cloud Storage Management",
+      "description": "List storage accounts, containers, and blobs in Azure subscriptions. Upload and download blob content using MCP tools or CLI commands."
+    },
+    {
+      "targetUser": "Software developers building Azure applications",
+      "title": "Application Data Storage",
+      "description": "Integrate Azure Storage SDKs into applications. Use Blob Storage for unstructured data, Queue Storage for async processing, and Table Storage for NoSQL data."
+    },
+    {
+      "targetUser": "System administrators handling data migration",
+      "title": "Data Migration and Backup",
+      "description": "Set up file shares for lift-and-shift scenarios. Configure redundancy options (LRS, ZRS, GRS, GZRS) for disaster recovery and durability requirements."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List Storage Accounts",
+      "prompt": "List all storage accounts in my Azure subscription using the azure-storage skill.",
+      "scenario": "Quick inventory of storage resources"
+    },
+    {
+      "title": "Upload Blob to Container",
+      "prompt": "How do I upload a file to Azure Blob Storage using Python? Show the SDK code.",
+      "scenario": "Learning blob upload with Python SDK"
+    },
+    {
+      "title": "Create File Share",
+      "prompt": "Create a new Azure File Share with SMB access. What are the CLI commands?",
+      "scenario": "Setting up file share infrastructure"
+    },
+    {
+      "title": "Configure Blob Lifecycle",
+      "prompt": "Set up blob access tiers (hot, cool, archive) and lifecycle management policies.",
+      "scenario": "Optimizing storage costs"
+    }
+  ],
+  "bestPractices": [
+    "Use managed identities instead of storage keys for authentication",
+    "Enable soft delete for blob containers to prevent data loss",
+    "Use appropriate access tiers (Hot/Cool/Archive) to optimize costs"
+  ],
+  "antiPatterns": [
+    "Do not hardcode storage account keys in source code",
+    "Avoid using public access blobs for sensitive data",
+    "Do not skip redundancy options for production data"
+  ],
+  "faq": [
+    {
+      "question": "What Azure Storage services are supported?",
+      "answer": "Blob Storage, File Shares, Queue Storage, Table Storage, and Data Lake are all supported with MCP tools and CLI commands."
+    },
+    {
+      "question": "Do I need Azure MCP server enabled?",
+      "answer": "MCP is preferred for tool integration. Run /azure:setup or enable via /mcp. CLI fallback is available when MCP is not configured."
+    },
+    {
+      "question": "What programming languages are supported?",
+      "answer": "SDKs are available for .NET, Java, JavaScript/TypeScript, Python, Go, and Rust with code examples in the skill."
+    },
+    {
+      "question": "How do I choose between storage tiers?",
+      "answer": "Use Hot for frequent access, Cool for 30+ days, Cold for 90+ days, and Archive for 180+ days of infrequent data."
+    },
+    {
+      "question": "What redundancy option should I use?",
+      "answer": "LRS for dev/test, ZRS for regional HA, GRS for disaster recovery, GZRS for maximum durability."
+    },
+    {
+      "question": "Is this skill official Microsoft?",
+      "answer": "Yes, this is an official Microsoft skill from the GitHub Copilot for Azure repository."
+    }
+  ],
+  "seoKeywords": [
+    "azure storage",
+    "azure blob",
+    "azure files",
+    "azure queue",
+    "azure tables",
+    "cloud storage",
+    "microsoft azure",
+    "claude code",
+    "codex",
+    "claude"
+  ],
+  "sourceUrl": "https://github.com/microsoft/github-copilot-for-azure/tree/main/plugin/skills/azure-storage/",
+  "sourceType": "community",
+  "dependencies": []
+}

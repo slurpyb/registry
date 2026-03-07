@@ -1,0 +1,142 @@
+{
+  "name": "tavily-search",
+  "type": "skill",
+  "description": "使用Tavily API进行网络搜索，获取实时信息、回答问题或研究主题",
+  "domain": "tools",
+  "subdomain": "search",
+  "specialty": "Real-time web search",
+  "quality": 5,
+  "qualityReason": "Specific API with real-time use",
+  "bundleHints": [
+    "research-tools",
+    "RAG-pipeline",
+    "search-suite"
+  ],
+  "tags": [
+    "information",
+    "information-retrieval",
+    "rag",
+    "real-time",
+    "research",
+    "search",
+    "tavily",
+    "web-search"
+  ],
+  "capabilities": [
+    "Query Tavily API for web search results",
+    "Filter and rank search results by relevance",
+    "Extract key snippets and metadata from pages",
+    "Handle API errors and rate limits gracefully",
+    "Support custom search parameters and domains"
+  ],
+  "author": "CK991357",
+  "icon": "🔍",
+  "version": "1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill consists only of documentation files (SKILL.md, skill-report.json) describing the Tavily web search API. No executable code exists in the package. The static scanner misinterpreted JSON code blocks in documentation as shell commands and misidentified metadata fields as cryptographic patterns. All findings are false positives from documentation parsing errors.",
+  "valueStatement": "Get current information beyond AI training data. Access live web results with intelligent query optimization and source verification.",
+  "userTitle": "Search the web with real-time results",
+  "limitations": [
+    "Requires Tavily API key configuration",
+    "Rate limited by Tavily service tiers",
+    "Cannot access paywalled or private content",
+    "Search results depend on Tavily's index coverage"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Researchers",
+      "title": "Academic research with sources",
+      "description": "Find recent papers, articles, and credible sources for research projects with automatic citation formatting."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Technical documentation search",
+      "description": "Get latest API docs, library updates, and coding examples from official sources and community forums."
+    },
+    {
+      "targetUser": "Analysts",
+      "title": "Market and news monitoring",
+      "description": "Track industry news, competitor updates, and market trends with real-time web monitoring."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic search",
+      "scenario": "Simple factual queries",
+      "prompt": "Search for: [your question]. Provide 3-5 relevant results with brief summaries."
+    },
+    {
+      "title": "Research compilation",
+      "scenario": "Multi-source research",
+      "prompt": "Research [topic] and compile findings from multiple sources. Include recent developments and key statistics."
+    },
+    {
+      "title": "Technical lookup",
+      "scenario": "Programming documentation",
+      "prompt": "Find the official documentation for [technology/feature]. Include code examples and best practices."
+    },
+    {
+      "title": "Comparative analysis",
+      "scenario": "Product or service comparison",
+      "prompt": "Compare [option A] vs [option B] based on recent reviews and feature updates. Create a comparison table."
+    }
+  ],
+  "bestPractices": [
+    "Use specific keywords and phrases for better search results",
+    "Specify date ranges when looking for recent information",
+    "Combine multiple searches for comprehensive topic coverage"
+  ],
+  "antiPatterns": [
+    "Searching for personal or sensitive information",
+    "Relying on single source without verification",
+    "Using without proper API key configuration"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "Works with Claude, Codex, and Claude Code. Integrates seamlessly through standard protocols."
+    },
+    {
+      "question": "Are there search limits?",
+      "answer": "Limited by your Tavily API plan. Free tier includes 100 queries monthly. Paid plans offer more."
+    },
+    {
+      "question": "How do I integrate with my workflow?",
+      "answer": "Configure Tavily API key in your AI tool settings. Use natural language to request searches."
+    },
+    {
+      "question": "Is my search data secure?",
+      "answer": "Searches go directly to Tavily API. No data is stored or logged by this skill."
+    },
+    {
+      "question": "Why am I getting no results?",
+      "answer": "Check API key configuration and query format. Very specific or recent topics may have limited results."
+    },
+    {
+      "question": "How does this compare to built-in search?",
+      "answer": "Provides real-time web results versus static training data. Better for current events and recent developments."
+    }
+  ],
+  "seoKeywords": [
+    "tavily search",
+    "web search API",
+    "real-time search",
+    "AI search integration",
+    "Claude search",
+    "Codex web search",
+    "Claude Code search",
+    "research tool",
+    "live data",
+    "information retrieval"
+  ],
+  "sourceUrl": "https://github.com/CK991357/gemini-chat/tree/main/src/skills/tavily_search",
+  "sourceType": "community",
+  "dependencies": []
+}

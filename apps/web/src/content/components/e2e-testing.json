@@ -1,0 +1,140 @@
+{
+  "name": "e2e-testing",
+  "type": "skill",
+  "description": "End-to-end testing workflow with Playwright for browser automation, visual regression, cross-browser testing, and CI/CD integration.",
+  "domain": "testing",
+  "subdomain": "e2e",
+  "specialty": "Playwright testing",
+  "quality": 5,
+  "qualityReason": "Specific tool and use case",
+  "bundleHints": [
+    "testing-stack",
+    "ci-cd"
+  ],
+  "tags": [
+    "browser-automation",
+    "ci-cd",
+    "cross-browser",
+    "e2e-testing",
+    "playwright",
+    "visual-regression"
+  ],
+  "capabilities": [
+    "Set up Playwright testing framework with browser configuration",
+    "Design E2E test strategies using page object patterns",
+    "Write automated test scripts with assertions and error handling",
+    "Implement visual regression testing with baseline comparisons",
+    "Run cross-browser tests across Chromium, Firefox, and WebKit",
+    "Integrate E2E tests into GitHub Actions CI/CD pipelines"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 34 patterns (30 external_commands, 4 blocker) but all are false positives. The SKILL.md file is documentation, not executable code. Backticks are markdown formatting for skill references, not shell commands. No actual code execution or dangerous patterns exist.",
+  "valueStatement": "Manual testing is slow and error-prone. This skill provides a structured 7-phase workflow for automated E2E testing with Playwright, from setup to CI/CD integration.",
+  "userTitle": "Automate End-to-End Testing with Playwright",
+  "limitations": [
+    "Requires Node.js and Playwright installation in the project environment",
+    "Tests require accessible web application URLs to execute",
+    "Visual regression testing needs baseline images for comparison",
+    "CI/CD integration requires repository access and workflow permissions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "QA Engineer",
+      "title": "QA Engineers automating regression testing",
+      "description": "Set up comprehensive E2E test suites that run automatically on every code change, catching regressions before production deployment."
+    },
+    {
+      "targetUser": "Software Developer",
+      "title": "Developers implementing test-driven development",
+      "description": "Create automated browser tests alongside feature development to ensure user flows work correctly across all supported browsers."
+    },
+    {
+      "targetUser": "DevOps Engineer",
+      "title": "DevOps teams building CI/CD pipelines",
+      "description": "Integrate automated E2E testing into deployment workflows with parallel execution, artifacts, and test reporting."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Playwright Setup",
+      "prompt": "Use @playwright-skill to set up Playwright testing in my project. Install dependencies, configure test framework, and create a basic test file.",
+      "scenario": "Starting a new project and need E2E testing from scratch"
+    },
+    {
+      "title": "Test Strategy Design",
+      "prompt": "Use @e2e-testing-patterns to design an E2E test strategy for my application. Identify critical user flows that need automated testing.",
+      "scenario": "Planning which tests to write for a web application"
+    },
+    {
+      "title": "Visual Regression Testing",
+      "prompt": "Use @playwright-skill to implement visual regression testing. Set up baseline images and add visual assertions to detect UI changes.",
+      "scenario": "Need to catch unintended visual changes in the UI"
+    },
+    {
+      "title": "CI/CD Pipeline Integration",
+      "prompt": "Use @github-actions-templates to create a GitHub Actions workflow that runs E2E tests in parallel across browsers and uploads test artifacts.",
+      "scenario": "Ready to automate test execution in CI/CD pipeline"
+    }
+  ],
+  "bestPractices": [
+    "Use page object pattern to separate test logic from page structure for maintainable tests",
+    "Implement proper wait strategies using Playwright auto-wait instead of hardcoded timeouts",
+    "Run tests in headless mode for CI and headed mode locally for debugging"
+  ],
+  "antiPatterns": [
+    "Using hardcoded sleep delays instead of Playwright's built-in auto-wait functionality",
+    "Writing tests that depend on specific test execution order instead of isolated tests",
+    "Storing test credentials in plain text instead of using environment variables"
+  ],
+  "faq": [
+    {
+      "question": "What browsers does Playwright support for E2E testing?",
+      "answer": "Playwright supports Chromium (Chrome/Edge), Firefox, and WebKit (Safari). You can run tests against all browsers in parallel for comprehensive coverage."
+    },
+    {
+      "question": "How do I handle authentication in E2E tests?",
+      "answer": "Use Playwright's storage state feature to save and reuse authentication sessions across tests, avoiding repeated login flows."
+    },
+    {
+      "question": "Can I run E2E tests on mobile viewports?",
+      "answer": "Yes, Playwright supports mobile device emulation with predefined device descriptors for common phones and tablets."
+    },
+    {
+      "question": "How do I debug failing E2E tests?",
+      "answer": "Use Playwright's trace viewer, video recording, and screenshot capabilities. Run tests in headed mode with slow motion for visual debugging."
+    },
+    {
+      "question": "What is visual regression testing and when should I use it?",
+      "answer": "Visual regression testing compares screenshots against baselines to detect unintended UI changes. Use it for critical pages and components where visual consistency matters."
+    },
+    {
+      "question": "How can I speed up E2E test execution in CI?",
+      "answer": "Run tests in parallel across multiple workers, use project sharding in CI, and configure browsers to run headless. Consider using Playwright's built-in parallelization."
+    }
+  ],
+  "seoKeywords": [
+    "E2E testing",
+    "Playwright testing",
+    "browser automation",
+    "visual regression testing",
+    "cross-browser testing",
+    "CI/CD integration",
+    "Claude Code testing",
+    "Codex E2E automation",
+    "Claude testing workflow",
+    "automated QA testing"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/e2e-testing",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "develop-frontend",
+  "type": "skill",
+  "description": "Next.js/Reactによるフロントエンド実装スキル（UI、API連携、状態管理、テスト）",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Next.js/React",
+  "quality": 5,
+  "qualityReason": "Production-grade frontend expertise",
+  "bundleHints": [
+    "nextjs-stack",
+    "frontend-stack"
+  ],
+  "tags": [
+    "api-integration",
+    "frontend",
+    "next.js",
+    "react",
+    "state-management",
+    "testing",
+    "typescript"
+  ],
+  "capabilities": [
+    "Implement Next.js App Router pages with proper directory structure",
+    "Create Presentational and Container components following project conventions",
+    "Integrate APIs using Orval-generated clients with proper error handling",
+    "Write unit tests with Vitest and Testing Library achieving 80% coverage",
+    "Apply shadcn/ui components and styling with Tailwind CSS",
+    "Run lint checks, tests, and builds to verify code quality"
+  ],
+  "author": "Crearize",
+  "icon": "🖥️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure markdown documentation skill containing only frontend development guidance. No executable code, scripts, or dangerous capabilities. All static findings are false positives: cryptographic hash references in metadata were misidentified as weak crypto, shell command examples in documentation were flagged as backtick execution, and standard YAML frontmatter was flagged as obfuscation. This is a guidance-only skill that instructs AI agents on development workflows.",
+  "valueStatement": "Frontend development requires following specific project conventions, testing standards, and build processes. This skill provides step-by-step guidance for implementing Next.js/React features with proper component architecture, API integration, and test coverage.",
+  "userTitle": "Build Next.js React Frontends",
+  "limitations": [
+    "This is a guidance skill that assists developers; it does not execute code directly",
+    "Requires an existing Next.js/React project structure to follow",
+    "Assumes access to local development tools (pnpm, Node.js)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Build new features",
+      "description": "Implement new pages and components following project conventions with proper testing"
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Create UI components",
+      "description": "Develop reusable Presentational components with Storybook and testing"
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Implement test coverage",
+      "description": "Write unit and integration tests for React components using Vitest"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New page request",
+      "scenario": "Create a new dashboard page",
+      "prompt": "Create a new dashboard page at views/dashboard/ with user statistics display. Include a Container component that fetches data using the Orval API client and Presentational components for the UI. Write Vitest tests with 80% coverage."
+    },
+    {
+      "title": "Component creation",
+      "scenario": "Build a reusable UI component",
+      "prompt": "Build a reusable UserCard component using shadcn/ui Card. Create the component in components/UserCard/ with index.tsx, index.test.tsx, and index.stories.tsx. Apply tablet-first responsive design."
+    },
+    {
+      "title": "Form implementation",
+      "scenario": "Create a contact form",
+      "prompt": "Implement a contact form using React Hook Form and Zod validation. Use shadcn/ui Form components. Include proper error handling and loading states. Write tests for validation and submission."
+    },
+    {
+      "title": "API integration",
+      "scenario": "Connect to backend API",
+      "prompt": "Integrate the user profile API. Create a useUserProfile custom hook that handles loading, error, and success states. Use the Orval-generated client. Write tests with MSW mock handlers."
+    }
+  ],
+  "bestPractices": [
+    "Always check existing shadcn/ui components before creating new ones",
+    "Separate Presentational (UI) and Container (logic) components clearly",
+    "Run lint, tests, and build locally before reporting completion"
+  ],
+  "antiPatterns": [
+    "Using any type instead of unknown for type safety",
+    "Mixing business logic with UI rendering in same component",
+    "Skipping test coverage requirements for faster delivery"
+  ],
+  "faq": [
+    {
+      "question": "What tools does this skill work with?",
+      "answer": "Claude, Codex, and Claude Code. Requires pnpm, Node.js, and Next.js project."
+    },
+    {
+      "question": "What testing frameworks are supported?",
+      "answer": "Vitest for unit tests, Testing Library for behavior tests, MSW for API mocking."
+    },
+    {
+      "question": "Can this skill create full-stack features?",
+      "answer": "This skill focuses on frontend. Backend API integration uses pre-generated Orval clients."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This is a prompt-only skill. All code runs locally in your development environment."
+    },
+    {
+      "question": "Why is my build failing?",
+      "answer": "Check Biome lint errors, TypeScript strict mode issues, and ensure all imports are used. Run 'pnpm lint:check' locally."
+    },
+    {
+      "question": "How does this compare to other frontend skills?",
+      "answer": "This skill enforces specific project conventions including component structure, testing requirements, and coding standards."
+    }
+  ],
+  "seoKeywords": [
+    "Claude frontend developer",
+    "Next.js development",
+    "React components",
+    "TypeScript frontend",
+    "shadcn/ui implementation",
+    "Vitest testing",
+    "frontend testing",
+    "React hooks",
+    "Next.js App Router",
+    "API integration"
+  ],
+  "sourceUrl": "https://github.com/Crearize/ProjectTemplate/tree/main/.claude/skills/develop-frontend",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "pricing-strategy",
+  "type": "skill",
+  "description": "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' or 'monetization.' This skill covers pricing research, tier structure, and packaging strategy.",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "monetization design",
+  "quality": 5,
+  "qualityReason": "Clear business impact focus",
+  "bundleHints": [
+    "go-to-market",
+    "product-strategy"
+  ],
+  "tags": [
+    "freemium",
+    "monetization",
+    "packaging",
+    "pricing",
+    "revenue",
+    "saas"
+  ],
+  "capabilities": [
+    "Analyze pricing using Van Westendorp Price Sensitivity Meter",
+    "Design tier structures using Good-Better-Best framework",
+    "Select appropriate value metrics aligned with customer value",
+    "Create persona-based packaging strategies",
+    "Develop freemium and free trial conversion strategies",
+    "Plan and communicate price increases effectively"
+  ],
+  "author": "coreyhaines31",
+  "icon": "💰",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill contains only markdown documentation with ASCII diagrams and text examples. Detected patterns include: backtick characters in markdown code blocks (misidentified as shell commands), SAML authentication references (misidentified as Windows SAM database), and survey methodology terminology (misidentified as cryptographic hashes). No executable code present.",
+  "valueStatement": "SaaS businesses struggle to price their products effectively. This skill provides frameworks for pricing research, tier structuring, and monetization strategy to capture customer value and drive growth.",
+  "userTitle": "Design Effective SaaS Pricing",
+  "limitations": [
+    "Does not provide real-time competitor pricing data",
+    "Cannot access your internal financial metrics or customer data",
+    "Does not run actual surveys or collect willingness-to-pay data",
+    "Cannot implement pricing changes in your system"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Founders and product managers",
+      "title": "New Product Pricing",
+      "description": "A founder launching a new SaaS product needs to set initial prices. Use Van Westendorp analysis and value-based pricing frameworks to determine optimal price points and tier structure."
+    },
+    {
+      "targetUser": "Pricing managers and revenue teams",
+      "title": "Pricing Tier Redesign",
+      "description": "A growing SaaS company wants to restructure its pricing tiers to capture more value. Design a Good-Better-Best framework based on feature utility and customer willingness to pay."
+    },
+    {
+      "targetUser": "Executives and finance teams",
+      "title": "Price Increase Planning",
+      "description": "An established SaaS business is ready to raise prices. Develop a strategy including grandfathering options, timing, and customer communication templates."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Initial Pricing Assessment",
+      "scenario": "User wants to set initial prices for a new SaaS product",
+      "prompt": "Help me set pricing for my new SaaS product. Here is the context:\n- Product type: [SaaS/marketplace/e-commerce/service]\n- Target market: [SMB/mid-market/enterprise]\n- Primary value delivered: [outcome]\n- Main competitors: [alternatives]\n- Current pricing (if any): [amount]\n\nGuide me through the pricing research and framework process."
+    },
+    {
+      "title": "Tier Structure Design",
+      "scenario": "User needs to design or redesign pricing tiers",
+      "prompt": "I need to design pricing tiers for my SaaS product. Please help me:\n- Determine the right number of tiers (2, 3, or 4)\n- Create a Good-Better-Best structure\n- Differentiate tiers by features, limits, or support\n- Set appropriate price points based on value\n\nCurrent product details: [features, target customers, competitive context]"
+    },
+    {
+      "title": "Value Metric Selection",
+      "scenario": "User is unsure what to charge for",
+      "prompt": "Help me identify the right value metric for my pricing. My customers get value by:\n- [how customers use product]\n- [outcomes they achieve]\n- [what they would pay more for]\n\nAnalyze these patterns and recommend whether I should price per user, per usage, per feature, or another metric."
+    },
+    {
+      "title": "Price Increase Strategy",
+      "scenario": "User wants to raise prices",
+      "prompt": "I want to raise my prices. Current situation:\n- Current price: [amount]\n- Monthly active users: [number]\n- Churn rate: [percentage]\n- Conversion rate: [percentage]\n- Last pricing change: [when]\n- New value delivered since then: [what]\n\nShould I raise prices? What strategy should I use? Draft a customer communication."
+    }
+  ],
+  "bestPractices": [
+    "Base prices on customer value delivered, not on your cost to serve or competitor prices alone.",
+    "Use pricing research methods like Van Westendorp surveys to understand willingness to pay before setting prices.",
+    "Test price increases with new customers first, then grandfather existing customers to reduce churn risk."
+  ],
+  "antiPatterns": [
+    "Setting prices based solely on costs rather than customer value, which leaves money on the table.",
+    "Having too many pricing tiers that cause decision paralysis for buyers.",
+    "Raising prices for existing customers without grandfathering or clear value justification."
+  ],
+  "faq": [
+    {
+      "question": "How many pricing tiers should I have?",
+      "answer": "Most SaaS businesses succeed with 3 tiers (Good, Better, Best). Two tiers work for clear market splits. Avoid 4+ tiers as they create decision paralysis for buyers."
+    },
+    {
+      "question": "What is the difference between freemium and free trial?",
+      "answer": "Freemium is a permanent free tier with limited features. Free trial is time-limited full access. Freemium works for viral products with low serving costs. Free trial works for complex products that need demonstration."
+    },
+    {
+      "question": "How do I know if my prices are too low?",
+      "answer": "Signs prices are too low include: very high conversion rates, customer feedback about being cheap, competitors charging more, and customers using more than they pay for. Research shows 25-50% higher prices are often achievable."
+    },
+    {
+      "question": "What value metric should I use?",
+      "answer": "A good value metric scales with customer value, is easy to understand, and is hard to game. Common options include per user (collaboration), per usage (infrastructure), per record (CRM), and revenue share (high-value outcomes)."
+    },
+    {
+      "question": "How do I communicate a price increase to customers?",
+      "answer": "Be transparent about why, give advance notice, grandfather existing customers if possible, and tie the increase to new value delivered. Provide a deadline for locking in old rates to drive action."
+    },
+    {
+      "question": "Should I offer annual pricing discounts?",
+      "answer": "Yes, annual discounts of 17-20% improve cash flow and reduce churn. This works because annual commits lock in customers and improve your revenue predictability."
+    }
+  ],
+  "seoKeywords": [
+    "pricing strategy",
+    "SaaS pricing",
+    "pricing tiers",
+    "value metric",
+    "monetization",
+    "pricing research",
+    "freemium model",
+    "price optimization",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/coreyhaines31/marketingskills/tree/main/skills/pricing-strategy",
+  "sourceType": "community",
+  "dependencies": []
+}

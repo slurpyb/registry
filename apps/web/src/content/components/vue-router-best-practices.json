@@ -1,0 +1,141 @@
+{
+  "name": "vue-router-best-practices",
+  "type": "skill",
+  "description": "Vue Router 4 patterns, navigation guards, route params, and route-component lifecycle interactions.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Vue routing",
+  "quality": 5,
+  "qualityReason": "Precise, essential for apps",
+  "bundleHints": [
+    "vue-stack",
+    "frontend",
+    "navigation"
+  ],
+  "tags": [
+    "lifecycle",
+    "navigation-guards",
+    "route-params",
+    "routing",
+    "vue",
+    "vue-router",
+    "vue3"
+  ],
+  "capabilities": [
+    "Diagnose navigation guard issues including guards not firing on param changes",
+    "Implement proper async patterns for navigation guards with await",
+    "Fix infinite redirect loops caused by navigation guards",
+    "Handle route param changes without triggering component lifecycle",
+    "Clean up event listeners and subscriptions on route transitions",
+    "Set up Vue Router correctly for production single-page applications"
+  ],
+  "author": "github.com/vuejs-ai",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 192 static findings are false positives. The scanner misinterpreted markdown code block syntax (```) as shell backticks, example URLs as hardcoded network endpoints, and legitimate documentation patterns as malicious code. This is a pure documentation skill containing Vue Router best practices.",
+  "valueStatement": "Vue Router applications often suffer from navigation guard pitfalls, route lifecycle issues, and component unmount problems. This skill provides curated patterns and solutions for Vue Router 4 to prevent common bugs and build robust routing architecture.",
+  "userTitle": "Apply Vue Router Best Practices",
+  "limitations": [
+    "This skill focuses on Vue Router 4 patterns only",
+    "Does not cover Vue Router 3 or earlier versions",
+    "Does not provide Vue component implementation code",
+    "Does not configure build tools or deployment pipelines"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Vue developer debugging routing behavior",
+      "title": "Debug Navigation Guard Issues",
+      "description": "Developer encounters a route guard that does not fire when navigating between same-route params. Uses skill to identify the issue and apply onBeforeRouteUpdate pattern."
+    },
+    {
+      "targetUser": "Code reviewer or tech lead",
+      "title": "Review Vue Router Codebase",
+      "description": "Code reviewer checks Vue Router implementation for common gotchas. Uses skill to verify proper handling of navigation guards, lifecycle hooks, and cleanup patterns."
+    },
+    {
+      "targetUser": "Vue learner or educator",
+      "title": "Learn Vue Router Patterns",
+      "description": "Developer new to Vue Router learns best practices through curated reference documents. Uses skill to understand navigation guard patterns, lazy loading, and route cleanup."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Vue Router Help",
+      "prompt": "I have a Vue Router navigation guard that should fire when URL params change but it does not. What is happening and how do I fix it?",
+      "scenario": "User asks about navigation guards not triggering on param changes"
+    },
+    {
+      "title": "Debug Guard Behavior",
+      "prompt": "My Vue Router application enters an infinite redirect loop when users try to access a protected route. The guard checks authentication and redirects to login, but something goes wrong. Help me identify the cause and fix it.",
+      "scenario": "User experiences infinite redirect loop in navigation guard"
+    },
+    {
+      "title": "Lifecycle and Cleanup",
+      "prompt": "I noticed memory leaks in my Vue Router app. Event listeners and subscriptions persist after navigating away from routes. What patterns should I use to properly clean up resources on route changes?",
+      "scenario": "User addresses memory leaks from improper cleanup"
+    },
+    {
+      "title": "Review Route Architecture",
+      "prompt": "Review my Vue Router configuration for common pitfalls. Check for: beforeEnter guards on same-route navigation, async guard patterns, deprecated next() usage, and missing lifecycle handling for param changes. Provide specific fixes for any issues found.",
+      "scenario": "Comprehensive code review of Vue Router implementation"
+    }
+  ],
+  "bestPractices": [
+    "Use in-component navigation guards (onBeforeRouteUpdate, onBeforeRouteLeave) for component-specific logic rather than relying solely on route-level beforeEnter guards",
+    "Always handle async operations in navigation guards with try/catch and proper error handling to prevent unhandled rejections",
+    "Implement cleanup logic in onBeforeRouteLeave or use Vue's onUnmounted hook to prevent memory leaks from lingering subscriptions and event listeners"
+  ],
+  "antiPatterns": [
+    "Relying on beforeEnter guards for param/query changes - they only fire on route transitions, not within-route navigation",
+    "Using the deprecated next() function in Vue Router 4 - return values have replaced next()",
+    "Forgetting to clean up event listeners or subscriptions when navigating away from routes, causing memory leaks"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between beforeEnter and onBeforeRouteUpdate?",
+      "answer": "beforeEnter fires only when entering a route from a different route. onBeforeRouteUpdate fires when navigating within the same route when params, query, or hash change."
+    },
+    {
+      "question": "Is next() still supported in Vue Router 4?",
+      "answer": "No, next() is deprecated in Vue Router 4. Use return values instead: return false to abort, return path to redirect, or return undefined to continue."
+    },
+    {
+      "question": "Why does my component lifecycle not trigger when params change?",
+      "answer": "Vue Router reuses the same component instance when navigating between same-route params. Use onBeforeRouteUpdate to react to param changes or watch route params directly."
+    },
+    {
+      "question": "How do I prevent memory leaks in Vue Router apps?",
+      "answer": "Remove event listeners and cancel subscriptions in onBeforeRouteLeave or onUnmounted. Use AbortController for fetch requests and properly dispose of any observers."
+    },
+    {
+      "question": "What causes infinite redirect loops in navigation guards?",
+      "answer": "Common causes include: missing redirect return statements, checking auth on the auth redirect page itself, or guard logic that always redirects regardless of current state."
+    },
+    {
+      "question": "Should I use global guards or component guards?",
+      "answer": "Use global guards for cross-cutting concerns like authentication. Use component guards for logic specific to that component's data or UI state."
+    }
+  ],
+  "seoKeywords": [
+    "Vue Router best practices",
+    "Vue Router patterns",
+    "Vue navigation guards",
+    "Vue 3 routing",
+    "Vue Router lifecycle",
+    "Vue Router params",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/antfu/skills/tree/main/skills/vue-router-best-practices/",
+  "sourceType": "community",
+  "dependencies": []
+}

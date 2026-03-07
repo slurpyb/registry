@@ -1,0 +1,142 @@
+{
+  "name": "ai-image-generation",
+  "type": "skill",
+  "description": "Generate AI images with FLUX, Gemini, Grok, Seedream, Reve and 50+ models via inference.sh CLI. Models: FLUX Dev LoRA, FLUX.2 Klein LoRA, Gemini 3 Pro Image, Grok Imagine, Seedream 4.5, Reve, ImagineArt. Capabilities: text-to-image, image-to-image, inpainting, LoRA, image editing, upscaling, text rendering. Use for: AI art, product mockups, concept art, social media graphics, marketing visuals, illustrations. Triggers: flux, image generation, ai image, text to image, stable diffusion, generate image, ai art, midjourney alternative, dall-e alternative, text2img, t2i, image generator, ai picture, create image with ai, generative ai, ai illustration, grok image, gemini image",
+  "domain": "ai-ml",
+  "subdomain": "computer-vision",
+  "specialty": "AI art generation",
+  "quality": 5,
+  "qualityReason": "Multiple models supported",
+  "bundleHints": [
+    "ai-art",
+    "image-generation",
+    "creative-ai"
+  ],
+  "tags": [
+    "ai art",
+    "creative tools",
+    "flux",
+    "gemini",
+    "grok",
+    "image generation",
+    "inference.sh",
+    "seedream"
+  ],
+  "capabilities": [
+    "Generate images from text prompts using FLUX Dev, FLUX.2 Klein, and FLUX.2 models",
+    "Access Google Gemini 3 Pro and Gemini 2.5 Flash for image generation",
+    "Use xAI Grok Imagine for multi-aspect image creation",
+    "Create 2K-4K cinematic quality images with Seedream 4.5 and 4.0",
+    "Generate images with accurate text rendering using Reve",
+    "Upscale images professionally with Topaz upscaler"
+  ],
+  "author": "inference-sh-8",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 47 patterns in SKILL.md documentation file. All findings are FALSE POSITIVES - the file is markdown documentation containing CLI usage examples, not executable code. Backtick patterns are markdown code block formatting. URLs are documentation links. The skill requires restricted Bash(infsh *) access for the inference.sh CLI, which is a legitimate external command pattern with no command injection risk.",
+  "valueStatement": "Create professional AI images without learning multiple platforms. Access FLUX, Gemini, Grok, Seedream, and Reve through one unified CLI interface.",
+  "userTitle": "Generate AI images with 50+ models",
+  "limitations": [
+    "Requires inference.sh CLI installation and account",
+    "Image generation depends on external inference.sh service availability",
+    "Free tier may have usage limits and credit requirements",
+    "Cannot run models locally - all generation happens on inference.sh servers"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Marketing professionals and social media managers",
+      "title": "Marketing and Social Media Content",
+      "description": "Create eye-catching visuals for social media posts, ads, and marketing campaigns without hiring a designer."
+    },
+    {
+      "targetUser": "Product designers and creative directors",
+      "title": "Product Mockups and Prototyping",
+      "description": "Generate product visualization concepts and mockups for client presentations and design reviews."
+    },
+    {
+      "targetUser": "Game developers and filmmakers",
+      "title": "Concept Art and Storyboarding",
+      "description": "Rapidly visualize characters, environments, and scenes for games, films, and creative projects."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Image Generation",
+      "prompt": "Generate an image of a cat astronaut floating in space with stars in the background",
+      "scenario": "Simple text-to-image generation for beginners"
+    },
+    {
+      "title": "Product Photography Style",
+      "prompt": "Create a professional product photo of a coffee mug on a wooden table with studio lighting and shallow depth of field",
+      "scenario": "E-commerce product visualization"
+    },
+    {
+      "title": "Cinematic Landscape",
+      "prompt": "Generate a cinematic landscape with mountains and a lake at golden hour, photorealistic style, 4K quality, dramatic lighting",
+      "scenario": "High-quality scenic imagery using Seedream 4.5"
+    },
+    {
+      "title": "Text-in-Image Design",
+      "prompt": "Create a poster design that displays the text HELLO WORLD in bold modern typography with a minimalist background",
+      "scenario": "Text rendering using Reve model for accurate typography"
+    }
+  ],
+  "bestPractices": [
+    "Write detailed prompts including subject, style, lighting, and composition for best results",
+    "Choose the appropriate model for your use case: FLUX for versatility, Seedream for quality, Reve for text",
+    "Start with lower-resolution models for testing, then upscale final selections with Topaz"
+  ],
+  "antiPatterns": [
+    "Avoid vague prompts like make it look good without specifying what good means for your use case",
+    "Do not use the service for generating copyrighted or trademarked content without proper authorization",
+    "Avoid expecting photorealistic human faces for commercial use due to potential uncanny valley effects"
+  ],
+  "faq": [
+    {
+      "question": "How do I install the inference.sh CLI?",
+      "answer": "Run curl -fsSL https://cli.inference.sh | sh in your terminal, then run infsh login to authenticate with your account."
+    },
+    {
+      "question": "Which model should I use for my project?",
+      "answer": "Use FLUX Dev for general purpose generation, Seedream 4.5 for highest quality 4K images, Reve for images with text, and Grok Imagine for multiple aspect variations."
+    },
+    {
+      "question": "Can I use generated images commercially?",
+      "answer": "Check the inference.sh terms of service and the specific model license. Most models allow commercial use but restrictions may apply."
+    },
+    {
+      "question": "How do I upscale low-resolution images?",
+      "answer": "Use the Topaz upscaler model by running infsh app run falai/topaz-image-upscaler with your image URL as input."
+    },
+    {
+      "question": "What image formats are supported?",
+      "answer": "The service typically outputs PNG or JPEG formats. Input images for editing or upscaling should be in common web formats like JPG or PNG."
+    },
+    {
+      "question": "How much does image generation cost?",
+      "answer": "Pricing varies by model and resolution. Check the inference.sh pricing page for current rates. Some models offer free tier usage with limits."
+    }
+  ],
+  "seoKeywords": [
+    "Claude image generation",
+    "Claude Code AI art",
+    "Codex image generator",
+    "FLUX AI",
+    "inference.sh",
+    "Gemini image generation",
+    "Grok Imagine",
+    "AI image generation CLI",
+    "text to image"
+  ],
+  "sourceUrl": "https://github.com/inference-sh-8/skills/tree/main/skills/ai-image-generation/",
+  "sourceType": "community",
+  "dependencies": []
+}

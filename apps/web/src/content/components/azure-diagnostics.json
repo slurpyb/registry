@@ -1,0 +1,141 @@
+{
+  "name": "azure-diagnostics",
+  "type": "skill",
+  "description": "Debug and troubleshoot production issues on Azure. Covers Container Apps diagnostics, log analysis with KQL, health checks, and common issue resolution for image pulls, cold starts, and health probes.\nUSE FOR: debug production issues, troubleshoot container apps, analyze logs with KQL, fix image pull failures, resolve cold start issues, investigate health probe failures, check resource health, view application logs, find root cause of errors\nDO NOT USE FOR: deploying applications (use azure-deploy), creating new resources (use azure-prepare), setting up monitoring (use azure-observability), cost optimization (use azure-cost-optimization)\n",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "troubleshooting",
+  "quality": 5,
+  "qualityReason": "Production debugging focus",
+  "bundleHints": [
+    "azure-devops",
+    "monitoring",
+    "troubleshooting"
+  ],
+  "tags": [
+    "azure",
+    "container-apps",
+    "diagnostics",
+    "health-checks",
+    "kql",
+    "log-analysis",
+    "troubleshooting"
+  ],
+  "capabilities": [
+    "Diagnose Azure Container Apps issues including image pull failures, cold starts, and health probe failures",
+    "Provide systematic debugging workflows with health checks, log analysis, and metrics review",
+    "Generate KQL queries for Application Insights log analysis",
+    "Query Azure Resource Graph for resource health status",
+    "Use AppLens MCP for AI-powered diagnostics",
+    "Reference Azure CLI commands for common diagnostic tasks"
+  ],
+  "author": "microsoft",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation with example Azure CLI commands and KQL queries. Static scanner flagged 70 instances of 'external_commands' but these are markdown code blocks showing example commands, not executable code. Network findings are documentation URLs. Env access findings reference standard Azure Container Apps environment variables. All high/critical findings are false positives - the skill is safe for publication.",
+  "valueStatement": "This skill helps developers diagnose and troubleshoot production issues in Azure by providing structured debugging workflows, diagnostic commands, and KQL queries for Container Apps.",
+  "userTitle": "Debug Azure Production Issues",
+  "limitations": [
+    "Does not execute Azure CLI commands - provides documentation and examples only",
+    "Cannot access your Azure subscription directly",
+    "Only covers Container Apps diagnostics - other Azure services not included",
+    "Does not fix issues - only provides guidance and troubleshooting steps"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers running containers on Azure",
+      "title": "Debug Container App image pull failures",
+      "description": "Diagnose why a container image fails to pull from Azure Container Registry and get step-by-step fix commands"
+    },
+    {
+      "targetUser": "DevOps engineers investigating application issues",
+      "title": "Analyze application logs with KQL",
+      "description": "Query Application Insights to find recent errors, failed requests, and slow performance issues"
+    },
+    {
+      "targetUser": "Backend developers using serverless containers",
+      "title": "Fix cold start timeout issues",
+      "description": "Identify and resolve slow first-request issues in Azure Container Apps by adjusting replica settings"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic diagnostic request",
+      "prompt": "My Azure Container App is failing to start. Help me diagnose the issue using the azure-diagnostics skill.",
+      "scenario": "User reports container app deployment failure"
+    },
+    {
+      "title": "Image pull failure troubleshooting",
+      "prompt": "I keep getting image pull errors in my Container App. How do I fix ACR authentication issues?",
+      "scenario": "User cannot pull container images"
+    },
+    {
+      "title": "Log analysis with KQL",
+      "prompt": "Help me write KQL queries to find errors in my Application Insights logs from the last hour.",
+      "scenario": "User wants to analyze application logs"
+    },
+    {
+      "title": "Health probe investigation",
+      "prompt": "My container keeps restarting due to health probe failures. What should I check?",
+      "scenario": "Container app instability due to health checks"
+    }
+  ],
+  "bestPractices": [
+    "Start with resource health checks before diving into detailed logs",
+    "Use systematic diagnosis flow: symptoms -> health -> logs -> metrics -> changes",
+    "Leverage AppLens MCP for AI-powered root cause analysis when available",
+    "Document all attempted remediation steps for future reference"
+  ],
+  "antiPatterns": [
+    "Do not skip health checks when investigating container restarts",
+    "Do not assume Azure service health without checking HealthResources first",
+    "Do not ignore provisioning state failures - these indicate deployment issues"
+  ],
+  "faq": [
+    {
+      "question": "What does this skill actually do?",
+      "answer": "This skill provides troubleshooting guides, diagnostic commands, and KQL queries for Azure Container Apps. It does not execute commands but teaches you how to diagnose issues."
+    },
+    {
+      "question": "Can this skill fix my Azure issues?",
+      "answer": "No. This skill provides guidance and commands you can run. You must execute the Azure CLI commands yourself using Azure credentials."
+    },
+    {
+      "question": "What Azure services are supported?",
+      "answer": "Currently covers Azure Container Apps diagnostics including image pull, cold start, and health probe issues. More services coming soon."
+    },
+    {
+      "question": "Do I need Azure CLI installed?",
+      "answer": "Yes, you need Azure CLI installed to run the diagnostic commands shown. The skill provides the commands but you must have az CLI configured."
+    },
+    {
+      "question": "What is AppLens?",
+      "answer": "AppLens is an Azure MCP tool that provides AI-powered diagnostics. It can automatically detect issues and suggest remediation steps."
+    },
+    {
+      "question": "How do I query Azure Resource Graph?",
+      "answer": "Use the extension_cli_generate MCP tool with intent 'query Azure Resource Graph' or construct az graph query commands with KQL."
+    }
+  ],
+  "seoKeywords": [
+    "Azure diagnostics",
+    "Azure troubleshooting",
+    "Azure Container Apps debug",
+    "KQL queries",
+    "Azure log analysis",
+    "Azure health checks",
+    "Claude Codex Azure",
+    "Claude Code Azure debugging"
+  ],
+  "sourceUrl": "https://github.com/microsoft/github-copilot-for-azure/tree/main/plugin/skills/azure-diagnostics/",
+  "sourceType": "community",
+  "dependencies": []
+}

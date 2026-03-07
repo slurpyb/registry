@@ -1,0 +1,141 @@
+{
+  "name": "nx-workspace-patterns",
+  "type": "skill",
+  "description": "Configure and optimize Nx monorepo workspaces. Use when setting up Nx, configuring project boundaries, optimizing build caching, or implementing affected commands.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "Workspace optimization",
+  "quality": 5,
+  "qualityReason": "Optimization best practices",
+  "bundleHints": [
+    "nx-workspace",
+    "ci-cd-pipeline",
+    "monorepo-tools"
+  ],
+  "tags": [
+    "affected-commands",
+    "architecture",
+    "boundaries",
+    "caching",
+    "ci",
+    "monorepo",
+    "nx"
+  ],
+  "capabilities": [
+    "Provide nx.json template with cacheable operations and target defaults",
+    "Provide project.json template for web app build, serve, test, and lint targets",
+    "Provide ESLint module boundary rules using @nx/enforce-module-boundaries",
+    "Provide custom generator example for feature libraries",
+    "Provide GitHub Actions CI workflow using affected commands",
+    "Provide remote caching examples for Nx Cloud and S3"
+  ],
+  "author": "wshobson",
+  "icon": "🧩",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only static documentation and configuration templates for Nx workspaces. All 41 static findings are false positives: network URLs are legitimate metadata/doc links, external commands are example bash commands in documentation code blocks, path traversal sequences are standard relative paths in JSON config examples, and cryptographic alerts are misidentified schema file paths. The skill has no executable code, no file operations, no data handling, and no network access capability.",
+  "valueStatement": "Nx workspaces can become slow and inconsistent without clear standards. This skill provides templates to set boundaries, caching, and affected workflows for monorepo optimization.",
+  "userTitle": "Configure Nx workspace patterns",
+  "limitations": [
+    "Does not execute Nx commands or modify files",
+    "Does not validate existing workspace configuration",
+    "Templates require adaptation to specific project paths and tags",
+    "Does not manage cloud credentials or secrets"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Platform engineer",
+      "title": "Set up new Nx workspace",
+      "description": "Apply recommended structure, tags, and caching defaults for a new monorepo with proper boundaries."
+    },
+    {
+      "targetUser": "DevOps engineer",
+      "title": "Optimize CI pipelines",
+      "description": "Use affected commands and caching patterns to reduce build times and resource usage."
+    },
+    {
+      "targetUser": "Tech lead",
+      "title": "Enforce architecture rules",
+      "description": "Define module boundaries to prevent circular dependencies and maintain clean architecture."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic nx.json setup",
+      "scenario": "Create new Nx workspace",
+      "prompt": "Give me a minimal nx.json with cacheable operations for build, test, lint, and e2e with target defaults."
+    },
+    {
+      "title": "React project configuration",
+      "scenario": "Configure React web app",
+      "prompt": "Create a project.json for a React app with webpack executor for build, serve, test, and lint targets."
+    },
+    {
+      "title": "Module boundary enforcement",
+      "scenario": "Set up dependency rules",
+      "prompt": "Create ESLint rules that enforce app→feature→ui→util dependency hierarchy with scope restrictions."
+    },
+    {
+      "title": "CI optimization workflow",
+      "scenario": "Speed up GitHub Actions",
+      "prompt": "Build a GitHub Actions workflow that uses nx affected commands for lint, test, build, and e2e in parallel."
+    }
+  ],
+  "bestPractices": [
+    "Use consistent tags and enforce them with module boundaries from day one",
+    "Enable caching and affected commands early to maximize CI performance gains",
+    "Keep libraries focused with single responsibility and clear documentation"
+  ],
+  "antiPatterns": [
+    "Creating circular dependencies between libraries that violate the hierarchy",
+    "Running full test suites when nx affected could test only changed code",
+    "Over-granularizing into too many tiny libraries without clear purpose"
+  ],
+  "faq": [
+    {
+      "question": "Is this compatible with current Nx versions?",
+      "answer": "Yes, the patterns target modern Nx workspaces using project.json configuration format."
+    },
+    {
+      "question": "What are the limits of this skill?",
+      "answer": "It provides templates and guidance only, not automated file changes or validation."
+    },
+    {
+      "question": "Can I integrate this with existing CI?",
+      "answer": "Yes, the workflow examples work with any CI system that can run nx commands."
+    },
+    {
+      "question": "Does it access my data or secrets?",
+      "answer": "No, it does not read files, environment variables, or make network calls."
+    },
+    {
+      "question": "What should I check if Nx commands fail?",
+      "answer": "Verify Nx version compatibility, project.json paths, and cache directory permissions."
+    },
+    {
+      "question": "How does this compare to official Nx docs?",
+      "answer": "It condenses common patterns into ready-to-use templates for faster setup."
+    }
+  ],
+  "seoKeywords": [
+    "Nx workspace patterns",
+    "Nx monorepo",
+    "Nx caching",
+    "module boundaries",
+    "affected commands",
+    "CI optimization",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/nx-workspace-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

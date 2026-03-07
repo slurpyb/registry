@@ -1,0 +1,143 @@
+{
+  "name": "docs-agent",
+  "type": "skill",
+  "description": "Maintains documentation files (README.md, .claude/claude.md, .claude/agent.md, API docs) for Unite-Hub. Ensures docs stay in sync with codebase changes. Uses Haiku model for cost-effective documentation generation.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "Unite-Hub sync",
+  "quality": 5,
+  "qualityReason": "Maintains critical documentation",
+  "bundleHints": [
+    "documentation",
+    "sync",
+    "unite-hub"
+  ],
+  "tags": [
+    "ai",
+    "api docs",
+    "code sync",
+    "documentation",
+    "haiku",
+    "markdown",
+    "readme",
+    "unite-hub"
+  ],
+  "capabilities": [
+    "Update README.md with new features and tech stack changes",
+    "Document new API endpoints with request and response examples",
+    "Maintain .claude/claude.md and .claude/agent.md files",
+    "Generate changelog entries for releases",
+    "Create architecture diagrams in markdown",
+    "Keep documentation in sync with code changes"
+  ],
+  "author": "CleanExpo",
+  "icon": "docs",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown instructional content. All 122 static findings are FALSE POSITIVES caused by the scanner detecting patterns within documentation examples rather than executable code. The skill contains no executable code, no network operations, no file system access beyond reading/writing documentation files within the project directory.",
+  "valueStatement": "Documentation drift causes confusion and wasted time. This skill uses AI to automatically sync README files, API docs, and internal documentation with codebase changes. Keep your project docs accurate without manual effort.",
+  "userTitle": "Update project documentation automatically",
+  "limitations": [
+    "Designed specifically for Unite-Hub project structure",
+    "Does not generate video tutorials or interactive content",
+    "Requires manual prompting to trigger updates",
+    "Does not update external documentation platforms"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers",
+      "title": "Sync docs with code changes",
+      "description": "Keep README and API docs accurate after each feature release"
+    },
+    {
+      "targetUser": "Technical writers",
+      "title": "Maintain internal documentation",
+      "description": "Update agent definitions and architecture docs systematically"
+    },
+    {
+      "targetUser": "AI agent operators",
+      "title": "Generate changelog entries",
+      "description": "Automatically create release notes from code changes"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Update README",
+      "scenario": "Sync README after feature",
+      "prompt": "Update README.md to reflect the new feature: [describe feature]"
+    },
+    {
+      "title": "Document API",
+      "scenario": "Add new endpoint docs",
+      "prompt": "Document the new API endpoint at [path] including method, request body, response format, and error codes"
+    },
+    {
+      "title": "Create changelog",
+      "scenario": "Document release changes",
+      "prompt": "Generate a changelog entry for version [version] based on these changes: [list changes]"
+    },
+    {
+      "title": "Sync all docs",
+      "scenario": "Full documentation sync",
+      "prompt": "Review all markdown documentation files and update them to reflect the current state of the codebase"
+    }
+  ],
+  "bestPractices": [
+    "Update docs immediately after code changes to prevent drift",
+    "Include code examples in all documentation updates",
+    "Verify documentation changes against source code before saving"
+  ],
+  "antiPatterns": [
+    "Batching multiple unrelated changes into one update",
+    "Using casual or informal tone in technical documentation",
+    "Skipping verification of code examples before publishing"
+  ],
+  "faq": [
+    {
+      "question": "Does this work with Claude Sonnet or Opus?",
+      "answer": "Configured for Haiku by default but works with any Claude model for documentation tasks"
+    },
+    {
+      "question": "What documentation files can it update?",
+      "answer": "Supports README.md, .claude files, API docs, changelogs, and architecture documentation"
+    },
+    {
+      "question": "Does it integrate with external docs platforms?",
+      "answer": "Currently designed for markdown files in the project repository only"
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. This skill only reads and writes documentation files within your project directory"
+    },
+    {
+      "question": "Why is my documentation not updating?",
+      "answer": "Ensure you provide specific details about what changed in the codebase for accurate updates"
+    },
+    {
+      "question": "How is this different from Codex documentation features?",
+      "answer": "Built specifically for Unite-Hub project structure with templates and workflows for this codebase"
+    }
+  ],
+  "seoKeywords": [
+    "documentation",
+    "claude",
+    "claude-code",
+    "readme",
+    "api docs",
+    "markdown",
+    "haiku",
+    "documentation automation",
+    "sync docs",
+    "unite-hub"
+  ],
+  "sourceUrl": "https://github.com/CleanExpo/Unite-Hub/tree/main/.claude/skills/docs",
+  "sourceType": "community",
+  "dependencies": []
+}

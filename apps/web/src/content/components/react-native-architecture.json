@@ -1,0 +1,139 @@
+{
+  "name": "react-native-architecture",
+  "type": "skill",
+  "description": "Build production React Native apps with Expo, navigation, native modules, offline sync, and cross-platform patterns. Use when developing mobile apps, implementing native integrations, or architecting React Native projects.",
+  "domain": "mobile",
+  "subdomain": "cross-platform",
+  "specialty": "Expo apps",
+  "quality": 5,
+  "qualityReason": "Production-focused mobile architecture guidance",
+  "bundleHints": [
+    "react-native-stack",
+    "mobile-architecture",
+    "cross-platform"
+  ],
+  "tags": [
+    "architecture",
+    "cross-platform",
+    "expo",
+    "mobile-development",
+    "navigation",
+    "offline",
+    "react-native",
+    "typescript"
+  ],
+  "capabilities": [
+    "Set up Expo and React Native projects with proper folder structure",
+    "Implement Expo Router navigation with auth guards and tab layouts",
+    "Create offline-first data sync using React Query with AsyncStorage",
+    "Integrate native modules for biometrics, haptics, and push notifications",
+    "Build platform-specific components for iOS and Android",
+    "Configure EAS Build and Submit for app store releases"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Security audit complete. Static findings are false positives triggered by documentation examples containing terminal commands (npx, eas), documentation URLs (official Expo/React Native sites), and example configuration paths. No actual code execution, network requests to external domains, or real credentials present. Skill is a legitimate React Native architecture guide with safe-to-use code patterns.",
+  "valueStatement": "Architect React Native apps with Expo, navigation patterns, native modules, and offline-first sync. This skill provides production-ready patterns for building cross-platform mobile applications.",
+  "userTitle": "Build Production-Ready React Native Apps",
+  "limitations": [
+    "Does not cover non-Expo bare React Native workflows in depth",
+    "Does not provide backend API implementation",
+    "Does not include machine learning or AR integrations",
+    "Assumes basic familiarity with React and TypeScript"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers new to React Native or starting fresh projects",
+      "title": "Start a New Mobile Project",
+      "description": "Initialize a new Expo project with proper architecture, TypeScript, and navigation setup following industry best practices."
+    },
+    {
+      "targetUser": "Mobile developers building user auth systems",
+      "title": "Implement Authentication Flow",
+      "description": "Add secure authentication with route guards, token storage via SecureStore, and protected navigation paths."
+    },
+    {
+      "targetUser": "Backend developers adding offline capabilities",
+      "title": "Add Offline-First Data Layer",
+      "description": "Implement persistent data caching with React Query, AsyncStorage synchronization, and optimistic UI updates."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Initialize Expo Project",
+      "prompt": "Create a new Expo project with TypeScript. Set up the folder structure with app/, components/, hooks/, services/, stores/, and types/ directories. Include Expo Router with auth and tabs groups."
+    },
+    {
+      "title": "Add Authentication",
+      "prompt": "Implement authentication flow in the React Native app using SecureStore for token storage. Create auth context with signIn, signOut, and user state. Add route guards to protect tabs from unauthenticated access."
+    },
+    {
+      "title": "Configure Offline Sync",
+      "prompt": "Set up React Query with AsyncStorage persister for offline-first data. Include network status detection with NetInfo and configure stale times and retry logic for production use."
+    },
+    {
+      "title": "Integrate Native Features",
+      "prompt": "Add biometric authentication using expo-local-authentication, push notifications with expo-notifications, and haptic feedback with expo-haptics. Create a clean service abstraction for each."
+    }
+  ],
+  "bestPractices": [
+    "Use Expo Router file-based routing with groups for auth and tabs separation",
+    "Memoize components and use FlashList for long lists to maintain 60fps",
+    "Store tokens and sensitive data in SecureStore, never in AsyncStorage"
+  ],
+  "antiPatterns": [
+    "Storing tokens or secrets in plain AsyncStorage instead of SecureStore",
+    "Inline styles instead of StyleSheet.create for performance",
+    "Fetching data directly in component render without useEffect or React Query"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between Expo and Bare React Native?",
+      "answer": "Expo provides managed workflows with simpler setup and built-in OTA updates. Bare React Native gives direct access to native code but requires more complex setup and manual native linking."
+    },
+    {
+      "question": "Can I use this skill with React Native CLI?",
+      "answer": "The patterns focus on Expo Router and Expo libraries. Some patterns like navigation and state management apply to bare React Native, but native module examples use Expo packages."
+    },
+    {
+      "question": "How do I handle offline mode in React Native?",
+      "answer": "Use React Query with offlineFirst network mode and AsyncStorage persister. The queryClient will return cached data when offline and sync mutations when back online."
+    },
+    {
+      "question": "What is Expo Router?",
+      "answer": "Expo Router is a file-based routing solution for React Native apps. It uses a folder structure in app/ to define routes, similar to Next.js pages or App Directory."
+    },
+    {
+      "question": "How do I store auth tokens securely?",
+      "answer": "Use expo-secure-store which stores data in the iOS Keychain or Android Keystore. Never use AsyncStorage for sensitive data as it is not encrypted."
+    },
+    {
+      "question": "What is EAS?",
+      "answer": "EAS (Expo Application Services) provides cloud builds, updates, and submissions. EAS Build compiles apps in the cloud, EAS Update delivers JS updates OTA, and EAS Submit handles app store uploads."
+    }
+  ],
+  "seoKeywords": [
+    "react-native",
+    "expo",
+    "mobile development",
+    "react native architecture",
+    "typescript react native",
+    "claude code",
+    "codex",
+    "claude",
+    "expo router",
+    "react native navigation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/react-native-architecture",
+  "sourceType": "community",
+  "dependencies": []
+}

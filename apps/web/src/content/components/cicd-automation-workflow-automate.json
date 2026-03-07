@@ -1,0 +1,144 @@
+{
+  "name": "cicd-automation-workflow-automate",
+  "type": "skill",
+  "description": "You are a workflow automation expert specializing in creating efficient CI/CD pipelines, GitHub Actions workflows, and automated development processes. Design automation that reduces manual work, improves consistency, and accelerates delivery while maintaining quality and security.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "workflow design",
+  "quality": 4,
+  "qualityReason": "Good but overlaps with other CI skills",
+  "bundleHints": [
+    "ci-cd-toolkit",
+    "devops-automation"
+  ],
+  "tags": [
+    "automation",
+    "ci/cd",
+    "devops",
+    "efficiency",
+    "github actions",
+    "github-actions",
+    "process-design",
+    "workflows"
+  ],
+  "capabilities": [
+    "Design and create GitHub Actions workflows with multiple stages",
+    "Implement CI/CD pipelines with build, test, and deploy steps",
+    "Set up automated release workflows with semantic versioning",
+    "Configure infrastructure automation with Terraform",
+    "Add security scanning and compliance checks to pipelines",
+    "Create monitoring and alerting workflows"
+  ],
+  "author": "sickn33",
+  "icon": "🔄",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a legitimate CI/CD workflow automation tool. All static findings are false positives. The detected patterns (external commands, network URLs, environment access) are standard and expected for a CI/CD skill. Credentials are handled via GitHub Actions secrets, which is the secure standard pattern.",
+  "valueStatement": "This skill helps developers and DevOps engineers create efficient CI/CD pipelines and GitHub Actions workflows. It reduces manual deployment work and improves consistency across development, staging, and production environments.",
+  "userTitle": "Automate CI/CD Workflows",
+  "limitations": [
+    "Does not execute actual deployments - provides guidance and code templates only",
+    "Requires existing GitHub repository and appropriate permissions",
+    "Cannot access external CI/CD systems beyond GitHub Actions",
+    "Templates require customization for specific project needs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers starting a new project",
+      "title": "New Project CI Setup",
+      "description": "Set up automated testing and code quality checks for a new Node.js project using GitHub Actions"
+    },
+    {
+      "targetUser": "DevOps engineers managing releases",
+      "title": "Production Deployment Pipeline",
+      "description": "Create a multi-environment deployment pipeline with staging and production approvals"
+    },
+    {
+      "targetUser": "Platform engineers and SREs",
+      "title": "Infrastructure as Code",
+      "description": "Implement Terraform workflows for managing cloud infrastructure through GitOps"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic CI Pipeline",
+      "prompt": "Create a GitHub Actions workflow for a Node.js project that runs tests on every pull request and deploys to staging on merge to main.",
+      "scenario": "Setting up continuous integration for a web application"
+    },
+    {
+      "title": "Multi-Environment Deploy",
+      "prompt": "Design a deployment pipeline with development, staging, and production environments. Include approval gates for production and automatic rollbacks on failure.",
+      "scenario": "Managing complex deployment workflows"
+    },
+    {
+      "title": "Release Automation",
+      "prompt": "Set up automated semantic versioning and GitHub releases that trigger when code is merged to main branch.",
+      "scenario": "Implementing hands-off release process"
+    },
+    {
+      "title": "Security Scanning",
+      "prompt": "Add security scanning steps to our CI pipeline including dependency vulnerability checks, secret scanning, and code analysis.",
+      "scenario": "Adding security to existing workflows"
+    }
+  ],
+  "bestPractices": [
+    "Use GitHub Actions caching to speed up workflows and reduce costs",
+    "Separate concerns with multiple jobs for testing, building, and deploying",
+    "Always include rollback procedures for production deployments",
+    "Store sensitive credentials in GitHub encrypted secrets, never in workflow files"
+  ],
+  "antiPatterns": [
+    "Avoid hardcoding secrets or API keys directly in workflow files",
+    "Do not skip approval gates for production deployments",
+    "Avoid running full deployments on every commit - use separate stages",
+    "Do not ignore test failures - workflows should fail fast on errors"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill execute deployments?",
+      "answer": "No, this skill provides guidance and code templates for creating workflows. It does not directly execute deployments but helps you design safe automation."
+    },
+    {
+      "question": "What CI/CD platforms does this support?",
+      "answer": "This skill focuses on GitHub Actions but also covers patterns applicable to GitLab CI, Jenkins, and other CI/CD systems."
+    },
+    {
+      "question": "How do I handle secrets and credentials?",
+      "answer": "Use GitHub encrypted secrets (secrets.AWS_ACCESS_KEY_ID, secrets.GITHUB_TOKEN) in your workflow files. Never hardcode credentials."
+    },
+    {
+      "question": "Can this help with infrastructure automation?",
+      "answer": "Yes, it includes Terraform workflow patterns for infrastructure as code and Kubernetes deployment automation."
+    },
+    {
+      "question": "Is this suitable for production deployments?",
+      "answer": "Yes, with proper approval gates, rollback plans, and security scanning as recommended in the skill."
+    },
+    {
+      "question": "What programming languages does this support?",
+      "answer": "The workflows are language-agnostic but include examples for Node.js, Python, and Go projects."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "CI/CD automation",
+    "GitHub Actions",
+    "workflow automation",
+    "DevOps pipelines",
+    "continuous integration",
+    "continuous deployment",
+    "pipeline automation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cicd-automation-workflow-automate",
+  "sourceType": "community",
+  "dependencies": []
+}

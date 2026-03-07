@@ -1,0 +1,144 @@
+{
+  "name": "pylabrobot",
+  "type": "skill",
+  "description": "Vendor-agnostic lab automation framework. Use when controlling multiple equipment types (Hamilton, Tecan, Opentrons, plate readers, pumps) or needing unified programming across different vendors. Best for complex workflows, multi-vendor setups, simulation. For Opentrons-only protocols with official API, opentrons-integration may be simpler.",
+  "domain": "science",
+  "subdomain": "research",
+  "specialty": "lab automation",
+  "quality": 5,
+  "qualityReason": "Vendor-agnostic lab control system",
+  "bundleHints": [
+    "lab-automation",
+    "robotics"
+  ],
+  "tags": [
+    "automation",
+    "equipment control",
+    "hamilton",
+    "laboratory",
+    "liquid handling",
+    "liquid-handling",
+    "opentrons",
+    "robotics",
+    "science",
+    "tecan"
+  ],
+  "capabilities": [
+    "Control liquid handling robots (aspirate, dispense, transfer liquids)",
+    "Manage laboratory resources (plates, tips, troughs, custom labware)",
+    "Integrate plate readers for absorbance, luminescence, fluorescence measurements",
+    "Operate heater shakers, incubators, centrifuges, and pumps",
+    "Simulate protocols with ChatterboxBackend before running on hardware",
+    "Visualize deck layouts and track tip and liquid states in real-time"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🔬",
+  "version": "1.0.0",
+  "license": "MIT license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing markdown files for PyLabRobot, an open-source laboratory automation framework. All 467 static findings are false positives triggered by Python code examples embedded in markdown documentation. No executable code exists in this skill. The patterns detected (hash references, equipment setup commands, IP addresses, code fences) are all legitimate documentation content for lab automation software.",
+  "valueStatement": "Automate laboratory workflows by controlling liquid handling robots, plate readers, and lab equipment through unified Python commands. This skill enables reproducible protocols across Hamilton, Tecan, and Opentrons platforms with built-in simulation for testing.",
+  "userTitle": "Control Lab Robots with PyLabRobot",
+  "limitations": [
+    "Requires pylabrobot package installation (uv pip install pylabrobot)",
+    "Physical hardware required for non-simulation operations",
+    "Opentrons-only workflows may be simpler with opentrons-integration skill",
+    "Multi-vendor setups require understanding of each platform backend"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Research Scientists",
+      "title": "Automate Pipetting Tasks",
+      "description": "Program complex liquid transfer protocols for sample preparation, serial dilutions, and plate replication with automatic tip tracking."
+    },
+    {
+      "targetUser": "Lab Automation Engineers",
+      "title": "Multi-Vendor Integration",
+      "description": "Create unified protocols that work across Hamilton, Tecan, and Opentrons robots without rewriting code for each platform."
+    },
+    {
+      "targetUser": "Lab Technicians",
+      "title": "Protocol Simulation",
+      "description": "Test and validate laboratory protocols in simulation mode before running expensive experiments on physical hardware."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Liquid Transfer",
+      "scenario": "Move liquid from one plate to another",
+      "prompt": "Use PyLabRobot to set up a liquid handler with a STAR backend and transfer 100 microliters from source plate well A1 to destination plate well A2."
+    },
+    {
+      "title": "Deck Resource Setup",
+      "scenario": "Configure deck with plates and tips",
+      "prompt": "Create a deck layout in PyLabRobot with a tip rack at position 1, a source plate at position 5, and a destination plate at position 10."
+    },
+    {
+      "title": "Plate Reader Integration",
+      "scenario": "Read plate absorbance",
+      "prompt": "Configure a BMG CLARIOstar plate reader with PyLabRobot, set temperature to 37 degrees, and read absorbance at 450nm wavelength."
+    },
+    {
+      "title": "Protocol Simulation",
+      "scenario": "Test without hardware",
+      "prompt": "Write a complete liquid handling protocol using ChatterboxBackend for simulation, then show how to visualize the deck state and verify the workflow."
+    }
+  ],
+  "bestPractices": [
+    "Start with ChatterboxBackend simulation to validate protocols before running on expensive hardware",
+    "Enable tip tracking and volume tracking for accurate state management during experiments",
+    "Save deck layouts to JSON files for reproducibility across multiple protocol runs"
+  ],
+  "antiPatterns": [
+    "Running protocols on physical hardware without first testing in simulation mode",
+    "Not setting temperatures early when using heater shakers or incubators",
+    "Hardcoding resource positions instead of using descriptive names for better documentation"
+  ],
+  "faq": [
+    {
+      "question": "What liquid handlers does PyLabRobot support?",
+      "answer": "PyLabRobot supports Hamilton STAR/STARlet, Opentrons OT-2, and Tecan EVO platforms through backend abstraction."
+    },
+    {
+      "question": "Do I need physical hardware to test protocols?",
+      "answer": "No. Use ChatterboxBackend for simulation testing without hardware. The visualizer shows deck state in real-time."
+    },
+    {
+      "question": "How does PyLabRobot compare to vendor APIs?",
+      "answer": "PyLabRobot provides a unified Python interface across vendors. Same code works on Hamilton, Tecan, and Opentrons."
+    },
+    {
+      "question": "Can I save and load deck configurations?",
+      "answer": "Yes. Deck layouts and states can be serialized to JSON for reproducibility and sharing protocols."
+    },
+    {
+      "question": "What plate readers are supported?",
+      "answer": "BMG CLARIOstar and CLARIOstar Plus are supported for absorbance, luminescence, and fluorescence measurements."
+    },
+    {
+      "question": "Does this skill work on Windows and Mac?",
+      "answer": "Yes. PyLabRobot works on Windows, macOS, Linux, and Raspberry Pi for controlling laboratory equipment."
+    }
+  ],
+  "seoKeywords": [
+    "pylabrobot",
+    "laboratory automation",
+    "liquid handling robot",
+    "pipetting automation",
+    "Hamilton robot",
+    "Tecan EVO",
+    "Opentrons OT-2",
+    "plate reader",
+    "lab automation Python",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/pylabrobot",
+  "sourceType": "community",
+  "dependencies": []
+}

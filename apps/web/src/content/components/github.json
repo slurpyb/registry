@@ -1,0 +1,143 @@
+{
+  "name": "github",
+  "type": "skill",
+  "description": "GitHub CLI - manage repositories, issues, pull requests, actions, releases, and more from the command line.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "github cli",
+  "quality": 5,
+  "qualityReason": "Core GitHub integration",
+  "bundleHints": [
+    "github-toolkit",
+    "cli-tools"
+  ],
+  "tags": [
+    "cli",
+    "devops",
+    "gh",
+    "git",
+    "github",
+    "issues",
+    "pull-requests",
+    "releases",
+    "repository",
+    "version-control"
+  ],
+  "capabilities": [
+    "Authenticate with GitHub using gh auth commands",
+    "Create, clone, fork, and view repositories",
+    "Manage issues: create, list, view, close, reopen, comment, and assign",
+    "Handle pull requests: create, review, merge, and check status",
+    "Monitor and manage GitHub Actions workflows and runs",
+    "Create, upload, and download releases and gists"
+  ],
+  "author": "Dicklesworthstone",
+  "icon": "🔗",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown examples of GitHub CLI commands. All static findings are false positives: markdown code blocks were misidentified as shell execution, documentation URLs as network calls, and SSH key management documentation as credential access. The skill provides no executable code and makes no system calls.",
+  "valueStatement": "Managing GitHub repositories, issues, and pull requests through the web interface is slow and error-prone. This skill provides comprehensive gh CLI commands for faster workflows directly from your terminal.",
+  "userTitle": "Manage GitHub repositories from terminal",
+  "limitations": [
+    "Requires GitHub CLI (gh) to be installed separately on the system",
+    "User must have valid GitHub authentication before using most commands",
+    "Does not execute commands - only provides command syntax and examples"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers",
+      "title": "Streamlined PR workflow",
+      "description": "Create, review, and merge pull requests without leaving your terminal. Faster than switching to browser."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "CI/CD automation",
+      "description": "Monitor GitHub Actions runs, rerun failed jobs, and trigger workflows manually from command line."
+    },
+    {
+      "targetUser": "Open source maintainers",
+      "title": "Repository management",
+      "description": "Manage issues, labels, releases, and secrets across multiple repositories efficiently."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List repository issues",
+      "scenario": "Need to see open issues",
+      "prompt": "Show me how to list all open issues in a GitHub repository using gh CLI"
+    },
+    {
+      "title": "Create pull request",
+      "scenario": "Submitting code changes",
+      "prompt": "How do I create a pull request from my current branch using gh CLI"
+    },
+    {
+      "title": "Monitor CI/CD runs",
+      "scenario": "Checking pipeline status",
+      "prompt": "Show me how to watch a GitHub Actions run in progress and check if it passed"
+    },
+    {
+      "title": "GitHub API queries",
+      "scenario": "Custom data retrieval",
+      "prompt": "How can I use gh api to make GraphQL queries and paginate through results"
+    }
+  ],
+  "bestPractices": [
+    "Install gh CLI from https://cli.github.com before using this skill",
+    "Run gh auth login to authenticate before executing any repository commands",
+    "Use --web flag to open results in browser when visual interface is preferred"
+  ],
+  "antiPatterns": [
+    "Typing commands manually without verifying - always ask this skill for correct syntax first",
+    "Forgetting to check gh auth status before troubleshooting permission errors",
+    "Hardcoding repository names instead of using variables or current directory context"
+  ],
+  "faq": [
+    {
+      "question": "How do I install GitHub CLI?",
+      "answer": "Download from cli.github.com or install via package manager: brew install gh, apt install gh, or choco install gh."
+    },
+    {
+      "question": "What authentication methods does gh support?",
+      "answer": "gh supports GitHub.com authentication via browser, PAT (personal access token), and SSH key."
+    },
+    {
+      "question": "Can I use gh with GitHub Enterprise Server?",
+      "answer": "Yes, set GH_HOST environment variable to your enterprise instance hostname for authenticated use."
+    },
+    {
+      "question": "Does this skill execute commands on my system?",
+      "answer": "No. This skill only provides command examples. You must run gh commands yourself after review."
+    },
+    {
+      "question": "How do I troubleshoot authentication errors?",
+      "answer": "Run gh auth status to check your authentication state. Use gh auth refresh to refresh tokens."
+    },
+    {
+      "question": "How is this different from using git commands?",
+      "answer": "git manages local repositories. gh manages operations GitHub cloud like issues, PRs, and actions."
+    }
+  ],
+  "seoKeywords": [
+    "github cli",
+    "gh commands",
+    "github commands",
+    "git workflow",
+    "claude code github",
+    "codex github",
+    "pull request cli",
+    "github actions",
+    "github releases",
+    "github api"
+  ],
+  "sourceUrl": "https://github.com/Dicklesworthstone/agent_flywheel_clawdbot_skills_and_integrations/tree/main/skills/github",
+  "sourceType": "community",
+  "dependencies": []
+}

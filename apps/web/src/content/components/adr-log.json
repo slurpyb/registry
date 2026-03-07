@@ -1,0 +1,142 @@
+{
+  "name": "adr-log",
+  "type": "skill",
+  "description": "Document architecture decisions with ADR (Architecture Decision Records). Use when making significant technical decisions, choosing between alternatives, or when onboarding needs context on past decisions.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "decision records",
+  "quality": 5,
+  "qualityReason": "Critical for team knowledge sharing",
+  "bundleHints": [
+    "engineering-docs",
+    "architecture"
+  ],
+  "tags": [
+    "architecture",
+    "context",
+    "decision-records",
+    "documentation",
+    "onboarding",
+    "planning",
+    "technical-decisions",
+    "technical-planning"
+  ],
+  "capabilities": [
+    "Generate ADR documents from templates",
+    "Compare technical alternatives with structured analysis",
+    "Document decision context including constraints and trade-offs",
+    "Create ADR index and numbering system",
+    "Maintain decision status tracking (Proposed, Accepted, Deprecated)",
+    "Write onboarding-friendly technical rationale"
+  ],
+  "author": "Doyajin174",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a pure documentation and prompt-based skill containing ADR templates and guidelines. All static findings are false positives. SKILL.md contains only documentation text, templates, and example markdown. No executable code, scripts, network calls, cryptographic operations, or file operations are present. The skill is completely safe for publication.",
+  "valueStatement": "Technical teams forget why decisions were made. This skill helps create Architecture Decision Records that capture context, alternatives, and trade-offs for future team members and your future self.",
+  "userTitle": "Document architectural decisions with ADR templates",
+  "limitations": [
+    "Does not execute code or modify files directly",
+    "Does not integrate with external ADR tools",
+    "Does not auto-generate diagrams or visualizations",
+    "Does not validate decisions against project requirements"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Architects",
+      "title": "Record architectural choices",
+      "description": "Document major technology selections with full context for future reference and team alignment."
+    },
+    {
+      "targetUser": "Engineering Managers",
+      "title": "Reduce onboarding time",
+      "description": "Help new team members understand why technical decisions were made without asking veteran developers."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Track infrastructure decisions",
+      "description": "Record deployment strategies, CI/CD choices, and infrastructure-as-code decisions with clear rationale."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New Technology ADR",
+      "scenario": "Evaluating a new technology",
+      "prompt": "Create an ADR for choosing between [Technology A] and [Technology B] for our [use case]. Include context, alternatives compared, decision made, and trade-offs."
+    },
+    {
+      "title": "Architecture Pattern ADR",
+      "scenario": "Selecting architecture pattern",
+      "prompt": "Write an ADR documenting our decision to use [architecture pattern] for [project type]. Include why other patterns were rejected and expected impacts."
+    },
+    {
+      "title": "Deprecation ADR",
+      "scenario": "Deprecating a legacy system",
+      "prompt": "Create an ADR for deprecating [legacy system]. Include migration path, timeline, and reasons for deprecation."
+    },
+    {
+      "title": "ADR Index Entry",
+      "scenario": "Adding to ADR index",
+      "prompt": "Add this ADR to our index with title, current status, and date. Format it for the README.md index table."
+    }
+  ],
+  "bestPractices": [
+    "Write ADRs when the decision is fresh, not months later when context is lost",
+    "Include all considered alternatives, not just the winner, to show deliberate analysis",
+    "Be honest about trade-offs and risks, not just the benefits of your choice"
+  ],
+  "antiPatterns": [
+    "Writing decisions after implementation without capturing the pre-decision debate",
+    "Using ADR as documentation only for successful decisions, not failed experiments",
+    "Leaving decisions in Proposed status without ever accepting or rejecting them"
+  ],
+  "faq": [
+    {
+      "question": "What tools support ADR workflows?",
+      "answer": "adr-tools CLI, adr-log npm package, and Git-based workflows. This skill provides templates that work with any approach."
+    },
+    {
+      "question": "How detailed should an ADR be?",
+      "answer": "Include enough context for someone unfamiliar with the discussion to understand why the decision was made and its implications."
+    },
+    {
+      "question": "When should I create an ADR?",
+      "answer": "Create ADRs for decisions that affect multiple components, require significant effort to reverse, or involve non-obvious trade-offs."
+    },
+    {
+      "question": "How do I handle superseded decisions?",
+      "answer": "Mark the original ADR as Superseded by [new ADR number] and link to the new decision. Keep the old ADR for historical context."
+    },
+    {
+      "question": "Is my data stored anywhere?",
+      "answer": "No. ADRs are generated as text output. You save them to your own repository. Nothing leaves your machine."
+    },
+    {
+      "question": "How is this different from design documents?",
+      "answer": "ADRs focus specifically on the decision and its rationale, not implementation details. They are intentionally concise and structured."
+    }
+  ],
+  "seoKeywords": [
+    "ADR template",
+    "Architecture Decision Record",
+    "technical documentation",
+    "software architecture",
+    "decision log",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "engineering decisions",
+    "architecture documentation"
+  ],
+  "sourceUrl": "https://github.com/Doyajin174/myskills/tree/main/.public/skills/adr-log",
+  "sourceType": "community",
+  "dependencies": []
+}

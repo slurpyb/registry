@@ -1,0 +1,142 @@
+{
+  "name": "security-scanning-security-dependencies",
+  "type": "skill",
+  "description": "You are a security expert specializing in dependency vulnerability analysis, SBOM generation, and supply chain security. Scan project dependencies across ecosystems to identify vulnerabilities, assess risks, and recommend remediation.",
+  "domain": "security",
+  "subdomain": "devsecops",
+  "specialty": "Dependency analysis",
+  "quality": 5,
+  "qualityReason": "Clear scope across multiple dimensions",
+  "bundleHints": [
+    "devsecops",
+    "supply-chain-security"
+  ],
+  "tags": [
+    "dependency-security",
+    "devsecops",
+    "ecosystems",
+    "sbom",
+    "supply-chain",
+    "vulnerability-scanning"
+  ],
+  "capabilities": [
+    "Scan npm dependencies using npm audit for known vulnerabilities",
+    "Scan Python dependencies using safety and pip-audit tools",
+    "Scan Go dependencies using govulncheck for vulnerabilities",
+    "Scan Rust dependencies using cargo audit",
+    "Generate SBOM (Software Bill of Materials) in CycloneDX format",
+    "Create prioritized remediation plans based on severity and CVSS scores"
+  ],
+  "author": "sickn33",
+  "icon": "🔒",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate defensive security skill for scanning project dependencies across multiple ecosystems (npm, pip, go, cargo). The static analyzer detected patterns typical of security tooling: subprocess calls to run standard vulnerability scanners (npm audit, safety, govulncheck, cargo audit), network requests to public vulnerability databases, and filesystem operations for reading project files. All detected patterns are legitimate security best practices with no malicious intent. The skill helps users identify vulnerable dependencies, generate SBOMs, and create remediation plans.",
+  "valueStatement": "Automatically scan project dependencies across npm, pip, Go, and Rust ecosystems to identify security vulnerabilities, generate SBOMs, and create remediation plans.",
+  "userTitle": "Scan Dependencies for Vulnerabilities",
+  "limitations": [
+    "Requires dependency manifest files (package.json, requirements.txt, go.mod, Cargo.toml) to be present",
+    "Cannot scan dependencies that are not declared in lockfiles or manifest files",
+    "Does not perform runtime security testing or dynamic analysis",
+    "Network access may be required to query vulnerability databases"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers and release engineers",
+      "title": "Pre-release Security Audit",
+      "description": "Scan all project dependencies before release to identify and remediate critical vulnerabilities"
+    },
+    {
+      "targetUser": "DevOps engineers and security teams",
+      "title": "CI/CD Pipeline Integration",
+      "description": "Integrate automated dependency scanning into continuous integration workflows to catch vulnerabilities early"
+    },
+    {
+      "targetUser": "Security compliance officers",
+      "title": "Compliance SBOM Generation",
+      "description": "Generate Software Bill of Materials for compliance requirements and supply chain transparency"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Dependency Scan",
+      "prompt": "Scan the dependencies in this project for vulnerabilities. Check npm, Python, Go, and Rust dependencies if present.",
+      "scenario": "Quick security check of all dependencies"
+    },
+    {
+      "title": "Generate SBOM",
+      "prompt": "Generate a Software Bill of Materials (SBOM) in CycloneDX format for this project. Include all dependencies from detected ecosystems.",
+      "scenario": "Creating compliance documentation"
+    },
+    {
+      "title": "Critical Vulnerability Report",
+      "prompt": "List all critical and high severity vulnerabilities found in the dependencies. For each, show the package name, current version, fixed version, and CVE if available.",
+      "scenario": "Prioritizing security fixes"
+    },
+    {
+      "title": "Remediation Plan",
+      "prompt": "Create a prioritized remediation plan for all vulnerabilities found. Group by severity and suggest upgrade paths for each affected package.",
+      "scenario": "Planning dependency updates"
+    }
+  ],
+  "bestPractices": [
+    "Run dependency scans regularly, ideally on every commit via CI/CD",
+    "Prioritize fixing critical and high severity vulnerabilities first",
+    "Always test your application after updating dependencies",
+    "Maintain an up-to-date SBOM for compliance and incident response"
+  ],
+  "antiPatterns": [
+    "Do not ignore vulnerability warnings without proper risk assessment",
+    "Avoid running auto-fix without reviewing changes first",
+    "Do not skip scanning due to time pressure - vulnerabilities can be exploited",
+    "Never commit updated lockfiles without testing the changes"
+  ],
+  "faq": [
+    {
+      "question": "What package ecosystems does this skill support?",
+      "answer": "This skill supports npm (JavaScript/Node.js), pip (Python), Go modules, and Cargo (Rust) ecosystems."
+    },
+    {
+      "question": "Does this skill require network access?",
+      "answer": "Yes, network access is needed to query vulnerability databases like the npm registry, Python Security DB, and Go Vulnerability Database."
+    },
+    {
+      "question": "Can this skill auto-fix vulnerabilities?",
+      "answer": "The skill can suggest fixes and generate remediation plans, but it recommends manual review before applying any changes."
+    },
+    {
+      "question": "What is an SBOM and why do I need one?",
+      "answer": "SBOM (Software Bill of Materials) is a list of all components in your software. It is required for compliance (like NIST executive order) and helps respond quickly to newly discovered vulnerabilities."
+    },
+    {
+      "question": "Does this skill work with monorepos?",
+      "answer": "Yes, the scanner detects dependency files in subdirectories and can scan multiple package managers within a single repository."
+    },
+    {
+      "question": "How are vulnerabilities prioritized?",
+      "answer": "Vulnerabilities are prioritized by CVSS score, availability of exploits, and whether a fix is available. Critical and high severity issues are flagged for immediate attention."
+    }
+  ],
+  "seoKeywords": [
+    "dependency vulnerability scanner",
+    "SBOM generator",
+    "npm audit",
+    "Python security scanning",
+    "supply chain security",
+    "Claude Code skill",
+    "Codex skill",
+    "dependency scanning",
+    "vulnerability assessment",
+    "software composition analysis"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/security-scanning-security-dependencies",
+  "sourceType": "community",
+  "dependencies": []
+}

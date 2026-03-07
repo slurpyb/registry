@@ -1,0 +1,146 @@
+{
+  "name": "testing-test-writing",
+  "type": "skill",
+  "description": "Write minimal, focused tests for core user flows and critical paths during development, testing behavior rather than implementation with clear test names and mocked dependencies. Use this skill when writing unit tests, integration tests, test files, test cases for critical workflows, or mocking external dependencies. Apply when working with test files (.test.js, .spec.ts, _test.py), test frameworks (Jest, RSpec, pytest), testing user journeys, or implementing fast-executing tests that validate business-critical functionality without over-testing implementation details or edge cases during feature development.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "focused test writing",
+  "quality": 5,
+  "qualityReason": "Clear, focused test writing principles",
+  "bundleHints": [
+    "tdd-workflow",
+    "test-automation",
+    "code-quality"
+  ],
+  "tags": [
+    "behavior-testing",
+    "clear-naming",
+    "core-flows",
+    "critical-paths",
+    "minimal-tests",
+    "mocked-dependencies",
+    "software-quality",
+    "tdd",
+    "test-automation",
+    "testing",
+    "unit-testing"
+  ],
+  "capabilities": [
+    "Write unit tests with clear, descriptive test names",
+    "Create integration tests for core user workflows",
+    "Mock external dependencies like APIs and databases",
+    "Focus tests on behavior rather than implementation details",
+    "Set up test fixtures and test data for critical paths",
+    "Refactor tests to reduce brittleness and improve clarity"
+  ],
+  "author": "EIS-ITS",
+  "icon": "🧪",
+  "version": "1.0.0",
+  "license": "CC0-1.0",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure prompt-based skill containing only documentation and testing guidelines. No executable code, scripts, network calls, filesystem access, or external command execution. The skill provides instruction templates for test writing without any system modifications. All 25 static findings are false positives caused by the scanner misinterpreting testing-related terminology (e.g., 'test' as 'md5', 'sha' as cryptographic hashes) and documentation paths as path traversal. The existing security audit in skill-report.json correctly assessed this skill as 'safe' with zero risk factors.",
+  "valueStatement": "Poor test coverage and overly complex tests slow down development and hide bugs. This skill provides guidance for writing focused tests that validate core user behaviors with clear names and mocked dependencies, ensuring fast execution and maintainable codebases.",
+  "userTitle": "Write Minimal Focused Tests for Critical User Flows",
+  "limitations": [
+    "Provides guidance only; does not execute tests automatically",
+    "Does not generate full test suites from scratch",
+    "Does not integrate directly with CI/CD pipelines",
+    "Requires the user to apply guidance in their codebase"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developers",
+      "title": "Writing Unit Tests",
+      "description": "Create fast unit tests that validate individual functions and components with mocked external dependencies."
+    },
+    {
+      "targetUser": "QA Engineers",
+      "title": "Integration Testing",
+      "description": "Develop integration tests that verify end-to-end user workflows across multiple system components."
+    },
+    {
+      "targetUser": "Tech Leads",
+      "title": "Test Strategy Guidance",
+      "description": "Establish testing standards and coverage guidelines for development teams to follow consistently."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Unit Test",
+      "scenario": "Create a simple unit test",
+      "prompt": "Write a unit test for [function_name] that verifies [expected_behavior]. Use [test_framework] and mock any external dependencies. The test name should clearly describe what behavior is being validated."
+    },
+    {
+      "title": "Integration Test",
+      "scenario": "Test user workflow",
+      "prompt": "Create an integration test for the [user_workflow] workflow. The test should verify that [expected_outcome] occurs when [user_action] is performed. Include appropriate setup and teardown."
+    },
+    {
+      "title": "Mocking Dependencies",
+      "scenario": "Mock external services",
+      "prompt": "Write tests for [component] that mock [external_dependency]. Verify the component handles both success and error responses correctly from the mocked service."
+    },
+    {
+      "title": "Refactoring Tests",
+      "scenario": "Improve existing tests",
+      "prompt": "Review and refactor the existing tests for [feature]. Focus on: clear test names, reducing brittleness, testing behavior over implementation, and ensuring fast execution time."
+    }
+  ],
+  "bestPractices": [
+    "Name tests clearly so they describe what behavior is being validated, not how it is implemented.",
+    "Mock external dependencies to keep unit tests fast and isolated from network or filesystem delays.",
+    "Focus on testing critical user paths and business logic, avoiding tests that merely verify implementation details."
+  ],
+  "antiPatterns": [
+    "Writing tests that verify implementation details instead of user-facing behavior, making refactoring difficult.",
+    "Creating tests without proper mocks that depend on external services, databases, or network calls.",
+    "Naming tests generically like test1 or test2 instead of descriptive names that explain the expected behavior."
+  ],
+  "faq": [
+    {
+      "question": "Which test frameworks does this skill support?",
+      "answer": "The skill provides guidance applicable to Jest, Mocha, RSpec, pytest, JUnit, and similar xUnit frameworks for JavaScript, Python, Ruby, and other languages."
+    },
+    {
+      "question": "How many tests should I write per feature?",
+      "answer": "Focus on critical user flows and business logic. A few well-designed tests covering happy paths and key error cases are more valuable than extensive edge case coverage."
+    },
+    {
+      "question": "Can this skill generate tests automatically?",
+      "answer": "No, this skill provides guidelines and prompts. You apply the guidance to write tests yourself with Claude assistance based on your specific requirements."
+    },
+    {
+      "question": "Is my test data safe when using this skill?",
+      "answer": "Yes. This skill only provides testing guidance. It does not access, store, or transmit any test data or code outside your current session."
+    },
+    {
+      "question": "How do I handle tests that need real data?",
+      "answer": "Use test fixtures and factories to generate realistic test data. For external services, use mocking libraries to simulate responses without real network calls."
+    },
+    {
+      "question": "How is this skill different from AI code generators?",
+      "answer": "Unlike code generators that produce any code, this skill focuses specifically on testing best practices: clear naming, behavior-focused tests, mocking strategies, and appropriate coverage."
+    }
+  ],
+  "seoKeywords": [
+    "Claude test writing",
+    "unit testing best practices",
+    "test automation",
+    "behavior testing",
+    "mocked dependencies",
+    "Jest testing",
+    "pytest testing",
+    "test coverage",
+    "CI/CD testing",
+    "TDD"
+  ],
+  "sourceUrl": "https://github.com/EIS-ITS/vss-cli/tree/main/.claude/skills/testing-test-writing",
+  "sourceType": "community",
+  "dependencies": []
+}

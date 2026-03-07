@@ -1,0 +1,143 @@
+{
+  "name": "ux-audit",
+  "type": "skill",
+  "description": "Perform comprehensive UX audits on pages, components, or features. Use when the user asks to \"audit UX\", \"review usability\", \"evaluate the interface\", \"UX review\", or wants a systematic evaluation of user experience quality.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "usability review",
+  "quality": 5,
+  "qualityReason": "Structured evaluation framework",
+  "bundleHints": [
+    "ux-ops",
+    "design-system"
+  ],
+  "tags": [
+    "accessibility",
+    "design-flaws",
+    "design-review",
+    "interface-evaluation",
+    "systematic-audit",
+    "usability",
+    "user-experience",
+    "user-flow",
+    "ux",
+    "ux-review"
+  ],
+  "capabilities": [
+    "Evaluate interfaces against Nielsen's 10 usability heuristics",
+    "Identify critical usability issues with prioritized recommendations",
+    "Assess visual hierarchy and content clarity",
+    "Check interaction patterns and error recovery",
+    "Generate structured audit reports with scores"
+  ],
+  "author": "Dami-Randle",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 16 static findings are false positives. The skill contains only documentation and markdown content for UX auditing. The 'hardcoded URL' is legitimate GitHub source metadata. 'Backtick execution' findings are markdown code formatting syntax. No cryptographic algorithms or malicious code exists. Safe for publication.",
+  "valueStatement": "Poor user experience leads to user abandonment and reduced engagement. This skill performs systematic UX audits using established heuristics to identify issues and recommend improvements before release.",
+  "userTitle": "Audit UX and Usability",
+  "limitations": [
+    "Does not perform automated accessibility testing (use accessibility-check skill)",
+    "Does not modify code or implement changes",
+    "Cannot evaluate actual user behavior (requires user testing)",
+    "Relies on provided interface descriptions or mockups"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product designers and developers preparing releases",
+      "title": "Pre-release interface review",
+      "description": "Systematically evaluate new features or pages before launch to catch usability issues early."
+    },
+    {
+      "targetUser": "Product managers and UX leads",
+      "title": "Technical debt assessment",
+      "description": "Identify accumulated usability issues in legacy features and prioritize improvements."
+    },
+    {
+      "targetUser": "Developers and designers in sprint cycles",
+      "title": "Quick sanity check",
+      "description": "Get a rapid high-level UX assessment during agile sprints."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic audit request",
+      "prompt": "Perform a UX audit of the [page/component/feature] using Nielsen's heuristics. Consider: system status visibility, real-world language matching, user control and freedom, consistency, error prevention, recognition over recall, flexibility, minimalist design, error recovery, and help documentation.",
+      "scenario": "Starting a comprehensive UX review"
+    },
+    {
+      "title": "Focused assessment",
+      "prompt": "Audit the [specific area] for visual hierarchy, interaction patterns, and content clarity. Identify the top 3 issues and suggest concrete improvements.",
+      "scenario": "Targeted review of specific aspects"
+    },
+    {
+      "title": "Comparison audit",
+      "prompt": "Compare the current [feature] against [standard/best practice]. Highlight gaps and recommend alignment improvements.",
+      "scenario": "Benchmarking against standards"
+    },
+    {
+      "title": "Full audit with report",
+      "prompt": "Perform a complete UX audit of [feature/page]. Include: summary score, heuristic scores table, critical issues list, prioritized recommendations table, and positive patterns observed. Format the output in markdown.",
+      "scenario": "Complete audit with structured output"
+    }
+  ],
+  "bestPractices": [
+    "Start audits with high-traffic or high-impact areas first",
+    "Use the structured output format for consistency and actionability",
+    "Combine with accessibility-check skill for comprehensive quality assurance"
+  ],
+  "antiPatterns": [
+    "Auditing without clear criteria or framework",
+    "Focusing only on aesthetics over usability fundamentals",
+    "Skipping the heuristic evaluation for speed"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill modify my code?",
+      "answer": "No, this skill only analyzes and reports findings. It does not modify any code or design files."
+    },
+    {
+      "question": "What heuristics does this skill use?",
+      "answer": "It uses Nielsen's 10 usability heuristics, the industry standard for heuristic evaluation."
+    },
+    {
+      "question": "Can this skill test actual users?",
+      "answer": "No, this skill analyzes the interface design. For user testing, combine it with journey-map for flow context."
+    },
+    {
+      "question": "How long does an audit take?",
+      "answer": "A basic audit takes seconds. A comprehensive audit with all heuristics may take a few minutes for complex features."
+    },
+    {
+      "question": "Does this skill check accessibility?",
+      "answer": "No, use the accessibility-check skill for WCAG compliance. This skill focuses on general usability."
+    },
+    {
+      "question": "What input does this skill need?",
+      "answer": "Provide a description of the interface, feature, or page. Include screenshots or mockups if available."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "UX audit",
+    "usability review",
+    "user experience",
+    "heuristic evaluation",
+    "interface audit",
+    "design review",
+    "accessibility"
+  ],
+  "sourceUrl": "https://github.com/Dami-Randle/logidocs-certify/tree/main/.claude/skills/ux-audit",
+  "sourceType": "community",
+  "dependencies": []
+}

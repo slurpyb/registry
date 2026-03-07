@@ -1,0 +1,142 @@
+{
+  "name": "network-monitoring",
+  "type": "skill",
+  "description": "Monitor UniFi network infrastructure including sites, devices, and system health. Diagnose connectivity issues, track device performance, and generate network diagnostics.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "UniFi monitoring",
+  "quality": 4,
+  "qualityReason": "Specific monitoring system",
+  "bundleHints": [
+    "network-ops",
+    "infrastructure-monitoring"
+  ],
+  "tags": [
+    "connectivity",
+    "device-tracking",
+    "diagnostics",
+    "infrastructure",
+    "monitoring",
+    "network",
+    "network-health",
+    "unifi"
+  ],
+  "capabilities": [
+    "List all configured UniFi network sites",
+    "Get comprehensive health status for any site",
+    "List all devices within a site with status",
+    "Retrieve detailed device statistics (CPU, memory, uptime)",
+    "Get system-wide information and metrics",
+    "Compare health metrics across multiple sites"
+  ],
+  "author": "DataKnifeAI",
+  "icon": "🌐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 25 static findings are false positives. The analyzer incorrectly flagged MCP tool names in documentation as shell commands, JSON hash field names as cryptographic code, and repository URLs as hardcoded URLs. These are purely documentation files defining a UniFi network monitoring skill. No executable code, scripts, or malicious patterns are present.",
+  "valueStatement": "Managing UniFi network infrastructure requires checking multiple sites, tracking device status, and diagnosing performance issues. This skill provides AI-powered tools to monitor site health, analyze device performance, and generate diagnostics for faster troubleshooting.",
+  "userTitle": "Monitor UniFi network infrastructure and diagnose issues",
+  "limitations": [
+    "Requires an existing UniFi network with MCP server access",
+    "Cannot make configuration changes to network devices",
+    "Does not provide real-time alerting or notifications",
+    "Read-only monitoring - no device onboarding or provisioning"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Network Administrators",
+      "title": "Routine Infrastructure Health Checks",
+      "description": "Monitor all sites and devices to identify offline hardware, performance degradation, or connectivity problems before users report issues."
+    },
+    {
+      "targetUser": "IT Support Teams",
+      "title": "Troubleshoot User Connectivity Issues",
+      "description": "Diagnose why a specific user or location has network problems by checking device status and performance metrics."
+    },
+    {
+      "targetUser": "Managed Service Providers",
+      "title": "Multi-Site Network Comparison",
+      "description": "Compare health and performance across all client sites to identify patterns and prioritize maintenance work."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Check All Site Health",
+      "scenario": "Get overview of all network sites",
+      "prompt": "List all my UniFi sites and show their health status. Identify any sites with issues."
+    },
+    {
+      "title": "Find Offline Devices",
+      "scenario": "Identify devices that are not responding",
+      "prompt": "Show me all devices in my network that are currently offline or unreachable."
+    },
+    {
+      "title": "Analyze Device Performance",
+      "scenario": "Investigate high resource usage",
+      "prompt": "Get device statistics for all access points. Highlight any with CPU usage above 70% or memory usage above 80%."
+    },
+    {
+      "title": "Generate Diagnostic Report",
+      "scenario": "Create troubleshooting documentation",
+      "prompt": "Generate a comprehensive network diagnostic report for my main site. Include device status, performance metrics, and any identified issues."
+    }
+  ],
+  "bestPractices": [
+    "Start with site health checks before diving into individual device details",
+    "Correlate multiple data points (CPU, memory, uptime) to identify root causes",
+    "Document baseline metrics to detect performance degradation over time"
+  ],
+  "antiPatterns": [
+    "Ignoring minor health warnings before they become major issues",
+    "Focusing only on device uptime without checking performance metrics",
+    "Making changes without first documenting the current state for reference"
+  ],
+  "faq": [
+    {
+      "question": "What UniFi devices are supported?",
+      "answer": "Any UniFi device visible to the UniFi Controller including access points, switches, gateways, and USG devices."
+    },
+    {
+      "question": "How frequently can I check health status?",
+      "answer": "There are no hard limits, but excessive queries may impact controller performance. Use batch queries when possible."
+    },
+    {
+      "question": "Does this skill integrate with existing monitoring tools?",
+      "answer": "This skill queries UniFi data through the MCP interface. Integration with other tools depends on your MCP server setup."
+    },
+    {
+      "question": "Is my network data sent to external servers?",
+      "answer": "All data remains within your infrastructure. The skill only queries your local UniFi Controller through the MCP server."
+    },
+    {
+      "question": "Why are some devices not showing in the results?",
+      "answer": "Devices must be adopted by the UniFi Controller and have completed initial provisioning to appear in monitoring results."
+    },
+    {
+      "question": "How is this different from the UniFi Controller interface?",
+      "answer": "This skill provides AI-powered querying and natural language summaries. The controller interface offers more granular configuration options."
+    }
+  ],
+  "seoKeywords": [
+    "network monitoring",
+    "UniFi monitoring",
+    "site health check",
+    "device diagnostics",
+    "network troubleshooting",
+    "Claude Code",
+    "Claude AI",
+    "Codex",
+    "infrastructure monitoring",
+    "network diagnostics"
+  ],
+  "sourceUrl": "https://github.com/DataKnifeAI/unifi-network-mcp/tree/main/.github/skills/network-monitoring",
+  "sourceType": "community",
+  "dependencies": []
+}

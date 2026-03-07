@@ -1,0 +1,140 @@
+{
+  "name": "scientific-visualization",
+  "type": "skill",
+  "description": "Meta-skill for publication-ready figures. Use when creating journal submission figures requiring multi-panel layouts, significance annotations, error bars, colorblind-safe palettes, and specific journal formatting (Nature, Science, Cell). Orchestrates matplotlib/seaborn/plotly with publication styles. For quick exploration use seaborn or plotly directly.",
+  "domain": "data",
+  "subdomain": "visualization",
+  "specialty": "publication figures",
+  "quality": 5,
+  "qualityReason": "Expert, journal-ready",
+  "bundleHints": [
+    "scientific-visualization",
+    "data-communication"
+  ],
+  "tags": [
+    "accessibility",
+    "colorblind-safe",
+    "error-bars",
+    "matplotlib",
+    "publication",
+    "scientific",
+    "visualization"
+  ],
+  "capabilities": [
+    "Generate publication-ready figures with proper DPI and vector formats",
+    "Apply journal-specific styling for Nature, Science, Cell, PLOS, and IEEE",
+    "Use colorblind-friendly palettes automatically",
+    "Create multi-panel figures with consistent styling",
+    "Add statistical annotations and error bars correctly",
+    "Export figures in PDF, EPS, SVG, TIFF, and PNG formats"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 309 static findings are false positives. The scanner misidentifies hex color codes (#E69F00, etc.) as cryptographic hashes, markdown code blocks as shell execution, and configuration variables as certificate files. This is a legitimate scientific visualization library with matplotlib styling, color palettes, and figure export utilities. No actual security risks exist - the skill only manipulates local figure files and contains no network calls, external commands, or credential handling.",
+  "valueStatement": "Scientific visualization transforms data into clear, accurate figures for publication. This skill ensures your figures meet journal standards while being accessible to all readers, including those with color blindness.",
+  "userTitle": "Create Publication-Ready Scientific Figures",
+  "limitations": [
+    "Requires matplotlib, seaborn, and plotly installations",
+    "Focused on 2D static figures for print publication",
+    "Journal specifications should be verified before submission"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Research Scientists",
+      "title": "Create Journal-Quality Figures",
+      "description": "Generate publication-ready figures that meet specific journal requirements for manuscripts and grant applications"
+    },
+    {
+      "targetUser": "Graduate Students",
+      "title": "Learn Scientific Visualization",
+      "description": "Master best practices for creating clear, accessible figures for theses and presentations"
+    },
+    {
+      "targetUser": "Data Analysts",
+      "title": "Standardize Figure Production",
+      "description": "Automate figure generation with consistent styling across multiple projects and teams"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Publication Plot",
+      "scenario": "Create a simple line plot for a paper",
+      "prompt": "Create a publication-quality line plot of my data with error bars, proper labels with units, and save as PDF. Use the Okabe-Ito color palette for accessibility."
+    },
+    {
+      "title": "Multi-Panel Figure",
+      "scenario": "Combine multiple plots into one figure",
+      "prompt": "Create a 4-panel figure (2x2 layout) comparing different experimental conditions. Label panels A-D, use consistent styling, and ensure the figure fits Nature's single column width."
+    },
+    {
+      "title": "Statistical Comparison",
+      "scenario": "Show group differences with statistics",
+      "prompt": "Create a box plot comparing three treatment groups with individual data points overlaid. Add significance markers and use colorblind-safe colors. Include sample sizes."
+    },
+    {
+      "title": "Journal-Specific Formatting",
+      "scenario": "Format for a specific journal",
+      "prompt": "Configure matplotlib for Cell journal requirements and create a heatmap with proper colormap. Ensure the figure meets their dimension and font requirements."
+    }
+  ],
+  "bestPractices": [
+    "Always test figures in grayscale to ensure accessibility without color",
+    "Include sample sizes (n) and error bar definitions in figure captions",
+    "Use vector formats (PDF, EPS) for plots; use TIFF only for images"
+  ],
+  "antiPatterns": [
+    "Never use JPEG format for scientific figures - it creates compression artifacts",
+    "Avoid red-green color combinations that are invisible to 8% of men with color blindness",
+    "Do not use 3D effects or unnecessary decorations that distort data perception"
+  ],
+  "faq": [
+    {
+      "question": "What file format should I use for my figures?",
+      "answer": "Use vector formats (PDF or EPS) for plots and graphs. Use TIFF or PNG for microscopy images. Never use JPEG for scientific figures."
+    },
+    {
+      "question": "How do I ensure my figures are colorblind-friendly?",
+      "answer": "Use the built-in Okabe-Ito palette, test figures in grayscale, and add redundant encoding like line styles or markers."
+    },
+    {
+      "question": "What is the minimum font size for publication figures?",
+      "answer": "At final print size, use minimum 7-9 pt for axis labels and 6-8 pt for tick labels. Arial or Helvetica work best."
+    },
+    {
+      "question": "How do I create multi-panel figures?",
+      "answer": "Use matplotlib GridSpec for flexible layouts, label panels with bold letters, and ensure consistent styling across panels."
+    },
+    {
+      "question": "Can I use this for any journal?",
+      "answer": "Yes, includes configurations for Nature, Science, Cell, PLOS, ACS, and IEEE. Custom dimensions can be set for other journals."
+    },
+    {
+      "question": "What statistical information should I include?",
+      "answer": "Always show error bars (specify SD, SEM, or CI), include sample sizes (n), and mark statistical significance clearly."
+    }
+  ],
+  "seoKeywords": [
+    "scientific visualization",
+    "matplotlib",
+    "seaborn",
+    "plotly",
+    "publication figures",
+    "colorblind friendly",
+    "journal formatting",
+    "Claude Code",
+    "research visualization",
+    "data plotting"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/scientific-visualization",
+  "sourceType": "community",
+  "dependencies": []
+}

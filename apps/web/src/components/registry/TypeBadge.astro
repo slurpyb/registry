@@ -1,0 +1,23 @@
+---
+interface Props {
+  type: "skill" | "plugin" | "agent" | "command" | "bundle" | "profile"
+  class?: string
+}
+
+const { type, class: className = "" } = Astro.props
+
+const config: Record<string, { bg: string; text: string; label: string }> = {
+  skill: { bg: "bg-blue-100", text: "text-blue-700", label: "Skill" },
+  plugin: { bg: "bg-purple-100", text: "text-purple-700", label: "Plugin" },
+  agent: { bg: "bg-green-100", text: "text-green-700", label: "Agent" },
+  command: { bg: "bg-orange-100", text: "text-orange-700", label: "Command" },
+  bundle: { bg: "bg-pink-100", text: "text-pink-700", label: "Bundle" },
+  profile: { bg: "bg-gray-100", text: "text-gray-700", label: "Profile" },
+}
+
+const cfg = config[type] || config.skill
+---
+
+<span class:list={["inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium", cfg.bg, cfg.text, className]}>
+  {cfg.label}
+</span>

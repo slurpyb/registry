@@ -1,0 +1,142 @@
+{
+  "name": "let-chains-advisor",
+  "type": "skill",
+  "description": "Identifies deeply nested if-let expressions and suggests let chains for cleaner control flow. Activates when users write nested conditionals with pattern matching.",
+  "domain": "languages",
+  "subdomain": "rust",
+  "specialty": "pattern matching",
+  "quality": 5,
+  "qualityReason": "Precise Rust-specific use",
+  "bundleHints": [
+    "rust-patterns",
+    "code-quality"
+  ],
+  "tags": [
+    "code-quality",
+    "control-flow",
+    "if-let",
+    "pattern-matching",
+    "refactoring",
+    "rust"
+  ],
+  "capabilities": [
+    "Detects nested if-let expressions at 3+ levels of nesting",
+    "Suggests let chain refactoring for cleaner control flow",
+    "Identifies multiple Option and Result unwrapping patterns",
+    "Recognizes pattern matching with guard conditions",
+    "Provides before/after code examples for refactoring",
+    "Verifies Rust version compatibility for let chains"
+  ],
+  "author": "EmilLindfors",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing Rust code examples. All static findings are false positives: Markdown code block delimiters were misidentified as shell backticks, and YAML frontmatter was misclassified as cryptographic code. No executable code, network calls, or file system access exists.",
+  "valueStatement": "Developers writing deeply nested Rust control flow struggle with readability and maintainability. This skill proactively identifies nested if-let patterns (3+ levels) and suggests let chain refactorings for cleaner, more readable Rust 2024 code.",
+  "userTitle": "Refactor nested if-let with let chains",
+  "limitations": [
+    "Only activates for Rust code, not other languages",
+    "Does not auto-apply refactorings, only suggests them",
+    "Requires Rust 1.88+ or Rust 2024 edition for let chains",
+    "Does not analyze runtime performance impact of refactoring"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Rust developers working with optional values",
+      "title": "Refactor deeply nested Option handling",
+      "description": "A developer has multiple levels of if-let Some() checks for Option types. The skill suggests consolidating them into a single let chain for improved readability."
+    },
+    {
+      "targetUser": "Backend Rust developers",
+      "title": "Simplify Result error handling",
+      "description": "When chaining Result checks with if let Ok(), the skill recommends let chain syntax to flatten nested error handling logic."
+    },
+    {
+      "targetUser": "Experienced Rust developers",
+      "title": "Clean up complex guard clauses",
+      "description": "Developers writing pattern matches with multiple conditions receive suggestions to use let chains with && conditions for better structure."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic nested pattern detection",
+      "prompt": "I have this Rust code with nested if-let statements. Can you suggest a let chain refactoring for it?",
+      "scenario": "User shows nested if-let code and wants refactoring help"
+    },
+    {
+      "title": "Option chaining refactoring",
+      "prompt": "How can I rewrite this deeply nested Option unwrapping using let chains in Rust 2024?",
+      "scenario": "User specifically asks about let chain syntax for Options"
+    },
+    {
+      "title": "Result and Option mix",
+      "prompt": "I need to handle both Option and Result types in my control flow. Show me how let chains can simplify this nested structure.",
+      "scenario": "User has mixed error types and wants cleaner syntax"
+    },
+    {
+      "title": "While loop let chains",
+      "prompt": "Can I use let chains inside a while let loop? Show me how to refactor this pattern.",
+      "scenario": "User wants to apply let chains in iterator processing"
+    }
+  ],
+  "bestPractices": [
+    "Activate the skill when you see 3+ levels of nested if-let statements",
+    "Suggest let chains when all branches follow the same return/continue pattern",
+    "Verify the Rust version is 1.88+ or edition 2024 before recommending let chains",
+    "Provide both the original nested code and the refactored let chain version"
+  ],
+  "antiPatterns": [
+    "Leaving deeply nested if-let patterns without suggesting refactoring",
+    "Applying let chains when branches have different logic (use match instead)",
+    "Forgetting that let chains require Rust 1.88 or later",
+    "Using let chains for just 2 levels when nested if-let is equally readable"
+  ],
+  "faq": [
+    {
+      "question": "What are let chains in Rust?",
+      "answer": "Let chains combine multiple pattern matches and conditions using && in a single if let statement. They were stabilized in Rust 1.88 and are the preferred way to handle deeply nested pattern matching."
+    },
+    {
+      "question": "When should I suggest let chains?",
+      "answer": "Suggest let chains when you see 3+ levels of nested if-let patterns that all follow the same return or continue pattern. They improve readability and reduce indentation."
+    },
+    {
+      "question": "What Rust version is required for let chains?",
+      "answer": "Let chains require Rust 1.88 or later, or the Rust 2024 edition. Check the project Cargo.toml for edition = 2024 or rust-version = 1.88."
+    },
+    {
+      "question": "Can let chains mix Options and Results?",
+      "answer": "Yes, let chains can combine if let Some() and if let Ok() patterns, as well as add boolean conditions with && operators. This makes handling mixed error types cleaner."
+    },
+    {
+      "question": "When should I NOT use let chains?",
+      "answer": "Avoid let chains when branches contain different logic. In those cases, a match expression or early return pattern is clearer. Also, for just 2 levels of nesting, the benefit is minimal."
+    },
+    {
+      "question": "Do let chains affect runtime performance?",
+      "answer": "No, let chains compile to the same code as nested if-let statements. The benefit is purely in code readability and maintainability during development."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Rust let chains",
+    "Rust refactoring",
+    "pattern matching",
+    "Rust 2024",
+    "control flow",
+    "code quality",
+    "Rust patterns"
+  ],
+  "sourceUrl": "https://github.com/EmilLindfors/claude-marketplace/tree/main/plugins/rust-modern-patterns/skills/let-chains-advisor",
+  "sourceType": "community",
+  "dependencies": []
+}

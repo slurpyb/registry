@@ -1,0 +1,144 @@
+{
+  "name": "laravel-security-audit",
+  "type": "skill",
+  "description": "Security auditor for Laravel applications. Analyzes code for vulnerabilities, misconfigurations, and insecure practices using OWASP standards and Laravel security best practices.",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "OWASP compliance",
+  "quality": 5,
+  "qualityReason": "Critical security review",
+  "bundleHints": [
+    "security-audit",
+    "php-security",
+    "appsec"
+  ],
+  "tags": [
+    "audit",
+    "best practices",
+    "code analysis",
+    "laravel",
+    "misconfigurations",
+    "owasp",
+    "php",
+    "security",
+    "vulnerabilities"
+  ],
+  "capabilities": [
+    "Analyze Laravel controllers for authorization vulnerabilities and IDOR risks",
+    "Review input validation using FormRequests and validation rules",
+    "Audit authentication flows including Sanctum and JWT configuration",
+    "Check database queries for SQL injection and mass assignment issues",
+    "Evaluate file upload handling for MIME type and extension validation",
+    "Review API security including rate limiting and response sanitization"
+  ],
+  "author": "sickn33",
+  "icon": "🛡️",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static analysis findings are false positives. This is an educational/documentation skill containing prompt instructions for security auditing, not executable code. The detected patterns (external_commands, network, env_access) are references to security concepts being taught, not actual vulnerable code. No security risks identified.",
+  "valueStatement": "Laravel developers need to ensure their applications follow security best practices. This skill provides comprehensive security auditing using OWASP standards and Laravel-specific security knowledge.",
+  "userTitle": "Audit Laravel Apps for Security Vulnerabilities",
+  "limitations": [
+    "Cannot execute code or run actual security scans on live applications",
+    "Analysis is limited to the code files provided for review",
+    "Cannot verify runtime configuration or environment settings",
+    "Does not replace professional penetration testing or security audits"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Laravel developers preparing for production deployment",
+      "title": "Pre-Deployment Security Review",
+      "description": "Review Laravel application code before deploying to production to identify security vulnerabilities."
+    },
+    {
+      "targetUser": "Development teams implementing secure coding practices",
+      "title": "Code Review Assistance",
+      "description": "Integrate security analysis into pull request reviews to catch vulnerabilities early."
+    },
+    {
+      "targetUser": "Security engineers auditing inherited codebases",
+      "title": "Legacy Code Audit",
+      "description": "Assess existing Laravel applications for security debt and misconfigurations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Security Check",
+      "prompt": "Review this Laravel controller for security vulnerabilities. Check for proper authorization, input validation, and common OWASP issues.",
+      "scenario": "Quick security review of a single controller file"
+    },
+    {
+      "title": "Full Application Audit",
+      "prompt": "Perform a comprehensive security audit of this Laravel application. Analyze authentication, authorization, input validation, database queries, file uploads, and API security. Classify each finding by risk level.",
+      "scenario": "Complete security assessment before production deployment"
+    },
+    {
+      "title": "Authentication Flow Review",
+      "prompt": "Audit the authentication implementation in this Laravel application. Check password hashing, session management, token handling, and Sanctum/JWT configuration for security issues.",
+      "scenario": "Focused review of login and session management code"
+    },
+    {
+      "title": "API Security Assessment",
+      "prompt": "Evaluate the API endpoints in this Laravel application for security vulnerabilities. Check rate limiting, authorization, input validation, response sanitization, and mass assignment protection.",
+      "scenario": "Security review of REST API implementation"
+    }
+  ],
+  "bestPractices": [
+    "Always use FormRequest classes for input validation and authorization",
+    "Apply the principle of least privilege for database and file system access",
+    "Enable rate limiting on all public API endpoints to prevent abuse"
+  ],
+  "antiPatterns": [
+    "Using request()->all() without validation in create or update operations",
+    "Checking authorization only in controllers without policy enforcement",
+    "Storing uploaded files in publicly accessible directories without validation"
+  ],
+  "faq": [
+    {
+      "question": "What Laravel versions does this skill support?",
+      "answer": "This skill is designed for Laravel 10 and 11+ applications but can audit older versions with knowledge of version-specific security features."
+    },
+    {
+      "question": "Can this skill scan my entire codebase automatically?",
+      "answer": "The skill analyzes code files you provide. For large codebases, provide key files like controllers, models, and middleware for focused security review."
+    },
+    {
+      "question": "Does this replace penetration testing?",
+      "answer": "No. This skill provides static code analysis and security guidance. It complements but does not replace professional penetration testing or dynamic security scans."
+    },
+    {
+      "question": "What OWASP categories does this cover?",
+      "answer": "Coverage includes Injection, Broken Authentication, Sensitive Data Exposure, XML External Entities, Broken Access Control, Security Misconfiguration, XSS, Insecure Deserialization, and Known Vulnerabilities."
+    },
+    {
+      "question": "Can this skill fix vulnerabilities automatically?",
+      "answer": "The skill identifies vulnerabilities and provides secure code examples. You must manually review and implement the recommended fixes in your codebase."
+    },
+    {
+      "question": "Is my code shared or stored when using this skill?",
+      "answer": "Code analysis happens within your session. However, avoid sharing sensitive credentials, API keys, or production secrets in any code snippets."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Laravel security",
+    "PHP security audit",
+    "OWASP",
+    "vulnerability scanner",
+    "web application security",
+    "Laravel 11",
+    "security best practices"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/laravel-security-audit",
+  "sourceType": "community",
+  "dependencies": []
+}

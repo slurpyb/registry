@@ -1,0 +1,143 @@
+{
+  "name": "team-composition-analysis",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"plan team",
+  "domain": "business",
+  "subdomain": "finance",
+  "specialty": "Startup team design",
+  "quality": 5,
+  "qualityReason": "Strategic early-stage focus",
+  "bundleHints": [
+    "startup-tools",
+    "hiring-strategy",
+    "finance-planning"
+  ],
+  "tags": [
+    "compensation",
+    "early-stage",
+    "equity",
+    "hiring",
+    "org-chart",
+    "org-structure",
+    "series-a",
+    "startup"
+  ],
+  "capabilities": [
+    "Design team structures for pre-seed through Series A startups",
+    "Create role-by-role hiring plans with timeline estimates",
+    "Calculate fully-loaded compensation costs including benefits and taxes",
+    "Provide equity allocation benchmarks by role and funding stage",
+    "Generate organizational reporting structures and span of control guidance",
+    "Budget headcount costs aligned with revenue milestones"
+  ],
+  "author": "sickn33",
+  "icon": "👥",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Prompt-only skill with no executable code. No security risks detected. The skill provides guidance for team composition, hiring planning, compensation benchmarks, and equity allocation for early-stage startups. No file system access, network operations, external commands, or environment variable access present.",
+  "valueStatement": "Build the right team at the right time with data-driven hiring plans, compensation benchmarks, and equity allocation strategies. Scale from pre-seed to Series A with role-by-role guidance and budget planning tools.",
+  "userTitle": "Plan Startup Team Structure and Hiring",
+  "limitations": [
+    "Benchmarks based on US market rates from 2024, may vary by location",
+    "Equity ranges are general guidelines, actual allocations depend on company specifics",
+    "Hiring timelines are estimates and can vary based on role and market conditions",
+    "Does not replace legal or financial advice for equity compensation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "First-time startup founders building initial team",
+      "title": "Early-Stage Founder Hiring Plan",
+      "description": "Founders at pre-seed stage planning their first 5-10 hires with salary and equity allocation"
+    },
+    {
+      "targetUser": "Finance leaders and startup executives",
+      "title": "Series A Headcount Budget",
+      "description": "VP of Finance planning $2M-$10M ARR stage hiring budget and organizational structure"
+    },
+    {
+      "targetUser": "Founders preparing for seed or Series A fundraising",
+      "title": "Equity Pool Design",
+      "description": "Founders determining option pool size and equity grants for executive team hires"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Team Structure",
+      "prompt": "I'm a pre-seed founder with $500K raised. What should my team look like for the next 12 months?",
+      "scenario": "Early-stage founder seeking initial hiring guidance"
+    },
+    {
+      "title": "Hiring Plan with Budget",
+      "prompt": "Create a hiring plan for a seed-stage SaaS company targeting $1M ARR. Include roles, salaries, equity, and timeline.",
+      "scenario": "Founder planning seed-stage team expansion"
+    },
+    {
+      "title": "Compensation Benchmarking",
+      "prompt": "What are the salary and equity ranges for a VP of Engineering at Series A stage in Austin?",
+      "scenario": "Benchmarking executive compensation"
+    },
+    {
+      "title": "Org Chart Design",
+      "prompt": "Design the organizational structure for a 30-person startup at Series A with optimal reporting lines.",
+      "scenario": "Designing organizational reporting structure"
+    }
+  ],
+  "bestPractices": [
+    "Multiply base salary by 1.3-1.4 to calculate fully-loaded costs including payroll taxes, benefits, and overhead",
+    "Add 2-3 months buffer to hiring timelines to account for recruitment delays and ramp-up time",
+    "Reserve 10-15% option pool per funding round (pre-seed through Series A) to ensure adequate equity for hires"
+  ],
+  "antiPatterns": [
+    "Hiring senior roles too early before validating product-market fit and repeatable sales",
+    "Offering equity at the top of ranges without considering stage dilution and pool sustainability",
+    "Planning hiring based on idealized timelines without accounting for 6-24 week recruiting cycles"
+  ],
+  "faq": [
+    {
+      "question": "What stage does this skill support?",
+      "answer": "This skill supports startups from pre-seed (0-$500K ARR) through Series A ($2M-$10M ARR), covering team sizes from 2-5 people up to 15-50 people."
+    },
+    {
+      "question": "Are the compensation benchmarks current?",
+      "answer": "Salary benchmarks are based on 2024 US market rates. Adjust by location: SF/NYC +20-30%, Seattle/Boston/LA +10-20%, Austin/Denver/Chicago +0-10%, remote -10-20%."
+    },
+    {
+      "question": "How do I calculate fully-loaded costs?",
+      "answer": "Multiply base salary by 1.3-1.4 to account for payroll taxes (7.65%), benefits ($10K-$15K per employee), and overhead ($5K-$10K per employee for workspace, equipment, software)."
+    },
+    {
+      "question": "What equity should I offer early employees?",
+      "answer": "First engineer: 0.5-2.0%. First 5 employees: 0.25-1.0% each. Seed stage VPs: 0.5-1.5%. All equity vests over 4 years with a 1-year cliff."
+    },
+    {
+      "question": "How long does hiring take?",
+      "answer": "Junior roles: 6-8 weeks. Mid-level: 8-12 weeks. Senior: 12-16 weeks. Executive: 16-24 weeks. Add 2-4 months for productivity ramp-up after hiring."
+    },
+    {
+      "question": "Should I hire full-time or contractors?",
+      "answer": "Use full-time for core product development, sales, and mission-critical roles. Use contractors for specialized short-term needs (legal, accounting), variable workload (design, marketing), and to test roles before hiring full-time."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "startup hiring plan",
+    "team structure",
+    "equity allocation",
+    "compensation benchmarks",
+    "org chart design",
+    "headcount planning",
+    "startup salaries"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/team-composition-analysis",
+  "sourceType": "community",
+  "dependencies": []
+}

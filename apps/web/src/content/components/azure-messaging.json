@@ -1,0 +1,142 @@
+{
+  "name": "azure-messaging",
+  "type": "skill",
+  "description": "Troubleshoot and resolve issues with Azure Messaging SDKs for Event Hubs and Service Bus. Covers connection failures, authentication errors, message processing issues, and SDK configuration problems. USE FOR: event hub SDK error, service bus SDK issue, messaging connection failure, AMQP error, event processor host issue, message lock lost, send timeout, receiver disconnected, SDK troubleshooting, azure messaging SDK, event hub consumer, service bus queue issue, topic subscription error, enable logging event hub, service bus logging, eventhub python, servicebus java, eventhub javascript, servicebus dotnet, event hub checkpoint, event hub not receiving messages, service bus dead letter DO NOT USE FOR: creating Event Hub or Service Bus resources (use azure-prepare), monitoring metrics (use azure-observability), cost analysis (use azure-cost-optimization)",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "troubleshooting",
+  "quality": 5,
+  "qualityReason": "Clear troubleshooting focus and scope",
+  "bundleHints": [
+    "azure-messaging",
+    "devops-monitoring"
+  ],
+  "tags": [
+    "azure",
+    "connection",
+    "errors",
+    "event-hubs",
+    "messaging",
+    "sdk",
+    "service-bus",
+    "troubleshooting"
+  ],
+  "capabilities": [
+    "Diagnose Event Hubs SDK connection failures and authentication errors across all supported languages",
+    "Resolve Service Bus SDK issues including queue, topic, and subscription errors",
+    "Configure retry policies, prefetch settings, and checkpoint stores for optimal performance",
+    "Troubleshoot AMQP link errors, message lock issues, and sender/receiver timeouts",
+    "Enable SDK logging and capture diagnostic information for support cases",
+    "Guide users through network troubleshooting including firewall, proxy, and private endpoint issues"
+  ],
+  "author": "microsoft",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a Microsoft-official troubleshooting reference skill containing only documentation and example commands for debugging Azure Event Hubs and Service Bus SDK issues. All static findings are false positives: code fences (backticks) are markdown examples, URLs point to official Microsoft documentation, and diagnostic commands are standard troubleshooting tools. No executable code or malicious patterns detected.",
+  "valueStatement": "This skill helps developers diagnose and fix Azure Event Hubs and Service Bus SDK problems including connection failures, authentication errors, message processing issues, and configuration questions across Python, Java, JavaScript, and .NET SDKs.",
+  "userTitle": "Troubleshoot Azure Messaging SDK Issues",
+  "limitations": [
+    "This skill does not create or manage Azure Event Hub or Service Bus resources",
+    "This skill does not provide monitoring or metrics for Azure messaging services",
+    "This skill does not perform cost analysis or optimization for messaging resources",
+    "This skill requires the Azure MCP tools to be configured for full functionality"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers building event-driven applications with Azure Event Hubs",
+      "title": "Fix Event Hub connection failures",
+      "description": "Developer encountering connection timeout or authentication errors when connecting to Azure Event Hubs from their application"
+    },
+    {
+      "targetUser": "Backend engineers using Azure Service Bus for async messaging",
+      "title": "Resolve Service Bus message processing issues",
+      "description": "Engineer dealing with message lock lost errors, dead letter queue problems, or session handling issues in Azure Service Bus"
+    },
+    {
+      "targetUser": "DevOps engineers and architects optimizing messaging workloads",
+      "title": "Configure Event Processor for production",
+      "description": "Team optimizing their Event Hub consumer application for high throughput with proper checkpointing and retry configuration"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Event Hub error help",
+      "prompt": "I am getting this error when using Azure Event Hubs: [ERROR_MESSAGE]. Help me understand what it means and how to fix it.",
+      "scenario": "User has a specific error message from Event Hubs SDK"
+    },
+    {
+      "title": "Service Bus authentication issue",
+      "prompt": "My Service Bus client is failing with unauthorized access. I am using [AUTH_METHOD] in [LANGUAGE] SDK. Check my configuration and suggest fixes.",
+      "scenario": "User facing authentication or authorization errors"
+    },
+    {
+      "title": "Connection troubleshooting",
+      "prompt": "My Azure messaging client cannot connect. The error is [ERROR]. Help me troubleshoot connectivity issues including firewall and network configuration.",
+      "scenario": "User experiencing connectivity problems to Azure messaging services"
+    },
+    {
+      "title": "Performance optimization",
+      "prompt": "I want to optimize my Event Hub consumer for high throughput. Current setup: [DESCRIBE_CURRENT_CONFIG]. Help me tune retry, prefetch, and checkpoint settings.",
+      "scenario": "User wants to improve messaging performance"
+    }
+  ],
+  "bestPractices": [
+    "TreatHubClient Event as a singleton - creating new clients for each operation causes socket exhaustion and performance issues",
+    "Configure appropriate retry policies using SDK retry options to handle transient failures gracefully",
+    "Enable SDK logging with debug/verbose level to capture detailed diagnostic information for troubleshooting"
+  ],
+  "antiPatterns": [
+    "Do not create new client instances for each message or operation - reuse the same client across your application",
+    "Avoid disabling retry policies unless you have specific requirements - transient failures are common in cloud messaging",
+    "Do not ignore exception types - different failure reasons require different handling strategies"
+  ],
+  "faq": [
+    {
+      "question": "What languages does this skill support?",
+      "answer": "This skill covers troubleshooting guidance for Azure Event Hubs and Service Bus SDKs in .NET, Java, JavaScript/TypeScript, and Python."
+    },
+    {
+      "question": "Does this skill create Event Hubs or Service Bus resources?",
+      "answer": "No, this skill is for troubleshooting existing resources. Use the azure-prepare skill for creating and managing Azure messaging resources."
+    },
+    {
+      "question": "How do I enable verbose logging for debugging?",
+      "answer": "Set the appropriate environment variable or configuration for your SDK. For .NET, configure EventHubClientOptions. For Python, set AZURE_LOG_LEVEL. For JavaScript, use the DEBUG environment variable."
+    },
+    {
+      "question": "Why am I getting quota exceeded errors?",
+      "answer": "This usually means you have too many concurrent readers per consumer group. Each consumer group allows up to 5 concurrent readers. Reduce the number of consumers or use a different consumer group."
+    },
+    {
+      "question": "How do I configure WebSocket connections?",
+      "answer": "Use the WebSocket transport type for your SDK: .NET uses EventHubsTransportType.AmqpWebSockets, Java uses AmqpTransportType.AMQP_WEB_SOCKETS, Python uses TransportType.AmqpOverWebsocket."
+    },
+    {
+      "question": "What is checkpointing and how do I configure it?",
+      "answer": "Checkpointing tracks the last processed event position. Use Azure Blob Storage with EventProcessorClient. Configure the BlobContainerClient and the processor will automatically manage partition ownership and checkpoint progress."
+    }
+  ],
+  "seoKeywords": [
+    "azure messaging troubleshooting",
+    "event hub SDK error",
+    "service bus SDK issue",
+    "azure eventhubs fix",
+    "azure servicebus debugging",
+    "AMQP connection error",
+    "azure messaging SDK",
+    "claude azure",
+    "codex azure",
+    "claude code azure"
+  ],
+  "sourceUrl": "https://github.com/microsoft/github-copilot-for-azure/tree/main/plugin/skills/azure-messaging/",
+  "sourceType": "community",
+  "dependencies": []
+}

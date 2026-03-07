@@ -1,0 +1,140 @@
+{
+  "name": "architectural-analysis",
+  "type": "skill",
+  "description": "Deep architectural audit focused on finding dead code, duplicated functionality, architectural anti-patterns, type confusion, and code smells. Use when user asks for architectural analysis, find dead code, identify duplication, or assess codebase health.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "Code smell detection",
+  "quality": 5,
+  "qualityReason": "Strong refactoring utility",
+  "bundleHints": [
+    "code-quality",
+    "technical-debt"
+  ],
+  "tags": [
+    "anti-patterns",
+    "architecture",
+    "audit",
+    "code analysis",
+    "code quality",
+    "dead-code",
+    "refactoring"
+  ],
+  "capabilities": [
+    "Detect dead code and unused exports across entire codebase",
+    "Identify duplicated functionality and logic across files",
+    "Find architectural anti-patterns like god objects and circular dependencies",
+    "Analyze type issues including any usage and type assertions",
+    "Detect code smells such as long methods and magic numbers",
+    "Generate comprehensive architectural audit reports"
+  ],
+  "author": "Cygnusfear",
+  "icon": "🏗️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 129 static findings are FALSE POSITIVES. The scanner misidentified markdown documentation examples as executable code. SKILL.md contains only instructions for Claude using Claude's native capabilities. Backticks are markdown code formatting, not Ruby/shell execution. The skill-report.json already contains a previous AI audit confirming 'safe' status. This is a prompt-only skill with no executable code.",
+  "valueStatement": "Codebases accumulate dead code, duplication, and architectural issues over time. This skill provides a systematic framework for comprehensive code analysis, identifying cleanup opportunities and quantifying technical debt.",
+  "userTitle": "Analyze Codebase Architecture",
+  "limitations": [
+    "Does not modify or delete any code - analysis only",
+    "Cannot access codebases outside of explicitly shared context",
+    "Analysis accuracy depends on Claude's file reading capabilities",
+    "Does not integrate with external static analysis tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Senior Developers",
+      "title": "Codebase Health Assessment",
+      "description": "Evaluate legacy codebases for refactoring priorities and technical debt quantification"
+    },
+    {
+      "targetUser": "Tech Leads",
+      "title": "Architecture Review",
+      "description": "Identify architectural anti-patterns and coupling issues across team codebases"
+    },
+    {
+      "targetUser": "Engineering Managers",
+      "title": "Code Quality Metrics",
+      "description": "Generate reports on code duplication and cleanup potential for sprint planning"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Scan",
+      "scenario": "Brief codebase overview",
+      "prompt": "Analyze this codebase for dead code. Map the structure, identify unused exports, and list files that can be deleted."
+    },
+    {
+      "title": "Duplication Check",
+      "scenario": "Find duplicate code",
+      "prompt": "Search for duplicated functionality across the codebase. Group similar implementations and estimate total duplicated lines."
+    },
+    {
+      "title": "Full Audit",
+      "scenario": "Complete architecture review",
+      "prompt": "Perform a comprehensive architectural analysis: dead code, duplication, anti-patterns, type issues, and code smells. Generate a full report."
+    },
+    {
+      "title": "Type Analysis",
+      "scenario": "Type safety review",
+      "prompt": "Analyze type issues in this codebase. Find all any usage, type assertions, and @ts-ignore comments. Prioritize by severity."
+    }
+  ],
+  "bestPractices": [
+    "Run architectural analysis before major refactoring sprints to prioritize efforts",
+    "Use generated reports to justify technical debt cleanup to stakeholders",
+    "Re-run analysis periodically to track code health improvements over time"
+  ],
+  "antiPatterns": [
+    "Running analysis without reviewing all findings in detail",
+    "Deleting flagged code without verifying it is truly dead",
+    "Ignoring architectural anti-patterns identified in the report"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill modify my code?",
+      "answer": "No. This skill only analyzes code and generates reports. It never edits, deletes, or modifies any files."
+    },
+    {
+      "question": "What file types does it support?",
+      "answer": "Designed for TypeScript and JavaScript projects. Can analyze any text-based code with appropriate context."
+    },
+    {
+      "question": "How long does analysis take?",
+      "answer": "Time scales with codebase size. Small projects take seconds, large monorepos may require multiple sessions."
+    },
+    {
+      "question": "Is my code data safe?",
+      "answer": "Yes. All analysis happens within your Claude session. No code is sent to external services beyond standard processing."
+    },
+    {
+      "question": "Can it integrate with ESLint or other tools?",
+      "answer": "No. This skill uses Claude's native capabilities for analysis. External tool integration would require additional setup."
+    },
+    {
+      "question": "How is this different from type checking?",
+      "answer": "Type checking validates correctness. Architectural analysis identifies structural issues like duplication, dead code, and design problems."
+    }
+  ],
+  "seoKeywords": [
+    "architectural analysis",
+    "dead code detection",
+    "code duplication finder",
+    "codebase audit",
+    "technical debt assessment",
+    "Claude Code",
+    "code refactoring",
+    "software architecture review",
+    "code quality analysis"
+  ],
+  "sourceUrl": "https://github.com/Cygnusfear/claude-stuff/tree/main/skills/architectural-analysis",
+  "sourceType": "community",
+  "dependencies": []
+}

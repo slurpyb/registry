@@ -1,0 +1,145 @@
+{
+  "name": "python-database-patterns",
+  "type": "skill",
+  "description": "SQLAlchemy and database patterns for Python. Triggers on: sqlalchemy, database, orm, migration, alembic, async database, connection pool, repository pattern, unit of work.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "ORM patterns",
+  "quality": 5,
+  "qualityReason": "Comprehensive database architecture",
+  "bundleHints": [
+    "python-database",
+    "backend-development"
+  ],
+  "tags": [
+    "async",
+    "connection pool",
+    "database",
+    "migration",
+    "orm",
+    "python",
+    "repository pattern",
+    "sqlalchemy",
+    "unit of work"
+  ],
+  "capabilities": [
+    "Define SQLAlchemy 2.0 models with mapped columns and type annotations",
+    "Write queries using select, where, joins, and aggregates",
+    "Configure async sessions with asyncpg and aiosqlite",
+    "Implement transaction patterns with savepoints and isolation levels",
+    "Set up Alembic migrations for schema changes",
+    "Configure connection pooling for production workloads"
+  ],
+  "author": "0xDarkMatter",
+  "icon": "🗄️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing educational SQLAlchemy patterns. No executable code, no network calls, no credential access, no malicious patterns detected. Static scanner generated false positives by misidentifying markdown code blocks as executable code.",
+  "valueStatement": "Writing database code is complex and error-prone. This skill provides battle-tested SQLAlchemy 2.0 patterns for models, queries, async sessions, transactions, and migrations.",
+  "userTitle": "Implement Python database patterns with SQLAlchemy",
+  "limitations": [
+    "Does not generate complete database layers or model files",
+    "Does not create database drivers or custom connectors",
+    "Does not provide deployment or infrastructure code",
+    "Requires existing knowledge of SQL fundamentals"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Python developers new to SQLAlchemy",
+      "title": "Learn SQLAlchemy 2.0",
+      "description": "Get started with modern SQLAlchemy patterns for declarative models and type-safe queries"
+    },
+    {
+      "targetUser": "Backend engineers",
+      "title": "Build async API backends",
+      "description": "Implement FastAPI endpoints with async database sessions and transaction management"
+    },
+    {
+      "targetUser": "DevOps and platform engineers",
+      "title": "Manage database schemas",
+      "description": "Set up Alembic migrations and configure connection pools for production databases"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Define a model",
+      "scenario": "Create SQLAlchemy model",
+      "prompt": "Create a SQLAlchemy 2.0 model called Product with id, name, price, and category relationship"
+    },
+    {
+      "title": "Write async query",
+      "scenario": "Query with async session",
+      "prompt": "Write an async function to fetch a user by email with their posts eagerly loaded"
+    },
+    {
+      "title": "Handle transaction",
+      "scenario": "Transfer funds atomically",
+      "prompt": "Implement a transfer_funds function with pessimistic locking to prevent race conditions"
+    },
+    {
+      "title": "Configure pool",
+      "scenario": "Production pool settings",
+      "prompt": "Show me how to configure connection pool size, overflow, and pre-ping for a production PostgreSQL async engine"
+    }
+  ],
+  "bestPractices": [
+    "Use SQLAlchemy 2.0 declarative style with Mapped and mapped_column for type safety",
+    "Prefer session.execute with select() over legacy session.query() method",
+    "Configure pool_pre_ping=True to catch stale connections before queries",
+    "Use eager loading (selectinload/joinedload) to avoid N+1 queries in async contexts"
+  ],
+  "antiPatterns": [
+    "Using lazy loading in async sessions causes MissingGreenlet errors",
+    "Calling session.commit() inside session.begin() creates nested transaction issues",
+    "Hardcoding database URLs instead of using environment configuration",
+    "Skipping pool_recycle causing connections to timeout after long queries"
+  ],
+  "faq": [
+    {
+      "question": "What SQLAlchemy versions are supported?",
+      "answer": "SQLAlchemy 2.0+ with Python 3.10+. Async requires asyncpg for PostgreSQL or aiosqlite for SQLite."
+    },
+    {
+      "question": "Can I use this with FastAPI?",
+      "answer": "Yes. The skill includes FastAPI dependency injection patterns for async database sessions."
+    },
+    {
+      "question": "How do I size the connection pool?",
+      "answer": "Start with pool_size=5 and max_overflow=10. Adjust based on concurrent users and query patterns."
+    },
+    {
+      "question": "Is my data safe with these patterns?",
+      "answer": "Yes. Patterns include transaction safety, optimistic locking, and proper session lifecycle management."
+    },
+    {
+      "question": "Why are my async queries failing?",
+      "answer": "Common causes include lazy loading without eager loading, uncommitted transactions, or connection pool exhaustion."
+    },
+    {
+      "question": "How does this compare to raw SQL?",
+      "answer": "SQLAlchemy provides type safety and abstraction while generating optimized SQL. Use text() for raw queries when needed."
+    }
+  ],
+  "seoKeywords": [
+    "SQLAlchemy",
+    "Python database patterns",
+    "database ORM",
+    "async database",
+    "Alembic migrations",
+    "connection pooling",
+    "repository pattern",
+    "unit of work",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/0xDarkMatter/claude-mods/tree/main/skills/python-database-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

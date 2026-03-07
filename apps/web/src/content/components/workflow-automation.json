@@ -1,0 +1,142 @@
+{
+  "name": "workflow-automation",
+  "type": "skill",
+  "description": "Workflow automation is the infrastructure that makes AI agents reliable. Without durable execution, a network hiccup during a 10-step payment flow means lost money and angry customers. With it, workflows resume exactly where they left off.  This skill covers the platforms (n8n, Temporal, Inngest) and patterns (sequential, parallel, orchestrator-worker) that turn brittle scripts into production-grade automation.  Key insight: The platforms make different tradeoffs. n8n optimizes for accessibility",
+  "domain": "devops",
+  "subdomain": "iac",
+  "specialty": "durable execution",
+  "quality": 5,
+  "qualityReason": "Strong automation patterns",
+  "bundleHints": [
+    "workflow-orchestration",
+    "devops-automation"
+  ],
+  "tags": [
+    "automation",
+    "durable-execution",
+    "n8n",
+    "orchestration",
+    "step-functions",
+    "temporal",
+    "workflows"
+  ],
+  "capabilities": [
+    "Design sequential and parallel workflow architectures",
+    "Implement idempotency patterns for external API calls",
+    "Configure error handling and retry strategies with exponential backoff",
+    "Choose appropriate workflow platforms (Temporal, Inngest, n8n, Step Functions)",
+    "Structure workflows for observability and debugging",
+    "Avoid common anti-patterns like monolithic workflows and side effects"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "Apache-2.0",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static analysis findings are false positives. The 'backtick execution' detection refers to Markdown code formatting in documentation text, not actual Ruby/shell commands. The 'weak cryptography' detection refers to the word 'execution' in documentation context, not cryptographic implementation. This skill contains only documentation about workflow automation patterns with no executable code, security risks, or prompt injection attempts.",
+  "valueStatement": "Stop losing work to network failures and timeouts. Learn to build reliable, fault-tolerant workflows that survive restarts and handle errors gracefully using durable execution platforms.",
+  "userTitle": "Build Durable Workflow Automation Systems",
+  "limitations": [
+    "Provides architectural guidance but cannot execute workflows directly",
+    "Does not interact with external workflow platforms or APIs",
+    "Cannot debug existing workflow implementations without code context",
+    "Platform-specific syntax may require consulting official documentation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend engineers building financial systems",
+      "title": "Payment Processing System",
+      "description": "Design fault-tolerant payment workflows that handle network failures, timeout gracefully, and never double-charge customers using idempotency keys."
+    },
+    {
+      "targetUser": "Data engineers working on batch processing",
+      "title": "Data Pipeline Orchestration",
+      "description": "Coordinate multi-step ETL workflows with parallel processing, error recovery, and checkpoint-based resumption for long-running data jobs."
+    },
+    {
+      "targetUser": "Infrastructure architects migrating from monoliths",
+      "title": "Microservice Integration",
+      "description": "Implement event-driven workflows that coordinate multiple services with saga patterns for distributed transactions and automatic rollback."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Choose the Right Platform",
+      "prompt": "I need to build [workflow type] for [use case]. My team has [skill level] experience and priorities are [priorities]. Compare Temporal, Inngest, n8n, and AWS Step Functions for this scenario. Recommend the best fit and explain the tradeoffs.",
+      "scenario": "When selecting a workflow automation platform for a new project"
+    },
+    {
+      "title": "Design Idempotent Operations",
+      "prompt": "I'm building [workflow type] that calls [external service/API]. How should I implement idempotency? Show me the pattern for generating and validating idempotency keys, and explain where to store them.",
+      "scenario": "When preventing duplicate operations in external API calls"
+    },
+    {
+      "title": "Structure Error Handling",
+      "prompt": "Design a retry strategy for [operation type] that may fail with [error types]. Configure exponential backoff, max retries, and fallback behavior. Show me how to structure this in [platform name].",
+      "scenario": "When implementing resilient error handling for external dependencies"
+    },
+    {
+      "title": "Break Down Monolithic Workflow",
+      "prompt": "I have a single workflow that does [complex process]. It's hard to debug and frequently restarts from the beginning. Help me break this into smaller, checkpointed steps with durable state between them.",
+      "scenario": "When refactoring large, failure-prone workflows into manageable pieces"
+    }
+  ],
+  "bestPractices": [
+    "Always use idempotency keys for external API calls to prevent duplicate operations on retry",
+    "Set explicit timeouts on all activities and external service calls to prevent hanging workflows",
+    "Break long workflows into small steps with checkpointed state for faster recovery from failures",
+    "Implement exponential backoff with jitter for retries to avoid overwhelming downstream services"
+  ],
+  "antiPatterns": [
+    "Do not perform direct I/O operations or side effects in workflow code—always delegate to activities or workers",
+    "Never build monolithic workflows that try to do everything in one place; they become impossible to debug and retry efficiently",
+    "Avoid passing large data payloads as workflow arguments—store data externally and pass references instead"
+  ],
+  "faq": [
+    {
+      "question": "What is durable execution and why do I need it?",
+      "answer": "Durable execution means your workflow state survives process restarts, network failures, and crashes. The system automatically retries failed steps and resumes from the last successful checkpoint. This eliminates the need to rebuild failed workflows from scratch, reducing on-call burden and data loss."
+    },
+    {
+      "question": "Should I use Temporal, Inngest, n8n, or AWS Step Functions?",
+      "answer": "Choose Temporal for complex stateful workflows with maximum control. Choose Inngest for event-driven applications with fast development. Choose n8n for business process automation without coding. Choose AWS Step Functions when already in the AWS ecosystem with simple orchestration needs. The best choice depends on your team skills, complexity requirements, and infrastructure preferences."
+    },
+    {
+      "question": "How do I prevent duplicate operations when workflows retry?",
+      "answer": "Implement idempotency by generating a unique key before any external operation. Send this key with every API request, database write, or payment charge. The downstream service checks if the key was already processed and returns the cached result instead of performing the operation again. Store idempotency keys for at least your retry window duration."
+    },
+    {
+      "question": "What is exponential backoff with jitter?",
+      "answer": "Exponential backoff increases retry delay after each failure (1s, 2s, 4s, 8s). Jitter adds randomness to these intervals to prevent thundering herd problems where multiple retries synchronize and overwhelm services. Most platforms provide built-in retry policies—use them instead of writing your own sleep loops."
+    },
+    {
+      "question": "Can workflows call external APIs directly?",
+      "answer": "Technically yes, but it creates fragility. API timeouts will hang your workflow. Instead, use activity functions or workers that make HTTP calls asynchronously with proper timeouts. Your workflow dispatches the work and waits for a completion event or webhook. This separation keeps workflows responsive and resilient to downstream failures."
+    },
+    {
+      "question": "How do I debug failed workflows?",
+      "answer": "All workflow platforms provide execution histories showing each step, input/output, and failure reasons. Use structured logging in your activity code. Set descriptive names for each workflow step. For complex failures, replay the execution with debug logging enabled. Most platforms also offer tracing integration and query APIs for inspecting running workflow state."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "workflow automation",
+    "durable execution",
+    "Temporal",
+    "Inngest",
+    "n8n",
+    "orchestration patterns",
+    "background jobs"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/workflow-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

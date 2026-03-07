@@ -1,0 +1,137 @@
+{
+  "name": "enact-formatter",
+  "type": "skill",
+  "description": "Formats and prettifies JSON with configurable indentation",
+  "domain": "tools",
+  "subdomain": "editors",
+  "specialty": "JSON formatting",
+  "quality": 4,
+  "qualityReason": "Simple but useful developer tool",
+  "bundleHints": [
+    "dev-utils",
+    "data-formatting"
+  ],
+  "tags": [
+    "configurable",
+    "data-cleanup",
+    "data-formatting",
+    "formatter",
+    "indentation",
+    "json",
+    "prettify",
+    "utility"
+  ],
+  "capabilities": [
+    "Parses and formats JSON strings with configurable indentation",
+    "Validates JSON input and reports parsing errors",
+    "Supports custom indentation levels (spaces per level)",
+    "Returns structured output with validation status",
+    "Handles malformed JSON gracefully with error messages"
+  ],
+  "author": "EnactProtocol",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The scanner misidentified markdown code fence backticks as Ruby shell execution and YAML field descriptions as cryptographic algorithms. The actual code uses only safe standard JSON methods (JSON.parse, JSON.stringify) with no external commands, network calls, or file system access.",
+  "valueStatement": "JSON data often arrives in a compact format that is difficult to read and debug. This skill formats JSON strings with configurable indentation to make data human-readable while maintaining validity.",
+  "userTitle": "Format JSON with Custom Indentation",
+  "limitations": [
+    "Operates on JSON strings, not files or URLs",
+    "Does not modify JSON structure or data values",
+    "Only supports space-based indentation, not tabs",
+    "No streaming or batch processing of multiple JSON documents"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Format Configuration Files",
+      "description": "Transform compact JSON configuration into readable formatted output with consistent indentation for code reviews and debugging."
+    },
+    {
+      "targetUser": "Data engineers",
+      "title": "Prepare API Responses",
+      "description": "Reformat API response JSON to make it easier to inspect, log, and include in documentation or reports."
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Debug Data Transformations",
+      "description": "Quickly format JSON data at various stages of a pipeline to verify structure and content during development."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic JSON Formatting",
+      "prompt": "Format this JSON with 2-space indentation:\n\n${json}"
+    },
+    {
+      "title": "Custom Indentation Level",
+      "prompt": "Format this JSON with ${indent}-space indentation:\n\n${json}"
+    },
+    {
+      "title": "Format and Validate",
+      "prompt": "Format this JSON string and check if it is valid. Use ${indent} spaces for indentation:\n\n${json}\n\nReport whether the JSON is valid and show the formatted output."
+    },
+    {
+      "title": "Batch JSON Processing",
+      "prompt": "Process this list of JSON strings. Format each one with ${indent}-space indentation:\n\n${json}\n\nReturn each formatted result with its validation status."
+    }
+  ],
+  "bestPractices": [
+    "Use consistent indentation (2 or 4 spaces) for team readability",
+    "Validate JSON before formatting to catch syntax errors early",
+    "Match indentation to project conventions for clean diffs"
+  ],
+  "antiPatterns": [
+    "Formatting already-formatted JSON unnecessarily",
+    "Assuming formatted output is also sorted or normalized",
+    "Using formatting to hide structural issues in the data"
+  ],
+  "faq": [
+    {
+      "question": "What indentation options are supported?",
+      "answer": "This skill supports numeric indentation values (1, 2, 4, etc.). Each number represents spaces per indentation level."
+    },
+    {
+      "question": "Does this skill modify my original JSON?",
+      "answer": "No. This skill works with JSON strings provided as input and returns formatted output. The original data is not modified."
+    },
+    {
+      "question": "Can I format JSON files directly?",
+      "answer": "This skill operates on JSON strings. For files, first read the file content as a string, then format it."
+    },
+    {
+      "question": "What happens if the JSON is invalid?",
+      "answer": "Invalid JSON returns a response with valid: false and an error message describing the parsing issue."
+    },
+    {
+      "question": "Does formatting change the data values?",
+      "answer": "No. Formatting only changes whitespace. All keys, values, and types remain unchanged."
+    },
+    {
+      "question": "What JSON features are supported?",
+      "answer": "Standard JSON is fully supported including nested objects, arrays, strings, numbers, booleans, and null values."
+    }
+  ],
+  "seoKeywords": [
+    "JSON formatter",
+    "format JSON",
+    "prettify JSON",
+    "JSON indentation",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "JSON tools",
+    "data formatting",
+    "JSON validation"
+  ],
+  "sourceUrl": "https://github.com/EnactProtocol/enact/tree/main/examples/formatter",
+  "sourceType": "community",
+  "dependencies": []
+}

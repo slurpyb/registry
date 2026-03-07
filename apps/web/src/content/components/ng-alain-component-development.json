@@ -1,0 +1,143 @@
+{
+  "name": "ng-alain-component-development",
+  "type": "skill",
+  "description": "Create components using ng-alain (@delon/abc) and ng-zorro-antd UI libraries. Use this skill when building enterprise UI features with ST (Simple Table), SF (Schema Form), ACL (Access Control), PageHeader, ReuseTab, and other @delon components. Ensures proper integration with ng-alain architecture, theming system, responsive layouts, and accessibility standards while following Angular 20 patterns.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "enterprise UI",
+  "quality": 5,
+  "qualityReason": "Specialized UI library use",
+  "bundleHints": [
+    "angular-enterprise",
+    "admin-interfaces"
+  ],
+  "tags": [
+    "acl",
+    "angular",
+    "enterprise",
+    "ng-alain",
+    "ng-zorro",
+    "ng-zorro-antd",
+    "sf-form",
+    "st-table",
+    "ui-components"
+  ],
+  "capabilities": [
+    "Generate ST (Simple Table) components with pagination, sorting, and action buttons",
+    "Create SF (Schema Form) components with dynamic validation and async data loading",
+    "Implement ACL (Access Control) for role-based UI visibility",
+    "Build responsive layouts using ng-zorro grid system with dark mode support",
+    "Create modals and drawers with form integration",
+    "Add page headers with breadcrumbs and action buttons"
+  ],
+  "author": "7Spade",
+  "icon": "ui",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown content with inline TypeScript code examples for ng-alain component development reference. No executable code, file system access, network calls, or command execution. Previous audit correctly classified as safe. Static findings are false positives from pattern matching without semantic context.",
+  "valueStatement": "Building enterprise Angular UI requires knowledge of ng-alain components, theming, and patterns. This skill provides ready-to-use code examples for ST tables, SF forms, ACL permissions, and responsive layouts following Angular best practices.",
+  "userTitle": "Build ng-alain Enterprise UI Components",
+  "limitations": [
+    "Requires existing ng-alain project setup with @delon packages installed",
+    "Does not generate full project scaffolding or configuration files",
+    "Does not include backend integration or API call implementations",
+    "Does not handle state management beyond component-level signals"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend Angular Developers",
+      "title": "Enterprise Dashboard Components",
+      "description": "Build data-rich dashboards with tables, statistics cards, and responsive layouts using ng-zorro components."
+    },
+    {
+      "targetUser": "Full-Stack Developers",
+      "title": "Form and Data Management",
+      "description": "Create complex forms with schema validation, async dropdowns, and modal integration for CRUD operations."
+    },
+    {
+      "targetUser": "Angular Architects",
+      "title": "Access Control Systems",
+      "description": "Implement role-based UI visibility with ACL directives and permission services across enterprise applications."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Table",
+      "scenario": "Create a simple data table",
+      "prompt": "Create an ST table component with pagination that displays a list of users with columns for ID, name, email, status, and actions."
+    },
+    {
+      "title": "Complex Form",
+      "scenario": "Build a form with validation",
+      "prompt": "Create an SF schema form for a task management system with fields for title, description, status dropdown, priority radio buttons, assignee async select, due date picker, and tags input."
+    },
+    {
+      "title": "Protected Actions",
+      "scenario": "Add permission-based UI",
+      "prompt": "Create Angular component with ACL permissions that shows Create, Edit, and Delete buttons only when users have the corresponding task:create, task:edit, and task:delete permissions."
+    },
+    {
+      "title": "Full Feature Page",
+      "scenario": "Build complete feature page",
+      "prompt": "Build a complete task management page with page header, breadcrumb navigation, responsive statistics cards for task counts, and an ST table with filter, sort, and action buttons."
+    }
+  ],
+  "bestPractices": [
+    "Use SHARED_IMPORTS to consolidate common ng-zorro and @delon module imports across components",
+    "Implement responsive breakpoints (nzXs, nzSm, nzMd, nzLg) for mobile-first layouts",
+    "Add proper ARIA labels and accessibility attributes for keyboard navigation"
+  ],
+  "antiPatterns": [
+    "Avoid hardcoding magic numbers for column widths - use responsive breakpoints instead",
+    "Do not skip loading states during async data fetching",
+    "Avoid mixing template-driven and reactive forms without clear separation"
+  ],
+  "faq": [
+    {
+      "question": "Which Angular versions are supported?",
+      "answer": "This skill targets Angular 17+ with standalone components. Angular 20 patterns (signals, control flow) are used throughout."
+    },
+    {
+      "question": "What is the difference between ST and SF?",
+      "answer": "ST (Simple Table) handles data display with pagination and sorting. SF (Schema Form) generates dynamic forms from JSON schemas."
+    },
+    {
+      "question": "How does ACL integration work?",
+      "answer": "ACL uses *aclIf directive to conditionally render elements based on permission strings. The ACLService provides programmatic checks."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "This skill only provides code templates. No data is collected, transmitted, or stored. All code runs locally in your project."
+    },
+    {
+      "question": "Why are my components not rendering?",
+      "answer": "Ensure you imported required modules (SHARED_IMPORTS) and added component to imports array. Check browser console for template errors."
+    },
+    {
+      "question": "How does this compare to raw ng-zorro?",
+      "answer": "ng-alain adds enterprise abstractions like ST tables, SF forms, and ACL on top of ng-zorro, reducing boilerplate for common patterns."
+    }
+  ],
+  "seoKeywords": [
+    "ng-alain",
+    "ng-zorro-antd",
+    "Angular components",
+    "enterprise UI",
+    "schema form",
+    "simple table",
+    "access control",
+    "responsive layout",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/7Spade/ng-dragon/tree/main/.github/skills/ng-alain-component",
+  "sourceType": "community",
+  "dependencies": []
+}

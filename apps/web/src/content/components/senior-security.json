@@ -1,0 +1,149 @@
+{
+  "name": "senior-security",
+  "type": "skill",
+  "description": "Comprehensive security engineering skill for application security, penetration testing, security architecture, and compliance auditing. Includes security assessment tools, threat modeling, crypto implementation, and security automation. Use when designing security architecture, conducting penetration tests, implementing cryptography, or performing security audits.",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "threat modeling",
+  "quality": 5,
+  "qualityReason": "Broad security expertise",
+  "bundleHints": [
+    "security-engineering",
+    "threat-modeling"
+  ],
+  "tags": [
+    "architecture",
+    "assessment",
+    "auditing",
+    "crypto",
+    "cryptography",
+    "penetration",
+    "penetration-testing",
+    "security",
+    "security-audit",
+    "security-tools",
+    "threat-modeling"
+  ],
+  "capabilities": [
+    "Create automated threat models with configurable templates and quality checks for software projects",
+    "Perform comprehensive security audits of codebases with deep analysis and recommendations",
+    "Design secure system architectures following industry best practices and compliance standards",
+    "Implement proper cryptographic solutions using AES-256, RSA, and secure key management",
+    "Apply security patterns for authentication, authorization, input validation, and audit logging",
+    "Generate security assessment reports with vulnerability findings and remediation guidance"
+  ],
+  "author": "alirezarezvani",
+  "icon": "🛡️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "After manual evaluation, all 115 static findings are FALSE POSITIVES. The static scanner detected markdown code block syntax (```) as shell backticks, security terminology in educational documentation as exploits, and standard Python file I/O for report generation. The skill contains skeleton scripts and reference documentation for defensive security practices only. No malicious code, actual exploits, or harmful functionality exists.",
+  "valueStatement": "This skill provides comprehensive security engineering capabilities for application security, threat modeling, and compliance auditing. It helps security professionals design secure architectures, implement proper cryptography, and automate security assessments across multiple technology stacks.",
+  "userTitle": "Senior Security Engineering Toolkit",
+  "limitations": [
+    "Script templates require customization to implement specific security checks for your codebase",
+    "Automated tools cannot replace manual security reviews for complex vulnerability assessment",
+    "Penetration testing features require explicit authorization and proper legal scope",
+    "Cryptography implementation requires understanding of security principles and algorithm selection",
+    "Security audits depend on code quality and completeness of the target codebase"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security Engineers",
+      "title": "Application Security Assessment",
+      "description": "Conduct comprehensive security audits of web applications, APIs, and mobile apps to identify and remediate vulnerabilities."
+    },
+    {
+      "targetUser": "DevSecOps Teams",
+      "title": "Threat Modeling for Projects",
+      "description": "Create automated threat models for new software projects by identifying assets, threats, and security controls."
+    },
+    {
+      "targetUser": "Architects",
+      "title": "Secure Architecture Design",
+      "description": "Design secure system architectures following zero-trust principles, defense in depth, and least privilege patterns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Security Audit",
+      "scenario": "Analyze codebase security",
+      "prompt": "Use the security auditor to analyze the codebase at [path]. Run the analysis and provide a detailed report of critical and high-severity security findings with remediation recommendations."
+    },
+    {
+      "title": "Create Threat Model",
+      "scenario": "Model security threats",
+      "prompt": "Create a threat model for [project name]. Identify assets, threat actors, attack vectors, and recommend appropriate security controls following STRIDE methodology."
+    },
+    {
+      "title": "Design Security Architecture",
+      "scenario": "Architect secure system",
+      "prompt": "Design a secure architecture for [system description] following the security architecture patterns reference. Include authentication, authorization, input validation, and audit logging."
+    },
+    {
+      "title": "Implement Cryptography",
+      "scenario": "Add encryption to data",
+      "prompt": "Implement secure encryption for [data type] using industry-standard algorithms. Use AES-256-GCM for symmetric encryption and RSA-2048 or higher for asymmetric encryption with proper key management."
+    }
+  ],
+  "bestPractices": [
+    "Validate and sanitize all user inputs to prevent injection attacks like SQL injection and XSS",
+    "Use parameterized queries or ORM frameworks for all database operations",
+    "Store passwords using strong hashing algorithms like bcrypt or Argon2 with unique salts",
+    "Implement HTTPS/TLS for all network communications and use certificate pinning in mobile apps",
+    "Follow the principle of least privilege for user permissions and service account access"
+  ],
+  "antiPatterns": [
+    "Hardcoding credentials, API keys, or secrets directly in source code",
+    "Using weak or deprecated cryptographic algorithms like MD5, SHA1, or DES",
+    "Trusting user input without validation or sanitization",
+    "Implementing custom cryptography instead of using established libraries"
+  ],
+  "faq": [
+    {
+      "question": "How do I run a security audit on my codebase?",
+      "answer": "Run 'python scripts/security_auditor.py <target-path> --verbose' to analyze the target directory. The script performs analysis and generates a report with security findings."
+    },
+    {
+      "question": "What permissions are needed for penetration testing?",
+      "answer": "You must have explicit written authorization before conducting any penetration tests. Use this skill only on systems you own or have proper legal scope to test."
+    },
+    {
+      "question": "Which cryptographic algorithms should I use?",
+      "answer": "Use AES-256-GCM for symmetric encryption, RSA-2048 or higher for asymmetric encryption, SHA-256 for hashing, and bcrypt for password storage."
+    },
+    {
+      "question": "How do I create a threat model?",
+      "answer": "Run 'python scripts/threat_modeler.py <project-path>' to generate a threat model. The tool identifies assets, threats, and recommends security controls."
+    },
+    {
+      "question": "What programming languages are supported?",
+      "answer": "This skill supports TypeScript, JavaScript, Python, Go, Swift, and Kotlin. It covers frameworks like React, Node.js, Express, and databases like PostgreSQL."
+    },
+    {
+      "question": "How often should security audits be performed?",
+      "answer": "Run automated audits on every code commit or pull request. Conduct comprehensive manual audits quarterly and after major feature additions."
+    }
+  ],
+  "seoKeywords": [
+    "senior security",
+    "threat modeling",
+    "security audit",
+    "penetration testing",
+    "cryptography implementation",
+    "security architecture",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "application security"
+  ],
+  "sourceUrl": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-security",
+  "sourceType": "community",
+  "dependencies": []
+}

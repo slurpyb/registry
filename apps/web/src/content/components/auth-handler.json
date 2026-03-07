@@ -1,0 +1,143 @@
+{
+  "name": "auth-handler",
+  "type": "skill",
+  "description": "Manage authentication, authorization, and user sessions. Use when dealing with login, sign-up, API protection, middleware, or user data fetching.",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "Next.js Auth",
+  "quality": 5,
+  "qualityReason": "Specific to Next.js and NextAuth v5",
+  "bundleHints": [
+    "nextjs-stack",
+    "security-toolkit",
+    "fullstack-auth"
+  ],
+  "tags": [
+    "api-protection",
+    "authentication",
+    "authorization",
+    "nextauth",
+    "secure-data-access",
+    "security",
+    "session-management",
+    "sessions"
+  ],
+  "capabilities": [
+    "Implement API route protection with NextAuth v5 wrapper functions",
+    "Configure authentication for standard routes, super admin routes, and cron jobs",
+    "Set up client-side authentication with SWR-based useUser hook",
+    "Implement server-side authentication checks and user data fetching",
+    "Configure NextAuth providers, adapters, and database schema",
+    "Apply defense-in-depth security patterns for authentication"
+  ],
+  "author": "AayushBaniya2006",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill provides documentation and guidance for implementing authentication in Next.js applications. All static findings are false positives. The external command patterns are TypeScript code examples in markdown documentation, not executable code. The network and filesystem references are metadata in JSON files. No actual security risks detected.",
+  "valueStatement": "Authentication implementation can be complex and error-prone, leading to security vulnerabilities. This skill provides clear guidelines for implementing secure authentication, authorization, and session management in Next.js applications using NextAuth v5 with defense-in-depth protection patterns.",
+  "userTitle": "Manage Next.js Authentication with NextAuth v5",
+  "limitations": [
+    "Focused specifically on Next.js applications with NextAuth v5",
+    "Assumes use of specific project structure with src directory",
+    "Does not cover authentication for other frameworks or libraries",
+    "References project-specific files that may not exist in all codebases"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building secure Next.js APIs",
+      "title": "API Route Protection",
+      "description": "Protect API routes by implementing authentication wrappers for standard routes, super admin routes, and cron jobs with defense-in-depth security patterns."
+    },
+    {
+      "targetUser": "Frontend developers building authenticated user interfaces",
+      "title": "Frontend Authentication State",
+      "description": "Implement client-side authentication state management using SWR-based useUser hook to access current user data in React components."
+    },
+    {
+      "targetUser": "Full-stack developers implementing server-side rendering with authentication",
+      "title": "Server-Side User Data Access",
+      "description": "Fetch user data and check authentication status on the server side using NextAuth session management and user plan retrieval functions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Protect an API Route",
+      "prompt": "Protect this API route with authentication using withAuthRequired",
+      "scenario": "Adding authentication to a new API endpoint"
+    },
+    {
+      "title": "Add Client Authentication",
+      "prompt": "Add user authentication to this React component using the useUser hook",
+      "scenario": "Displaying user-specific data in a frontend component"
+    },
+    {
+      "title": "Implement Super Admin Check",
+      "prompt": "Protect this admin route with super admin authentication using withSuperAdminAuthRequired",
+      "scenario": "Creating admin-only functionality"
+    },
+    {
+      "title": "Configure NextAuth Provider",
+      "prompt": "Add a new OAuth provider to the NextAuth configuration in auth.ts",
+      "scenario": "Extending authentication to support additional login methods"
+    }
+  ],
+  "bestPractices": [
+    "Always implement route-level authentication wrappers in addition to middleware for defense-in-depth security",
+    "Use the useUser hook for client components instead of useSession from next-auth react library",
+    "Configure environment variables for AUTH_SECRET, provider credentials, and SUPER_ADMIN_EMAILS before deployment"
+  ],
+  "antiPatterns": [
+    "Relying solely on middleware for authentication without individual route protection",
+    "Using useSession from next-auth react instead of the project-specific useUser hook",
+    "Assuming session.user contains complete user data instead of fetching with getUserPlan"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between withAuthRequired and withSuperAdminAuthRequired?",
+      "answer": "withAuthRequired protects routes for any authenticated user while withSuperAdminAuthRequired restricts access to users listed in the SUPER_ADMIN_EMAILS environment variable."
+    },
+    {
+      "question": "Why should I use useUser instead of useSession from next-auth?",
+      "answer": "The useUser hook is a project-specific wrapper that uses SWR for better caching and revalidation. It provides a consistent interface for accessing user data across client components."
+    },
+    {
+      "question": "How do I protect cron job endpoints?",
+      "answer": "Use the cronAuthRequired wrapper function specifically designed for automated task endpoints that need authentication without user sessions."
+    },
+    {
+      "question": "What is defense-in-depth for authentication?",
+      "answer": "Defense-in-depth means implementing multiple layers of security. Use both middleware for initial route filtering and individual route wrappers for guaranteed protection at the endpoint level."
+    },
+    {
+      "question": "Where do I configure OAuth providers like Google?",
+      "answer": "Configure OAuth providers in the src/auth.ts file. You will need to add provider credentials and set environment variables like GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET."
+    },
+    {
+      "question": "How do I access full user data in API routes?",
+      "answer": "The session.user object contains minimal data. Use getUserPlan with the user ID to fetch complete user information including subscription plan details from the database."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "NextAuth",
+    "authentication",
+    "Next.js security",
+    "API route protection",
+    "session management",
+    "authorization middleware",
+    "user authentication"
+  ],
+  "sourceUrl": "https://github.com/AayushBaniya2006/blinkfund/tree/main/.claude/skills/auth-handler",
+  "sourceType": "community",
+  "dependencies": []
+}

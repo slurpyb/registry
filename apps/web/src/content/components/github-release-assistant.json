@@ -1,0 +1,136 @@
+{
+  "name": "github-release-assistant",
+  "type": "skill",
+  "description": "Generate bilingual GitHub release documentation (README.md + README.zh.md) from repo metadata and user input, and guide release prep with git add/commit/push. Use when the user asks to write or polish README files, create bilingual docs, prepare a GitHub release, or mentions release assistant/README generation.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "bilingual releases",
+  "quality": 5,
+  "qualityReason": "Localization support",
+  "bundleHints": [
+    "documentation",
+    "release-management"
+  ],
+  "tags": [
+    "bilingual",
+    "documentation",
+    "git-ops",
+    "github",
+    "readme",
+    "release",
+    "release-prep"
+  ],
+  "capabilities": [
+    "Extract project metadata from config.json, README.md, and directory structure",
+    "Generate English README.md following Redmax-style formatting",
+    "Generate Chinese README.zh.md with matching content",
+    "Create documentation badges for license and Python version",
+    "Guide git add/commit/push workflow with user confirmation",
+    "Support custom configuration via release_assistant.json"
+  ],
+  "author": "ZhanlinCui",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 53 patterns but all are false positives. The 'weak cryptographic algorithm' warnings match MATLAB function names (BDF1, BDF2, ode45) in documentation, not actual crypto code. 'Ruby backtick execution' is Python code with markdown documentation formatting. Hardcoded URLs are standard badge images from shields.io. Unicode regex detects CJK characters for bilingual support. No malicious intent, no credential handling, no external API calls beyond static badge URLs.",
+  "valueStatement": "Creating polished release documentation takes time and requires consistency across languages. This skill automates bilingual README generation from your existing repo metadata.",
+  "userTitle": "Generate bilingual GitHub release documentation",
+  "limitations": [
+    "Requires existing repo structure with config.json or README.md for metadata extraction",
+    "Cannot create actual GitHub releases via API - only generates documentation files",
+    "Template customization requires editing template files in assets/ directory",
+    "Git operations require manual user confirmation at each step"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Open Source Project Maintainer",
+      "title": "Open Source Project Maintainer",
+      "description": "Generate consistent bilingual release documentation for each GitHub version release without manually writing both language versions."
+    },
+    {
+      "targetUser": "International Developer",
+      "title": "International Developer",
+      "description": "Quickly create Chinese and English README files for projects targeting both domestic and international audiences."
+    },
+    {
+      "targetUser": "Research Code Distribution",
+      "title": "Research Code Distribution",
+      "description": "Produce professional documentation for academic software releases with clear section structure and installation instructions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic README Generation",
+      "prompt": "Generate bilingual README files for my repository using the default template."
+    },
+    {
+      "title": "Custom Configuration",
+      "prompt": "Create README.md and README.zh.md using the settings in release_assistant.json for project name, features, and quickstart steps."
+    },
+    {
+      "title": "Selective Language Output",
+      "prompt": "Generate only the Chinese README (README.zh.md) using existing project metadata and overwrite if files exist."
+    },
+    {
+      "title": "Full Release Workflow",
+      "prompt": "Generate both README files, show me the git diff, then guide me through committing and pushing the changes with an appropriate commit message."
+    }
+  ],
+  "bestPractices": [
+    "Review generated README content before committing to ensure accuracy of extracted metadata",
+    "Create release_assistant.json with custom project details for consistent output across releases",
+    "Use git diff to preview changes before running git add and commit operations"
+  ],
+  "antiPatterns": [
+    "Do not commit generated README files without reviewing extracted content for accuracy",
+    "Avoid using --overwrite flag unless you intend to replace existing documentation completely",
+    "Do not run git push without first verifying the diff shows only intended documentation changes"
+  ],
+  "faq": [
+    {
+      "question": "What files does this skill need to generate documentation?",
+      "answer": "The skill reads config.json, README.md, PROJECT_STRUCTURE.md, requirements.txt, and LICENSE from your repository. At minimum it needs a repo directory to extract the project name."
+    },
+    {
+      "question": "Can I customize the README template?",
+      "answer": "Yes, edit the template files in assets/readme_template_en.md and assets/readme_template_zh.md or provide custom templates via --template-dir flag."
+    },
+    {
+      "question": "Does this skill create actual GitHub releases?",
+      "answer": "No, it only generates README documentation files. Creating GitHub releases via API requires additional permissions and is outside this skill's scope."
+    },
+    {
+      "question": "How does the skill handle bilingual content?",
+      "answer": "It detects Chinese/Japanese/Korean characters using regex and extracts content from existing documentation, or uses provided config values for both English and Chinese sections."
+    },
+    {
+      "question": "What if my project uses a different configuration format?",
+      "answer": "Create a release_assistant.json file in your repo root following the example in assets/release_config.example.json to provide custom metadata."
+    },
+    {
+      "question": "Is my code sent to external servers during generation?",
+      "answer": "No, all processing happens locally. The only external URLs are static badge images from shields.io embedded in the generated README markdown."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "GitHub release",
+    "README generator",
+    "bilingual documentation",
+    "release automation",
+    "documentation skill",
+    "Chinese English README"
+  ],
+  "sourceUrl": "https://github.com/ZhanlinCui/Ultimate-Agent-Skills-Collection/tree/main/github-release-assistant",
+  "sourceType": "community",
+  "dependencies": []
+}

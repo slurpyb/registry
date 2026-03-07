@@ -1,0 +1,146 @@
+{
+  "name": "ai-sdk-handler",
+  "type": "skill",
+  "description": "Integrate Vercel AI SDK for LLMs, Chatbots, Generative UI, and Agentic Workflows.",
+  "domain": "web-development",
+  "subdomain": "fullstack",
+  "specialty": "SDK integration",
+  "quality": 4,
+  "qualityReason": "Clear fullstack AI integration",
+  "bundleHints": [
+    "ai-frontend",
+    "generative-ui",
+    "llm-framework"
+  ],
+  "tags": [
+    "agentic-workflows",
+    "ai",
+    "ai-handlers",
+    "chatbot",
+    "chatbots",
+    "generative-ui",
+    "llm",
+    "llm-integration",
+    "nextjs",
+    "vercel",
+    "vercel-ai-sdk"
+  ],
+  "capabilities": [
+    "Implement streaming chat interfaces with useChat and streamText",
+    "Generate structured JSON outputs with type safety using generateObject and Zod schemas",
+    "Build generative UI applications that stream React components from the server",
+    "Create background AI agents with Inngest for long-running workflows",
+    "Configure multiple LLM providers including OpenAI and Anthropic",
+    "Handle multimodal inputs with image attachments in chat interfaces"
+  ],
+  "author": "AayushBaniya2006",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation and code examples for the Vercel AI SDK integration. All static findings are false positives: backticks in code examples were misidentified as shell commands, and legitimate API key environment variable usage follows Next.js security best practices. No executable code or security risks detected.",
+  "valueStatement": "Building AI-powered applications requires complex integration of LLMs, streaming, and state management. This skill provides comprehensive guidance for implementing chatbots, structured outputs, generative UI, and agent workflows using the Vercel AI SDK in Next.js applications.",
+  "userTitle": "Build AI Apps with Vercel AI SDK",
+  "limitations": [
+    "Focused on Vercel AI SDK only, not other AI frameworks or image generation",
+    "Examples are specific to Next.js App Router architecture",
+    "Requires existing knowledge of React, TypeScript, and Next.js fundamentals",
+    "Does not cover deployment, monitoring, or production optimization strategies"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers building customer-facing applications",
+      "title": "Customer Support Chatbot",
+      "description": "Build an interactive customer support chat interface with streaming responses, authentication, and conversation history tracking."
+    },
+    {
+      "targetUser": "Backend developers working with data processing workflows",
+      "title": "Data Extraction Pipeline",
+      "description": "Extract structured data from unstructured text using generateObject with Zod schemas for database population or form filling."
+    },
+    {
+      "targetUser": "Frontend developers building data visualization and analytics tools",
+      "title": "AI-Powered Dashboard",
+      "description": "Create dynamic dashboards with generative UI that renders custom React components based on LLM analysis and user queries."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Set up basic streaming chat",
+      "prompt": "Create a streaming chat API route at /api/chat with authentication that uses the Vercel AI SDK",
+      "scenario": "Starting a new chat feature in an existing Next.js application"
+    },
+    {
+      "title": "Extract structured data",
+      "prompt": "Build an API endpoint that extracts recipe information including name, ingredients, and steps from user-provided text using generateObject",
+      "scenario": "Converting unstructured recipe descriptions into structured database records"
+    },
+    {
+      "title": "Implement generative UI",
+      "prompt": "Create a generative UI route that can render weather cards or stock price components based on LLM tool calls",
+      "scenario": "Building a dashboard that dynamically renders components based on user queries"
+    },
+    {
+      "title": "Build background research agent",
+      "prompt": "Implement a multi-step research agent using Inngest that generates a research plan, executes steps, and synthesizes findings",
+      "scenario": "Creating long-running AI workflows that exceed serverless timeout limits"
+    }
+  ],
+  "bestPractices": [
+    "Always use authentication on AI API routes to prevent unauthorized access and control costs",
+    "Prefer streaming responses for text generation to improve perceived performance",
+    "Define Zod schemas for structured outputs to ensure type safety and validation"
+  ],
+  "antiPatterns": [
+    "Exposing AI routes without authentication leads to abuse and unexpected costs",
+    "Running long AI workflows in standard API routes will hit serverless timeout limits",
+    "Hardcoding API keys in code instead of using environment variables compromises security"
+  ],
+  "faq": [
+    {
+      "question": "When should I use ai-sdk-handler versus ai-handler?",
+      "answer": "Use ai-sdk-handler for text-based LLM features including chat, structured outputs, and agents. Use ai-handler for image and video generation with services like Replicate or Fal.ai."
+    },
+    {
+      "question": "How do I prevent API route timeouts for long AI tasks?",
+      "answer": "Use Inngest integration for workflows that exceed serverless limits. Trigger Inngest events from your UI and run multi-step AI logic in background functions with automatic retries and step tracking."
+    },
+    {
+      "question": "Can I use multiple LLM providers in the same application?",
+      "answer": "Yes, configure multiple providers in your AI library file. You can use OpenAI, Anthropic, or other supported providers and switch between them by passing different model instances to streamText or generateObject."
+    },
+    {
+      "question": "How do I handle authentication in AI routes?",
+      "answer": "Wrap your route handlers with withAuthRequired to verify user sessions. Always check session.user.id before processing requests and consider logging usage per user for cost tracking."
+    },
+    {
+      "question": "What is generative UI and when should I use it?",
+      "answer": "Generative UI uses streamUI to render React components from the server based on LLM decisions. Use it for dashboards or interfaces that need dynamic component rendering based on AI analysis."
+    },
+    {
+      "question": "How do I cache AI responses to reduce costs?",
+      "answer": "Use Next.js unstable_cache to cache responses for identical queries. Set appropriate revalidation times based on your use case. This works well for repetitive queries or reference data."
+    }
+  ],
+  "seoKeywords": [
+    "Vercel AI SDK",
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "LLM integration",
+    "chatbot development",
+    "streaming chat",
+    "generative UI",
+    "Next.js AI",
+    "structured outputs"
+  ],
+  "sourceUrl": "https://github.com/AayushBaniya2006/blinkfund/tree/main/.claude/skills/ai-sdk-handler",
+  "sourceType": "community",
+  "dependencies": []
+}

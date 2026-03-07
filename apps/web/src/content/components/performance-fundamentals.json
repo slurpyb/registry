@@ -1,0 +1,144 @@
+{
+  "name": "performance-fundamentals",
+  "type": "skill",
+  "description": "Auto-invoke when reviewing loops, data fetching, rendering, database queries, or resource-intensive operations. Identifies N+1 queries, unnecessary re-renders, memory leaks, and scalability issues.",
+  "domain": "performance",
+  "subdomain": "optimization",
+  "specialty": "anti-pattern detection",
+  "quality": 5,
+  "qualityReason": "Clear triggers and issues covered",
+  "bundleHints": [
+    "performance-stack",
+    "code-review-toolkit"
+  ],
+  "tags": [
+    "data-fetching",
+    "database",
+    "frontend",
+    "loops",
+    "memory-leaks",
+    "n+1-queries",
+    "optimization",
+    "performance",
+    "re-renders",
+    "scalability"
+  ],
+  "capabilities": [
+    "Detects N+1 database query patterns in loops",
+    "Identifies unnecessary React component re-renders",
+    "Reviews API response size and optimization opportunities",
+    "Checks for memory leaks and missing cleanup in effects",
+    "Analyzes time and space complexity of algorithms",
+    "Suggests pagination, caching, and memoization strategies"
+  ],
+  "author": "DanielPodolsky",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing performance best practices and review guidelines. No executable code, network calls, or file system access detected. All 30 static findings are false positives triggered by technical keywords in performance documentation. The skill-report.json already contains a passing security audit confirming safe-to-publish status.",
+  "valueStatement": "Performance issues slow down applications and frustrate users. This skill automatically identifies optimization opportunities in your code. It reviews database queries, frontend rendering, API responses, and resource usage to find bottlenecks.",
+  "userTitle": "Optimize Code Performance Automatically",
+  "limitations": [
+    "Requires code context to be provided",
+    "Cannot automatically implement performance fixes",
+    "Identifies common patterns, may miss edge cases",
+    "Suggestions require developer review and implementation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Database Query Optimization",
+      "description": "Review API endpoints and data access patterns to eliminate N+1 queries and improve response times."
+    },
+    {
+      "targetUser": "Frontend developers",
+      "title": "React Performance Review",
+      "description": "Analyze React components for unnecessary re-renders, memoization opportunities, and bundle size issues."
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Performance Checklist",
+      "description": "Ensure pull requests meet performance standards before merging into production codebases."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Database Review",
+      "scenario": "Reviewing API with multiple queries",
+      "prompt": "Review this API endpoint for database performance issues: [paste code]. Check for N+1 queries, missing indexes, and pagination opportunities."
+    },
+    {
+      "title": "React Component",
+      "scenario": "Analyzing React render performance",
+      "prompt": "Analyze this React component for performance issues: [paste code]. Look for unnecessary re-renders, missing memoization, and optimization opportunities."
+    },
+    {
+      "title": "Code Review",
+      "scenario": "General performance review",
+      "prompt": "Review this code for performance bottlenecks: [paste code]. Consider time complexity, memory usage, and scalability at 10k+ items."
+    },
+    {
+      "title": "API Optimization",
+      "scenario": "Reviewing API response structure",
+      "prompt": "Optimize this API response: [paste JSON]. Suggest field selection, pagination, compression, and caching strategies."
+    }
+  ],
+  "bestPractices": [
+    "Always check for N+1 queries when fetching related records in loops",
+    "Use pagination for any list endpoint that could exceed 100 items",
+    "Memoize expensive computations and callbacks to prevent unnecessary recalculation"
+  ],
+  "antiPatterns": [
+    "Fetching all records without pagination or limits",
+    "Creating new functions or objects inside render methods",
+    "Forgetting to clean up intervals, subscriptions, and event listeners"
+  ],
+  "faq": [
+    {
+      "question": "Which frameworks does this support?",
+      "answer": "Works with any framework. Examples include React, Vue, Node.js, Python, Ruby, and SQL databases."
+    },
+    {
+      "question": "How does it detect performance issues?",
+      "answer": "Analyzes code patterns against known anti-patterns like N+1 queries, missing memoization, and scalability bottlenecks."
+    },
+    {
+      "question": "Can it fix issues automatically?",
+      "answer": "No, it identifies issues and suggests solutions. Developers implement the optimizations based on recommendations."
+    },
+    {
+      "question": "What data does it access?",
+      "answer": "Only reviews code you paste or share. No file system access, network calls, or data collection."
+    },
+    {
+      "question": "How accurate are the suggestions?",
+      "answer": "Based on established performance patterns. Always test optimizations in your specific context before deploying."
+    },
+    {
+      "question": "Is this suitable for beginners?",
+      "answer": "Yes. Includes explanations and examples to help developers learn performance concepts and best practices."
+    }
+  ],
+  "seoKeywords": [
+    "performance optimization",
+    "code review",
+    "database queries",
+    "React performance",
+    "N+1 queries",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "frontend optimization",
+    "scalability"
+  ],
+  "sourceUrl": "https://github.com/DanielPodolsky/mentor-spec/tree/main/.claude/skills/fundamentals/performance",
+  "sourceType": "community",
+  "dependencies": []
+}

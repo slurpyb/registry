@@ -1,0 +1,141 @@
+{
+  "name": "notebooklm-manager",
+  "type": "skill",
+  "description": "Manage NotebookLM notebook queries and registry tasks through a Chrome-connected subagent.",
+  "domain": "tools",
+  "subdomain": "browser",
+  "specialty": "Chrome automation",
+  "quality": 4,
+  "qualityReason": "Clear use case with automation",
+  "bundleHints": [
+    "ai-research-toolkit",
+    "browser-automation",
+    "knowledge-management"
+  ],
+  "tags": [
+    "chrome-automation",
+    "knowledge-base",
+    "notebook-management",
+    "notebooklm",
+    "registry",
+    "research-workflows",
+    "subagent"
+  ],
+  "capabilities": [
+    "Detect NotebookLM requests and extract notebook ID and question.",
+    "Look up notebook URLs from a local registry file.",
+    "Trigger a Chrome-connected subagent to submit NotebookLM queries.",
+    "Ask once per notebook whether to clear chat history.",
+    "Return responses with a structured answer and citation section."
+  ],
+  "author": "LeeJuOh",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static findings are dominated by markdown command examples and documentation URLs in SKILL.md and reference files. No executable shell or cryptographic code is present in the skill instructions. The skill reads and writes local notebook metadata files, so standard filesystem caution applies.",
+  "valueStatement": "Finding answers across many NotebookLM notebooks is slow and repetitive. This skill routes NotebookLM queries and manages notebook entries through a guided Chrome automation flow.",
+  "userTitle": "Query NotebookLM notebooks from Claude Code",
+  "limitations": [
+    "Requires the Claude in Chrome extension and an active browser session.",
+    "Cannot browse general websites or local files outside the notebook registry.",
+    "Relies on NotebookLM availability and user authentication in Chrome.",
+    "Does not validate or correct NotebookLM content beyond returned text."
+  ],
+  "useCases": [
+    {
+      "targetUser": "Researcher",
+      "title": "Research recall",
+      "description": "Ask a specific NotebookLM notebook a targeted question and receive a cited answer."
+    },
+    {
+      "targetUser": "Product manager",
+      "title": "Product brief lookup",
+      "description": "Query a product notes notebook for a feature detail before a meeting."
+    },
+    {
+      "targetUser": "Support lead",
+      "title": "Support knowledge check",
+      "description": "Search a troubleshooting notebook for a known fix and confirm context."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List available notebooks",
+      "prompt": "List my NotebookLM notebooks and show their IDs.",
+      "scenario": "Beginner"
+    },
+    {
+      "title": "Query a notebook by ID",
+      "prompt": "Query notebook claude-docs about rate limits and summarize the answer with citations.",
+      "scenario": "Intermediate"
+    },
+    {
+      "title": "Add a new notebook URL",
+      "prompt": "Add this NotebookLM URL to my registry and name it onboarding-notes: https://notebooklm.google.com/notebook/XXXX.",
+      "scenario": "Intermediate"
+    },
+    {
+      "title": "Fill coverage gaps",
+      "prompt": "Ask my notebook about onboarding policies, then check for missing topics from my question and follow up if needed.",
+      "scenario": "Advanced"
+    }
+  ],
+  "bestPractices": [
+    "Use specific notebook IDs and clear questions to reduce follow-ups.",
+    "Keep NotebookLM open and authenticated before running queries.",
+    "Confirm whether to clear chat history for sensitive topics."
+  ],
+  "antiPatterns": [
+    "Requesting general web searches outside NotebookLM.",
+    "Providing a notebook name without an ID or URL.",
+    "Expecting file uploads or local disk scanning."
+  ],
+  "faq": [
+    {
+      "question": "Does this skill read my local files?",
+      "answer": "It only reads and writes its own notebook registry files under the skill data folder."
+    },
+    {
+      "question": "Can it browse the web?",
+      "answer": "No. It only interacts with NotebookLM through the Chrome automation flow."
+    },
+    {
+      "question": "What if Chrome is not connected?",
+      "answer": "It will ask you to reconnect the Claude in Chrome extension and try again."
+    },
+    {
+      "question": "Does it store notebook content?",
+      "answer": "It stores notebook metadata and IDs, not the notebook content itself."
+    },
+    {
+      "question": "Can I clear NotebookLM chat history?",
+      "answer": "Yes, it asks once per notebook session whether to clear history before a query."
+    },
+    {
+      "question": "Which tools are supported?",
+      "answer": "It is compatible with Claude, Codex, and Claude Code when Chrome integration is available."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "NotebookLM",
+    "notebook query",
+    "Chrome automation",
+    "knowledge base",
+    "research assistant",
+    "notebook management",
+    "source citations"
+  ],
+  "sourceUrl": "https://github.com/LeeJuOh/claude-code-zero/tree/main/plugins/notebooklm-connector/skills/notebooklm-manager",
+  "sourceType": "community",
+  "dependencies": []
+}

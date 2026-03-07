@@ -1,0 +1,139 @@
+{
+  "name": "scientific-slides",
+  "type": "skill",
+  "description": "Build slide decks and presentations for research talks. Use this for making PowerPoint slides, conference presentations, seminar talks, research presentations, thesis defense slides, or any scientific talk. Provides slide structure, design templates, timing guidance, and visual validation. Works with PowerPoint and LaTeX Beamer.",
+  "domain": "design",
+  "subdomain": "visualization",
+  "specialty": "research presentations",
+  "quality": 5,
+  "qualityReason": "High-value, common need",
+  "bundleHints": [
+    "scientific-communication",
+    "presentation-tools"
+  ],
+  "tags": [
+    "ai-generated",
+    "defense",
+    "latex",
+    "presentations",
+    "scientific",
+    "slides",
+    "visualization"
+  ],
+  "capabilities": [
+    "Generate complete presentation slides using AI image generation",
+    "Create LaTeX Beamer presentations with provided templates",
+    "Validate presentations for timing, slide count, and design quality",
+    "Convert slide images to PDF for distribution",
+    "Provide design guidance for scientific presentations"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "The skill is a legitimate scientific presentation tool. Static findings are primarily false positives from documentation patterns. Network access is for documented AI image generation with user-provided API keys. Subprocess calls are for local PDF/image operations. No malicious intent or data exfiltration patterns found.",
+  "valueStatement": "This skill helps researchers create professional presentations for conferences, seminars, and thesis defenses. It provides slide templates, design guidance, and AI-powered image generation for PowerPoint and LaTeX Beamer formats.",
+  "userTitle": "Create scientific presentations with AI",
+  "limitations": [
+    "Requires OpenRouter API key for AI slide generation features",
+    "Does not create editable PowerPoint files directly (generates images)",
+    "Design templates require customization for specific use cases"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Researchers",
+      "title": "Conference presentation",
+      "description": "Generate slides for academic conferences with proper citations and professional design"
+    },
+    {
+      "targetUser": "Graduate students",
+      "title": "Thesis defense",
+      "description": "Create comprehensive defense presentations with structured narrative and visual aids"
+    },
+    {
+      "targetUser": "Scientists",
+      "title": "Seminar talks",
+      "description": "Build detailed seminar presentations with LaTeX Beamer for mathematical content"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic slide",
+      "scenario": "Create a single presentation slide",
+      "prompt": "Create a presentation slide titled [TITLE] with these key points: [POINTS]. Use a [COLOR] color scheme with modern design."
+    },
+    {
+      "title": "With citations",
+      "scenario": "Add research citations to a slide",
+      "prompt": "Create a slide titled [TITLE] with content about [TOPIC]. Include citations at bottom: (Author et al., YEAR; Author2 et al., YEAR2)."
+    },
+    {
+      "title": "Consistent style",
+      "scenario": "Match previous slide styling",
+      "prompt": "Create a slide titled [TITLE] with [CONTENT]. FORMATTING GOAL: Match attached slide style exactly - same colors, fonts, and design."
+    },
+    {
+      "title": "Visual figure",
+      "scenario": "Generate a figure for embedding",
+      "prompt": "Generate a professional diagram showing [CONCEPT]. Modern flat design, suitable for scientific presentations. Output just the visual."
+    }
+  ],
+  "bestPractices": [
+    "Plan your narrative arc before generating slides - follow the story structure: hook, context, problem, approach, results, implications",
+    "Maintain visual consistency by attaching previous slides and reusing formatting goals across all slides",
+    "Use research-lookup to find proper citations and add 3-5 citations in introduction and discussion sections"
+  ],
+  "antiPatterns": [
+    "Creating text-heavy slides with more than 6 bullet points per slide - violates visual-first design principle",
+    "Using default PowerPoint or Beamer themes without customization - looks generic and unprofessional",
+    "Skipping practice sessions - always practice with timer at least 3 times before presentation"
+  ],
+  "faq": [
+    {
+      "question": "Does this create editable PowerPoint files?",
+      "answer": "It generates slide images for PDF workflow. For editable PPTX, use --visual-only flag and combine with PPTX skill."
+    },
+    {
+      "question": "What API key do I need?",
+      "answer": "An OpenRouter API key for AI image generation. Get one at openrouter.ai/keys and set OPENROUTER_API_KEY environment variable."
+    },
+    {
+      "question": "Can I use this without AI generation?",
+      "answer": "Yes. Use the LaTeX Beamer templates and validation scripts without requiring API keys for local workflow."
+    },
+    {
+      "question": "What presentation formats are supported?",
+      "answer": "PDF workflow (AI-generated slides), PowerPoint (via generated images), and LaTeX Beamer (native templates)."
+    },
+    {
+      "question": "How many slides for a 15-minute talk?",
+      "answer": "Target 15-18 slides following the one-slide-per-minute guideline. Adjust for complexity - simple slides take less time."
+    },
+    {
+      "question": "Does it include citations and references?",
+      "answer": "The skill integrates with research-lookup for finding papers. You add citations to prompts, and AI includes them on generated slides."
+    }
+  ],
+  "seoKeywords": [
+    "scientific presentations",
+    "conference slides",
+    "thesis defense",
+    "AI presentation generator",
+    "LaTeX Beamer",
+    "PowerPoint slides",
+    "scientific talks",
+    "research presentations",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/scientific-slides",
+  "sourceType": "community",
+  "dependencies": []
+}

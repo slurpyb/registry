@@ -1,0 +1,140 @@
+{
+  "name": "flow-tdd",
+  "type": "skill",
+  "description": "Enforces TDD Iron Law in flow-dev. NO PRODUCTION CODE WITHOUT A FAILING TEST FIRST.",
+  "domain": "testing",
+  "subdomain": "unit",
+  "specialty": "test enforcement",
+  "quality": 5,
+  "qualityReason": "Rigorous development rule",
+  "bundleHints": [
+    "testing-framework",
+    "flow-dev"
+  ],
+  "tags": [
+    "code-quality",
+    "development-process",
+    "discipline",
+    "failing-test",
+    "tdd",
+    "testing"
+  ],
+  "capabilities": [
+    "Enforces TDD Iron Law: no production code without failing test first",
+    "Validates test execution with checkpoint verification",
+    "Provides error recording protocol for test failures",
+    "Prevents rationalization and shortcuts during development",
+    "Documents test quality requirements for good tests",
+    "Integrates with flow-dev phases for TDD workflow"
+  ],
+  "author": "Dimon94",
+  "icon": "🧪",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure Markdown documentation skill containing TDD guidelines and error recording protocols. No executable code, scripts, network calls, or filesystem access. This is a policy document for AI agent behavior enforcement. All 56 static findings are false positives triggered by documentation patterns (Markdown backticks, relative links, hash metadata fields).",
+  "valueStatement": "AI coding workflows often skip tests or write them after code, leading to untested functionality and hidden bugs. This skill enforces the TDD Iron Law: no production code until a failing test exists. It provides enforcement checkpoints, error recording protocols, and rationalization prevention to ensure every feature has proper test coverage.",
+  "userTitle": "Enforce Test-Driven Development Discipline",
+  "limitations": [
+    "Enforces discipline but cannot automatically run test commands",
+    "Requires user to execute test commands manually or via other tools",
+    "Cannot prevent code from being written in editor outside AI context",
+    "Does not generate test code automatically"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developers",
+      "title": "Maintain Test Coverage",
+      "description": "Enforce TDD discipline in AI-assisted coding to ensure every feature has failing test before implementation"
+    },
+    {
+      "targetUser": "QA Engineers",
+      "title": "Validate Test Quality",
+      "description": "Use checkpoint system to verify tests fail before code and pass after implementation"
+    },
+    {
+      "targetUser": "AI Agent Developers",
+      "title": "Embed TDD Workflows",
+      "description": "Integrate TDD enforcement into AI coding agents for consistent test-first development"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start New Feature",
+      "scenario": "Begin feature implementation with TDD",
+      "prompt": "Use flow-tdd to implement this feature. Start by writing failing tests that define the expected behavior before any production code."
+    },
+    {
+      "title": "Verify Tests Fail",
+      "scenario": "Check test execution before coding",
+      "prompt": "flow-tdd: Run tests to confirm new tests fail. Do not proceed until all new tests fail with expected errors."
+    },
+    {
+      "title": "Implement Minimal Code",
+      "scenario": "Write code to pass tests",
+      "prompt": "flow-tdd: Implement minimal code to make the failing tests pass. No extra features. One test at a time."
+    },
+    {
+      "title": "Record Errors",
+      "scenario": "Log test failures systematically",
+      "prompt": "flow-tdd: Record this test failure in ERROR_LOG.md with timestamp, phase, error type, root cause, and resolution."
+    }
+  ],
+  "bestPractices": [
+    "Always run tests after writing them to confirm they fail before implementation",
+    "Write only enough code to pass the current failing test, avoid speculative features",
+    "Record every test failure and its resolution in ERROR_LOG.md for future reference"
+  ],
+  "antiPatterns": [
+    "Writing production code before tests - violates TDD Iron Law",
+    "Tests that pass immediately - proves nothing and indicates invalid test",
+    "Keeping exploration code without tests - delete and restart with TDD"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill run tests automatically?",
+      "answer": "No. The skill enforces TDD discipline and provides protocols. You must execute test commands via your terminal or test runner."
+    },
+    {
+      "question": "What happens if tests pass immediately?",
+      "answer": "This is a red flag. Passing tests immediately mean either the test is invalid or code already exists. Delete the code and restart with tests first."
+    },
+    {
+      "question": "Can I skip tests for simple code?",
+      "answer": "No. Simple code breaks. The TDD Iron Law has no exceptions. All production code requires failing tests first."
+    },
+    {
+      "question": "How does this integrate with Claude Code?",
+      "answer": "The skill provides prompts and workflows that can be invoked when asking Claude Code to implement features. It works with any AI coding tool."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes. This is a documentation-only skill. It does not access files, networks, or execute code. It only provides guidelines and protocols."
+    },
+    {
+      "question": "How is this different from other testing tools?",
+      "answer": "This skill enforces workflow discipline rather than running tests. It complements test runners by ensuring tests are written first and quality requirements are met."
+    }
+  ],
+  "seoKeywords": [
+    "test-driven development",
+    "TDD",
+    "Claude Code",
+    "testing discipline",
+    "code quality",
+    "AI coding",
+    "test-first",
+    "unit testing",
+    "CI/CD",
+    "software engineering"
+  ],
+  "sourceUrl": "https://github.com/Dimon94/cc-devflow/tree/main/.claude/skills/flow-tdd",
+  "sourceType": "community",
+  "dependencies": []
+}

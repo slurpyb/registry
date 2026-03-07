@@ -1,0 +1,142 @@
+{
+  "name": "notion-api",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"search Notion\", \"find in Notion\", \"search my Notion workspace\", \"create Notion page\", \"make a Notion page\", \"update Notion page\", \"edit Notion page\", \"query Notion database\", \"get Notion database\", \"read Notion page\", \"get page content from Notion\", \"list Notion pages\", or mentions Notion integration, Notion workspace, or Notion API access.",
+  "domain": "cms",
+  "subdomain": "headless-cms",
+  "specialty": "API integration",
+  "quality": 5,
+  "qualityReason": "Well-defined API actions",
+  "bundleHints": [
+    "notion-stack",
+    "cms-integrations",
+    "productivity-automation"
+  ],
+  "tags": [
+    "api",
+    "documentation",
+    "integration",
+    "notion",
+    "page-management",
+    "search",
+    "workspace"
+  ],
+  "capabilities": [
+    "Search pages and databases across your Notion workspace",
+    "Get, create, and update Notion pages with properties and icons",
+    "Query databases with filters, sorting, and pagination",
+    "Read page content as structured blocks with nested children"
+  ],
+  "author": "BLTGV",
+  "icon": "📝",
+  "version": "0.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All 240 static findings are false positives. The analyzer misidentified markdown code formatting and JavaScript template literals as shell command execution. No actual command injection, crypto usage, or malicious patterns exist. This is a legitimate Notion API wrapper that makes HTTP requests to api.notion.com using environment-based authentication.",
+  "valueStatement": "Notion workspaces contain valuable documentation, tasks, and project data. This skill provides a TypeScript interface to search, read, and manage Notion content through the official API. Enable AI assistants to retrieve information from your knowledge base and create structured updates.",
+  "userTitle": "Access Notion pages, databases, and content via API",
+  "limitations": [
+    "Requires NOTION_TOKEN environment variable with Notion integration setup",
+    "Pages and databases must be shared with the integration to be accessible",
+    "Rate limited to approximately 3 requests per second by Notion API",
+    "Cannot create or modify block content within pages directly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Knowledge workers",
+      "title": "Search team documentation",
+      "description": "Find meeting notes, project specs, and reference docs stored in Notion"
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Query task databases",
+      "description": "Retrieve and filter task lists with status, priority, and due date criteria"
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Automate Notion updates",
+      "description": "Create pages and entries from CI/CD pipelines or automated workflows"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic search",
+      "scenario": "Find information in Notion",
+      "prompt": "Search Notion for pages matching \"{query}\""
+    },
+    {
+      "title": "Database query",
+      "scenario": "Filter database entries",
+      "prompt": "Query the Notion database {id} for entries where Status equals \"Done\""
+    },
+    {
+      "title": "Page creation",
+      "scenario": "Create new page",
+      "prompt": "Create a new Notion page under {parent_id} with title \"{title}\""
+    },
+    {
+      "title": "Content retrieval",
+      "scenario": "Read page blocks",
+      "prompt": "List all blocks from Notion page {id} recursively"
+    }
+  ],
+  "bestPractices": [
+    "Set up a dedicated Notion integration with minimal required capabilities",
+    "Share only necessary pages and databases with the integration",
+    "Implement error handling for auth_required responses from the skill",
+    "Respect Notion API rate limits by batching requests when possible"
+  ],
+  "antiPatterns": [
+    "Storing NOTION_TOKEN in source code or version control",
+    "Sharing the integration with entire workspaces unnecessarily",
+    "Making excessive API calls without pagination or rate limiting",
+    "Ignoring error responses from the Notion API"
+  ],
+  "faq": [
+    {
+      "question": "How do I set up the Notion integration?",
+      "answer": "Go to notion.so/my-integrations, create a new integration, copy the secret token, and set NOTION_TOKEN environment variable."
+    },
+    {
+      "question": "Why am I getting access denied errors?",
+      "answer": "Pages and databases must be shared with your integration. Open them in Notion, click the menu, and add your integration as a connection."
+    },
+    {
+      "question": "Can this skill write content to pages?",
+      "answer": "This skill can create pages and update page properties but cannot modify block content within existing pages."
+    },
+    {
+      "question": "How many requests can I make?",
+      "answer": "Notion API allows approximately 3 requests per second on average. The skill returns errors when rate limited."
+    },
+    {
+      "question": "What formats are supported for filters?",
+      "answer": "Filters use Notion's filter syntax with JSON objects for properties, checkboxes, dates, select fields, and compound conditions."
+    },
+    {
+      "question": "Can I search both pages and databases?",
+      "answer": "Yes, the search function defaults to both. Use the filter option to limit results to pages or databases only."
+    }
+  ],
+  "seoKeywords": [
+    "notion api",
+    "notion integration",
+    "claude",
+    "codex",
+    "claude code",
+    "search notion",
+    "notion database query",
+    "notion pages",
+    "workspace integration",
+    "documentation"
+  ],
+  "sourceUrl": "https://github.com/BLTGV/agent-skills/tree/master/skills/notion",
+  "sourceType": "community",
+  "dependencies": []
+}

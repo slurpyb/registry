@@ -1,0 +1,143 @@
+{
+  "name": "react-19",
+  "type": "skill",
+  "description": "Guide for React 19 development with Actions, Server Components, and new hooks. Use for building React 19 apps, form handling, optimistic updates, and migrations.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "React 19",
+  "quality": 5,
+  "qualityReason": "Clear React 19 feature-specific guidance",
+  "bundleHints": [
+    "react-stack",
+    "frontend-toolkit",
+    "modern-web"
+  ],
+  "tags": [
+    "actions",
+    "forms",
+    "frontend",
+    "hooks",
+    "migration",
+    "react",
+    "react-19",
+    "server-components"
+  ],
+  "capabilities": [
+    "Create forms with useActionState for automatic pending and error states",
+    "Implement optimistic UI updates with useOptimistic hook for instant feedback",
+    "Build Server Components for server-side rendering and data fetching",
+    "Write secure Server Actions with authentication and input validation",
+    "Stream components progressively with Suspense boundaries",
+    "Migrate applications from React 18 to React 19 using codemods"
+  ],
+  "author": "Calel33",
+  "icon": "⚛️",
+  "version": "2.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown files with React 19 guidance. All 526 static findings are FALSE POSITIVES. The 'Ruby/shell backtick execution' detections are markdown code block syntax. Environment variables, network calls, and credential patterns are educational examples demonstrating secure coding practices. No executable code, scripts, or malicious behavior exists.",
+  "valueStatement": "React 19 introduces Actions, Server Components, and new hooks that simplify async operations and improve developer experience. This guide provides complete patterns for building, securing, and migrating React 19 applications.",
+  "userTitle": "Build Modern React 19 Applications",
+  "limitations": [
+    "Does not include runnable code samples or project templates",
+    "Does not generate or modify user code directly",
+    "Does not install or configure React dependencies",
+    "Assumes basic React knowledge and development environment setup"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Learn React 19 Patterns",
+      "description": "Understand new hooks, Server Components, and Actions through detailed documentation examples."
+    },
+    {
+      "targetUser": "React developers",
+      "title": "Upgrade React Applications",
+      "description": "Follow step-by-step migration guides from React 18 to React 19 with codemods."
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Build Server Actions",
+      "description": "Create secure server-side mutations with authentication, validation, and revalidation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic form pattern",
+      "scenario": "Creating a form with React 19",
+      "prompt": "How do I create a form with useActionState in React 19? Show me the pattern for handling pending state and errors."
+    },
+    {
+      "title": "Optimistic updates",
+      "scenario": "Adding instant feedback",
+      "prompt": "Show me how to use useOptimistic for instant UI updates that revert on error in React 19."
+    },
+    {
+      "title": "Server Actions",
+      "scenario": "Building server mutations",
+      "prompt": "How do I write a secure Server Action in React 19 with authentication and input validation?"
+    },
+    {
+      "title": "Migration guide",
+      "scenario": "Upgrading from React 18",
+      "prompt": "What are the key steps to migrate from React 18 to React 19? Include breaking changes and codemods."
+    }
+  ],
+  "bestPractices": [
+    "Always authenticate and authorize Server Actions - they are public endpoints by default",
+    "Read environment variables inside functions, not at module scope, to prevent client bundle exposure",
+    "Validate all user input with schema validation like Zod before processing in Server Actions"
+  ],
+  "antiPatterns": [
+    "Passing secrets or API keys as props to Client Components",
+    "Using dangerouslySetInnerHTML without sanitizing user input first",
+    "Skipping authentication checks in Server Actions"
+  ],
+  "faq": [
+    {
+      "question": "Is React 19 compatible with my existing React 18 code?",
+      "answer": "React 19 has breaking changes. Start by upgrading to React 18.3 to fix warnings, then apply codemods before migrating."
+    },
+    {
+      "question": "What are the main new features in React 19?",
+      "answer": "Key features include useActionState for forms, useOptimistic for instant UI, use() for conditional promises, and Server Actions."
+    },
+    {
+      "question": "How do I use Server Components with Next.js?",
+      "answer": "Next.js 15+ supports React 19 Server Components. Components are server-side by default with async and await support."
+    },
+    {
+      "question": "Does this skill store or transmit any user data?",
+      "answer": "No. This is a documentation-only skill. It contains markdown files with guidance and does not access user data or systems."
+    },
+    {
+      "question": "Why am I getting errors after migrating to React 19?",
+      "answer": "Common issues include useRef requiring an argument, forwardRef being deprecated, and needing modern JSX transform in tsconfig."
+    },
+    {
+      "question": "How does React 19 compare to Next.js App Router?",
+      "answer": "React 19 provides the foundational features. Next.js App Router implements Server Components and Actions on top of React 19."
+    }
+  ],
+  "seoKeywords": [
+    "react 19",
+    "react 19 tutorial",
+    "react server components",
+    "server actions",
+    "useActionState",
+    "useOptimistic",
+    "react hooks",
+    "react migration",
+    "react forms",
+    "claude"
+  ],
+  "sourceUrl": "https://github.com/Calel33/my-flash-ui-app--1-/tree/main/skills/react-19",
+  "sourceType": "community",
+  "dependencies": []
+}

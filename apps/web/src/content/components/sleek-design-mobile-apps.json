@@ -1,0 +1,144 @@
+{
+  "name": "sleek-design-mobile-apps",
+  "type": "skill",
+  "description": "Use when the user wants to design a mobile app, create screens, build UI, or interact with their Sleek projects. Covers high-level requests (\"design an app that does X\") and specific ones (\"list my projects\", \"create a new project\", \"screenshot that screen\").",
+  "domain": "mobile",
+  "subdomain": "cross-platform",
+  "specialty": "UI generation",
+  "quality": 4,
+  "qualityReason": "Good scope with specific API use",
+  "bundleHints": [
+    "mobile-stack",
+    "design-to-code",
+    "app-dev"
+  ],
+  "tags": [
+    "ai-design",
+    "app-development",
+    "mobile-app-design",
+    "prototyping",
+    "screens",
+    "sleek-api",
+    "ui-generator"
+  ],
+  "capabilities": [
+    "Create and manage mobile app projects via Sleek API",
+    "Generate UI screens from natural language descriptions",
+    "List and retrieve project components and screens",
+    "Render and deliver screenshots of designed screens",
+    "Poll async generation status for long-running tasks",
+    "Handle authentication via API key with scoped permissions"
+  ],
+  "author": "sleekdotdesign",
+  "icon": "📱",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a legitimate API client for the Sleek mobile app design service. The static analyzer flagged patterns (external commands, network access, environment variables) but all are false positives - they represent expected API client behavior documented in SKILL.md. No malicious code execution, data exfiltration, or prompt injection was found.",
+  "valueStatement": "This skill enables Claude and Codex to design mobile app UIs using the Sleek AI design platform. Users describe what they want in plain language, and the skill creates projects, generates screens, and delivers rendered screenshots.",
+  "userTitle": "Design Mobile Apps with AI",
+  "limitations": [
+    "Requires a Sleek API key with appropriate scopes (Pro+ plan)",
+    "Limited to HTTPS requests to https://sleek.design only",
+    "Cannot create accounts or manage API keys - user must provide them",
+    "Single active run per project - concurrent requests will conflict"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers and designers who need quick visual prototypes",
+      "title": "Rapid UI Prototyping",
+      "description": "Quickly generate mobile app screen mockups by describing desired UI in plain language. Ideal for prototyping and iterating on design ideas."
+    },
+    {
+      "targetUser": "Non-technical users who want to design without learning design tools",
+      "title": "Natural Language Design",
+      "description": "Create mobile interfaces by describing features conversationally. The skill translates natural language into rendered UI components."
+    },
+    {
+      "targetUser": "DevOps engineers and automation specialists",
+      "title": "Automated Design Workflow",
+      "description": "Integrate mobile UI generation into CI/CD pipelines or automated workflows. Use sync or async modes depending on timeout requirements."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create New Project",
+      "prompt": "Create a new Sleek project called \"[Project Name]\" and design a basic app with a home screen, settings screen, and navigation.",
+      "scenario": "Starting a new mobile app design from scratch"
+    },
+    {
+      "title": "Add Screen Features",
+      "prompt": "Add a pricing section with three pricing tiers to the [screen name] screen in project [project-id].",
+      "scenario": "Adding specific features to an existing screen"
+    },
+    {
+      "title": "Generate App from Description",
+      "prompt": "Design a fitness tracking app with workout logging, progress charts, and social sharing features. Include a home dashboard, workout entry, and profile screen.",
+      "scenario": "Creating a complete app from high-level requirements"
+    },
+    {
+      "title": "Edit Specific Screen",
+      "prompt": "Update the login screen in project [project-id] to include a \"forgot password\" link and social login buttons below the main form.",
+      "scenario": "Making targeted edits to existing screens"
+    }
+  ],
+  "bestPractices": [
+    "Use scoped API keys with minimum required permissions for better security",
+    "Use async mode with polling for long-running design generations to avoid timeouts",
+    "Always deliver screenshots after screen creation or modification as per the skill rules",
+    "Check project credits before large batch operations to avoid failures"
+  ],
+  "antiPatterns": [
+    "Do not send sensitive URLs in imageUrls field - Sleek servers will fetch them",
+    "Do not attempt concurrent runs on the same project - use polling instead",
+    "Do not assume sync mode will always complete within 300 seconds - have polling fallback",
+    "Do not use HTTP URLs - the API only accepts HTTPS"
+  ],
+  "faq": [
+    {
+      "question": "How do I get started with this skill?",
+      "answer": "You need a Sleek API key from https://sleek.design/dashboard/api-keys. Set it as the SLEEK_API_KEY environment variable. The key requires a Pro+ plan for API access."
+    },
+    {
+      "question": "Can I design any type of mobile app?",
+      "answer": "Yes, you can describe any app type in natural language. The Sleek AI interprets your description and generates appropriate screens. Complex apps may need multiple iterations."
+    },
+    {
+      "question": "How do screenshots work?",
+      "answer": "After every screen creation or update, the skill automatically renders and displays screenshots. Use the background: 'transparent' option for versatile image usage."
+    },
+    {
+      "question": "What happens if my API key lacks required scopes?",
+      "answer": "The API returns 403 FORBIDDEN. Check that your key has the correct scopes: projects:read/write, components:read, chats:read/write, and screenshots."
+    },
+    {
+      "question": "Can I edit specific screens without regenerating everything?",
+      "answer": "Yes, use the target.screenId field in chat messages to direct changes to a specific screen. The skill will only update that screen."
+    },
+    {
+      "question": "Is my design data secure?",
+      "answer": "All API communication uses HTTPS and stays within the Sleek service. No third-party access. Use minimal API key scopes and consider short-lived keys for added security."
+    }
+  ],
+  "seoKeywords": [
+    "mobile app design",
+    "AI UI generator",
+    "Sleek design tool",
+    "Claude Code skill",
+    "Codex skill",
+    "mobile UI design",
+    "app screen generator",
+    "AI design assistant",
+    "Sleek API",
+    "mobile app development"
+  ],
+  "sourceUrl": "https://github.com/sleekdotdesign/agent-skills/tree/main/skills/design-mobile-apps/",
+  "sourceType": "community",
+  "dependencies": []
+}

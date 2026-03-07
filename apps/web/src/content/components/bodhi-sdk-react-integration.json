@@ -1,0 +1,142 @@
+{
+  "name": "bodhi-sdk-react-integration",
+  "type": "skill",
+  "description": "Integrate React+Vite web apps with bodhi-js-sdk for local LLM integration. Use when user asks to: \"integrate bodhi\", \"add bodhi sdk\", \"connect to bodhi\", \"setup bodhi provider\", \"bodhi react integration\", \"deploy bodhi to github pages\", or troubleshoot bodhi-js-sdk connection/auth issues.\n",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "local LLM web",
+  "quality": 5,
+  "qualityReason": "Clear integration path",
+  "bundleHints": [
+    "local-llm",
+    "react-ai"
+  ],
+  "tags": [
+    "bodhi",
+    "chat",
+    "integration",
+    "llm",
+    "local-ai",
+    "react",
+    "sdk",
+    "vite"
+  ],
+  "capabilities": [
+    "Install bodhi-js-react package via npm and configure BodhiProvider",
+    "Implement OAuth 2.0 + PKCE authentication flow for local LLM access",
+    "Create streaming chat interface using AsyncGenerator pattern",
+    "Configure basePath for GitHub Pages deployment",
+    "Troubleshoot connection, authentication, and streaming issues",
+    "Implement model caching with browser localStorage"
+  ],
+  "author": "BodhiSearch",
+  "icon": "⚛️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill providing step-by-step guidance for integrating bodhi-js-sdk into React applications. All 438 static findings are false positives: the scanner misinterprets markdown code block delimiters (triple backticks) as Ruby shell backtick execution, legitimate Bodhi SDK endpoints as hardcoded network targets, and standard Vite environment variable patterns as sensitive data access. No executable code exists - only markdown documentation files (.md) with code examples for user reference.",
+  "valueStatement": "Users need to integrate local LLM capabilities into React applications. This skill provides step-by-step guidance for installing bodhi-js-sdk, configuring OAuth authentication, and building streaming chat interfaces with the Bodhi Browser ecosystem.",
+  "userTitle": "Add local LLM chat to React apps",
+  "limitations": [
+    "Requires Bodhi App backend running locally at localhost:1135",
+    "Requires OAuth client registration at developer.getbodhi.app",
+    "Chrome extension mode requires Bodhi Browser extension",
+    "Production OAuth requires real domain, not localhost"
+  ],
+  "useCases": [
+    {
+      "targetUser": "React developers",
+      "title": "Build local LLM chat",
+      "description": "Add streaming chat interface to React+Vite app using bodhi-js-react package"
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Deploy to GitHub Pages",
+      "description": "Configure basePath and OAuth for static site deployment with custom domains"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Troubleshoot integration",
+      "description": "Diagnose and fix connection, authentication, and streaming issues in production"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Integration",
+      "scenario": "Start new React project",
+      "prompt": "Add bodhi-js-sdk to my React+Vite project. Install the package, wrap my app with BodhiProvider using client ID from developer portal, and create a simple chat component."
+    },
+    {
+      "title": "GitHub Pages Setup",
+      "scenario": "Deploy to production",
+      "prompt": "Configure my bodhi-integrated React app for GitHub Pages. Set correct basePath in vite.config.ts and BodhiProvider, add 404.html redirect, and configure OAuth redirect URI."
+    },
+    {
+      "title": "OAuth Configuration",
+      "scenario": "Setup authentication",
+      "prompt": "Set up OAuth authentication for bodhi-js-sdk. Configure dev environment with localhost auth server and prod environment with production auth server using environment variables."
+    },
+    {
+      "title": "Streaming Chat",
+      "scenario": "Build chat interface",
+      "prompt": "Create a complete streaming chat component using useBodhi hook. Include model selection, AsyncGenerator streaming loop, loading states, error handling, and multi-turn conversation support."
+    }
+  ],
+  "bestPractices": [
+    "Use environment variables for OAuth client IDs and never commit credentials to version control",
+    "Check isOverallReady and isAuthenticated before making API calls to avoid errors",
+    "Implement proper error handling with try/catch around streaming requests and async operations"
+  ],
+  "antiPatterns": [
+    "Hardcoding OAuth client IDs directly in source code instead of environment variables",
+    "Making API calls before the client is ready or user is authenticated",
+    "Not handling streaming errors or connection failures gracefully in the UI"
+  ],
+  "faq": [
+    {
+      "question": "What is bodhi-js-sdk?",
+      "answer": "A TypeScript SDK for integrating local LLM capabilities into web apps using the Bodhi Browser ecosystem with OpenAI-compatible API."
+    },
+    {
+      "question": "What connection modes are supported?",
+      "answer": "Extension mode via Bodhi Browser extension and direct HTTP mode to local server at localhost:1135. SDK auto-detects."
+    },
+    {
+      "question": "How does OAuth authentication work?",
+      "answer": "OAuth 2.0 + PKCE flow with automatic token refresh. Dev uses main-id.getbodhi.app, prod uses id.getbodhi.app."
+    },
+    {
+      "question": "Is my data sent to external servers?",
+      "answer": "No. Bodhi connects to local LLM models through the Bodhi App backend. Only OAuth tokens are sent to auth servers."
+    },
+    {
+      "question": "Why is chat not streaming properly?",
+      "answer": "Ensure stream: true is set in the chat request and use for await loop for streaming. Check server is running and user is authenticated."
+    },
+    {
+      "question": "How is this different from OpenAI API?",
+      "answer": "Connects to local models instead of cloud API. Uses same OpenAI-compatible API pattern for familiarity and easy migration."
+    }
+  ],
+  "seoKeywords": [
+    "React integration",
+    "Vite",
+    "bodhi-js-sdk",
+    "local LLM",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "chat UI",
+    "OAuth authentication",
+    "streaming responses"
+  ],
+  "sourceUrl": "https://github.com/BodhiSearch/bodhi-js/tree/main/bodhi-js-sdk/skills/react-integration",
+  "sourceType": "community",
+  "dependencies": []
+}

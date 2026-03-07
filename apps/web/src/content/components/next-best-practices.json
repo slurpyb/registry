@@ -1,0 +1,147 @@
+{
+  "name": "next-best-practices",
+  "type": "skill",
+  "description": "Next.js best practices - file conventions, RSC boundaries, data patterns, async APIs, metadata, error handling, route handlers, image/font optimization, bundling",
+  "domain": "web-development",
+  "subdomain": "fullstack",
+  "specialty": "Next.js guide",
+  "quality": 5,
+  "qualityReason": "Comprehensive best practices",
+  "bundleHints": [
+    "nextjs-stack",
+    "fullstack-react"
+  ],
+  "tags": [
+    "app-router",
+    "deployment",
+    "frontend",
+    "full-stack",
+    "nextjs",
+    "optimization",
+    "react",
+    "server-components",
+    "web-development"
+  ],
+  "capabilities": [
+    "Enforce correct file conventions for App Router (layout.tsx, page.tsx, loading.tsx, error.tsx)",
+    "Identify and fix React Server Component boundary violations",
+    "Guide async patterns for params, searchParams, cookies, and headers in Next.js 15+",
+    "Recommend proper data fetching patterns to avoid waterfalls",
+    "Configure metadata, OG images, and SEO optimization",
+    "Troubleshoot hydration errors and bundling issues"
+  ],
+  "author": "vercel-labs",
+  "icon": "▲",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 790 static analysis findings are false positives. The skill contains only documentation and code examples for Next.js best practices. Pattern matches for 'external commands' are Markdown code blocks, 'network' findings are documentation URLs, and 'env_access' references are standard configuration examples. No executable code or security risks detected.",
+  "valueStatement": "Stop guessing about Next.js patterns and write code that scales. This skill provides authoritative guidance from Vercel on file conventions, React Server Components, data fetching, error handling, and deployment best practices.",
+  "userTitle": "Build Production-Ready Next.js Applications",
+  "limitations": [
+    "Provides guidance only for Next.js 14+ with App Router",
+    "Does not cover legacy Pages Router patterns",
+    "Cannot automatically fix code - provides recommendations only",
+    "Assumes familiarity with React and TypeScript fundamentals"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers starting new Next.js projects",
+      "title": "Review New Next.js Projects",
+      "description": "Ensure your project structure follows official conventions from day one. Validate file organization, route segments, and special file usage."
+    },
+    {
+      "targetUser": "Teams upgrading existing Next.js applications",
+      "title": "Migrate to App Router",
+      "description": "Get step-by-step guidance converting Pages Router code to App Router with proper Server Components, async patterns, and data fetching."
+    },
+    {
+      "targetUser": "Engineers troubleshooting production Next.js apps",
+      "title": "Debug Production Issues",
+      "description": "Resolve hydration errors, bundling problems, and deployment configuration issues with proven solutions from Vercel."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Review Project Structure",
+      "prompt": "Review my Next.js project structure and identify any files that don't follow the App Router conventions. Check for correct usage of layout.tsx, page.tsx, loading.tsx, error.tsx, and route groups.",
+      "scenario": "Starting a new project or auditing existing code"
+    },
+    {
+      "title": "Fix Server Component Issues",
+      "prompt": "I am getting errors with my React Server Components. Review this code and tell me if I am using async/await correctly for params, cookies, or headers. Also check if I am accidentally using client-only APIs in server components.",
+      "scenario": "Debugging RSC boundary violations"
+    },
+    {
+      "title": "Optimize Data Fetching",
+      "prompt": "Review my data fetching patterns and identify any waterfalls. Show me how to use Promise.all, Suspense boundaries, or preload patterns to improve performance.",
+      "scenario": "Improving application performance"
+    },
+    {
+      "title": "Configure Self-Hosting",
+      "prompt": "Help me configure my Next.js app for self-hosting with Docker. I need standalone output, cache handler setup for ISR, and environment variable configuration.",
+      "scenario": "Deploying outside of Vercel"
+    }
+  ],
+  "bestPractices": [
+    "Always type params and searchParams as Promise<T> in Next.js 15+ and await them in Server Components",
+    "Use dynamic imports with ssr: false for browser-only packages to prevent server-side errors",
+    "Implement loading.tsx and error.tsx boundaries for better UX during data fetching and error states",
+    "Configure output: 'standalone' in next.config.js for Docker deployments to minimize image size",
+    "Use next/image instead of img tags for automatic optimization and better Core Web Vitals"
+  ],
+  "antiPatterns": [
+    "Do not use 'use client' unnecessarily - Server Components reduce JavaScript sent to the browser",
+    "Avoid fetching data sequentially in nested components - use Promise.all or Suspense to prevent waterfalls",
+    "Never use NEXT_PUBLIC_ prefix for secrets - these are exposed to the browser bundle",
+    "Do not use Link tags for CSS - import CSS files directly for proper bundling",
+    "Avoid custom webpack config - prefer Turbopack-compatible serverExternalPackages and transpilePackages"
+  ],
+  "faq": [
+    {
+      "question": "When should I use 'use client' versus keeping a Server Component?",
+      "answer": "Use 'use client' only when you need browser APIs, React hooks like useState/useEffect, or event handlers. Server Components can receive props, fetch data, and render JSX without the directive. Default to Server Components for better performance."
+    },
+    {
+      "question": "How do I handle async params in Next.js 15?",
+      "answer": "Type params as Promise<{ slug: string }> and await it in your async component. For client components, use React.use() to unwrap the promise. This change enables partial prerendering."
+    },
+    {
+      "question": "What is the difference between Server Actions and Route Handlers?",
+      "answer": "Server Actions are for mutations from components with automatic revalidation. Route Handlers are for API endpoints that need custom request/response handling. Use Server Actions for form submissions, Route Handlers for webhooks or external API proxies."
+    },
+    {
+      "question": "How do I fix 'window is not defined' errors?",
+      "answer": "This happens when browser-only code runs on the server. Solutions: 1) Add 'use client' if the component only runs in browser, 2) Use dynamic import with ssr: false, 3) Wrap browser code in useEffect which only runs on client."
+    },
+    {
+      "question": "What causes hydration errors and how do I fix them?",
+      "answer": "Hydration errors occur when server and client render different HTML. Common causes: Date.now(), Math.random(), localStorage usage, or invalid HTML nesting. Fix by using suppressHydrationWarning, rendering dynamic content only on client with useEffect, or fixing HTML structure."
+    },
+    {
+      "question": "How do I deploy Next.js on my own servers?",
+      "answer": "Use output: 'standalone' in next.config.js for Docker deployments. For multi-instance setups, implement a custom cache handler using Redis or S3. Always include a health check endpoint and copy the public/ and .next/static/ folders to your container."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Next.js",
+    "React Server Components",
+    "Next.js best practices",
+    "web development",
+    "frontend framework",
+    "full-stack React",
+    "Vercel deployment"
+  ],
+  "sourceUrl": "https://github.com/vercel-labs/next-skills/tree/main/skills/next-best-practices/",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "technical-decision-record",
+  "type": "skill",
+  "description": "Use when making technical decisions, choosing technologies, or documenting architectural choices. Creates ADRs (Architecture Decision Records).",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "ADR creation",
+  "quality": 5,
+  "qualityReason": "Standardized decision documentation",
+  "bundleHints": [
+    "architecture-tools",
+    "documentation-suite",
+    "decision-framework"
+  ],
+  "tags": [
+    "adr",
+    "architecture",
+    "decision-making",
+    "documentation",
+    "record-keeping",
+    "tech-choices",
+    "technical-writing"
+  ],
+  "capabilities": [
+    "Guides users through a structured ADR creation process with 5 steps",
+    "Provides a markdown template with standard ADR sections",
+    "Helps identify constraints including technical, business, and compliance factors",
+    "Documents options with pros, cons, and estimated costs",
+    "Records consequences including positive, negative, risks, and reversibility",
+    "Identifies common mistakes in technical decision-making"
+  ],
+  "author": "ChaiWithJai",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing ADR templates and guidance for documenting technical decisions. No code execution, network calls, or cryptographic operations exist. All static findings are false positives: the scanner incorrectly flagged JSON metadata URLs as network risks, markdown code fences as shell execution, and documentation text about architectural decisions as cryptographic patterns. Safe for publication.",
+  "valueStatement": "Technical teams often lose context when decisions are made informally. This skill creates structured Architecture Decision Records that capture the problem, constraints, options considered, and consequences for future reference.",
+  "userTitle": "Document Technical Decisions with ADRs",
+  "limitations": [
+    "Does not evaluate technical options or provide recommendations",
+    "Does not integrate with project management tools",
+    "Does not track ADR status or link related decisions automatically",
+    "Does not generate diagrams or visualizations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Technical leads and architects evaluating new technologies",
+      "title": "New Technology Selection",
+      "description": "Document the evaluation process when choosing between React, Vue, or Angular for a new frontend project, capturing all constraints and trade-offs."
+    },
+    {
+      "targetUser": "Engineering managers planning architectural changes",
+      "title": "Architecture Migration Planning",
+      "description": "Record the decision to migrate from a monolith to microservices, including the rationale, risks, and rollback plan."
+    },
+    {
+      "targetUser": "Team leads implementing process improvements",
+      "title": "Process Change Documentation",
+      "description": "Formally document a new code review process or testing strategy with clear context and expected outcomes."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic ADR Request",
+      "prompt": "I need to create an ADR for [DECISION TOPIC]. Help me document this technical decision with the problem, constraints, options, and consequences.",
+      "scenario": "Quick start for simple decisions"
+    },
+    {
+      "title": "Technology Evaluation",
+      "prompt": "We're deciding between [OPTION A], [OPTION B], and [OPTION C] for [USE CASE]. Create an ADR that captures our constraints, evaluates each option with pros and cons, and documents the final decision with reasoning.",
+      "scenario": "Comparing multiple technology options"
+    },
+    {
+      "title": "Architecture Change Request",
+      "prompt": "I need to document our decision to [ARCHITECTURAL CHANGE]. Include the trigger for this change, the risks involved, and a reversibility assessment. Use the full ADR template.",
+      "scenario": "Documenting significant architectural changes"
+    },
+    {
+      "title": "Superseding Previous ADR",
+      "prompt": "ADR-[NUMBER] needs to be superseded because [REASON]. Create a new ADR that references the original, explains what changed, and provides updated context and recommendations.",
+      "scenario": "Updating a previous decision with new information"
+    }
+  ],
+  "bestPractices": [
+    "Always list at least 2 options, even if one is 'do nothing', to ensure decisions are justified",
+    "Match deliberation time to reversibility - spend more effort on irreversible decisions",
+    "Include all stakeholders in the Deciders field and get explicit sign-off before finalizing"
+  ],
+  "antiPatterns": [
+    "Making decisions without exploring alternatives - you cannot justify a choice without knowing what you chose against",
+    "Editing old ADRs when context changes - this loses the historical record; instead create a new ADR that supersedes the old one",
+    "Making decisions that affect teams without involving them - this creates surprise, resistance, and rework"
+  ],
+  "faq": [
+    {
+      "question": "What is an ADR?",
+      "answer": "An ADR (Architecture Decision Record) is a document that captures important technical decisions, the context behind them, and the reasoning for the chosen approach. It serves as a reference for future team members."
+    },
+    {
+      "question": "When should I create an ADR?",
+      "answer": "Create an ADR when making technology choices, architectural changes, selecting third-party services, changing established patterns, or any decision you want to reference later."
+    },
+    {
+      "question": "How detailed should an ADR be?",
+      "answer": "Match detail to reversibility. Low-stakes reversible decisions need less detail. High-stakes irreversible decisions should capture full context, options, risks, and consequences."
+    },
+    {
+      "question": "Can I edit an existing ADR?",
+      "answer": "No. ADRs are immutable historical records. If circumstances change, create a new ADR that supersedes the old one with a reference to the original."
+    },
+    {
+      "question": "What belongs in the Consequences section?",
+      "answer": "Document positive benefits, negative costs, identified risks with mitigations, and reversibility assessment (Easy, Moderate, Difficult, or Irreversible)."
+    },
+    {
+      "question": "How do I number my ADRs?",
+      "answer": "Use sequential numbering like ADR-001, ADR-002. Include the number in the filename and title for easy reference and linking between related decisions."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Architecture Decision Record",
+    "ADR",
+    "technical documentation",
+    "software architecture",
+    "decision log",
+    "architectural choices",
+    "technical decisions"
+  ],
+  "sourceUrl": "https://github.com/ChaiWithJai/claude-code-mastery/tree/main/exercises/05-domain-expertise/solution",
+  "sourceType": "community",
+  "dependencies": []
+}

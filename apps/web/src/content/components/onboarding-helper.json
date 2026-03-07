@@ -1,0 +1,142 @@
+{
+  "name": "onboarding-helper",
+  "type": "skill",
+  "description": "Generate comprehensive onboarding documentation and guides for new developers joining your team o...",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "Dev onboarding",
+  "quality": 4,
+  "qualityReason": "Generic but useful",
+  "bundleHints": [
+    "team-onboarding",
+    "documentation-automation",
+    "dev-experience"
+  ],
+  "tags": [
+    "comprehensive",
+    "developer-experience",
+    "documentation",
+    "guides",
+    "onboarding",
+    "team",
+    "training"
+  ],
+  "capabilities": [
+    "Generates complete onboarding guides with day 1, week 1, and month 1 milestones",
+    "Creates development environment setup instructions for any tech stack",
+    "Documents team processes, communication channels, and meeting schedules",
+    "Produces architecture overviews and codebase structure explanations",
+    "Creates first-task tutorials with hands-on exercises",
+    "Generates troubleshooting guides and FAQs for common onboarding questions"
+  ],
+  "author": "CuriousLearner",
+  "icon": "👋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill with no executable code. All 209 static findings are false positives caused by the analyzer misinterpreting example code blocks in markdown documentation as executable patterns. The skill contains only templates and instructions for generating onboarding documentation - no network calls, file system access, or command execution capabilities exist.",
+  "valueStatement": "New developers often struggle to understand complex projects and team processes. This skill generates comprehensive onboarding guides including environment setup, architecture overviews, first tasks, and team culture documentation tailored to your project.",
+  "userTitle": "Create onboarding documentation for new developers",
+  "limitations": [
+    "Does not execute code or modify your actual project files",
+    "Cannot access your existing documentation to read current state",
+    "Requires you to provide project details for personalized output",
+    "Generates templates that you must review and customize"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Engineering Managers",
+      "title": "Standardize team onboarding",
+      "description": "Create consistent onboarding documentation for all new engineers joining your team or company."
+    },
+    {
+      "targetUser": "Tech Leads",
+      "title": "Document project architecture",
+      "description": "Generate architecture overviews and codebase walkthroughs that help new developers understand your system."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Create setup guides",
+      "description": "Produce detailed environment setup instructions that reduce time-to-productivity for new team members."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Full Onboarding Guide",
+      "scenario": "Complete new developer package",
+      "prompt": "Generate a comprehensive onboarding guide for our [PROJECT_NAME] project. Include: overview with technology stack, day 1 checklist with environment setup steps, week 1 goals covering architecture basics, month 1 milestones, team structure and contacts, communication channels, and first-week resources."
+    },
+    {
+      "title": "Quick Start Guide",
+      "scenario": "Fast-track new developer setup",
+      "prompt": "Create a quick-start onboarding document for [PROJECT_NAME]. Focus on essential setup steps, required accounts and access, basic architecture overview, first commit task with step-by-step instructions, and key contacts for help."
+    },
+    {
+      "title": "Architecture Overview",
+      "scenario": "Explain system design to newcomers",
+      "prompt": "Generate an architecture overview document for [PROJECT_NAME]. Include: high-level system diagram description, technology stack breakdown, key services and their responsibilities, data flow explanations, and directory structure with purpose of each major folder."
+    },
+    {
+      "title": "Team Process Guide",
+      "scenario": "Document how the team works",
+      "prompt": "Create a team processes guide for our engineering team. Include: git workflow and branch naming conventions, code review practices, deployment process and environments, meeting schedules and purposes, communication channels and when to use each, and on-call rotation information."
+    }
+  ],
+  "bestPractices": [
+    "Provide specific project details like team size, tech stack, and contact names for more personalized guides",
+    "Review and customize generated templates to match your actual team processes and culture",
+    "Pair generated documentation with hands-on exercises and pair programming sessions"
+  ],
+  "antiPatterns": [
+    "Do not share sensitive credentials or production access keys in generated documentation",
+    "Avoid generating documentation without verifying accuracy against current team practices",
+    "Do not skip the FAQ section as it addresses common new developer pain points"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools are compatible with this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It requires no additional configuration or API keys."
+    },
+    {
+      "question": "What information should I provide for the best results?",
+      "answer": "Share project name, tech stack, team size, development workflow, key contacts, and any existing documentation you want incorporated."
+    },
+    {
+      "question": "Can I customize the output format?",
+      "answer": "Yes. You can specify focus areas, document types, and length preferences. The skill generates markdown that can be converted to any format."
+    },
+    {
+      "question": "Is my project data kept private?",
+      "answer": "The skill only processes information you provide during the conversation. No data is stored or shared outside your session."
+    },
+    {
+      "question": "Why should I use this instead of writing documentation manually?",
+      "answer": "The skill provides structured templates and comprehensive outlines that reduce initial writing time while ensuring you cover all essential topics."
+    },
+    {
+      "question": "How does this compare to hiring a technical writer?",
+      "answer": "This skill accelerates initial documentation creation with templates and structure. A technical writer adds editorial refinement, user research, and ongoing maintenance expertise."
+    }
+  ],
+  "seoKeywords": [
+    "onboarding documentation",
+    "developer onboarding",
+    "new developer guide",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "environment setup",
+    "team documentation",
+    "codebase overview",
+    "developer experience"
+  ],
+  "sourceUrl": "https://github.com/CuriousLearner/devkit/tree/main/skills/onboarding-helper",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "viral-verification",
+  "type": "skill",
+  "description": "验证文章是否符合爆款推文要素，并提供修改建议和评分。",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "viral content check",
+  "quality": 5,
+  "qualityReason": "Actionable feedback loop",
+  "bundleHints": [
+    "viral-marketing",
+    "content-optimization"
+  ],
+  "tags": [
+    "ai-assessment",
+    "ai-assistant",
+    "content-creation",
+    "content-scoring",
+    "engagement",
+    "modification-suggestions",
+    "social-media",
+    "viral-marketing"
+  ],
+  "capabilities": [
+    "Analyzes content against 6 key viral factors including curiosity gap, emotional resonance, and pacing",
+    "Scores content on viral potential with detailed 0-100 rating scale and factor breakdown",
+    "Identifies specific weaknesses and provides targeted improvement suggestions",
+    "Rewrites content using Defou x Stanley style for maximum viral impact",
+    "Supports batch processing of multiple files from source directory",
+    "Generates comprehensive Markdown verification reports with scorecards"
+  ],
+  "author": "wangdefou-dev",
+  "icon": "🧪",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 64 static findings are FALSE POSITIVES. This is a legitimate content verification tool using standard JavaScript patterns. Template literals (backticks) were misidentified as shell backticks, standard file operations as filesystem risks, and string manipulation as weak cryptography. No shell execution, path traversal exploits, credential exfiltration, or malicious behavior present. The code reads markdown files, calls Anthropic API for analysis, and writes results locally.",
+  "valueStatement": "Content often fails to gain traction because it lacks key viral elements. This skill uses AI to score your content on curiosity gaps, emotional triggers, and storytelling impact, then rewrites it for maximum engagement.",
+  "userTitle": "Verify viral potential of content with AI analysis",
+  "limitations": [
+    "Requires Anthropic API key for AI analysis features",
+    "Currently optimized for short-form content like tweets and social posts",
+    "Cannot verify content that requires real-time data or current events",
+    "Output quality depends on input content quality and length"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Social media managers",
+      "title": "Optimize post performance",
+      "description": "Transform average social posts into high-engagement viral content with AI-powered scoring and rewriting."
+    },
+    {
+      "targetUser": "Content marketers",
+      "title": "Validate content strategy",
+      "description": "Run existing content through viral verification before publishing to maximize reach and engagement metrics."
+    },
+    {
+      "targetUser": "Newsletter writers",
+      "title": "Enhance headline impact",
+      "description": "Analyze and rewrite newsletter openers and hooks to improve click-through rates and subscriber engagement."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Verification",
+      "scenario": "Quick content check",
+      "prompt": "Use the viral-verification skill to analyze this content and score its viral potential."
+    },
+    {
+      "title": "Batch Processing",
+      "scenario": "Multiple posts review",
+      "prompt": "Run viral-verification on all markdown files in the outputs/defou-stanley-posts directory."
+    },
+    {
+      "title": "Rewrite Request",
+      "scenario": "Content optimization",
+      "prompt": "Use viral-verification to score this content and provide a complete rewritten version."
+    },
+    {
+      "title": "Factor Analysis",
+      "scenario": "Deep dive review",
+      "prompt": "Run viral-verification with detailed analysis of all 6 viral factors with specific examples."
+    }
+  ],
+  "bestPractices": [
+    "Provide complete content including title and body for accurate viral scoring",
+    "Use the rewritten output as a starting point and add your own voice",
+    "Run multiple variations through verification to compare scores before publishing",
+    "Review the detailed factor analysis to understand why content scored as it did"
+  ],
+  "antiPatterns": [
+    "Do not rely solely on viral score without reading the detailed analysis",
+    "Avoid using the skill without an Anthropic API key configured",
+    "Do not skip the improvement suggestions - they contain actionable advice",
+    "Avoid testing very short content under 50 words as scoring may be unreliable"
+  ],
+  "faq": [
+    {
+      "question": "What viral factors does this skill analyze?",
+      "answer": "Six key factors: curiosity gap, emotional resonance, value/utility, timeliness, storytelling pacing, and novelty."
+    },
+    {
+      "question": "What does the viral score mean?",
+      "answer": "A 0-100 score where 70+ indicates strong viral potential, 40-60 needs improvement, below 40 requires rewriting."
+    },
+    {
+      "question": "Can I use this for long-form content?",
+      "answer": "It works best on short-form content like tweets and posts. Long-form content may receive less detailed analysis."
+    },
+    {
+      "question": "How long does verification take?",
+      "answer": "Each file takes 10-30 seconds. Batch processing runs concurrently at 2 files at a time."
+    },
+    {
+      "question": "What is the Defou x Stanley style?",
+      "answer": "A minimalist, sharp writing style with strong hooks, short sentences, and high insight density."
+    },
+    {
+      "question": "Do I need API credentials?",
+      "answer": "Yes, an Anthropic API key is required. Set ANTHROPIC_API_KEY in your environment variables."
+    }
+  ],
+  "seoKeywords": [
+    "viral content validator",
+    "content optimization",
+    "social media growth",
+    "Claude viral tips",
+    "Codex engagement",
+    "Claude Code content tool",
+    "tweet analyzer",
+    "content marketing",
+    "AI writing assistant"
+  ],
+  "sourceUrl": "https://github.com/wangdefou-dev/defou-workflow-agent/tree/main/skills/viral-verification",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "docusign-automation",
+  "type": "skill",
+  "description": "Automate DocuSign tasks via Rube MCP (Composio): templates, envelopes, signatures, document management. Always search tools first for current schemas.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "e-signature automation",
+  "quality": 4,
+  "qualityReason": "Specific tool integration",
+  "bundleHints": [
+    "mcp-tools",
+    "workflow-automation"
+  ],
+  "tags": [
+    "automation",
+    "document-management",
+    "docusign",
+    "e-signature",
+    "mcp",
+    "workflow"
+  ],
+  "capabilities": [
+    "List and browse available DocuSign templates",
+    "Create envelopes from templates with recipient assignments",
+    "Send envelopes for signature or save as drafts",
+    "Monitor envelope status and recipient signing progress",
+    "Add templates to existing draft envelopes",
+    "Manage envelope lifecycle (send, void)"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation skill that provides guidance for using the DocuSign API via Rube MCP (Composio). The static scanner flagged backtick characters in markdown as 'shell execution' - these are false positives as they represent code formatting, not actual execution. The network URL at line 22 is a legitimate MCP server endpoint. No security risks identified.",
+  "valueStatement": "Automate e-signature workflows by using DocuSign templates, creating envelopes, and tracking signing status through an MCP integration.",
+  "userTitle": "Automate DocuSign Signatures",
+  "limitations": [
+    "Requires active Rube MCP connection with DocuSign toolkit",
+    "Cannot create templates - only use existing ones",
+    "Rate limited by DocuSign API per-account limits",
+    "OAuth authentication must be completed manually"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Sales and legal teams",
+      "title": "Send contracts for e-signature",
+      "description": "Create and send contract documents from templates to clients for signature"
+    },
+    {
+      "targetUser": "HR departments",
+      "title": "Automate onboarding document signing",
+      "description": "Streamline employee or vendor onboarding with pre-defined document templates"
+    },
+    {
+      "targetUser": "Operations managers",
+      "title": "Track document signing status",
+      "description": "Monitor pending signatures and follow up on outstanding documents"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List available templates",
+      "prompt": "List all available DocuSign templates using the skill.",
+      "scenario": "User wants to see what document templates are available in their DocuSign account"
+    },
+    {
+      "title": "Send document for signature",
+      "prompt": "Create and send an envelope from the 'Sales Contract' template to john@example.com with name 'John Smith' and role 'Signer'.",
+      "scenario": "User wants to send a specific template to a recipient"
+    },
+    {
+      "title": "Check envelope status",
+      "prompt": "Check the status of envelope ID '12345678-abcd-1234-efgh-123456789012'.",
+      "scenario": "User wants to track the signing progress of a sent document"
+    },
+    {
+      "title": "Create draft and send later",
+      "prompt": "Create a draft envelope from the 'NDA Template' template with role 'Party A' assigned to 'Jane Doe' at jane@example.com.",
+      "scenario": "User wants to prepare an envelope but send it manually later"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before making calls",
+    "Verify connection status shows ACTIVE before running any DocuSign workflows",
+    "Store envelope IDs immediately after creation for tracking"
+  ],
+  "antiPatterns": [
+    "Hardcoding template or envelope GUIDs - always resolve IDs from API responses",
+    "Sending envelopes without verifying recipient email addresses are valid",
+    "Ignoring rate limits when bulk creating envelopes"
+  ],
+  "faq": [
+    {
+      "question": "Do I need a DocuSign account?",
+      "answer": "Yes, you need an active DocuSign account with API access and must complete OAuth authentication via Rube MCP."
+    },
+    {
+      "question": "Can I create new templates with this skill?",
+      "answer": "No, this skill uses existing templates. Template creation must be done in the DocuSign web interface."
+    },
+    {
+      "question": "What happens if a recipient declines to sign?",
+      "answer": "The envelope status will change to 'declined' and you can retrieve details about the declination from the envelope response."
+    },
+    {
+      "question": "Can I void a sent envelope?",
+      "answer": "Yes, but voiding notifies all recipients. Sent envelopes cannot be unsent, only voided."
+    },
+    {
+      "question": "How do I know when all parties have signed?",
+      "answer": "Check the envelope status - it will show 'completed' when all recipients have signed."
+    },
+    {
+      "question": "What is Rube MCP?",
+      "answer": "Rube MCP is a middleware service by Composio that provides MCP server access to various tools including DocuSign."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "DocuSign",
+    "e-signature",
+    "automation",
+    "MCP",
+    "Composio",
+    "document signing",
+    "Rube"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/docusign-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

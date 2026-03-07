@@ -1,0 +1,142 @@
+{
+  "name": "skill-writer",
+  "type": "skill",
+  "description": "Guide users through creating Agent Skills for Claude Code. Use when the user wants to create, write, author, or design a new Skill, or needs help with SKILL.md files, frontmatter, or skill structure.",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "skill authoring guide",
+  "quality": 4,
+  "qualityReason": "Overlaps with others",
+  "bundleHints": [
+    "learning-system",
+    "skill-development",
+    "documentation"
+  ],
+  "tags": [
+    "agent-skills",
+    "claude-code",
+    "documentation",
+    "skill-development",
+    "structure"
+  ],
+  "capabilities": [
+    "Guide users through creating new Agent Skills from scratch",
+    "Write proper SKILL.md files with valid YAML frontmatter",
+    "Explain skill structure including multi-file layouts",
+    "Provide best practices for skill descriptions and activation",
+    "Help validate skills against marketplace requirements",
+    "Debug skill discovery and activation issues"
+  ],
+  "author": "Dami-Randle",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill contains only documentation and guidance for creating Claude Code Skills. Scanner flagged YAML frontmatter delimiters (---) as cryptographic patterns and documentation shell examples as executable commands. No actual executable code, network calls, or file operations exist in this skill.",
+  "valueStatement": "Users often struggle to create well-structured Agent Skills that follow best practices. This skill provides step-by-step guidance for creating, validating, and testing Claude Code Skills with proper structure, frontmatter, and documentation.",
+  "userTitle": "Create Claude Code Agent Skills",
+  "limitations": [
+    "Does not execute code or modify files directly",
+    "Cannot create skills in user directories without explicit permission",
+    "Does not provide implementation code for skill functionality",
+    "Focused on skill structure and documentation, not runtime behavior"
+  ],
+  "useCases": [
+    {
+      "targetUser": "New Claude Code users wanting to extend functionality",
+      "title": "First-time Skill Author",
+      "description": "A user who wants to create their first Agent Skill but does not know the required file structure, frontmatter format, or best practices for descriptions."
+    },
+    {
+      "targetUser": "Development teams building internal skill libraries",
+      "title": "Team Skill Developer",
+      "description": "A developer creating shared skills for their team, needing guidance on project-level skill locations, git integration, and collaborative conventions."
+    },
+    {
+      "targetUser": "Users experiencing skill activation issues",
+      "title": "Skill Debugger",
+      "description": "A user whose skill is not activating or being discovered, needing help troubleshooting YAML syntax, file paths, and description trigger words."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a Simple Skill",
+      "prompt": "Help me create a new Agent Skill called [skill-name] that [what it does]. Use when [when to use it].",
+      "scenario": "Basic skill creation request"
+    },
+    {
+      "title": "Create a Skill with Tools",
+      "prompt": "Create a read-only Agent Skill that only uses Read and Grep tools. The skill should [description].",
+      "scenario": "Creating a skill with restricted tool permissions"
+    },
+    {
+      "title": "Debug Skill Activation",
+      "prompt": "I created a skill but Claude is not using it. My SKILL.md file is at [path]. The description is: [description]. Why is it not activating?",
+      "scenario": "Troubleshooting skill discovery issues"
+    },
+    {
+      "title": "Convert Workflow to Skill",
+      "prompt": "Convert this workflow into a Claude Code Skill: [describe workflow steps]. Include proper SKILL.md structure with frontmatter, instructions, and examples.",
+      "scenario": "Transforming existing workflows into reusable skills"
+    }
+  ],
+  "bestPractices": [
+    "Keep skills focused on a single capability to improve discovery and reduce conflicts",
+    "Include specific trigger words and file types in descriptions to improve activation",
+    "Use YAML frontmatter with clear name and description fields under 1024 characters",
+    "Test skill activation by asking questions that match the description verbatim"
+  ],
+  "antiPatterns": [
+    "Creating mega-skills that try to do too many unrelated things",
+    "Using vague descriptions like 'helps with documents' or 'analyzes data'",
+    "Putting executable scripts in SKILL.md without proper sandboxing",
+    "Skipping the testing step and assuming the skill works without verification"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between personal skills and project skills?",
+      "answer": "Personal skills go in ~/.claude/skills/ and stay on your machine. Project skills go in .claude/skills/ and can be committed to git for team sharing. Both work the same way once loaded."
+    },
+    {
+      "question": "How do I restrict which tools my skill can use?",
+      "answer": "Add the allowed-tools field to your frontmatter: allowed-tools: Read, Grep, Glob. This creates a read-only skill that cannot modify files."
+    },
+    {
+      "question": "Why is my skill not activating on my queries?",
+      "answer": "Common causes include: description too generic, missing trigger words, frontmatter YAML errors, or file path incorrect. Add specific phrases users would say and test with exact wording."
+    },
+    {
+      "question": "Can I have multi-file skills?",
+      "answer": "Yes. Use SKILL.md for the main content, reference.md for advanced options, examples.md for extended use cases, and scripts/ or templates/ directories for supporting files."
+    },
+    {
+      "question": "What characters are allowed in skill names?",
+      "answer": "Skill names must be lowercase letters, numbers, and hyphens only. Maximum 64 characters. The name must match the directory name exactly."
+    },
+    {
+      "question": "Do I need to restart Claude Code after creating a new skill?",
+      "answer": "Yes. Restart Claude Code to load new or updated skills. Personal skills in ~/.claude/skills/ are loaded on startup. Project skills may require a restart."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Agent Skills",
+    "Skill development",
+    "SKILL.md",
+    "Claude Code skills",
+    "Agent configuration",
+    "Skill creation",
+    "Claude extensions"
+  ],
+  "sourceUrl": "https://github.com/Dami-Randle/logidocs-certify/tree/main/.claude/skills/skill-writer",
+  "sourceType": "community",
+  "dependencies": []
+}

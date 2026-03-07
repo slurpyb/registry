@@ -1,0 +1,138 @@
+{
+  "name": "vexor",
+  "type": "skill",
+  "description": "Vector-powered CLI for semantic file search with a Claude/Codex skill",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "semantic file search",
+  "quality": 5,
+  "qualityReason": "Innovative and specific",
+  "bundleHints": [
+    "developer-tools",
+    "search-toolkit"
+  ],
+  "tags": [
+    "claude-integration",
+    "cli-tool",
+    "code-assistant",
+    "code-search",
+    "file-search",
+    "semantic-search",
+    "vector-search"
+  ],
+  "capabilities": [
+    "Search files using natural language queries instead of exact keywords",
+    "Index directories for semantic search capabilities",
+    "Retrieve relevant files based on meaning and context",
+    "Filter search results by file type and extension"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The hardcoded URLs are simply documentation links in the skill description. The flagged 'weak cryptographic algorithm' patterns refer to the words 'vexor' and 'vector' which are legitimate tool/computer science terms, not cryptographic algorithms. This is a simple documentation-only skill with no executable code or security risks.",
+  "valueStatement": "Vexor enables natural language file searches using vector embeddings, helping developers locate code and documents through meaning rather than exact keyword matches.",
+  "userTitle": "Search Files with Vector-Powered Semantic Search",
+  "limitations": [
+    "Does not execute searches directly - requires LLM integration",
+    "Cannot access remote repositories without additional setup",
+    "Requires initial indexing of files before search can work"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers working with large codebases",
+      "title": "Find code by describing what it does",
+      "description": "Search for code files by describing their functionality rather than function names"
+    },
+    {
+      "targetUser": "Technical writers and developers",
+      "title": "Locate documentation semantically",
+      "description": "Find relevant documentation files by describing the topic you need help with"
+    },
+    {
+      "targetUser": "Data scientists and researchers",
+      "title": "Discover related files across projects",
+      "description": "Find files related to a specific feature or concept across multiple directories"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Semantic Search",
+      "prompt": "Use vexor to find files related to [topic or feature description]",
+      "scenario": "When you need to find files but don't know the exact filename"
+    },
+    {
+      "title": "Filter by File Type",
+      "prompt": "Search for files about [topic] that are [file type, e.g., Python files]",
+      "scenario": "When you want to narrow results to specific file types"
+    },
+    {
+      "title": "Find Related Code",
+      "prompt": "Find all code files related to [feature] functionality in the project",
+      "scenario": "When exploring how a feature is implemented across the codebase"
+    },
+    {
+      "title": "Deep Context Search",
+      "prompt": "Search for files containing information about [concept] and show me how they relate to each other",
+      "scenario": "When you need to understand the relationships between different parts of your codebase"
+    }
+  ],
+  "bestPractices": [
+    "Provide clear, descriptive search queries for better results",
+    "Index your codebase before performing semantic searches",
+    "Combine semantic search with file type filters for precise results"
+  ],
+  "antiPatterns": [
+    "Using overly generic search terms that return too many results",
+    "Skipping the indexing step which degrades search quality",
+    "Relying solely on semantic search without verifying results"
+  ],
+  "faq": [
+    {
+      "question": "What is vexor?",
+      "answer": "Vexor is a vector-powered CLI tool that enables semantic file search using natural language queries instead of exact keyword matching."
+    },
+    {
+      "question": "How does semantic search differ from regular search?",
+      "answer": "Semantic search finds files based on meaning and context, while regular search requires exact keyword matches."
+    },
+    {
+      "question": "Do I need to set up anything before using vexor?",
+      "answer": "Yes, you need to index your files first so that vexor can build the vector embeddings for semantic search."
+    },
+    {
+      "question": "Can vexor search remote repositories?",
+      "answer": "Vexor works with local files. Remote repository access requires additional configuration or cloning the repository locally."
+    },
+    {
+      "question": "What file types does vexor support?",
+      "answer": "Vexor supports most common file types including code files, text files, markdown, and documentation files."
+    },
+    {
+      "question": "Is vexor safe to use with sensitive files?",
+      "answer": "Yes, vexor runs locally and does not send your files to any external services unless you explicitly configure it to do so."
+    }
+  ],
+  "seoKeywords": [
+    "vexor",
+    "vector search",
+    "semantic file search",
+    "claude code",
+    "codex",
+    "cli search",
+    "code search",
+    "developer tools",
+    "semantic search",
+    "file finder"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/web-app/public/skills/vexor",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "project-scaffolder",
+  "type": "skill",
+  "description": "Creates plan.md, task.md, persona.md, project-context.md, and CLAUDE.md for new self-learning resource projects. Use when: (1) /init command is invoked, (2) setting up a new tutorial/guide/documentation project, (3) structure-designer agent needs templates for learning resource structure design. Provides hierarchical Part/Chapter/Section templates with page allocation.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "learning project setup",
+  "quality": 4,
+  "qualityReason": "Good for tutorial scaffolding",
+  "bundleHints": [
+    "learning-resources",
+    "documentation-tools"
+  ],
+  "tags": [
+    "documentation",
+    "learning-resources",
+    "project-management",
+    "self-learning",
+    "setup",
+    "templates"
+  ],
+  "capabilities": [
+    "Generates five markdown template files: plan.md, task.md, persona.md, project-context.md, and CLAUDE.md",
+    "Creates hierarchical Part/Chapter/Section structure with page allocation formulas",
+    "Provides session-based task tracking with HTML comment boundaries for work sessions",
+    "Includes writer and reader persona templates with tone and code policy definitions",
+    "Adds target environment configuration and reference URL placeholders"
+  ],
+  "author": "BitYoungjae",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill generates documentation templates only. All static scanner detections are false positives: backticks in markdown are inline code formatting, not shell commands. The skill performs no network operations, executes no code, and creates only static markdown files with placeholder content.",
+  "valueStatement": "Manual organization of learning resource projects leads to inconsistent structures and missed content. Project-scaffolder generates five standardized markdown templates with hierarchical organization, session-based task tracking, and placeholders for consistent documentation.",
+  "userTitle": "Set Up Documentation Projects",
+  "limitations": [
+    "Does not execute code or perform actual file system operations beyond template generation",
+    "Does not validate project content or check for broken links",
+    "Does not integrate with external APIs or data sources",
+    "Requires manual population of all placeholder variables after generation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Technical writers creating educational content",
+      "title": "Tutorial Writer Setup",
+      "description": "A technical writer needs to create a multi-chapter tutorial on a programming language. The skill generates the complete project structure with parts, chapters, and sections, plus a task checklist to track progress across writing sessions."
+    },
+    {
+      "targetUser": "Documentation teams establishing standards",
+      "title": "Documentation Team Onboarding",
+      "description": "A new team member needs to understand existing documentation standards. The skill provides persona.md and CLAUDE.md templates that codify writer guidelines, code policies, and terminology rules for consistent documentation."
+    },
+    {
+      "targetUser": "Course designers and instructors",
+      "title": "Course Creator Planning",
+      "description": "An instructor designing a self-paced learning course uses the skill to generate a structured outline with page counts, session breakdowns, and content allocation formulas to ensure comprehensive coverage."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Initialize New Documentation Project",
+      "prompt": "Use the project-scaffolder skill to create a new documentation project structure for a {TOPIC} tutorial targeting {AUDIENCE}. Generate approximately {PAGE_COUNT} pages total in {LANGUAGE} language. Target environment is {ENVIRONMENT}.",
+      "scenario": "Starting a new self-learning documentation project"
+    },
+    {
+      "title": "Add Project Structure",
+      "prompt": "Using project-scaffolder, create a plan.md with {NUM_PARTS} parts covering {TOPIC}. Each part should have 3-6 chapters with 3-5 sections per chapter. Allocate pages based on the standard formula.",
+      "scenario": "Creating detailed project structure with hierarchy"
+    },
+    {
+      "title": "Generate Session Tasks",
+      "prompt": "Generate a task.md file for the project. Divide the work into 3-5 session blocks with 3-5 sections each. Use HTML comments to mark session boundaries and include page estimates for each task.",
+      "scenario": "Creating work session breakdown for progress tracking"
+    },
+    {
+      "title": "Define Project Standards",
+      "prompt": "Create persona.md and CLAUDE.md files for a project about {TOPIC}. The writer is {WRITER_PROFILE} and readers are {READER_PROFILE}. Include code policy for {LANGUAGES} and tone guidelines: {TONE_GUIDELINES}.",
+      "scenario": "Establishing documentation standards and personas"
+    }
+  ],
+  "bestPractices": [
+    "Fill all placeholder variables like {PROJECT_TITLE}, {TARGET_AUDIENCE}, and {TOTAL_PAGES} before starting content creation",
+    "Use session boundaries in task.md to organize work into manageable 3-5 section chunks",
+    "Align chapter and section counts with the 15-30 pages per chapter guideline for balanced content",
+    "Complete persona.md before writing to ensure consistent tone and terminology throughout"
+  ],
+  "antiPatterns": [
+    "Skipping persona.md and CLAUDE.md results in inconsistent documentation style",
+    "Creating sections with fewer than 5 pages fragments content unnecessarily",
+    "Exceeding 6 chapters per part makes navigation difficult for readers",
+    "Starting without a complete plan.md leads to scope creep and incomplete coverage"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between plan.md and task.md?",
+      "answer": "plan.md defines the complete project structure with parts, chapters, and sections. task.md mirrors this structure but adds checkboxes and session boundaries for tracking actual writing progress."
+    },
+    {
+      "question": "How do I customize the templates for my project?",
+      "answer": "Replace all {PLACEHOLDER} variables with your specific content. The SKILL.md file lists all variables and their purposes. You can also edit the templates directly after generation."
+    },
+    {
+      "question": "Can I add custom sections to the templates?",
+      "answer": "Yes. The templates are plain markdown files. Add, remove, or modify sections as needed. The skill provides a starting point, not a rigid structure."
+    },
+    {
+      "question": "How many pages should each section contain?",
+      "answer": "Each section should contain 5-12 pages. Chapters contain 3-5 sections (15-30 pages total). Parts contain 3-6 chapters (50-100 pages total)."
+    },
+    {
+      "question": "What tools does the skill use?",
+      "answer": "The skill uses Read, Write, Bash, and Glob tools to generate template files. It does not execute arbitrary code or make network requests."
+    },
+    {
+      "question": "How do session boundaries work in task.md?",
+      "answer": "Session boundaries are HTML comments like `<!-- Session 1: Part 1 -->` that mark logical work units. Each session should contain 3-5 sections or 20-40 pages of content."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "documentation templates",
+    "project scaffolding",
+    "markdown templates",
+    "learning resources",
+    "documentation structure",
+    "tutorial templates",
+    "documentation generator"
+  ],
+  "sourceUrl": "https://github.com/BitYoungjae/marketplace/tree/main/plugins/dokhak/skills/project-scaffolder",
+  "sourceType": "community",
+  "dependencies": []
+}

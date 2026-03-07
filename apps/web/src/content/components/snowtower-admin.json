@@ -1,0 +1,142 @@
+{
+  "name": "snowtower-admin",
+  "type": "skill",
+  "description": "Advanced skill for SnowTower infrastructure administrators. Use for SnowDDL operations, user provisioning, role management, CI/CD deployments, troubleshooting, and Snowflake administration. Triggers on mentions of snowddl, deploy, user creation, role grants, infrastructure changes, or admin operations.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "Snowflake administration",
+  "quality": 5,
+  "qualityReason": "Specific admin-level database skill",
+  "bundleHints": [
+    "data-engineering",
+    "snowflake-stack",
+    "database-admin"
+  ],
+  "tags": [
+    "admin",
+    "ci/cd",
+    "database",
+    "infrastructure",
+    "snowddl",
+    "snowflake",
+    "user-provisioning"
+  ],
+  "capabilities": [
+    "Preview and apply SnowDDL infrastructure changes with safe deployment workflow",
+    "Create and manage Snowflake users with RSA key authentication and password encryption",
+    "Define business and technical roles with granular permission grants",
+    "Configure warehouses, databases, schemas, and network policies via YAML",
+    "Analyze costs and manage warehouse operations including emergency suspension",
+    "Troubleshoot authentication failures, schema drift, and deployment issues"
+  ],
+  "author": "Database-Tycoon",
+  "icon": "🏔️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown documentation and YAML configuration examples. No executable code, scripts, or command execution capabilities exist. The static scanner flagged 110 patterns, but all are false positives caused by documentation examples that mimic admin operations (bash commands, RSA keys, network policies). There is no actual network access, file system modification, or credential exfiltration in this skill.",
+  "valueStatement": "Managing Snowflake infrastructure manually is error-prone and time-consuming. This skill provides automated workflows for deployments, user provisioning, role management, and cost optimization through Infrastructure as Code principles.",
+  "userTitle": "Manage Snowflake Infrastructure with SnowDDL",
+  "limitations": [
+    "Requires pre-configured SnowTower project with SnowDDL installed",
+    "Needs ACCOUNTADMIN role for full administrative operations",
+    "Cannot modify objects outside the defined SnowDDL YAML structure",
+    "Does not provide direct SQL query execution without Snowflake CLI"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Infrastructure administrators",
+      "title": "Deploy Infrastructure Changes",
+      "description": "Preview SnowDDL plan output, verify CREATE/ALTER/DROP statements, and apply changes safely with schema grant preservation."
+    },
+    {
+      "targetUser": "Security administrators",
+      "title": "Manage User Lifecycle",
+      "description": "Create new users with encrypted passwords, RSA public keys, assign roles, and audit MFA compliance before the 2026 deadline."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Automate CI/CD Pipelines",
+      "description": "Validate YAML changes via PR, run pre-commit linting and tests, create releases through GitHub Actions workflows."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Preview Infrastructure Changes",
+      "scenario": "Check what SnowDDL will do",
+      "prompt": "Run snowddl-plan to preview all infrastructure changes. Show me the CREATE, ALTER, DROP, and REVOKE statements that will be executed."
+    },
+    {
+      "title": "Create New User",
+      "scenario": "Provision a service account",
+      "prompt": "Create a new Snowflake SERVICE user called DATA_PIPELINE with ANALYST_ROLE and generate the required YAML configuration with RSA key authentication."
+    },
+    {
+      "title": "Check MFA Compliance",
+      "scenario": "Audit security status",
+      "prompt": "List all human users without MFA registration and show their last login date. Flag anyone who has not logged in during the last 90 days."
+    },
+    {
+      "title": "Suspend Warehouses",
+      "scenario": "Emergency cost control",
+      "prompt": "Suspend all Snowflake warehouses immediately to stop cost accumulation. Report which warehouses were suspended and their last activity timestamp."
+    }
+  ],
+  "bestPractices": [
+    "Always run snowddl-plan before applying changes to review all CREATE, ALTER, DROP, and REVOKE operations",
+    "Use deploy-safe instead of raw snowddl-apply to preserve schema-level grants for dbt and other tools",
+    "Store encrypted passwords using the !decrypt YAML tag and Fernet encryption for sensitive credentials"
+  ],
+  "antiPatterns": [
+    "Never apply SnowDDL changes directly in production without reviewing the plan output first",
+    "Avoid modifying admin roles (ACCOUNTADMIN, SECURITYADMIN) without explicit approval",
+    "Do not skip MFA enforcement for human users - the 2026 deadline requires compliance"
+  ],
+  "faq": [
+    {
+      "question": "What permissions are needed to run SnowDDL operations?",
+      "answer": "ACCOUNTADMIN role is required to see all grants and manage objects across all schemas and databases."
+    },
+    {
+      "question": "How does deploy-safe differ from snowddl-apply?",
+      "answer": "deploy-safe preserves schema-level grants that SnowDDL would otherwise revoke, preventing dbt from losing permissions."
+    },
+    {
+      "question": "Can I create users without interactive prompts?",
+      "answer": "Yes, use uv run manage-users create with --first-name, --last-name, --email, and --role flags for non-interactive provisioning."
+    },
+    {
+      "question": "Is my sensitive data at risk when using this skill?",
+      "answer": "No. This skill only modifies Snowflake configurations defined in your YAML files. It does not access or exfiltrate data from your tables."
+    },
+    {
+      "question": "Why does the plan show hundreds of REVOKE statements?",
+      "answer": "Schema grants from dbt or manual changes are not tracked in YAML. Use deploy-safe to auto-apply schema grants after deployment."
+    },
+    {
+      "question": "What encryption is used for passwords?",
+      "answer": "SnowDDL uses Fernet symmetric encryption (AES-128) with the !decrypt YAML tag to securely store encrypted passwords in configuration files."
+    }
+  ],
+  "seoKeywords": [
+    "Snowflake administration",
+    "SnowDDL",
+    "Infrastructure as Code",
+    "database management",
+    "Snowflake DevOps",
+    "role management",
+    "CI/CD for databases",
+    "Claude Code",
+    "cloud infrastructure",
+    "data warehouse"
+  ],
+  "sourceUrl": "https://github.com/Database-Tycoon/SnowTower/tree/main/.claude/skills/snowtower-admin",
+  "sourceType": "community",
+  "dependencies": []
+}

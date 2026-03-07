@@ -1,0 +1,142 @@
+{
+  "name": "gmail-tools",
+  "type": "skill",
+  "description": "Reading and managing Gmail emails - Sending emails with attachments - Replying to emails while maintaining thread continuity",
+  "domain": "communication",
+  "subdomain": "email",
+  "specialty": "email management",
+  "quality": 4,
+  "qualityReason": "Standard email operations",
+  "bundleHints": [
+    "communication-tools",
+    "gmail"
+  ],
+  "tags": [
+    "1password",
+    "attachments",
+    "email",
+    "gmail",
+    "imap",
+    "reading",
+    "smtp",
+    "threading"
+  ],
+  "capabilities": [
+    "List recent emails from any Gmail folder with configurable limits",
+    "Read full email content including HTML and text bodies with headers",
+    "Send new emails with file attachments via secure SMTP connection",
+    "Reply to emails maintaining proper thread continuity with In-Reply-To headers",
+    "Search emails using standard IMAP query syntax for quick retrieval",
+    "Secure credential storage through 1Password CLI integration"
+  ],
+  "author": "ClementWalter",
+  "icon": "📧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "The Gmail Tools skill provides legitimate email management functionality through standard IMAP/SMTP protocols. It uses 1Password for secure credential storage with hardcoded subprocess calls to the official 1Password CLI. All network operations connect directly to Gmail's official servers. No obfuscation, data exfiltration, or malicious patterns found.",
+  "valueStatement": "Tired of juggling email credentials across multiple tools? This skill provides secure Gmail access using 1Password for credential management, eliminating the need to store passwords in plain text while enabling powerful email automation.",
+  "userTitle": "Manage Gmail emails securely with 1Password",
+  "limitations": [
+    "Requires Gmail App Password with 2FA enabled on Google account",
+    "Depends on 1Password CLI being installed and configured on system",
+    "Gmail-specific implementation not compatible with other email providers",
+    "IMAP access must be enabled in Gmail settings for full functionality"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Busy professionals",
+      "title": "Automate email responses",
+      "description": "Quickly reply to common inquiries while maintaining professional threading and adding attachments when needed."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Integrate email into workflows",
+      "description": "Incorporate email notifications, reports, and updates directly into development scripts and automation pipelines."
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Track project communications",
+      "description": "Search and organize project-related emails, ensuring important updates are never missed in the inbox."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List recent emails",
+      "scenario": "Check inbox for new messages",
+      "prompt": "Use gmail-tools to list the 10 most recent emails from my Gmail Work account"
+    },
+    {
+      "title": "Read specific email",
+      "scenario": "Review email content before responding",
+      "prompt": "Read email ID 123 from my Gmail Personal account to see the full message"
+    },
+    {
+      "title": "Send with attachment",
+      "scenario": "Email report to team",
+      "prompt": "Send an email from Gmail Work to team@company.com with subject Monthly Report and attach /path/to/report.pdf"
+    },
+    {
+      "title": "Reply maintaining thread",
+      "scenario": "Respond to customer inquiry",
+      "prompt": "Reply to email ID 45 in my Gmail Work account with body Thank you for your inquiry. I will review and get back to you shortly."
+    }
+  ],
+  "bestPractices": [
+    "Always use --dry-run when testing email replies to verify content before sending",
+    "Store 1Password item names in environment variables for easier account switching",
+    "Use specific IMAP search queries like FROM sender or UNSEEN to find emails quickly"
+  ],
+  "antiPatterns": [
+    "Never use your main Google password - always generate App Passwords for security",
+    "Avoid hardcoding email addresses in scripts - use configuration files instead",
+    "Do not process emails in bulk without reviewing - always verify recipients before sending"
+  ],
+  "faq": [
+    {
+      "question": "Is this compatible with Google Workspace accounts?",
+      "answer": "Yes, works with both personal Gmail and Google Workspace accounts as long as IMAP is enabled."
+    },
+    {
+      "question": "What is the email sending limit?",
+      "answer": "Limited by Gmail daily quota: 500 emails per day for Gmail, 2000 for Workspace accounts."
+    },
+    {
+      "question": "Can I use this with other password managers?",
+      "answer": "Currently only supports 1Password CLI. Other managers would require code modifications."
+    },
+    {
+      "question": "How are my credentials protected?",
+      "answer": "Credentials are never stored in plain text. They are retrieved securely from 1Password and used only for the current operation."
+    },
+    {
+      "question": "What if I get authentication errors?",
+      "answer": "Ensure 2FA is enabled, you are using an App Password not regular password, and IMAP access is enabled."
+    },
+    {
+      "question": "How does this compare to Gmail API?",
+      "answer": "Uses standard IMAP/SMTP protocols instead of Gmail API, avoiding complex OAuth setup while maintaining security through 1Password."
+    }
+  ],
+  "seoKeywords": [
+    "Gmail automation",
+    "email management",
+    "1Password integration",
+    "IMAP SMTP",
+    "Claude Code email",
+    "secure email access",
+    "email threading",
+    "Gmail API alternative",
+    "productivity tools",
+    "email security"
+  ],
+  "sourceUrl": "https://github.com/ClementWalter/rookie-marketplace/tree/main/gmail-mcp/skills/gmail-tools",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,144 @@
+{
+  "name": "flow-debugging",
+  "type": "skill",
+  "description": "4-phase systematic debugging for flow-fix. NO FIXES WITHOUT ROOT CAUSE INVESTIGATION FIRST.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "root cause analysis",
+  "quality": 5,
+  "qualityReason": "Structured and rigorous",
+  "bundleHints": [
+    "quality-engineering",
+    "flow-dev"
+  ],
+  "tags": [
+    "debugging",
+    "error-tracing",
+    "fix-validation",
+    "methodology",
+    "root-cause-analysis",
+    "systematic",
+    "systematic-debugging",
+    "tdd"
+  ],
+  "capabilities": [
+    "Enforces root cause investigation before any fix attempts",
+    "Guides through 4-phase debugging: investigation, pattern analysis, hypothesis testing, and TDD implementation",
+    "Prevents premature fixes by enforcing stable reproduction steps",
+    "Provides structured templates for documenting bug analysis and fixes",
+    "Identifies anti-patterns like 'trying this, trying that' debugging",
+    "Integrates with flow-fix command for complete bug fixing workflow"
+  ],
+  "author": "Dimon94",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill describing a 4-phase debugging methodology. All static findings are false positives: markdown code blocks flagged as shell execution, SHA256 hash strings flagged as crypto vulnerabilities, and relative documentation paths flagged as path traversal. No executable code exists.",
+  "valueStatement": "Developers often guess at bug fixes, leading to regressions and wasted time. This skill enforces a rigorous 4-phase debugging process that requires root cause investigation before any code changes.",
+  "userTitle": "Debug Code with Systematic Methodology",
+  "limitations": [
+    "This is a guidance methodology skill, not an automated debugging tool",
+    "Does not execute debugging commands - requires user to follow the process manually",
+    "Does not analyze code automatically - user must perform investigation steps",
+    "Effectiveness depends on user discipline in following the 4-phase process"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers debugging complex or recurring issues",
+      "title": "Fix Complex Bugs Systematically",
+      "description": "When encountering difficult bugs that have resisted multiple fix attempts, use this skill to step back and apply rigorous root cause analysis before making more changes."
+    },
+    {
+      "targetUser": "Junior developers building debugging skills",
+      "title": "Learn Systematic Debugging",
+      "description": "Junior developers can use this skill to learn professional debugging techniques that emphasize evidence-based investigation over guesswork."
+    },
+    {
+      "targetUser": "Any developer prone to 'shotgun debugging'",
+      "title": "Prevent Debugging Anti-Patterns",
+      "description": "When you catch yourself saying 'let me try this', use this skill to reset and apply structured debugging methodology instead of random attempts."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start Debug Session",
+      "prompt": "I'm encountering a bug: [describe the error]. Help me debug this systematically using the 4-phase process. Start with Phase 1: Root Cause Investigation. What should I look for and record?",
+      "scenario": "Initial bug report with error details"
+    },
+    {
+      "title": "Reproduce Before Fixing",
+      "prompt": "I think I understand the bug. Before I implement a fix, guide me through creating a stable reproduction case and checking recent changes with git commands.",
+      "scenario": "After initial error analysis, before fix implementation"
+    },
+    {
+      "title": "Analyze Patterns",
+      "prompt": "I've reproduced the bug. Now help me with Phase 2: Pattern Analysis. How do I find similar working examples and compare them with the broken code?",
+      "scenario": "After bug reproduction is confirmed"
+    },
+    {
+      "title": "Test Hypothesis with TDD",
+      "prompt": "My hypothesis is: [state hypothesis]. Guide me through Phase 3: Hypothesis Testing and Phase 4: TDD Implementation. Help me write a failing test first.",
+      "scenario": "After root cause is identified and confirmed"
+    }
+  ],
+  "bestPractices": [
+    "Always complete Phase 1 (Root Cause Investigation) before writing any fix code. Resistance to this is a red flag.",
+    "Write a failing test that reproduces the bug before implementing any fix. This is your 'red light' in Phase 4.",
+    "When 3+ fix attempts fail, stop immediately and restart from Phase 1. The problem is deeper than you think.",
+    "Document your investigation using the structured template. Clear documentation prevents revisiting solved issues."
+  ],
+  "antiPatterns": [
+    "Shotgun debugging: Trying random changes until something works. This is not debugging, it's guessing.",
+    "Fix-first methodology: Implementing fixes before understanding the root cause. This leads to regressions.",
+    "Skipping reproduction: Attempting fixes without first establishing reliable reproduction steps.",
+    "Documentation skipping: Saying 'I know what's wrong' without evidence-based investigation."
+  ],
+  "faq": [
+    {
+      "question": "What is the Iron Law in this skill?",
+      "answer": "The Iron Law is the core principle: NO FIXES WITHOUT ROOT CAUSE INVESTIGATION FIRST. Every bug fix must be preceded by systematic investigation to understand the root cause."
+    },
+    {
+      "question": "How long should Phase 1 take?",
+      "answer": "Phase 1 should take as long as needed to establish a clear root cause hypothesis with evidence. Resist the urge to skip this phase. A thorough investigation saves time overall by preventing wrong fix attempts."
+    },
+    {
+      "question": "What if I cannot reproduce the bug?",
+      "answer": "If you cannot reproduce the bug, do not attempt fixes. Instead, gather more information: check logs, monitor production, add instrumentation, and review recent deployments. Reproduction is a prerequisite for confident fixes."
+    },
+    {
+      "question": "How do I know when I'm done with Phase 3?",
+      "answer": "Phase 3 (Hypothesis Testing) is complete when you have a single, verifiable hypothesis that, when fixed, consistently resolves the issue. If tests pass and the hypothesis is confirmed, proceed to Phase 4."
+    },
+    {
+      "question": "Can I skip the testing steps?",
+      "answer": "No. Writing failing tests before fixes is mandatory in Phase 4. Tests provide confidence that your fix works and prevent regressions. Skipping tests means you don't know if the issue is truly resolved."
+    },
+    {
+      "question": "How does this skill integrate with flow-fix?",
+      "answer": "This skill is the core methodology for the /flow-fix command. The skill provides the detailed 4-phase process that flow-fix enforces. Use this skill for deep debugging guidance, or /flow-fix for a more automated bug-fixing workflow."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "debugging",
+    "root cause analysis",
+    "systematic debugging",
+    "bug fixing",
+    "TDD",
+    "flow-fix",
+    "debug methodology"
+  ],
+  "sourceUrl": "https://github.com/Dimon94/cc-devflow/tree/main/.claude/skills/flow-debugging",
+  "sourceType": "community",
+  "dependencies": []
+}

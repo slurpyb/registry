@@ -1,0 +1,142 @@
+{
+  "name": "frontend-nextjs-app-router",
+  "type": "skill",
+  "description": "Use when working with Next.js App Router tasks - creating pages in /app/, setting up dynamic routes ([id]/page.tsx), implementing nested layouts/templates (layout.tsx), optimizing Server/Client components, or building ERP role-based pages (admin/teacher/student dashboards). Auto-use for all /app/ directory operations, dynamic routing, and App Router-specific features.\n",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "App Router",
+  "quality": 5,
+  "qualityReason": "Framework-specific routing",
+  "bundleHints": [
+    "nextjs-stack",
+    "app-router"
+  ],
+  "tags": [
+    "app-directory",
+    "app-router",
+    "dynamic-routes",
+    "nested-layouts",
+    "nextjs",
+    "react",
+    "server-components",
+    "typescript"
+  ],
+  "capabilities": [
+    "Generate Next.js App Router page components with proper async data fetching patterns",
+    "Create dynamic routes with parameter extraction and metadata generation",
+    "Implement nested layouts and templates with correct component hierarchy",
+    "Provide guidance on Server Component vs Client Component usage and optimization",
+    "Generate route handlers and API endpoints following Next.js conventions",
+    "Create error boundaries, loading states, and Suspense boundaries for better UX"
+  ],
+  "author": "Awais68",
+  "icon": "⚛️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation and guidance resource for Next.js App Router development. All 131 static findings are false positives - they are TypeScript/JavaScript code examples in markdown documentation files. No executable code, network access, or filesystem operations are performed by this skill.",
+  "valueStatement": "Next.js App Router development can be complex with server and client components, dynamic routing, and nested layouts. This skill provides expert guidance and code templates to help you build modern Next.js applications with proper architecture and best practices.",
+  "userTitle": "Build Next.js App Router Applications",
+  "limitations": [
+    "Does not execute or run Next.js applications, only provides code templates and guidance",
+    "Cannot debug runtime errors or performance issues in live applications",
+    "Does not include backend database configuration or API integration setup",
+    "Requires manual testing and verification of generated code in your environment"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers building educational or enterprise applications",
+      "title": "Dashboard Development",
+      "description": "Build role-based admin, teacher, or student dashboards with proper routing and layouts"
+    },
+    {
+      "targetUser": "Frontend developers working on content-heavy websites",
+      "title": "Dynamic Content Pages",
+      "description": "Create blog posts, product pages, or user profiles with dynamic routing and SEO metadata"
+    },
+    {
+      "targetUser": "Teams modernizing their Next.js applications from Pages Router to App Router",
+      "title": "Server Component Migration",
+      "description": "Refactor existing React applications to use Next.js App Router with optimal server/client component patterns"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Basic Page",
+      "prompt": "Create a dashboard page in /app/dashboard/page.tsx with server component data fetching",
+      "scenario": "Starting a new feature with a simple server-rendered page"
+    },
+    {
+      "title": "Add Dynamic Route",
+      "prompt": "Create a dynamic student profile page at /app/students/[studentId]/page.tsx with metadata and 404 handling",
+      "scenario": "Building detail pages that need URL parameters and SEO"
+    },
+    {
+      "title": "Implement Nested Layout",
+      "prompt": "Add a shared layout for all dashboard pages with navigation sidebar in /app/dashboard/layout.tsx",
+      "scenario": "Creating consistent UI structure across multiple related pages"
+    },
+    {
+      "title": "Optimize Component Split",
+      "prompt": "Refactor this page to use server components for data fetching and client components only for interactive elements",
+      "scenario": "Optimizing an existing page for better performance and SEO"
+    }
+  ],
+  "bestPractices": [
+    "Always use Server Components by default and only add 'use client' directive when you need browser APIs, event handlers, or React hooks",
+    "Implement Suspense boundaries around async components to enable streaming and improve perceived performance with loading skeletons",
+    "Add generateMetadata to all dynamic routes for proper SEO and social media sharing capabilities"
+  ],
+  "antiPatterns": [
+    "Using 'use client' at the top level of every component defeats the performance benefits of Server Components",
+    "Fetching data with useEffect in Server Components when you can use async/await directly in the component body",
+    "Creating API routes for every data operation when Server Actions provide a simpler pattern for form submissions and mutations"
+  ],
+  "faq": [
+    {
+      "question": "When should I use Server Components vs Client Components?",
+      "answer": "Use Server Components by default for data fetching and static content. Only use Client Components when you need browser APIs, event handlers, React hooks, or state management."
+    },
+    {
+      "question": "How do I handle authentication in App Router?",
+      "answer": "Use middleware.ts to protect routes at the edge, check session in Server Components before rendering, and redirect unauthorized users with the redirect function from next/navigation."
+    },
+    {
+      "question": "What is the difference between layout.tsx and template.tsx?",
+      "answer": "Layouts persist across navigation and maintain state, while templates re-execute on every navigation. Use layouts for shared UI and templates when you need fresh state on each page change."
+    },
+    {
+      "question": "How do I optimize images in Next.js App Router?",
+      "answer": "Use the next/image Image component with width, height, and alt props. Set priority true for above-fold images and use appropriate sizes for responsive images."
+    },
+    {
+      "question": "Can I use this skill with JavaScript instead of TypeScript?",
+      "answer": "Yes, the patterns work with JavaScript. Simply remove type annotations from the code templates. However, TypeScript is recommended for better developer experience and error detection."
+    },
+    {
+      "question": "How do I handle forms with Server Actions?",
+      "answer": "Create a server action file with 'use server' directive, export async functions that accept FormData, and reference them in the form action prop. Server Actions automatically handle serialization and revalidation."
+    }
+  ],
+  "seoKeywords": [
+    "Next.js",
+    "App Router",
+    "React Server Components",
+    "TypeScript",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "dynamic routing",
+    "nested layouts",
+    "server components"
+  ],
+  "sourceUrl": "https://github.com/Awais68/hackathon-2-phase-ii-full-stack-web-app/tree/main/.claude/skills/frontend-nextjs-app-router",
+  "sourceType": "community",
+  "dependencies": []
+}

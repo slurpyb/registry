@@ -1,0 +1,142 @@
+{
+  "name": "codebase-explorer",
+  "type": "skill",
+  "description": "Explore and understand the Empathy Ledger codebase architecture, data flows, database schema, services, and how components connect. Use when you need to understand where things are, how data flows, or how different parts of the system relate to each other.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "codebase navigation",
+  "quality": 5,
+  "qualityReason": "Clear use case and structure",
+  "bundleHints": [
+    "codebase-health",
+    "onboarding-toolkit"
+  ],
+  "tags": [
+    "architecture",
+    "codebase",
+    "data-flow",
+    "database",
+    "documentation",
+    "exploration",
+    "schema",
+    "services"
+  ],
+  "capabilities": [
+    "Explore database schema and table relationships",
+    "Map data flows from components through API routes to database",
+    "Identify service layer patterns and business logic locations",
+    "Find API routes and their purposes",
+    "Locate type definitions organized by domain",
+    "Understand multi-tenant isolation patterns"
+  ],
+  "author": "Acurioustractor",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown content and JSON metadata. No executable code, scripts, network calls, or filesystem access beyond its own files. All 35 static findings are FALSE POSITIVES caused by the scanner misinterpreting documentation formatting as security threats. The backticks in markdown tables, file paths in documentation, and SHA256 content hash were incorrectly flagged. This skill provides architectural guidance only.",
+  "valueStatement": "This skill helps developers understand complex codebase structures by providing clear documentation on architecture, data flows, and system relationships. It guides exploration of database schemas, service layers, and API routes for faster onboarding and development.",
+  "userTitle": "Explore codebase architecture and data flows",
+  "limitations": [
+    "Cannot modify or write code",
+    "Cannot access files outside of providing documentation references",
+    "Limited to providing guidance rather than performing actions",
+    "Cannot execute database queries or interact with services"
+  ],
+  "useCases": [
+    {
+      "targetUser": "New developers",
+      "title": "Onboard to codebase",
+      "description": "New team members quickly understand project structure, key files, and architectural patterns."
+    },
+    {
+      "targetUser": "Feature developers",
+      "title": "Find implementation location",
+      "description": "Locate the right service, API route, or component for new feature development."
+    },
+    {
+      "targetUser": "Database engineers",
+      "title": "Understand data relationships",
+      "description": "Map database tables, relationships, and data flow patterns across the system."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Find file location",
+      "scenario": "Locating specific functionality",
+      "prompt": "Where is the consent service located and how does it connect to the distribution service?"
+    },
+    {
+      "title": "Map data flow",
+      "scenario": "Understanding data movement",
+      "prompt": "Trace the data flow for a story from user action through to database storage."
+    },
+    {
+      "title": "Database relationships",
+      "scenario": "Understanding schema",
+      "prompt": "Show me the relationship between projects, stories, and transcripts tables."
+    },
+    {
+      "title": "Multi-tenant patterns",
+      "scenario": "Understanding tenant isolation",
+      "prompt": "How does the multi-tenant isolation work in the API routes and service layer?"
+    }
+  ],
+  "bestPractices": [
+    "Use this skill when starting work on a new feature to understand existing patterns",
+    "Combine with direct file reads to get complete understanding of code sections",
+    "Reference the quick reference tables for fast navigation to common locations"
+  ],
+  "antiPatterns": [
+    "Asking for code modifications - this skill provides documentation only",
+    "Expecting direct database access or query execution",
+    "Requesting real-time system monitoring or metrics"
+  ],
+  "faq": [
+    {
+      "question": "Which AI platforms support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It is optimized for Claude Code CLI usage."
+    },
+    {
+      "question": "What file types can this skill help me explore?",
+      "answer": "It covers TypeScript files including components, API routes, services, and database types."
+    },
+    {
+      "question": "Can this skill modify my codebase?",
+      "answer": "No. This is a documentation-only skill for exploration. It provides guidance but cannot write code."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only reads and provides information. It does not access external networks or modify files."
+    },
+    {
+      "question": "How does this skill find information?",
+      "answer": "It provides pre-documented architectural guidance based on the Empathy Ledger documentation."
+    },
+    {
+      "question": "How is this different from a general code search?",
+      "answer": "This skill provides context-aware architectural understanding rather than simple text matching."
+    }
+  ],
+  "seoKeywords": [
+    "codebase exploration",
+    "Claude Code skill",
+    "architecture documentation",
+    "database schema",
+    "data flow analysis",
+    "system exploration",
+    "code navigation",
+    "Empathy Ledger",
+    "multi-tenant architecture",
+    "Supabase patterns"
+  ],
+  "sourceUrl": "https://github.com/Acurioustractor/empathy-ledger-v2/tree/main/.claude/skills/local/codebase-explorer",
+  "sourceType": "community",
+  "dependencies": []
+}

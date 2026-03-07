@@ -1,0 +1,140 @@
+{
+  "name": "analyzing-patterns",
+  "type": "skill",
+  "description": "Automatically activated when user asks to \"find patterns in...\", \"identify repeated code...\", \"analyze the architecture...\", \"what design patterns are used...\", or needs to understand code organization, recurring structures, or architectural decisions",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "Code patterns",
+  "quality": 5,
+  "qualityReason": "Essential code analysis capability",
+  "bundleHints": [
+    "code-review",
+    "architecture-analysis",
+    "quality-assurance"
+  ],
+  "tags": [
+    "architecture",
+    "best-practices",
+    "code-analysis",
+    "code-quality",
+    "design-patterns",
+    "organization",
+    "repeated-code"
+  ],
+  "capabilities": [
+    "Identify Gang of Four and modern design patterns in code",
+    "Recognize architectural patterns like MVC, layered, and microservices",
+    "Detect code repetition and duplication across files",
+    "Extract naming conventions and organization strategies",
+    "Identify anti-patterns and suggest improvements"
+  ],
+  "author": "C0ntr0lledCha0s",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a read-only pattern analysis skill. The static analyzer flagged 369 issues, but all findings are FALSE POSITIVES caused by misinterpretation of markdown documentation examples as executable code. The skill only reads files from user-specified directories and outputs pattern analysis using regex matching. No network access, no credential handling, no dangerous operations.",
+  "valueStatement": "Understanding code structure and patterns helps developers navigate unfamiliar codebases faster. This skill identifies design patterns, architectural styles, and recurring code structures to provide insights into how software is organized.",
+  "userTitle": "Analyze code patterns and architecture",
+  "limitations": [
+    "Pattern detection uses signature matching; may miss custom implementations",
+    "Cannot execute code or perform runtime analysis",
+    "Analysis quality depends on code clarity and naming conventions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Codebase newcomers",
+      "title": "Understand project structure",
+      "description": "Quickly grasp how a new codebase is organized by identifying architectural patterns and design choices."
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Find code duplication",
+      "description": "Identify repeated code blocks and patterns that could be extracted into shared utilities."
+    },
+    {
+      "targetUser": "Architecture leads",
+      "title": "Assess design quality",
+      "description": "Evaluate whether patterns are correctly implemented and appropriate for the problem domain."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Find design patterns",
+      "scenario": "Identify patterns in a codebase",
+      "prompt": "What design patterns are used in this codebase? Look for Factory, Singleton, Observer, and Strategy patterns."
+    },
+    {
+      "title": "Analyze architecture",
+      "scenario": "Understand project structure",
+      "prompt": "Analyze the application architecture. What pattern is used? Describe the directory structure and layer organization."
+    },
+    {
+      "title": "Find duplication",
+      "scenario": "Identify repeated code",
+      "prompt": "Find duplicate or similar code blocks in this codebase. List the files and explain what can be refactored."
+    },
+    {
+      "title": "Anti-pattern check",
+      "scenario": "Review code quality",
+      "prompt": "Identify anti-patterns in this codebase. Look for God Objects, magic numbers, and tight coupling."
+    }
+  ],
+  "bestPractices": [
+    "Provide file paths and line numbers for all pattern discoveries",
+    "Distinguish between patterns used correctly versus anti-patterns",
+    "Suggest refactoring only when it improves maintainability"
+  ],
+  "antiPatterns": [
+    "Recommending pattern application where simpler code suffices",
+    "Missing context-specific adaptations of standard patterns",
+    "Focusing on pattern names rather than code quality impact"
+  ],
+  "faq": [
+    {
+      "question": "What languages does this skill support?",
+      "answer": "Supports TypeScript, JavaScript, Python, Java, Go, and Rust with pattern signatures for each."
+    },
+    {
+      "question": "How accurate is pattern detection?",
+      "answer": "Detection uses code signatures; it may miss unconventional implementations but catches standard patterns."
+    },
+    {
+      "question": "Can this skill modify my code?",
+      "answer": "No. The skill only reads files and provides analysis. It does not write or modify any code."
+    },
+    {
+      "question": "Does this skill send data externally?",
+      "answer": "No. All analysis happens locally. No network calls are made during pattern detection."
+    },
+    {
+      "question": "Why were some patterns not detected?",
+      "answer": "Patterns may not be detected if they use non-standard naming, are implemented without typical signatures, or span multiple files in unusual ways."
+    },
+    {
+      "question": "How is this different from a linter?",
+      "answer": "Linters check code style and errors. This skill identifies architectural patterns and design structures that require semantic understanding."
+    }
+  ],
+  "seoKeywords": [
+    "claude code patterns",
+    "design pattern detection",
+    "codebase analysis",
+    "architecture patterns",
+    "code review patterns",
+    "software patterns",
+    "pattern analyzer",
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "sourceUrl": "https://github.com/C0ntr0lledCha0s/claude-code-plugin-automations/tree/main/research-agent/skills/analyzing-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

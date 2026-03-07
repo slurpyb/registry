@@ -1,0 +1,140 @@
+{
+  "name": "track-management",
+  "type": "skill",
+  "description": "Use this skill when creating, managing, or working with Conductor",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "feature tracking",
+  "quality": 4,
+  "qualityReason": "Clear workflow integration",
+  "bundleHints": [
+    "project-management",
+    "ai-workflow"
+  ],
+  "tags": [
+    "claude code",
+    "documentation",
+    "feature-tracks",
+    "project management",
+    "specification",
+    "workflow"
+  ],
+  "capabilities": [
+    "Create feature, bug, and refactor tracks with unique identifiers",
+    "Generate structured specification documents with requirements and acceptance criteria",
+    "Build phased implementation plans with atomic tasks and verification steps",
+    "Track progress through status markers and checkpoint commits",
+    "Manage track lifecycle from creation through completion",
+    "Document and resolve track dependencies and blockers"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static analysis findings are false positives. The skill consists entirely of markdown documentation files with no executable code. Detected patterns (backticks, SHA references) are markdown formatting and documentation examples, not actual security risks.",
+  "valueStatement": "Software teams struggle with unclear work boundaries and lost context. Track Management provides a structured system for organizing work into spec-driven, phased tracks with clear progress visibility.",
+  "userTitle": "Organize and track software work with structured methodology",
+  "limitations": [
+    "Does not execute code or run commands directly",
+    "Requires manual creation of files and directories",
+    "Does not integrate with external project management tools",
+    "Track registry must be maintained manually in markdown"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers building complex features",
+      "title": "Feature Development Tracking",
+      "description": "Break down new features into tracked work units with clear specifications, phased implementation plans, and verifiable acceptance criteria."
+    },
+    {
+      "targetUser": "QA engineers and maintainers",
+      "title": "Bug Fix Documentation",
+      "description": "Document bug reproduction, track fix implementation through phases, and maintain verification records for quality assurance."
+    },
+    {
+      "targetUser": "Engineering teams managing tech debt",
+      "title": "Technical Debt Management",
+      "description": "Plan and execute refactoring work with clear scope boundaries, risk assessment, and rollback checkpoints."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a New Track",
+      "prompt": "Create a new feature track for [feature name]. Gather requirements, define acceptance criteria, and generate a spec.md with functional and non-functional requirements.",
+      "scenario": "Starting work on a new feature with unclear requirements"
+    },
+    {
+      "title": "Generate Implementation Plan",
+      "prompt": "Based on the spec.md for [track name], create a phased implementation plan with atomic tasks, verification steps, and estimated effort for each phase.",
+      "scenario": "Ready to begin implementation after spec approval"
+    },
+    {
+      "title": "Update Track Progress",
+      "prompt": "Update the track status for [track name]. Mark completed tasks with commit SHAs, update phase progress, and identify any blockers or dependencies.",
+      "scenario": "Weekly progress update or phase completion"
+    },
+    {
+      "title": "Revert a Track",
+      "prompt": "Revert track [track name] to phase [N]. Identify all commits to revert, update status markers, and document the revert reason in the track registry.",
+      "scenario": "Feature needs to be rolled back due to issues"
+    }
+  ],
+  "bestPractices": [
+    "Keep tracks focused on a single logical change that can complete in 1-5 days",
+    "Include verification tasks after each phase before proceeding",
+    "Record commit SHAs for all completed tasks to enable traceability and rollback"
+  ],
+  "antiPatterns": [
+    "Creating tracks that are too large with multiple unrelated features",
+    "Skipping verification tasks to move faster",
+    "Not updating status markers immediately after completing work"
+  ],
+  "faq": [
+    {
+      "question": "What is the ideal size for a track?",
+      "answer": "Aim for 1-5 days of work, 2-4 phases, and 8-20 tasks. If your track exceeds this, split it into multiple coherent tracks."
+    },
+    {
+      "question": "How do I handle track dependencies?",
+      "answer": "Document dependencies in spec.md with type (hard/soft/external), current status, and resolution path. Mark blocked tasks with [!] and the blocking reason."
+    },
+    {
+      "question": "What do the status markers mean?",
+      "answer": "[ ] pending, [~] in progress, [x] complete (add SHA), [-] skipped, [!] blocked. Update markers immediately as you work."
+    },
+    {
+      "question": "When should I delete versus archive a track?",
+      "answer": "Archive completed tracks for reference and traceability. Only delete tracks that were created in error or contain sensitive information."
+    },
+    {
+      "question": "Can I use this skill for non-code work?",
+      "answer": "Yes. The track methodology applies to any structured work requiring specification, planning, and phased execution."
+    },
+    {
+      "question": "How do I revert a track safely?",
+      "answer": "Use the revert operation to identify commits by track ID, phase, or task. Revert in reverse order, update status markers, and document the revert reason."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code skill",
+    "Codex workflow",
+    "project management",
+    "track management",
+    "specification writing",
+    "development workflow",
+    "Agile methodology",
+    "documentation system",
+    "task tracking",
+    "software planning"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/track-management",
+  "sourceType": "community",
+  "dependencies": []
+}

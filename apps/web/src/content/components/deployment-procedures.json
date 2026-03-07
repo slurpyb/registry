@@ -1,0 +1,141 @@
+{
+  "name": "deployment-procedures",
+  "type": "skill",
+  "description": "Production deployment principles and decision-making. Safe deployment workflows, rollback strategies, and verification. Teaches thinking, not scripts.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "safe deployment",
+  "quality": 4,
+  "qualityReason": "Teaches principles, not just scripts",
+  "bundleHints": [
+    "devops-toolkit",
+    "best-practices"
+  ],
+  "tags": [
+    "decision-making",
+    "deployment",
+    "devops",
+    "production",
+    "release-management",
+    "rollback",
+    "workflows"
+  ],
+  "capabilities": [
+    "Guide platform selection for different application types (static sites, web apps, microservices, serverless)",
+    "Provide pre-deployment verification checklists covering code quality, build, environment, and safety",
+    "Execute structured 5-phase deployment workflow (Prepare, Backup, Deploy, Verify, Confirm)",
+    "Recommend rollback strategies based on platform and risk level",
+    "Support zero-downtime deployment approaches (rolling, blue-green, canary)",
+    "Assist with emergency procedures and post-deployment verification"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static analysis findings are false positives. The backtick patterns at SKILL.md:30,45,87 are markdown code block delimiters for documentation diagrams, not shell execution. The cryptographic algorithm warning at SKILL.md:3,246 has no basis - these lines contain YAML frontmatter and plain text. This is educational documentation with no executable code, network calls, or filesystem operations.",
+  "valueStatement": "Production deployments are risky without proper methodology. This skill teaches decision-making frameworks for safe deployments, rollback strategies, and verification workflows that minimize downtime.",
+  "userTitle": "Deploy production releases with confidence and safety",
+  "limitations": [
+    "Does not execute deployment commands automatically - provides guidance only",
+    "Platform-specific procedures require manual adaptation to your infrastructure",
+    "Cannot access your deployment environment, logs, or monitoring systems directly",
+    "Does not replace formal change management or approval processes required by your organization"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Engineering managers and team leads responsible for deployment reliability",
+      "title": "Development Team Lead",
+      "description": "Establish consistent deployment procedures across multiple projects and team members with standardized checklists and verification steps."
+    },
+    {
+      "targetUser": "Independent developers managing their own deployments",
+      "title": "Solo Developer",
+      "description": "Learn production deployment best practices without enterprise tooling, using platform-appropriate workflows for personal or small business projects."
+    },
+    {
+      "targetUser": "DevOps professionals responsible for release management",
+      "title": "DevOps Engineer",
+      "description": "Document and communicate deployment runbooks, train junior engineers on deployment decision-making, and establish rollback procedures."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Pre-deployment checklist review",
+      "prompt": "Review my deployment plan for a Node.js API on Railway. I have tests passing, code reviewed, and production build ready. Walk me through the remaining pre-deployment checks and help me prepare a rollback plan.",
+      "scenario": "Beginner: First-time deployment with managed platform"
+    },
+    {
+      "title": "Platform selection guidance",
+      "prompt": "I have a React frontend with a Python FastAPI backend. Help me choose the right deployment platform considering: low cost, easy rollback, and minimal DevOps overhead. Compare at least 3 options with their deployment procedures.",
+      "scenario": "Beginner: Evaluating deployment options for new project"
+    },
+    {
+      "title": "Zero-downtime deployment planning",
+      "prompt": "Plan a zero-downtime deployment for our e-commerce site on Kubernetes. We need to deploy a database migration that adds a non-nullable column. Outline the strategy, verification steps, and rollback triggers.",
+      "scenario": "Intermediate: Managing complex deployments with database changes"
+    },
+    {
+      "title": "Emergency rollback execution",
+      "prompt": "Our production deployment just failed - the service is returning 502 errors. We deployed to VPS using PM2. Guide me through the immediate steps to assess the situation and execute a rollback if needed.",
+      "scenario": "Advanced: Responding to production incidents"
+    }
+  ],
+  "bestPractices": [
+    "Deploy small changes frequently rather than large releases with multiple modifications",
+    "Always have a tested rollback plan before initiating any production deployment",
+    "Monitor actively for at least 15 minutes after deployment before considering it complete"
+  ],
+  "antiPatterns": [
+    "Deploying on Friday or before holidays without on-call coverage ready",
+    "Skipping staging environment testing to save time on urgent releases",
+    "Walking away immediately after deployment command completes without verification"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill execute deployment commands automatically?",
+      "answer": "No. This skill provides guidance, checklists, and decision-making frameworks. You execute the actual deployment commands. This approach ensures you understand each step and maintain control over your production environment."
+    },
+    {
+      "question": "Which deployment platforms does this skill support?",
+      "answer": "The skill covers principles applicable to all platforms: Vercel, Netlify, Railway, Render, Fly.io, VPS with PM2, Docker, and Kubernetes. Specific procedures vary by platform, but the decision-making framework applies universally."
+    },
+    {
+      "question": "How do I know if I should rollback or fix forward?",
+      "answer": "Rollback immediately if: service is down, critical errors occur, or performance is degraded more than 50 percent. Fix forward only for minor issues that can be resolved quickly. When in doubt, rollback first and debug later."
+    },
+    {
+      "question": "What is the minimum monitoring window after deployment?",
+      "answer": "Actively monitor for 15 minutes minimum. Check health endpoints and error logs in the first 5 minutes. Test key user flows within 15 minutes. Review performance metrics the next day for final confirmation."
+    },
+    {
+      "question": "Can this skill help with database migrations during deployment?",
+      "answer": "Yes. The skill provides guidance on deployment sequencing for database changes, including strategies for backward-compatible migrations and handling migrations that require downtime. Always test migrations in staging first."
+    },
+    {
+      "question": "Is this skill suitable for teams without dedicated DevOps engineers?",
+      "answer": "Yes. The skill is designed for developers who need to handle their own deployments. It emphasizes understanding principles over memorizing commands, making it accessible for teams learning deployment best practices."
+    }
+  ],
+  "seoKeywords": [
+    "Claude deployment skill",
+    "Codex production release",
+    "Claude Code devops",
+    "deployment procedures",
+    "rollback strategy",
+    "production deployment",
+    "zero-downtime deploy",
+    "deployment checklist",
+    "release management",
+    "deployment verification"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deployment-procedures",
+  "sourceType": "community",
+  "dependencies": []
+}

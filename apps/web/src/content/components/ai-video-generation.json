@@ -1,0 +1,146 @@
+{
+  "name": "ai-video-generation",
+  "type": "skill",
+  "description": "Generate AI videos using 40+ models via inference.sh CLI. Create videos from text, images, or audio. Supports Veo 3.1, Grok Video, Wan 2.5, OmniHuman, and other AI video tools for social media, marketing, and content creation.",
+  "domain": "ai-ml",
+  "subdomain": "computer-vision",
+  "specialty": "Video generation",
+  "quality": 5,
+  "qualityReason": "Comprehensive video model access",
+  "bundleHints": [
+    "ai-video-suite",
+    "generative-video",
+    "marketing-automation"
+  ],
+  "tags": [
+    "ai-video",
+    "content-creation",
+    "generative-ai",
+    "grok-video",
+    "inference.sh",
+    "social-media-video",
+    "text-to-video",
+    "veo",
+    "video",
+    "wan"
+  ],
+  "capabilities": [
+    "Generate videos from text prompts using Veo 3.1, Grok, and Seedance models",
+    "Create videos from static images using Wan 2.5 and Seedance image-to-video",
+    "Animate avatars with lipsync using OmniHuman and Fabric",
+    "Upscale video quality with Topaz Video Upscaler",
+    "Add sound effects and foley to videos",
+    "Merge multiple videos with transitions"
+  ],
+  "author": "inference-sh",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The 42 external_command alerts are curl commands for CLI installation, and 16 network alerts are documentation links. No code execution or credential exposure risk detected.",
+  "valueStatement": "Create videos from text, images, or audio using 40+ AI models. Generate social media clips, marketing content, and explainer videos with tools like Veo 3.1, Grok Video, and Wan 2.5.",
+  "userTitle": "Generate AI Videos",
+  "limitations": [
+    "Requires inference.sh CLI installation and login",
+    "Network connection required for API calls",
+    "Video generation may have processing time delays",
+    "No local video editing capabilities",
+    "Example URLs in documentation are placeholders"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content creators, social media managers",
+      "title": "Social Media Content Creator",
+      "description": "Generate viral TikTok and Instagram Reels from text descriptions. Create trending content quickly using text-to-video models."
+    },
+    {
+      "targetUser": "Marketing teams, brand managers",
+      "title": "Marketing Professional",
+      "description": "Create product demos, explainer videos, and ad content. Use image-to-video to transform product images into engaging videos."
+    },
+    {
+      "targetUser": "Video editors, production houses",
+      "title": "Video Editor",
+      "description": "Animate static footage and add realistic motion. Use upscaling and foley tools to enhance existing video content."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Beginner: Generate a simple video",
+      "prompt": "Generate a video from the following text prompt using the Veo 3.1 model:\n\nText: [PROMPT]\n\nRequirements:\n- Use infsh app run google/veo-3-1-fast\n- Format the input as JSON\n- Generate high-quality output"
+    },
+    {
+      "title": "Intermediate: Image-to-video animation",
+      "prompt": "Create an image-to-video animation using Wan 2.5:\n\nImage URL: [IMAGE_URL]\nPrompt: [DESIRED_ANIMATION]\n\nRequirements:\n- Use infsh app run falai/wan-2-5-i2v\n- Specify smooth animation parameters\n- Ensure consistent character appearance"
+    },
+    {
+      "title": "Advanced: Avatar with lipsync",
+      "prompt": "Create an AI avatar with realistic lipsync:\n\nPortrait Image: [IMAGE_URL]\nAudio: [AUDIO_URL]\n\nRequirements:\n- Use bytedance/omnihuman-1-5 for best quality\n- Configure appropriate mouth movement parameters\n- Output direct video URL for preview"
+    },
+    {
+      "title": "Expert: Complete video pipeline",
+      "prompt": "Build a complete video creation pipeline:\n\n1. Generate text-to-video with Grok Video\n2. Upscale with Topaz Video Upscaler\n3. Add foley sound effects\n4. Merge with transition\n\nUse appropriate inference.sh apps for each step. Provide complete JSON inputs for all operations."
+    }
+  ],
+  "bestPractices": [
+    "Install inference.sh CLI before using video generation commands",
+    "Review output video quality before distribution",
+    "Use image URLs from reliable sources for best results",
+    "Test parameters in small batches before full production",
+    "Check API rate limits when generating multiple videos"
+  ],
+  "antiPatterns": [
+    "Pasting untrusted URLs directly into video generation commands",
+    "Generating videos with inappropriate or copyrighted content",
+    "Using test API keys in production environments",
+    "Bypassing inference.sh authentication",
+    "Mixing example URLs from documentation with real work"
+  ],
+  "faq": [
+    {
+      "question": "Which AI video models are available?",
+      "answer": "The skill supports 40+ models including Google Veo 3.1, Grok Video, Wan 2.5, Seedance 1.5 Pro, OmniHuman, Fabric, and HunyuanVideo for different use cases like text-to-video, image-to-video, and lipsync."
+    },
+    {
+      "question": "Do I need to install anything to use this skill?",
+      "answer": "Yes, you need to install the inference.sh CLI using curl and run `infsh login` to authenticate. The skill uses the CLI to generate videos through the inference.sh API."
+    },
+    {
+      "question": "What video formats are supported?",
+      "answer": "The skill generates standard video formats compatible with common players. Output formats depend on the specific model and are provided by the inference.sh API."
+    },
+    {
+      "question": "Can I upscale existing videos?",
+      "answer": "Yes, use the Topaz Video Upscaler model to enhance video quality and resolution before using the video in your projects."
+    },
+    {
+      "question": "Is this free to use?",
+      "answer": "Usage depends on the inference.sh API pricing. Check the inference.sh documentation for current rates and subscription options."
+    },
+    {
+      "question": "What is the maximum video duration?",
+      "answer": "Video duration varies by model. Check the available models table in the documentation for specific time limits per model type."
+    }
+  ],
+  "seoKeywords": [
+    "AI video generator",
+    "text to video",
+    "image to video",
+    "AI animation",
+    "Veo 3.1",
+    "Grok video",
+    "Wan 2.5",
+    "Claude Code",
+    "Claudex",
+    "AI content creation"
+  ],
+  "sourceUrl": "https://github.com/inference-sh/skills/tree/main/skills/ai-video-generation/",
+  "sourceType": "community",
+  "dependencies": []
+}

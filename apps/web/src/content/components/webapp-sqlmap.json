@@ -1,0 +1,143 @@
+{
+  "name": "webapp-sqlmap",
+  "type": "skill",
+  "description": "Automated SQL injection detection and exploitation tool for web application security testing. Use when: (1) Testing web applications for SQL injection vulnerabilities in authorized assessments, (2) Exploiting SQL injection flaws to demonstrate impact, (3) Extracting database information for security validation, (4) Bypassing authentication mechanisms through SQL injection, (5) Identifying vulnerable parameters in web requests, (6) Automating database enumeration and data extraction.\n",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "SQL injection",
+  "quality": 5,
+  "qualityReason": "Powerful, targeted security tool",
+  "bundleHints": [
+    "security-toolkit",
+    "pentesting",
+    "appsec"
+  ],
+  "tags": [
+    "database-security",
+    "exploitation",
+    "sql-injection",
+    "sqli",
+    "sqlmap",
+    "testing",
+    "webapp"
+  ],
+  "capabilities": [
+    "Detect SQL injection vulnerabilities in web applications",
+    "Enumerate database structure including tables, columns, and data",
+    "Bypass authentication mechanisms for security validation",
+    "Execute OS commands through SQL injection (authorized only)",
+    "Export test results for remediation reporting"
+  ],
+  "author": "AgentSecOps",
+  "icon": "🔒",
+  "version": "0.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "high",
+  "safeToPublish": true,
+  "securitySummary": "This skill wraps sqlmap, a legitimate open-source penetration testing tool. Static findings (273 patterns) are TRUE POSITIVES for security-relevant operations but represent intentional functionality for authorized security testing. The skill includes explicit authorization requirements and ethical use guidelines. SQL injection testing can be destructive to databases and requires strict authorization controls.",
+  "valueStatement": "SQL injection vulnerabilities pose critical risks to web applications. This skill automates detection and exploitation of SQL injection flaws for authorized security assessments using the industry-standard sqlmap tool.",
+  "userTitle": "Test web apps for SQL injection",
+  "limitations": [
+    "Requires explicit written authorization before testing",
+    "Cannot test without proper network access to target",
+    "Does not include WAF evasion capabilities beyond basic tamper scripts",
+    "Testing may be detected by security monitoring systems"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security consultants",
+      "title": "Authorized penetration tests",
+      "description": "Conduct authorized SQL injection testing during security assessments for clients."
+    },
+    {
+      "targetUser": "DevSecOps engineers",
+      "title": "Vulnerability validation",
+      "description": "Validate SQL injection findings from automated scanners with precise exploitation."
+    },
+    {
+      "targetUser": "Application security",
+      "title": "Code review verification",
+      "description": "Verify identified SQL injection vulnerabilities are exploitable in production-like environments."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic detection",
+      "scenario": "Test a URL for SQL injection",
+      "prompt": "Use the webapp-sqlmap skill to test http://example.com/page?id=1 for SQL injection vulnerabilities. Report which injection techniques work."
+    },
+    {
+      "title": "Database enumeration",
+      "scenario": "Enumerate database structure",
+      "prompt": "Run sqlmap on http://example.com/api?id=1 to enumerate all databases and tables. List the database structure found."
+    },
+    {
+      "title": "Auth bypass test",
+      "scenario": "Test authentication form",
+      "prompt": "Test the login form at http://example.com/login with POST data username=admin&password=test for SQL injection authentication bypass."
+    },
+    {
+      "title": "Full assessment",
+      "scenario": "Comprehensive security test",
+      "prompt": "Conduct a full SQL injection assessment on http://example.com/search. Use level 5 and risk 3. Enumerate databases and extract user table data for reporting."
+    }
+  ],
+  "bestPractices": [
+    "Obtain written authorization before testing any target system",
+    "Test on staging environments first to understand potential impact",
+    "Document all findings with timestamps and evidence for reporting",
+    "Use the --batch flag for automated testing in CI/CD pipelines"
+  ],
+  "antiPatterns": [
+    "Never test systems without explicit written authorization",
+    "Do not use --dump-all on production databases without backup",
+    "Avoid running intensive tests during peak business hours",
+    "Do not skip the authorization verification workflow step"
+  ],
+  "faq": [
+    {
+      "question": "Do I need authorization to use this skill?",
+      "answer": "Yes. Always obtain written authorization from the system owner before testing. Unauthorized SQL injection testing is illegal."
+    },
+    {
+      "question": "Can this skill damage databases?",
+      "answer": "SQL injection testing can modify or delete data. Use --risk=1 for detection-only and ensure backups exist before exploitation testing."
+    },
+    {
+      "question": "What sqlmap options are available?",
+      "answer": "Full sqlmap CLI support including --dbs, --tables, --dump, --os-shell, --file-read, and all tamper scripts for WAF evasion."
+    },
+    {
+      "question": "How do I test API endpoints?",
+      "answer": "Use -r flag with a request file from Burp Suite or curl, or use --data for POST requests with --headers for authentication."
+    },
+    {
+      "question": "Where are test results saved?",
+      "answer": "Results are saved to ~/.sqlmap/output/ by default. Use -s for SQLite session files or --output-dir for custom locations."
+    },
+    {
+      "question": "Does this skill include evasion techniques?",
+      "answer": "Yes. Use --tamper scripts like space2comment, between, charencode. Also supports --random-agent, --delay, and --tor for stealth."
+    }
+  ],
+  "seoKeywords": [
+    "sql injection testing",
+    "webapp security",
+    "penetration testing",
+    "sqlmap",
+    "database security",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "vulnerability assessment",
+    "OWASP"
+  ],
+  "sourceUrl": "https://github.com/AgentSecOps/SecOpsAgentKit/tree/main/skills/offsec/webapp-sqlmap",
+  "sourceType": "community",
+  "dependencies": []
+}

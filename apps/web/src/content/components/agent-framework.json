@@ -1,0 +1,144 @@
+{
+  "name": "agent-framework",
+  "type": "skill",
+  "description": "Create AI agents and workflows using Microsoft Agent Framework SDK. Supports single-agent and multi-agent workflow patterns. USE FOR: create agent, build agent, scaffold agent, new agent, agent framework, workflow pattern, multi-agent, MCP tools, create workflow. DO NOT USE FOR: deploying agents (use deploy), evaluating agents (use agent/evaluate), Azure AI Foundry agents without Agent Framework SDK.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "Microsoft SDK",
+  "quality": 5,
+  "qualityReason": "Specific framework integration",
+  "bundleHints": [
+    "azure-ai",
+    "agent-framework"
+  ],
+  "tags": [
+    "ai-agents",
+    "azure",
+    "mcp",
+    "microsoft-foundry",
+    "scaffolding",
+    "sdk",
+    "single-multi",
+    "workflow"
+  ],
+  "capabilities": [
+    "Scaffold new AI agent projects using Microsoft Agent Framework Python SDK",
+    "Build multi-agent workflows with orchestration patterns (linear, parallel, loop)",
+    "Add HTTP server mode to agents using Azure AI Agent Server SDK",
+    "Configure VSCode debugging with AI Toolkit Agent Inspector",
+    "Set up MCP (Model Context Protocol) tools for agents",
+    "Generate .vscode launch configurations for F5 debugging"
+  ],
+  "author": "microsoft",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is an official Microsoft skill for creating AI agents using Microsoft Agent Framework SDK. The static scanner flagged 165 potential issues, but evaluation confirms all are false positives. The flagged backtick patterns are Markdown code fences in documentation files. The skill appropriately uses .env files for storing Azure Foundry credentials (FOUNDRY_PROJECT_ENDPOINT, FOUNDRY_MODEL_DEPLOYMENT_NAME), which is a standard and secure practice for credential management.",
+  "valueStatement": "Create AI agents and multi-agent workflows using Microsoft Agent Framework SDK. This skill scaffolds agent projects with tools, HTTP server support, and VSCode debugging configurations for enterprise AI applications.",
+  "userTitle": "Build AI agents with Microsoft Agent Framework",
+  "limitations": [
+    "Only supports Python SDK (not JavaScript/TypeScript)",
+    "Requires Azure AI Foundry project and deployed model",
+    "Does not handle agent deployment (use separate deploy skill)",
+    "Does not evaluate agent performance (use separate evaluate skill)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Enterprise developers building AI-powered business applications",
+      "title": "Enterprise AI Application Development",
+      "description": "Build production AI agents with type safety, checkpointing, and orchestration for enterprise Azure environments."
+    },
+    {
+      "targetUser": "AI engineers prototyping complex agent interactions",
+      "title": "Multi-Agent Workflow Prototyping",
+      "description": "Create and test multi-agent workflows with Writer-Reviewer patterns, loops, and human-in-the-loop interactions."
+    },
+    {
+      "targetUser": "Developers who prefer VSCode for agent development and debugging",
+      "title": "VSCode Debugging Setup",
+      "description": "Configure local debugging with AI Toolkit Agent Inspector for interactive agent testing and troubleshooting."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Basic Agent",
+      "prompt": "Create a new AI agent using Microsoft Agent Framework that can respond to user queries. Include HTTP server mode support.",
+      "scenario": "Basic agent setup with minimal configuration"
+    },
+    {
+      "title": "Create Agent with Tools",
+      "prompt": "Build an agent with custom tools using the function calling pattern. Add at least 2 custom tools for the agent to use.",
+      "scenario": "Agent with function calling capabilities"
+    },
+    {
+      "title": "Create Multi-Agent Workflow",
+      "prompt": "Create a multi-agent workflow with a Writer agent that generates content and a Reviewer agent that provides feedback. Use the workflow builder pattern.",
+      "scenario": "Multi-agent orchestration with two agents"
+    },
+    {
+      "title": "Create Loop Workflow",
+      "prompt": "Build a multi-agent loop workflow where a Teacher agent and Student agent interact. Include turn-based control with a maximum of 5 iterations.",
+      "scenario": "Bidirectional agent workflow with loop control"
+    }
+  ],
+  "bestPractices": [
+    "Always use pinned SDK versions (1.0.0b260107 for agent-framework) to avoid breaking changes from beta releases",
+    "Use virtual environments (.venv) to isolate dependencies and avoid conflicts",
+    "Configure HTTP server mode as the default entry point for better debugging and containerization support",
+    "Pin environment variables in .env file but remind users to update values before running"
+  ],
+  "antiPatterns": [
+    "Using bare 'python' or 'pip' commands without virtual environment activation",
+    "Skipping the server mode when the user needs HTTP endpoint access",
+    "Using legacy AzureAIAgentClient instead of current AzureAIClient",
+    "Not pinning SDK versions leading to breaking changes from beta releases"
+  ],
+  "faq": [
+    {
+      "question": "What programming language does this skill support?",
+      "answer": "This skill supports Python only. The Microsoft Agent Framework SDK for JavaScript/TypeScript requires a different skill."
+    },
+    {
+      "question": "Do I need an Azure subscription?",
+      "answer": "Yes, you need an Azure AI Foundry project with a deployed model. The skill will help you configure the FOUNDRY_PROJECT_ENDPOINT and FOUNDRY_MODEL_DEPLOYMENT_NAME environment variables."
+    },
+    {
+      "question": "Can I debug agents locally?",
+      "answer": "Yes, the skill generates .vscode configurations for debugging with AI Toolkit Agent Inspector. This provides interactive debugging and message flow visualization."
+    },
+    {
+      "question": "What is MCP in this context?",
+      "answer": "MCP (Model Context Protocol) is a standard for connecting AI agents to external tools. The skill supports both stdio-based and HTTP-based MCP tools."
+    },
+    {
+      "question": "Why pin SDK versions?",
+      "answer": "The agent-framework SDK is in preview (beta). Version 1.0.0b260107 is stable. Later versions may have breaking changes like renamed classes (AgentRunResponseUpdate vs AgentResponseUpdate)."
+    },
+    {
+      "question": "What is Agent-as-Server pattern?",
+      "answer": "This pattern wraps your agent/workflow in an HTTP server using azure-ai-agentserver packages. It enables containerization, deployment to Azure Foundry, and integration with other services."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Microsoft Agent Framework",
+    "Azure AI Foundry",
+    "AI agent",
+    "multi-agent workflow",
+    "MCP tools",
+    "Python agent SDK",
+    "agent framework"
+  ],
+  "sourceUrl": "https://github.com/microsoft/github-copilot-for-azure/tree/main/plugin/skills/microsoft-foundry/foundry-agent/create/agent-framework",
+  "sourceType": "community",
+  "dependencies": []
+}

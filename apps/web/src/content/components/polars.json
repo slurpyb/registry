@@ -1,0 +1,143 @@
+{
+  "name": "polars",
+  "type": "skill",
+  "description": "Fast DataFrame library (Apache Arrow). Select, filter, group_by, joins, lazy evaluation, CSV/Parquet I/O, expression API, for high-performance data analysis workflows.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "high-performance dataframes",
+  "quality": 5,
+  "qualityReason": "Fast and scalable data tool",
+  "bundleHints": [
+    "data-analysis",
+    "pipeline-optimization"
+  ],
+  "tags": [
+    "aggregations",
+    "apache-arrow",
+    "data-analysis",
+    "data-processing",
+    "dataframes",
+    "joins",
+    "lazy-evaluation",
+    "polars",
+    "python"
+  ],
+  "capabilities": [
+    "Explain Polars expression API, lazy evaluation framework, and core concepts with detailed examples",
+    "Guide data manipulation operations including select, filter, group_by, joins, and aggregations",
+    "Provide pandas-to-Polars migration strategies with side-by-side code comparisons",
+    "Demonstrate data I/O patterns for CSV, Parquet, JSON, and cloud storage (S3, Azure, GCS)",
+    "Optimize query performance using predicate pushdown, projection pushdown, and streaming",
+    "Explain window functions, pivoting, concatenation, and advanced transformations"
+  ],
+  "author": "davila7",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains documentation and reference material for the Polars data analysis library. Static analysis flagged 698 patterns, all confirmed as false positives from Python code examples in markdown files. No actual command execution, network access, or security risks present.",
+  "valueStatement": "Pandas workflows are slow and memory-intensive on large datasets. This skill provides expert guidance on Polars, a lightning-fast DataFrame library built on Apache Arrow that delivers 10-100x performance improvements with lazy evaluation, parallel processing, and an intuitive expression API.",
+  "userTitle": "Master Polars for High-Performance Data Analysis",
+  "limitations": [
+    "Does not execute code or analyze user data, provides guidance and examples only",
+    "Focuses on Python API, does not cover Rust implementation details",
+    "Reference material is educational, not a replacement for official Polars documentation",
+    "Cannot troubleshoot environment-specific issues or version incompatibilities"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data engineers optimizing ETL pipelines",
+      "title": "Migrate Pandas Pipeline to Polars",
+      "description": "Convert existing pandas data processing code to Polars for performance improvements. Get side-by-side comparisons of pandas vs Polars syntax, understand conceptual differences, and learn best practices for handling indexes, types, and lazy evaluation."
+    },
+    {
+      "targetUser": "Data scientists processing large datasets",
+      "title": "Build High-Performance Analytics Workflows",
+      "description": "Design efficient data analysis pipelines using Polars lazy evaluation, expressions, and parallel processing. Learn to filter and select early, use appropriate data types, and leverage streaming for very large datasets."
+    },
+    {
+      "targetUser": "Python developers new to Polars",
+      "title": "Learn Polars Expression API",
+      "description": "Understand how to use Polars expression-based API for composable, optimizable data transformations. Master column selection, conditional operations, aggregations, window functions, and method chaining patterns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic DataFrame Operations",
+      "prompt": "Show me how to read a CSV file in Polars, filter rows where age is greater than 25, select specific columns, and write the result to Parquet format.",
+      "scenario": "Getting started with basic Polars operations for data loading and transformation"
+    },
+    {
+      "title": "Convert Pandas to Polars",
+      "prompt": "I have this pandas code: df.groupby('category')['sales'].agg(['mean', 'sum']).reset_index(). How do I write this in Polars?",
+      "scenario": "Translating existing pandas code to equivalent Polars syntax"
+    },
+    {
+      "title": "Optimize Lazy Query",
+      "prompt": "Explain how to use lazy evaluation in Polars to process a 10GB CSV file. Show me the difference between eager and lazy mode, and how predicate pushdown works.",
+      "scenario": "Learning performance optimization techniques for large datasets"
+    },
+    {
+      "title": "Advanced Transformations",
+      "prompt": "How do I perform a window function in Polars to calculate a rolling average by group? Also show me how to pivot data from long to wide format.",
+      "scenario": "Implementing complex analytical transformations with window functions and reshaping"
+    }
+  ],
+  "bestPractices": [
+    "Use lazy evaluation with scan_csv() or scan_parquet() for large datasets to enable automatic query optimization through predicate and projection pushdown",
+    "Filter and select columns as early as possible in the pipeline to minimize data processing and memory usage throughout the query",
+    "Stay within the expression API and avoid Python functions in hot paths to maintain parallelization and performance benefits"
+  ],
+  "antiPatterns": [
+    "Using eager mode (read_csv) instead of lazy mode (scan_csv) for large files, which prevents query optimization and loads entire dataset into memory",
+    "Applying filters and column selection at the end of a pipeline instead of early, causing unnecessary processing of data that will be discarded",
+    "Iterating over rows with Python loops instead of using vectorized expressions, which destroys performance and parallelization"
+  ],
+  "faq": [
+    {
+      "question": "When should I use lazy evaluation vs eager evaluation in Polars?",
+      "answer": "Use lazy evaluation (scan_csv, LazyFrame) for large datasets, complex query pipelines, or when you need maximum performance. Lazy mode optimizes the entire query plan before execution. Use eager mode (read_csv, DataFrame) for small datasets, interactive exploration, or when you need immediate results."
+    },
+    {
+      "question": "How does Polars compare to pandas in terms of performance?",
+      "answer": "Polars is typically 10-100x faster than pandas due to Apache Arrow columnar format, parallel execution, lazy evaluation, and zero-copy operations. Polars also uses less memory and handles larger-than-RAM datasets through streaming mode."
+    },
+    {
+      "question": "What is the Polars expression API and why use it?",
+      "answer": "The expression API uses pl.col() to create composable, reusable transformation descriptions. Expressions are lazy, optimizable, and automatically parallelized. They enable clean syntax like df.select(pl.col('x') * 2) instead of imperative loops."
+    },
+    {
+      "question": "Can I use Polars with existing pandas code?",
+      "answer": "Yes. You can convert between formats using df.to_pandas() and pl.from_pandas(). However, for best performance, migrate to native Polars operations rather than converting back and forth, which loses performance benefits."
+    },
+    {
+      "question": "How do I handle missing data in Polars?",
+      "answer": "Use null-specific methods: pl.col('x').fill_null(0) to replace nulls, pl.col('x').is_null() to detect nulls, pl.col('x').drop_nulls() to remove null rows. Polars distinguishes null from NaN for floating point data."
+    },
+    {
+      "question": "What file formats work best with Polars?",
+      "answer": "Parquet is recommended for best performance, compression, and type preservation. It supports columnar reading, predicate pushdown, and parallel scanning. CSV works but is slower and requires type inference. JSON is supported but less efficient than Parquet."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Polars",
+    "DataFrame",
+    "Apache Arrow",
+    "data analysis",
+    "Python data processing",
+    "pandas migration",
+    "lazy evaluation"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/polars",
+  "sourceType": "community",
+  "dependencies": []
+}

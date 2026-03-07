@@ -1,0 +1,144 @@
+{
+  "name": "agent-tools",
+  "type": "skill",
+  "description": "Run 150+ AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, Exa, OpenRouter, and many more. Use when running AI apps, generating images/videos, calling LLMs, web search, or automating Twitter. Triggers: inference.sh, infsh, ai model, run ai, serverless ai, ai api, flux, veo, claude api, image generation, video generation, openrouter, tavily, exa search, twitter api, grok",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "AI app integration",
+  "quality": 4,
+  "qualityReason": "Broad tool access, good scope",
+  "bundleHints": [
+    "ai-tools",
+    "multi-model",
+    "inference-stack"
+  ],
+  "tags": [
+    "3d",
+    "ai-models",
+    "claude-api",
+    "image-generation",
+    "inference.sh",
+    "llm",
+    "search",
+    "video-generation"
+  ],
+  "capabilities": [
+    "Generate images using FLUX, Gemini, Grok, and Seedream models",
+    "Create videos with Veo, Seedance, Wan, and OmniHuman",
+    "Call LLMs including Claude, Gemini, Kimi via OpenRouter",
+    "Perform web search with Tavily and Exa",
+    "Automate Twitter/X posts",
+    "Generate 3D models with Rodin"
+  ],
+  "author": "inference-sh-6",
+  "icon": "ai",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation skill for the inference.sh CLI platform. All static findings are false positives - the skill contains only documentation with CLI examples. The allowed-tools restriction to Bash(infsh *) limits execution to the official inference.sh CLI only. Network access is to inference.sh API endpoints, and credential handling is through standard CLI authentication.",
+  "valueStatement": "Run 150+ AI applications including image generation, video creation, LLM calls, and web search directly from the command line without GPU setup.",
+  "userTitle": "Access 150+ AI Models via CLI",
+  "limitations": [
+    "Requires inference.sh account and authentication",
+    "Uses inference.sh cloud infrastructure - not local execution",
+    "API costs apply based on model usage",
+    "Depends on third-party model availability"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers and designers needing quick image generation",
+      "title": "Generate AI Images from CLI",
+      "description": "Create images using FLUX, Gemini, or Grok without local GPU setup"
+    },
+    {
+      "targetUser": "AI developers integrating language models",
+      "title": "Call Claude and Other LLMs",
+      "description": "Access Claude, Gemini, and other LLMs via OpenRouter for text tasks"
+    },
+    {
+      "targetUser": "Social media managers and developers",
+      "title": "Automate Twitter Posts",
+      "description": "Post tweets, send DMs, and manage Twitter account programmatically"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List Available AI Apps",
+      "prompt": "Use the agent-tools skill to list all available apps on inference.sh",
+      "scenario": "Discover what AI models are available"
+    },
+    {
+      "title": "Generate an Image",
+      "prompt": "Use agent-tools to generate an image of a sunset over mountains using the flux model",
+      "scenario": "Create a single image"
+    },
+    {
+      "title": "Call Claude API",
+      "prompt": "Use agent-tools to call Claude Sonnet via OpenRouter to explain quantum computing in simple terms",
+      "scenario": "Access Claude for text generation"
+    },
+    {
+      "title": "Run Video Generation Task",
+      "prompt": "Use agent-tools to generate a video of a drone flying over ocean cliffs using Veo 3, then check the task status",
+      "scenario": "Create and monitor video generation"
+    }
+  ],
+  "bestPractices": [
+    "Use --no-wait flag for long-running tasks to avoid timeouts",
+    "Save frequently used inputs as JSON files for reuse",
+    "Use the infsh app sample command to generate valid input templates",
+    "Check task status with infsh task get for async operations"
+  ],
+  "antiPatterns": [
+    "Do not share your INFSH_API_KEY in public repositories",
+    "Avoid running large batch jobs without --no-wait flag",
+    "Do not assume all apps support all input formats - check app details first"
+  ],
+  "faq": [
+    {
+      "question": "Do I need a GPU to use this skill?",
+      "answer": "No, all AI models run on inference.sh cloud infrastructure. No local GPU required."
+    },
+    {
+      "question": "Is this skill free to use?",
+      "answer": "The skill is free to install but inference.sh API usage costs apply based on model usage."
+    },
+    {
+      "question": "Can I use Claude API directly?",
+      "answer": "Yes, you can call Claude via OpenRouter using infsh app run openrouter/claude-sonnet-45."
+    },
+    {
+      "question": "How do I authenticate?",
+      "answer": "Run infsh login to authenticate via browser, or set INFSH_API_KEY environment variable."
+    },
+    {
+      "question": "What models are available?",
+      "answer": "150+ models including FLUX, Veo, Claude, Gemini, Grok, Seedance, Tavily, Exa, and more."
+    },
+    {
+      "question": "Can I automate Twitter posts?",
+      "answer": "Yes, use apps like x/post-tweet, x/dm-send, x/user-follow for Twitter automation."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "AI image generation",
+    "video generation",
+    "LLM API",
+    "inference.sh",
+    "FLUX",
+    "Veo",
+    "OpenRouter"
+  ],
+  "sourceUrl": "https://github.com/inference-sh-6/skills/tree/main/skills/agent-tools/",
+  "sourceType": "community",
+  "dependencies": []
+}

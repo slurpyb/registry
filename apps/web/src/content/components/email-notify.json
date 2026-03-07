@@ -1,0 +1,140 @@
+{
+  "name": "email-notify",
+  "type": "skill",
+  "description": "Send SMTP email notifications after Codex completes a task. Use when one Codex or Claude run is finished, or when you need to notify on task completion with device name, project name, status, and summary via email.",
+  "domain": "security",
+  "subdomain": "devsecops",
+  "specialty": "task completion alerts",
+  "quality": 4,
+  "qualityReason": "Useful alerting mechanism",
+  "bundleHints": [
+    "monitoring-alerts",
+    "devsecops"
+  ],
+  "tags": [
+    "alerts",
+    "automation",
+    "device-report",
+    "email",
+    "notifications",
+    "smtp",
+    "task-status"
+  ],
+  "capabilities": [
+    "Send SMTP email notifications with task completion status",
+    "Include device name, project name, and summary in emails",
+    "Read project name from AGENTS.md configuration",
+    "Support TLS and SSL email encryption",
+    "Dry-run mode for testing without sending emails",
+    "Handle multiple email recipients"
+  ],
+  "author": "caopulan",
+  "icon": "✉️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a straightforward SMTP email notification utility. It reads environment variables for SMTP configuration, reads AGENTS.md for optional project name extraction, and sends task completion notifications via standard Python smtplib. All detected patterns are expected functionality - email sending is the stated purpose, environment access is for configuration, and filesystem reads are for project name resolution. No malicious behavior confirmed.",
+  "valueStatement": "You need to know when your AI assistant finishes important tasks. This skill sends email notifications with device name, project name, status, and result summary directly to your inbox.",
+  "userTitle": "Send task completion emails",
+  "limitations": [
+    "SMTP server credentials must be configured manually",
+    "No real-time interactive responses, only notifications",
+    "Cannot receive or process incoming emails"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Monitor automated pipelines",
+      "description": "Get notified when automated coding tasks complete on remote servers or CI/CD pipelines."
+    },
+    {
+      "targetUser": "Software developers",
+      "title": "Track long-running builds",
+      "description": "Receive email alerts when complex refactoring or code generation tasks finish on your machine."
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Oversee multiple projects",
+      "description": "Stay informed about task completion across different projects without checking each one manually."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic notification",
+      "scenario": "Task completion",
+      "prompt": "Use skill email-notify to send an email when this task is finished. Task title: 'Code refactoring complete', Status: success, Summary: 'Refactored 15 files with improved type hints.'"
+    },
+    {
+      "title": "Failure alert",
+      "scenario": "Build failure",
+      "prompt": "If the build fails, use email-notify to alert the team. Task title: 'Build failed', Status: failed, Summary: 'Compilation errors in 3 modules due to missing dependencies.'"
+    },
+    {
+      "title": "Multi-recipient",
+      "scenario": "Team notification",
+      "prompt": "Notify the entire team on task completion using email-notify. Task title: 'Weekly report generated', Status: success, Summary: 'Generated 25-page report with performance metrics and recommendations.'"
+    },
+    {
+      "title": "Dry-run test",
+      "scenario": "Configuration testing",
+      "prompt": "Test the email notification setup by running email-notify in dry-run mode. Task title: 'Test notification', Status: success, Summary: 'This is a test message to verify SMTP configuration.'"
+    }
+  ],
+  "bestPractices": [
+    "Configure SMTP settings in shell profile for persistent environment variables",
+    "Use separate email accounts for notifications to protect primary credentials",
+    "Test with dry-run mode before relying on notifications for important tasks"
+  ],
+  "antiPatterns": [
+    "Including secrets or sensitive data in the task summary field",
+    "Using personal email credentials for automated notifications",
+    "Skipping the dry-run test when first configuring the skill"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. Add the instruction to your AGENTS.md file to enable it."
+    },
+    {
+      "question": "What SMTP settings are required?",
+      "answer": "You need host, port, from address, and to addresses. Username and password are optional for unauthenticated servers."
+    },
+    {
+      "question": "Can I send to multiple recipients?",
+      "answer": "Yes, separate multiple email addresses with commas or semicolons in the CODEX_EMAIL_TO environment variable."
+    },
+    {
+      "question": "Is my data sent to third parties?",
+      "answer": "No, emails go directly to your configured SMTP server. No data is collected or stored by this skill."
+    },
+    {
+      "question": "Why is my notification not sending?",
+      "answer": "Check that all required environment variables are set, verify SMTP credentials, and try dry-run mode to debug configuration issues."
+    },
+    {
+      "question": "How is this different from other notification skills?",
+      "answer": "This skill uses plain SMTP for maximum compatibility with any email provider, requiring no external API keys or cloud services."
+    }
+  ],
+  "seoKeywords": [
+    "email notifications",
+    "SMTP",
+    "task completion alerts",
+    "Claude Code",
+    "Codex",
+    "AI automation",
+    "email alerts",
+    "workflow notifications",
+    "background tasks",
+    "status updates"
+  ],
+  "sourceUrl": "https://github.com/caopulan/Notification-Skill/tree/main/email-notify",
+  "sourceType": "community",
+  "dependencies": []
+}

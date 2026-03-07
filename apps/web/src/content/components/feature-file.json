@@ -1,0 +1,146 @@
+{
+  "name": "feature-file",
+  "type": "skill",
+  "description": "Manage features.yml for tracking requirements and progress; use proactively ONLY when features.yml already exists, or invoke manually to create one; complements TodoWrite for persistent project state.",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "code traceability",
+  "quality": 4,
+  "qualityReason": "Good code-feature linkage",
+  "bundleHints": [
+    "product-suite",
+    "project-tracking"
+  ],
+  "tags": [
+    "code-mapping",
+    "feature-manifest",
+    "feature-tracking",
+    "lifecycle",
+    "metadata",
+    "project-management",
+    "project-tracking",
+    "requirements",
+    "testing",
+    "traceability"
+  ],
+  "capabilities": [
+    "Create and manage features.yml files with structured requirements",
+    "Track feature phases from Requirements to Complete",
+    "Link test cases to requirements with passing/failing status",
+    "Generate reports on work remaining, issues, and feature status",
+    "Validate phase transitions and requirement completeness",
+    "Version features with changelog tracking"
+  ],
+  "author": "Chemiseblanc",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a legitimate project management tool for tracking feature requirements and progress. All 252 static findings are FALSE POSITIVES. The external command detections are markdown documentation examples (not code execution). Weak cryptographic algorithm flags are YAML documentation examples showing recommended practices like bcrypt/JWT. System reconnaissance flags are standard git operations for version control. No network calls, credential access, or malicious code execution exists. All scripts use safe YAML parsing and subprocess with hardcoded git commands.",
+  "valueStatement": "Software projects need structured requirement tracking beyond simple todo lists. This skill provides waterfall-style feature management with requirements, test cases, and progress tracking in a persistent YAML format stored in your repository.",
+  "userTitle": "Track Software Features with YAML Requirements Management",
+  "limitations": [
+    "Requires features.yml file to exist for proactive usage",
+    "Waterfall methodology may not suit all project types",
+    "No integration with external project management tools",
+    "Manual status updates required during development"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Track implementation progress",
+      "description": "Manage feature requirements and mark them complete as you implement functionality, with linked test cases for verification."
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Monitor feature development",
+      "description": "Get overview of all features, their phases, progress, and failing tests to track project status."
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Manage test coverage",
+      "description": "Link test cases to requirements and track which tests are passing or failing for each feature."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create new feature",
+      "scenario": "Starting a new feature implementation",
+      "prompt": "Create a features.yml file for implementing user authentication with requirements for login, logout, and password reset functionality."
+    },
+    {
+      "title": "Update status",
+      "scenario": "After completing a requirement",
+      "prompt": "Update the user authentication feature in features.yml to mark the login requirement as Complete and add a test case for it."
+    },
+    {
+      "title": "View work remaining",
+      "scenario": "Planning next development tasks",
+      "prompt": "Show me all incomplete requirements across all features in features.yml, filtered to Implementation phase."
+    },
+    {
+      "title": "Check feature status",
+      "scenario": "Weekly project review",
+      "prompt": "Generate a markdown report of all features showing their phases, progress, test status, and any validation errors."
+    }
+  ],
+  "bestPractices": [
+    "Use EARS syntax for requirements: When X, the system SHALL Y",
+    "Update status immediately after completing work to keep file in sync",
+    "Document design decisions in the decisions field before implementation",
+    "Link every requirement to at least one test case for traceability"
+  ],
+  "antiPatterns": [
+    "Creating features.yml after starting implementation instead of planning first",
+    "Leaving requirements in Not-Started status when actively working on them",
+    "Forgetting to bump version when adding or modifying requirements",
+    "Not documenting known issues that could affect other developers"
+  ],
+  "faq": [
+    {
+      "question": "When should I use this skill versus TodoWrite?",
+      "answer": "Use TodoWrite for immediate session tasks and features.yml for persistent project requirements that span multiple sessions."
+    },
+    {
+      "question": "What happens if features.yml does not exist?",
+      "answer": "The skill will not activate proactively. You must manually create features.yml or request the skill to create one."
+    },
+    {
+      "question": "Can I integrate this with external tools?",
+      "answer": "The skill works independently with YAML files. You can manually sync data to other tools as needed."
+    },
+    {
+      "question": "How do I handle requirement changes?",
+      "answer": "Document change rationale, update requirement, increment version, and add changelog entry under appropriate section."
+    },
+    {
+      "question": "What if my project uses agile instead of waterfall?",
+      "answer": "Adapt phases to your workflow. The tool is flexible - use phases that match your development process."
+    },
+    {
+      "question": "How do I track bugs versus requirements?",
+      "answer": "Add bugs to the known-issues field. Requirements represent planned features while known-issues track defects."
+    }
+  ],
+  "seoKeywords": [
+    "feature tracking",
+    "requirements management",
+    "test case tracking",
+    "Claude Code",
+    "YAML project management",
+    "software development",
+    "project planning",
+    "feature status",
+    "Claude",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/Chemiseblanc/ai/tree/main/skill/feature-file",
+  "sourceType": "community",
+  "dependencies": []
+}

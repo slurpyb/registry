@@ -1,0 +1,147 @@
+{
+  "name": "ai-runtime-memory",
+  "type": "skill",
+  "description": "AI Runtime分层记忆系统，支持SQL风格的事件查询、时间线管理，以及记忆的智能固化和检索，用于项目历史追踪和经验传承",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "Memory systems",
+  "quality": 5,
+  "qualityReason": "Sophisticated memory architecture",
+  "bundleHints": [
+    "agent-memory",
+    "stateful-ai",
+    "knowledge-retention"
+  ],
+  "tags": [
+    "event-query",
+    "history",
+    "knowledge",
+    "knowledge-retrieval",
+    "memory",
+    "memory-consolidation",
+    "project-history",
+    "query",
+    "sql-query",
+    "timeline-management"
+  ],
+  "capabilities": [
+    "Query episodic memories with SQL-style WHERE conditions",
+    "Filter events by date, type, tags, and custom fields",
+    "Generate timeline reports with table or JSON output",
+    "Access three-layer memory architecture (short-term, long-term, episodic)",
+    "Track project decisions and architectural choices",
+    "Consolidate knowledge from current sessions into long-term memory"
+  ],
+  "author": "Dwsy",
+  "icon": "🧠",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All 345 static findings are FALSE POSITIVES. The scanner misidentified markdown code block delimiters as shell backticks, docstrings as cryptographic code, and YAML front matter as obfuscation. Actual code behavior: Python scripts only query local markdown files within the project directory. Shell scripts use standard utilities (date, find, grep) for file operations. No network access, credential handling, or external data transmission exists.",
+  "valueStatement": "Track project history and decisions across AI sessions. Query episodic memories with SQL-like syntax for timeline analysis and knowledge consolidation.",
+  "userTitle": "Query AI project memories with SQL-style commands",
+  "limitations": [
+    "Memory is stored locally within the project directory only",
+    "No cross-project memory sharing by default",
+    "No real-time sync with external systems",
+    "Query capabilities limited to predefined fields"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI developers",
+      "title": "Track AI decisions",
+      "description": "Record and query architectural decisions made during AI development sessions"
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Review project history",
+      "description": "Generate timeline reports showing project evolution and key milestones"
+    },
+    {
+      "targetUser": "Knowledge workers",
+      "title": "Consolidate insights",
+      "description": "Build long-term knowledge base from repeated project experiences"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Query today events",
+      "scenario": "View today's activity",
+      "prompt": "Show me all memory events from today"
+    },
+    {
+      "title": "Find decisions",
+      "scenario": "Search architectural choices",
+      "prompt": "Find all architecture decisions from the past week"
+    },
+    {
+      "title": "Timeline report",
+      "scenario": "Generate project timeline",
+      "prompt": "Show me the project timeline for last month as a table"
+    },
+    {
+      "title": "Tag analysis",
+      "scenario": "Analyze tags usage",
+      "prompt": "Find all events tagged with security and export as JSON"
+    }
+  ],
+  "bestPractices": [
+    "Use consistent tagging across all memory events",
+    "Record decisions with context including alternatives considered",
+    "Run weekly reviews using the timeline query feature",
+    "Consolidate short-term insights to long-term memory monthly"
+  ],
+  "antiPatterns": [
+    "Storing sensitive credentials or secrets in memory files",
+    "Leaving memory queries without proper date filters on large datasets",
+    "Skipping front matter metadata when creating new events",
+    "Mixing personal notes with project-related memories"
+  ],
+  "faq": [
+    {
+      "question": "Which AI platforms support this skill?",
+      "answer": "Compatible with Claude, OpenAI Codex, and Claude Code CLI tools."
+    },
+    {
+      "question": "What memory types are supported?",
+      "answer": "Three layers: short-term (current session), long-term (cross-project knowledge), episodic (project history)."
+    },
+    {
+      "question": "Can I query by custom fields?",
+      "answer": "Yes. Custom fields in YAML front matter are accessible via query when added to the meta dictionary."
+    },
+    {
+      "question": "Is my data sent to external servers?",
+      "answer": "No. All memory data stays local within the .ai-runtime/memory directory in your project."
+    },
+    {
+      "question": "Why are my queries returning empty results?",
+      "answer": "Check date format (YYYY-MM-DD), verify event files have valid YAML front matter, and ensure files are in the correct episodic subdirectory structure."
+    },
+    {
+      "question": "How does this compare to vector databases?",
+      "answer": "This uses structured metadata querying rather than semantic similarity. Better for exact matches and timeline analysis, while vector databases excel at semantic search."
+    }
+  ],
+  "seoKeywords": [
+    "AI memory system",
+    "Claude memory",
+    "Claude Code skill",
+    "project history tracking",
+    "SQL query memory",
+    "episodic memory",
+    "knowledge management",
+    "AI Runtime",
+    "memory consolidation",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/Dwsy/ai-runtime/tree/main/memory",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,145 @@
+{
+  "name": "typescript-strict-guard",
+  "type": "skill",
+  "description": "Use when writing or reviewing TypeScript code. Enforces strict mode standards, explicit typing, and best practices. Prevents 'any' types, @ts-ignore comments, and non-null assertions. This is a COMPREHENSIVE skill - consult the detailed guides before writing any TypeScript code.\n",
+  "domain": "languages",
+  "subdomain": "typescript",
+  "specialty": "standards-compliant coding",
+  "quality": 5,
+  "qualityReason": "Ensures code quality",
+  "bundleHints": [
+    "code-quality",
+    "development-standards"
+  ],
+  "tags": [
+    "best-practices",
+    "code-quality",
+    "coding-standards",
+    "development",
+    "javascript",
+    "refactoring",
+    "strict-mode",
+    "type-safety",
+    "typescript"
+  ],
+  "capabilities": [
+    "Generate TypeScript with explicit types and no implicit any",
+    "Create type guards for runtime validation of external data",
+    "Implement error handling patterns like Result and Either types",
+    "Type React components, hooks, and event handlers correctly",
+    "Validate TypeScript files for strict mode violations",
+    "Apply utility types, generics, and mapped types appropriately"
+  ],
+  "author": "Barnhardt-Enterprises-Inc",
+  "icon": "🔒",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing TypeScript code examples in markdown files. All 812 static findings are FALSE POSITIVES triggered by the scanner misidentifying TypeScript template literals as shell backticks, fetch() examples as network calls, and localStorage patterns as sensitive data access. The skill only reads TypeScript files via the validation script and makes no actual network calls, credential access, or code execution beyond static analysis.",
+  "valueStatement": "Writing TypeScript without strict mode leads to runtime errors and maintainability issues. This skill provides comprehensive patterns for explicit typing, type guards, and error handling so AI assistants generate production-ready TypeScript code from the first line.",
+  "userTitle": "Enforce TypeScript strict mode standards",
+  "limitations": [
+    "Does not execute TypeScript code or run type checking",
+    "Does not modify files or commit code automatically",
+    "Does not install dependencies or configure build tools",
+    "Requires user to run validation script manually before committing"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI assistants",
+      "title": "Generate strict TypeScript",
+      "description": "AI assistants use this skill to write TypeScript with explicit types, type guards, and proper error handling patterns."
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Validate code quality",
+      "description": "Reviewers run the validation script to check for any, @ts-ignore, and missing return types in TypeScript files."
+    },
+    {
+      "targetUser": "Developers learning TypeScript",
+      "title": "Learn type patterns",
+      "description": "Developers reference the 9 guides to understand when to use generics, utility types, and discriminated unions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic component",
+      "scenario": "Create a React component",
+      "prompt": "Create a React functional component with explicit props interface, typed event handlers, and proper TypeScript strict mode compliance."
+    },
+    {
+      "title": "API integration",
+      "scenario": "Fetch and validate data",
+      "prompt": "Write an async function that fetches from an API, validates the response using type guards, and returns a Result type with proper error handling."
+    },
+    {
+      "title": "Generic utility",
+      "scenario": "Build reusable function",
+      "prompt": "Create a generic function with proper constraints that works with multiple types and includes appropriate type inference."
+    },
+    {
+      "title": "Advanced pattern",
+      "scenario": "Implement complex pattern",
+      "prompt": "Implement a discriminated union for state management with exhaustive error handling and branded types for validation."
+    }
+  ],
+  "bestPractices": [
+    "Always use type guards to validate external data before type assertions",
+    "Never use any type - prefer unknown with narrowing or explicit interfaces",
+    "Include explicit return types on all functions for better type inference",
+    "Write tests for all type guards and validation functions"
+  ],
+  "antiPatterns": [
+    "Using any type instead of explicit types or unknown",
+    "Using @ts-ignore to silence errors instead of fixing the underlying issue",
+    "Using non-null assertion (!) instead of optional chaining or type guards",
+    "Leaving implicit any in function parameters or missing return types"
+  ],
+  "faq": [
+    {
+      "question": "Which TypeScript versions are supported?",
+      "answer": "Supports TypeScript 4.9+ including satisfies operator and template literal types."
+    },
+    {
+      "question": "Does this skill replace TypeScript compiler?",
+      "answer": "No - this provides patterns for correct code. Run tsc for actual type checking."
+    },
+    {
+      "question": "How do I integrate with my project?",
+      "answer": "Add the skill reference and run validate-types.py before committing to catch violations."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes - validation only reads files and uses regex. No data leaves your machine."
+    },
+    {
+      "question": "Why avoid the any type?",
+      "answer": "Any bypasses type checking entirely. Use unknown with guards or explicit interfaces for safety."
+    },
+    {
+      "question": "How does this differ from ESLint?",
+      "answer": "ESLint catches style issues. This skill teaches correct patterns for every TypeScript scenario."
+    }
+  ],
+  "seoKeywords": [
+    "TypeScript strict mode",
+    "Claude Code",
+    "type safety",
+    "type guards",
+    "TypeScript patterns",
+    "React TypeScript",
+    "generics",
+    "error handling",
+    "utility types",
+    "code quality"
+  ],
+  "sourceUrl": "https://github.com/Barnhardt-Enterprises-Inc/quetrex-plugin/tree/main/templates/skills/typescript-strict-guard",
+  "sourceType": "community",
+  "dependencies": []
+}

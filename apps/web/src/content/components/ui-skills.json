@@ -1,0 +1,138 @@
+{
+  "name": "ui-skills",
+  "type": "skill",
+  "description": "Opinionated, evolving constraints to guide agents when building interfaces",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "UI constraints",
+  "quality": 4,
+  "qualityReason": "Guides agent behavior effectively",
+  "bundleHints": [
+    "agent-config",
+    "ui-ux-toolkit"
+  ],
+  "tags": [
+    "accessibility",
+    "agent-guidelines",
+    "components",
+    "design-system",
+    "frontend",
+    "opinionated-rules",
+    "ui",
+    "ui-patterns"
+  ],
+  "capabilities": [
+    "Provides reusable UI component patterns for common interface elements",
+    "Enforces consistent design language across generated code",
+    "Includes accessibility guidelines and WCAG compliance checks",
+    "Offers evolving constraints that adapt to project requirements",
+    "Generates documentation-ready component specifications"
+  ],
+  "author": "sickn33",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains documentation-only content (SKILL.md) with no executable code. Static analysis flagged URLs and patterns that are false positives - the URLs are GitHub repository references in documentation, not network requests. No security risks detected.",
+  "valueStatement": "AI agents often produce inconsistent UI code across different sessions. This skill provides opinionated design constraints and patterns to ensure consistent, accessible interface generation every time.",
+  "userTitle": "Build Consistent User Interfaces with Design Constraints",
+  "limitations": [
+    "Does not include visual design assets or icon libraries",
+    "Requires manual integration with existing design systems",
+    "Does not generate production-ready CSS or styling code",
+    "Focuses on React-based component patterns only"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Frontend Developer Building a Design System",
+      "description": "Use this skill to generate consistent component patterns that follow established design principles and accessibility standards."
+    },
+    {
+      "targetUser": "AI tool users",
+      "title": "AI Agent Creating UI Components",
+      "description": "Enable AI coding assistants to produce UI code that adheres to your team's design constraints and patterns."
+    },
+    {
+      "targetUser": "Startup teams",
+      "title": "Startup Team Standardizing UI Development",
+      "description": "Establish a shared vocabulary of UI patterns for small teams without dedicated design resources."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Generate a Basic Button Component",
+      "prompt": "Using the ui-skills patterns, generate a button component with primary, secondary, and disabled states. Include accessibility attributes and focus states."
+    },
+    {
+      "title": "Create a Form Input with Validation",
+      "prompt": "Apply ui-skills constraints to create a text input component with label, placeholder, error state, and validation messaging. Follow WCAG guidelines.",
+      "scenario": "Form development"
+    },
+    {
+      "title": "Build a Responsive Navigation Component",
+      "prompt": "Using ui-skills patterns, create a navigation component that works across desktop and mobile. Include keyboard navigation and screen reader support.",
+      "scenario": "Responsive design"
+    },
+    {
+      "title": "Design a Data Table with Sorting",
+      "prompt": "Apply ui-skills constraints to generate a data table component with sortable columns, row selection, and pagination. Ensure accessibility compliance.",
+      "scenario": "Complex component"
+    }
+  ],
+  "bestPractices": [
+    "Always define design tokens (spacing, colors, typography) before generating components",
+    "Test components with keyboard navigation and screen readers during development",
+    "Document component props, states, and usage examples for team consistency"
+  ],
+  "antiPatterns": [
+    "Hardcoding color values instead of using design system tokens",
+    "Ignoring focus states and keyboard navigation in interactive elements",
+    "Creating overly complex components that should be split into smaller units"
+  ],
+  "faq": [
+    {
+      "question": "What frameworks does this skill support?",
+      "answer": "This skill focuses on React-based component patterns but the design principles apply to any frontend framework."
+    },
+    {
+      "question": "Does this skill generate actual CSS code?",
+      "answer": "No, it provides component structure and patterns. Styling should be applied using your existing design system or CSS framework."
+    },
+    {
+      "question": "How do I integrate this with my existing design system?",
+      "answer": "Map your design tokens (spacing, colors, typography) to the patterns in this skill before generating components."
+    },
+    {
+      "question": "Can I customize the accessibility requirements?",
+      "answer": "Yes, the skill uses WCAG as a baseline but you can specify additional requirements in your prompts."
+    },
+    {
+      "question": "Is this skill suitable for mobile-first development?",
+      "answer": "Yes, the patterns support responsive design and mobile-first approaches with appropriate constraints."
+    },
+    {
+      "question": "How often are the design patterns updated?",
+      "answer": "The patterns evolve based on community feedback and emerging best practices in UI development."
+    }
+  ],
+  "seoKeywords": [
+    "Claude UI design",
+    "Codex interface patterns",
+    "Claude Code components",
+    "design system",
+    "UI accessibility",
+    "frontend constraints",
+    "component patterns",
+    "AI interface design"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/web-app/public/skills/ui-skills",
+  "sourceType": "community",
+  "dependencies": []
+}

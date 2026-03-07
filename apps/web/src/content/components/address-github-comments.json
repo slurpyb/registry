@@ -1,0 +1,138 @@
+{
+  "name": "address-github-comments",
+  "type": "skill",
+  "description": "Use when you need to address review or issue comments on an open GitHub Pull Request using the gh CLI.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "PR review",
+  "quality": 5,
+  "qualityReason": "Actionable with clear tool use",
+  "bundleHints": [
+    "dev-workflow",
+    "github-tools"
+  ],
+  "tags": [
+    "cli",
+    "code-review",
+    "gh-cli",
+    "github",
+    "issue-tracking",
+    "pull-request",
+    "workflow"
+  ],
+  "capabilities": [
+    "Fetch and display PR review comments using gh pr view --comments",
+    "Categorize and plan fixes for each comment thread",
+    "Apply code changes to address specific feedback",
+    "Respond to comment threads as resolved using gh pr comment"
+  ],
+  "author": "sickn33",
+  "icon": "💬",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill contains only documentation for using the gh CLI. The detected 'external_commands' are markdown code formatting (backticks), not actual shell execution. No cryptographic algorithms or malicious code patterns present.",
+  "valueStatement": "This skill helps developers systematically address PR review comments using the GitHub CLI, ensuring no feedback is missed and all issues are properly resolved.",
+  "userTitle": "Address GitHub PR Comments",
+  "limitations": [
+    "Requires gh CLI to be installed and authenticated",
+    "Does not automatically apply fixes - requires human review",
+    "Cannot handle nested comment threads without user guidance"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers receiving code review feedback",
+      "title": "Review Comment Workflow",
+      "description": "Systematically work through PR review comments one by one, ensuring each is addressed before marking as resolved."
+    },
+    {
+      "targetUser": "Project maintainers managing issue tracking",
+      "title": "Issue Feedback Response",
+      "description": "Address feedback from GitHub issues by checking the associated PR and responding to thread comments."
+    },
+    {
+      "targetUser": "Senior developers and team leads",
+      "title": "Batch Comment Management",
+      "description": "Handle multiple review comments efficiently by prioritizing and organizing the response workflow."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Check PR Comments",
+      "prompt": "Use the address-github-comments skill to fetch all comments for the current PR.",
+      "scenario": "Starting a review response session"
+    },
+    {
+      "title": "Plan Comment Responses",
+      "prompt": "List all review comments and help me create a plan to address each one.",
+      "scenario": "Organizing feedback before making changes"
+    },
+    {
+      "title": "Respond to Fixed Comments",
+      "prompt": "After I make changes, use the skill to respond to the resolved comment thread.",
+      "scenario": "Marking comments as addressed"
+    },
+    {
+      "title": "Full Review Cycle",
+      "prompt": "Run the complete address-github-comments workflow: fetch comments, plan fixes, apply changes, and respond to threads.",
+      "scenario": "Comprehensive review response"
+    }
+  ],
+  "bestPractices": [
+    "Always verify gh authentication with gh auth status before starting",
+    "Read surrounding code context before applying fixes to comments",
+    "Wait for user confirmation on which comments to address when there are many"
+  ],
+  "antiPatterns": [
+    "Applying fixes without understanding the full context of the comment",
+    "Responding to comments without actually making the requested changes",
+    "Skipping verification that gh is properly authenticated"
+  ],
+  "faq": [
+    {
+      "question": "What is gh CLI?",
+      "answer": "gh is the official GitHub command-line tool for interacting with GitHub repositories, issues, and pull requests from your terminal."
+    },
+    {
+      "question": "Do I need to install gh CLI?",
+      "answer": "Yes, this skill requires gh CLI to be installed. You can install it from cli.github.com or via package managers like brew."
+    },
+    {
+      "question": "Can this skill automatically fix code?",
+      "answer": "No, this skill helps you fetch and organize comments, but you must manually apply the code fixes yourself."
+    },
+    {
+      "question": "What if I am not authenticated with gh?",
+      "answer": "Run gh auth login to authenticate with your GitHub account before using this skill."
+    },
+    {
+      "question": "Does this work with GitHub Enterprise?",
+      "answer": "Yes, gh CLI supports GitHub Enterprise. Run gh auth login and select your enterprise instance."
+    },
+    {
+      "question": "Can I respond to multiple comments at once?",
+      "answer": "Yes, you can address multiple comments in sequence. The skill helps you track which comments have been resolved."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "GitHub",
+    "pull request",
+    "code review",
+    "PR comments",
+    "GitHub CLI",
+    "gh CLI",
+    "review feedback"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/address-github-comments",
+  "sourceType": "community",
+  "dependencies": []
+}

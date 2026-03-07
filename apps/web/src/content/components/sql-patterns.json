@@ -1,0 +1,140 @@
+{
+  "name": "sql-patterns",
+  "type": "skill",
+  "description": "Quick reference for common SQL patterns, CTEs, window functions, and indexing strategies. Triggers on: sql patterns, cte example, window functions, sql join, index strategy, pagination sql.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "query reference",
+  "quality": 4,
+  "qualityReason": "Useful reference but common patterns",
+  "bundleHints": [
+    "sql-reference",
+    "database",
+    "developer-tools"
+  ],
+  "tags": [
+    "cte",
+    "database",
+    "index-strategy",
+    "query-optimization",
+    "sql",
+    "window-functions"
+  ],
+  "capabilities": [
+    "CTE examples with chained common table expressions",
+    "Window function patterns (ROW_NUMBER, RANK, LAG, LEAD)",
+    "JOIN reference with inner, left, right, and full joins",
+    "Pagination patterns using OFFSET/LIMIT and keyset pagination",
+    "Index types including B-tree, hash, GIN, and GiST",
+    "Anti-patterns to avoid with fixes and explanations"
+  ],
+  "author": "0xDarkMatter",
+  "icon": "🗃️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing SQL reference patterns. No executable code, no file system access beyond reading its own markdown files, no network calls, no command execution. All static findings are false positives caused by the scanner misinterpreting markdown formatting and SQL function names.",
+  "valueStatement": "Writing efficient SQL queries requires knowing common patterns and anti-patterns. This skill provides ready-to-use examples for CTEs, window functions, joins, and indexing strategies.",
+  "userTitle": "Get SQL patterns reference",
+  "limitations": [
+    "Does not execute queries or connect to databases",
+    "Pattern examples may require adjustment for specific database systems",
+    "Does not generate custom queries from user requirements"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Query optimization",
+      "description": "Learn to write efficient queries using CTEs and proper indexing strategies"
+    },
+    {
+      "targetUser": "Data analysts",
+      "title": "Analytical queries",
+      "description": "Master window functions for running totals, rankings, and time-series analysis"
+    },
+    {
+      "targetUser": "Database administrators",
+      "title": "Performance tuning",
+      "description": "Apply indexing strategies to improve query performance and reduce execution time"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "CTE pattern",
+      "scenario": "Need a common table expression",
+      "prompt": "Show me how to write a CTE in SQL"
+    },
+    {
+      "title": "Window function",
+      "scenario": "Calculate running totals",
+      "prompt": "How do I use SUM() OVER for running totals"
+    },
+    {
+      "title": "Index strategy",
+      "scenario": "Optimize query performance",
+      "prompt": "What index type should I use for JSONB queries"
+    },
+    {
+      "title": "Join types",
+      "scenario": "Understand join differences",
+      "prompt": "Explain the difference between INNER JOIN and LEFT JOIN"
+    }
+  ],
+  "bestPractices": [
+    "List columns explicitly instead of using SELECT *",
+    "Use keyset pagination (WHERE id > X) instead of OFFSET for large datasets",
+    "Place the most selective column first in composite indexes"
+  ],
+  "antiPatterns": [
+    "Using WHERE YEAR(date) = 2024 instead of date range predicates",
+    "Using NOT IN with NULL values causing unexpected results",
+    "Writing N+1 queries instead of using JOIN or batch operations"
+  ],
+  "faq": [
+    {
+      "question": "Which databases support window functions?",
+      "answer": "Most modern databases support window functions including PostgreSQL, MySQL 8+, SQL Server, Oracle, and BigQuery."
+    },
+    {
+      "question": "What is the maximum offset for pagination?",
+      "answer": "Avoid large OFFSET values. Keyset pagination with WHERE clause performs better for deep pagination."
+    },
+    {
+      "question": "Can I use these patterns with ORMs?",
+      "answer": "Yes. Patterns translate to raw SQL. Some ORM query builders can express CTEs and window functions."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only provides reference documentation. It never connects to databases or processes user data."
+    },
+    {
+      "question": "Why is my query slow despite having an index?",
+      "answer": "Check if the query uses the indexed column in functions. Also verify column order matches the leftmost prefix rule."
+    },
+    {
+      "question": "How does this differ from online SQL documentation?",
+      "answer": "This skill provides curated, verified patterns specifically formatted for AI assistants to use in context."
+    }
+  ],
+  "seoKeywords": [
+    "sql patterns",
+    "sql cte",
+    "window functions",
+    "sql index",
+    "sql join",
+    "sql pagination",
+    "database query",
+    "claude sql",
+    "codex sql",
+    "claude-code sql"
+  ],
+  "sourceUrl": "https://github.com/0xDarkMatter/claude-mods/tree/main/skills/sql-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

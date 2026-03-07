@@ -1,0 +1,142 @@
+{
+  "name": "nextjs-app-router-patterns",
+  "type": "skill",
+  "description": "Master Next.js 14+ App Router with Server Components, streaming, parallel routes, and advanced data fetching. Use when building Next.js applications, implementing SSR/SSG, or optimizing React Server Components.",
+  "domain": "web-development",
+  "subdomain": "fullstack",
+  "specialty": "advanced routing",
+  "quality": 5,
+  "qualityReason": "Advanced routing patterns",
+  "bundleHints": [
+    "nextjs-architecture",
+    "react-18"
+  ],
+  "tags": [
+    "app-router",
+    "data-fetching",
+    "nextjs",
+    "parallel-routes",
+    "react",
+    "server-components",
+    "streaming",
+    "typescript"
+  ],
+  "capabilities": [
+    "Generate Server Component patterns with proper data fetching strategies",
+    "Implement streaming UI with Suspense boundaries for progressive loading",
+    "Design parallel and intercepting routes for complex layouts and modals",
+    "Create Server Actions for form handling and mutations",
+    "Configure caching strategies including ISR and tag-based invalidation",
+    "Set up metadata generation for SEO and social sharing"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains documentation-only markdown files with Next.js educational code examples. All 56 static findings are false positives because the scanner incorrectly flagged markdown code blocks as executable code. No actual security risks detected.",
+  "valueStatement": "Struggling with Next.js 14+ App Router complexity? This skill provides proven patterns for Server Components, streaming, parallel routes, and data fetching to accelerate your development.",
+  "userTitle": "Build Modern Next.js Apps with App Router Patterns",
+  "limitations": [
+    "Does not execute or test generated code - manual verification required",
+    "Examples assume Next.js 14+ with App Router only, not Pages Router",
+    "Does not replace official Next.js documentation for edge cases",
+    "Code examples require adaptation to your specific project structure"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers maintaining legacy Next.js codebases",
+      "title": "Migrate from Pages Router to App Router",
+      "description": "Step-by-step guidance for transitioning existing Next.js applications to the new App Router architecture with minimal disruption."
+    },
+    {
+      "targetUser": "E-commerce developers building high-traffic shopping experiences",
+      "title": "Build Performance-Optimized E-commerce Sites",
+      "description": "Implement streaming product pages, parallel cart updates, and ISR caching for fast, scalable online stores."
+    },
+    {
+      "targetUser": "SaaS developers building analytics and admin dashboards",
+      "title": "Create Dashboard Applications with Real-time Data",
+      "description": "Design complex layouts with independently loading panels using parallel routes and Suspense boundaries."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Server Component Setup",
+      "prompt": "Create a Next.js Server Component that fetches products from an API and displays them in a grid. Include proper error handling and loading states.",
+      "scenario": "Getting started with Server Components for data fetching"
+    },
+    {
+      "title": "Implement Streaming with Suspense",
+      "prompt": "Build a product detail page that streams reviews and recommendations progressively. Use Suspense boundaries to show content as it loads.",
+      "scenario": "Improving perceived performance for pages with multiple data sources"
+    },
+    {
+      "title": "Create Server Actions for Form Handling",
+      "prompt": "Implement a checkout form using Server Actions with validation, error handling, and redirect on success. Include optimistic UI updates.",
+      "scenario": "Building mutations with progressive enhancement"
+    },
+    {
+      "title": "Set Up Parallel Routes for Dashboard",
+      "prompt": "Design a dashboard layout with independent analytics, team, and activity panels that load in parallel.",
+      "scenario": "Complex applications requiring multiple independent data loading paths"
+    }
+  ],
+  "bestPractices": [
+    "Start with Server Components by default and add 'use client' only when browser APIs or interactivity are required",
+    "Place data fetching close to where the data is consumed for optimal caching and code organization",
+    "Use Suspense boundaries strategically to enable streaming and improve perceived performance"
+  ],
+  "antiPatterns": [
+    "Using useState or useEffect in Server Components where they cannot execute",
+    "Fetching all data at the top level instead of colocating fetches with consuming components",
+    "Ignoring loading states which results in poor user experience during data fetches"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between Server Components and Client Components?",
+      "answer": "Server Components render on the server and send HTML to the browser. They can access backend resources directly. Client Components run in the browser and support interactivity with useState, useEffect, and event handlers."
+    },
+    {
+      "question": "How do I migrate from Pages Router to App Router?",
+      "answer": "Create an app/ directory alongside your pages/ directory. Gradually migrate routes by recreating them in app/. Both routers can coexist during migration. Update imports and adapt to the new file conventions."
+    },
+    {
+      "question": "When should I use Server Actions versus API routes?",
+      "answer": "Use Server Actions for form submissions and mutations triggered from components. Use API routes when you need a REST endpoint for external consumers or non-React clients."
+    },
+    {
+      "question": "How does caching work in App Router?",
+      "answer": "App Router caches fetch requests by default. Use cache: 'no-store' to disable caching, cache: 'force-cache' for static caching, or next: { revalidate: N } for ISR. Tag-based invalidation allows targeted cache updates."
+    },
+    {
+      "question": "Can I use parallel routes with dynamic segments?",
+      "answer": "Yes, parallel routes work with dynamic segments. Each parallel slot receives the same params. Use the slot naming convention like @analytics and @team in your layout to define independent rendering areas."
+    },
+    {
+      "question": "What are intercepting routes used for?",
+      "answer": "Intercepting routes allow you to show different UI for the same URL based on navigation context. Common use cases include modals that appear when navigating from within the app but show full pages on direct visits."
+    }
+  ],
+  "seoKeywords": [
+    "Next.js App Router",
+    "Server Components",
+    "React Server Components",
+    "Next.js 14",
+    "streaming SSR",
+    "Claude Code skills",
+    "Codex development",
+    "Next.js patterns",
+    "App Router tutorial",
+    "Claude AI coding"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/nextjs-app-router-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

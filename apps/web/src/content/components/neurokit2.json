@@ -1,0 +1,143 @@
+{
+  "name": "neurokit2",
+  "type": "skill",
+  "description": "Comprehensive biosignal processing toolkit for analyzing physiological data including ECG, EEG, EDA, RSP, PPG, EMG, and EOG signals. Use this skill when processing cardiovascular signals, brain activity, electrodermal responses, respiratory patterns, muscle activity, or eye movements. Applicable for heart rate variability analysis, event-related potentials, complexity measures, autonomic nervous system assessment, psychophysiology research, and multi-modal physiological signal integration.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "biosignal processing",
+  "quality": 5,
+  "qualityReason": "Specialized biomedical toolkit",
+  "bundleHints": [
+    "biosignal-analysis",
+    "medical-research"
+  ],
+  "tags": [
+    "biomedical",
+    "biosignals",
+    "ecg",
+    "eda",
+    "eeg",
+    "emg",
+    "physiology",
+    "ppg",
+    "research",
+    "signal-processing"
+  ],
+  "capabilities": [
+    "Process ECG and PPG signals for cardiac analysis with R-peak detection and heart rate variability metrics",
+    "Analyze EEG signals for frequency bands, microstates, and event-related potentials",
+    "Process electrodermal activity (EDA) for sympathetic nervous system assessment",
+    "Compute entropy, fractal dimensions, and nonlinear complexity measures",
+    "Handle EMG, EOG, and respiratory signals with specialized pipelines",
+    "Integrate multiple physiological signals for multi-modal analysis"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🧠",
+  "version": "1.0.0",
+  "license": "MIT license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains documentation for the NeuroKit2 Python library including code examples and API references. All 1152 static findings are false positives triggered by markdown documentation patterns: Python code blocks flagged as shell commands, academic DOIs flagged as cryptographic algorithms, and scientific terminology flagged as C2 indicators. No actual security risks exist - this is legitimate scientific documentation.",
+  "valueStatement": "Analyze physiological signals including ECG, EEG, EDA, and EMG for research and clinical applications. NeuroKit2 provides a unified Python toolkit for processing cardiovascular, neural, and autonomic nervous system data with comprehensive visualization and analysis tools.",
+  "userTitle": "Process biosignals with NeuroKit2",
+  "limitations": [
+    "Requires pre-processed signals with known sampling rate - does not perform raw signal acquisition",
+    "Complex source localization requires additional MNE library installation",
+    "Best results achieved with signals meeting minimum duration and quality requirements"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Neuroscience researchers",
+      "title": "EEG cognitive research",
+      "description": "Analyze brain activity patterns for cognitive studies, examining frequency bands and event-related responses."
+    },
+    {
+      "targetUser": "Clinical researchers",
+      "title": "Cardiac health assessment",
+      "description": "Process ECG signals to extract heart rate variability metrics for autonomic nervous system evaluation."
+    },
+    {
+      "targetUser": "Psychophysiology studies",
+      "title": "Stress response measurement",
+      "description": "Combine EDA and ECG analysis to assess sympathetic activation during psychological tasks."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic ECG analysis",
+      "scenario": "Process cardiac signal data",
+      "prompt": "Use NeuroKit2 to process this ECG signal. Detect R-peaks, calculate heart rate, and provide HRV analysis including time and frequency domain metrics."
+    },
+    {
+      "title": "Multi-modal biosignal",
+      "scenario": "Combined physiological measurement",
+      "prompt": "Process both ECG and EDA signals together. Clean the signals, extract relevant features, and provide a combined analysis of cardiac and electrodermal activity."
+    },
+    {
+      "title": "EEG spectral analysis",
+      "scenario": "Brain frequency analysis",
+      "prompt": "Analyze this EEG data for power in delta, theta, alpha, beta, and gamma frequency bands. Report relative power distribution across channels."
+    },
+    {
+      "title": "Complexity assessment",
+      "scenario": "Nonlinear signal dynamics",
+      "prompt": "Compute complexity measures for this physiological signal. Include approximate entropy, sample entropy, and fractal dimension (DFA) analysis."
+    }
+  ],
+  "bestPractices": [
+    "Always specify the correct sampling_rate parameter for accurate time-domain calculations",
+    "Use event-related analysis mode for experiments under 10 seconds, interval-related for longer recordings",
+    "Apply signal quality assessment before analysis to identify and handle artifacts"
+  ],
+  "antiPatterns": [
+    "Do not analyze signals without knowing the sampling rate - results will be meaningless",
+    "Avoid mixing signals with different sampling rates in bio_process() without resampling",
+    "Do not rely solely on automated peak detection without visual inspection of results"
+  ],
+  "faq": [
+    {
+      "question": "What signals does NeuroKit2 support?",
+      "answer": "NeuroKit2 supports ECG, EEG, EDA, EMG, EOG, PPG, and respiratory signals for comprehensive physiological analysis."
+    },
+    {
+      "question": "How do I install NeuroKit2?",
+      "answer": "Use uv pip install neurokit2 or pip install neurokit2. The library is available on PyPI."
+    },
+    {
+      "question": "What is the difference between event-related and interval-related analysis?",
+      "answer": "Event-related analysis processes short recordings (<10s) around stimulus events. Interval-related analysis handles longer continuous recordings for pattern characterization."
+    },
+    {
+      "question": "Can I process multiple signals together?",
+      "answer": "Yes, bio_process() handles ECG, RSP, EDA, EMG, PPG, and EOG simultaneously for integrated multi-modal analysis."
+    },
+    {
+      "question": "Does NeuroKit2 handle artifact removal?",
+      "answer": "Basic signal cleaning is included for quality improvement. Severe artifacts may require specialized preprocessing tools."
+    },
+    {
+      "question": "What visualization capabilities are available?",
+      "answer": "Built-in plotting functions for ECG, EEG, EDA, and other signals include signal visualization, peak detection results, and epoch averaging displays."
+    }
+  ],
+  "seoKeywords": [
+    "NeuroKit2",
+    "biosignal processing",
+    "ECG analysis",
+    "EEG analysis",
+    "heart rate variability",
+    "physiological signals",
+    "signal processing",
+    "Claude",
+    "Codex",
+    "claude-code"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/neurokit2",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "implementing-command-palettes",
+  "type": "skill",
+  "description": "Use when building Cmd+K command palettes in React - covers keyboard navigation with arrow keys, keeping selected items in view with scrollIntoView, filtering with shortcut matching, and preventing infinite re-renders from reference instability",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Cmd+K UI",
+  "quality": 5,
+  "qualityReason": "Detailed command palette UX",
+  "bundleHints": [
+    "ui-components",
+    "frontend"
+  ],
+  "tags": [
+    "accessibility",
+    "filtering",
+    "keyboard",
+    "keyboard-navigation",
+    "navigation",
+    "react",
+    "react-components",
+    "ui-components"
+  ],
+  "capabilities": [
+    "Implement arrow key navigation with index tracking and bounds clamping",
+    "Keep selected items visible using scrollIntoView with nearest block option",
+    "Filter commands by label text AND keyboard shortcuts with space stripping",
+    "Prevent infinite re-renders using stable icon references and useCallback",
+    "Handle keyboard events with window listeners and input autoFocus",
+    "Structure command items with action, navigation, file, and PR types"
+  ],
+  "author": "AgentWorkforce",
+  "icon": "⌨️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing markdown and React/TypeScript code examples. No executable code, scripts, network calls, or file operations. Static findings are false positives triggered by documentation patterns: template literal backticks misidentified as shell execution, 'hash' content identifiers misidentified as weak crypto, 'command' terms misidentified as C2 keywords. No security risk present.",
+  "valueStatement": "Command palettes need careful keyboard handling and scroll behavior to feel responsive. This skill provides battle-tested patterns for arrow navigation, scroll-into-view, shortcut matching, and preventing infinite re-renders.",
+  "userTitle": "Build accessible command palettes in React",
+  "limitations": [
+    "Provides patterns only, requires React project setup",
+    "Does not include pre-built component library",
+    "Does not handle mobile touch interactions",
+    "Focused on keyboard navigation, not voice or switch access"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Build editor command palettes",
+      "description": "Create VS Code-style command palettes for text editors with keyboard-driven item selection."
+    },
+    {
+      "targetUser": "SaaS application teams",
+      "title": "Add site-wide quick actions",
+      "description": "Implement Cmd+K menus for quick navigation, search, and actions across web applications."
+    },
+    {
+      "targetUser": "React library authors",
+      "title": "Create palette components",
+      "description": "Build reusable command palette components with proper accessibility and performance patterns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic palette",
+      "scenario": "Building a simple command palette",
+      "prompt": "I need to build a command palette with arrow key navigation. Show me the keyboard event handling with selectedIndex tracking and how to prevent page scrolling on arrow keys."
+    },
+    {
+      "title": "Scroll behavior",
+      "scenario": "Keeping items visible during navigation",
+      "prompt": "My command palette list is long. How do I keep the selected item visible using scrollIntoView with the nearest block option?"
+    },
+    {
+      "title": "Shortcut matching",
+      "scenario": "Filtering by keyboard shortcuts",
+      "prompt": "I want users to type shortcut sequences like 'gd' to match commands with keyboard shortcuts like 'g d'. Show me the filtering logic with space stripping."
+    },
+    {
+      "title": "Prevent re-renders",
+      "scenario": "Fixing infinite re-render loops",
+      "prompt": "My command palette causes maximum update depth exceeded errors. Show me how to use stable icon references, useCallback, and label-based change detection."
+    }
+  ],
+  "bestPractices": [
+    "Use wrapper component pattern to ensure effects only run when palette is visible",
+    "Define icon elements outside components to maintain stable references",
+    "Reset selectedIndex to zero when query changes to start from top of filtered results"
+  ],
+  "antiPatterns": [
+    "Placing conditional return after useEffect hooks causes effects to run when palette is closed",
+    "Using block: 'center' in scrollIntoView causes jarring scroll even when item is already visible",
+    "Defining icons inside useMemo creates new elements every render triggering re-render loops"
+  ],
+  "faq": [
+    {
+      "question": "What React hooks are required for command palettes?",
+      "answer": "useState for selectedIndex, useEffect for keyboard listeners, useRef for item references, useCallback and useMemo for stable references."
+    },
+    {
+      "question": "How many items can a command palette handle efficiently?",
+      "answer": "Hundreds of items work well. For thousands, consider virtualization but the core patterns remain the same."
+    },
+    {
+      "question": "Does this work with React 18 concurrent features?",
+      "answer": "Yes. The patterns use standard hooks that work correctly with React 18 concurrent rendering and useEffect timing."
+    },
+    {
+      "question": "Is user data sent anywhere when using these patterns?",
+      "answer": "No. These are purely local React patterns for UI behavior. No network calls or data transmission occur."
+    },
+    {
+      "question": "Why does my palette freeze when I type fast?",
+      "answer": "Likely re-render loop from unstable references. Define icons outside component and use useCallback for action handlers."
+    },
+    {
+      "question": "How is this different from libraries like cmdk?",
+      "answer": "This skill teaches underlying patterns so you understand why things work. Libraries handle edge cases; this skill teaches you to build or customize them."
+    }
+  ],
+  "seoKeywords": [
+    "cmd+k palette react",
+    "keyboard navigation react",
+    "command palette ui",
+    "react accessibility",
+    "scrollintoview react",
+    "claude code",
+    "claude",
+    "codex",
+    "react components",
+    "keyboard shortcuts"
+  ],
+  "sourceUrl": "https://github.com/AgentWorkforce/relay/tree/main/.claude/skills/implementing-command-palettes",
+  "sourceType": "community",
+  "dependencies": []
+}

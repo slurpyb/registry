@@ -1,0 +1,138 @@
+{
+  "name": "api-documentation",
+  "type": "skill",
+  "description": "Auto-generate comprehensive API documentation with examples, schemas, and interactive tools.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "auto-generation",
+  "quality": 4,
+  "qualityReason": "Good focus, overlaps with other doc skills",
+  "bundleHints": [
+    "api-docs",
+    "developer-experience",
+    "productivity"
+  ],
+  "tags": [
+    "api",
+    "documentation",
+    "examples",
+    "interactive",
+    "openapi",
+    "reference",
+    "swagger"
+  ],
+  "capabilities": [
+    "Generate API reference documentation from code comments",
+    "Create interactive documentation with Swagger UI and Redoc",
+    "Produce multi-language code examples automatically",
+    "Export documentation in HTML, Markdown, and PDF formats"
+  ],
+  "author": "CuriousLearner",
+  "icon": "📚",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing markdown guidance and code examples for generating API documentation. All 174 static findings are false positives caused by the analyzer misinterpreting documentation examples as executable code. The skill has no executable code, network calls, file system access, or system command capabilities. The existing skill-report.json already properly assessed this as safe.",
+  "valueStatement": "Creating comprehensive API documentation is time-consuming and often gets outdated. This skill automatically generates complete API documentation with examples, schemas, and interactive tools from your code or OpenAPI specs.",
+  "userTitle": "Generate API documentation with examples",
+  "limitations": [
+    "Requires existing API code or OpenAPI specification",
+    "Cannot generate documentation for undocumented code",
+    "Interactive features need web server setup"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Document REST APIs automatically",
+      "description": "Generate comprehensive documentation from OpenAPI specs or code comments with examples and interactive try-it features."
+    },
+    {
+      "targetUser": "DevOps teams",
+      "title": "Setup developer portals",
+      "description": "Create professional API documentation sites with Swagger UI, Redoc, or custom templates for internal or external developers."
+    },
+    {
+      "targetUser": "API product managers",
+      "title": "Maintain up-to-date API docs",
+      "description": "Keep documentation synchronized with code changes using automated generation from JSDoc, TypeDoc, or FastAPI docstrings."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Generate from OpenAPI",
+      "scenario": "You have an OpenAPI spec file",
+      "prompt": "Generate comprehensive API documentation from my OpenAPI specification. Include authentication guides, code examples in JavaScript, Python, and curl, error handling documentation, and setup instructions for Swagger UI."
+    },
+    {
+      "title": "Document from code",
+      "scenario": "You have documented Node.js code",
+      "prompt": "Create API documentation from my Express.js code with JSDoc comments. Generate a getting started guide, endpoint reference with examples, and setup instructions for interactive documentation."
+    },
+    {
+      "title": "Create developer portal",
+      "scenario": "You need a complete developer portal",
+      "prompt": "Design a developer portal with API documentation, authentication guide, rate limiting policies, SDK generation, and interactive API explorer. Include multi-language examples and best practices."
+    },
+    {
+      "title": "Generate Postman collection",
+      "scenario": "You need Postman collections",
+      "prompt": "Create a Postman collection from my API documentation with pre-configured requests, environment variables, test scripts, and documentation for each endpoint."
+    }
+  ],
+  "bestPractices": [
+    "Always include working code examples in multiple programming languages",
+    "Document authentication requirements clearly with examples",
+    "Keep documentation synchronized with API changes using automation"
+  ],
+  "antiPatterns": [
+    "Publishing documentation without testing all code examples",
+    "Skipping error handling and edge case documentation",
+    "Using outdated documentation tools that do not support OpenAPI 3.0"
+  ],
+  "faq": [
+    {
+      "question": "Which documentation formats are supported?",
+      "answer": "Supports OpenAPI 3.0, Swagger 2.0, and can generate Markdown, HTML, PDF documentation plus Postman collections."
+    },
+    {
+      "question": "Can I use this with existing code?",
+      "answer": "Yes, works with JSDoc comments, TypeDoc for TypeScript, and FastAPI docstrings to generate docs from existing code."
+    },
+    {
+      "question": "How do I set up interactive documentation?",
+      "answer": "Provides setup guides for Swagger UI, Redoc, and Stoplight Elements with Express.js, FastAPI, and static hosting options."
+    },
+    {
+      "question": "Is my API specification data safe?",
+      "answer": "This is a documentation generation tool that processes your specifications locally. No data is sent to external services."
+    },
+    {
+      "question": "What if my API changes frequently?",
+      "answer": "Use automated documentation generation from code comments or CI/CD pipelines to keep docs synchronized with code."
+    },
+    {
+      "question": "How does this compare to manual documentation?",
+      "answer": "Automatic generation ensures consistency, includes all endpoints, provides interactive features, and reduces maintenance effort."
+    }
+  ],
+  "seoKeywords": [
+    "API documentation",
+    "OpenAPI",
+    "Swagger",
+    "API reference",
+    "documentation generator",
+    "Claude",
+    "Claude Code",
+    "interactive docs",
+    "API examples"
+  ],
+  "sourceUrl": "https://github.com/CuriousLearner/devkit/tree/main/skills/api-documentation",
+  "sourceType": "community",
+  "dependencies": []
+}

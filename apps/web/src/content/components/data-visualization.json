@@ -1,0 +1,144 @@
+{
+  "name": "data-visualization",
+  "type": "skill",
+  "description": "Data visualization with chart selection, color theory, and annotation best practices. Covers chart types (bar, line, scatter, heatmap), axes rules, and storytelling with data. Use for: charts, graphs, dashboards, reports, presentations, infographics, data stories. Triggers: data visualization, chart, graph, data chart, bar chart, line chart, scatter plot, data viz, visualization, dashboard chart, infographic data, data presentation, chart design, plot, heatmap, pie chart alternative",
+  "domain": "data",
+  "subdomain": "visualization",
+  "specialty": "chart design",
+  "quality": 5,
+  "qualityReason": "Comprehensive visualization best practices",
+  "bundleHints": [
+    "data-visualization",
+    "analytics-dashboard"
+  ],
+  "tags": [
+    "analytics",
+    "annotation",
+    "charts",
+    "color-theory",
+    "data-visualization",
+    "design",
+    "graphs",
+    "matplotlib",
+    "storytelling"
+  ],
+  "capabilities": [
+    "Generate matplotlib charts for line, bar, scatter, heatmap, and KPI visualizations",
+    "Apply color theory principles with sequential, diverging, and categorical palettes",
+    "Create dark mode compatible visualizations with proper contrast",
+    "Add annotations and insights to charts to tell compelling data stories",
+    "Convert data to optimal chart types based on relationships (time series, comparison, distribution, correlation)",
+    "Export charts as high-resolution PNG files for presentations and reports"
+  ],
+  "author": "inference-sh-9",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 37 static analysis findings are false positives. The detected 'external_commands' patterns are markdown code blocks (```bash, ```python) containing documentation examples, not executable code. The 'network' findings are legitimate documentation links to the inference.sh service. No malicious intent, prompt injection attempts, or security risks detected.",
+  "valueStatement": "Transform raw data into clear, compelling visualizations. Learn which chart types work best for your data, apply color theory principles, and tell powerful stories with your charts.",
+  "userTitle": "Create Data Visualizations with Best Practices",
+  "limitations": [
+    "Requires external inference.sh CLI tool installation and account",
+    "Code examples are Python/matplotlib based, not applicable to other visualization libraries",
+    "Cannot interactively modify or update existing chart files",
+    "Examples focus on static image export, not interactive web-based visualizations",
+    "Color palette examples use specific hex codes that may not match brand guidelines"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product managers and business analysts",
+      "title": "Business reporting dashboards",
+      "description": "Create professional charts for monthly revenue reports, user growth metrics, and KPI cards that communicate insights clearly to stakeholders."
+    },
+    {
+      "targetUser": "Researchers and graduate students",
+      "title": "Academic research presentations",
+      "description": "Generate publication-quality scatter plots, heatmaps, and comparative charts that follow data visualization best practices for research papers."
+    },
+    {
+      "targetUser": "Marketing professionals and content creators",
+      "title": "Marketing infographics",
+      "description": "Design compelling visual stories with annotated charts, color-coded comparisons, and insight-focused titles for presentations and social media."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic bar chart for categories",
+      "prompt": "Create a horizontal bar chart comparing monthly traffic sources (Email, Social, SEO, Paid Ads, Referral, Direct). Highlight the top performer in blue, others in gray. Add value labels and a descriptive title.",
+      "scenario": "Comparing categorical performance metrics"
+    },
+    {
+      "title": "Time series line chart",
+      "prompt": "Generate a line chart showing revenue over 12 months. Plot both current year and previous year as comparison. Include a shaded area between lines, annotations for peak values, and a title that states the growth insight.",
+      "scenario": "Showing trends and year-over-year comparison"
+    },
+    {
+      "title": "KPI card visualization",
+      "prompt": "Create three KPI cards showing Monthly Revenue ($89K), Active Users (12.4K), and Churn Rate (2.1%). Include percentage change indicators with color coding (green for positive, red for negative).",
+      "scenario": "Dashboard summary with key metrics"
+    },
+    {
+      "title": "Dark mode heatmap",
+      "prompt": "Build a heatmap showing website traffic by day and hour. Use a dark theme with white text, blues color scale, and value labels in each cell. Add a colorbar legend and descriptive title.",
+      "scenario": "Analyzing patterns across two dimensions"
+    }
+  ],
+  "bestPractices": [
+    "Always start Y-axis at zero for bar charts to avoid misleading visual comparisons",
+    "Use insight-focused titles that state the conclusion (e.g., 'Revenue doubled') rather than generic labels (e.g., 'Revenue Chart')",
+    "Limit to 5-7 colors per visualization and use gray to de-emphasize non-critical elements"
+  ],
+  "antiPatterns": [
+    "Avoid pie charts for data visualization—use horizontal bar charts or treemaps instead for accurate comparisons",
+    "Do not use 3D charts as they distort data perception and appear unprofessional",
+    "Never sort bar charts alphabetically—always sort by value to reveal the data story"
+  ],
+  "faq": [
+    {
+      "question": "What tools does this skill require?",
+      "answer": "This skill requires the inference.sh CLI tool, which you install via curl script. The CLI executes Python code with matplotlib to generate visualizations."
+    },
+    {
+      "question": "Can I modify the generated charts?",
+      "answer": "Yes, the Python code examples are fully customizable. You can adjust colors, dimensions, labels, and styling in the matplotlib code before executing."
+    },
+    {
+      "question": "What file formats are supported?",
+      "answer": "Charts are exported as PNG files at 150 DPI resolution, suitable for presentations, reports, and web use."
+    },
+    {
+      "question": "Do I need Python installed?",
+      "answer": "No, the Python code runs on the inference.sh platform. You only need their CLI tool to send code execution requests."
+    },
+    {
+      "question": "Can this create interactive charts?",
+      "answer": "No, this skill focuses on static image generation. For interactive visualizations, consider web-based libraries like Plotly or D3.js."
+    },
+    {
+      "question": "How do I choose the right chart type?",
+      "answer": "Use line charts for time trends, bar charts for category comparison, scatter plots for correlation, and heatmaps for two-dimensional patterns. The skill includes a comprehensive selection guide."
+    }
+  ],
+  "seoKeywords": [
+    "Claude data visualization",
+    "Codex chart design",
+    "Claude Code charts",
+    "matplotlib examples",
+    "data visualization best practices",
+    "chart selection guide",
+    "color theory data",
+    "storytelling with data",
+    "infographic design",
+    "dashboard charts"
+  ],
+  "sourceUrl": "https://github.com/inference-sh-9/skills/tree/main/skills/data-visualization/",
+  "sourceType": "community",
+  "dependencies": []
+}

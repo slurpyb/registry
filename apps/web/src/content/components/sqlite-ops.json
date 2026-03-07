@@ -1,0 +1,142 @@
+{
+  "name": "sqlite-ops",
+  "type": "skill",
+  "description": "Patterns for SQLite databases in Python projects - state management, caching, and async operations. Triggers on: sqlite, sqlite3, aiosqlite, local database, database schema, migration, wal mode.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "SQLite patterns",
+  "quality": 5,
+  "qualityReason": "Clear triggers and use cases",
+  "bundleHints": [
+    "python-stack",
+    "local-database"
+  ],
+  "tags": [
+    "async",
+    "database",
+    "migration",
+    "persistence",
+    "python",
+    "schema",
+    "sqlite",
+    "state-management"
+  ],
+  "capabilities": [
+    "Connection patterns with WAL mode and thread safety",
+    "Context manager transactions with rollback handling",
+    "Async CRUD operations using aiosqlite library",
+    "Database migration patterns with version tracking",
+    "Schema designs for state, cache, events, and queues",
+    "Batch operations and connection pooling patterns"
+  ],
+  "author": "0xDarkMatter",
+  "icon": "🗄️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing SQLite patterns for Python. All content is markdown reference material with code examples for user implementation. No executable code, network calls, or file system access operations exist in the skill. The static scanner misidentified code fence delimiters and documentation references as security findings. All 137 findings are false positives.",
+  "valueStatement": "Learn patterns for SQLite databases in Python projects. Includes connection management, async operations, migrations, and common schema designs for state, cache, and event logging.",
+  "userTitle": "Use SQLite databases in Python",
+  "limitations": [
+    "Contains documentation only, not a library",
+    "Requires Python 3.8+ with sqlite3 or aiosqlite",
+    "Users must copy and adapt patterns manually",
+    "SQLite has limited ALTER TABLE support"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Python developers",
+      "title": "Build local data storage",
+      "description": "Implement local SQLite databases for state management and caching in Python applications."
+    },
+    {
+      "targetUser": "MCP server builders",
+      "title": "Add persistence to servers",
+      "description": "Use SQLite patterns to persist data in Model Context Protocol servers."
+    },
+    {
+      "targetUser": "Backend engineers",
+      "title": "Handle async database ops",
+      "description": "Apply async patterns for concurrent database operations in web services."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic connection",
+      "scenario": "Set up SQLite connection",
+      "prompt": "Show me how to connect to an SQLite database in Python with WAL mode and foreign keys enabled."
+    },
+    {
+      "title": "Async queries",
+      "scenario": "Run async database operations",
+      "prompt": "Write async CRUD functions using aiosqlite for a Python project."
+    },
+    {
+      "title": "Schema migration",
+      "scenario": "Manage database schema changes",
+      "prompt": "How do I create a migration system for SQLite that tracks version numbers?"
+    },
+    {
+      "title": "Performance tuning",
+      "scenario": "Optimize database performance",
+      "prompt": "What patterns improve SQLite performance for concurrent reads and writes in production?"
+    }
+  ],
+  "bestPractices": [
+    "Always use parameterized queries with ? placeholders to prevent SQL injection attacks.",
+    "Enable WAL mode with PRAGMA journal_mode=WAL for better concurrent read/write performance.",
+    "Use context managers or try/finally blocks to ensure connections are properly closed."
+  ],
+  "antiPatterns": [
+    "Do not concatenate user input directly into SQL strings - always use parameterized queries.",
+    "Do not use DELETE journal mode for web applications with concurrent access.",
+    "Do not skip error handling for database operations like locking and constraint violations."
+  ],
+  "faq": [
+    {
+      "question": "What Python versions support sqlite3?",
+      "answer": "Python 3.8+ includes sqlite3 in standard library. Use aiosqlite for async support on Python 3.8+."
+    },
+    {
+      "question": "What is the maximum database size?",
+      "answer": "SQLite supports databases up to 281 TB. Practical limits depend on filesystem and available disk space."
+    },
+    {
+      "question": "Can I use this with FastAPI or Flask?",
+      "answer": "Yes. Use WAL mode for concurrency, connection pooling for high traffic, and context managers for request-scoped connections."
+    },
+    {
+      "question": "Is data safe during power loss?",
+      "answer": "WAL mode with proper checkpoints protects data. Consider periodic VACUUM to maintain performance and integrity."
+    },
+    {
+      "question": "Why do I get 'database is locked'?",
+      "answer": "Default DELETE mode blocks reads during writes. Enable WAL mode for concurrent access. Keep transactions short."
+    },
+    {
+      "question": "How does this compare to PostgreSQL or MySQL?",
+      "answer": "SQLite is serverless, zero-configuration, and ideal for local storage. PostgreSQL and MySQL handle higher concurrency and replication."
+    }
+  ],
+  "seoKeywords": [
+    "sqlite python",
+    "sqlite3 patterns",
+    "aiosqlite async",
+    "database migrations",
+    "sqlite schema design",
+    "claude sqlite",
+    "codex database",
+    "claude-code python",
+    "wal mode sqlite",
+    "sqlite connection pool"
+  ],
+  "sourceUrl": "https://github.com/0xDarkMatter/claude-mods/tree/main/skills/sqlite-ops",
+  "sourceType": "community",
+  "dependencies": []
+}

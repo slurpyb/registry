@@ -1,0 +1,141 @@
+{
+  "name": "python-style-guide",
+  "type": "skill",
+  "description": "Comprehensive Python programming guidelines based on Google's Python Style Guide. Use when Claude needs to write Python code, review Python code for style issues, refactor Python code, or provide Python programming guidance. Covers language rules (imports, exceptions, type annotations), style rules (naming conventions, formatting, docstrings), and best practices for clean, maintainable Python code.",
+  "domain": "languages",
+  "subdomain": "python",
+  "specialty": "style enforcement",
+  "quality": 5,
+  "qualityReason": "Clear authoritative source",
+  "bundleHints": [
+    "code-quality",
+    "python-stack"
+  ],
+  "tags": [
+    "best-practices",
+    "code-review",
+    "coding-standards",
+    "documentation",
+    "google-style",
+    "python",
+    "refactoring",
+    "style-guide"
+  ],
+  "capabilities": [
+    "Provides Python naming conventions for classes, functions, variables, and constants",
+    "Documents proper import organization and formatting standards",
+    "Explains type annotation best practices including Generics and Protocol",
+    "Shows correct exception handling and error management patterns",
+    "Details docstring formats using Google-style documentation"
+  ],
+  "author": "CodingKaiser",
+  "icon": "🐍",
+  "version": "1.0.0",
+  "license": "Complete terms in LICENSE.txt",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing markdown guidelines for Python code style. All 318 static findings are false positives: cryptographic alerts triggered by strings like 'A1'/'A2' in examples, backtick execution alerts from markdown code fences, and reconnaissance alerts from file operation examples. No executable code, network operations, or command execution.",
+  "valueStatement": "This skill provides comprehensive Python programming guidelines following Google's Python Style Guide. It ensures code consistency, readability, and maintainability across Python projects.",
+  "userTitle": "Apply Python Style Guidelines",
+  "limitations": [
+    "Contains documentation only - does not execute or lint code",
+    "Does not provide automated code fixes or refactoring",
+    "Focuses on style rather than performance optimization",
+    "References Python 3.6+ features without version-specific alternatives"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Python developers",
+      "title": "Write consistent Python code",
+      "description": "Follow established naming, formatting, and documentation conventions for cleaner codebases."
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Review Python submissions",
+      "description": "Use as a reference checklist when reviewing Python pull requests for style compliance."
+    },
+    {
+      "targetUser": "Learning developers",
+      "title": "Learn Python best practices",
+      "description": "Study documented patterns to improve Python coding skills and write professional code."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Python formatting",
+      "scenario": "Get style guidelines",
+      "prompt": "Write Python code following the style guide. Use 4 spaces for indentation and 80 character line limits."
+    },
+    {
+      "title": "Type annotations",
+      "scenario": "Add type hints",
+      "prompt": "Add type annotations to this Python function. Use Python 3.10 union syntax with | operator."
+    },
+    {
+      "title": "Docstring standards",
+      "scenario": "Document functions",
+      "prompt": "Write Google-style docstrings for these Python functions. Include Args, Returns, and Raises sections."
+    },
+    {
+      "title": "Review code style",
+      "scenario": "Check compliance",
+      "prompt": "Review this Python code against the style guide. Identify issues with imports, naming, and documentation."
+    }
+  ],
+  "bestPractices": [
+    "Use type annotations for all public function signatures to improve code clarity and enable static analysis",
+    "Organize imports in three groups: standard library, third-party, and application-specific modules",
+    "Write Google-style docstrings for all public modules, classes, and functions with Args, Returns, and Raises sections"
+  ],
+  "antiPatterns": [
+    "Using mutable objects as default argument values (def foo(items=[]):) causes shared state bugs",
+    "Using bare except: clauses (except:) catches all exceptions including KeyboardInterrupt and hides bugs",
+    "Comparing to None using == instead of is (if x == None:) fails to use Python singleton semantics"
+  ],
+  "faq": [
+    {
+      "question": "What Python version does this style guide target?",
+      "answer": "The guide references Python 3.6+ features like f-strings while noting alternatives for earlier versions."
+    },
+    {
+      "question": "Does this skill lint or format my code?",
+      "answer": "No. This skill provides guidelines and references. Use pylint or black for actual linting and formatting."
+    },
+    {
+      "question": "Are the rules mandatory or flexible?",
+      "answer": "Prioritize consistency with existing code. Use these guidelines as defaults when starting new projects."
+    },
+    {
+      "question": "What about import formatting?",
+      "answer": "Group imports by source type, alphabetize within groups, and use absolute imports for clarity."
+    },
+    {
+      "question": "Should I use typing module or built-in generics?",
+      "answer": "Prefer built-in generics (list, dict) over typing equivalents for Python 3.9+."
+    },
+    {
+      "question": "How strict is the 80 character line limit?",
+      "answer": "Use 80 characters as default. Allow exceptions for imports, URLs, and unbroken strings."
+    }
+  ],
+  "seoKeywords": [
+    "python style guide",
+    "claude code",
+    "python coding standards",
+    "google style guide",
+    "claude",
+    "codex",
+    "python best practices",
+    "python linting",
+    "python docstrings",
+    "python type annotations"
+  ],
+  "sourceUrl": "https://github.com/CodingKaiser/claude-kaiser-skills/tree/main/python-style-guide",
+  "sourceType": "community",
+  "dependencies": []
+}

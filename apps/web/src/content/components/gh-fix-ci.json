@@ -1,0 +1,139 @@
+{
+  "name": "gh-fix-ci",
+  "type": "skill",
+  "description": "Inspect GitHub PR checks with gh, pull failing GitHub Actions logs, summarize failure context, then create a fix plan and implement after user approval. Use when a user asks to debug or fix failing PR CI/CD checks on GitHub Actions and wants a plan + code changes; for external checks (e.g., Buildkite), only report the details URL and mark them out of scope.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "CI debugging",
+  "quality": 5,
+  "qualityReason": "End-to-end CI failure resolution",
+  "bundleHints": [
+    "ci-cd-debug",
+    "github-actions",
+    "devops-automation"
+  ],
+  "tags": [
+    "automation",
+    "ci-cd",
+    "debugging",
+    "devops",
+    "github",
+    "pr-checks"
+  ],
+  "capabilities": [
+    "Inspect failing GitHub PR checks using gh CLI",
+    "Fetch and summarize GitHub Actions workflow logs",
+    "Identify actionable failure causes with context snippets",
+    "Create fix plans using the plan skill",
+    "Implement approved fixes and suggest re-running tests"
+  ],
+  "author": "davila7",
+  "icon": "🔧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing SKILL.md metadata. References gh CLI for GitHub operations. The static scanner misidentified GitHub CLI commands as cryptographic algorithms and command documentation as shell execution. This is a legitimate DevOps workflow automation tool with no executable code. All 41 findings are false positives.",
+  "valueStatement": "Failing CI/CD checks block PR merges and waste developer time. This skill inspects failing GitHub Actions workflows, extracts error logs, and creates a fix plan for your approval before implementing changes.",
+  "userTitle": "Debug and fix failing GitHub CI checks",
+  "limitations": [
+    "External CI providers (Buildkite, etc.) are out of scope",
+    "Requires gh CLI authentication with workflow/repo scopes",
+    "Cannot access private repos without proper permissions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Debug production CI failures",
+      "description": "Quickly diagnose why production CI checks failed and get actionable fixes without manual log hunting"
+    },
+    {
+      "targetUser": "PR contributors",
+      "title": "Fix your PR CI issues",
+      "description": "Understand and resolve CI failures on your pull requests before requesting review"
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Review CI fix proposals",
+      "description": "Get clear summaries of CI failures and approve proposed fixes before implementation"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic CI fix",
+      "scenario": "Fix current PR checks",
+      "prompt": "gh-fix-ci on this PR to check for failing CI jobs, summarize the errors, and create a plan to fix them."
+    },
+    {
+      "title": "Specific PR debug",
+      "scenario": "Debug PR number",
+      "prompt": "Use gh-fix-ci to inspect PR #42, pull the failing GitHub Actions logs, and explain what needs to change."
+    },
+    {
+      "title": "Log-focused analysis",
+      "scenario": "Extract log context",
+      "prompt": "Run gh-fix-ci on this repo with --max-lines 100 to get detailed log context for the failing test job."
+    },
+    {
+      "title": "Full workflow fix",
+      "scenario": "Complete CI resolution",
+      "prompt": "gh-fix-ci on this PR: find all failing checks, summarize each failure, propose a fix plan, and apply the fixes after I approve."
+    }
+  ],
+  "bestPractices": [
+    "Run gh auth login first to ensure proper authentication with workflow scopes",
+    "Provide the specific PR number or URL for faster resolution",
+    "Review the fix plan carefully before giving approval"
+  ],
+  "antiPatterns": [
+    "Running without gh CLI installed or authenticated",
+    "Skipping the approval step for risky code changes",
+    "Expecting support for non-GitHub CI providers"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with GitHub Enterprise?",
+      "answer": "Yes, if gh CLI is configured for your Enterprise instance. Ensure proper authentication before running."
+    },
+    {
+      "question": "Can it fix Buildkite or CircleCI failures?",
+      "answer": "No, the skill only handles GitHub Actions. External CI failures are reported with a details URL but not fixed."
+    },
+    {
+      "question": "What permissions does gh need?",
+      "answer": "gh requires repo and workflow scopes. Run 'gh auth login' then 'gh auth status' with escalated permissions."
+    },
+    {
+      "question": "Is my GitHub token stored safely?",
+      "answer": "Yes, the skill uses gh CLI which stores credentials securely in your system keychain."
+    },
+    {
+      "question": "Why cannot it access some workflow logs?",
+      "answer": "Logs may be expired, deleted, or require additional permissions. The skill will report missing logs explicitly."
+    },
+    {
+      "question": "How does this compare to GitHub own debugging?",
+      "answer": "This skill automates log retrieval and error analysis, saving time hunting through the GitHub web interface."
+    }
+  ],
+  "seoKeywords": [
+    "claude code skill",
+    "github ci cd",
+    "fix failing github actions",
+    "debug github workflows",
+    "ci cd automation",
+    "github pr checks",
+    "claude devops",
+    "github actions debugging",
+    "ci pipeline fix",
+    "automated ci troubleshooting"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/gh-fix-ci",
+  "sourceType": "community",
+  "dependencies": []
+}

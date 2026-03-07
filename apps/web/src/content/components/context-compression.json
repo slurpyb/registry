@@ -1,0 +1,141 @@
+{
+  "name": "context-compression",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"compress context\", \"summarize conversation history\", \"implement compaction\", \"reduce token usage\", or mentions context compression, structured summarization, tokens-per-task optimization, or long-running agent sessions exceeding context limits.",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "token reduction",
+  "quality": 5,
+  "qualityReason": "Critical for long conversations",
+  "bundleHints": [
+    "llm-optimization",
+    "context-engineering",
+    "agent-performance"
+  ],
+  "tags": [
+    "compression",
+    "context",
+    "conversation",
+    "conversation-history",
+    "efficiency",
+    "summarization",
+    "tokens"
+  ],
+  "capabilities": [
+    "Implement anchored iterative summarization with explicit sections for files, decisions, and next steps",
+    "Generate structured summaries that preserve file paths, error messages, and technical details",
+    "Evaluate compression quality using probe-based assessment across six dimensions",
+    "Apply three-phase compression workflow for large codebases (research, planning, implementation)",
+    "Track artifact trail integrity separately from general summarization",
+    "Configure compression triggers based on context utilization thresholds"
+  ],
+  "author": "muratcankoylan",
+  "icon": "📦",
+  "version": "1.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains documentation and Python evaluation utilities. All static findings are false positives. The scanner misinterpreted markdown code fences as shell commands, AI model names as cryptographic algorithms, and evaluation criteria names as system reconnaissance. No actual dangerous patterns exist in the codebase.",
+  "valueStatement": "Long agent sessions generate millions of tokens that exceed context limits. This skill provides structured compression strategies that reduce token usage while preserving file paths, error messages, and decisions so agents can continue working without re-fetching information.",
+  "userTitle": "Compress conversation context",
+  "limitations": [
+    "Does not automatically compress context during conversations (requires manual implementation)",
+    "Quality of compression depends on the summarization model used",
+    "Opaque compression methods sacrifice interpretability for higher compression ratios"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI developers",
+      "title": "Build compression pipelines",
+      "description": "Implement context compression in agent frameworks to handle long-running coding sessions efficiently."
+    },
+    {
+      "targetUser": "Engineering teams",
+      "title": "Evaluate compression quality",
+      "description": "Use probe-based evaluation to measure whether compressed context preserves critical information."
+    },
+    {
+      "targetUser": "LLM practitioners",
+      "title": "Optimize token usage",
+      "description": "Apply structured summarization strategies to reduce tokens-per-task without losing technical details."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Enable compression",
+      "scenario": "Activate context compression",
+      "prompt": "Enable context compression for this session using anchored iterative summarization with explicit sections for session intent, files modified, decisions made, current state, and next steps."
+    },
+    {
+      "title": "Summarize history",
+      "scenario": "Compress conversation so far",
+      "prompt": "Compress our conversation history into a structured summary. Include the original error or issue, all files modified with their changes, key decisions made, current test status, and actionable next steps."
+    },
+    {
+      "title": "Track artifacts",
+      "scenario": "Preserve file tracking",
+      "prompt": "After compressing context, generate an artifact trail that lists which files were created, modified, and read during this session. Include function names and error messages that were discussed."
+    },
+    {
+      "title": "Evaluate quality",
+      "scenario": "Test compression fidelity",
+      "prompt": "Evaluate our compression quality using probe-based assessment. Test recall of the original error, artifact knowledge of modified files, continuation awareness of next steps, and decision retention of why we chose specific solutions."
+    }
+  ],
+  "bestPractices": [
+    "Use structured summaries with explicit sections to prevent silent loss of file paths and decisions",
+    "Optimize for tokens-per-task, not just tokens-per-request, to account for re-fetching costs",
+    "Test compression quality with probe-based evaluation before deploying to production"
+  ],
+  "antiPatterns": [
+    "Using aggressive compression that loses error codes, file paths, and function names",
+    "Triggering compression at 100% context utilization instead of 70-80%",
+    "Regenerating full summaries on each compression instead of incremental merging"
+  ],
+  "faq": [
+    {
+      "question": "Which AI platforms support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code for AI-assisted coding tasks."
+    },
+    {
+      "question": "What is the maximum compression ratio?",
+      "answer": "Opaque compression achieves 99.3% but sacrifices interpretability. Structured approaches achieve 98.6% with better quality retention."
+    },
+    {
+      "question": "How does this integrate with agent frameworks?",
+      "answer": "The skill provides Python utilities for evaluation and documentation for implementing compression in your agent scaffolding."
+    },
+    {
+      "question": "Is my conversation data safe?",
+      "answer": "All processing is local to the AI session. No conversation data is sent to external services beyond the AI model itself."
+    },
+    {
+      "question": "Why do agents forget modified files?",
+      "answer": "Artifact trail integrity scores 2.2-2.5 out of 5.0 across all methods. Consider separate file-state tracking outside compression."
+    },
+    {
+      "question": "How is this different from simple summarization?",
+      "answer": "Structured summarization uses explicit sections to force preservation of file paths, decisions, and technical details that generic summarization loses."
+    }
+  ],
+  "seoKeywords": [
+    "context compression",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "token optimization",
+    "conversation summarization",
+    "structured summarization",
+    "anchored iterative summarization",
+    "context window limits",
+    "tokens per task"
+  ],
+  "sourceUrl": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/context-compression",
+  "sourceType": "community",
+  "dependencies": []
+}

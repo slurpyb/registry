@@ -1,0 +1,141 @@
+{
+  "name": "treesitter-patterns",
+  "type": "skill",
+  "description": "Universal patterns for tree-sitter code parsing. Covers AST visitors, query patterns, and language plugin development. Framework-agnostic.",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "AST parsing",
+  "quality": 5,
+  "qualityReason": "Powerful code analysis tool",
+  "bundleHints": [
+    "code-analysis",
+    "parsing-tools"
+  ],
+  "tags": [
+    "ast",
+    "code parsing",
+    "code-analysis",
+    "language plugins",
+    "language-plugins",
+    "query patterns",
+    "tree-sitter"
+  ],
+  "capabilities": [
+    "Parse source code into AST using tree-sitter parsers",
+    "Navigate and traverse AST nodes with visitors",
+    "Write tree-sitter query patterns for code extraction",
+    "Handle parse errors and edge cases gracefully",
+    "Build language plugins with framework-agnostic patterns",
+    "Extract functions, classes, and imports from code"
+  ],
+  "author": "Consiliency",
+  "icon": "🌳",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only markdown documentation with tree-sitter code examples. No executable code, network calls, file operations, or cryptographic operations exist. Static findings are false positives from documentation patterns being misidentified.",
+  "valueStatement": "Working with tree-sitter requires understanding AST navigation, query patterns, and visitor implementations. This skill provides ready-to-use patterns for parsing any programming language.",
+  "userTitle": "Parse code with tree-sitter patterns",
+  "limitations": [
+    "Does not install tree-sitter language parsers automatically",
+    "Requires existing tree-sitter language bindings",
+    "Does not execute or evaluate parsed code",
+    "Does not handle parser compilation or grammar creation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Code analysis developers",
+      "title": "Extract code structures",
+      "description": "Pull function definitions, class declarations, and imports from any codebase for analysis."
+    },
+    {
+      "targetUser": "Plugin developers",
+      "title": "Build language tools",
+      "description": "Create new language plugins using visitor patterns and query optimizations."
+    },
+    {
+      "targetUser": "Documentation engineers",
+      "title": "Generate code references",
+      "description": "Parse source files to auto-generate API documentation and code inventories."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Parse function",
+      "scenario": "Extract functions from Python code",
+      "prompt": "Use tree-sitter to parse this Python code and extract all function definitions with their names and parameters."
+    },
+    {
+      "title": "Build AST visitor",
+      "scenario": "Create custom AST traversal",
+      "prompt": "Create an AST visitor class that walks the parse tree and collects all class definitions."
+    },
+    {
+      "title": "Write query pattern",
+      "scenario": "Match code patterns",
+      "prompt": "Write a tree-sitter query to find all decorated functions with @pytest.mark decorators."
+    },
+    {
+      "title": "Handle errors",
+      "scenario": "Graceful parse handling",
+      "prompt": "Parse this code with error handling. Return both the tree and any parse errors encountered."
+    }
+  ],
+  "bestPractices": [
+    "Always implement error handling for parse errors and missing nodes",
+    "Use tree-sitter queries instead of manual tree traversal when possible",
+    "Test query patterns on real code samples before production use"
+  ],
+  "antiPatterns": [
+    "Assuming all source files parse successfully without error handling",
+    "Using manual child iteration instead of optimized query patterns",
+    "Ignoring performance implications when parsing large codebases"
+  ],
+  "faq": [
+    {
+      "question": "What languages does tree-sitter support?",
+      "answer": "Tree-sitter supports 40+ languages including Python, JavaScript, TypeScript, Go, Rust, Ruby, C, C++, and many more."
+    },
+    {
+      "question": "How do I install language parsers?",
+      "answer": "Install parsers via npm (tree-sitter-javascript), pip (tree-sitter-python), or compile from the official tree-sitter-lang repos."
+    },
+    {
+      "question": "Can I use this with any framework?",
+      "answer": "Yes. Patterns are framework-agnostic. Use with Code-Index-MCP, treesitter-chunker, or custom implementations."
+    },
+    {
+      "question": "Is parsed code executed?",
+      "answer": "No. Tree-sitter only parses source text into an AST. It never executes or evaluates the parsed code."
+    },
+    {
+      "question": "Why are my queries returning no matches?",
+      "answer": "Check node type names match the language grammar. Use (editor.tree-sitter-query-test) to verify queries against sample code."
+    },
+    {
+      "question": "How is this different from regex?",
+      "answer": "Tree-sitter understands code structure via the AST. Queries can match nested patterns that regex cannot capture."
+    }
+  ],
+  "seoKeywords": [
+    "tree-sitter",
+    "AST parsing",
+    "code analysis",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "query patterns",
+    "language parser",
+    "visitor pattern",
+    "code extraction"
+  ],
+  "sourceUrl": "https://github.com/Consiliency/treesitter-chunker/tree/main/.ai-dev-kit/skills/treesitter-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

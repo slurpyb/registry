@@ -1,0 +1,143 @@
+{
+  "name": "vibe-security",
+  "type": "skill",
+  "description": "Security intelligence for code analysis. Detects SQL injection, XSS, CSRF, authentication issues, crypto failures, and more. Actions: scan, analyze, fix, audit, check, review, secure, validate, sanitize, protect. Languages: JavaScript, TypeScript, Python, PHP, Java, Go, Ruby. Frameworks: Express, Django, Flask, Laravel, Spring, Rails. Vulnerabilities: SQL injection, XSS, CSRF, authentication bypass, authorization issues, command injection, path traversal, insecure deserialization, weak crypto, sensitive data exposure. Topics: input validation, output encoding, parameterized queries, password hashing, session management, CORS, CSP, security headers, rate limiting, dependency scanning.",
+  "domain": "security",
+  "subdomain": "devsecops",
+  "specialty": "code analysis",
+  "quality": 5,
+  "qualityReason": "Comprehensive vulnerability scan",
+  "bundleHints": [
+    "security-toolkit",
+    "appsec"
+  ],
+  "tags": [
+    "code-security",
+    "compliance",
+    "crypto-failures",
+    "csrf",
+    "devsecops",
+    "sql-injection",
+    "static-analysis",
+    "vulnerability-scanning",
+    "xss"
+  ],
+  "capabilities": [
+    "Detects SQL injection, XSS, command injection, and path traversal vulnerabilities",
+    "Analyzes JavaScript, TypeScript, Python, PHP, Java, Go, and Ruby code",
+    "Generates secure code fixes with automatic rollback support",
+    "Maps vulnerabilities to OWASP Top 10, CWE, and MITRE ATT&CK frameworks",
+    "Scans dependencies for known CVE vulnerabilities",
+    "Produces HTML, SARIF, CSV, and JSON security reports"
+  ],
+  "author": "0x8506",
+  "icon": "🔒",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate defensive security scanner skill. All 263 static findings are FALSE POSITIVES. The detected patterns are vulnerability detection rules (CSV data files), example vulnerable/safe code pairs (fix templates), and analyzer code that detects security issues in user code. No malicious intent, data exfiltration, or unauthorized access patterns found. The skill helps developers identify and fix security vulnerabilities.",
+  "valueStatement": "Code vulnerabilities like SQL injection and XSS create serious security risks. This skill automatically detects vulnerabilities across multiple languages and provides secure code fixes with explanations.",
+  "userTitle": "Scan code for security vulnerabilities",
+  "limitations": [
+    "Does not perform dynamic testing or runtime security analysis",
+    "Cannot detect business logic vulnerabilities or authentication flaws",
+    "Limited to supported languages and frameworks listed in documentation",
+    "Does not replace manual security code review for critical systems"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Pre-commit security scanning",
+      "description": "Scan code changes before committing to catch vulnerabilities early in development workflow."
+    },
+    {
+      "targetUser": "Security engineers",
+      "title": "Automated security audits",
+      "description": "Run comprehensive security scans on codebases and generate compliance reports for audits."
+    },
+    {
+      "targetUser": "DevOps teams",
+      "title": "CI/CD security integration",
+      "description": "Integrate vulnerability scanning into CI/CD pipelines to prevent insecure code reaching production."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick security scan",
+      "scenario": "Scan a file for vulnerabilities",
+      "prompt": "Use vibe-security to scan {file_path} for security vulnerabilities and report findings by severity."
+    },
+    {
+      "title": "Fix SQL injection",
+      "scenario": "Remediate SQL injection risks",
+      "prompt": "Use vibe-security to detect SQL injection vulnerabilities in {file_path} and generate secure code fixes."
+    },
+    {
+      "title": "Full project audit",
+      "scenario": "Complete security assessment",
+      "prompt": "Run a comprehensive security audit using vibe-security on the entire project including dependency vulnerability scanning. Generate an HTML report."
+    },
+    {
+      "title": "Compliance mapping",
+      "scenario": "Map vulnerabilities to standards",
+      "prompt": "Scan {directory} with vibe-security and map all findings to OWASP Top 10 and CWE categories. Provide remediation priorities."
+    }
+  ],
+  "bestPractices": [
+    "Run security scans before every code deployment or release",
+    "Address critical and high severity findings immediately",
+    "Use parameterized queries instead of string concatenation for all database operations"
+  ],
+  "antiPatterns": [
+    "Using innerHTML to display user-generated content without sanitization",
+    "Passing user input directly to os.system or exec functions",
+    "Storing API keys or passwords directly in source code"
+  ],
+  "faq": [
+    {
+      "question": "What languages does vibe-security support?",
+      "answer": "JavaScript, TypeScript, Python, PHP, Java, Go, Ruby, and infrastructure-as-code formats including Terraform, Kubernetes, Docker, and CloudFormation."
+    },
+    {
+      "question": "Does this skill modify my code?",
+      "answer": "The autofix feature can apply fixes with backup and rollback support. All changes are logged so you can review or revert them."
+    },
+    {
+      "question": "How accurate are the vulnerability detections?",
+      "answer": "The AST-based analysis reduces false positives significantly. Pattern-based detection is faster but may require manual verification."
+    },
+    {
+      "question": "Can I integrate this into CI/CD pipelines?",
+      "answer": "Yes, generate SARIF or JSON reports and use exit codes to fail builds on critical vulnerabilities."
+    },
+    {
+      "question": "What compliance standards are supported?",
+      "answer": "Vulnerabilities map to OWASP Top 10 2021, CWE Top 25, MITRE ATT&CK, NIST Cybersecurity Framework, and PCI-DSS requirements."
+    },
+    {
+      "question": "Does it scan third-party dependencies?",
+      "answer": "Yes, the CVE integration scans npm, PyPI, Maven, and other package ecosystems for known vulnerabilities."
+    }
+  ],
+  "seoKeywords": [
+    "security scanner",
+    "vulnerability detection",
+    "SQL injection",
+    "XSS prevention",
+    "code security",
+    "Claude Code",
+    "static analysis",
+    "DevSecOps",
+    "OWASP",
+    "secure coding"
+  ],
+  "sourceUrl": "https://github.com/0x8506/vibe-security/tree/main/cli/assets/.claude/skills/vibe-security",
+  "sourceType": "community",
+  "dependencies": []
+}

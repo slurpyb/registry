@@ -1,0 +1,144 @@
+{
+  "name": "pdf",
+  "type": "skill",
+  "description": "Comprehensive PDF manipulation, extraction, and generation with support for text extraction, form filling, merging, splitting, annotations, and creation. Use when working with .pdf files for: (1) Extracting text and tables, (2) Filling PDF forms, (3) Merging/splitting PDFs, (4) Creating PDFs programmatically, (5) Adding watermarks/annotations, (6) PDF metadata management",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "PDF manipulation",
+  "quality": 4,
+  "qualityReason": "Broad PDF functionality",
+  "bundleHints": [
+    "document-processing",
+    "pdf-tools"
+  ],
+  "tags": [
+    "annotations",
+    "document processing",
+    "form-filling",
+    "generation",
+    "merging",
+    "ocr",
+    "pdf",
+    "python",
+    "splitting",
+    "text extraction",
+    "text-extraction"
+  ],
+  "capabilities": [
+    "Extract text from PDFs with layout preservation",
+    "Extract tables and structured data from documents",
+    "Create PDFs programmatically with text, images, and tables",
+    "Fill and modify PDF forms automatically",
+    "Merge multiple PDFs or split documents by pages",
+    "Add watermarks, annotations, and page numbers"
+  ],
+  "author": "AutumnsGrove",
+  "icon": "📄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "The static analyzer flagged 377 potential issues across 13 files. After evaluation, the majority are false positives: markdown documentation formatting (backticks in code blocks), legitimate cryptographic implementations (AES-256), and common PDF processing operations. One documented concern exists in example code using eval() for CSV parsing, with an explicit warning comment. The skill contains standard PDF manipulation capabilities with no confirmed malicious intent.",
+  "valueStatement": "PDF files require complex tools for extraction and manipulation. This skill provides comprehensive code examples using popular Python libraries for all PDF operations.",
+  "userTitle": "Work with PDF files in Python",
+  "limitations": [
+    "Requires Python environment with library installations",
+    "System dependencies needed for OCR (tesseract, poppler)",
+    "Cannot edit scanned PDFs without OCR processing",
+    "Password-protected PDFs require correct password"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers",
+      "title": "Process PDF documents",
+      "description": "Extract data and automate document workflows in Python applications"
+    },
+    {
+      "targetUser": "Accountants",
+      "title": "Extract invoice data",
+      "description": "Pull tables and figures from financial documents for analysis"
+    },
+    {
+      "targetUser": "Office workers",
+      "title": "Automate document tasks",
+      "description": "Generate reports, fill forms, and organize document collections"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Extract text",
+      "scenario": "Get text from PDF",
+      "prompt": "Extract all text from a PDF file using pypdf or pdfplumber"
+    },
+    {
+      "title": "Fill forms",
+      "scenario": "Populate PDF forms",
+      "prompt": "Fill PDF form fields programmatically with given data values"
+    },
+    {
+      "title": "Create PDF",
+      "scenario": "Generate new document",
+      "prompt": "Create a professional PDF report with tables, images, and formatted text"
+    },
+    {
+      "title": "OCR scan",
+      "scenario": "Process scanned document",
+      "prompt": "Perform OCR on a scanned PDF to extract searchable text"
+    }
+  ],
+  "bestPractices": [
+    "Validate PDF files before processing and handle encryption errors",
+    "Use the right library for each task (pdfplumber for tables, reportlab for creation)",
+    "Process large PDFs in chunks with garbage collection to manage memory"
+  ],
+  "antiPatterns": [
+    "Attempting to process encrypted PDFs without checking for passwords",
+    "Using basic text extraction on scanned documents without OCR",
+    "Skipping error handling when processing multiple PDF files"
+  ],
+  "faq": [
+    {
+      "question": "Which Python library should I use for basic PDF operations?",
+      "answer": "Use pypdf for simple tasks like merge, split, rotate. Use pdfplumber for text and table extraction."
+    },
+    {
+      "question": "How do I extract tables from scanned PDFs?",
+      "answer": "First perform OCR using pytesseract, then use pdfplumber to extract table structure from the OCR output."
+    },
+    {
+      "question": "Can I create PDFs from scratch?",
+      "answer": "Yes, use reportlab library to programmatically create PDFs with text, images, tables, and formatted content."
+    },
+    {
+      "question": "How do I handle password-protected PDFs?",
+      "answer": "Use pypdf PdfReader with user_password parameter. Check if encryption exists before processing."
+    },
+    {
+      "question": "What formats can I convert PDFs to?",
+      "answer": "Use pdf2image to convert PDF pages to images (PNG, JPEG). Extract text to plain text or structured formats."
+    },
+    {
+      "question": "How do I extract metadata from PDFs?",
+      "answer": "Use pypdf PdfReader to access document metadata including author, title, creation date, and custom keywords."
+    }
+  ],
+  "seoKeywords": [
+    "PDF manipulation",
+    "Python PDF",
+    "text extraction",
+    "PDF forms",
+    "OCR",
+    "document processing",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/AutumnsGrove/ClaudeSkills/tree/master/pdf",
+  "sourceType": "community",
+  "dependencies": []
+}

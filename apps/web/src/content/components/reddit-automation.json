@@ -1,0 +1,143 @@
+{
+  "name": "reddit-automation",
+  "type": "skill",
+  "description": "Automate Reddit tasks via Rube MCP (Composio): search subreddits, create posts, manage comments, and browse top content. Always search tools first for current schemas.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "Reddit MCP",
+  "quality": 4,
+  "qualityReason": "Clear automation scope",
+  "bundleHints": [
+    "social-automation",
+    "mcp-tools"
+  ],
+  "tags": [
+    "automation",
+    "comment-management",
+    "composio",
+    "content-management",
+    "content-posting",
+    "mcp",
+    "reddit",
+    "rube-mcp",
+    "social-automation",
+    "social-media",
+    "subreddit-search"
+  ],
+  "capabilities": [
+    "Search Reddit posts across subreddits with filters for sort order and time range",
+    "Create text or link posts with optional flair assignment",
+    "Add, edit, and delete comments on posts with proper threading",
+    "Browse top and trending content from any subreddit",
+    "Retrieve post details and comment threads for analysis"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 71 patterns but all are false positives. The SKILL.md file is documentation (markdown), not executable code. Detected 'backticks' are markdown formatting for code references, not Ruby shell execution. Network access is required and expected for Reddit API operations. No malicious intent or security vulnerabilities found.",
+  "valueStatement": "Managing Reddit presence requires time-consuming manual work. This skill automates posting, commenting, and content discovery through Composio's Rube MCP integration.",
+  "userTitle": "Automate Reddit Tasks with AI",
+  "limitations": [
+    "Requires active Rube MCP server connection and Reddit OAuth setup",
+    "Subject to Reddit API rate limits and subreddit-specific posting rules",
+    "Cannot bypass karma requirements or subreddit restrictions",
+    "Does not support image or video post uploads"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Social media managers and community moderators",
+      "title": "Community Manager",
+      "description": "Schedule and manage posts across multiple subreddits, respond to comments efficiently, and monitor trending content in your niche."
+    },
+    {
+      "targetUser": "Researchers and analysts monitoring public discourse",
+      "title": "Content Researcher",
+      "description": "Search and analyze discussions across subreddits to identify trends, gather opinions, and discover relevant content for research projects."
+    },
+    {
+      "targetUser": "Regular Reddit users seeking productivity improvements",
+      "title": "Casual Redditor",
+      "description": "Automate routine Reddit activities like posting updates, replying to notifications, and browsing favorite subreddits without manual navigation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Search for Topics",
+      "prompt": "Search r/technology for posts about artificial intelligence from the past week, sorted by relevance. Show me the top 10 results.",
+      "scenario": "Finding relevant discussions in a specific subreddit"
+    },
+    {
+      "title": "Create and Post Content",
+      "prompt": "Create a text post in r/learnprogramming with the title 'Best practices for code reviews' and include a summary of key points about constructive feedback and common mistakes to avoid.",
+      "scenario": "Sharing knowledge with a community"
+    },
+    {
+      "title": "Monitor and Respond",
+      "prompt": "Get all comments on my recent post t3_abc123 and draft replies to any questions that need a response from me.",
+      "scenario": "Engaging with your audience after posting"
+    },
+    {
+      "title": "Trend Analysis Workflow",
+      "prompt": "Browse r/startups and get the top 20 posts from this month. For each post with more than 100 upvotes, retrieve the full details including comment count to identify high-engagement topics.",
+      "scenario": "Researching trending topics for content strategy"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before executing workflows",
+    "Verify Reddit connection status is ACTIVE before running any automation tasks",
+    "Use proper fullname format (t1_ for comments, t3_ for posts) when referencing items"
+  ],
+  "antiPatterns": [
+    "Do not attempt rapid successive posts - Reddit enforces rate limits and may ban accounts",
+    "Never post without checking subreddit rules - each community has unique requirements",
+    "Avoid using raw IDs without prefixes - always use fullname format with t1_ or t3_ prefix"
+  ],
+  "faq": [
+    {
+      "question": "What do I need to set up before using this skill?",
+      "answer": "Add https://rube.app/mcp as an MCP server in your client, then use RUBE_MANAGE_CONNECTIONS with toolkit 'reddit' to complete OAuth authentication."
+    },
+    {
+      "question": "Why are some of my posts being removed automatically?",
+      "answer": "Subreddits have AutoModerator rules that may remove posts based on karma, account age, or content patterns. Check each subreddit's rules before posting."
+    },
+    {
+      "question": "Can I edit my post title after submission?",
+      "answer": "No, Reddit does not allow editing post titles after submission. Only the body text of text posts can be edited."
+    },
+    {
+      "question": "What does the t1_ and t3_ prefix mean?",
+      "answer": "These are Reddit's fullname prefixes: t1_ identifies comments, t3_ identifies posts. All API operations require the full format with prefix."
+    },
+    {
+      "question": "How do I handle pagination for large result sets?",
+      "answer": "Use the 'after' token from search responses in subsequent requests. Set a limit parameter (max 100) for items per page."
+    },
+    {
+      "question": "Can this skill post images or videos to Reddit?",
+      "answer": "No, the current Rube MCP integration supports text posts and link posts only. Image and video uploads are not available."
+    }
+  ],
+  "seoKeywords": [
+    "Reddit automation",
+    "Claude Code skill",
+    "Composio MCP",
+    "social media automation",
+    "Reddit API",
+    "Claude assistant",
+    "Codex Reddit tools",
+    "content automation",
+    "Rube MCP server"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/reddit-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,147 @@
+{
+  "name": "react-component",
+  "type": "skill",
+  "description": "Use when creating UI components in React - functional components, hooks, custom hooks, or component composition patterns.\nNOT when backend logic, API routes, or non-React frameworks are involved.\nTriggers: \"create component\", \"build widget\", \"KPI card\", \"form\", \"modal\", \"custom hook\", \"useContext\", \"useState\", \"useEffect\".\n",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Component creation",
+  "quality": 5,
+  "qualityReason": "Clear trigger and focused component guidance",
+  "bundleHints": [
+    "react-stack",
+    "ui-development",
+    "frontend-toolkit"
+  ],
+  "tags": [
+    "components",
+    "composition",
+    "frontend",
+    "functional",
+    "hooks",
+    "react",
+    "typescript"
+  ],
+  "capabilities": [
+    "Create functional React components with TypeScript props interfaces",
+    "Build custom hooks with proper state management and cleanup",
+    "Implement component composition patterns using children and render props",
+    "Apply React.memo, useCallback, and useMemo for performance optimization",
+    "Handle loading states, error states, and accessibility requirements",
+    "Generate unit tests and Storybook stories for components"
+  ],
+  "author": "Awais68",
+  "icon": "⚛️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown guidance and TypeScript code examples. No executable code, network calls, file system access, or environment variable access. All static analyzer findings are false positives: backticks in TypeScript code blocks were misidentified as shell execution, and metadata fields were flagged as file access. This is a legitimate React development guidance skill.",
+  "valueStatement": "Create React functional components and hooks with TypeScript. This skill provides patterns for building accessible, performant, and maintainable UI components following modern React best practices.",
+  "userTitle": "Build React components with TypeScript",
+  "limitations": [
+    "Does not generate backend API routes or server-side code",
+    "Does not configure build tools or bundlers",
+    "Does not install dependencies or modify package.json",
+    "Focused on React only; other frameworks not covered"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Build UI widgets and KPI cards",
+      "description": "Create reusable KPI cards, data tables, and dashboard widgets for enterprise applications"
+    },
+    {
+      "targetUser": "React developers",
+      "title": "Extract reusable custom hooks",
+      "description": "Refactor component logic into custom hooks with proper typing and error handling"
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Build form components with validation",
+      "description": "Create form components with TypeScript, validation, and accessible error states"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create simple component",
+      "scenario": "Basic component request",
+      "prompt": "Create a React functional component called StudentKPICard that displays a student's name and attendance percentage. Use TypeScript and include a loading state."
+    },
+    {
+      "title": "Build custom hook",
+      "scenario": "Data fetching hook request",
+      "prompt": "Build a custom hook called useAttendance that fetches student attendance data. Include loading state, error handling, and a refetch function."
+    },
+    {
+      "title": "Component with composition",
+      "scenario": "Reusable card component",
+      "prompt": "Create a reusable Card component using composition patterns. It should accept a title, children content, and optional footer. Use TypeScript."
+    },
+    {
+      "title": "Form with validation",
+      "scenario": "Form with React Hook Form",
+      "prompt": "Create a StudentForm component using React Hook Form. Include name and email fields with required validation and error display."
+    }
+  ],
+  "bestPractices": [
+    "Always use functional components with explicit TypeScript props interfaces",
+    "Include cleanup functions in useEffect to prevent memory leaks",
+    "Apply React.memo and useCallback for components receiving same props frequently",
+    "Ensure accessibility with proper ARIA labels and keyboard navigation support"
+  ],
+  "antiPatterns": [
+    "Avoid using class components; use functional components with hooks instead",
+    "Do not use any types; always define explicit TypeScript interfaces",
+    "Avoid hardcoded text; prepare components for internationalization",
+    "Do not skip error handling or loading states for async operations"
+  ],
+  "faq": [
+    {
+      "question": "What React version does this skill support?",
+      "answer": "Supports React 18 and 19+ with modern hooks patterns and latest TypeScript best practices."
+    },
+    {
+      "question": "Does this skill create test files?",
+      "answer": "Yes, it generates Jest/Vitest test files and Storybook stories for each component."
+    },
+    {
+      "question": "Can I use this with Next.js?",
+      "answer": "Yes, the patterns work with Next.js App Router and Pages Router components."
+    },
+    {
+      "question": "Is data stored or transmitted?",
+      "answer": "No. This is a pure prompt skill with no data storage, transmission, or external calls."
+    },
+    {
+      "question": "Does this work with shadcn/ui components?",
+      "answer": "Yes, it integrates shadcn/ui patterns and uses their component conventions."
+    },
+    {
+      "question": "How does this compare to generic code generation?",
+      "answer": "Provides React-specific patterns, TypeScript typing, accessibility, and testing built-in."
+    }
+  ],
+  "seoKeywords": [
+    "React components",
+    "TypeScript",
+    "React hooks",
+    "functional components",
+    "custom hooks",
+    "React patterns",
+    "React best practices",
+    "component composition",
+    "React.memo",
+    "React.forwardRef",
+    "Claude Code",
+    "Claude",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/Awais68/hackathon-2-phase-ii-full-stack-web-app/tree/main/.claude/skills/react-component",
+  "sourceType": "community",
+  "dependencies": []
+}

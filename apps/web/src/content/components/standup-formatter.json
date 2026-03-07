@@ -1,0 +1,140 @@
+{
+  "name": "standup-formatter",
+  "type": "skill",
+  "description": "Use when generating standup reports, daily updates, or team status summaries. Formats work activity into concise standup format.",
+  "domain": "productivity",
+  "subdomain": "communication",
+  "specialty": "Standup reports",
+  "quality": 5,
+  "qualityReason": "Clear formatting purpose",
+  "bundleHints": [
+    "team-workflow",
+    "productivity-tools"
+  ],
+  "tags": [
+    "daily-update",
+    "formatting",
+    "reports",
+    "standup",
+    "status",
+    "team",
+    "updates"
+  ],
+  "capabilities": [
+    "Formats work activity into concise standup reports",
+    "Provides templates for individual and team standups",
+    "Focuses on outcomes rather than activities",
+    "Includes blocker identification and formatting",
+    "Supports both async written and sync spoken formats"
+  ],
+  "author": "ChaiWithJai",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation-based skill with no executable code. All 19 static findings are false positives: the scanner misidentified markdown code formatting (backticks) as shell execution, and misinterpreted text descriptions containing words like 'report' and 'update' as cryptographic patterns. The skill only contains guidelines and templates for formatting standup reports.",
+  "valueStatement": "Struggling to write concise daily standups that actually help your team? This skill transforms your work activity into properly formatted standup reports that focus on outcomes, not just activities.",
+  "userTitle": "Format Professional Standup Reports",
+  "limitations": [
+    "Does not automatically fetch data from external sources",
+    "Requires manual input of completed work and plans",
+    "No integration with project management tools",
+    "Cannot track or store historical standup data"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Daily Development Updates",
+      "description": "Transform git commits and code reviews into concise standup reports that highlight actual progress and blockers"
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Team Status Aggregation",
+      "description": "Compile individual updates into a unified team standup that identifies cross-dependencies and shared blockers"
+    },
+    {
+      "targetUser": "Remote workers",
+      "title": "Async Team Communication",
+      "description": "Create detailed written standups for distributed teams across different time zones"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Daily Standup",
+      "scenario": "Individual developer daily update",
+      "prompt": "Format this into a proper standup: Yesterday I fixed the login bug and merged PR #123. Today I'm working on the payment integration."
+    },
+    {
+      "title": "Team Standup Compilation",
+      "scenario": "Aggregate multiple team member updates",
+      "prompt": "Create a team standup from these individual updates: Alice finished user testing, Bob fixed 3 bugs, Carol waiting on design approval"
+    },
+    {
+      "title": "Weekly Summary Format",
+      "scenario": "Convert weekly work to standup format",
+      "prompt": "Transform my weekly activities into a standup format focusing on key deliverables: Completed user authentication and database migration"
+    },
+    {
+      "title": "Blocker-Focused Standup",
+      "scenario": "Highlight critical blockers",
+      "prompt": "Format this update to emphasize blockers: Implemented API endpoints but tests failing due to database issues"
+    }
+  ],
+  "bestPractices": [
+    "Focus on completed outcomes, not hours worked or activities performed",
+    "Keep each section to 2-3 bullet points maximum for clarity",
+    "Make blockers specific and actionable with clear help needed"
+  ],
+  "antiPatterns": [
+    "Listing every single task or meeting attended",
+    "Using vague descriptions like worked on stuff or made progress",
+    "Saying no blockers when actually stuck or waiting on something"
+  ],
+  "faq": [
+    {
+      "question": "Is this compatible with my team's existing standup format?",
+      "answer": "Yes, the templates follow industry-standard standup formats and can be customized to match your team's specific style."
+    },
+    {
+      "question": "What if I have more than 3 items to share?",
+      "answer": "Focus on the most important 2-3 items. Save additional details for follow-up discussions or async channels."
+    },
+    {
+      "question": "Can I integrate this with my project management tools?",
+      "answer": "Currently this is a standalone formatting tool. You will need to manually input your work items from other tools."
+    },
+    {
+      "question": "How does this handle sensitive project information?",
+      "answer": "The skill processes text locally without sending data to external services, keeping your project details secure."
+    },
+    {
+      "question": "What if I am stuck but do not know how to phrase the blocker?",
+      "answer": "The skill helps identify and phrase blockers clearly, suggesting specific help needed rather than vague statements."
+    },
+    {
+      "question": "How is this different from using a generic text formatter?",
+      "answer": "This skill understands standup best practices and automatically structures content for maximum team communication value."
+    }
+  ],
+  "seoKeywords": [
+    "standup formatter",
+    "daily reports",
+    "team status",
+    "Claude Code",
+    "standup templates",
+    "agile reports",
+    "status updates",
+    "team communication",
+    "Claude AI",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/ChaiWithJai/claude-code-mastery/tree/main/examples/skills/standup-formatter",
+  "sourceType": "community",
+  "dependencies": []
+}

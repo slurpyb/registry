@@ -1,0 +1,144 @@
+{
+  "name": "agentdb-memory-patterns",
+  "type": "skill",
+  "description": "Implement persistent memory patterns for AI agents using AgentDB. Includes session memory, long-term storage, pattern learning, and context management. Use when building stateful agents, chat systems, or intelligent assistants.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "persistent memory",
+  "quality": 5,
+  "qualityReason": "Clear memory patterns defined",
+  "bundleHints": [
+    "agent-memory-suite",
+    "agentdb-suite",
+    "stateful-agents"
+  ],
+  "tags": [
+    "agent",
+    "context-management",
+    "long-term",
+    "memory",
+    "persistent-state",
+    "reasoning",
+    "session-memory",
+    "stateful",
+    "vector-database",
+    "vector-db"
+  ],
+  "capabilities": [
+    "Initialize AgentDB vector database with MCP server integration",
+    "Implement session memory to track conversation history within a session",
+    "Store long-term facts and user preferences across sessions",
+    "Apply pattern learning from successful agent interactions",
+    "Query memories with vector similarity and maximal marginal relevance",
+    "Integrate with ReasoningBank for adaptive learning plugins"
+  ],
+  "author": "DNYoussef",
+  "icon": "🧠",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill (SKILL.md) containing no executable code, scripts, or runtime behavior. Static findings are false positives: CLI command examples were misidentified as Ruby backtick execution, and documentation metadata was misclassified as weak cryptography. The skill only provides TypeScript examples and CLI documentation for using the external AgentDB package.",
+  "valueStatement": "AI agents lose context between sessions, making them ineffective for long-term tasks. This skill provides AgentDB integration patterns for session memory, long-term storage, and pattern learning so agents remember interactions and improve over time.",
+  "userTitle": "Add persistent memory to AI agents",
+  "limitations": [
+    "Requires AgentDB v1.0.7+ or agentic-flow package installation",
+    "Memory patterns are examples that require implementation in your agent code",
+    "Does not include the AgentDB runtime; external tool must be installed separately"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Chatbot Developers",
+      "title": "Build Stateful Chat Assistants",
+      "description": "Create chat agents that remember user preferences, conversation history, and learned patterns across sessions."
+    },
+    {
+      "targetUser": "Research Teams",
+      "title": "Track Agent Decision Histories",
+      "description": "Record agent reasoning paths, successful strategies, and context for audit trails and iterative improvement."
+    },
+    {
+      "targetUser": "Enterprise AI Engineers",
+      "title": "Implement Corporate Memory Systems",
+      "description": "Deploy agents that retain organizational knowledge, project context, and team-specific conventions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Store Conversation Memory",
+      "scenario": "Remember a user interaction",
+      "prompt": "Use AgentDB to store this conversation exchange between user and assistant with timestamp and context."
+    },
+    {
+      "title": "Retrieve Relevant History",
+      "scenario": "Find past relevant interactions",
+      "prompt": "Query AgentDB to find similar past conversations and learned patterns that relate to the current user request."
+    },
+    {
+      "title": "Manage Long-term Facts",
+      "scenario": "Persist important user preferences",
+      "prompt": "Store this user preference in AgentDB long-term memory with high confidence score so it persists across sessions."
+    },
+    {
+      "title": "Apply Pattern Learning",
+      "scenario": "Learn from successful responses",
+      "prompt": "After this successful interaction, store the pattern with trigger, response, and success metrics for future reference."
+    }
+  ],
+  "bestPractices": [
+    "Enable quantization (scalar or binary) to reduce memory footprint by 4-32x while maintaining search quality.",
+    "Use caching (1000 pattern cache) to achieve sub-millisecond retrieval times for frequent queries.",
+    "Train learning models regularly with new experiences to improve pattern recognition accuracy."
+  ],
+  "antiPatterns": [
+    "Storing sensitive credentials or personal data without encryption in AgentDB memory.",
+    "Disabling quantization on large datasets, causing excessive memory usage.",
+    "Skipping regular memory consolidation, leading to stale or redundant patterns accumulating."
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "Works with Claude, Codex, and Claude Code through the MCP server integration."
+    },
+    {
+      "question": "How much memory can AgentDB store?",
+      "answer": "Supports up to 10,000 patterns with configurable limits. Use quantization for larger datasets."
+    },
+    {
+      "question": "Can I integrate with existing agent code?",
+      "answer": "Yes, import createAgentDBAdapter from agentic-flow/reasoningbank in your TypeScript or JavaScript code."
+    },
+    {
+      "question": "Is my data safe in AgentDB?",
+      "answer": "Data is stored locally in SQLite format. Use encryption for sensitive data before storage."
+    },
+    {
+      "question": "Why is my search slow?",
+      "answer": "Enable HNSW indexing and caching. Expected search time is under 100 microseconds with proper configuration."
+    },
+    {
+      "question": "How does this compare to other memory solutions?",
+      "answer": "AgentDB is 150x-12,500x faster than traditional vector databases with 100% backward compatibility to ReasoningBank."
+    }
+  ],
+  "seoKeywords": [
+    "AgentDB",
+    "Claude Code",
+    "persistent memory",
+    "vector database",
+    "AI agent memory",
+    "semantic search",
+    "context management",
+    "reasoningbank",
+    "memory patterns",
+    "stateful agents"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/agentdb-memory-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

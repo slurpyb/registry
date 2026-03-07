@@ -1,0 +1,141 @@
+{
+  "name": "s3-upload-handler",
+  "type": "skill",
+  "description": "Handle S3 file uploads including UI components, client-side logic, and server-side processing",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "S3 file uploads",
+  "quality": 5,
+  "qualityReason": "End-to-end, full flow",
+  "bundleHints": [
+    "aws-stack",
+    "backend-toolkit"
+  ],
+  "tags": [
+    "aws-s3",
+    "client-server",
+    "cloud-storage",
+    "documentation",
+    "file-upload",
+    "s3-upload",
+    "ui-components"
+  ],
+  "capabilities": [
+    "Documentation for S3Uploader UI component with dropzone and button variants",
+    "ClientS3Uploader class reference for custom upload interfaces",
+    "Server-side upload utility patterns using uploadFromServer",
+    "Presigned URL API route examples for secure client uploads",
+    "Environment configuration guidance for AWS credentials",
+    "Complete code examples with TypeScript types and props"
+  ],
+  "author": "AayushBaniya2006",
+  "icon": "☁️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown files with code examples. All detected patterns are within documentation code blocks and are not executable. The skill provides reference material for implementing S3 upload functionality and poses no security risk.",
+  "valueStatement": "Building secure file uploads to AWS S3 requires understanding presigned URLs, client SDKs, and server-side processing. This skill provides complete documentation with UI components, client utilities, and server patterns to implement production-ready S3 uploads quickly.",
+  "userTitle": "Implement AWS S3 file uploads with ready-to-use patterns",
+  "limitations": [
+    "Documentation only - does not include actual component implementation files",
+    "Users must create their own API routes for presigned URL generation",
+    "Requires existing AWS S3 bucket with appropriate permissions configured",
+    "Examples assume Next.js application structure and AWS SDK v3"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Add drag-and-drop file uploads",
+      "description": "Implement user-friendly file upload UI with progress tracking and validation using documented component patterns"
+    },
+    {
+      "targetUser": "Backend engineers",
+      "title": "Server-side file processing and upload",
+      "description": "Upload processed files from server actions using documented utility functions with base64 content support"
+    },
+    {
+      "targetUser": "Startup founders",
+      "title": "Rapid MVP file storage features",
+      "description": "Quickly add avatar uploads, document storage, or media management using ready-to-implement code examples"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic upload button",
+      "scenario": "Single file upload with button",
+      "prompt": "Show me how to add a simple upload button for user avatars using the S3Uploader component"
+    },
+    {
+      "title": "Multi-file dropzone",
+      "scenario": "Drag and drop multiple files",
+      "prompt": "Implement a drag-and-drop zone that accepts up to 10 image files and shows upload progress"
+    },
+    {
+      "title": "Custom upload logic",
+      "scenario": "Build custom upload UI",
+      "prompt": "Help me create a custom file upload interface using ClientS3Uploader with my own progress indicator"
+    },
+    {
+      "title": "Presigned URL endpoint",
+      "scenario": "Secure upload API route",
+      "prompt": "Create a Next.js API route that generates presigned S3 URLs with 10MB file size limit and type validation"
+    }
+  ],
+  "bestPractices": [
+    "Use presigned URLs to upload directly from browser to S3 without exposing AWS credentials in client code",
+    "Validate file types and sizes on both client side and server side to prevent malicious uploads",
+    "Configure appropriate S3 bucket CORS policies and access control lists based on security requirements"
+  ],
+  "antiPatterns": [
+    "Never expose AWS_SECRET_ACCESS_KEY or other credentials in client-side code or public repositories",
+    "Do not skip server-side validation even with client-side checks as clients can bypass frontend validation",
+    "Avoid routing large file uploads through your application server as it wastes bandwidth and processing"
+  ],
+  "faq": [
+    {
+      "question": "What AWS permissions are required for this to work?",
+      "answer": "Your S3 bucket needs s3:PutObject permission. The IAM user generating presigned URLs needs s3:PutObject and s3:GetObject permissions for the bucket."
+    },
+    {
+      "question": "What is the maximum file size I can upload?",
+      "answer": "The documented examples use 10MB limit. You can adjust this in presigned post conditions and component maxSize prop based on your requirements."
+    },
+    {
+      "question": "How do I create the API route for presigned URLs?",
+      "answer": "Use @aws-sdk/s3-presigned-post createPresignedPost function in a Next.js API route. The skill documentation includes a complete working example."
+    },
+    {
+      "question": "Will uploaded files be publicly accessible?",
+      "answer": "The example sets acl to public-read. Remove this field and configure bucket policies appropriately for private file uploads."
+    },
+    {
+      "question": "Why am I getting CORS errors during upload?",
+      "answer": "Your S3 bucket needs CORS configuration allowing PUT and POST methods from your application domain origin."
+    },
+    {
+      "question": "What is the benefit of presigned URLs over direct uploads?",
+      "answer": "Presigned URLs allow browser to upload directly to S3, bypassing your server bandwidth and eliminating processing bottlenecks for large files."
+    }
+  ],
+  "seoKeywords": [
+    "AWS S3 upload",
+    "file upload",
+    "presigned URL",
+    "cloud storage",
+    "React upload component",
+    "S3 client SDK",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "drag and drop"
+  ],
+  "sourceUrl": "https://github.com/AayushBaniya2006/blinkfund/tree/main/.claude/skills/s3-upload-handler",
+  "sourceType": "community",
+  "dependencies": []
+}

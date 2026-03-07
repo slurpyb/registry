@@ -1,0 +1,144 @@
+{
+  "name": "top-web-vulnerabilities",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \\\"identify web application vulnerabilities\\\", \\\"explain common security flaws\\\", \\\"understand vulnerability categories\\\", \\\"learn about inject...",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "vulnerability reference",
+  "quality": 5,
+  "qualityReason": "Comprehensive and actionable",
+  "bundleHints": [
+    "security-toolkit",
+    "appsec-reference"
+  ],
+  "tags": [
+    "owasp",
+    "penetration testing",
+    "reference",
+    "remediation",
+    "secure coding",
+    "vulnerability assessment",
+    "web security"
+  ],
+  "capabilities": [
+    "Provides structured definitions for 100 web vulnerability types across 15 categories",
+    "Explains root causes, impacts, and mitigations for each vulnerability",
+    "Maps vulnerabilities to OWASP Top 10 and industry standards",
+    "Offers verification techniques for manual security testing",
+    "Includes quick reference tables for security headers and vulnerability categories",
+    "Covers modern threats including API security, SSRF, and zero-day exploits"
+  ],
+  "author": "zebbern",
+  "icon": "🔒",
+  "version": "1.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 33 static analysis findings are false positives. The skill is educational documentation describing vulnerabilities and security concepts, not implementing them. Detected patterns (weak crypto, reconnaissance, external commands) appear in vulnerability descriptions and mitigation examples as teaching content. The skill provides defensive security guidance with no executable code.",
+  "valueStatement": "Learn to identify and remediate the 100 most critical web vulnerabilities. This systematic reference helps developers and security professionals understand attack vectors and implement proper defenses.",
+  "userTitle": "Master Web Application Security Vulnerabilities",
+  "limitations": [
+    "Reference material only; does not perform automated vulnerability scanning",
+    "Vulnerability definitions are general patterns; specific implementations vary",
+    "Cannot detect business logic flaws through automated tools",
+    "Requires manual verification and contextual analysis for accurate assessment",
+    "New vulnerabilities emerge continuously; reference needs periodic updates"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Penetration testers and security auditors",
+      "title": "Security Audit Preparation",
+      "description": "Review vulnerability categories and create comprehensive testing checklists before conducting penetration tests or security audits."
+    },
+    {
+      "targetUser": "Developers and code reviewers",
+      "title": "Secure Code Review",
+      "description": "Reference specific vulnerability patterns while reviewing code to identify potential security flaws during development."
+    },
+    {
+      "targetUser": "Security architects and application designers",
+      "title": "Threat Modeling Support",
+      "description": "Use vulnerability categories to systematically identify attack vectors during application design and architecture phases."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Identify Vulnerability Type",
+      "prompt": "I found a security issue where user input is not validated before being used in a database query. What vulnerability type is this, and what are the risks and mitigations?",
+      "scenario": "When you observe a potential security issue and need to classify it"
+    },
+    {
+      "title": "Generate Test Cases",
+      "prompt": "For a login form, what authentication-related vulnerabilities from the reference should I test for? List specific attack vectors to verify.",
+      "scenario": "When planning security testing for specific application features"
+    },
+    {
+      "title": "Remediation Guidance",
+      "prompt": "Our application stores user passwords without hashing. What vulnerability is this? Explain the attack scenarios and provide step-by-step mitigation strategies.",
+      "scenario": "When you need to fix identified security issues"
+    },
+    {
+      "title": "Comprehensive Assessment",
+      "prompt": "Review our e-commerce application for API security vulnerabilities. Check for issues #48-51 and #75 from the reference. Report findings with risk levels and remediation steps.",
+      "scenario": "When conducting focused security assessments on specific vulnerability categories"
+    }
+  ],
+  "bestPractices": [
+    "Always use parameterized queries and prepared statements to prevent injection attacks",
+    "Implement defense in depth with multiple security controls including WAF, input validation, and output encoding",
+    "Keep dependencies and systems patched with a formal vulnerability management program",
+    "Enforce strong authentication with MFA, secure session management, and proper authorization checks"
+  ],
+  "antiPatterns": [
+    "Relying solely on automated scanners without manual verification and business logic testing",
+    "Applying security controls inconsistently across different application components or environments",
+    "Treating security as a one-time assessment instead of continuous integration into the development lifecycle",
+    "Assuming client-side validation is sufficient without server-side enforcement"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill scan my application for vulnerabilities?",
+      "answer": "No, this is a reference guide that helps you understand vulnerabilities and manual testing techniques. It does not perform automated scanning or execute security tests."
+    },
+    {
+      "question": "How current is the vulnerability information?",
+      "answer": "The reference covers established vulnerability types aligned with OWASP and industry standards. New vulnerabilities emerge regularly, so use this as a foundation and supplement with current threat intelligence."
+    },
+    {
+      "question": "Can this skill replace professional security testing?",
+      "answer": "No. This reference supports security awareness and testing preparation, but does not replace comprehensive penetration testing, code review by security experts, or formal security assessments."
+    },
+    {
+      "question": "What is the difference between vulnerabilities #98-100?",
+      "answer": "#98-99 refer to unpatched known vulnerabilities that attackers exploit publicly disclosed flaws. #100 represents zero-day exploits, which are unknown vulnerabilities with no available patch, requiring defense-in-depth strategies."
+    },
+    {
+      "question": "Should I test all 100 vulnerabilities?",
+      "answer": "Focus on vulnerabilities relevant to your technology stack and application features. Use the category structure to prioritize testing based on your threat model and risk assessment."
+    },
+    {
+      "question": "How do I verify if a vulnerability is actually exploitable?",
+      "answer": "Use the verification techniques table in the reference. Each vulnerability type has specific testing approaches such as payload variants for injection, out-of-band callbacks for SSRF, or privilege testing for access control issues."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "web security",
+    "OWASP Top 10",
+    "vulnerability assessment",
+    "penetration testing",
+    "secure coding",
+    "injection attacks",
+    "authentication security"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/top-web-vulnerabilities",
+  "sourceType": "community",
+  "dependencies": []
+}

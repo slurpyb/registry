@@ -1,0 +1,143 @@
+{
+  "name": "chatkit-botbuilder",
+  "type": "skill",
+  "description": "Guide for creating production-grade ChatKit chatbots that integrate OpenAI Agents SDK with MCP tools and custom backends. Use when building AI-powered chatbots with specialized capabilities, real-time task execution, and user isolation for any application.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "widget integration",
+  "quality": 5,
+  "qualityReason": "Specific frontend integration skill",
+  "bundleHints": [
+    "chat-app",
+    "widget-tools"
+  ],
+  "tags": [
+    "authentication",
+    "chat-widget",
+    "chatbot",
+    "chatkit",
+    "fastapi",
+    "mcp",
+    "nextjs",
+    "openai",
+    "react"
+  ],
+  "capabilities": [
+    "Create FastAPI backend with ChatKit server implementation",
+    "Build JWT authentication middleware for user isolation",
+    "Integrate OpenAI Agents SDK with MCP tool wrappers",
+    "Configure Next.js frontend with ChatKit widget",
+    "Implement three-level user isolation (middleware, tool, database)",
+    "Add real-time synchronization between chat and dashboard"
+  ],
+  "author": "92Bilal26",
+  "icon": "🤖",
+  "version": "1.1.0",
+  "license": "Complete terms in LICENSE.txt",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing architectural guidance for ChatKit chatbot development. All 549 static findings are false positives triggered by code examples in markdown documentation. No executable code exists in this skill. The scanner detects backticks in markdown as 'shell execution' and credential references in code examples as 'credential access', but these are documentation patterns teaching proper security implementations including JWT authentication and user isolation.",
+  "valueStatement": "Building ChatKit chatbots requires integrating multiple technologies with proper security patterns. This skill provides complete architectural guidance for creating production-ready chatbots with user isolation and real-time capabilities.",
+  "userTitle": "Build production ChatKit chatbots",
+  "limitations": [
+    "Skill provides guidance only - requires implementation effort",
+    "Does not include pre-built backend or frontend code",
+    "Requires separate OpenAI API key and ChatKit access",
+    "Database and deployment setup is not included"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Build AI task assistant",
+      "description": "Create a conversational interface where users can manage tasks through natural language chat"
+    },
+    {
+      "targetUser": "Product teams",
+      "title": "Add chatbot to existing app",
+      "description": "Integrate ChatKit into dashboards or web applications with multi-user support"
+    },
+    {
+      "targetUser": "AI engineers",
+      "title": "Customize agent tools",
+      "description": "Extend chatbot capabilities with custom MCP tools for domain-specific functionality"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New chatbot project",
+      "scenario": "Starting a new ChatKit project",
+      "prompt": "Help me build a ChatKit chatbot for task management. I need: 1) FastAPI backend setup with JWT auth, 2) Next.js frontend integration, 3) OpenAI Agents SDK with task tools"
+    },
+    {
+      "title": "Fix isolation issues",
+      "scenario": "Users seeing each other's data",
+      "prompt": "My ChatKit implementation has a user isolation bug. User A can see User B's tasks. Check the user isolation guide and help fix the wrapper or database query"
+    },
+    {
+      "title": "Add new tool",
+      "scenario": "Extending chatbot capabilities",
+      "prompt": "I need to add a new MCP tool to my ChatKit chatbot. Show me how to create a wrapper function that injects user_id and integrate it with the agent"
+    },
+    {
+      "title": "Production deployment",
+      "scenario": "Deploying to production",
+      "prompt": "What are the steps to deploy my ChatKit chatbot to production? Include domain verification, environment variables, and security headers"
+    }
+  ],
+  "bestPractices": [
+    "Always filter database queries by user_id at the database level",
+    "Create tool wrappers inside the respond() method to capture user_id in closure",
+    "Validate JWT tokens in middleware before processing any requests"
+  ],
+  "antiPatterns": [
+    "Defining wrappers outside respond() causing shared global state",
+    "Calling MCP tools directly without user_id parameter",
+    "Skipping user_id filter in database queries"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between ChatKit and the OpenAI Assistants API?",
+      "answer": "ChatKit provides a complete frontend widget and protocol for real-time chat, while the Assistants API is only the backend."
+    },
+    {
+      "question": "How does user isolation work in ChatKit?",
+      "answer": "Three-level isolation: middleware extracts user_id from JWT, wrapper functions inject it into tool calls, database queries filter by user_id."
+    },
+    {
+      "question": "Can I use this with databases other than PostgreSQL?",
+      "answer": "Yes. The patterns work with any database supported by SQLModel, including SQLite, MySQL, and PostgreSQL."
+    },
+    {
+      "question": "Is ChatKit free to use?",
+      "answer": "ChatKit has usage-based pricing through OpenAI. Check the OpenAI platform for current rates."
+    },
+    {
+      "question": "How do I debug ChatKit issues in production?",
+      "answer": "Enable DEBUG logging for chatkit.server and check for Authorization header issues."
+    },
+    {
+      "question": "Can I customize the ChatKit widget appearance?",
+      "answer": "Yes. ChatKit supports theme configuration, custom headers, and event handlers. The widget is built on React."
+    }
+  ],
+  "seoKeywords": [
+    "chatbot development",
+    "ChatKit",
+    "OpenAI Agents SDK",
+    "MCP tools",
+    "FastAPI",
+    "Next.js",
+    "user isolation",
+    "JWT authentication",
+    "Claude Code",
+    "AI chatbot"
+  ],
+  "sourceUrl": "https://github.com/92Bilal26/TaskPilotAI/tree/main/.claude/skills/chatkit-botbuilder",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,145 @@
+{
+  "name": "agent-manager-skill",
+  "type": "skill",
+  "description": "Manage multiple local CLI agents via tmux sessions (start/stop/monitor/assign) with cron-friendly scheduling.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "CLI agent control",
+  "quality": 5,
+  "qualityReason": "Specific process automation skill",
+  "bundleHints": [
+    "devops-automation",
+    "agent-operations"
+  ],
+  "tags": [
+    "agent-management",
+    "automation",
+    "cli-automation",
+    "cron",
+    "local-agents",
+    "monitoring",
+    "process-monitoring",
+    "scheduling",
+    "tmux"
+  ],
+  "capabilities": [
+    "Start and stop multiple CLI agents running in separate tmux sessions",
+    "Monitor agent output in real-time with log tailing",
+    "Assign tasks to specific agents via stdin",
+    "Schedule recurring agent work using cron syntax",
+    "List all running agents and their status",
+    "Run diagnostics to verify agent health"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Security audit complete. All 9 static findings are false positives. The skill contains only documentation with markdown code examples - no actual shell execution, no suspicious network activity, and no cryptographic code. The backticks flagged are markdown formatting, and the URL is a legitimate GitHub repo reference.",
+  "valueStatement": "This skill enables Claude to manage multiple local CLI agents running in parallel tmux sessions, providing start/stop/monitor capabilities and cron-friendly scheduling for automated workflows.",
+  "userTitle": "Manage CLI Agents with Tmux",
+  "limitations": [
+    "Requires tmux and python3 to be installed on the system",
+    "Agents must be pre-configured in an agents/ directory",
+    "Only supports local CLI agents (no remote/cloud agents)",
+    "Does not provide built-in authentication or access control"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineers and system administrators",
+      "title": "DevOps Workflow Automation",
+      "description": "Run multiple background maintenance scripts in parallel, monitor their output, and schedule recurring tasks using cron."
+    },
+    {
+      "targetUser": "Developers needing parallel processing",
+      "title": "Parallel AI Task Execution",
+      "description": "Launch multiple Claude or other CLI agents simultaneously for different subtasks, then aggregate results."
+    },
+    {
+      "targetUser": "Data scientists and researchers",
+      "title": "Background Job Management",
+      "description": "Start long-running processes in tmux sessions that persist beyond terminal sessions, with easy monitoring."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List All Agents",
+      "prompt": "Use the agent-manager-skill to list all currently running agents and their status.",
+      "scenario": "Check what agents are active"
+    },
+    {
+      "title": "Start Specific Agent",
+      "prompt": "Start agent EMP_0001 using the agent-manager-skill and show me the output.",
+      "scenario": "Launch a new agent instance"
+    },
+    {
+      "title": "Monitor Agent Logs",
+      "prompt": "Monitor the logs of agent EMP_0002 in real-time using the agent-manager-skill.",
+      "scenario": "Watch agent output live"
+    },
+    {
+      "title": "Assign Task to Agent",
+      "prompt": "Assign the following task to agent EMP_0003 using the agent-manager-skill:\n\nFollow teams/fractalmind-ai-maintenance.md Workflow",
+      "scenario": "Send work to a specific agent"
+    }
+  ],
+  "bestPractices": [
+    "Configure agents in the agents/ directory before attempting to start them",
+    "Use the doctor command first to verify all prerequisites are installed",
+    "Monitor agents during initial runs to ensure they behave as expected",
+    "Use descriptive agent IDs (like EMP_0001) for easy identification"
+  ],
+  "antiPatterns": [
+    "Starting agents without first running the doctor check",
+    "Assigning tasks to agents that are not properly configured",
+    "Not monitoring agent output during critical operations",
+    "Running too many agents simultaneously without resource monitoring"
+  ],
+  "faq": [
+    {
+      "question": "What prerequisites does this skill require?",
+      "answer": "This skill requires tmux and python3 to be installed on your system. Run 'python3 agent-manager/scripts/main.py doctor' to verify installation."
+    },
+    {
+      "question": "How do I configure new agents?",
+      "answer": "Place agent configuration files in the agents/ directory. Refer to the repository examples for the required format and structure."
+    },
+    {
+      "question": "Can I run this skill remotely over SSH?",
+      "answer": "Yes, as long as tmux is installed on the remote system. The skill manages local tmux sessions and does not require a GUI."
+    },
+    {
+      "question": "How do I stop a running agent?",
+      "answer": "Use the stop command with the agent ID: 'python3 agent-manager/scripts/main.py stop EMP_0001'"
+    },
+    {
+      "question": "Is this skill secure?",
+      "answer": "The skill runs local CLI commands only. Review agent configurations before running untrusted code. No network access is required by default."
+    },
+    {
+      "question": "Can I schedule agents to run on a cron schedule?",
+      "answer": "Yes, the skill supports cron-friendly scheduling. Configure scheduled tasks in the agents/ directory with cron expressions."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "tmux",
+    "agent manager",
+    "CLI automation",
+    "task scheduling",
+    "process monitoring",
+    "workflow automation",
+    "local agents"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-manager-skill",
+  "sourceType": "community",
+  "dependencies": []
+}

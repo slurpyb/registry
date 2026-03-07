@@ -1,0 +1,144 @@
+{
+  "name": "action-item-organizer",
+  "type": "skill",
+  "description": "Systematic framework for extracting actionable items from documents and",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "task extraction",
+  "quality": 5,
+  "qualityReason": "Clear, actionable framework",
+  "bundleHints": [
+    "productivity-suite",
+    "task-management"
+  ],
+  "tags": [
+    "audit-items",
+    "checklist",
+    "checklists",
+    "document-processing",
+    "documentation",
+    "meeting-notes",
+    "organization",
+    "prioritization",
+    "task-management",
+    "tracking"
+  ],
+  "capabilities": [
+    "Extract actionable items from unstructured documents and meeting notes",
+    "Classify tasks by priority (P0-P3) with clear criteria",
+    "Organize tasks into nested hierarchical checklists",
+    "Add metadata like file locations, owners, time estimates, and tracking IDs",
+    "Generate structured markdown TODO lists with completion tracking",
+    "Handle edge cases like missing priorities or duplicate items"
+  ],
+  "author": "Joseph OBrien",
+  "icon": "✅",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only markdown documentation and templates. No executable code, scripts, network calls, filesystem access, or command execution. The static scanner incorrectly flagged documentation examples as security issues. All 154 findings are false positives triggered by backtick characters in markdown code blocks, security-related keywords in documentation examples, and discussion of credentials in security guidance.",
+  "valueStatement": "Managing action items from documents is time-consuming and error-prone. This skill provides a systematic framework to extract, prioritize, and structure action items into trackable markdown checklists with clear context and metadata.",
+  "userTitle": "Organize action items into prioritized checklists",
+  "limitations": [
+    "Does not execute code or access files directly",
+    "Does not integrate with external task management tools",
+    "Does not send notifications or reminders",
+    "Output is limited to markdown checklist format"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Engineering Teams",
+      "title": "Code Review to Tasks",
+      "description": "Convert code review reports into prioritized remediation checklists with file locations and time estimates"
+    },
+    {
+      "targetUser": "Project Managers",
+      "title": "Meeting Notes to Actions",
+      "description": "Transform scattered meeting notes into organized action items with owners, deadlines, and priorities"
+    },
+    {
+      "targetUser": "Security Auditors",
+      "title": "Audit Findings to Work Items",
+      "description": "Structure security audit findings into prioritized remediation plans with compliance tracking"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Extraction",
+      "scenario": "Simple document",
+      "prompt": "Use the Action Item Organizer skill to extract all action items from this document. Prioritize items by P0-P3. Include file paths and context for each item."
+    },
+    {
+      "title": "Code Review",
+      "scenario": "Code review report",
+      "prompt": "Convert this code review report into a TODO list. Group by priority (P0 blockers first). Include file locations and time estimates. Add category prefixes (Security, Performance, etc.)."
+    },
+    {
+      "title": "Meeting Notes",
+      "scenario": "Meeting documentation",
+      "prompt": "Extract action items from these meeting notes. Assign owners based on @mentions or context. Set priorities based on urgency language. Create nested checklists for complex tasks."
+    },
+    {
+      "title": "Audit Remediation",
+      "scenario": "Audit findings",
+      "prompt": "Transform this audit report into a prioritized remediation plan. Map risk levels to P0-P3. Include compliance context. Add tracking IDs and owner assignments for each finding."
+    }
+  ],
+  "bestPractices": [
+    "Always include context explaining why each task matters and what it achieves",
+    "Preserve file paths and line numbers to enable traceability and navigation",
+    "Use consistent priority criteria across all items to avoid inflation or deflation"
+  ],
+  "antiPatterns": [
+    "Creating flat lists instead of nesting related sub-tasks under parent items",
+    "Losing context by extracting only task titles without rationale or impact",
+    "Marking everything as P0 which defeats the purpose of prioritization"
+  ],
+  "faq": [
+    {
+      "question": "Which document formats does this skill support?",
+      "answer": "The skill works with any text-based document format including markdown, plain text, code comments, JSON, and YAML structured content."
+    },
+    {
+      "question": "What is the maximum number of items this skill can handle?",
+      "answer": "There is no hard limit. The skill can organize hundreds of items into priority sections with nested sub-tasks and metadata."
+    },
+    {
+      "question": "Can this skill integrate with external tools like JIRA or GitHub Issues?",
+      "answer": "No. The skill outputs markdown format. You can manually copy tracking IDs or use the output as a template for external tools."
+    },
+    {
+      "question": "Is user data stored or transmitted anywhere?",
+      "answer": "No. This is a prompt-based skill. All processing happens within your AI session. No data is stored or transmitted externally."
+    },
+    {
+      "question": "Why are my priorities being set incorrectly?",
+      "answer": "Check that you provided enough context about urgency and impact. Use explicit markers like P0, Critical, or blocking language."
+    },
+    {
+      "question": "How is this different from a basic TODO list?",
+      "answer": "This skill adds structure with priority levels, metadata (files, owners, estimates), nested sub-tasks, traceability, and comprehensive output formatting."
+    }
+  ],
+  "seoKeywords": [
+    "action items",
+    "task management",
+    "checklist organizer",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "priority framework",
+    "TODO lists",
+    "meeting notes",
+    "project planning"
+  ],
+  "sourceUrl": "https://github.com/89jobrien/steve/tree/main/steve/skills/action-item-organizer",
+  "sourceType": "community",
+  "dependencies": []
+}

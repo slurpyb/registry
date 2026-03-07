@@ -1,0 +1,141 @@
+{
+  "name": "translate",
+  "type": "skill",
+  "description": "Accurately and fluently translates source text into another language, supporting any language pair. Default target language is Chinese. Use this skill when the user requests translation of Markdown files, batch document translation, or text content translation. Trigger phrases: translate, 翻译,translate markdown, translate document, Chinese translation, batch translate.",
+  "domain": "ai-ml",
+  "subdomain": "nlp",
+  "specialty": "multilingual translation",
+  "quality": 5,
+  "qualityReason": "Essential and well-defined",
+  "bundleHints": [
+    "nlp-tools",
+    "globalization"
+  ],
+  "tags": [
+    "accuracy",
+    "chinese",
+    "document-processing",
+    "fluency",
+    "localization",
+    "multilingual",
+    "translation"
+  ],
+  "capabilities": [
+    "Translate Markdown and plain text files between any language pair",
+    "Handle large files (over 1000 lines) by splitting, translating in parallel, and merging",
+    "Batch translate multiple files with consistent terminology via shared glossary",
+    "Maintain translation style consistency using user-defined style samples",
+    "Support multiple Chinese locales (zh-CN, zh-TW, zh-HK) with regional terminology",
+    "Process terminology annotations and build persistent user glossary"
+  ],
+  "author": "FuHehe12",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 137 potential issues, all of which are false positives. The skill uses Python scripts (split_md.py, merge_md.py) for legitimate file splitting/merging operations and shell commands (rm) for cleanup. No malicious command execution, cryptographic vulnerabilities, or reconnaissance behavior exists. This is a safe translation workflow tool.",
+  "valueStatement": "This skill enables Claude to accurately translate Markdown and text documents between any language pair with high quality. It handles single files, large documents via splitting, and batch multi-file translation with consistent terminology.",
+  "userTitle": "Translate documents between any language pair",
+  "limitations": [
+    "Only supports Markdown and plain text input files",
+    "Requires conversion of other formats (PDF, Word, HTML) to Markdown first",
+    "Code blocks are preserved in original form without translation",
+    "Does not handle image-based text (OCR not supported)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers and technical writers localizing their documentation",
+      "title": "Translate technical documentation to Chinese",
+      "description": "Convert English API docs, README files, or technical guides into fluent Chinese while preserving code blocks and formatting."
+    },
+    {
+      "targetUser": "Open source project maintainers localizing to multiple languages",
+      "title": "Batch translate multi-file projects",
+      "description": "Translate entire documentation folders with consistent terminology across all files using a shared glossary."
+    },
+    {
+      "targetUser": "Translators working on ongoing projects with specialized vocabulary",
+      "title": "Maintain translation memory with glossary",
+      "description": "Build and persist a personal glossary of domain-specific terms that improves translation consistency over time."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple text translation",
+      "prompt": "Translate the following text from English to Chinese (zh-CN):\n\n[Your text here]",
+      "scenario": "Quick translation of short text passages"
+    },
+    {
+      "title": "Translate Markdown file",
+      "prompt": "Use the translate skill to translate the file [filename.md] to Chinese. The file is located at [path/to/file.md].",
+      "scenario": "Translating a single Markdown document while preserving formatting"
+    },
+    {
+      "title": "Batch translate with glossary",
+      "prompt": "Use the translate skill to translate all Markdown files in the [docs/] directory to Chinese. Ensure consistent terminology using the existing user glossary.",
+      "scenario": "Translating multiple files with consistent terminology"
+    },
+    {
+      "title": "Large file parallel translation",
+      "prompt": "Use the translate skill to translate the large file [large-document.md] to Chinese. The file has over 2000 lines, so please use parallel processing via sub-agents.",
+      "scenario": "Translating long documents efficiently using split-merge workflow"
+    }
+  ],
+  "bestPractices": [
+    "Provide context about the document type (technical, creative, formal) for better tone matching",
+    "Build and maintain a user glossary for domain-specific terminology consistency",
+    "For large files, let the skill use sub-agents for parallel processing to save time"
+  ],
+  "antiPatterns": [
+    "Asking to translate non-text formats like PDF or images without converting to Markdown first",
+    "Expecting code blocks and URLs to be translated (they are preserved as-is)",
+    "Skipping the glossary build phase for technical content with specialized terminology"
+  ],
+  "faq": [
+    {
+      "question": "What file formats does this skill support?",
+      "answer": "This skill supports Markdown (.md) and plain text (.txt) files. Other formats like PDF, Word documents, or HTML must be converted to Markdown first."
+    },
+    {
+      "question": "How does the skill handle very large files?",
+      "answer": "For files over 1000 lines, the skill splits the file into segments, translates them in parallel using sub-agents, and then merges the results into a single translated file."
+    },
+    {
+      "question": "Can I use this skill for languages other than Chinese?",
+      "answer": "Yes, the skill supports translation between any language pair. Simply specify the source and target language when requesting translation."
+    },
+    {
+      "question": "How does the glossary work?",
+      "answer": "The skill maintains a user glossary file that accumulates terms over time. You can add domain-specific terms that will be applied consistently across all translations."
+    },
+    {
+      "question": "Will code blocks be translated?",
+      "answer": "No, code blocks are preserved in their original form. Only comments within code may be translated if you request it."
+    },
+    {
+      "question": "What is the difference between zh-CN, zh-TW, and zh-HK locales?",
+      "answer": "These represent different Chinese regional variants. zh-CN is Simplified Chinese (mainland), zh-TW is Traditional Chinese (Taiwan), and zh-HK is Traditional Chinese (Hong Kong). Each has distinct vocabulary and formatting conventions."
+    }
+  ],
+  "seoKeywords": [
+    "translate",
+    "translation",
+    "localization",
+    "Claude translate",
+    "Claude Code translate",
+    "Codex translate",
+    "Markdown translation",
+    "Chinese translation",
+    "multilingual",
+    "document translation"
+  ],
+  "sourceUrl": "https://github.com/FuHehe12/Nitro-Engine/tree/main/translate",
+  "sourceType": "community",
+  "dependencies": []
+}

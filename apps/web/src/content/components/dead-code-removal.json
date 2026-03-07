@@ -1,0 +1,141 @@
+{
+  "name": "dead-code-removal",
+  "type": "skill",
+  "description": "Detects and safely removes unused code (imports, functions, classes)",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "safe deletion",
+  "quality": 5,
+  "qualityReason": "Actionable with safety checks",
+  "bundleHints": [
+    "code-quality",
+    "refactoring-toolkit",
+    "codebase-maintenance"
+  ],
+  "tags": [
+    "code cleanup",
+    "dead-code",
+    "multi-language",
+    "optimization",
+    "refactoring",
+    "static analysis"
+  ],
+  "capabilities": [
+    "Detects unused imports in Python files using AST parsing",
+    "Identifies unused functions and classes across codebases",
+    "Builds dependency graphs to map code relationships",
+    "Preserves framework patterns and entry points",
+    "Creates backups before removing code",
+    "Validates changes with syntax checks"
+  ],
+  "author": "Joseph OBrien",
+  "icon": "🧹",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate code cleanup tool with safe implementation. The Python helper script uses only AST parsing for static analysis. All static findings are false positives: 'cryptographic algorithm' flags are scanner errors, 'eval()' and 'import()' mentions are documentation about safety checks, and 'shell backtick' findings are markdown code examples. No network calls, no credential access, no dangerous runtime execution.",
+  "valueStatement": "Unused code bloats projects and increases maintenance costs. This skill detects unused imports, functions, and classes across multiple languages with safety checks that preserve critical code.",
+  "userTitle": "Remove Dead Code Safely",
+  "limitations": [
+    "Does not execute code or run tests automatically",
+    "Cannot detect dynamically referenced code in all cases",
+    "Limited to languages with static analysis support",
+    "May miss runtime-only references without full context"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developers",
+      "title": "Clean Up After Refactoring",
+      "description": "Remove unused code left behind after feature development or refactoring sessions."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Reduce Bundle Size",
+      "description": "Identify and remove dead code before deployment to reduce bundle size and improve performance."
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Maintain Code Quality",
+      "description": "Find and report unused code during code reviews to keep the codebase lean."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Cleanup",
+      "scenario": "Remove all unused code",
+      "prompt": "Find and remove all unused imports and functions in this project. Use conservative mode and create a backup first."
+    },
+    {
+      "title": "Specific Directory",
+      "scenario": "Clean a specific folder",
+      "prompt": "Clean up dead code in the src/utils/ directory. Identify unused imports and functions but ask before removing."
+    },
+    {
+      "title": "Import Analysis",
+      "scenario": "Find unused imports",
+      "prompt": "Use the find-unused-imports.py script to analyze src/ and find all unused imports. Show me the results."
+    },
+    {
+      "title": "Safety Review",
+      "scenario": "Safe removal with checks",
+      "prompt": "Analyze the codebase for unused code. Apply safety checks for dynamic usage patterns like getattr, eval, and dynamic imports before removing anything."
+    }
+  ],
+  "bestPractices": [
+    "Always run tests after removing code to verify nothing breaks",
+    "Create backups before batch removals to enable quick rollback",
+    "Preserve framework patterns like routes, components, and controllers"
+  ],
+  "antiPatterns": [
+    "Removing code without understanding its purpose or dependencies",
+    "Skipping safety checks for dynamic usage patterns",
+    "Batch removing without incremental validation"
+  ],
+  "faq": [
+    {
+      "question": "Which languages does this skill support?",
+      "answer": "Python, JavaScript, TypeScript, Java, Go, and Rust with language-specific detection patterns."
+    },
+    {
+      "question": "What safety checks are performed before removal?",
+      "answer": "Checks for dynamic imports, reflection usage, framework patterns, and entry point references."
+    },
+    {
+      "question": "Does this skill modify files directly?",
+      "answer": "The skill recommends changes and creates backups but prompts before applying removals."
+    },
+    {
+      "question": "Is my code data safe?",
+      "answer": "The skill only reads files for analysis. No data is sent externally or stored beyond local backups."
+    },
+    {
+      "question": "What happens if removal breaks my code?",
+      "answer": "Backups are created before changes. You can restore from the backup directory if issues occur."
+    },
+    {
+      "question": "How is this different from linters?",
+      "answer": "This skill performs deeper dependency analysis across files, not just local syntax checks."
+    }
+  ],
+  "seoKeywords": [
+    "dead code removal",
+    "unused import detection",
+    "code cleanup",
+    "Claude Code skill",
+    "code refactoring",
+    "static analysis",
+    "code optimization",
+    "bundle size reduction",
+    "code quality",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/89jobrien/steve/tree/main/steve/skills/dead-code-removal",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,144 @@
+{
+  "name": "native-data-fetching",
+  "type": "skill",
+  "description": "Use when implementing or debugging ANY network request, API call, or data fetching. Covers fetch API, axios, React Query, SWR, error handling, caching strategies, offline support.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "network requests",
+  "quality": 5,
+  "qualityReason": "Comprehensive data handling scope",
+  "bundleHints": [
+    "mobile-dev",
+    "data-fetching"
+  ],
+  "tags": [
+    "api",
+    "axios",
+    "caching",
+    "data-fetching",
+    "fetch",
+    "networking",
+    "offline",
+    "react-native",
+    "react-query",
+    "swr"
+  ],
+  "capabilities": [
+    "Implement fetch API calls with proper error handling",
+    "Set up React Query or SWR for caching and state management",
+    "Handle authentication tokens securely with expo-secure-store",
+    "Add offline support with NetInfo and React Query persistence",
+    "Configure environment-specific API URLs with EXPO_PUBLIC_ variables",
+    "Implement retry logic with exponential backoff"
+  ],
+  "author": "expo",
+  "icon": "🌐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Documentation skill with code examples for Expo networking patterns. Static scanner flagged common JavaScript patterns (template literals, fetch API, environment variables) that are false positives for this documentation use case. All demonstrated patterns follow Expo security best practices.",
+  "valueStatement": "Expo apps need reliable data fetching with proper caching, error handling, and offline support. This skill provides proven patterns for implementing network requests, authentication, and resilient data fetching in React Native.",
+  "userTitle": "Implement Network Requests and Data Fetching",
+  "limitations": [
+    "Does not cover server-side API routes or backend implementation",
+    "Does not provide authentication backend services",
+    "Does not include GraphQL integration patterns",
+    "Does not generate API client code automatically"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Mobile developers building Expo apps that need to consume APIs",
+      "title": "Build API Integration for React Native App",
+      "description": "Set up reliable network layer with fetch, error handling, and retry logic for your mobile app."
+    },
+    {
+      "targetUser": "Developers optimizing app performance and user experience",
+      "title": "Add Caching and Offline Support",
+      "description": "Implement React Query for caching, background updates, and offline-first data access."
+    },
+    {
+      "targetUser": "Teams managing multiple deployment environments",
+      "title": "Configure Multi-Environment API Settings",
+      "description": "Set up development, staging, and production API URLs with environment variables."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic API Call Setup",
+      "prompt": "How do I make API requests in my Expo app? Show me how to fetch data from an endpoint and handle errors properly.",
+      "scenario": "Getting started with networking in Expo"
+    },
+    {
+      "title": "Data Fetching with Caching",
+      "prompt": "I want to use React Query in my Expo app for data fetching. Show me how to set up the QueryClient and implement queries with caching.",
+      "scenario": "Adding caching and state management"
+    },
+    {
+      "title": "Offline-First App",
+      "prompt": "My Expo app needs to work offline. Show me how to detect network status and persist React Query data for offline access.",
+      "scenario": "Building apps with offline support"
+    },
+    {
+      "title": "Authentication and Token Management",
+      "prompt": "How do I securely store authentication tokens in my Expo app and add them to API requests? Include token refresh logic.",
+      "scenario": "Implementing authenticated API calls"
+    }
+  ],
+  "bestPractices": [
+    "Always check response.ok and handle both network and HTTP errors in data fetching operations",
+    "Use React Query or SWR for production apps to get automatic caching, deduplication, and background updates",
+    "Store authentication tokens in expo-secure-store, never in AsyncStorage or plain localStorage"
+  ],
+  "antiPatterns": [
+    "Skipping response.ok checks and assuming all requests succeed",
+    "Storing sensitive data like tokens in AsyncStorage or environment variables with write access",
+    "Making the same API call repeatedly without implementing caching or request deduplication"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between fetch and axios in Expo?",
+      "answer": "Expo provides a built-in fetch polyfill that works consistently across platforms. Use the native fetch API instead of axios for better compatibility and smaller bundle size."
+    },
+    {
+      "question": "How do I cancel in-flight network requests?",
+      "answer": "Use AbortController with fetch or let React Query handle cancellation automatically when components unmount or queries are invalidated."
+    },
+    {
+      "question": "Can I use environment variables for API keys?",
+      "answer": "Only use EXPO_PUBLIC_ prefix for client-safe values. Server-side secrets should stay in API routes. Never expose keys with write access in the client bundle."
+    },
+    {
+      "question": "How do I handle expired authentication tokens?",
+      "answer": "Implement a token refresh flow that catches 401 errors, refreshes the token, and retries the original request automatically."
+    },
+    {
+      "question": "What caching strategy should I use?",
+      "answer": "React Query provides built-in caching with configurable staleTime. Set longer staleTime for rarely-changing data and use invalidation for fresh data."
+    },
+    {
+      "question": "How do I debug network requests in Expo?",
+      "answer": "Use React Query Devtools to inspect queries and cache state. For network debugging, use the Network panel in Chrome DevTools or Flipper."
+    }
+  ],
+  "seoKeywords": [
+    "Expo data fetching",
+    "React Native networking",
+    "fetch API examples",
+    "React Query tutorial",
+    "offline support React Native",
+    "API authentication tokens",
+    "environment variables Expo",
+    "Claude Code networking",
+    "Clade Code data fetching",
+    "Claude Codex API requests"
+  ],
+  "sourceUrl": "https://github.com/expo/skills/tree/main/plugins/expo-app-design/skills/native-data-fetching/",
+  "sourceType": "community",
+  "dependencies": []
+}

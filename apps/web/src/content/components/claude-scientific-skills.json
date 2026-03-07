@@ -1,0 +1,140 @@
+{
+  "name": "claude-scientific-skills",
+  "type": "skill",
+  "description": "Scientific research and analysis skills",
+  "domain": "science",
+  "subdomain": "research",
+  "specialty": "scientific analysis",
+  "quality": 3,
+  "qualityReason": "Too broad and generic",
+  "bundleHints": [
+    "research-toolkit"
+  ],
+  "tags": [
+    "academia",
+    "academic",
+    "data-analysis",
+    "experiment-design",
+    "literature-review",
+    "methodology",
+    "scientific-research"
+  ],
+  "capabilities": [
+    "Design structured literature review workflows for systematic paper analysis",
+    "Generate hypotheses and experimental methodologies based on research questions",
+    "Assist with statistical analysis planning and data interpretation",
+    "Format research findings according to academic publication standards",
+    "Identify relevant research gaps and suggest future directions",
+    "Translate complex scientific concepts into clear explanations"
+  ],
+  "author": "sickn33",
+  "icon": "🔬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged URLs in documentation as potential network risks, but these are reference links in markdown text, not executable network code. The skill contains only documentation with no executable scripts, external commands, or actual network operations. All findings are false positives.",
+  "valueStatement": "Researchers face overwhelming literature and complex data analysis challenges. This skill provides structured methodologies for literature review, experimental design, and statistical analysis to accelerate scientific discovery.",
+  "userTitle": "Conduct scientific research and analysis",
+  "limitations": [
+    "Cannot access paywalled academic papers or proprietary databases",
+    "Does not perform actual statistical computations or run code",
+    "Cannot verify factual accuracy of cited research without source access",
+    "Recommendations should be validated by domain experts before implementation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Graduate students conducting dissertation research",
+      "title": "Graduate Student Literature Review",
+      "description": "Systematically analyze and synthesize academic papers for thesis research"
+    },
+    {
+      "targetUser": "Principal investigators and postdoctoral researchers",
+      "title": "Research Proposal Development",
+      "description": "Structure research questions, hypotheses, and methodology sections for grant applications"
+    },
+    {
+      "targetUser": "Laboratory scientists and clinical researchers",
+      "title": "Data Analysis Planning",
+      "description": "Design appropriate statistical approaches and interpret analytical results"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Literature Summary",
+      "prompt": "Summarize the key findings from this abstract and identify the main research contribution: [paste abstract]",
+      "scenario": "Quick understanding of a single paper"
+    },
+    {
+      "title": "Comparative Analysis",
+      "prompt": "Compare the methodologies used in these three papers on [topic]. What are the strengths and limitations of each approach?",
+      "scenario": "Synthesizing multiple sources"
+    },
+    {
+      "title": "Research Gap Identification",
+      "prompt": "Based on this literature summary, what unanswered questions remain? Suggest three specific research directions that would advance this field.",
+      "scenario": "Developing novel research proposals"
+    },
+    {
+      "title": "Statistical Analysis Planning",
+      "prompt": "I have a dataset with [describe variables and sample size]. My research question is [question]. What statistical tests are appropriate, and what assumptions must I verify?",
+      "scenario": "Designing analysis for experimental data"
+    }
+  ],
+  "bestPractices": [
+    "Always verify AI-generated citations against original sources before publication",
+    "Use structured prompts with specific context about your research domain and constraints",
+    "Cross-reference statistical recommendations with domain-specific methodology literature"
+  ],
+  "antiPatterns": [
+    "Do not rely solely on AI for critical research decisions without expert validation",
+    "Avoid submitting AI-generated text without thorough review and proper attribution",
+    "Do not share unpublished data or confidential research information in prompts"
+  ],
+  "faq": [
+    {
+      "question": "Can this skill access academic databases like PubMed or Web of Science?",
+      "answer": "No, the skill cannot access external databases. You must provide the paper content or abstracts you want analyzed."
+    },
+    {
+      "question": "Is the output suitable for direct inclusion in academic publications?",
+      "answer": "Output should be used as a starting point and heavily revised. Always maintain your own voice and verify all claims."
+    },
+    {
+      "question": "Can this skill perform statistical calculations?",
+      "answer": "No, it provides guidance on appropriate statistical methods but does not execute calculations. Use statistical software for actual analysis."
+    },
+    {
+      "question": "How should I cite assistance from this skill in my research?",
+      "answer": "Follow your institution or journal guidelines. Generally, acknowledge AI assistance in methods or acknowledgments sections."
+    },
+    {
+      "question": "Can this help with writing grant proposals?",
+      "answer": "Yes, it can help structure research aims, significance sections, and methodology descriptions for grant applications."
+    },
+    {
+      "question": "What research domains does this skill support?",
+      "answer": "The skill provides general research methodology guidance applicable across sciences, but domain-specific expertise should supplement its recommendations."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "scientific research",
+    "data analysis",
+    "literature review",
+    "research methodology",
+    "academic writing",
+    "statistical analysis",
+    "research assistant"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/web-app/public/skills/claude-scientific-skills",
+  "sourceType": "community",
+  "dependencies": []
+}

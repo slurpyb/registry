@@ -1,0 +1,138 @@
+{
+  "name": "legacy-modernizer",
+  "type": "skill",
+  "description": "Refactor legacy codebases, migrate outdated frameworks, and",
+  "domain": "web-development",
+  "subdomain": "fullstack",
+  "specialty": "refactor legacy",
+  "quality": 5,
+  "qualityReason": "Actionable, clear scope",
+  "bundleHints": [
+    "modernization-suite",
+    "fullstack-patterns"
+  ],
+  "tags": [
+    "backward-compatibility",
+    "code-modernization",
+    "framework-migration",
+    "legacy-modernization",
+    "migration",
+    "modernization",
+    "refactoring",
+    "technical-debt"
+  ],
+  "capabilities": [
+    "Create phased migration plans with clear milestones and rollback procedures",
+    "Refactor legacy code while preserving existing functionality through comprehensive tests",
+    "Migrate frameworks such as jQuery to React, Java 8 to 17, or Python 2 to 3",
+    "Design adapter layers and compatibility shims for gradual transitions",
+    "Update dependencies with security patches while managing breaking changes",
+    "Implement feature flags for controlled, incremental rollouts"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only skill containing no executable code. Static analysis scanned 0 files with 0 security patterns detected. The skill provides guidance on legacy code modernization, framework migrations, and technical debt reduction without any file system access, network operations, or external command execution. Safe for publication.",
+  "valueStatement": "Legacy systems create technical debt that slows development and increases security risks. This skill provides proven strategies for gradual modernization while maintaining backward compatibility.",
+  "userTitle": "Modernize legacy codebases and migrate outdated frameworks",
+  "limitations": [
+    "Cannot execute code or run migrations automatically - provides guidance only",
+    "Requires human review for breaking changes that affect production systems",
+    "Migration timelines depend on codebase complexity and team capacity",
+    "Cannot access external package registries or dependency databases directly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Engineering managers leading frontend modernization initiatives",
+      "title": "Enterprise Framework Migration",
+      "description": "Plan and execute migration from legacy jQuery-based frontend to modern React architecture using strangler fig pattern for gradual replacement."
+    },
+    {
+      "targetUser": "Senior developers maintaining enterprise backend systems",
+      "title": "Legacy Backend Modernization",
+      "description": "Transform monolithic Java 8 applications to modular Java 17+ architecture with dependency injection and improved testability."
+    },
+    {
+      "targetUser": "Database architects modernizing legacy data systems",
+      "title": "Database Architecture Upgrade",
+      "description": "Migrate from stored procedure-heavy databases to ORM-based architectures with proper abstraction layers and migration scripts."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Legacy Code Assessment",
+      "prompt": "Analyze this legacy codebase and identify the top 5 areas with highest technical debt. For each area, provide: (1) current state description, (2) risks of not modernizing, (3) recommended modernization approach, (4) estimated effort level. Code: [paste code or describe system]"
+    },
+    {
+      "title": "Framework Migration Plan",
+      "prompt": "Create a phased migration plan for moving from [legacy framework] to [modern framework]. Include: phase breakdown with milestones, backward compatibility strategy, testing approach for each phase, rollback procedures, and feature flag recommendations. Target system: [describe system]"
+    },
+    {
+      "title": "Refactoring with Test Coverage",
+      "prompt": "Help me refactor this legacy function using the 'add tests first' approach. Steps: (1) Write characterization tests that capture current behavior, (2) Identify refactoring opportunities, (3) Apply incremental changes with test verification, (4) Document any behavior changes. Legacy code: [paste code]"
+    },
+    {
+      "title": "Dependency Update Strategy",
+      "prompt": "Design a safe dependency update strategy for this project. Analyze: current dependency versions, available updates with breaking changes, recommended update order, compatibility testing requirements, and rollback plan. Project dependencies: [list dependencies]"
+    }
+  ],
+  "bestPractices": [
+    "Always add comprehensive tests before refactoring to capture existing behavior",
+    "Use the strangler fig pattern - gradually replace functionality, never big-bang rewrites",
+    "Maintain backward compatibility at each phase with clear deprecation timelines"
+  ],
+  "antiPatterns": [
+    "Attempting complete rewrites without incremental migration path",
+    "Removing legacy code before new implementation is fully tested in production",
+    "Ignoring backward compatibility requirements during framework migrations"
+  ],
+  "faq": [
+    {
+      "question": "What is the strangler fig pattern for legacy modernization?",
+      "answer": "The strangler fig pattern gradually replaces legacy functionality by intercepting calls and routing them to new implementations. Over time, more functionality migrates until the legacy system can be removed. This approach minimizes risk by allowing rollback at any phase."
+    },
+    {
+      "question": "How do I maintain backward compatibility during framework migration?",
+      "answer": "Use adapter layers that translate between old and new interfaces, implement feature flags for gradual rollout, maintain parallel systems during transition, and provide clear deprecation warnings with migration timelines for API consumers."
+    },
+    {
+      "question": "What is the recommended approach for updating dependencies in legacy projects?",
+      "answer": "Update one dependency at a time, starting with non-breaking patches. Run full test suites after each update. For major version jumps, review changelogs for breaking changes, update code incrementally, and maintain rollback capability until the update is verified in production."
+    },
+    {
+      "question": "How do I convince stakeholders to invest in legacy modernization?",
+      "answer": "Quantify technical debt impact: slower feature delivery, security vulnerabilities, hiring challenges, and operational costs. Present modernization as risk reduction with measurable ROI through improved velocity, reduced incidents, and lower maintenance costs."
+    },
+    {
+      "question": "When should I refactor versus rewrite legacy code?",
+      "answer": "Refactor when the business logic is sound but implementation needs improvement. Rewrite only when the fundamental architecture is flawed, technology is unsupported, or technical debt makes incremental changes impractical. Always prefer refactoring with tests over rewrites."
+    },
+    {
+      "question": "How do I handle database modernization during legacy migration?",
+      "answer": "Use dual-write strategies during transition, create abstraction layers between application and database, migrate data incrementally with validation at each step, and maintain rollback procedures. Never migrate schema and application code in the same deployment."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code legacy modernization",
+    "Codex framework migration",
+    "Claude refactoring assistant",
+    "legacy code modernization",
+    "technical debt reduction",
+    "framework migration tool",
+    "codebase modernization",
+    "strangler fig pattern",
+    "backward compatibility",
+    "dependency updates"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/legacy-modernizer",
+  "sourceType": "community",
+  "dependencies": []
+}

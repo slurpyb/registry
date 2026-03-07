@@ -1,0 +1,143 @@
+{
+  "name": "ux-prototyping",
+  "type": "skill",
+  "description": "Create interactive single-file HTML prototypes for UX validation. Use when the user asks to create a prototype, mockup, or interactive wireframe based on specs/architecture/ux.md or any UX specification. Triggers include requests like \"create a prototype\", \"build a prototype from the UX spec\", \"make an interactive mockup\", \"prototype the user flow\", or \"validate the UX\".",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "HTML prototypes",
+  "quality": 5,
+  "qualityReason": "Actionable prototyping method",
+  "bundleHints": [
+    "ux-ops",
+    "design-tools"
+  ],
+  "tags": [
+    "interactive",
+    "interactive-mockups",
+    "prototypes",
+    "prototyping",
+    "single-file",
+    "user-flows",
+    "ux-design",
+    "ux-validation",
+    "wireframes",
+    "wireframing"
+  ],
+  "capabilities": [
+    "Generate single-file HTML prototypes from UX specification documents",
+    "Create complete user flow simulations with navigation and state transitions",
+    "Build essential UI components including forms, modals, lists, and navigation",
+    "Implement multiple screen states: empty, loading, error, and success scenarios",
+    "Support responsive layouts optimized for mobile viewport testing"
+  ],
+  "author": "Emz1998",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static scanner flagged 51 patterns but all evaluations confirm false positives. The scanner misidentified Date.now() timestamps as cryptographic algorithms, markdown backticks as shell commands, and standard DOM methods as reconnaissance. This is a legitimate UX prototyping skill that generates self-contained HTML mockups from UX specifications. No network calls, no filesystem access, no credential handling.",
+  "valueStatement": "Creating interactive prototypes manually is time-consuming and requires front-end skills. This skill converts UX specifications into single-file HTML prototypes that run in any browser, enabling rapid user flow validation without coding.",
+  "userTitle": "Create Interactive UX Prototypes",
+  "limitations": [
+    "Requires existing UX specification document to generate prototypes",
+    "Prototypes are for validation purposes only, not production interfaces",
+    "No advanced animations or pixel-perfect styling included",
+    "Limited to single-file HTML output without external dependencies"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product designers",
+      "title": "Rapid Prototype for Stakeholder Review",
+      "description": "Generate an interactive prototype from UX specs to demonstrate user flows to stakeholders before development begins. Validate navigation logic and screen sequencing early."
+    },
+    {
+      "targetUser": "UX researchers",
+      "title": "User Testing Mockups",
+      "description": "Create lightweight prototypes for usability testing sessions. The single HTML file works offline and runs in any browser, making it ideal for remote or in-person user research."
+    },
+    {
+      "targetUser": "Frontend developers",
+      "title": "Development Handoff Reference",
+      "description": "Generate interactive prototypes that developers can reference during implementation. The clear screen patterns and state management serve as implementation blueprints."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Prototype Request",
+      "prompt": "Create an interactive prototype for a [APP_TYPE] app based on the UX specification at [PATH_TO_UX_SPEC]. Generate a single HTML file with all screens, navigation, and user flows from the spec.",
+      "scenario": "When a user provides a UX spec and wants a working prototype"
+    },
+    {
+      "title": "Specific User Flow",
+      "prompt": "Build a prototype focusing on the [FLOW_NAME] user flow from the UX spec. Include all screens, states, and interactions needed to complete this flow from start to finish.",
+      "scenario": "When validation is needed for a specific user journey"
+    },
+    {
+      "title": "Mobile App Mockup",
+      "prompt": "Create a mobile-first prototype for a [APP_NAME] app based on specs/architecture/ux.md. Include onboarding, main screens, and navigation patterns appropriate for mobile use.",
+      "scenario": "When building mobile app prototypes with tab navigation"
+    },
+    {
+      "title": "Complete App Prototype",
+      "prompt": "Generate a comprehensive prototype for the complete app experience. Include all screens from the UX spec: welcome/onboarding flows, authentication screens, main app views with empty and populated states, settings, and all key interactions.",
+      "scenario": "When a full app prototype is needed for comprehensive validation"
+    }
+  ],
+  "bestPractices": [
+    "Keep prototypes self-contained with inline CSS and JavaScript. Avoid external CDN links for reliable offline testing.",
+    "Use consistent screen management patterns with data-screen attributes. Hide inactive screens and show only the active one.",
+    "Document all screen states including empty, loading, error, and success states. These are essential for complete user flow validation."
+  ],
+  "antiPatterns": [
+    "Skipping empty, error, or loading states in prototypes. Users need to see how the app handles all scenarios, not just the happy path.",
+    "Using the prototype as a production interface. Prototypes are for validation and should not replace proper implementation.",
+    "Creating prototypes without testing them in a browser. Always verify navigation works and all flows are completable."
+  ],
+  "faq": [
+    {
+      "question": "What is this skill for?",
+      "answer": "This skill converts UX specification documents into interactive single-file HTML prototypes that can be opened in any browser for user flow validation."
+    },
+    {
+      "question": "Do I need to know HTML to use this skill?",
+      "answer": "No. You provide the UX specification and the skill generates a complete working prototype with all screens and interactions."
+    },
+    {
+      "question": "What format should my UX spec be in?",
+      "answer": "The skill reads from specs/architecture/ux.md by default, or any user-specified path. The spec should describe screens, user flows, states, and interactions."
+    },
+    {
+      "question": "Can I use the generated prototype in production?",
+      "answer": "No. Prototypes are for validation and testing only. They lack proper accessibility, performance optimization, and security measures required for production."
+    },
+    {
+      "question": "What does the generated prototype include?",
+      "answer": "Single HTML file with inline CSS and JavaScript, working navigation between screens, essential UI components, empty/loading/error states, and responsive layout."
+    },
+    {
+      "question": "How do I test the prototype?",
+      "answer": "Open the generated HTML file in any web browser. The prototype works offline and includes all necessary code for testing user flows."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "UX prototyping",
+    "interactive prototypes",
+    "user flow validation",
+    "wireframing tool",
+    "prototype generator",
+    "mockup creator",
+    "UX validation"
+  ],
+  "sourceUrl": "https://github.com/Emz1998/avaris-ai/tree/master/.claude/skills/ux-prototyping",
+  "sourceType": "community",
+  "dependencies": []
+}

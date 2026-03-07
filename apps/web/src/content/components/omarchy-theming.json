@@ -1,0 +1,141 @@
+{
+  "name": "omarchy-theming",
+  "type": "skill",
+  "description": "Create and manage Omarchy desktop themes. Use when working with colors.toml, terminal themes (Alacritty/Kitty/Ghostty), Hyprland colors, Waybar styling, btop themes, or theme installation/removal.",
+  "domain": "design",
+  "subdomain": "branding",
+  "specialty": "Desktop themes",
+  "quality": 4,
+  "qualityReason": "Specific theming focus",
+  "bundleHints": [
+    "linux-desktop",
+    "branding-tools",
+    "ui-personalization"
+  ],
+  "tags": [
+    "colors.toml",
+    "desktop",
+    "hyprland",
+    "linux",
+    "terminal",
+    "themes"
+  ],
+  "capabilities": [
+    "Create colors.toml theme files with 22 required color variables",
+    "Generate themes for terminal emulators (Alacritty, Kitty, Ghostty)",
+    "Configure Hyprland and Waybar styling from centralized colors",
+    "Create supporting theme files for neovim, VS Code, btop, and browsers",
+    "Apply light and dark theme modes with appropriate color schemes",
+    "Troubleshoot theme application and variable format issues"
+  ],
+  "author": "BitYoungjae",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown guides and configuration examples. The static analyzer flagged 191 false positives caused by misinterpreting markdown code blocks as shell execution and ANSI color variables (color1-color15) as crypto/C2 keywords. Prior audit correctly identified this as safe with zero risk factors.",
+  "valueStatement": "Creating consistent desktop themes across multiple applications is complex and time-consuming. Omarchy theming provides a centralized colors.toml configuration that automatically generates themes for all desktop applications including terminals, window managers, and system tools.",
+  "userTitle": "Create Omarchy Desktop Themes",
+  "limitations": [
+    "Does not execute theme installation commands (user must run omarchy CLI)",
+    "Cannot access local theme files for editing (purely prompt-based)",
+    "Only supports HEX color format (#RRGGBB), not RGB or HSL",
+    "Does not generate wallpaper images or preview graphics"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Hyprland Users",
+      "title": "Unified Desktop Theme",
+      "description": "Create a single colors.toml that generates consistent Hyprland borders, Waybar styling, and terminal colors across your entire desktop environment."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Matching Editor Theme",
+      "description": "Generate coordinated themes for neovim, VS Code, and terminals from one configuration file for a distraction-free coding environment."
+    },
+    {
+      "targetUser": "System Customizers",
+      "title": "Multi-App Theming",
+      "description": "Apply the same color palette to Alacritty, Kitty, Ghostty, btop, Mako notifications, and browsers with minimal configuration effort."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Dark Theme",
+      "scenario": "New Catppuccin-style dark theme",
+      "prompt": "Create a new Omarchy dark theme called 'catppuccin-dark' with the Mocha color palette. Include colors.toml with all 22 variables, a neovim.lua file for LazyVim, and a btop.theme file."
+    },
+    {
+      "title": "Convert Color Format",
+      "scenario": "HEX to RGB for browser theme",
+      "prompt": "What RGB format does omarchy-theming use for chromium.theme files? Show me how to convert #1e1e2e to the required format."
+    },
+    {
+      "title": "Light Mode Theme",
+      "scenario": "Light theme with light.mode marker",
+      "prompt": "Create a light Omarchy theme with a light blue accent color (#1e66f5), light gray background (#eff1f5), and show how to create the light.mode marker file."
+    },
+    {
+      "title": "Fix Theme Issues",
+      "scenario": "Colors not applying correctly",
+      "prompt": "My terminal colors are not applying after running omarchy-theme-set. What variables might be missing from colors.toml and what format should they use?"
+    }
+  ],
+  "bestPractices": [
+    "Define all 22 color variables in colors.toml to avoid errors during theme generation",
+    "Use the _strip suffix for Hyprland rgb() function and _rgb suffix for rgba() values",
+    "Test themes with omarchy-theme-set after changes and verify each application"
+  ],
+  "antiPatterns": [
+    "Using RGB, HSL, or named colors instead of HEX format in colors.toml",
+    "Missing the backgrounds/ directory with at least one wallpaper image",
+    "Forgetting to create empty light.mode file for light theme variants"
+  ],
+  "faq": [
+    {
+      "question": "Which terminal emulators does Omarchy support?",
+      "answer": "Omarchy supports Alacritty, Kitty, and Ghostty with dedicated template files for each."
+    },
+    {
+      "question": "What happens if I miss color variables in colors.toml?",
+      "answer": "Missing variables cause errors when running omarchy-theme-set. All 22 variables are required."
+    },
+    {
+      "question": "Can I use Omarchy themes with applications outside the template list?",
+      "answer": "Yes, create static config files in your theme directory to override generated templates."
+    },
+    {
+      "question": "Is my theme data stored securely?",
+      "answer": "Yes, themes are stored locally in ~/.config/omarchy/themes with no external data transmission."
+    },
+    {
+      "question": "Why are my colors not applying to specific applications?",
+      "answer": "Check that the template variable names match your colors.toml keys and use the correct format suffix."
+    },
+    {
+      "question": "How does Omarchy compare to other theming tools?",
+      "answer": "Omarchy uses centralized configuration with automatic propagation rather than per-application theme files."
+    }
+  ],
+  "seoKeywords": [
+    "omarchy themes",
+    "desktop theming",
+    "hyprland colors",
+    "terminal themes",
+    "alacritty theme",
+    "kitty theme",
+    "waybar styling",
+    "claude code",
+    "claude ai",
+    "codex"
+  ],
+  "sourceUrl": "https://github.com/BitYoungjae/marketplace/tree/main/plugins/omarchy/skills/omarchy-theming",
+  "sourceType": "community",
+  "dependencies": []
+}

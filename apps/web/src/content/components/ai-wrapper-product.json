@@ -1,0 +1,143 @@
+{
+  "name": "ai-wrapper-product",
+  "type": "skill",
+  "description": "Expert in building products that wrap AI APIs (OpenAI, Anthropic, etc.) into focused tools people will pay for. Not just 'ChatGPT but different' - products that solve specific problems with AI. Covers prompt engineering for products, cost management, rate limiting, and building defensible AI businesses. Use when: AI wrapper, GPT product, AI tool, wrap AI, AI SaaS.",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "AI API products",
+  "quality": 4,
+  "qualityReason": "Strong product strategy focus",
+  "bundleHints": [
+    "ai-entrepreneur",
+    "api-products",
+    "saas-tools"
+  ],
+  "tags": [
+    "ai-entrepreneurship",
+    "ai-products",
+    "api-integration",
+    "cost-optimization",
+    "focused-tools",
+    "product-differentiation",
+    "prompt-engineering",
+    "saas"
+  ],
+  "capabilities": [
+    "Design AI product architecture with proper input validation and output parsing",
+    "Select appropriate AI models based on cost, speed, and quality requirements",
+    "Implement prompt engineering patterns for production AI applications",
+    "Build cost tracking and usage metering systems for AI products",
+    "Create reliable AI outputs with validation and fallback handling",
+    "Differentiate AI products from generic chat interfaces"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 32 static findings are false positives. The scanner detected code block markers in markdown documentation (e.g., ```python) as shell commands, and incorrectly flagged text patterns as cryptographic algorithms. This is a documentation skill containing example code snippets for building AI wrapper products - no actual shell execution, cryptography, or system reconnaissance is present.",
+  "valueStatement": "Learn to build products that wrap AI APIs into focused tools people will pay for. Master product architecture, cost management, and UX patterns for successful AI businesses.",
+  "userTitle": "Build Profitable AI Wrapper Products",
+  "limitations": [
+    "Does not provide actual AI API keys or access credentials",
+    "Does not execute AI calls - provides guidance and patterns only",
+    "Does not include pre-built AI product templates or code repositories",
+    "Requires user to implement their own API integrations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Entrepreneurs and startup founders",
+      "title": "Startup Founder Building AI SaaS",
+      "description": "A founder creating an AI-powered SaaS product learns how to architect their application, manage API costs, and differentiate from competitors."
+    },
+    {
+      "targetUser": "Software developers",
+      "title": "Developer Creating AI Tools",
+      "description": "A developer building AI-powered tools for specific use cases learns best practices for prompt design, output validation, and cost optimization."
+    },
+    {
+      "targetUser": "Product managers",
+      "title": "Product Manager Planning AI Features",
+      "description": "A product manager planning AI features for an existing product learns about model selection, cost implications, and user experience considerations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Design AI Product Architecture",
+      "prompt": "Help me design the architecture for an AI product that [describe product use case]. Include input validation, prompt template structure, API integration approach, and output handling.",
+      "scenario": "Starting a new AI product project"
+    },
+    {
+      "title": "Optimize AI Costs",
+      "prompt": "How can I reduce AI API costs for [describe use case] while maintaining quality? Consider model selection, token optimization, caching strategies, and usage limits.",
+      "scenario": "Managing AI product economics"
+    },
+    {
+      "title": "Improve AI Output Quality",
+      "prompt": "My AI product sometimes produces inconsistent outputs. Help me design prompt patterns and validation logic to ensure reliable, structured responses for [describe use case].",
+      "scenario": "Fixing AI output issues"
+    },
+    {
+      "title": "Differentiate From ChatGPT",
+      "prompt": "How can I differentiate my AI product from generic chat interfaces like ChatGPT? What specific domain expertise, UX patterns, or integrations would add unique value?",
+      "scenario": "Competitive positioning"
+    }
+  ],
+  "bestPractices": [
+    "Start with cheaper models like Haiku for high-volume tasks, upgrade to Sonnet or GPT-4 for complex requests",
+    "Always validate and parse AI outputs before returning to users - never trust raw responses",
+    "Track costs per user from day one to ensure unit economics work before scaling"
+  ],
+  "antiPatterns": [
+    "Building a thin wrapper around ChatGPT with no differentiation - users will just use Chat directly",
+    "Ignoring API costs until scale hits - surprise bills can bankrupt an AI product",
+    "Shipping AI outputs without validation - hallucinations and formatting issues destroy trust"
+  ],
+  "faq": [
+    {
+      "question": "What is an AI wrapper product?",
+      "answer": "An AI wrapper product is a tool or application that uses AI APIs (like OpenAI or Anthropic) as the engine to solve a specific problem. Unlike generic chatbots, wrapper products focus on particular use cases with tailored prompts, UX, and integrations."
+    },
+    {
+      "question": "How do I choose the right AI model for my product?",
+      "answer": "Consider cost, speed, and quality. Haiku is cheapest and fastest for simple tasks. Sonnet offers good balance. GPT-4 is best for complex reasoning but costs more. Start with cheaper models and upgrade based on user needs."
+    },
+    {
+      "question": "How can I reduce AI API costs?",
+      "answer": "Use cheaper models for simple tasks, limit output tokens, cache common queries, batch similar requests, and truncate input context. Track every API call to understand your cost per user."
+    },
+    {
+      "question": "How do I handle AI hallucinations?",
+      "answer": "Include examples in prompts, force structured output formats, validate responses before returning to users, implement retry logic with enhanced prompts, and add post-processing checks."
+    },
+    {
+      "question": "What makes an AI product different from ChatGPT?",
+      "answer": "Differentiate through domain expertise, specialized prompts, integrations with other tools, better UX for specific tasks, and post-processing outputs for consistency. Solve a specific problem better than a general chatbot can."
+    },
+    {
+      "question": "Do I need to worry about AI rate limits?",
+      "answer": "Yes, especially at scale. Implement retry logic with exponential backoff, use fallback models when limits are hit, and consider multiple API providers for redundancy."
+    }
+  ],
+  "seoKeywords": [
+    "AI wrapper product",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "AI API integration",
+    "prompt engineering",
+    "AI SaaS",
+    "AI cost optimization",
+    "AI product architecture",
+    "micro SaaS"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ai-wrapper-product",
+  "sourceType": "community",
+  "dependencies": []
+}

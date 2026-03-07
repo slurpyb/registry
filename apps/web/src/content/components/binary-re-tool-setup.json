@@ -1,0 +1,145 @@
+{
+  "name": "binary-re-tool-setup",
+  "type": "skill",
+  "description": "Use when reverse engineering tools are missing, not working, or need configuration. Installation guides for radare2 (r2), Ghidra, GDB, QEMU, Frida, binutils, and cross-compilation toolchains. Keywords - \"install radare2\", \"setup ghidra\", \"r2 not found\", \"qemu missing\", \"tool not installed\", \"configure gdb\", \"cross-compiler",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "tool installation",
+  "quality": 5,
+  "qualityReason": "Essential setup guidance",
+  "bundleHints": [
+    "toolchain-setup",
+    "reverse-engineering"
+  ],
+  "tags": [
+    "binary-analysis",
+    "binutils",
+    "frida",
+    "gdb",
+    "ghidra",
+    "qemu",
+    "radare2",
+    "reverse-engineering",
+    "security-research",
+    "tool-installation"
+  ],
+  "capabilities": [
+    "Install radare2, rabin2, and r2ghidra decompilation plugin",
+    "Set up Ghidra headless analyzer for batch processing",
+    "Configure QEMU user-space emulation for cross-architecture binary execution",
+    "Install GDB with multiarch support and GEF enhancements",
+    "Set up Frida for dynamic instrumentation on Linux ARM targets",
+    "Create cross-compilation sysroots for ARM and ARM64 analysis"
+  ],
+  "author": "2389-research",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "medium",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate reverse engineering tool setup skill. Static scanner flagged many patterns (external commands, sudo, Docker --privileged) that are standard for cross-platform tool installation. All high-severity findings evaluated as FALSE_POSITIVES - patterns are expected for reverse engineering tool installation workflows.",
+  "valueStatement": "Binary analysis requires properly installed tools. This skill provides installation guides for radare2, Ghidra, GDB, QEMU, and cross-compilation toolchains across Ubuntu, WSL2, macOS, and Arch Linux.",
+  "userTitle": "Set up reverse engineering tools",
+  "limitations": [
+    "Does not execute tool commands - only provides installation documentation",
+    "Requires sudo/root access for system package installation",
+    "macOS QEMU support limited without Docker for full cross-arch emulation",
+    "GDB on macOS requires code signing for debugging support"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security researchers starting a new project",
+      "title": "New analysis environment setup",
+      "description": "Get a fresh reverse engineering environment ready with all required tools for static and dynamic analysis."
+    },
+    {
+      "targetUser": "Security analysts working across multiple systems",
+      "title": "Cross-platform tool installation",
+      "description": "Install the same reverse engineering toolchain on Ubuntu, WSL2, macOS, or Arch Linux systems."
+    },
+    {
+      "targetUser": "Reverse engineers encountering tool errors",
+      "title": "Troubleshoot missing tools",
+      "description": "Diagnose why analysis commands fail and install the missing reverse engineering components."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic installation",
+      "prompt": "Install radare2, Ghidra, GDB, QEMU, and cross-compilation toolchains on my system.",
+      "scenario": "When you need all core reverse engineering tools installed"
+    },
+    {
+      "title": "Platform-specific setup",
+      "prompt": "Set up reverse engineering tools on [Ubuntu/macOS/WSL2/Arch Linux].",
+      "scenario": "When you need platform-specific installation instructions"
+    },
+    {
+      "title": "Verify toolchain",
+      "prompt": "Verify that radare2, QEMU, and GDB are working correctly and show their versions.",
+      "scenario": "When you want to confirm tools are properly installed"
+    },
+    {
+      "title": "Cross-architecture setup",
+      "prompt": "Configure QEMU and sysroots for analyzing ARM and ARM64 binaries on my x86-64 system.",
+      "scenario": "When you need to analyze binaries from different architectures"
+    }
+  ],
+  "bestPractices": [
+    "Use WSL2 on Windows for best compatibility with Linux reverse engineering tools",
+    "Install sysroots before analyzing cross-architecture binaries to avoid runtime errors",
+    "Verify tool installations with version checks after setup",
+    "Configure ~/.radare2rc with appropriate analysis timeouts for large binaries"
+  ],
+  "antiPatterns": [
+    "Installing tools without verifying they work - always run version checks",
+    "Mounting analysis files from /tmp in Docker containers (use ~/path instead)",
+    "Skipping r2ghidra plugin installation when decompilation is needed",
+    "Running analysis without proper sysroots for the target architecture"
+  ],
+  "faq": [
+    {
+      "question": "What tools are required for basic binary reverse engineering?",
+      "answer": "radare2 for disassembly and analysis, GDB with multiarch for debugging, QEMU for cross-architecture emulation, and optionally Ghidra for decompilation."
+    },
+    {
+      "question": "How do I analyze ARM binaries on an x86-64 system?",
+      "answer": "Install qemu-user, qemu-user-static, and the ARM sysroots. Then use qemu-arm or qemu-aarch64 to execute binaries, or qemu-arm -g 1234 for remote debugging with GDB."
+    },
+    {
+      "question": "Why does Ghidra decompilation fail in radare2?",
+      "answer": "The r2ghidra plugin is not installed. Run r2pm -ci r2ghidra to install it. Verify with r2 -qc 'pdg?' - which should return usage information."
+    },
+    {
+      "question": "Can I use these tools on macOS?",
+      "answer": "radare2 and Ghidra work natively. QEMU lacks full user-space emulation support on macOS; use Docker with Colima for cross-arch analysis. GDB requires code signing on macOS."
+    },
+    {
+      "question": "How do I verify my toolchain is working?",
+      "answer": "Run version checks for each tool: r2 -v, qemu-arm --version, gdb --version. Test cross-arch by running an ARM binary with qemu-arm."
+    },
+    {
+      "question": "What are sysroots and why do I need them?",
+      "answer": "Sysroots are root filesystem libraries for target architectures. They provide the correct shared libraries that cross-compiled binaries need at runtime. Install libc6-*-cross packages for ARM."
+    }
+  ],
+  "seoKeywords": [
+    "reverse engineering tools",
+    "radare2 installation",
+    "Ghidra setup",
+    "binary analysis",
+    "QEMU cross-arch",
+    "GDB multiarch",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/2389-research/claude-plugins/tree/main/binary-re/skills/tool-setup",
+  "sourceType": "community",
+  "dependencies": []
+}

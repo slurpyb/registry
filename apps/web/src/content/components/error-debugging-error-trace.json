@@ -1,0 +1,142 @@
+{
+  "name": "error-debugging-error-trace",
+  "type": "skill",
+  "description": "You are an error tracking and observability expert specializing in implementing comprehensive error monitoring solutions. Set up error tracking systems, configure alerts, implement structured logging, and ensure teams can quickly identify and resolve production issues.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "error tracking",
+  "quality": 5,
+  "qualityReason": "Production-critical monitoring",
+  "bundleHints": [
+    "observability-stack",
+    "error-tracking"
+  ],
+  "tags": [
+    "alerting",
+    "debugging",
+    "error-tracking",
+    "monitoring",
+    "observability",
+    "production",
+    "sentry",
+    "structured-logging"
+  ],
+  "capabilities": [
+    "Set up Sentry SDK for Node.js, Python, and web applications",
+    "Configure error grouping, severity levels, and triage workflows",
+    "Implement structured logging with appropriate context",
+    "Create alert rules and notification routing for different error types",
+    "Add custom error fingerprinting for better deduplication",
+    "Build real-time error monitoring dashboards"
+  ],
+  "author": "sickn33",
+  "icon": "🔍",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 35 static findings are false positives. The backtick characters flagged are JavaScript template literals, not shell execution. Network calls are legitimate error tracking API communications. Environment access patterns are configuration objects, not secret exfiltration. This is a legitimate error monitoring implementation guide.",
+  "valueStatement": "Production errors go unnoticed without proper monitoring. This skill helps you set up Sentry and other error tracking systems to detect, triage, and resolve issues before users complain.",
+  "userTitle": "Implement Error Tracking with Sentry",
+  "limitations": [
+    "Requires application code access for SDK integration",
+    "Cannot retroactively capture errors before SDK installation",
+    "May require paid plans for advanced features on hosted services",
+    "Does not replace manual code debugging for complex issues"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building new services",
+      "title": "Add error tracking to a new Node.js API",
+      "description": "Set up Sentry from scratch for a REST API, configure source maps, and create alerts for 5xx errors"
+    },
+    {
+      "targetUser": "DevOps and SRE engineers",
+      "title": "Improve existing error handling",
+      "description": "Analyze current error patterns, implement structured logging, and reduce noise from unactionable errors"
+    },
+    {
+      "targetUser": "Engineering managers and platform teams",
+      "title": "Create observability dashboard",
+      "description": "Build a real-time error monitoring dashboard with trend analysis and team alerting workflows"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Sentry Setup",
+      "prompt": "Set up Sentry error tracking for my Node.js application. The project is in /app and uses Express. Configure it to capture unhandled rejections and exceptions with environment 'production'.",
+      "scenario": "Quick setup for a new project"
+    },
+    {
+      "title": "Configure Error Grouping",
+      "prompt": "Our Sentry dashboard has too many duplicate errors. Set up custom fingerprinting to group similar errors together based on the error message and stack trace pattern. Show me how to configure this in the SDK.",
+      "scenario": "Reducing error noise"
+    },
+    {
+      "title": "Alert Routing Setup",
+      "prompt": "Configure Sentry alerts for our team. Route critical errors (5xx responses) to Slack #incidents, warnings to #engineering, and rate limits to #alerts-oncall. Use environment-based rules.",
+      "scenario": "Setting up notifications"
+    },
+    {
+      "title": "Structured Logging Migration",
+      "prompt": "Migrate our console.log statements to structured logging compatible with Sentry. Include request ID, user ID, and operation name in the context for every log statement.",
+      "scenario": "Improving debuggability"
+    }
+  ],
+  "bestPractices": [
+    "Always include user context (ID, email) when available to help debug user-specific issues",
+    "Use environment-based DSN configuration to separate production from development errors",
+    "Implement release tracking to correlate errors with specific deployments"
+  ],
+  "antiPatterns": [
+    "Capturing full request bodies without sanitizing sensitive fields like passwords",
+    "Setting sample rates too high during high-traffic periods causing bill spikes",
+    "Ignoring duplicate errors without proper fingerprinting configuration"
+  ],
+  "faq": [
+    {
+      "question": "What languages and frameworks does this skill support?",
+      "answer": "This skill covers Node.js, Python, and web JavaScript. Examples use Sentry but concepts apply to other services like Rollbar and Bugsnag."
+    },
+    {
+      "question": "Do I need a Sentry account?",
+      "answer": "Yes, you need a Sentry account and project DSN. The free tier covers 5k errors per month which is sufficient for small projects."
+    },
+    {
+      "question": "Can this skill help with performance monitoring?",
+      "answer": "Yes, the implementation playbook includes performance monitoring setup with tracing and profiling configurations."
+    },
+    {
+      "question": "How do I handle sensitive data in errors?",
+      "answer": "Use the beforeSend hook to sanitize events. The skill includes examples that filter password, token, and secret fields."
+    },
+    {
+      "question": "Does this work with self-hosted error tracking?",
+      "answer": "Yes, you can use self-hosted Sentry or any service compatible with the Sentry SDK protocol by pointing to your own DSN."
+    },
+    {
+      "question": "How do I debug errors that Sentry is not capturing?",
+      "answer": "Check that the SDK is initialized before other middleware, verify the DSN is correct, and ensure sample rates are not set to 0."
+    }
+  ],
+  "seoKeywords": [
+    "Claude error tracking",
+    "Claude Code error monitoring",
+    "Codex debugging skill",
+    "Sentry setup guide",
+    "error tracking implementation",
+    "observability skill",
+    "structured logging",
+    "error monitoring",
+    "production debugging",
+    "alert configuration"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/error-debugging-error-trace",
+  "sourceType": "community",
+  "dependencies": []
+}

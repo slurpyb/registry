@@ -1,0 +1,138 @@
+{
+  "name": "claude-hooks",
+  "type": "skill",
+  "description": "Claude Code hooks configuration specialist. Use when creating hooks for",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "hook configuration",
+  "quality": 4,
+  "qualityReason": "Slight overlap with other hook skills",
+  "bundleHints": [
+    "claude-code-tools",
+    "workflow-automation"
+  ],
+  "tags": [
+    "automation",
+    "claude-code",
+    "configuration",
+    "hooks",
+    "logging",
+    "notifications"
+  ],
+  "capabilities": [
+    "Create PreToolUse validation hooks to validate tool inputs before execution",
+    "Set up PostToolUse logging hooks to record tool outputs and file changes",
+    "Configure notification hooks for custom alerts and integrations",
+    "Implement Stop hooks for cleanup tasks and final reports",
+    "Document hook patterns and matcher configurations",
+    "Provide environment variable references for hook scripts"
+  ],
+  "author": "Joseph OBrien",
+  "icon": "🪝",
+  "version": "1.0.1",
+  "license": "UNLICENSED",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only markdown documentation files with hook configuration templates. No executable code, scripts, network calls, or file system access. Static findings are false positives caused by the analyzer detecting example shell command syntax in documentation, not actual executing code.",
+  "valueStatement": "Claude Code hooks enable automated validation, logging, and notifications during AI tool execution. This skill provides templates and best practices for configuring PreToolUse, PostToolUse, Notification, and Stop hooks.",
+  "userTitle": "Configure Claude Code hooks for automation",
+  "limitations": [
+    "This skill provides reference documentation only, not executable hook code",
+    "Users must manually configure hooks in ~/.claude/settings.json",
+    "Hook commands must be written and tested by the user"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Audit tool execution",
+      "description": "Log all Claude Code tool calls for compliance auditing and security review"
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Enforce coding standards",
+      "description": "Validate code changes before execution to enforce team conventions"
+    },
+    {
+      "targetUser": "Power users",
+      "title": "Custom notifications",
+      "description": "Send alerts to external systems when specific tools complete or fail"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create validation hook",
+      "scenario": "Add pre-execution validation",
+      "prompt": "Show me how to create a PreToolUse hook that validates Bash commands before they run"
+    },
+    {
+      "title": "Set up logging",
+      "scenario": "Log file operations",
+      "prompt": "Create a PostToolUse hook that logs all file write operations to a file"
+    },
+    {
+      "title": "Notification integration",
+      "scenario": "Send alerts",
+      "prompt": "Configure a Notification hook that sends alerts to Slack when Claude completes tasks"
+    },
+    {
+      "title": "Matcher patterns",
+      "scenario": "Target specific tools",
+      "prompt": "Explain the different matcher patterns I can use to target specific tools like Bash(git:*) or MCP tools"
+    }
+  ],
+  "bestPractices": [
+    "Keep hooks fast (under 1 second) to avoid blocking Claude Code execution",
+    "Use specific matcher patterns instead of wildcards to target only needed tools",
+    "Handle errors gracefully with proper shell error handling to prevent cascade failures"
+  ],
+  "antiPatterns": [
+    "Using verbose logging in hooks that adds excessive output to the conversation context",
+    "Creating hooks that block indefinitely without timeout handling",
+    "Configuring hooks for all tools (*) when only specific tools need automation"
+  ],
+  "faq": [
+    {
+      "question": "Which Claude versions support hooks?",
+      "answer": "Hooks require Claude Code version 0.9.0 or later. Check your installation with 'claude --version'."
+    },
+    {
+      "question": "What is the maximum hook execution time?",
+      "answer": "Hooks should complete in under 1 second. Long-running hooks will block Claude Code tool execution."
+    },
+    {
+      "question": "How do hooks integrate with MCP tools?",
+      "answer": "Use matcher pattern 'mcp__*' to target all MCP tools, or specific MCP tool names for individual tools."
+    },
+    {
+      "question": "Are hooks secure?",
+      "answer": "Hooks run as your user with your permissions. Only install hooks from trusted sources and review commands before use."
+    },
+    {
+      "question": "Why is my hook not triggering?",
+      "answer": "Check that your settings.json has correct JSON syntax, the event name matches (PreToolUse, PostToolUse), and matcher patterns are valid."
+    },
+    {
+      "question": "How do hooks differ from custom instructions?",
+      "answer": "Hooks execute shell commands automatically on events, while custom instructions affect Claude's behavior through prompt context."
+    }
+  ],
+  "seoKeywords": [
+    "Claude hooks",
+    "Claude Code automation",
+    "Claude Code hooks configuration",
+    "PreToolUse hook",
+    "PostToolUse hook",
+    "tool validation",
+    "workflow automation",
+    "Claude Code notifications",
+    "claude-code",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/89jobrien/steve/tree/main/steve/skills/claude-hooks",
+  "sourceType": "community",
+  "dependencies": []
+}

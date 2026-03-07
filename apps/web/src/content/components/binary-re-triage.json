@@ -1,0 +1,143 @@
+{
+  "name": "binary-re-triage",
+  "type": "skill",
+  "description": "Use when first encountering an unknown binary, ELF file, executable, or firmware blob. Fast fingerprinting via rabin2 - architecture detection (ARM, x86, MIPS), ABI identification, dependency mapping, string extraction. Keywords - \"what is this binary\", \"identify architecture\", \"check file type\", \"rabin2\", \"file analysis\", \"quick scan",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "fast fingerprinting",
+  "quality": 5,
+  "qualityReason": "Efficient initial analysis",
+  "bundleHints": [
+    "triage-process",
+    "malware-analysis"
+  ],
+  "tags": [
+    "abi",
+    "architecture",
+    "binary-analysis",
+    "dependencies",
+    "elf",
+    "firmware",
+    "rabin2",
+    "reverse-engineering",
+    "security"
+  ],
+  "capabilities": [
+    "Detect CPU architecture (ARM, x86, MIPS, RISC-V) using file and rabin2",
+    "Identify libc type (glibc, musl, uClibc) via interpreter path analysis",
+    "Extract library dependencies and imported functions",
+    "Map capability patterns from function imports (network, crypto, file I/O)",
+    "Generate structured JSON output with binary metadata",
+    "Record findings to episodic memory with hypothesis tracking"
+  ],
+  "author": "2389-research",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill providing guidance for binary reverse engineering analysis. The skill contains no executable code - only markdown documentation describing how to run standard Unix analysis tools (file, rabin2, readelf) for identifying unknown binaries. All patterns flagged as concerning (C2 keywords, crypto references, mmap) are legitimate security research terminology used to describe what analysts should look FOR when analyzing potentially malicious binaries, not how to create them. This is standard security research documentation from a legitimate reverse engineering workflow.",
+  "valueStatement": "Unknown binaries from embedded devices require quick identification before analysis. This skill runs rabin2 and file commands to extract architecture, libc type, and library dependencies in seconds.",
+  "userTitle": "Identify binary architecture and dependencies",
+  "limitations": [
+    "Does not execute or decompile the binary",
+    "Cannot analyze encrypted or packed binaries without unpacker",
+    "Requires radare2 and readelf tools to be installed",
+    "Limited on Windows hosts (native radare2 recommended via WSL)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security researchers",
+      "title": "Quick binary classification",
+      "description": "Rapidly identify embedded device firmware binaries to determine analysis approach and tool selection."
+    },
+    {
+      "targetUser": "Reverse engineers",
+      "title": "Pre-analysis assessment",
+      "description": "Establish baseline facts about unknown executables before committing to expensive static or dynamic analysis."
+    },
+    {
+      "targetUser": "Embedded developers",
+      "title": "Dependency inventory",
+      "description": "Catalog shared library dependencies and identify which capabilities a binary likely contains."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "What is this binary?",
+      "scenario": "Quick identification",
+      "prompt": "I have a binary at /path/to/file. What architecture is it? What libraries does it link against?"
+    },
+    {
+      "title": "Identify dependencies",
+      "scenario": "Library scan",
+      "prompt": "Run triage on this binary and show me all imported functions and shared library dependencies."
+    },
+    {
+      "title": "Assess capabilities",
+      "scenario": "Quick capability check",
+      "prompt": "What does this binary likely do based on its imports? Look for network, crypto, or file I/O patterns."
+    },
+    {
+      "title": "Generate analysis report",
+      "scenario": "Complete triage",
+      "prompt": "Perform full triage on this binary including: file type, arch, bits, endian, libc, imports, exports, and interesting strings."
+    }
+  ],
+  "bestPractices": [
+    "Always run triage before deeper analysis to select correct tools (QEMU, GDB architecture)",
+    "Record findings in episodic memory so you can resume analysis in future sessions",
+    "Use the JSON output format for structured data that Claude can parse reliably"
+  ],
+  "antiPatterns": [
+    "Skipping triage and jumping straight to disassembly without knowing the architecture",
+    "Using x86 tools on ARM binaries without QEMU emulation",
+    "Assuming static binary means safe to execute without sandboxing"
+  ],
+  "faq": [
+    {
+      "question": "What tools must be installed?",
+      "answer": "radare2, readelf, file command. Install via apt (r2, binutils) on Linux or brew on macOS."
+    },
+    {
+      "question": "Can it analyze Windows executables?",
+      "answer": "No. This skill targets ELF binaries from embedded Linux devices. Use other tools for PE/EXE analysis."
+    },
+    {
+      "question": "How long does triage take?",
+      "answer": "Seconds. It runs quick metadata extraction commands. Full string scan may take a few seconds on large binaries."
+    },
+    {
+      "question": "Does it modify the binary?",
+      "answer": "No. All commands are read-only analysis (file, rabin2 -q, readelf). No modifications are made."
+    },
+    {
+      "question": "What if rabin2 is not installed?",
+      "answer": "Install radare2: apt install radare2 or brew install radare2. Triage requires rabin2 from the radare2 suite."
+    },
+    {
+      "question": "How is this different from static analysis?",
+      "answer": "Triage is fast fingerprinting (seconds) that identifies WHAT the binary is. Static analysis is deep function enumeration that shows HOW it works."
+    }
+  ],
+  "seoKeywords": [
+    "binary triage",
+    "rabin2",
+    "ELF analysis",
+    "architecture detection",
+    "binary fingerprinting",
+    "reverse engineering",
+    "Claude Code skill",
+    "embedded security",
+    "firmware analysis",
+    "radare2"
+  ],
+  "sourceUrl": "https://github.com/2389-research/claude-plugins/tree/main/binary-re/skills/triage",
+  "sourceType": "community",
+  "dependencies": []
+}

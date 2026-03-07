@@ -1,0 +1,141 @@
+{
+  "name": "rn-testing",
+  "type": "skill",
+  "description": "Testing patterns for React Native with Jest and React Native Testing Library. Use when writing tests, mocking Expo modules, testing Zustand stores, or debugging test failures.",
+  "domain": "testing",
+  "subdomain": "unit",
+  "specialty": "Jest testing",
+  "quality": 5,
+  "qualityReason": "Comprehensive test patterns",
+  "bundleHints": [
+    "react-native-stack",
+    "testing-suite"
+  ],
+  "tags": [
+    "jest",
+    "mocking",
+    "react-native",
+    "react-native-testing-library",
+    "testing",
+    "zustand-stores"
+  ],
+  "capabilities": [
+    "Zustand store testing with proper state reset between tests",
+    "Expo module mocking patterns for Jest",
+    "React Query component testing with QueryClientProvider",
+    "Custom hook testing with renderHook",
+    "Component testing with fireEvent and waitFor",
+    "Navigation and async operation testing"
+  ],
+  "author": "CJHarmath",
+  "icon": "🧪",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is pure documentation containing only testing patterns for React Native. The static scanner incorrectly flagged markdown code blocks and JavaScript method names. No executable code, network calls, or file operations exist in this skill.",
+  "valueStatement": "Writing tests for React Native apps requires understanding of mocking native modules, handling async state, and testing Zustand stores. This skill provides proven patterns and code examples for reliable test suites.",
+  "userTitle": "Test React Native Apps with Jest",
+  "limitations": [
+    "Does not execute tests or interact with test runners",
+    "Does not modify project files or Jest configuration",
+    "Does not provide mock data or test fixtures",
+    "Pattern examples are for reference; users must adapt to their codebase"
+  ],
+  "useCases": [
+    {
+      "targetUser": "React Native developers",
+      "title": "Fix flaky store tests",
+      "description": "Learn how to reset Zustand store state between tests to prevent state leakage causing intermittent test failures."
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Mock Expo native modules",
+      "description": "Set up proper mocks for expo-router, expo-secure-store, and other Expo modules in Jest tests."
+    },
+    {
+      "targetUser": "Frontend engineers",
+      "title": "Test async operations",
+      "description": "Handle async store actions and React Query data fetching in tests using act() and waitFor."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic test pattern",
+      "scenario": "Need React Native testing patterns",
+      "prompt": "How do I test a React Native component with Jest and React Native Testing Library?"
+    },
+    {
+      "title": "Zustand store test",
+      "scenario": "Testing Zustand stores",
+      "prompt": "How do I test a Zustand store and prevent state from persisting between tests?"
+    },
+    {
+      "title": "Expo module mock",
+      "scenario": "Mocking Expo modules",
+      "prompt": "Show me how to mock expo-router and expo-secure-store in Jest tests."
+    },
+    {
+      "title": "Async test debugging",
+      "scenario": "Debugging async test issues",
+      "prompt": "My React Native tests have act() warnings and timeouts. How do I fix them?"
+    }
+  ],
+  "bestPractices": [
+    "Always reset store state in beforeEach to prevent test pollution between tests",
+    "Use findBy* queries instead of getBy* for async content to avoid race conditions",
+    "Mock external dependencies like expo-router at the module level for consistent behavior"
+  ],
+  "antiPatterns": [
+    "Using getBy* queries for async content that may not appear immediately",
+    "Forgetting to clear mocks with jest.clearAllMocks() between navigation tests",
+    "Testing implementation details instead of user-visible behavior"
+  ],
+  "faq": [
+    {
+      "question": "Which testing frameworks does this skill cover?",
+      "answer": "Jest and React Native Testing Library are the primary frameworks. Patterns work with Expo and non-Expo React Native projects."
+    },
+    {
+      "question": "What Jest version is required?",
+      "answer": "Patterns work with Jest 29+ which is standard in modern React Native projects using Expo 49 or higher."
+    },
+    {
+      "question": "How do I integrate with my existing test setup?",
+      "answer": "Copy pattern examples directly into your test files. Mock configurations can be added to jest.setup.js for global availability."
+    },
+    {
+      "question": "Does this skill modify my project files?",
+      "answer": "No. This is a prompt-based skill that provides guidance. You manually implement patterns in your codebase."
+    },
+    {
+      "question": "Why do I see act() warnings in my tests?",
+      "answer": "State updates occur outside act() wrapper. Use act() for async operations and waitFor() for assertions on async content."
+    },
+    {
+      "question": "How is this different from rn-zustand-patterns skill?",
+      "answer": "rn-zustand-patterns covers implementing stores. This skill focuses specifically on testing stores, components, and hooks that use them."
+    }
+  ],
+  "seoKeywords": [
+    "React Native testing",
+    "Jest testing",
+    "React Native Testing Library",
+    "Zustand store testing",
+    "Expo module mocking",
+    "React Native unit tests",
+    "React Native component tests",
+    "React Query testing",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/CJHarmath/claude-agents-skills/tree/main/skills/rn-testing",
+  "sourceType": "community",
+  "dependencies": []
+}

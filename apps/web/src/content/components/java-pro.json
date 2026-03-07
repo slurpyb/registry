@@ -1,0 +1,141 @@
+{
+  "name": "java-pro",
+  "type": "skill",
+  "description": "Master Java 21+ with modern features like virtual threads, pattern",
+  "domain": "languages",
+  "subdomain": "java",
+  "specialty": "Java 21+ mastery",
+  "quality": 5,
+  "qualityReason": "Cutting-edge Java expertise",
+  "bundleHints": [
+    "java-stack",
+    "cloud-java"
+  ],
+  "tags": [
+    "cloud-native",
+    "enterprise",
+    "graalvm",
+    "java",
+    "java-21",
+    "spring-boot",
+    "virtual-threads"
+  ],
+  "capabilities": [
+    "Design applications using Java 21+ features like virtual threads, pattern matching, and sealed classes",
+    "Implement Spring Boot 3.x microservices with Spring Security 6 and OAuth2 authentication",
+    "Optimize JVM performance with GraalVM Native Image and garbage collection tuning",
+    "Apply enterprise architecture patterns including DDD, CQRS, and hexagonal architecture",
+    "Create comprehensive test strategies with JUnit 5, Testcontainers, and Spring Boot Test",
+    "Configure cloud-native deployments with Docker, Kubernetes, and distributed tracing"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only skill with no executable code. Static analysis scanned 0 files and found 0 security issues. The skill provides AI instructions for Java 21+ development guidance with no network access, file system operations, or external command execution capabilities.",
+  "valueStatement": "Java developers struggle with adopting modern Java 21+ features and Spring Boot 3.x best practices. This skill provides expert guidance on virtual threads, cloud-native patterns, and enterprise architecture.",
+  "userTitle": "Build Modern Java 21+ Applications with Spring Boot 3.x",
+  "limitations": [
+    "Cannot execute Java code or run applications directly",
+    "Cannot access external systems, databases, or build tools",
+    "Recommendations are based on documented best practices up to training cutoff",
+    "Cannot perform actual performance testing or profiling"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Senior Java developers maintaining enterprise applications",
+      "title": "Migrate Legacy Java Application to Java 21",
+      "description": "Get step-by-step guidance for upgrading from Java 8 or 11 to Java 21, including virtual thread migration, module system updates, and dependency compatibility checks."
+    },
+    {
+      "targetUser": "Backend engineers building distributed systems",
+      "title": "Build Cloud-Native Microservices with Spring Boot 3",
+      "description": "Design and implement microservices architecture with Spring Cloud, resilience patterns, distributed tracing, and Kubernetes deployment configurations."
+    },
+    {
+      "targetUser": "Performance engineers and DevOps teams",
+      "title": "Optimize JVM Performance for Production Workloads",
+      "description": "Receive JVM tuning recommendations, garbage collection optimization strategies, and GraalVM native compilation guidance for improved startup and memory efficiency."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Java 21 Feature Adoption",
+      "prompt": "I'm currently using Java 11 in my Spring Boot application. Help me identify the top 5 Java 21 features that would provide the most value for my REST API service, and show me how to implement virtual threads for better concurrency.",
+      "scenario": "Developer upgrading from older Java LTS version"
+    },
+    {
+      "title": "Spring Boot 3 Migration",
+      "prompt": "I need to migrate my Spring Boot 2.7 application to Spring Boot 3.x with Java 21. Create a migration checklist covering Jakarta EE namespace changes, Spring Security 6 updates, and any breaking changes I should address.",
+      "scenario": "Team lead planning framework upgrade"
+    },
+    {
+      "title": "Microservices Architecture Design",
+      "prompt": "Design a microservices architecture for an e-commerce platform using Spring Boot 3 and Spring Cloud. Include service boundaries, inter-service communication patterns, circuit breaker configuration with Resilience4j, and distributed tracing setup with Micrometer.",
+      "scenario": "Architect designing new distributed system"
+    },
+    {
+      "title": "GraalVM Native Image Optimization",
+      "prompt": "My Spring Boot application has slow container startup times. Guide me through creating a GraalVM native image build, including reflection configuration, dependency exclusions, and performance benchmarking with JMH.",
+      "scenario": "DevOps engineer optimizing cloud deployment"
+    }
+  ],
+  "bestPractices": [
+    "Always use virtual threads for I/O-bound operations to maximize throughput without thread pool tuning",
+    "Leverage pattern matching and sealed classes to reduce boilerplate and improve type safety",
+    "Configure GraalVM native image builds for Lambda functions and containerized microservices to reduce cold start times"
+  ],
+  "antiPatterns": [
+    "Using platform thread pools with fixed sizes when virtual threads can handle massive concurrency",
+    "Mixing Java 21 features with legacy patterns that prevent compile-time optimization",
+    "Skipping integration tests when adopting new Java or Spring Boot features"
+  ],
+  "faq": [
+    {
+      "question": "What Java version do I need to use this skill effectively?",
+      "answer": "This skill focuses on Java 21+ LTS features. You can use it with Java 17 or 11, but some recommendations may require upgrading to access virtual threads and pattern matching features."
+    },
+    {
+      "question": "Does this skill help with Spring Boot 3 migration?",
+      "answer": "Yes. It provides migration guidance covering Jakarta EE namespace changes, Spring Security 6 updates, and compatibility considerations for upgrading from Spring Boot 2.x."
+    },
+    {
+      "question": "Can this skill generate working Java code?",
+      "answer": "Yes. It can generate code examples, configuration files, and implementation patterns. However, you must integrate and test the code in your specific environment."
+    },
+    {
+      "question": "What cloud platforms does this skill support?",
+      "answer": "The skill provides cloud-agnostic guidance for Docker and Kubernetes deployments. Recommendations apply to AWS, GCP, Azure, and on-premise container orchestration."
+    },
+    {
+      "question": "Does this skill cover testing strategies?",
+      "answer": "Yes. It covers JUnit 5, Mockito, Spring Boot Test, Testcontainers for integration testing, and contract testing with Spring Cloud Contract."
+    },
+    {
+      "question": "Can this skill help with JVM performance tuning?",
+      "answer": "Yes. It provides garbage collection optimization, memory profiling guidance, JIT compiler tuning, and GraalVM native image compilation recommendations."
+    }
+  ],
+  "seoKeywords": [
+    "Java 21",
+    "Spring Boot 3.x",
+    "virtual threads",
+    "Project Loom",
+    "GraalVM",
+    "cloud-native Java",
+    "Claude Code Java",
+    "Codex Java development",
+    "Claude Java assistant",
+    "enterprise Java"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/java-pro",
+  "sourceType": "community",
+  "dependencies": []
+}

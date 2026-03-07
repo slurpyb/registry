@@ -1,0 +1,143 @@
+{
+  "name": "agent-md-refactor",
+  "type": "skill",
+  "description": "Refactor bloated AGENTS.md, CLAUDE.md, or similar agent instruction files to follow progressive disclosure principles. Splits monolithic files into organized, linked documentation.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "file organization",
+  "quality": 5,
+  "qualityReason": "Clear documentation improvement goal",
+  "bundleHints": [
+    "documentation-suite",
+    "agent-instructions"
+  ],
+  "tags": [
+    "claude",
+    "claude-code",
+    "codex",
+    "documentation",
+    "linking",
+    "modular",
+    "progressive-disclosure",
+    "refactoring"
+  ],
+  "capabilities": [
+    "Analyzes agent instruction files for contradictions and conflicts",
+    "Identifies essential instructions to keep in the root file",
+    "Groups remaining instructions into logical categories",
+    "Creates organized file structure with linked documentation",
+    "Flags redundant or vague instructions for deletion"
+  ],
+  "author": "softaworks",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. This is a documentation-only skill containing SKILL.md and README.md files. The scanner flagged markdown code examples (backtick syntax) and text patterns as security issues, but these are simply documentation content with no executable code.",
+  "valueStatement": "Claude Code often accumulates hundreds of lines of mixed instructions in AGENTS.md or CLAUDE.md files, wasting context tokens and creating maintenance headaches. This skill refactors monolithic agent instructions into clean, linked documentation using progressive disclosure principles.",
+  "userTitle": "Organize bloated agent instructions",
+  "limitations": [
+    "Does not modify files without user approval",
+    "Does not execute any code or shell commands",
+    "Does not access external APIs or networks",
+    "Does not handle non-markdown instruction formats"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers with large codebases",
+      "title": "Clean up overgrown CLAUDE.md files",
+      "description": "When a project's CLAUDE.md has grown to 200+ lines with mixed topics, this skill restructures it into a minimal root file plus focused linked documents."
+    },
+    {
+      "targetUser": "Teams with multiple contributors",
+      "title": "Resolve conflicting agent instructions",
+      "description": "Before restructuring, the skill identifies contradictory guidelines (like 'use semicolons' vs 'no semicolons') and asks the user to resolve them first."
+    },
+    {
+      "targetUser": "Project maintainers",
+      "title": "Prepare new projects with organized instructions",
+      "description": "For new projects, the skill provides templates and structure for organizing agent instructions from the start using progressive disclosure."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic refactoring request",
+      "prompt": "Refactor my CLAUDE.md file to follow progressive disclosure principles. Keep only essential instructions in the root and organize the rest into linked files.",
+      "scenario": "User wants to clean up a bloated agent instruction file"
+    },
+    {
+      "title": "Split long AGENTS.md",
+      "prompt": "My AGENTS.md file is too long and mixed with unrelated topics. Analyze it for contradictions, then split it into a minimal root file plus categorized linked documentation.",
+      "scenario": "User has a long, disorganized AGENTS.md file"
+    },
+    {
+      "title": "Organize agent config",
+      "prompt": "Organize my agent configuration. Identify what belongs in the root file versus linked files. Create a file structure with proper links and templates.",
+      "scenario": "User wants systematic organization of instructions"
+    },
+    {
+      "title": "Full refactoring with deletion",
+      "prompt": "Completely refactor my agent instructions. Find all contradictions, identify essentials vs optional content, create categorized linked files, and flag anything that should be deleted for wasting context tokens.",
+      "scenario": "User wants comprehensive refactoring"
+    }
+  ],
+  "bestPractices": [
+    "Commit current state before refactoring so you can review changes as a diff",
+    "Resolve all contradictions before proceeding to avoid propagating conflicts",
+    "Keep the root file under 50 lines - move anything not universal to linked files",
+    "Delete vague or redundant instructions rather than keeping them"
+  ],
+  "antiPatterns": [
+    "Keeping everything in the root file even when most instructions are rarely used",
+    "Creating too many small files that fragment the documentation",
+    "Including obvious or default behaviors that the agent already knows",
+    "Not testing the refactored structure with actual tasks to verify it works"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill modify my files directly?",
+      "answer": "No. The skill analyzes your files and generates a refactoring plan with templates. You review and apply the changes yourself."
+    },
+    {
+      "question": "How long should my root file be after refactoring?",
+      "answer": "Aim for under 50 lines. The root should only contain instructions that apply to 100% of tasks, like project description and build commands."
+    },
+    {
+      "question": "How many linked files should I create?",
+      "answer": "Target 3-8 linked files. Too few creates bloated files, too many creates navigation overhead. Group related topics together."
+    },
+    {
+      "question": "What instructions should I delete?",
+      "answer": "Delete redundant instructions (agent already knows), vague instructions (not actionable), obvious advice (don't introduce bugs), and outdated references."
+    },
+    {
+      "question": "Can I use this for COPILOT.md or other formats?",
+      "answer": "Yes. The skill works with any agent instruction file format including CLAUDE.md, AGENTS.md, COPILOT.md, and similar."
+    },
+    {
+      "question": "How do I verify the refactoring worked?",
+      "answer": "Test with typical tasks to ensure the agent can find needed instructions. Check that all links work and no important instructions were lost."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "documentation",
+    "refactoring",
+    "progressive disclosure",
+    "agent instructions",
+    "context optimization"
+  ],
+  "sourceUrl": "https://github.com/softaworks/agent-toolkit/tree/main/skills/agent-md-refactor/",
+  "sourceType": "community",
+  "dependencies": []
+}

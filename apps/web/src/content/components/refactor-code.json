@@ -1,0 +1,144 @@
+{
+  "name": "refactor-code",
+  "type": "skill",
+  "description": "コードリファクタリングスキル（DRY原則適用、複雑度削減、パフォーマンス最適化、デグレーション防止）",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "performance refactoring",
+  "quality": 4,
+  "qualityReason": "Clear technical focus",
+  "bundleHints": [
+    "java-stack",
+    "refactoring"
+  ],
+  "tags": [
+    "code-improvement",
+    "code-quality",
+    "complexity-reduction",
+    "degradation-prevention",
+    "dry-principle",
+    "java",
+    "performance",
+    "performance-optimization",
+    "refactoring",
+    "typescript"
+  ],
+  "capabilities": [
+    "Apply DRY principle to eliminate duplicate code",
+    "Reduce cyclomatic complexity below threshold",
+    "Optimize N+1 query problems",
+    "Separate concerns with proper abstraction",
+    "Maintain test coverage during refactoring",
+    "Coordinate with regression testing"
+  ],
+  "author": "Crearize",
+  "icon": "🔧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is pure markdown documentation providing refactoring guidance and workflow instructions. All 54 static findings are false positives: substring detection triggered on 'DES' in 'DRY', 'RC4' in 'MCP', hashes containing letter patterns; backtick detection on markdown code blocks; and high entropy from Japanese text with code samples. No executable code, no network calls, no malicious patterns.",
+  "valueStatement": "Manual code refactoring is time-consuming and risky. This skill provides systematic refactoring guidance including DRY principle application, complexity reduction, and regression prevention through AI-powered analysis and recommendations.",
+  "userTitle": "Refactor Code with AI Assistance",
+  "limitations": [
+    "Does not modify code without explicit approval",
+    "Cannot refactor across multiple unrelated modules simultaneously",
+    "Requires Regression Guardian skill for validation",
+    "Does not create new features during refactoring"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developers",
+      "title": "Reduce Code Duplication",
+      "description": "Identify and eliminate duplicate code patterns across your codebase while maintaining functionality"
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Improve Code Maintainability",
+      "description": "Apply systematic refactoring to improve code organization and reduce complexity"
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Optimize Performance",
+      "description": "Address performance issues like N+1 queries and unnecessary loop iterations"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Refactor Request",
+      "scenario": "Simple code improvement",
+      "prompt": "Refactor the code in {file_path}. Focus on applying DRY principles and reducing complexity."
+    },
+    {
+      "title": "Performance Focus",
+      "scenario": "Optimize database queries",
+      "prompt": "Analyze {file_path} for N+1 query problems and performance bottlenecks. Provide specific refactoring suggestions."
+    },
+    {
+      "title": "Frontend Refactoring",
+      "scenario": "React component cleanup",
+      "prompt": "Refactor the React component at {file_path}. Extract custom hooks and separate presentational and container components."
+    },
+    {
+      "title": "Full Refactoring",
+      "scenario": "Complete code improvement",
+      "prompt": "Perform comprehensive refactoring on {file_path}. Apply DRY principle, reduce complexity, improve naming, and coordinate with Regression Guardian for validation."
+    }
+  ],
+  "bestPractices": [
+    "Always create feature branches with issue numbers before refactoring",
+    "Run tests after each small incremental change",
+    "Coordinate with Regression Guardian before finalizing changes"
+  ],
+  "antiPatterns": [
+    "Refactoring without creating a backup branch first",
+    "Skipping regression testing after code changes",
+    "Making large-scale changes instead of small incremental steps"
+  ],
+  "faq": [
+    {
+      "question": "Which programming languages does this skill support?",
+      "answer": "The skill includes patterns for Java backend and TypeScript React frontend. Core refactoring principles apply to any language."
+    },
+    {
+      "question": "What is the recommended complexity threshold?",
+      "answer": "The skill targets cyclomatic complexity of 15 or below for maintainable code."
+    },
+    {
+      "question": "How does this skill integrate with other tools?",
+      "answer": "It coordinates with Regression Guardian for validation and uses Read, Edit, and Bash tools provided by the AI framework."
+    },
+    {
+      "question": "Is my codebase data safe during refactoring?",
+      "answer": "The skill only reads files you specify and edits with your approval. No code is modified without explicit direction."
+    },
+    {
+      "question": "What if tests fail after refactoring?",
+      "answer": "The skill provides rollback guidance. Analyze the failure, adjust refactoring approach, and try smaller incremental changes."
+    },
+    {
+      "question": "How is this different from manual code review?",
+      "answer": "This skill provides systematic analysis, pattern detection, and step-by-step guidance that supplements human judgment."
+    }
+  ],
+  "seoKeywords": [
+    "code refactoring",
+    "DRY principle",
+    "complexity reduction",
+    "performance optimization",
+    "regression prevention",
+    "Claude Code",
+    "code quality",
+    "software maintenance",
+    "AI refactoring assistant",
+    "clean code"
+  ],
+  "sourceUrl": "https://github.com/Crearize/ProjectTemplate/tree/main/.claude/skills/refactor-code",
+  "sourceType": "community",
+  "dependencies": []
+}

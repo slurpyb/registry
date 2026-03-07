@@ -1,0 +1,140 @@
+{
+  "name": "geo-database",
+  "type": "skill",
+  "description": "Access NCBI GEO for gene expression/genomics data. Search/download microarray and RNA-seq datasets (GSE, GSM, GPL), retrieve SOFT/Matrix files, for transcriptomics and expression analysis.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "expression data",
+  "quality": 5,
+  "qualityReason": "Specific, research-grade data access",
+  "bundleHints": [
+    "bioinformatics-suite",
+    "genomics-tools",
+    "ncbi-integration"
+  ],
+  "tags": [
+    "bioinformatics",
+    "gene-expression",
+    "genomics",
+    "ncbi",
+    "transcriptomics"
+  ],
+  "capabilities": [
+    "Search GEO DataSets and Profiles using NCBI E-utilities API",
+    "Download series matrix files, SOFT files, and supplementary data via FTP",
+    "Parse GEO data using GEOparse library with code examples",
+    "Extract expression matrices and sample metadata from GSE records",
+    "Perform differential expression analysis on downloaded datasets",
+    "Batch process multiple GEO series for meta-analysis"
+  ],
+  "author": "davila7",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill provides documentation and code examples for accessing NCBI's Gene Expression Omnibus database. All 258 static findings are false positives caused by pattern matching against markdown code blocks (triple backticks), bioinformatics terminology (SAM samples, ch2 channels), legitimate NCBI API URLs, and GEO accession number patterns.",
+  "valueStatement": "Finding and processing gene expression datasets requires navigating complex database structures and file formats. This skill provides ready-to-use code patterns for searching, downloading, and analyzing GEO microarray and RNA-seq data.",
+  "userTitle": "Search and download gene expression data from NCBI GEO",
+  "limitations": [
+    "Requires external Python libraries (GEOparse, Biopython) to be installed",
+    "Does not provide direct database querying - teaches API usage patterns",
+    "Large datasets may require significant disk space and memory",
+    "NCBI rate limits apply (3 requests/second without API key)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Bioinformatics researcher",
+      "title": "Download cancer gene expression datasets",
+      "description": "Search for breast cancer RNA-seq studies, download expression matrices, and prepare data for differential expression analysis."
+    },
+    {
+      "targetUser": "Graduate student",
+      "title": "Access published study data",
+      "description": "Retrieve supplementary data from a paper's GEO accession number to reproduce or extend published analyses."
+    },
+    {
+      "targetUser": "Data scientist",
+      "title": "Build gene expression meta-analysis pipeline",
+      "description": "Batch download multiple related studies and combine expression data across platforms for meta-analysis."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic GEO search",
+      "scenario": "Find datasets for a specific disease",
+      "prompt": "Search GEO for human breast cancer RNA-seq datasets from the last 2 years and show me how to retrieve their metadata."
+    },
+    {
+      "title": "Download expression data",
+      "scenario": "Get data from a known accession",
+      "prompt": "Download the expression matrix from GSE123456 using GEOparse and show me the sample information."
+    },
+    {
+      "title": "Platform annotation mapping",
+      "scenario": "Map probes to gene symbols",
+      "prompt": "I have expression data from GPL570 platform. Help me map the probe IDs to gene symbols."
+    },
+    {
+      "title": "Differential expression workflow",
+      "scenario": "Compare treatment vs control samples",
+      "prompt": "I downloaded GSE123456 with treatment and control samples. Set up a differential expression analysis workflow."
+    }
+  ],
+  "bestPractices": [
+    "Always set Entrez.email before using E-utilities to comply with NCBI policies",
+    "Cache downloaded GEO files locally to avoid repeated downloads and respect rate limits",
+    "Verify platform annotations are current as gene symbols may have been updated since submission"
+  ],
+  "antiPatterns": [
+    "Making rapid repeated requests without delays - this violates NCBI rate limits and may get you blocked",
+    "Assuming all expression values are comparable - check if data is raw, normalized, or log-transformed",
+    "Ignoring batch effects when combining data from multiple studies or platforms"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between GSE, GSM, and GPL accessions?",
+      "answer": "GSE is a series (complete experiment), GSM is a sample (single data point), and GPL is a platform (array/sequencing technology definition)."
+    },
+    {
+      "question": "How do I increase the NCBI request rate limit?",
+      "answer": "Register for a free NCBI API key at ncbi.nlm.nih.gov/account to increase from 3 to 10 requests per second."
+    },
+    {
+      "question": "What Python library should I use to access GEO?",
+      "answer": "GEOparse is recommended for downloading and parsing GEO data. Biopython provides E-utilities access for metadata searches."
+    },
+    {
+      "question": "How do I handle large GEO datasets that cause memory errors?",
+      "answer": "Process data in chunks, use float32 instead of float64 for expression values, or download only the samples you need."
+    },
+    {
+      "question": "Can I download raw sequencing data from GEO?",
+      "answer": "Raw sequencing files are stored in SRA. GEO links to SRA accessions. Use SRA toolkit or GEOparse with download_sra=True."
+    },
+    {
+      "question": "What file format should I download for expression analysis?",
+      "answer": "Series matrix files are fastest for getting expression data. SOFT files include complete metadata. Both are supported by GEOparse."
+    }
+  ],
+  "seoKeywords": [
+    "GEO database",
+    "gene expression",
+    "NCBI",
+    "microarray",
+    "RNA-seq",
+    "transcriptomics",
+    "Claude",
+    "Claude Code",
+    "bioinformatics",
+    "genomics"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/geo-database",
+  "sourceType": "community",
+  "dependencies": []
+}

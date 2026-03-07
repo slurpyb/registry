@@ -1,0 +1,143 @@
+{
+  "name": "dependency-audit-assistant",
+  "type": "skill",
+  "description": "Reviews package dependencies for security vulnerabilities, outdated versions, and license compliance. Use when user asks about dependencies, security audits, or before releases.",
+  "domain": "security",
+  "subdomain": "devsecops",
+  "specialty": "compliance check",
+  "quality": 5,
+  "qualityReason": "Comprehensive audit coverage",
+  "bundleHints": [
+    "security-toolkit",
+    "devsecops-pipeline",
+    "compliance-automation"
+  ],
+  "tags": [
+    "compliance",
+    "dependencies",
+    "license-audit",
+    "licenses",
+    "pre-release",
+    "security",
+    "vulnerabilities"
+  ],
+  "capabilities": [
+    "Detects package manager type from project files",
+    "Runs security audit commands for multiple ecosystems",
+    "Identifies outdated packages by severity level",
+    "Reviews licenses and flags GPL/AGPL issues",
+    "Generates prioritized remediation recommendations"
+  ],
+  "author": "CrazyDubya",
+  "icon": "🛡️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate dependency auditing skill consisting of documentation and a license-checking shell script. The script runs standard package manager commands (npm, pip, bundle, go) for license detection, which is appropriate for its stated purpose. No malicious behavior or data exfiltration detected.",
+  "valueStatement": "Projects accumulate vulnerabilities in dependencies over time. This skill audits packages for security issues, outdated versions, and license compliance across npm, pip, bundler, and go modules.",
+  "userTitle": "Audit Dependencies for Security and Licenses",
+  "limitations": [
+    "Does not automatically update vulnerable packages",
+    "Does not fix license compliance issues",
+    "Requires appropriate tools installed (npm, pip, etc.)",
+    "Does not scan container images or binary dependencies"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security Engineers",
+      "title": "Pre-release Security Checks",
+      "description": "Run comprehensive audits before deploying to production. Identify critical vulnerabilities requiring immediate attention."
+    },
+    {
+      "targetUser": "DevOps Teams",
+      "title": "CI/CD Pipeline Integration",
+      "description": "Audit dependencies during build processes. Generate reports for compliance and security documentation."
+    },
+    {
+      "targetUser": "Open Source Maintainers",
+      "title": "License Compliance Review",
+      "description": "Identify GPL/AGPL dependencies that may conflict with project licensing. Find alternatives for problematic packages."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Audit",
+      "scenario": "Quick security check",
+      "prompt": "Run a dependency audit on this project. Check for vulnerabilities, outdated packages, and license issues."
+    },
+    {
+      "title": "Security Focus",
+      "scenario": "Vulnerability assessment",
+      "prompt": "Find all security vulnerabilities in the dependencies. Prioritize by severity and provide fix recommendations."
+    },
+    {
+      "title": "License Review",
+      "scenario": "Compliance check",
+      "prompt": "Check all dependency licenses. Flag any GPL, AGPL, or unknown licenses that may cause compliance issues."
+    },
+    {
+      "title": "Full Report",
+      "scenario": "Comprehensive audit",
+      "prompt": "Generate a complete dependency audit report including: vulnerability count by severity, outdated packages list, license summary, and prioritized action items with commands to run."
+    }
+  ],
+  "bestPractices": [
+    "Run audits regularly, not just before releases",
+    "Address critical and high vulnerabilities immediately",
+    "Test all updates in staging before production deployment",
+    "Document decisions about accepted risks or pinned versions"
+  ],
+  "antiPatterns": [
+    "Ignoring low-severity vulnerabilities without assessment",
+    "Updating major versions without reviewing changelogs",
+    "Accepting unknown licenses without investigation",
+    "Skipping audits due to time pressure"
+  ],
+  "faq": [
+    {
+      "question": "Which package managers are supported?",
+      "answer": "npm, Yarn, pnpm, pip, Poetry, Bundler, Maven, Gradle, Go modules, Cargo, and Composer."
+    },
+    {
+      "question": "How are vulnerabilities prioritized?",
+      "answer": "By CVSS severity: Critical, High, Moderate, Low. Exploitability and exposure context are also considered."
+    },
+    {
+      "question": "Can this skill fix vulnerabilities automatically?",
+      "answer": "No. It provides the commands to run (like npm audit fix) but you must execute them and verify results."
+    },
+    {
+      "question": "Is my project data safe?",
+      "answer": "Yes. The skill only reads package manifest files and runs read-only audit commands against your dependencies."
+    },
+    {
+      "question": "What if no package manager is detected?",
+      "answer": "The skill will report that no recognized package files were found and suggest supported formats to check."
+    },
+    {
+      "question": "How does this compare to Snyk or Dependabot?",
+      "answer": "This skill provides quick audits using built-in tools. For continuous monitoring and advanced features, use dedicated services like Snyk or GitHub Dependabot."
+    }
+  ],
+  "seoKeywords": [
+    "dependency audit",
+    "security vulnerabilities",
+    "npm audit",
+    "license compliance",
+    "package manager security",
+    "CVE scanning",
+    "dependency checking",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/CrazyDubya/claude-skills/tree/main/dependency-audit-assistant",
+  "sourceType": "community",
+  "dependencies": []
+}

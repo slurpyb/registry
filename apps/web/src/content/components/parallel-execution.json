@@ -1,0 +1,142 @@
+{
+  "name": "parallel-execution",
+  "type": "skill",
+  "description": "Patterns for parallel subagent execution using Task tool with run_in_background. Use when coordinating multiple independent tasks, spawning dynamic subagents, or implementing features that can be parallelized.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "background subagents",
+  "quality": 5,
+  "qualityReason": "Efficient execution pattern",
+  "bundleHints": [
+    "parallel-workflows",
+    "agent-orchestration"
+  ],
+  "tags": [
+    "dynamic-agents",
+    "orchestration",
+    "parallel",
+    "parallel-tasks",
+    "performance",
+    "run_in_background",
+    "subagent",
+    "subagents",
+    "task tool",
+    "task-coordination"
+  ],
+  "capabilities": [
+    "Spawn multiple subagents simultaneously using Task tool with run_in_background",
+    "Identify independent tasks suitable for parallel execution",
+    "Retrieve results from parallel tasks using TaskOutput",
+    "Synthesize results from multiple subagents into unified output",
+    "Apply directory-based and perspective-based parallelization patterns"
+  ],
+  "author": "CloudAI-X",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill with no executable code. The static analyzer's pattern detection generated false positives by misidentifying documentation elements (version strings, placeholders, examples) as security issues. Semantic analysis confirms: zero scripts, zero network calls, zero file system access, zero external commands. Safe for publication.",
+  "valueStatement": "Sequential task execution wastes time when independent tasks could run simultaneously. This skill teaches patterns for spawning multiple AI subagents concurrently using the Task tool, enabling dramatic speedups for multi-part projects.",
+  "userTitle": "Run multiple AI subagents in parallel",
+  "limitations": [
+    "All Task calls must be in a single assistant message for true parallelism",
+    "Tasks must be independent with no dependencies on each other",
+    "Cannot parallelize tasks that modify the same files",
+    "Does not work for sequential workflows requiring ordered steps"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Implement feature modules",
+      "description": "Build multiple independent features simultaneously, like auth, API endpoints, and database schema"
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Multi-perspective analysis",
+      "description": "Run security, performance, testing, and architecture reviews concurrently"
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Parallel verification",
+      "description": "Execute multiple independent checks and tests at the same time for faster feedback"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic parallel launch",
+      "scenario": "Run two independent analyses",
+      "prompt": "I need to analyze this codebase from two perspectives. Launch both analyses in parallel using the Task tool with run_in_background: true.\n\nTask 1: Analyze the security implementation\nTask 2: Analyze the performance patterns\n\nThen retrieve both results and summarize findings."
+    },
+    {
+      "title": "Multi-module implementation",
+      "scenario": "Build multiple modules at once",
+      "prompt": "Implement three independent features for my project. Launch all three as parallel subagents:\n\n- Subagent 1: User authentication module\n- Subagent 2: API endpoints for user data\n- Subagent 3: Database schema for users\n\nMake all Task calls in one message. After completion, combine into cohesive implementation."
+    },
+    {
+      "title": "Directory-based parallel",
+      "scenario": "Analyze multiple directories",
+      "prompt": "Analyze three directories in parallel: src/auth, src/api, src/db.\n\nFor each, review: code quality, security issues, test coverage.\nLaunch three subagents simultaneously. Synthesize findings by severity."
+    },
+    {
+      "title": "Perspective review",
+      "scenario": "Multi-angle code review",
+      "prompt": "Perform a comprehensive code review using four parallel subagents:\n\n- Security reviewer: Check for vulnerabilities\n- Performance reviewer: Identify bottlenecks\n- Testing reviewer: Evaluate test coverage\n- Architecture reviewer: Assess design patterns\n\nAll in one message. Combine recommendations with priority ordering."
+    }
+  ],
+  "bestPractices": [
+    "Launch all parallel tasks in a single assistant message to ensure true concurrency",
+    "Verify tasks are independent before parallelizing - check for file and output dependencies",
+    "Use descriptive task descriptions to easily track which subagent handles what"
+  ],
+  "antiPatterns": [
+    "Splitting Task calls across multiple messages (causes sequential execution)",
+    "Parallelizing tasks that depend on each other's output",
+    "Running multiple tasks that modify the same files (causes conflicts)"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "Works with Claude Code and Claude. Requires Task tool with run_in_background support."
+    },
+    {
+      "question": "What is the maximum number of parallel tasks?",
+      "answer": "The limit depends on your Claude Code plan. Generally 5-10 parallel tasks work well."
+    },
+    {
+      "question": "How do I integrate with other skills?",
+      "answer": "Use TodoWrite to track parallel tasks. After TaskOutput, pass results to orchestrator skills."
+    },
+    {
+      "question": "Is my data safe with parallel execution?",
+      "answer": "Yes. All processing happens within your Claude Code session. No external data transmission."
+    },
+    {
+      "question": "Why are my tasks running sequentially?",
+      "answer": "Common cause: Task calls are in separate messages. All Task calls MUST be in one message."
+    },
+    {
+      "question": "How does this compare to sequential execution?",
+      "answer": "Parallel execution can be Nx faster. Five 30-second tasks complete in ~30 seconds instead of ~150 seconds."
+    }
+  ],
+  "seoKeywords": [
+    "parallel execution",
+    "Claude subagents",
+    "Task tool patterns",
+    "concurrent AI agents",
+    "Claude Code parallel",
+    "multi-agent orchestration",
+    "parallel processing",
+    "TaskOutput",
+    "run_in_background",
+    "AI agent coordination"
+  ],
+  "sourceUrl": "https://github.com/CloudAI-X/claude-workflow/tree/main/skills/parallel-execution",
+  "sourceType": "community",
+  "dependencies": []
+}

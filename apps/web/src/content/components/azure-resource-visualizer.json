@@ -1,0 +1,141 @@
+{
+  "name": "azure-resource-visualizer",
+  "type": "skill",
+  "description": "Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships between individual resources.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "architecture",
+  "quality": 5,
+  "qualityReason": "Generates visual architecture maps",
+  "bundleHints": [
+    "system-design",
+    "documentation"
+  ],
+  "tags": [
+    "architecture",
+    "azure",
+    "diagrams",
+    "mermaid",
+    "resource-groups",
+    "visualization"
+  ],
+  "capabilities": [
+    "Query Azure resource groups to discover all resources",
+    "Generate detailed Mermaid flow diagrams showing resource relationships",
+    "Document network topology including VNets, subnets, and private endpoints",
+    "Map data flows between Azure services like App Service, Functions, SQL, and Storage",
+    "Create comprehensive architecture documentation with resource inventories"
+  ],
+  "author": "microsoft",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 88 static findings are false positives. The flagged patterns (backtick commands, IP addresses, crypto algorithms, system reconnaissance) are actually documentation examples of Azure CLI commands, example IP addresses in Mermaid diagrams, and Mermaid syntax. This is a read-only Azure documentation skill that generates architecture diagrams.",
+  "valueStatement": "Understand complex Azure infrastructure by generating detailed Mermaid diagrams that map resource relationships, dependencies, and configurations across your entire resource group.",
+  "userTitle": "Visualize Azure Architecture with Mermaid Diagrams",
+  "limitations": [
+    "Read-only analysis - cannot create, modify, or delete Azure resources",
+    "Does not perform security scanning or vulnerability assessment",
+    "Does not provide performance troubleshooting or diagnostics",
+    "Does not generate code for Azure resource deployment"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Cloud architects and DevOps engineers",
+      "title": "Document Existing Infrastructure",
+      "description": "Create up-to-date architecture diagrams for legacy Azure deployments to improve team understanding and onboarding"
+    },
+    {
+      "targetUser": "Solution architects and migration specialists",
+      "title": "Prepare for Migration Projects",
+      "description": "Visualize current resource relationships before migrating to new subscriptions or Azure regions"
+    },
+    {
+      "targetUser": "System administrators and support engineers",
+      "title": "Audit Resource Dependencies",
+      "description": "Identify all dependencies before making changes to production resources to avoid disruption"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Resource Group Diagram",
+      "prompt": "Show me the architecture of my Azure resource group called [resource-group-name]. Create a Mermaid diagram showing all resources and how they connect.",
+      "scenario": "Quick visualization of a specific resource group"
+    },
+    {
+      "title": "Detailed Network Topology",
+      "prompt": "Analyze the network architecture in resource group [resource-group-name]. Create a detailed diagram showing VNets, subnets, NSGs, private endpoints, and how compute resources connect to them.",
+      "scenario": "Deep dive into network configuration"
+    },
+    {
+      "title": "Data Flow Mapping",
+      "prompt": "Map all data flows in resource group [resource-group-name]. Show how data moves between App Services, Functions, Databases, and Storage accounts. Include connection strings and authentication methods.",
+      "scenario": "Understanding application data patterns"
+    },
+    {
+      "title": "Full Architecture Documentation",
+      "prompt": "Create comprehensive architecture documentation for resource group [resource-group-name]. Include: resource inventory table, Mermaid diagram with subgraphs by layer, relationship details, and recommendations.",
+      "scenario": "Complete architecture documentation for stakeholders"
+    }
+  ],
+  "bestPractices": [
+    "Wait for user confirmation on which resource group to analyze before proceeding",
+    "Include configuration details like SKUs, tiers, and settings in diagram labels",
+    "Group resources logically using Mermaid subgraphs by layer or purpose",
+    "Label all connections with descriptive data flow or dependency information"
+  ],
+  "antiPatterns": [
+    "Skipping resources that seem unimportant - include everything in the resource group",
+    "Making assumptions about relationships without verifying them",
+    "Creating incomplete or placeholder diagrams without all resources",
+    "Omitting configuration details that affect architecture understanding"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill modify my Azure resources?",
+      "answer": "No. This is a read-only analysis skill. It only reads and visualizes your existing resources without making any changes."
+    },
+    {
+      "question": "What diagram format does this skill use?",
+      "answer": "It generates Mermaid diagrams, which render as flowcharts in most markdown viewers and documentation platforms."
+    },
+    {
+      "question": "Can I diagram multiple resource groups at once?",
+      "answer": "Yes, you can analyze each resource group separately or use Azure Resource Graph for cross-subscription queries."
+    },
+    {
+      "question": "Does this skill work with all Azure resource types?",
+      "answer": "Yes, it can discover and visualize any Azure resource type deployed in your resource group."
+    },
+    {
+      "question": "How detailed are the generated diagrams?",
+      "answer": "Diagrams include resource names, types, SKUs, tiers, network settings, and relationship connections. The detail level is suitable for architecture documentation."
+    },
+    {
+      "question": "Can I use this for security analysis?",
+      "answer": "This skill provides visualization only. For security scanning, use dedicated Azure security skills."
+    }
+  ],
+  "seoKeywords": [
+    "azure",
+    "mermaid diagram",
+    "architecture visualization",
+    "resource visualization",
+    "azure resource diagram",
+    "cloud architecture",
+    "infrastructure diagram",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/microsoft/github-copilot-for-azure/tree/main/plugin/skills/azure-resource-visualizer/",
+  "sourceType": "community",
+  "dependencies": []
+}

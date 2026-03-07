@@ -1,0 +1,140 @@
+{
+  "name": "parquet-optimization",
+  "type": "skill",
+  "description": "Proactively analyzes Parquet file operations and suggests optimization improvements for compression, encoding, row group sizing, and statistics. Activates when users are reading or writing Parquet files or discussing Parquet performance.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "file performance",
+  "quality": 5,
+  "qualityReason": "Specific data format tuning",
+  "bundleHints": [
+    "data-engineering",
+    "pipeline-optimization"
+  ],
+  "tags": [
+    "compression",
+    "data-engineering",
+    "data-lake",
+    "encoding",
+    "parquet",
+    "performance",
+    "row-group",
+    "statistics"
+  ],
+  "capabilities": [
+    "Analyzes Parquet writing code and suggests optimal compression settings (ZSTD, Snappy)",
+    "Recommends row group sizing for efficient S3 scanning and predicate pushdown",
+    "Identifies missing statistics configuration for query optimization",
+    "Suggests column-specific encoding (dictionary encoding for low-cardinality columns)",
+    "Detects inefficient reading patterns (full file scans, missing projection)",
+    "Provides streaming recommendations for large dataset handling"
+  ],
+  "author": "EmilLindfors",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The 37 'external_commands' detections are markdown code formatting backticks in SKILL.md (a documentation file). The 3 'weak cryptographic algorithm' detections are misclassifications of compression algorithms (ZSTD, Snappy) as cryptographic algorithms. This is a documentation-only skill with no executable code.",
+  "valueStatement": "Parquet files can become slow and bloated without proper optimization. This skill proactively analyzes Parquet operations and suggests improvements for compression, encoding, row group sizing, and statistics to maximize query performance and minimize storage costs.",
+  "userTitle": "Optimize Parquet Files for Performance",
+  "limitations": [
+    "Focuses on Rust arrow/parquet crate patterns; other languages may need different advice",
+    "Cannot modify code directly; provides suggestions for user to implement",
+    "Does not analyze existing Parquet file metadata or provide file-specific tuning",
+    "Does not cover Parquet schema design or data modeling best practices"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data engineers building ETL pipelines and data lakes",
+      "title": "Data Engineer Optimizing Production Pipeline",
+      "description": "A data engineer is building a pipeline to write millions of records to S3 daily. The skill suggests ZSTD compression, 100MB row groups, and statistics enabled for optimal query performance."
+    },
+    {
+      "targetUser": "Data analysts working with large Parquet datasets",
+      "title": "Analyst Improving Query Speed",
+      "description": "An analyst notices slow Parquet queries. The skill identifies missing column projection and batch size tuning to reduce scan costs and improve response times."
+    },
+    {
+      "targetUser": "Software engineers integrating Parquet in applications",
+      "title": "Developer Debugging Performance Issues",
+      "description": "A developer sees OOM errors when reading large Parquet files. The skill recommends streaming patterns, row group filtering, and memory-conscious batch sizing."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Parquet Writing Help",
+      "prompt": "I'm writing Parquet files using the Rust arrow parquet crate. What settings should I use for production?",
+      "scenario": "User wants guidance on optimal Parquet writer configuration"
+    },
+    {
+      "title": "Compression Selection",
+      "prompt": "Should I use Snappy or ZSTD for my Parquet files? The data is accessed frequently for analytics queries.",
+      "scenario": "User needs help choosing compression algorithm"
+    },
+    {
+      "title": "Row Group Optimization",
+      "prompt": "My Parquet queries are slow even though I have a powerful cluster. What Parquet-level settings could improve predicate pushdown?",
+      "scenario": "User experiencing performance issues despite adequate compute"
+    },
+    {
+      "title": "Large File Streaming",
+      "prompt": "I need to process 50GB Parquet files without running out of memory. What patterns should I use?",
+      "scenario": "User processing very large files with memory constraints"
+    }
+  ],
+  "bestPractices": [
+    "Use ZSTD(3) compression as the default for production data lakes - it balances compression ratio with CPU overhead",
+    "Target 100MB-1GB row groups to optimize S3 scanning and predicate pushdown effectiveness",
+    "Enable page-level statistics to allow query engines to skip irrelevant row groups during scans"
+  ],
+  "antiPatterns": [
+    "Using default compression settings - always specify ZSTD or Snappy based on access patterns",
+    "Writing many small Parquet files (<10MB) - this creates excessive metadata overhead and slows queries",
+    "Collecting all batches into memory when reading large files - use streaming patterns instead"
+  ],
+  "faq": [
+    {
+      "question": "What compression should I use for frequently accessed data?",
+      "answer": "Use Snappy for hot data. It provides fast decompression (2-3x compression) which is ideal for real-time analytics workloads where query latency matters more than storage savings."
+    },
+    {
+      "question": "How do I choose the right row group size?",
+      "answer": "Target 100MB-1GB uncompressed per row group. Smaller groups increase metadata overhead; larger groups prevent effective predicate pushdown. Start with 100_000_000 rows and adjust based on your data characteristics."
+    },
+    {
+      "question": "What is dictionary encoding and when should I use it?",
+      "answer": "Dictionary encoding stores unique values once and references them by index. Use it for low-cardinality columns (like status, category, country codes) to achieve 5-10x compression on suitable columns."
+    },
+    {
+      "question": "Should I use Parquet 1.0 or 2.0?",
+      "answer": "Use Parquet 2.0 for new projects. It supports longer strings, better type extensions, and more efficient encoding. The arrow parquet crate defaults to 2.0."
+    },
+    {
+      "question": "How do I handle Parquet files on cloud storage with retries?",
+      "answer": "Configure retry logic on your object store client. Most S3 clients support retry configuration with max_retries and timeout settings to handle transient network issues."
+    },
+    {
+      "question": "What's the difference between streaming and collecting batches?",
+      "answer": "Streaming processes batches incrementally as they arrive, keeping memory usage constant. Collecting loads all batches into memory first, which can cause OOM errors with large files. Always stream for files over a few GB."
+    }
+  ],
+  "seoKeywords": [
+    "Parquet optimization",
+    "Parquet compression",
+    "data lake optimization",
+    "columnar storage",
+    "Apache Parquet",
+    "Claude Code",
+    "Parquet performance",
+    "row group tuning"
+  ],
+  "sourceUrl": "https://github.com/EmilLindfors/claude-marketplace/tree/main/plugins/rust-data-engineering/skills/parquet-optimization",
+  "sourceType": "community",
+  "dependencies": []
+}

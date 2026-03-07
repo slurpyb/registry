@@ -1,0 +1,141 @@
+{
+  "name": "woocommerce-backend-dev",
+  "type": "skill",
+  "description": "Add or modify WooCommerce backend PHP code following project conventions. Use when creating new classes, methods, hooks, or modifying existing backend code. **MUST be invoked before writing any PHP unit tests.**",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "PHP backend",
+  "quality": 5,
+  "qualityReason": "Actionable backend PHP workflow",
+  "bundleHints": [
+    "woocommerce-stack",
+    "php-backend"
+  ],
+  "tags": [
+    "backend",
+    "classes",
+    "e-commerce",
+    "hooks",
+    "php",
+    "woocommerce",
+    "wordpress"
+  ],
+  "capabilities": [
+    "Create new PHP classes following PSR-4 autoloading and Automattic\\WooCommerce namespace conventions",
+    "Add WordPress actions and filters with proper documentation including @since annotations",
+    "Implement dependency injection patterns using the WooCommerce container system",
+    "Write unit tests that extend WC_Unit_Test_Case with proper naming conventions",
+    "Apply WordPress Coding Standards including Yoda conditions and snake_case naming",
+    "Add PHPStan type annotations for static analysis including @template generics"
+  ],
+  "author": "woocommerce",
+  "icon": "🛒",
+  "version": "1.0.0",
+  "license": "GPL-3.0-or-later",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains ONLY markdown documentation with no executable code, scripts, network calls, or file system access. It provides purely instructional content for developers writing WooCommerce backend PHP code. All 313 static findings are FALSE POSITIVES caused by the scanner detecting PHP syntax and code examples in documentation.",
+  "valueStatement": "WooCommerce backend development requires following strict project conventions for classes, hooks, and testing. This skill provides comprehensive guidelines for creating standards-compliant PHP code that integrates properly with the WooCommerce architecture.",
+  "userTitle": "Write WooCommerce backend PHP code",
+  "limitations": [
+    "Does not execute code or run tests - only provides guidelines for writing code",
+    "Does not modify files directly - guides AI agents in producing standards-compliant code",
+    "Focused on backend PHP code only - does not cover frontend JavaScript or React development",
+    "Does not provide WooCommerce API functionality - only development conventions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Plugin developers",
+      "title": "Create WooCommerce extensions",
+      "description": "Build custom plugins that follow WooCommerce coding standards and integrate seamlessly with the platform."
+    },
+    {
+      "targetUser": "Core contributors",
+      "title": "Contribute to WooCommerce core",
+      "description": "Add new features to WooCommerce using proper class structures, hooks, and testing patterns."
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Write unit tests",
+      "description": "Create comprehensive test coverage for backend functionality using the established test framework."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New PHP class",
+      "scenario": "Creating a new service class",
+      "prompt": "Create a new class in src/Internal/Utils that processes customer data. Use dependency injection for Logger. Add proper PHPDoc with @since annotation."
+    },
+    {
+      "title": "WordPress hook",
+      "scenario": "Adding action or filter",
+      "prompt": "Add a new action hook that fires after order completion. Include proper docblock with @param tags and @since version annotation."
+    },
+    {
+      "title": "Unit test",
+      "scenario": "Writing test for existing class",
+      "prompt": "Write a unit test for the OrderProcessor class. Test successful processing and error handling cases. Extend WC_Unit_Test_Case."
+    },
+    {
+      "title": "Data operation",
+      "scenario": "Implementing CRUD operation",
+      "prompt": "Add a delete method to the CustomerDataProcessor class. Include validation to prevent data loss, verify ownership, and check for race conditions."
+    }
+  ],
+  "bestPractices": [
+    "Always verify entity state and ownership before performing delete or modify operations to prevent data loss",
+    "Use the DI container singleton pattern consistently - avoid creating multiple instances of the same service",
+    "Run linting and tests after every change and before committing to ensure code quality"
+  ],
+  "antiPatterns": [
+    "Avoid adding standalone functions - always wrap functionality in class methods for testability",
+    "Do not use named arguments in call_user_func_array() - use positional arguments instead",
+    "Never skip validation before data operations - always verify inputs, ownership, and entity state"
+  ],
+  "faq": [
+    {
+      "question": "What versions of PHP does WooCommerce support?",
+      "answer": "WooCommerce requires PHP 8.1 or higher for modern code in the src/ directory."
+    },
+    {
+      "question": "Where do new classes belong in the project structure?",
+      "answer": "New classes go in src/Internal/ by default. Public classes go directly in src/. Avoid adding new code to includes/ unless necessary."
+    },
+    {
+      "question": "How does this skill integrate with the WooCommerce DI container?",
+      "answer": "The skill provides guidelines for using WooCommerce's dependency injection pattern. Classes use an init() method with @internal annotation for receiving dependencies. Use wc_get_container()->get( ClassName::class ) to retrieve service instances from the container."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only provides documentation and guidelines. It does not execute code, access files, or make network requests."
+    },
+    {
+      "question": "Why are my PHPStan checks failing?",
+      "answer": "Ensure you use proper @phpstan-param annotations for generic types. The skill includes patterns for @template declarations that enable correct type inference."
+    },
+    {
+      "question": "How does this compare to generic PHP coding skills?",
+      "answer": "This skill provides WooCommerce-specific conventions including WordPress coding standards, the WooCommerce DI container, and proper hook documentation patterns."
+    }
+  ],
+  "seoKeywords": [
+    "woocommerce backend development",
+    "woocommerce php",
+    "wordpress php development",
+    "woocommerce coding standards",
+    "woocommerce dependency injection",
+    "woocommerce unit testing",
+    "claude code woocommerce",
+    "phpstan woocommerce",
+    "wordpress hooks development",
+    "automattic woocommerce"
+  ],
+  "sourceUrl": "https://github.com/woocommerce/woocommerce/tree/trunk/.ai/skills/woocommerce-backend-dev",
+  "sourceType": "community",
+  "dependencies": []
+}

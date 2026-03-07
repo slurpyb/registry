@@ -1,0 +1,143 @@
+{
+  "name": "jira",
+  "type": "skill",
+  "description": "Jira Cloud integration for issue management and search. This skill should",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "Jira integration",
+  "quality": 5,
+  "qualityReason": "Well-defined integration scope",
+  "bundleHints": [
+    "project-management",
+    "devops-toolkit",
+    "team-collab"
+  ],
+  "tags": [
+    "api",
+    "atlassian",
+    "automation",
+    "cloud",
+    "issue tracking",
+    "issue-tracking",
+    "jira",
+    "jql",
+    "tickets"
+  ],
+  "capabilities": [
+    "Retrieve issue details with GET requests to REST API v3",
+    "Search issues using JQL with filtering and sorting",
+    "Create and update issues with JSON payload",
+    "Add comments using Atlassian Document Format",
+    "Transition issue status through workflow states",
+    "Assign and unassign issues to team members"
+  ],
+  "author": "Joseph OBrien",
+  "icon": "🔲",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate Jira Cloud integration skill. All 312 static findings are false positives caused by the scanner misinterpreting markdown documentation code blocks as executable code. The Python script uses standard HTTP Basic Auth (base64 encoding) and urllib for API requests - no command injection or credential exfiltration risks exist.",
+  "valueStatement": "Automate Jira Cloud workflows by searching issues with JQL queries, creating and updating tickets, adding comments, and transitioning status. This skill provides direct access to REST API v3 for seamless integration.",
+  "userTitle": "Manage Jira issues with JQL and REST API",
+  "limitations": [
+    "Requires Jira Cloud credentials (API token)",
+    "Does not support Jira Server (on-premise) instances",
+    "Rate limits apply per Atlassian API constraints"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers",
+      "title": "Track development work",
+      "description": "Search assigned issues, update ticket status, and log progress directly from Claude Code"
+    },
+    {
+      "targetUser": "Project Managers",
+      "title": "Monitor project status",
+      "description": "Query sprint progress, bulk retrieve issue details, and generate status reports via JQL"
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Automate ticket workflows",
+      "description": "Create incidents from alerts, transition issues to resolved, and sync status across systems"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Get issue details",
+      "scenario": "Look up a specific ticket",
+      "prompt": "Show me the details for issue PROJ-123 including status, assignee, and priority"
+    },
+    {
+      "title": "Search my issues",
+      "scenario": "Find tickets assigned to you",
+      "prompt": "Find all my open issues in project AOP that were updated in the last day"
+    },
+    {
+      "title": "Create issue",
+      "scenario": "Create a new ticket",
+      "prompt": "Create a new bug issue in PROJ with summary 'Login fails on mobile' and description 'User cannot login using Safari browser'"
+    },
+    {
+      "title": "Bulk status update",
+      "scenario": "Move multiple tickets",
+      "prompt": "Find all issues in sprint 'Sprint 23' assigned to me and transition them to In Review"
+    }
+  ],
+  "bestPractices": [
+    "Store Jira credentials in environment variables or .env file, never in code",
+    "Use JQL functions like currentUser() for personalized queries",
+    "Handle rate limits by adding delays between bulk operations"
+  ],
+  "antiPatterns": [
+    "Do not hardcode API tokens or email in script files",
+    "Do not use personal credentials for automated workflows - use service accounts",
+    "Do not expose Jira URLs or credentials in logs or error messages"
+  ],
+  "faq": [
+    {
+      "question": "How do I generate a Jira API token?",
+      "answer": "Go to https://id.atlassian.com/manage-profile/security/api-tokens and create a new token."
+    },
+    {
+      "question": "Can this skill work with self-hosted Jira?",
+      "answer": "No, this skill is designed for Jira Cloud only. It requires a domain like company.atlassian.net."
+    },
+    {
+      "question": "What authentication does this skill use?",
+      "answer": "HTTP Basic Auth with email and API token, encoded in base64 for the Authorization header."
+    },
+    {
+      "question": "How do I search for my assigned issues?",
+      "answer": "Use JQL: assignee = currentUser() AND resolution = Unresolved ORDER BY updated DESC"
+    },
+    {
+      "question": "What is Atlassian Document Format?",
+      "answer": "ADF is Jira's JSON-based format for rich text. Use it for descriptions and comments with formatting."
+    },
+    {
+      "question": "Does this skill support Jira automation rules?",
+      "answer": "No, this skill interacts with the REST API directly. Use Jira's native automation for automated workflows."
+    }
+  ],
+  "seoKeywords": [
+    "jira integration",
+    "jira cloud",
+    "jql queries",
+    "jira automation",
+    "atlassian api",
+    "issue tracking",
+    "claude code jira",
+    "claude jira integration",
+    "codex jira",
+    "jira rest api"
+  ],
+  "sourceUrl": "https://github.com/89jobrien/steve/tree/main/steve/skills/jira",
+  "sourceType": "community",
+  "dependencies": []
+}

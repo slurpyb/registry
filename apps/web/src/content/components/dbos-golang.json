@@ -1,0 +1,143 @@
+{
+  "name": "dbos-golang",
+  "type": "skill",
+  "description": "DBOS Go SDK for building reliable, fault-tolerant applications with durable workflows. Use this skill when writing Go code with DBOS, creating workflows and steps, using queues, using the DBOS Client from external applications, or building Go applications that need to be resilient to failures.",
+  "domain": "languages",
+  "subdomain": "go",
+  "specialty": "durable workflows",
+  "quality": 5,
+  "qualityReason": "Specific SDK use case",
+  "bundleHints": [
+    "go-stack",
+    "workflow-engine",
+    "fault-tolerant-systems"
+  ],
+  "tags": [
+    "dbos",
+    "durable-execution",
+    "fault-tolerance",
+    "go-sdk",
+    "golang",
+    "queues",
+    "sdk",
+    "workflows"
+  ],
+  "capabilities": [
+    "Create durable workflows that survive crashes and restarts automatically",
+    "Define steps with automatic retries and transactional guarantees",
+    "Implement queued concurrency with rate limiting and priority handling",
+    "Set up workflow communication via events, messages, and streams",
+    "Configure and launch DBOS applications with proper initialization",
+    "Test DBOS applications with unit and integration tests"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation skill for the DBOS Go SDK. All 479 static findings are false positives: the scanner incorrectly interprets markdown code blocks as shell commands, documentation URLs as hardcoded URLs, and environment variable access for database configuration as sensitive data exposure. No real security risks present.",
+  "valueStatement": "DBOS Go SDK provides durable workflow execution that survives crashes and restarts. Build fault-tolerant applications with automatic retries, queued concurrency, and transactional guarantees.",
+  "userTitle": "Build Reliable Go Apps with DBOS",
+  "limitations": [
+    "Requires PostgreSQL database for workflow state persistence",
+    "Workflows must be deterministic - side effects must go in steps",
+    "Cannot start or enqueue workflows from within steps",
+    "Cannot use uncontrolled goroutines for workflow execution"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building e-commerce or financial systems",
+      "title": "Build Fault-Tolerant Order Processing",
+      "description": "Create order processing workflows that automatically retry on failure, survive server restarts, and maintain transactional consistency across multiple services."
+    },
+    {
+      "targetUser": "Data engineers building ETL and batch processing systems",
+      "title": "Implement Reliable Data Pipelines",
+      "description": "Build data pipelines with durable execution that checkpoint progress in the database, ensuring no data loss during failures."
+    },
+    {
+      "targetUser": "DevOps engineers building automation and deployment systems",
+      "title": "Create Background Job Systems",
+      "description": "Replace custom job queues with DBOS queues that provide built-in concurrency limits, priority handling, and automatic recovery."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Add DBOS to Existing Go App",
+      "prompt": "Add DBOS durable workflow execution to my existing Go application at [PATH]. I need to convert my current background job processing to use DBOS workflows with automatic retries.",
+      "scenario": "Converting existing Go code to use DBOS for durable execution"
+    },
+    {
+      "title": "Create Workflow with Steps",
+      "prompt": "Create a DBOS workflow that processes user registrations. The workflow should send a welcome email (step 1), create a user account in the database (step 2), and schedule a follow-up task (step 3). Include proper error handling and retries.",
+      "scenario": "Creating a multi-step workflow with proper error handling"
+    },
+    {
+      "title": "Implement Queue with Limits",
+      "prompt": "Implement a DBOS queue for processing API webhooks. The queue should handle up to 10 concurrent requests, prioritize critical webhooks, and implement rate limiting to prevent overwhelming downstream services.",
+      "scenario": "Building a robust queue system with concurrency and rate controls"
+    },
+    {
+      "title": "Set Up Workflow Communication",
+      "prompt": "Set up inter-workflow communication using DBOS events and messages. Workflow A should notify Workflow B when data processing completes, and Workflow C should stream progress updates to external monitors.",
+      "scenario": "Implementing complex workflow orchestration with communication patterns"
+    }
+  ],
+  "bestPractices": [
+    "Always define side effects (API calls, database writes) as steps, not in the workflow body, to ensure determinism and automatic retries",
+    "Register all workflows and queues before calling dbos.Launch() - this is a hard requirement",
+    "Use queues with concurrency limits instead of goroutines for parallel workflow execution"
+  ],
+  "antiPatterns": [
+    "Starting or enqueueing workflows from within step functions - this breaks transactional guarantees",
+    "Using uncontrolled goroutines to start workflows instead of dbos.RunWorkflow or queues",
+    "Modifying global variables from workflows or steps - this violates durability guarantees"
+  ],
+  "faq": [
+    {
+      "question": "What is DBOS?",
+      "answer": "DBOS (Database-Oriented Business Operating System) is a framework that provides durable workflow execution. Workflows automatically survive crashes and restarts because their state is stored in a PostgreSQL database."
+    },
+    {
+      "question": "Do I need a database to use DBOS?",
+      "answer": "Yes, DBOS requires a PostgreSQL database to store workflow state, checkpoints, and queue data. The database URL is configured via the DatabaseURL configuration option."
+    },
+    {
+      "question": "Can I call APIs from workflows?",
+      "answer": "Yes, but API calls must be made from steps (using dbos.RunAsStep), not directly in the workflow. This ensures proper retry handling and durability."
+    },
+    {
+      "question": "How do retries work in DBOS?",
+      "answer": "Steps automatically retry on failure. You can configure retry policies using step options. When a step fails, the workflow pauses and retries the step until it succeeds or reaches the retry limit."
+    },
+    {
+      "question": "Can workflows communicate with each other?",
+      "answer": "Yes, DBOS provides events for one-way notifications, messages for request-response patterns, and streams for streaming data between workflows."
+    },
+    {
+      "question": "Is DBOS suitable for production use?",
+      "answer": "Yes, DBOS is designed for production workloads. It provides transactional guarantees, automatic recovery from failures, and supports patterns like versioning and patching for zero-downtime deployments."
+    }
+  ],
+  "seoKeywords": [
+    "DBOS Go SDK",
+    "durable workflows golang",
+    "fault tolerant go",
+    "workflow automation",
+    "claude code dbos",
+    "codex dbos golang",
+    "claude dbos workflow",
+    "go error recovery",
+    "transactional workflows",
+    "queue based concurrency"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dbos-golang",
+  "sourceType": "community",
+  "dependencies": []
+}

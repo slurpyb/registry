@@ -1,0 +1,145 @@
+{
+  "name": "red-team-tools",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \\\"follow red team methodology\\\", \\\"perform bug bounty hunting\\\", \\\"automate reconnaissance\\\", \\\"hunt for XSS vulnerabilities\\\", \\\"enumerate su...",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "bug bounty",
+  "quality": 5,
+  "qualityReason": "Comprehensive, actionable toolkit",
+  "bundleHints": [
+    "red-team",
+    "pentesting-automation"
+  ],
+  "tags": [
+    "automated-workflows",
+    "bug-bounty",
+    "exploitation",
+    "live-host-discovery",
+    "penetration-testing",
+    "reconnaissance",
+    "red-team",
+    "security",
+    "subdomain-enumeration",
+    "vulnerability-scanning"
+  ],
+  "capabilities": [
+    "Perform automated subdomain enumeration using Amass, Subfinder, and Assetfinder",
+    "Discover live hosts and fingerprint technologies with httpx and httprobe",
+    "Execute content discovery and directory fuzzing with ffuf",
+    "Run vulnerability scans using Nuclei with custom templates",
+    "Automate XSS hunting with Dalfox and paramspider",
+    "Collect historical URLs from Wayback Machine and enumerate API endpoints"
+  ],
+  "author": "sickn33",
+  "icon": "🎯",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill provides legitimate red team methodology and bug bounty hunting workflows. Static findings flagged shell commands and network access, but these are standard security testing patterns (Amass, Subfinder, Nuclei, httpx, ffuf) used by authorized security professionals. No malicious intent detected. All flagged patterns represent legitimate defensive security tooling.",
+  "valueStatement": "Bug bounty hunters and penetration testers need efficient reconnaissance workflows to enumerate targets and discover vulnerabilities. This skill provides automated pipelines using industry-standard tools like Amass, Subfinder, httpx, Nuclei, and ffuf for comprehensive security testing.",
+  "userTitle": "Run Automated Red Team Reconnaissance",
+  "limitations": [
+    "Requires pre-installed security tools (Go, Python, Ruby environments)",
+    "Cannot bypass rate limiting or IP blocks enforced by targets",
+    "Manual verification needed for all findings before bug bounty reporting",
+    "API keys required for full functionality of some recon services"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Bug bounty hunters needing fast initial reconnaissance",
+      "title": "Quick Subdomain Recon",
+      "description": "Rapidly enumerate subdomains and check which ones are live, useful for initial target assessment during bug bounty hunts."
+    },
+    {
+      "targetUser": "Penetration testers conducting authorized security assessments",
+      "title": "Full Vulnerability Assessment",
+      "description": "Comprehensive scan from subdomain enumeration through technology fingerprinting to nuclei vulnerability scanning."
+    },
+    {
+      "targetUser": "Security researchers focused on web application vulnerabilities",
+      "title": "XSS Hunting Pipeline",
+      "description": "Automated pipeline to discover parameters and test for XSS vulnerabilities using multiple techniques."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Subdomain Scan",
+      "prompt": "Run a quick subdomain enumeration for [TARGET_DOMAIN] using subfinder and check which hosts are live with httpx. Output the results to a file.",
+      "scenario": "Fast initial reconnaissance on a bug bounty target"
+    },
+    {
+      "title": "Full Recon Pipeline",
+      "prompt": "Execute a complete reconnaissance workflow for [TARGET_DOMAIN]: 1) Run amass passive enum, 2) Use subfinder for additional subdomains, 3) Check live hosts with httprobe, 4) Run nuclei vulnerability scan on live hosts.",
+      "scenario": "Comprehensive security assessment"
+    },
+    {
+      "title": "XSS Vulnerability Hunt",
+      "prompt": "Help me set up an XSS hunting pipeline for [TARGET_DOMAIN]: 1) Use waybackurls to collect URLs, 2) Extract parameters, 3) Test with dalfox, 4) Verify findings with curl.",
+      "scenario": "Automated XSS vulnerability discovery"
+    },
+    {
+      "title": "API Endpoint Discovery",
+      "prompt": "Enumerate API endpoints for [TARGET_DOMAIN] using ffuf with common API wordlists. Test for both v1 and v2 API versions and check for hidden HTTP methods.",
+      "scenario": "API security testing"
+    }
+  ],
+  "bestPractices": [
+    "Always respect bug bounty program scope and rules before testing any target",
+    "Use rate limiting and appropriate concurrency settings to avoid triggering blocks",
+    "Verify all findings manually before submitting bug bounty reports to reduce duplicates"
+  ],
+  "antiPatterns": [
+    "Running automated tools without understanding what each command does",
+    "Ignoring program scope boundaries and testing out-of-scope targets",
+    "Submitting findings without manual verification, creating noise for program triage teams"
+  ],
+  "faq": [
+    {
+      "question": "What tools need to be installed before using this skill?",
+      "answer": "This skill assumes you have Go, Python, and Ruby installed. Key tools include Amass, Subfinder, httpx, Nuclei, ffuf, Dalfox, and waybackurls. Most can be installed via go install or apt."
+    },
+    {
+      "question": "Is this skill safe to use on any target?",
+      "answer": "No. Only use this skill on targets where you have explicit authorization. Always check bug bounty program scope and rules before running any reconnaissance."
+    },
+    {
+      "question": "How do I avoid getting rate limited or blocked?",
+      "answer": "Use the built-in rate limiting features of tools, reduce concurrency settings, and consider using proxy rotation for extended scans. The skill includes recommendations for these settings."
+    },
+    {
+      "question": "Can this skill find all vulnerabilities?",
+      "answer": "No automated tool can find all vulnerabilities. This skill provides efficient reconnaissance and automated scanning, but manual testing is still required for comprehensive assessments."
+    },
+    {
+      "question": "Do I need API keys for full functionality?",
+      "answer": "Some features like Shodan and Censys integration require API keys. Many recon techniques work without keys, but paid services provide additional coverage."
+    },
+    {
+      "question": "How do I verify findings before reporting?",
+      "answer": "Manually reproduce each finding by visiting the affected endpoint. Use curl or browser developer tools to confirm the vulnerability exists and document steps to reproduce."
+    }
+  ],
+  "seoKeywords": [
+    "red team",
+    "bug bounty",
+    "penetration testing",
+    "reconnaissance",
+    "vulnerability scanning",
+    "security testing",
+    "subdomain enumeration",
+    "XSS hunting",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/red-team-tools",
+  "sourceType": "community",
+  "dependencies": []
+}

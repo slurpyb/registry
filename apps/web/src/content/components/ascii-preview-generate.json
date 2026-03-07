@@ -1,0 +1,140 @@
+{
+  "name": "ascii-preview-generate",
+  "type": "skill",
+  "description": "Use AI to create ASCII text-based preview of PDF page layout. Transforms visual and extracted data into structured ASCII representation for HTML generation.",
+  "domain": "data",
+  "subdomain": "visualization",
+  "specialty": "PDF layout preview",
+  "quality": 4,
+  "qualityReason": "Niche but useful format",
+  "bundleHints": [
+    "data-visualization",
+    "document-processing"
+  ],
+  "tags": [
+    "ascii",
+    "html-generation",
+    "layout",
+    "pdf",
+    "structured-data",
+    "visualization"
+  ],
+  "capabilities": [
+    "Analyzes PDF page images to understand visual layout",
+    "Processes extracted text data with font and position metadata",
+    "Generates structured ASCII representations of page content",
+    "Identifies heading hierarchy from font size and styling",
+    "Represents lists, tables, and paragraphs visually",
+    "Creates summary statistics of page elements"
+  ],
+  "author": "AbeJitsu",
+  "icon": "▥",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only a SKILL.md markdown file. No executable code, scripts, network calls, filesystem access, or environment variable reads are present. The skill provides AI prompt templates for generating ASCII layouts from PDF data. All static findings are false positives caused by the analyzer misinterpreting metadata fields, code block syntax, and documentation text.",
+  "valueStatement": "Users need to visualize PDF page structure before HTML conversion. This skill uses AI to analyze PDF images and extracted text data, then generate readable ASCII representations showing headings, paragraphs, lists, and tables.",
+  "userTitle": "Generate ASCII PDF Page Layout Previews",
+  "limitations": [
+    "Does not execute code or modify files directly",
+    "Requires Claude AI API calls for generation",
+    "Output quality depends on source data completeness",
+    "No built-in PDF parsing or image processing"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Document conversion specialists",
+      "title": "PDF to HTML conversion workflow",
+      "description": "Generate layout previews as intermediate step for accurate HTML output from PDF source documents."
+    },
+    {
+      "targetUser": "Technical writers",
+      "title": "Document structure validation",
+      "description": "Verify PDF structure is correctly captured before committing to HTML generation pipeline."
+    },
+    {
+      "targetUser": "Archival projects",
+      "title": "Document layout documentation",
+      "description": "Create text-based snapshots of PDF layouts for archival and reference purposes."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic ASCII Preview",
+      "scenario": "Generate simple layout preview",
+      "prompt": "Create an ASCII text-based layout preview of this PDF page. Show headings, paragraphs, and lists using box drawing characters."
+    },
+    {
+      "title": "Full Structure Analysis",
+      "scenario": "Complete page analysis with metadata",
+      "prompt": "Analyze this PDF page (image) and extracted text data (JSON). Generate detailed ASCII representation showing font sizes, heading levels, list structures, and include a summary section with element counts."
+    },
+    {
+      "title": "Complex Layout Handler",
+      "scenario": "Multi-column or table-heavy pages",
+      "prompt": "Generate ASCII preview for this complex PDF page. Represent multi-column layouts, tables, and nested structures. Use appropriate spacing to show actual layout relationships."
+    },
+    {
+      "title": "Quality-Assured Output",
+      "scenario": "Production-ready output validation",
+      "prompt": "Create ASCII layout preview that meets these requirements: under 80 characters per line, box drawing characters for clarity, element type labels, font size annotations, and complete structure summary. Validate all content is represented."
+    }
+  ],
+  "bestPractices": [
+    "Provide both PNG image and rich_extraction JSON for best results",
+    "Verify output file is readable text before downstream processing",
+    "Check that element counts in summary match source data",
+    "Include page and chapter metadata for traceability"
+  ],
+  "antiPatterns": [
+    "Using without source PNG or JSON data",
+    "Skipping validation of ASCII output readability",
+    "Ignoring element count mismatches in summary",
+    "Passing incomplete or corrupted extraction data"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude and Claude Code. It sends multi-modal inputs and prompt templates to generate ASCII layouts."
+    },
+    {
+      "question": "What input files does it need?",
+      "answer": "Requires 02_page_XX.png (visual reference) and 01_rich_extraction.json (text spans with metadata). Can fall back to text-only if image unavailable."
+    },
+    {
+      "question": "How does it integrate with other skills?",
+      "answer": "This skill creates 03_page_XX_ascii.txt as input for the ai-html-generate skill. Together with PNG and extraction JSON, it provides complete context."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This is a prompt-only skill with no code execution. Data is processed by Claude AI per standard API usage. No files are written to disk by this skill."
+    },
+    {
+      "question": "Why is my ASCII output incomplete?",
+      "answer": "Check source rich_extraction.json has all text spans. Verify font sizes are captured. Ensure PNG image quality is sufficient. Downstream HTML generation can verify against visual."
+    },
+    {
+      "question": "How does this compare to direct PDF to HTML tools?",
+      "answer": "This skill provides human-readable ASCII previews for validation and context. Unlike automated converters, it uses AI to understand layout semantically for more accurate HTML output."
+    }
+  ],
+  "seoKeywords": [
+    "ascii preview generator",
+    "pdf layout visualization",
+    "claude ai skill",
+    "claude-code",
+    "document conversion",
+    "pdf to html",
+    "page layout analysis",
+    "ai document processing",
+    "pdf structure visualization"
+  ],
+  "sourceUrl": "https://github.com/AbeJitsu/Game-Settings-Panel/tree/main/.claude/skills/calypso/ascii-preview-generate",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "git-advanced",
+  "type": "skill",
+  "description": "Advanced Git operations and workflows including interactive rebasing, conflict resolution, history manipulation, bisecting for bugs, cherry-picking, reflog recovery, and branch management strategies. Use for: (1) Interactive rebasing and commit cleanup, (2) Complex merge conflict resolution, (3) Git bisect for bug hunting, (4) History rewriting and cleanup, (5) Branch strategy implementation (Git Flow, trunk-based), (6) Recovering lost commits with reflog",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "complex workflows",
+  "quality": 5,
+  "qualityReason": "Expert-level Git operations covered",
+  "bundleHints": [
+    "advanced-git",
+    "version-control",
+    "dev-expertise"
+  ],
+  "tags": [
+    "advanced",
+    "developer-tools",
+    "git",
+    "history-manipulation",
+    "version-control",
+    "workflows"
+  ],
+  "capabilities": [
+    "Interactive rebasing with squash, reorder, edit, and split operations",
+    "Strategic merge conflict resolution using ours, theirs, and manual approaches",
+    "Git bisect for binary search bug hunting across commit history",
+    "Commit recovery using reflog and fsck for lost work restoration",
+    "Branch strategy implementation for Git Flow, trunk-based, and GitHub Flow workflows",
+    "Helper script for branch cleanup, stash management, and history visualization"
+  ],
+  "author": "AutumnsGrove",
+  "icon": "🔀",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation and helper script skill for Git operations. Static findings flagged 616 patterns as potentially malicious, but all are false positives: the patterns appear in markdown documentation showing Git command examples (git rebase, git bisect, etc.), not executable code. The helper script (git_helper.sh) provides branch cleanup, conflict resolution, and rebase assistance utilities with user confirmations before destructive operations. No network calls to external endpoints, no credential access, and no persistence mechanisms. Safe for publishing.",
+  "valueStatement": "Complex Git operations like interactive rebasing, conflict resolution, and history rewriting can be error-prone without guidance. This skill provides step-by-step workflows, examples, and helper scripts to safely navigate advanced version control scenarios.",
+  "userTitle": "Master advanced Git operations and workflows",
+  "limitations": [
+    "Does not execute Git operations automatically - provides guidance and examples only",
+    "Does not access or modify repositories outside the current working directory",
+    "Does not integrate with remote services or CI/CD pipelines directly",
+    "User must confirm all destructive operations like branch deletion and force push"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Clean up commit history",
+      "description": "Squash WIP commits, reorder changes, and create readable commit history before code review"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Implement branch strategies",
+      "description": "Set up Git Flow, trunk-based development, or custom branching workflows for team coordination"
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Recover lost commits",
+      "description": "Use reflog and recovery techniques to restore accidentally deleted branches and commits"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Rebase assistance",
+      "scenario": "Clean up local commits",
+      "prompt": "Help me use interactive rebase to squash the last 5 commits into one clean commit with a descriptive message"
+    },
+    {
+      "title": "Conflict resolution",
+      "scenario": "Resolve merge conflicts",
+      "prompt": "Guide me through resolving merge conflicts between my feature branch and main, including when to use ours versus theirs"
+    },
+    {
+      "title": "Bug hunting",
+      "scenario": "Find regression source",
+      "prompt": "Show me how to use git bisect to find which commit introduced a bug that exists now but was not present in version 1.0.0"
+    },
+    {
+      "title": "Recovery",
+      "scenario": "Restore lost work",
+      "prompt": "I accidentally reset my branch and lost important commits. Help me recover them using reflog"
+    }
+  ],
+  "bestPractices": [
+    "Always create a backup branch before rebasing or rewriting history",
+    "Never rebase commits that have been pushed to shared branches",
+    "Use git reflog to recover from mistakes - it preserves 30-90 days of HEAD history"
+  ],
+  "antiPatterns": [
+    "Rebasing public branches that others depend on",
+    "Force pushing without using --force-with-lease",
+    "Skipping commit message review during interactive rebase",
+    "Ignoring conflict markers without understanding both sides"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with all Git hosting platforms?",
+      "answer": "Yes, the commands work with GitHub, GitLab, Bitbucket, and self-hosted Git servers."
+    },
+    {
+      "question": "What are the limits of git bisect?",
+      "answer": "Requires a test that can return pass/fail. Best for clear bug scenarios with known good and bad commits."
+    },
+    {
+      "question": "Can I use this with GitHub CLI or GitLab CLI?",
+      "answer": "Yes, the Git commands are compatible with any Git CLI regardless of hosting platform."
+    },
+    {
+      "question": "Is my data safe when using the helper script?",
+      "answer": "The script requires user confirmation before destructive actions and only operates in the current repository."
+    },
+    {
+      "question": "Why did my rebase fail?",
+      "answer": "Most failures are from conflicts. Abort with git rebase --abort, resolve conflicts, then continue or start over."
+    },
+    {
+      "question": "How is this different from standard Git documentation?",
+      "answer": "This skill provides interactive guidance, workflow examples, and a helper script that streamlines complex operations."
+    }
+  ],
+  "seoKeywords": [
+    "Git advanced operations",
+    "interactive rebase",
+    "merge conflict resolution",
+    "Git bisect",
+    "reflog recovery",
+    "branch management",
+    "git-advanced",
+    "version control",
+    "Claude Code",
+    "workflow automation"
+  ],
+  "sourceUrl": "https://github.com/AutumnsGrove/ClaudeSkills/tree/master/git-advanced",
+  "sourceType": "community",
+  "dependencies": []
+}

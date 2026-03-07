@@ -1,0 +1,140 @@
+{
+  "name": "css-development-validate",
+  "type": "skill",
+  "description": "This skill should be used when reviewing or auditing existing CSS code for consistency with established patterns. Triggers on \"review CSS\", \"audit styles\", \"check CSS\", \"validate stylesheet\", \"CSS review\". Checks semantic naming, dark mode coverage, Tailwind usage, and test coverage.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "CSS code review",
+  "quality": 5,
+  "qualityReason": "Clear audit purpose",
+  "bundleHints": [
+    "code-quality",
+    "design-systems"
+  ],
+  "tags": [
+    "code-review",
+    "consistency",
+    "css",
+    "patterns",
+    "tailwind",
+    "validation"
+  ],
+  "capabilities": [
+    "Reviews CSS files for semantic class naming conventions",
+    "Checks dark mode variant coverage on colored elements",
+    "Validates Tailwind @apply composition patterns",
+    "Identifies missing test coverage for CSS classes",
+    "Flags missing documentation comments on classes",
+    "Generates structured validation reports with file:line references"
+  ],
+  "author": "2389-research",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill with no executable code. All 'external_commands' detections are markdown code examples showing CSS patterns, not actual shell commands. The skill only reads CSS files for validation as designed. No network, filesystem write, or command execution capabilities exist. Static scanner misidentified documentation examples as executable patterns.",
+  "valueStatement": "CSS validation requires manual review of semantic naming, dark mode coverage, and Tailwind composition. This skill automates pattern checking and generates actionable reports with file and line references.",
+  "userTitle": "Validate CSS patterns in codebase",
+  "limitations": [
+    "Does not modify CSS files automatically",
+    "Does not validate CSS syntax or browser compatibility",
+    "Does not execute or test rendered styles",
+    "Requires user to specify CSS files for review"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Pre-merge code review",
+      "description": "Validate CSS before merging to ensure pattern consistency across the codebase."
+    },
+    {
+      "targetUser": "Codebase auditors",
+      "title": "Technical debt assessment",
+      "description": "Audit existing CSS for dark mode gaps and naming issues across the entire codebase."
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Pattern enforcement",
+      "description": "Verify contributors follow established CSS patterns during code review process."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic validation",
+      "scenario": "Review CSS file",
+      "prompt": "Validate the CSS in styles/components.css against established patterns. Check semantic naming, dark mode coverage, and Tailwind @apply usage."
+    },
+    {
+      "title": "Focused check",
+      "scenario": "Check dark mode",
+      "prompt": "Check all CSS files for missing dark mode variants on colored elements. List each class missing dark: variants with file:line references."
+    },
+    {
+      "title": "Naming review",
+      "scenario": "Audit class names",
+      "prompt": "Review CSS class names for non-semantic naming. Flag utility-based names like .btn-blue or .text-big and suggest semantic alternatives."
+    },
+    {
+      "title": "Full audit",
+      "scenario": "Complete pattern audit",
+      "prompt": "Run full CSS validation: check semantic naming, dark mode coverage, @apply usage, test coverage, and documentation. Provide summary with priority recommendations."
+    }
+  ],
+  "bestPractices": [
+    "Specify the exact CSS file path to validate for focused results",
+    "Review dark mode issues first as they cause visual bugs",
+    "Use validation reports before refactoring to understand scope"
+  ],
+  "antiPatterns": [
+    "Using utility class names like .btn-blue or .text-big",
+    "Missing dark: variants on background and text colors",
+    "Scattered Tailwind utilities in markup instead of @apply composition"
+  ],
+  "faq": [
+    {
+      "question": "Can this skill modify CSS files?",
+      "answer": "No. This skill only validates and reports issues. Use css-development:refactor skill to automatically fix problems."
+    },
+    {
+      "question": "What CSS files does it check?",
+      "answer": "It reads any CSS files you specify. Common paths include styles/components.css and component-specific stylesheets."
+    },
+    {
+      "question": "Does it test rendered styles in browser?",
+      "answer": "No. It validates static CSS patterns only. Browser rendering tests require separate test files."
+    },
+    {
+      "question": "Is data from my CSS files sent anywhere?",
+      "answer": "No. This skill runs locally and only reads files to provide validation feedback within your session."
+    },
+    {
+      "question": "Why are some classes flagged as non-semantic?",
+      "answer": "Non-semantic names like .btn-blue describe appearance rather than purpose. Use names like .button-primary that describe what the element is."
+    },
+    {
+      "question": "How does this differ from css-development:refactor?",
+      "answer": "Validate reviews and reports issues. Refactor actually modifies code. Use validate first to understand scope, then refactor to fix."
+    }
+  ],
+  "seoKeywords": [
+    "CSS validation",
+    "Claude Code skill",
+    "Tailwind validation",
+    "CSS code review",
+    "semantic class names",
+    "dark mode CSS",
+    "code quality",
+    "CSS patterns",
+    "Claude skill",
+    "Codex skill"
+  ],
+  "sourceUrl": "https://github.com/2389-research/claude-plugins/tree/main/css-development/skills/validate",
+  "sourceType": "community",
+  "dependencies": []
+}

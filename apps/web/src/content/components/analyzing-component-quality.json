@@ -1,0 +1,148 @@
+{
+  "name": "analyzing-component-quality",
+  "type": "skill",
+  "description": "Expert at analyzing the quality and effectiveness of Claude Code components (agents, skills, commands, hooks). Assumes component is already technically valid. Evaluates description clarity, tool permissions, auto-invoke triggers, security, and usability to provide quality scores and improvement suggestions.",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "Component audit",
+  "quality": 4,
+  "qualityReason": "Valuable meta analysis capability",
+  "bundleHints": [
+    "quality-assurance",
+    "plugin-review",
+    "meta-skills"
+  ],
+  "tags": [
+    "analysis",
+    "audit",
+    "best-practices",
+    "code-audit",
+    "command-review",
+    "components",
+    "hook-analysis",
+    "plugin",
+    "plugin-quality",
+    "quality",
+    "skill-evaluation"
+  ],
+  "capabilities": [
+    "Scores description clarity on 1-5 scale with specific examples",
+    "Evaluates tool permission appropriateness and security risks",
+    "Analyzes auto-invoke trigger specificity for skills",
+    "Measures documentation quality and developer experience",
+    "Provides concrete improvement suggestions with before/after examples",
+    "Runs automated quality scoring via quality-scorer.py script"
+  ],
+  "author": "C0ntr0lledCha0s",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All 234 static findings are FALSE POSITIVES. The scanner incorrectly flagged documentation examples (YAML frontmatter with allowed-tools including Bash), educational security discussions, and security warning strings as actual security threats. The skill is a pure quality analysis tool with Read-only tool access. The quality-scorer.py script only reads local files for heuristic analysis and outputs text reports. No network operations, no external command execution, no credential access.",
+  "valueStatement": "Claude Code components can have technical issues or poor design that impacts effectiveness. This skill provides systematic quality evaluation including description clarity, tool permissions, security posture, and usability to help developers improve their plugins before publishing.",
+  "userTitle": "Analyze Claude Code component quality",
+  "limitations": [
+    "Does not perform technical validation (assumes component already validates)",
+    "Does not modify components automatically",
+    "Does not test components in actual Claude Code sessions",
+    "Does not evaluate runtime performance or memory usage"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Plugin developers",
+      "title": "Pre-publish quality check",
+      "description": "Review components for marketplace readiness before publishing"
+    },
+    {
+      "targetUser": "Quality auditors",
+      "title": "Component quality audits",
+      "description": "Systematically evaluate existing components against quality standards"
+    },
+    {
+      "targetUser": "Plugin maintainers",
+      "title": "Identify improvement areas",
+      "description": "Find specific issues and get concrete suggestions for improving components"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick quality check",
+      "scenario": "Analyze a single component",
+      "prompt": "Analyze the quality of the component at self-improvement/skills/analyzing-response-quality/SKILL.md and provide overall score and improvement suggestions"
+    },
+    {
+      "title": "Security review",
+      "scenario": "Check security posture",
+      "prompt": "Review this agent for security issues: read agents/investigator.md and score its security dimension, flagging any risky tool combinations or vulnerabilities"
+    },
+    {
+      "title": "Full audit",
+      "scenario": "Comprehensive component review",
+      "prompt": "Perform a complete quality audit of the testing-expert plugin. Analyze all agents, skills, and commands against the quality standards and provide priority-ordered improvement list"
+    },
+    {
+      "title": "Tool permissions",
+      "scenario": "Evaluate permissions",
+      "prompt": "Analyze tool permissions across all components in github-workflows/. Are permissions minimal and justified? Flag any dangerous combinations like Bash+Write+Edit"
+    }
+  ],
+  "bestPractices": [
+    "Review quality scores before publishing components to marketplace",
+    "Focus on specific auto-invoke triggers for skills rather than vague descriptions",
+    "Use minimal necessary tools and avoid dangerous combinations like Bash+Write",
+    "Include concrete examples in component documentation for better usability"
+  ],
+  "antiPatterns": [
+    "Using vague descriptions like helps with code without specific triggers",
+    "Including Task tool in non-orchestrator agents (causes circular delegation)",
+    "Having Bash tool without mentioning input validation",
+    "Publishing components without testing auto-invoke trigger specificity"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill modify my components?",
+      "answer": "No. This skill only analyzes and reports quality scores. All modifications are manual."
+    },
+    {
+      "question": "What quality dimensions does it analyze?",
+      "answer": "Five dimensions: description clarity, tool permissions, auto-invoke triggers, security, and usability."
+    },
+    {
+      "question": "Can I use this for marketplace components?",
+      "answer": "Yes. Components scoring below 4.0 should be improved before marketplace publication."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. The skill only reads files for analysis. No data is transmitted externally."
+    },
+    {
+      "question": "What is the minimum passing score?",
+      "answer": "Components should score 4.0+ for marketplace. Below 3.0 indicates significant issues needing attention."
+    },
+    {
+      "question": "How does this differ from the validation skill?",
+      "answer": "Validation checks technical correctness (YAML, naming, structure). This skill evaluates quality (clarity, usability, effectiveness)."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code component quality",
+    "skill analysis",
+    "Claude Code plugin audit",
+    "component quality scoring",
+    "Claude Code best practices",
+    "plugin quality assessment",
+    "Claude Codex skill evaluation",
+    "analyze agent quality",
+    "skill review automation",
+    "plugin marketplace quality"
+  ],
+  "sourceUrl": "https://github.com/C0ntr0lledCha0s/claude-code-plugin-automations/tree/main/self-improvement/skills/analyzing-component-quality",
+  "sourceType": "community",
+  "dependencies": []
+}

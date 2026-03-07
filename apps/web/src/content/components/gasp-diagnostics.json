@@ -1,0 +1,141 @@
+{
+  "name": "gasp-diagnostics",
+  "type": "skill",
+  "description": "System diagnostics using GASP (General AI Specialized Process monitor). Use when user asks about Linux system performance, requests system checks, mentions GASP, asks to diagnose hosts, or says things like \"check my system\" or \"what's wrong with [hostname]\". Can actively fetch GASP metrics from hosts via HTTP or interpret provided JSON output.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "system diagnostics",
+  "quality": 5,
+  "qualityReason": "Specific diagnostic system",
+  "bundleHints": [
+    "monitoring-suite",
+    "infrastructure-tools"
+  ],
+  "tags": [
+    "diagnostics",
+    "gasp",
+    "host-diagnosis",
+    "infrastructure",
+    "linux",
+    "performance",
+    "system-monitoring"
+  ],
+  "capabilities": [
+    "Fetch GASP metrics from any host via HTTP on port 8080",
+    "Analyze CPU, memory, disk I/O, network, GPU, and systemd metrics",
+    "Compare multiple hosts to identify performance outliers",
+    "Detect memory leaks, performance regressions, and bottlenecks",
+    "Provide context-aware recommendations based on infrastructure patterns",
+    "Interpret GASP JSON output with health summaries and concern prioritization"
+  ],
+  "author": "AcceleratedIndustries",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill teaching Claude to fetch GASP metrics via HTTP GET on port 8080 and interpret JSON output. Static findings are false positives - markdown code formatting and legitimate diagnostic documentation misinterpreted by pattern scanner. No executable code, no file system access, no command execution.",
+  "valueStatement": "Diagnosing Linux system issues requires expertise in CPU, memory, disk, and network metrics. GASP Diagnostics teaches Claude to fetch monitoring data and interpret it with context-aware analysis for devops and sysadmins.",
+  "userTitle": "Diagnose Linux Systems with GASP",
+  "limitations": [
+    "Requires GASP to be running on target hosts (port 8080)",
+    "Cannot diagnose Windows or macOS systems",
+    "Cannot modify system configuration or restart services",
+    "Cannot access systems without GASP installed and running"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Multi-host cluster analysis",
+      "description": "Compare resource usage across Proxmox nodes, container hosts, and development workstations to identify performance outliers."
+    },
+    {
+      "targetUser": "System administrators",
+      "title": "Memory leak investigation",
+      "description": "Detect memory pressure, swap usage, and identify processes consuming excessive memory with growth trends."
+    },
+    {
+      "targetUser": "Development teams",
+      "title": "Workstation performance check",
+      "description": "Diagnose slow development workstations by analyzing GPU utilization, disk I/O bottlenecks, and process patterns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Single host check",
+      "scenario": "Quick health check",
+      "prompt": "Check {hostname} for any issues and tell me what you find."
+    },
+    {
+      "title": "Compare hosts",
+      "scenario": "Multi-host comparison",
+      "prompt": "Compare resource usage on {host1} and {host2}. Which one is the outlier and why?"
+    },
+    {
+      "title": "Memory diagnosis",
+      "scenario": "Memory problem investigation",
+      "prompt": "Why is {hostname} slow? Check for memory pressure, swap usage, and identify any memory-hogging processes."
+    },
+    {
+      "title": "Full diagnostics",
+      "scenario": "Comprehensive analysis",
+      "prompt": "Run a full diagnostic on {hostname}. Check CPU load, memory pressure, disk I/O, network errors, systemd failed units, and GPU utilization if available."
+    }
+  ],
+  "bestPractices": [
+    "Use specific hostnames rather than IP addresses for better context recognition",
+    "Ask for multi-host comparison when troubleshooting cluster-wide issues",
+    "Check recent_changes array to correlate issues with system events"
+  ],
+  "antiPatterns": [
+    "Asking about system issues without specifying a host (skill needs GASP endpoint)",
+    "Ignoring baseline comparisons when assessing if values are abnormal",
+    "Assuming high memory usage is always a problem (cache usage is normal on Linux)"
+  ],
+  "faq": [
+    {
+      "question": "What systems does GASP Diagnostics support?",
+      "answer": "Linux systems with GASP installed and running on port 8080. Tested on Arch Linux, Debian, Ubuntu, and Proxmox."
+    },
+    {
+      "question": "What are the resource limits?",
+      "answer": "No limits within the skill itself. Depends on GASP configuration on target hosts. The skill can analyze any JSON output GASP produces."
+    },
+    {
+      "question": "How do I integrate with existing tools?",
+      "answer": "Install GASP on hosts, ensure port 8080 is accessible, then symlink the skill directory to your Claude skills folder."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes. The skill only reads GASP metrics via HTTP GET requests. No data is written or stored by the skill."
+    },
+    {
+      "question": "What if GASP is unreachable?",
+      "answer": "The skill handles errors gracefully. It will inform you the host is unreachable and suggest checking if GASP is running."
+    },
+    {
+      "question": "How does this compare to MCP servers?",
+      "answer": "GASP Diagnostics uses progressive loading (~100 tokens idle vs ~1300+ tokens for MCP). It teaches Claude interpretation logic rather than just fetching data."
+    }
+  ],
+  "seoKeywords": [
+    "GASP diagnostics",
+    "Linux system monitoring",
+    "Claude Code skill",
+    "system diagnostics",
+    "CPU memory analysis",
+    "infrastructure monitoring",
+    "claude ai",
+    "claude code",
+    "devops tools",
+    "performance troubleshooting"
+  ],
+  "sourceUrl": "https://github.com/AcceleratedIndustries/gasp/tree/main/skill/gasp-diagnostics",
+  "sourceType": "community",
+  "dependencies": []
+}

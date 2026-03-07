@@ -1,0 +1,140 @@
+{
+  "name": "grasshopper-workflow",
+  "type": "skill",
+  "description": "Grasshopper 參數化建模工作流程工具。當需要通過 MCP 協議與 Grasshopper 交互、創建和管理組件、建立連接、設置參數、執行完整建模工作流程時使用。適用於：(1) 從 MMD 文件創建 Grasshopper 定義, (2) 執行 placement_info.json 工作流程, (3) 批量管理組件和連接, (4) 參數化建模的自動化流程, (5) 解析 component_info.mmd 和 part_info.mmd 文件",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "parametric modeling",
+  "quality": 5,
+  "qualityReason": "Specific MCP integration",
+  "bundleHints": [
+    "design-automation",
+    "mcp-tools"
+  ],
+  "tags": [
+    "automation",
+    "grasshopper",
+    "mcp",
+    "modeling",
+    "parametric",
+    "rhino"
+  ],
+  "capabilities": [
+    "Create, query, and delete Grasshopper components via MCP protocol",
+    "Establish connections between components with parameter mapping",
+    "Set Number Slider and Vector XYZ component parameters",
+    "Parse MMD files to extract components, connections, and subgraphs",
+    "Generate and execute placement_info.json workflow files",
+    "Batch create component groups with custom colors"
+  ],
+  "author": "AmemiyaLai",
+  "icon": "🔧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate Grasshopper workflow automation tool. All 527 static findings are false positives: C2 keywords are UUIDs in GUID mappings, external_commands are Ruby code examples in documentation, and weak crypto patterns are references in documentation. The tool communicates via TCP with local MCP server on port 8080, reads/writes JSON and MMD files within project directories only, and has no external network calls or data exfiltration.",
+  "valueStatement": "Creating Grasshopper definitions manually is time-consuming and repetitive. This skill enables AI assistants to programmatically create components, establish connections, and execute complete parametric modeling workflows through the MCP protocol, turning design specifications into working Grasshopper definitions automatically.",
+  "userTitle": "Automate Grasshopper via MCP",
+  "limitations": [
+    "Requires a running Grasshopper MCP server on localhost:8080",
+    "Cannot modify existing Grasshopper definitions directly",
+    "Only supports components with known GUIDs in the built-in mapping",
+    "Connection parameters must be specified manually"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Design automation engineers",
+      "title": "Automate design iteration",
+      "description": "Convert design specifications into Grasshopper definitions automatically for rapid design iteration"
+    },
+    {
+      "targetUser": "Parametric designers",
+      "title": "Batch component placement",
+      "description": "Create complex component networks from MMD files with parallel execution for efficiency"
+    },
+    {
+      "targetUser": "AI assistant developers",
+      "title": "Enable Claude for CAD work",
+      "description": "Add Grasshopper control capabilities to AI assistants for parametric design assistance"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create simple component",
+      "scenario": "Add a Number Slider to Grasshopper",
+      "prompt": "Create a Number Slider at position x=100, y=200 with component_id SLIDER_WIDTH, then set its value to 120.0 with range 0-200"
+    },
+    {
+      "title": "Connect components",
+      "scenario": "Link two components",
+      "prompt": "Connect SLIDER_WIDTH to DIVISION_X using source param Number and target param A"
+    },
+    {
+      "title": "Execute full workflow",
+      "scenario": "Build complete definition",
+      "prompt": "Parse component_info.mmd, generate placement_info.json, then execute it with 10 parallel workers"
+    },
+    {
+      "title": "Batch group creation",
+      "scenario": "Organize components",
+      "prompt": "Create groups for desktop components and leg components using the parsed subgraph information with color #FF0000"
+    }
+  ],
+  "bestPractices": [
+    "Use component_id keys for better readability instead of raw component IDs",
+    "Set max_workers between 10-20 for parallel execution to balance speed and stability",
+    "Save component ID mapping after creation to preserve state for subsequent operations"
+  ],
+  "antiPatterns": [
+    "Do not attempt to create components without specifying valid GUIDs from the mapping",
+    "Avoid connecting components without specifying the correct source and target parameters",
+    "Do not skip GUID updates when using placement_info.json from different Grasshopper versions"
+  ],
+  "faq": [
+    {
+      "question": "What is the MCP server requirement?",
+      "answer": "A Grasshopper MCP server must be running on localhost:port 8080. This skill connects to it via TCP sockets."
+    },
+    {
+      "question": "What file formats are supported?",
+      "answer": "MMD files for component definitions and JSON files for placement instructions and component ID mappings."
+    },
+    {
+      "question": "How do I integrate with Claude Code?",
+      "answer": "Install this skill and use the provided functions to interact with Grasshopper. The skill exposes all operations through MCP tool definitions."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. All communication is local to your machine. No data is sent externally. File operations stay within the project directory."
+    },
+    {
+      "question": "Why are connections failing?",
+      "answer": "Check that all source components exist, the component ID mapping is saved, and you have specified correct parameter names."
+    },
+    {
+      "question": "How does this compare to manual Grasshopper work?",
+      "answer": "This skill automates repetitive tasks. You design in MMD format once, then the skill creates all components and connections automatically."
+    }
+  ],
+  "seoKeywords": [
+    "Grasshopper MCP",
+    "parametric modeling automation",
+    "Claude Code skill",
+    "Rhino Grasshopper",
+    "visual programming automation",
+    "component management",
+    "MCP protocol",
+    "Grasshopper workflow",
+    "generative design",
+    "3D modeling automation"
+  ],
+  "sourceUrl": "https://github.com/AmemiyaLai/grasshopper-mcp-workflow/tree/main/grasshopper-workflow/",
+  "sourceType": "community",
+  "dependencies": []
+}

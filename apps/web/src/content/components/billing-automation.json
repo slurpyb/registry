@@ -1,0 +1,142 @@
+{
+  "name": "billing-automation",
+  "type": "skill",
+  "description": "Build automated billing systems for recurring payments, invoicing, subscription lifecycle, and dunning management. Use when implementing subscription billing, automating invoicing, or managing recurring payment systems.",
+  "domain": "business",
+  "subdomain": "finance",
+  "specialty": "subscription billing",
+  "quality": 5,
+  "qualityReason": "Clear business logic scope",
+  "bundleHints": [
+    "fintech-stack",
+    "saas-tools"
+  ],
+  "tags": [
+    "billing",
+    "dunning",
+    "invoicing",
+    "lifecycle",
+    "payments",
+    "recurring",
+    "saas",
+    "subscriptions"
+  ],
+  "capabilities": [
+    "Create subscription lifecycle management with trial, active, past_due, and canceled states",
+    "Implement automated invoicing with line items, tax calculations, and PDF generation",
+    "Build dunning management workflows for failed payment recovery",
+    "Calculate prorated charges for plan upgrades, downgrades, and seat changes",
+    "Handle multi-region tax calculations including VAT, GST, and sales tax"
+  ],
+  "author": "sickn33",
+  "icon": "💳",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 35 static findings are false positives. The external_commands detections are markdown code block fences (backticks), not shell execution. The network detection is a placeholder URL in example email templates. The blocker detections for weak crypto and system reconnaissance are standard Python code patterns (string assignments, ID generation) used in legitimate billing logic. No prompt injection attempts detected.",
+  "valueStatement": "This skill helps developers implement subscription billing, automate invoicing, and manage payment lifecycles. It provides patterns for recurring payments, dunning management, proration, and tax calculations.",
+  "userTitle": "Build automated billing systems",
+  "limitations": [
+    "Does not integrate with specific payment processors (Stripe, PayPal, etc.)",
+    "Does not provide actual payment processing or merchant account setup",
+    "Does not generate real invoices for actual customer billing",
+    "Requires additional implementation for production payment security"
+  ],
+  "useCases": [
+    {
+      "targetUser": "SaaS developers building subscription products",
+      "title": "SaaS subscription management",
+      "description": "Implement recurring billing for SaaS products with monthly, annual, or custom billing cycles"
+    },
+    {
+      "targetUser": "Finance teams automating billing operations",
+      "title": "Automated invoicing system",
+      "description": "Generate and deliver invoices automatically with tax calculations and multiple format outputs"
+    },
+    {
+      "targetUser": "Operations teams managing subscription churn",
+      "title": "Payment recovery workflows",
+      "description": "Set up dunning processes to recover failed payments through retries and customer notifications"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic subscription setup",
+      "prompt": "Create a subscription billing system with monthly and annual plans. Include customer registration, plan selection, and initial billing cycle setup.",
+      "scenario": "Setting up a new SaaS billing system from scratch"
+    },
+    {
+      "title": "Invoice generation",
+      "prompt": "Generate invoices for completed subscriptions. Include line items for base plan, usage charges, and applicable tax. Output as PDF.",
+      "scenario": "Creating automated invoice generation for recurring bills"
+    },
+    {
+      "title": "Dunning workflow",
+      "prompt": "Implement a dunning management process. When a payment fails, send customer notifications, retry on schedule, and handle subscription status changes.",
+      "scenario": "Handling failed payments and reducing churn"
+    },
+    {
+      "title": "Proration for plan changes",
+      "prompt": "Calculate prorated charges when a customer upgrades from basic to pro plan mid-cycle. Include seat additions and billing frequency changes.",
+      "scenario": "Handling mid-cycle subscription changes accurately"
+    }
+  ],
+  "bestPractices": [
+    "Always test billing logic with sandbox payments before production deployment",
+    "Implement idempotency keys for payment requests to prevent duplicate charges",
+    "Store complete billing audit trails for compliance and dispute resolution",
+    "Use webhooks to synchronize payment status with your database"
+  ],
+  "antiPatterns": [
+    "Do not charge customers without explicit confirmation or trial consent",
+    "Avoid hardcoding prices - use configuration for plan pricing",
+    "Do not skip tax calculations, even for digital goods",
+    "Never store raw credit card numbers - use payment processor tokens"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill connect to Stripe or PayPal?",
+      "answer": "No, this skill provides implementation patterns and code examples. You will need to integrate with your chosen payment processor separately using their SDKs."
+    },
+    {
+      "question": "Can I use this for one-time payments, not subscriptions?",
+      "answer": "The skill focuses on recurring billing. For one-time payments, you would adapt the invoice generation portion without the subscription lifecycle management."
+    },
+    {
+      "question": "How do I handle taxes for international customers?",
+      "answer": "Use the tax calculator pattern with region-specific rates. For VAT/GST, consider integrating with services like Avalara or TaxJar for automated compliance."
+    },
+    {
+      "question": "What happens if a payment fails repeatedly?",
+      "answer": "The dunning workflow defines retry schedules. After exhausting retries (typically 3-4 attempts over 2-3 weeks), the subscription is canceled or downgraded to a free tier."
+    },
+    {
+      "question": "Can I customize the billing cycles?",
+      "answer": "Yes, the patterns support weekly, monthly, quarterly, annual, and custom billing intervals. You define the cycle in the subscription configuration."
+    },
+    {
+      "question": "Is this compliant with PCI DSS?",
+      "answer": "The skill provides billing logic patterns. For PCI compliance, ensure you never handle raw card data - use payment processor tokens and their secure APIs."
+    }
+  ],
+  "seoKeywords": [
+    "billing automation",
+    "subscription billing",
+    "SaaS billing",
+    "recurring payments",
+    "invoice generation",
+    "dunning management",
+    "Claude Code",
+    "Codex",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/billing-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "rust-pro",
+  "type": "skill",
+  "description": "Master Rust 1.75+ with modern async patterns, advanced type system",
+  "domain": "languages",
+  "subdomain": "rust",
+  "specialty": "systems programming",
+  "quality": 5,
+  "qualityReason": "Expert, ecosystem-wide",
+  "bundleHints": [
+    "rust-stack",
+    "systems-toolkit"
+  ],
+  "tags": [
+    "async",
+    "performance",
+    "production",
+    "rust",
+    "systems-programming",
+    "tokio",
+    "type-system"
+  ],
+  "capabilities": [
+    "Design and implement async web services with Tokio runtime",
+    "Solve ownership, lifetime, and borrow checker issues",
+    "Build high-performance concurrent data structures",
+    "Implement safe FFI wrappers around C libraries",
+    "Optimize memory usage and cache locality",
+    "Create custom error handling with thiserror and anyhow"
+  ],
+  "author": "sickn33",
+  "icon": "🦀",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Prompt-only skill with no executable code. Static analysis scanned 0 files and detected 0 potential security issues. This is a Rust developer persona definition that provides guidance on Rust programming without any network, filesystem, or system access capabilities. Risk score: 0/100.",
+  "valueStatement": "Build high-performance, memory-safe Rust applications with expert guidance on async patterns, advanced type system features, and production-ready systems programming.",
+  "userTitle": "Rust Development Expert",
+  "limitations": [
+    "Cannot execute or compile Rust code directly",
+    "Cannot access local file system or project files",
+    "Cannot run benchmarks or profiling tools",
+    "Provides guidance only, not runtime execution"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building Rust microservices",
+      "title": "Building Async Web Services",
+      "description": "Design and implement high-performance web APIs using axum, Tokio, and async patterns with proper error handling and backpressure"
+    },
+    {
+      "targetUser": "Systems programmers requiring high performance",
+      "title": "Performance Optimization",
+      "description": "Analyze and optimize Rust code for memory usage, cache efficiency, and zero-cost abstractions while maintaining safety"
+    },
+    {
+      "targetUser": "Developers integrating Rust with native libraries",
+      "title": "FFI and Unsafe Code",
+      "description": "Create safe wrappers around C libraries with proper safety invariants and documentation for unsafe code blocks"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Rust Question",
+      "prompt": "Explain how [Rust concept] works in Rust 1.75+ and provide a code example.",
+      "scenario": "Learning a specific Rust feature or syntax"
+    },
+    {
+      "title": "Debug Ownership Issues",
+      "prompt": "I have this Rust code that fails with a borrow checker error. Analyze the ownership model and suggest a fix: [code]",
+      "scenario": "Troubleshooting compile-time ownership errors"
+    },
+    {
+      "title": "Design Async Service",
+      "prompt": "Design an async web service in Rust that handles [use case] with Tokio. Include error handling, proper shutdown, and testing approach.",
+      "scenario": "Architecting new Rust web services"
+    },
+    {
+      "title": "Optimize Performance",
+      "prompt": "Profile and optimize this Rust code for [metric]. Suggest zero-cost abstractions, memory layout improvements, or algorithm changes: [code]",
+      "scenario": "Improving runtime performance of Rust applications"
+    }
+  ],
+  "bestPractices": [
+    "Prefer Result types over exceptions for error handling",
+    "Use Arc and Rc only when shared ownership is truly needed",
+    "Document all unsafe code blocks with explicit safety invariants"
+  ],
+  "antiPatterns": [
+    "Using unwrap() in production code without proper error handling",
+    "Ignoring the borrow checker by using unsafe instead of finding a safe solution",
+    "Blocking async code with synchronous I/O operations"
+  ],
+  "faq": [
+    {
+      "question": "What Rust version does this skill cover?",
+      "answer": "This skill focuses on Rust 1.75+ features including const generics, improved type inference, and async improvements."
+    },
+    {
+      "question": "Can this skill write and compile code for me?",
+      "answer": "This skill provides guidance, examples, and code suggestions but cannot execute or compile Rust code directly."
+    },
+    {
+      "question": "Does this skill support Tokio and async programming?",
+      "answer": "Yes, this skill has extensive knowledge of Tokio ecosystem including axum, tower, hyper, and async patterns."
+    },
+    {
+      "question": "Can this help with FFI and unsafe code?",
+      "answer": "Yes, this skill covers safe abstractions over unsafe code, FFI patterns, and proper safety documentation."
+    },
+    {
+      "question": "What testing frameworks does this skill recommend?",
+      "answer": "It covers unit tests, property-based testing with proptest, benchmarking with criterion.rs, and mocking with mockall."
+    },
+    {
+      "question": "Is this skill suitable for beginners?",
+      "answer": "This skill is designed for intermediate to advanced Rust developers. Beginners should start with basic Rust tutorials first."
+    }
+  ],
+  "seoKeywords": [
+    "rust",
+    "rust programming",
+    "rust expert",
+    "async rust",
+    "tokio",
+    "systems programming",
+    "rust performance",
+    "claude code",
+    "codex",
+    "rust development"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/rust-pro",
+  "sourceType": "community",
+  "dependencies": []
+}

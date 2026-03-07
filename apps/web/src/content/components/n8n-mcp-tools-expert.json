@@ -1,0 +1,145 @@
+{
+  "name": "n8n-mcp-tools-expert",
+  "type": "skill",
+  "description": "Expert guide for using n8n-mcp MCP tools effectively. Use when searching for nodes, validating configurations, accessing templates, managing workflows, or using any n8n-mcp tool. Provides tool selection guidance, parameter formats, and common patterns.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "n8n MCP guidance",
+  "quality": 5,
+  "qualityReason": "Expert MCP tool navigation",
+  "bundleHints": [
+    "mcp-expert",
+    "n8n-tools"
+  ],
+  "tags": [
+    "configuration",
+    "mcp",
+    "mcp-tools",
+    "n8n",
+    "node discovery",
+    "node-discovery",
+    "templates",
+    "tool selection",
+    "workflow management",
+    "workflow-automation",
+    "workflow-management"
+  ],
+  "capabilities": [
+    "Search and discover n8n nodes by keyword using search_nodes tool",
+    "Get detailed node information including operations, properties, and examples",
+    "Validate node configurations using different validation profiles",
+    "Create, update, and manage n8n workflows via API",
+    "Search and deploy from a library of 2700+ workflow templates",
+    "Access comprehensive documentation for all MCP tools"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 170 potential issues including external_commands (96), network (1), and env_access (1). After evaluating the actual content, all findings are FALSE POSITIVES. The backtick characters detected are markdown code formatting for tool names, not shell execution. The URL is a legitimate source reference. The API key reference is documentation about required configuration. This is a documentation file with example code snippets, not executable malicious code.",
+  "valueStatement": "This skill provides expert guidance for using n8n-mcp MCP server tools to discover nodes, validate configurations, and manage workflows efficiently.",
+  "userTitle": "Build n8n Workflows with MCP Tools",
+  "limitations": [
+    "Requires n8n instance running with API access for workflow management tools",
+    "Some advanced tools require specific n8n versions",
+    "Template deployment requires credentials to be set up in target n8n instance",
+    "Does not provide visual workflow editing - only API-based management"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers new to n8n who need guidance on node selection and configuration",
+      "title": "Find and configure n8n nodes",
+      "description": "Search for nodes by keyword, get detailed configuration options, and validate settings before building workflows."
+    },
+    {
+      "targetUser": "AI developers building workflow automation with Claude or Codex",
+      "title": "Build workflows iteratively",
+      "description": "Create workflows step-by-step using n8n_update_partial_workflow with intelligent error handling and validation."
+    },
+    {
+      "targetUser": "Automation engineers who want quick starts for common workflow patterns",
+      "title": "Deploy from template library",
+      "description": "Search 2700+ pre-built workflows, get details, and deploy directly to your n8n instance with auto-fix capabilities."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Find a node for specific task",
+      "prompt": "I need to [describe your task, e.g., send messages to Slack]. Use the n8n-mcp-tools skill to search for appropriate n8n nodes and show me how to configure the main settings.",
+      "scenario": "Discovering the right node for a specific automation task"
+    },
+    {
+      "title": "Validate node configuration",
+      "prompt": "Help me validate my n8n node configuration. I'm setting up a [node name] node with these settings: [describe config]. Use validate_node with the runtime profile to check for errors.",
+      "scenario": "Checking configuration before deploying a workflow"
+    },
+    {
+      "title": "Create a new workflow",
+      "prompt": "I want to create an n8n workflow that [describe workflow purpose]. Use n8n-mcp-tools to create the workflow with appropriate nodes and show me the structure.",
+      "scenario": "Building a new workflow from scratch"
+    },
+    {
+      "title": "Find and deploy a template",
+      "prompt": "Search the n8n template library for workflows related to [describe use case, e.g., webhook processing]. Show me the top results and how to deploy one to my n8n instance.",
+      "scenario": "Quick-starting a project from existing templates"
+    }
+  ],
+  "bestPractices": [
+    "Use get_node with detail: 'standard' (default) for most use cases - it covers 95% of needs while keeping token usage low",
+    "Specify validation profile explicitly - 'runtime' profile is recommended for pre-deployment checks",
+    "Use smart parameters like 'branch' and 'case' for IF and Switch nodes instead of manual sourceIndex calculations"
+  ],
+  "antiPatterns": [
+    "Using detail: 'full' by default - this returns 3-8K tokens and should only be used for debugging complex configurations",
+    "Forgetting the nodeType prefix - use 'nodes-base.*' for search/validate tools and 'n8n-nodes-base.*' for workflow tools",
+    "Trying to build entire workflows in one shot - use iterative updates with validation between each change"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between nodes-base and n8n-nodes-base prefixes?",
+      "answer": "Use 'nodes-base.slack' for search, get_node, and validate_node tools. Use 'n8n-nodes-base.slack' for workflow creation and update tools. Using the wrong prefix will cause 'Node not found' errors."
+    },
+    {
+      "question": "Do I need an n8n API key to use this skill?",
+      "answer": "No. Node discovery, validation, and template search tools work without API access. Only workflow management tools (create, update, deploy) require N8N_API_URL and N8N_API_KEY."
+    },
+    {
+      "question": "How do I choose the right validation profile?",
+      "answer": "Use 'minimal' for quick checks, 'runtime' for pre-deployment (recommended), 'ai-friendly' for AI-generated configs, and 'strict' for production validation."
+    },
+    {
+      "question": "What is auto-sanitization in n8n workflow updates?",
+      "answer": "When you update a workflow, n8n automatically fixes certain issues like binary operator structures and missing IF/Switch metadata. It cannot fix broken connections or paradoxical states."
+    },
+    {
+      "question": "Can I use this skill to edit existing workflows?",
+      "answer": "Yes, use n8n_update_partial_workflow with operations like addNode, addConnection, or removeNode. The skill supports 17 different operation types."
+    },
+    {
+      "question": "How do smart parameters work for node connections?",
+      "answer": "Instead of manually calculating sourceIndex (0, 1, 2...), use semantic parameters like 'branch: true/false' for IF nodes or 'case: 0, 1, 2...' for Switch nodes."
+    }
+  ],
+  "seoKeywords": [
+    "n8n",
+    "mcp tools",
+    "workflow automation",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "node discovery",
+    "workflow management",
+    "n8n templates",
+    "workflow validation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/n8n-mcp-tools-expert",
+  "sourceType": "community",
+  "dependencies": []
+}

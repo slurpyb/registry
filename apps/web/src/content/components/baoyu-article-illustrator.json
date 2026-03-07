@@ -1,0 +1,138 @@
+{
+  "name": "baoyu-article-illustrator",
+  "type": "skill",
+  "description": "Smart article illustration skill. Analyzes article content and generates illustrations at positions requiring visual aids with multiple style options. Use when user asks to \"add illustrations to article\", \"generate images for article\", or \"illustrate article\".",
+  "domain": "ai-ml",
+  "subdomain": "computer-vision",
+  "specialty": "Article Illustration",
+  "quality": 5,
+  "qualityReason": "Smart content visualization",
+  "bundleHints": [
+    "content-creation",
+    "ai-art"
+  ],
+  "tags": [
+    "automation",
+    "content-creation",
+    "illustration",
+    "images",
+    "visual-aids"
+  ],
+  "capabilities": [
+    "Analyzes article content to identify illustration opportunities",
+    "Auto-selects visual style based on content signals (tech, warm, minimal, etc.)",
+    "Generates 9 distinct illustration styles with detailed color and element specifications",
+    "Creates illustration plan with position recommendations and purpose descriptions",
+    "Outputs prompts for image generation skills and inserts images into markdown",
+    "Handles sequential image generation with retry logic and progress tracking"
+  ],
+  "author": "JimLiu",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill with no executable code. All 60 static findings are false positives: the analyzer misidentified markdown syntax (code blocks, backticks, color codes) as security threats. SKILL.md and prompts/system.md contain only documentation and AI prompt templates.",
+  "valueStatement": "Articles with text alone fail to engage readers. This skill analyzes your article content and automatically generates contextual illustrations at key positions. Choose from 9 visual styles to match your content tone and topic.",
+  "userTitle": "Generate AI illustrations for articles",
+  "limitations": [
+    "Does not include image generation capability - requires separate image generation skill",
+    "Depends on external AI service for actual image creation",
+    "Output quality depends on the underlying image generation model",
+    "Limited to single article files - batch processing not supported"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Bloggers",
+      "title": "Enhance blog posts",
+      "description": "Add professional illustrations to blog articles to increase engagement and visual appeal"
+    },
+    {
+      "targetUser": "Content marketers",
+      "title": "Scale visual content",
+      "description": "Generate consistent illustrations across multiple articles with brand-aligned styles"
+    },
+    {
+      "targetUser": "Technical writers",
+      "title": "Explain complex concepts",
+      "description": "Create diagrams and visual aids for technical documentation and tutorials"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic illustration",
+      "scenario": "Auto-style selection",
+      "prompt": "Generate illustrations for my article at path/to/article.md using default auto-selected style"
+    },
+    {
+      "title": "Specific style",
+      "scenario": "Style override",
+      "prompt": "Create tech-style illustrations for path/to/article.md with cyan and deep blue color scheme"
+    },
+    {
+      "title": "Custom approach",
+      "scenario": "Manual style",
+      "prompt": "Add illustrations to path/to/article.md using warm style with rounded shapes and friendly characters"
+    },
+    {
+      "title": "Detailed control",
+      "scenario": "Full customization",
+      "prompt": "Analyze path/to/article.md and generate 5 illustrations in playful style with pastel rainbow colors and doodle elements"
+    }
+  ],
+  "bestPractices": [
+    "Use auto-selection for natural content alignment, or specify style for intentional branding",
+    "Match illustration language to article language for consistent reader experience",
+    "Review generated images before publication - AI may misinterpret abstract concepts"
+  ],
+  "antiPatterns": [
+    "Do not use for sensitive figures without requesting cartoon alternatives",
+    "Avoid over-illustration - let text breathe with appropriate whitespace",
+    "Do not skip style review - mismatch between content and visual style reduces impact"
+  ],
+  "faq": [
+    {
+      "question": "What image generation skills work with this skill?",
+      "answer": "Works with baoyu-gemini-web for Google-based image generation. Requires separate image skill installation."
+    },
+    {
+      "question": "How many illustrations does it generate per article?",
+      "answer": "Generates at least 1 image per major section. Prioritizes core arguments and abstract concepts needing visualization."
+    },
+    {
+      "question": "Can I use my own image prompts?",
+      "answer": "The skill creates prompt files in prompts/ directory. You can edit these before image generation if needed."
+    },
+    {
+      "question": "What file formats does it support?",
+      "answer": "Accepts markdown files (.md). Outputs PNG images to imgs/ subdirectory alongside the article."
+    },
+    {
+      "question": "How does it choose the illustration style?",
+      "answer": "Scans content for signals like AI/tech (tech style), personal stories (warm style), or simple concepts (minimal style). Default is notion."
+    },
+    {
+      "question": "Can I customize colors within a style?",
+      "answer": "Styles have predefined color palettes. For custom colors, edit the generated prompt files before image generation."
+    }
+  ],
+  "seoKeywords": [
+    "article illustration",
+    "AI image generation",
+    "content visualization",
+    "blog images",
+    "automatic illustrations",
+    "Claude image generator",
+    "Codex illustration",
+    "content marketing visuals",
+    "AI art for writing"
+  ],
+  "sourceUrl": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-article-illustrator",
+  "sourceType": "community",
+  "dependencies": []
+}

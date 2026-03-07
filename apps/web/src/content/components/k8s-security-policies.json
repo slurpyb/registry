@@ -1,0 +1,144 @@
+{
+  "name": "k8s-security-policies",
+  "type": "skill",
+  "description": "Implement Kubernetes security policies including NetworkPolicy, PodSecurityPolicy, and RBAC for production-grade security. Use when securing Kubernetes clusters, implementing network isolation, or enforcing pod security standards.",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "cluster security",
+  "quality": 5,
+  "qualityReason": "Critical security policies",
+  "bundleHints": [
+    "k8s-security",
+    "devsecops",
+    "cloud-security"
+  ],
+  "tags": [
+    "devops",
+    "enforcement",
+    "isolation",
+    "kubernetes",
+    "network-policy",
+    "networkpolicy",
+    "podsecurity",
+    "production",
+    "rbac",
+    "security"
+  ],
+  "capabilities": [
+    "Generate default-deny NetworkPolicy configurations for namespace isolation",
+    "Create RBAC Roles and ClusterRoles with least-privilege permissions",
+    "Apply Pod Security Standards labels to namespaces",
+    "Configure OPA Gatekeeper ConstraintTemplates for admission control",
+    "Set up Istio mTLS and AuthorizationPolicy for service mesh security",
+    "Design ServiceAccount configurations with token auto-mount disabled"
+  ],
+  "author": "wshobson",
+  "icon": "🔐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains Kubernetes security documentation and YAML templates. All static findings are false positives: the metadata endpoint IP is shown as an EXAMPLE OF WHAT TO BLOCK (security best practice), backtick patterns are markdown code fence syntax, and 'weak crypto' matches are Kubernetes resource names like 'cluster-admin'. No executable code or malicious patterns present.",
+  "valueStatement": "Kubernetes clusters need proper security policies to protect against unauthorized access and network attacks. This skill provides ready-to-use templates for NetworkPolicy, RBAC, and Pod Security Standards.",
+  "userTitle": "Implement Kubernetes Security Policies and RBAC Controls",
+  "limitations": [
+    "Does not deploy policies directly to clusters",
+    "Requires CNI plugin that supports NetworkPolicy enforcement",
+    "OPA Gatekeeper templates need Gatekeeper installed on cluster"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Platform Engineer",
+      "title": "Secure Multi-Tenant Kubernetes Clusters",
+      "description": "Implement namespace isolation with NetworkPolicy and RBAC to prevent cross-tenant access in shared clusters."
+    },
+    {
+      "targetUser": "DevOps Engineer",
+      "title": "Achieve Compliance with Security Standards",
+      "description": "Apply CIS Kubernetes Benchmark controls using Pod Security Standards and RBAC configurations."
+    },
+    {
+      "targetUser": "Application Developer",
+      "title": "Configure Least-Privilege Access for Services",
+      "description": "Create ServiceAccounts and RoleBindings that grant only the permissions your application needs."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Default Deny Policy",
+      "scenario": "Starting namespace security from scratch",
+      "prompt": "Create a NetworkPolicy that denies all ingress and egress traffic by default for the payments namespace."
+    },
+    {
+      "title": "Design RBAC for CI/CD",
+      "scenario": "Setting up deployment pipeline permissions",
+      "prompt": "Create a ClusterRole and RoleBinding that allows my CI/CD service account to deploy applications but not read secrets."
+    },
+    {
+      "title": "Configure Pod Security Standards",
+      "scenario": "Enforcing container security at namespace level",
+      "prompt": "Apply restricted Pod Security Standards to my production namespace with audit logging for violations."
+    },
+    {
+      "title": "Build Complete Security Policy Set",
+      "scenario": "Comprehensive cluster hardening project",
+      "prompt": "Design a complete security policy set for a microservices application with frontend, backend, and database tiers including NetworkPolicy, RBAC, and Pod Security contexts."
+    }
+  ],
+  "bestPractices": [
+    "Start with default-deny NetworkPolicy and add specific allow rules",
+    "Use namespace-scoped Roles instead of ClusterRoles when possible",
+    "Disable ServiceAccount token auto-mounting for pods that do not need API access"
+  ],
+  "antiPatterns": [
+    "Do not use wildcard verbs or resources in production RBAC rules",
+    "Do not skip Pod Security Standards enforcement in production namespaces",
+    "Do not grant cluster-admin to application ServiceAccounts"
+  ],
+  "faq": [
+    {
+      "question": "Why is my NetworkPolicy not blocking traffic?",
+      "answer": "Verify your CNI plugin supports NetworkPolicy. Calico, Cilium, and Weave support it. Flannel does not by default."
+    },
+    {
+      "question": "What is the difference between Role and ClusterRole?",
+      "answer": "Role is namespace-scoped and grants access within one namespace. ClusterRole is cluster-wide and can grant access across all namespaces."
+    },
+    {
+      "question": "Should I use Pod Security Policies or Pod Security Standards?",
+      "answer": "Use Pod Security Standards. PodSecurityPolicy is deprecated since Kubernetes 1.21 and removed in 1.25."
+    },
+    {
+      "question": "How do I test if RBAC permissions are working?",
+      "answer": "Use kubectl auth can-i command to test permissions. Example: kubectl auth can-i list pods --as system:serviceaccount:ns:sa"
+    },
+    {
+      "question": "What Pod Security Standard level should I use for production?",
+      "answer": "Use 'restricted' for production workloads. It enforces non-root users, read-only filesystems, and dropped capabilities."
+    },
+    {
+      "question": "How do I allow DNS traffic with a default-deny policy?",
+      "answer": "Add an egress rule allowing UDP port 53 to the kube-system namespace where CoreDNS runs."
+    }
+  ],
+  "seoKeywords": [
+    "kubernetes security",
+    "network policy",
+    "rbac kubernetes",
+    "pod security standards",
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "k8s security",
+    "container security",
+    "cluster hardening"
+  ],
+  "sourceUrl": "https://github.com/wshobson/agents/tree/main/plugins/kubernetes-operations/skills/k8s-security-policies",
+  "sourceType": "community",
+  "dependencies": []
+}

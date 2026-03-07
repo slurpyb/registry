@@ -1,0 +1,138 @@
+{
+  "name": "ghe-checkpoint",
+  "type": "skill",
+  "description": "POST a progress checkpoint to the CURRENTLY ACTIVE thread. Saves work state without changing phases. Requires an already-claimed in-progress thread.\n\nUSE THIS SKILL WHEN:\n- User says \"post a checkpoint\" or \"save my progress\"\n- User says \"update the issue\" or \"record current state\"\n- User says \"checkpoint\" or \"save checkpoint\"\n- User completed a milestone and wants to record it\n- User encountered a blocker and wants to document it\n- User is about to take a break and wants to save state\n- Meaningful state change occurred during work\n\nPRECONDITION: User must already have an active (claimed, in-progress) thread.\n\nDO NOT USE THIS SKILL WHEN:\n- User wants to SEE status (use ghe-status)\n- User wants to START work on new issue (use ghe-claim)\n- User wants to FINISH current phase and MOVE to next (use ghe-transition)\n- User wants reports (use ghe-report)\n- No active thread exists (must claim first)\n\nEXAMPLES:\n<example>\nContext: User working on DEV wants to save progress\nuser: \"Post a checkpoint\"\nassistant: \"I'll use ghe-checkpoint to post your current progress to the active thread\"\n</example>\n<example>\nContext: User completed a milestone\nuser: \"Save my progress, I finished the authentication module\"\nassistant: \"I'll use ghe-checkpoint to record this milestone\"\n</example>\n<example>\nContext: User taking a break\nuser: \"I need to stop for now, save my work\"\nassistant: \"I'll use ghe-checkpoint to save your current state before you go\"\n</example>\n",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "progress save",
+  "quality": 4,
+  "qualityReason": "Workflow memory, specific to GHE",
+  "bundleHints": [
+    "workflow-memory",
+    "agent-state",
+    "ghe-tools"
+  ],
+  "tags": [
+    "github issues",
+    "memory bank",
+    "progress tracking",
+    "state-saving",
+    "workflow management"
+  ],
+  "capabilities": [
+    "Posts progress checkpoints to currently active GitHub Issue thread",
+    "Gathers and formats work state including completed tasks and files changed",
+    "Posts to appropriate thread manager based on phase (DEV, TEST, or REVIEW)",
+    "Updates SERENA memory bank with current context"
+  ],
+  "author": "Emasoft",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings evaluated as false positives. The skill is a documentation-only skill describing workflow checkpoint procedures. No actual code execution, network calls, or cryptographic operations exist in this skill file.",
+  "valueStatement": "Users lose track of work state across sessions. This skill posts progress checkpoints to GitHub Issues, preserving work context and enabling seamless continuation without changing workflow phases.",
+  "userTitle": "Save progress to GitHub Issues",
+  "limitations": [
+    "Requires an already-claimed in-progress thread to function",
+    "Does not transition phases (use ghe-transition for phase changes)",
+    "Does not provide status reports (use ghe-status for status checks)",
+    "Does not claim new issues (use ghe-claim to start work)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers working on complex features who need to preserve context",
+      "title": "Mid-Session Progress Save",
+      "description": "Save current work state during a long coding session to ensure no progress is lost if the session ends unexpectedly."
+    },
+    {
+      "targetUser": "Project leads tracking feature development progress",
+      "title": "Milestone Documentation",
+      "description": "Record completed milestones and achievements to maintain a clear history of project progress in GitHub Issues."
+    },
+    {
+      "targetUser": "Engineers debugging complex issues who need to pause work",
+      "title": "Blocker Recording",
+      "description": "Document encountered blockers with full context before taking a break, enabling efficient debugging when returning."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Checkpoint",
+      "prompt": "Post a checkpoint to save my current progress.",
+      "scenario": "User wants to save work state to the active GitHub Issue thread"
+    },
+    {
+      "title": "Milestone Checkpoint",
+      "prompt": "Save a checkpoint. I just finished implementing the authentication module.",
+      "scenario": "User completed a significant milestone and wants to record it"
+    },
+    {
+      "title": "Break Checkpoint",
+      "prompt": "I need to stop for now. Save my work and current state before I go.",
+      "scenario": "User is ending their session and wants to preserve progress"
+    },
+    {
+      "title": "Blocker Checkpoint",
+      "prompt": "I'm stuck on a bug. Save a checkpoint with my current state and the blocker details.",
+      "scenario": "User encountered an issue and wants to document it for later"
+    }
+  ],
+  "bestPractices": [
+    "Post checkpoints at meaningful state changes to maintain accurate progress history",
+    "Always document blockers with full context to enable efficient debugging when returning",
+    "Use checkpoints before ending sessions to ensure seamless continuation"
+  ],
+  "antiPatterns": [
+    "Using ghe-checkpoint instead of ghe-transition when you need to move to the next phase",
+    "Skipping checkpoints during long sessions and only saving at the very end",
+    "Not documenting blockers when encountered, losing critical debugging context"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between ghe-checkpoint and ghe-transition?",
+      "answer": "ghe-checkpoint saves progress without changing phases. ghe-transition completes the current phase and moves the issue to the next phase (DEV to TEST, TEST to REVIEW)."
+    },
+    {
+      "question": "Do I need to claim an issue before using this skill?",
+      "answer": "Yes. This skill requires an already-claimed in-progress thread. Use ghe-claim first if you do not have an active thread."
+    },
+    {
+      "question": "Where are checkpoints posted?",
+      "answer": "Checkpoints are posted to both the GitHub Issue thread and the GHE_REPORTS directory in your project for persistent documentation."
+    },
+    {
+      "question": "What information is included in a checkpoint?",
+      "answer": "Checkpoints include work log, completed tasks, in-progress tasks, pending tasks, files changed, commits made, current branch, blockers, and next action."
+    },
+    {
+      "question": "Can I use this skill during any phase?",
+      "answer": "Yes. The skill adapts to the current phase (DEV, TEST, or REVIEW) and spawns the appropriate thread manager for each phase."
+    },
+    {
+      "question": "Does this skill update the memory bank?",
+      "answer": "Yes. After posting the checkpoint, the skill spawns the memory-sync agent to update the SERENA activeContext.md file."
+    }
+  ],
+  "seoKeywords": [
+    "GitHub Issues",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Progress Checkpoint",
+    "Work State",
+    "Session Management",
+    "Memory Bank",
+    "Workflow Automation",
+    "Issue Tracking"
+  ],
+  "sourceUrl": "https://github.com/Emasoft/ghe-marketplace/tree/main/plugins/ghe/skills/ghe-checkpoint",
+  "sourceType": "community",
+  "dependencies": []
+}

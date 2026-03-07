@@ -1,0 +1,141 @@
+{
+  "name": "github-release-management",
+  "type": "skill",
+  "description": "Comprehensive GitHub release orchestration with AI swarm coordination for automated versioning, testing, deployment, and rollback management",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "release orchestration",
+  "quality": 5,
+  "qualityReason": "Full release lifecycle",
+  "bundleHints": [
+    "release-management",
+    "ci-cd-toolkit"
+  ],
+  "tags": [
+    "automation",
+    "ci-cd",
+    "deployment",
+    "orchestration",
+    "release",
+    "rollback",
+    "swarm",
+    "versioning"
+  ],
+  "capabilities": [
+    "Orchestrates multi-agent release workflows with 6 specialized AI agents",
+    "Automates semantic versioning based on commit analysis and breaking changes",
+    "Coordinates cross-platform builds for npm, Docker, and binary artifacts",
+    "Implements progressive deployment with automated rollback triggers",
+    "Generates categorized changelogs with migration guides",
+    "Monitors release health with real-time metrics and alerts"
+  ],
+  "author": "Claude Flow Team",
+  "icon": "🚀",
+  "version": "2.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill providing GitHub release management examples. All 150 static findings are false positives - shell command examples in documentation, standard GitHub Actions credential usage, and legitimate CI/CD patterns. No actual executable code with vulnerabilities exists. Safe for marketplace publication.",
+  "valueStatement": "Managing software releases involves multiple complex steps that often lead to errors and delays. This skill orchestrates your entire release pipeline using AI agents that handle versioning, testing, deployment, and monitoring automatically.",
+  "userTitle": "Automate GitHub Releases with AI Swarm Coordination",
+  "limitations": [
+    "Requires GitHub CLI and proper repository permissions",
+    "Advanced features need claude-flow and swarm coordination setup",
+    "Performance depends on project size and test suite complexity"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Automated Release Pipeline",
+      "description": "Set up complete CI/CD release workflows that handle versioning, testing, and deployment across multiple platforms automatically."
+    },
+    {
+      "targetUser": "Open Source Maintainers",
+      "title": "Multi-Package Coordination",
+      "description": "Coordinate releases across multiple repositories with dependency validation and synchronized versioning."
+    },
+    {
+      "targetUser": "Enterprise Teams",
+      "title": "Staged Production Rollouts",
+      "description": "Implement canary deployments with automated health monitoring and instant rollback capabilities for critical systems."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Release",
+      "scenario": "Create a simple patch release",
+      "prompt": "Create a patch release v1.2.4 with automated changelog generation and npm publishing"
+    },
+    {
+      "title": "Feature Release",
+      "scenario": "Minor version with new features",
+      "prompt": "Plan and execute v2.1.0 release with breaking change detection, multi-platform builds, and staged deployment"
+    },
+    {
+      "title": "Emergency Hotfix",
+      "scenario": "Critical security patch",
+      "prompt": "Deploy emergency hotfix v1.5.1 for security vulnerability with fast-track testing and immediate rollout"
+    },
+    {
+      "title": "Multi-Repo Coordination",
+      "scenario": "Synchronized microservices release",
+      "prompt": "Coordinate simultaneous release of frontend v3.0.0, backend v2.5.0, and API v1.8.0 with compatibility validation"
+    }
+  ],
+  "bestPractices": [
+    "Always validate and sanitize version strings, branch names, and user inputs before using in commands",
+    "Use allowlists for deployment targets and limit file system access to specific directories",
+    "Implement proper credential management with secure token storage and rotation"
+  ],
+  "antiPatterns": [
+    "Never interpolate user input directly into shell commands without validation",
+    "Avoid using dynamic file paths without path traversal protection",
+    "Do not expose credentials in command logs or process output"
+  ],
+  "faq": [
+    {
+      "question": "Is this skill compatible with private GitHub repositories?",
+      "answer": "Yes, it works with both public and private repositories when authenticated with appropriate GitHub tokens."
+    },
+    {
+      "question": "What are the rate limits for GitHub API calls?",
+      "answer": "The skill respects GitHub rate limits of 5000 requests per hour for authenticated users with automatic retry."
+    },
+    {
+      "question": "Can I integrate this with my existing CI/CD pipeline?",
+      "answer": "Yes, the skill provides GitHub Actions workflows and integrates with Jenkins, GitLab CI, and other systems."
+    },
+    {
+      "question": "How does the skill handle rollback on failed deployments?",
+      "answer": "The skill includes automated rollback based on error rates, latency thresholds, and availability metrics."
+    },
+    {
+      "question": "What platforms can this skill deploy to?",
+      "answer": "Supports npm, Docker Hub, GitHub Packages, S3, and custom deployment targets with extensible configuration."
+    },
+    {
+      "question": "Does this skill require any specific tools to be installed?",
+      "answer": "GitHub CLI (gh) is required. Optional tools include claude-flow, ruv-swarm, and mcp-github for enhanced features."
+    }
+  ],
+  "seoKeywords": [
+    "GitHub releases",
+    "Claude Code",
+    "AI automation",
+    "release management",
+    "CI/CD",
+    "versioning",
+    "deployment orchestration",
+    "Codex",
+    "swarm coordination",
+    "automated deployment"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/github-release-management",
+  "sourceType": "community",
+  "dependencies": []
+}

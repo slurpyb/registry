@@ -1,0 +1,143 @@
+{
+  "name": "ux-evaluator",
+  "type": "skill",
+  "description": "This skill should be used when evaluating UI components against UX best practices. Use for reviewing buttons, navigation elements, spacing, visual hierarchy, or any interface element. Provides a systematic 3-dimension framework (Position, Visual Weight, Spacing) aligned with industry standards (Balsamiq, Nielsen heuristics). Invoke when user asks to \"review UX\", \"check button design\", \"evaluate layout\", or references design guidelines.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "component review",
+  "quality": 5,
+  "qualityReason": "Systematic component assessment",
+  "bundleHints": [
+    "ux-ops",
+    "design-system"
+  ],
+  "tags": [
+    "buttons",
+    "design-guidelines",
+    "interface",
+    "navigation",
+    "spacing",
+    "ui-evaluation",
+    "usability",
+    "ux",
+    "visual-hierarchy"
+  ],
+  "capabilities": [
+    "Evaluates UI components using the 3-dimension framework (Position, Visual Weight, Spacing)",
+    "Applies industry conventions from Balsamiq, Nielsen, and major platforms",
+    "Produces structured evaluation reports with clear verdicts",
+    "References authoritative sources for each recommendation",
+    "Prioritizes changes by UX impact (P1, P2, P3)",
+    "Analyzes buttons, navigation, and form elements"
+  ],
+  "author": "92Bilal26",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only UX evaluation guidelines. No code execution, network calls, filesystem access, or external capabilities. Static findings are false positives: backticks are markdown delimiters, URLs are text references, and content hashes are metadata. The skill is a knowledge base for UX evaluation methodology.",
+  "valueStatement": "UI reviews often devolve into subjective opinion battles. This skill provides a systematic 3-dimension framework to ground design feedback in evidence-based principles from industry authorities.",
+  "userTitle": "Evaluate UI components against UX best practices",
+  "limitations": [
+    "Does not evaluate colors, fonts, or purely aesthetic choices",
+    "Cannot access external websites or design files",
+    "Does not generate design mockups or prototypes",
+    "Does not perform user testing or accessibility audits"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Review button placement",
+      "description": "Validate that primary and secondary actions follow industry conventions like GitHub and Stripe patterns."
+    },
+    {
+      "targetUser": "Product designers",
+      "title": "Analyze navigation hierarchy",
+      "description": "Evaluate whether navigation elements are positioned and styled according to usability standards."
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Check form UX compliance",
+      "description": "Verify form elements follow proper spacing, labeling, and error state guidelines."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Button review request",
+      "scenario": "Evaluate button placement",
+      "prompt": "Review the [submit/cancel] button placement in my form. Use the 3-dimension framework and compare to industry standards."
+    },
+    {
+      "title": "Navigation assessment",
+      "scenario": "Analyze navigation structure",
+      "prompt": "Evaluate my navigation bar elements including logo, links, and utility icons. Check position and visual weight against conventions."
+    },
+    {
+      "title": "Form field analysis",
+      "scenario": "Check input field UX",
+      "prompt": "Analyze my form fields for label placement, error message positioning, and spacing between inputs. Reference Balsamiq guidelines."
+    },
+    {
+      "title": "Full UI component audit",
+      "scenario": "Comprehensive component review",
+      "prompt": "Perform a complete UX evaluation of my [component name] using all three dimensions. Document current state, compare to conventions, and provide prioritized recommendations with sources."
+    }
+  ],
+  "bestPractices": [
+    "Always document the current state with specific measurements before making recommendations",
+    "Reference authoritative sources (Balsamiq, Nielsen, major platforms) for each recommendation",
+    "Prioritize P1 changes that break UX fundamentals over P3 polish improvements"
+  ],
+  "antiPatterns": [
+    "Making subjective aesthetic judgments without referencing UX principles",
+    "Recommending changes without comparing to industry conventions",
+    "Failing to distinguish between primary and secondary action hierarchy"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill evaluate accessibility (a11y)?",
+      "answer": "It checks touch target sizes (44px minimum) but does not perform full accessibility audits or screen reader testing."
+    },
+    {
+      "question": "Can it analyze mockups or screenshots?",
+      "answer": "No. It evaluates based on descriptions provided in text. For visual analysis, describe component state and measurements."
+    },
+    {
+      "question": "Which UX frameworks does it reference?",
+      "answer": "Primary sources include Balsamiq button principles, Nielsen heuristics, and patterns from GitHub, Stripe, and Google."
+    },
+    {
+      "question": "Is data stored or transmitted?",
+      "answer": "No. This is a prompt-based skill that operates entirely in context with no external data access or storage."
+    },
+    {
+      "question": "Can it generate design alternatives?",
+      "answer": "It provides recommendations for improvements but does not generate mockups, code, or visual design files."
+    },
+    {
+      "question": "How is this different from general design feedback?",
+      "answer": "It uses a systematic 3-dimension framework and references documented conventions rather than subjective opinions."
+    }
+  ],
+  "seoKeywords": [
+    "UX evaluation",
+    "UI component review",
+    "user interface guidelines",
+    "Balsamiq best practices",
+    "Nielsen heuristics",
+    "button design",
+    "visual hierarchy",
+    "Claude Code",
+    "Claude",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/92Bilal26/TaskPilotAI/tree/main/.claude/skills/ux-evaluator",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,139 @@
+{
+  "name": "fal-audio",
+  "type": "skill",
+  "description": "Text-to-speech and speech-to-text using fal.ai audio models",
+  "domain": "ai-ml",
+  "subdomain": "nlp",
+  "specialty": "speech processing",
+  "quality": 5,
+  "qualityReason": "Clear AI audio use case",
+  "bundleHints": [
+    "fal-stack",
+    "voice-tools"
+  ],
+  "tags": [
+    "ai-models",
+    "audio",
+    "audio-models",
+    "fal-ai",
+    "nlp",
+    "speech-to-text",
+    "text-to-speech",
+    "voice"
+  ],
+  "capabilities": [
+    "Generate speech from text using fal.ai TTS models",
+    "Transcribe speech to text using fal.ai STT models",
+    "Provide guidance on audio model selection",
+    "Offer patterns for integrating fal.ai audio services"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill with no executable code. Static analysis flagged URLs and cryptographic patterns, but evaluation confirms these are false positives. The URLs are markdown hyperlinks in documentation, and the 'cryptographic algorithm' detection was triggered by the word 'text' in the description.",
+  "valueStatement": "This skill enables Claude to work with text-to-speech and speech-to-text capabilities using fal.ai audio models, providing patterns and guidance for audio generation and transcription tasks.",
+  "userTitle": "Convert Text to Speech with Fal.ai",
+  "limitations": [
+    "Requires fal.ai API key for actual service calls",
+    "This is a guidance skill - no direct API integration code",
+    "Audio processing happens on fal.ai infrastructure"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content creators needing audio narration",
+      "title": "Voiceover Generation",
+      "description": "Generate voiceover audio for videos, podcasts, or accessibility content"
+    },
+    {
+      "targetUser": "Researchers and content editors",
+      "title": "Audio Transcription",
+      "description": "Convert spoken audio to text for transcription, subtitles, or analysis"
+    },
+    {
+      "targetUser": "Developers building inclusive applications",
+      "title": "Accessibility Features",
+      "description": "Add text-to-speech capabilities to applications for accessibility"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic TTS Request",
+      "prompt": "Use the fal-audio skill to generate speech from the following text: [YOUR TEXT HERE]",
+      "scenario": "Simple text-to-speech conversion"
+    },
+    {
+      "title": "Speech Transcription",
+      "prompt": "Use the fal-audio skill to transcribe this audio file to text: [AUDIO FILE OR URL]",
+      "scenario": "Convert speech to written text"
+    },
+    {
+      "title": "Voice Style Selection",
+      "prompt": "Use the fal-audio skill to recommend appropriate voice settings for a [TYPE OF CONTENT] project",
+      "scenario": "Getting guidance on voice model selection"
+    },
+    {
+      "title": "Batch Audio Processing",
+      "prompt": "Use the fal-audio skill to create a process for converting multiple text segments to audio files",
+      "scenario": "Generating multiple audio files efficiently"
+    }
+  ],
+  "bestPractices": [
+    "Provide clear, well-structured text for better speech synthesis results",
+    "Specify the target use case to help select appropriate voice models",
+    "Test with short text samples before processing longer content"
+  ],
+  "antiPatterns": [
+    "Do not assume the skill makes actual API calls - it provides guidance only",
+    "Do not expect audio processing to happen locally",
+    "Do not skip API key configuration for fal.ai services"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill make actual API calls to fal.ai?",
+      "answer": "No. This is a guidance skill that provides patterns and recommendations for working with fal.ai audio models."
+    },
+    {
+      "question": "Do I need an API key?",
+      "answer": "Yes. You will need a fal.ai API key to make actual text-to-speech or speech-to-text requests."
+    },
+    {
+      "question": "What languages are supported?",
+      "answer": "fal.ai audio models support multiple languages. The specific capabilities depend on the model version."
+    },
+    {
+      "question": "Can this skill process audio files?",
+      "answer": "The skill provides guidance for speech-to-text transcription but actual processing happens via fal.ai API."
+    },
+    {
+      "question": "Is the audio generated locally?",
+      "answer": "No. Audio generation and transcription are performed by fal.ai's cloud infrastructure."
+    },
+    {
+      "question": "How do I integrate this with my application?",
+      "answer": "Use the patterns from this skill to call the fal.ai API with appropriate parameters for your use case."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "text-to-speech",
+    "speech-to-text",
+    "fal-ai",
+    "audio generation",
+    "voice synthesis",
+    "AI audio",
+    "speech synthesis"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/web-app/public/skills/fal-audio",
+  "sourceType": "community",
+  "dependencies": []
+}

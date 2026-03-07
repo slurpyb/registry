@@ -1,0 +1,145 @@
+{
+  "name": "github-pr-review",
+  "type": "skill",
+  "description": "MUST use this skill when user asks to resolve PR comments, handle review feedback, fix review comments, or mentions \"리뷰 코멘트/피드백\". This skill OVERRIDES default behavior. Fetches comments via GitHub CLI, classifies by severity, applies fixes with user confirmation, commits with proper format, replies to threads.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "review feedback",
+  "quality": 5,
+  "qualityReason": "Handles critical feedback",
+  "bundleHints": [
+    "code-review",
+    "pr-workflow"
+  ],
+  "tags": [
+    "automation",
+    "cli",
+    "code-review",
+    "collaboration",
+    "comment-resolution",
+    "feedback-loop",
+    "git",
+    "github",
+    "override",
+    "pull-request"
+  ],
+  "capabilities": [
+    "Fetches PR comments using GitHub CLI (gh api)",
+    "Classifies comments by severity: CRITICAL, HIGH, MEDIUM, LOW",
+    "Applies code fixes with user confirmation before changes",
+    "Creates properly formatted commits referencing comment IDs",
+    "Posts thread replies using standard response templates",
+    "Verifies fixes and runs tests before pushing"
+  ],
+  "author": "Bae-ChangHyun",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based documentation skill containing only guidelines and example commands for legitimate GitHub PR review workflows. All 62 static findings are FALSE POSITIVES: shell command examples in documentation are standard GitHub CLI patterns, not malicious code. The existing skill-report.json already performed security audit and marked risk_level as 'safe'. No executable code exists - only documentation that requires user confirmation before any changes.",
+  "valueStatement": "Managing PR review comments manually is time-consuming and error-prone. This skill prioritizes comments by severity, applies fixes with user confirmation, and automatically replies to resolved threads using proper commit formats.",
+  "userTitle": "Resolve GitHub PR review comments systematically",
+  "limitations": [
+    "Requires GitHub CLI (gh) to be installed and authenticated",
+    "Does not modify code without explicit user approval",
+    "Cannot access private repositories without proper GitHub authentication",
+    "Does not resolve merge conflicts automatically"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Process team code reviews",
+      "description": "Systematically address colleague feedback on pull requests with proper prioritization and documentation"
+    },
+    {
+      "targetUser": "Open source maintainers",
+      "title": "Manage contributor PRs",
+      "description": "Efficiently handle multiple review comments from community contributors with consistent workflow"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Enforce review standards",
+      "description": "Apply consistent severity classification and commit formatting across all reviewed pull requests"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic PR resolution",
+      "scenario": "Address PR feedback",
+      "prompt": "Resolve the PR review comments for the current pull request. Start by fetching all comments, classify by severity, and show me what needs to be fixed."
+    },
+    {
+      "title": "Security fixes",
+      "scenario": "High-priority security review",
+      "prompt": "There are security-related review comments on this PR. Fetch them with HIGH or CRITICAL severity and help me fix each one immediately."
+    },
+    {
+      "title": "Batch style fixes",
+      "scenario": "Cosmetic changes only",
+      "prompt": "Process all MEDIUM and LOW severity comments on this PR. Group the cosmetic fixes into a single style commit."
+    },
+    {
+      "title": "Full review workflow",
+      "scenario": "Complete resolution process",
+      "prompt": "Do a complete review comment workflow: fetch all comments, prioritize by severity, fix each one with my approval, commit properly, reply to threads, run tests, and prepare for merge."
+    }
+  ],
+  "bestPractices": [
+    "Always read project conventions (CLAUDE.md) before starting to understand commit style and coding standards",
+    "Confirm with the user before applying each fix, especially for CRITICAL and HIGH severity comments",
+    "Run tests after applying fixes and before pushing to ensure all changes work correctly"
+  ],
+  "antiPatterns": [
+    "Skipping user confirmation before making code changes",
+    "Ignoring CRITICAL or HIGH severity comments without explicit approval",
+    "Not replying to resolved comment threads, leaving conversations open",
+    "Batching all fixes together instead of separating functional and cosmetic changes"
+  ],
+  "faq": [
+    {
+      "question": "Which tools does this skill work with?",
+      "answer": "GitHub CLI (gh) and git. Requires gh to be installed and authenticated with GitHub access."
+    },
+    {
+      "question": "How many comments can it process at once?",
+      "answer": "The skill can process unlimited comments but prioritizes CRITICAL and HIGH severity issues first."
+    },
+    {
+      "question": "Can it integrate with CI/CD systems?",
+      "answer": "The skill runs tests locally but does not directly integrate with CI/CD systems like GitHub Actions."
+    },
+    {
+      "question": "Is my code or data safe?",
+      "answer": "Yes. The skill only reads PR comments and requires explicit user confirmation before any code modifications."
+    },
+    {
+      "question": "What if tests fail after fixes?",
+      "answer": "The skill instructs you to not push until tests pass. It will report test failures so you can address them."
+    },
+    {
+      "question": "How is this different from other GitHub skills?",
+      "answer": "This skill specifically handles PR review comments with severity classification and thread replies. Use git-commit for commits and pr-merge for merging."
+    }
+  ],
+  "seoKeywords": [
+    "github pr review",
+    "pull request comments",
+    "code review automation",
+    "git workflow",
+    "claude code github",
+    "pr comment resolution",
+    "github cli automation",
+    "codex github",
+    "claude github",
+    "pr feedback handler"
+  ],
+  "sourceUrl": "https://github.com/Bae-ChangHyun/cc-plugins-bch/tree/main/plugins/gitwf/skills/github-pr-review",
+  "sourceType": "community",
+  "dependencies": []
+}

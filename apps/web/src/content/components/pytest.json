@@ -1,0 +1,143 @@
+{
+  "name": "pytest",
+  "type": "skill",
+  "description": "Python testing framework for writing simple, scalable, and powerful tests",
+  "domain": "testing",
+  "subdomain": "unit",
+  "specialty": "test framework",
+  "quality": 5,
+  "qualityReason": "Core Python testing framework",
+  "bundleHints": [
+    "python-testing",
+    "quality-assurance"
+  ],
+  "tags": [
+    "assertions",
+    "fixtures",
+    "parametrization",
+    "python",
+    "tdd",
+    "test automation",
+    "test-automation",
+    "testing"
+  ],
+  "capabilities": [
+    "Create unit tests with assertions for Python functions and classes",
+    "Use fixtures to share test setup and teardown code across tests",
+    "Parametrize tests to run the same test logic with multiple inputs",
+    "Write async tests for coroutines and async frameworks",
+    "Organize tests with classes, markers, and conftest.py shared configuration",
+    "Mock environment variables and external dependencies using monkeypatch"
+  ],
+  "author": "bossjones",
+  "icon": "🧪",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate documentation file for the pytest testing framework. All 66 static findings are false positives caused by the static analyzer misinterpreting Python syntax patterns and documentation code examples as executable code. The file contains only documentation and example code demonstrating pytest features. No executable code, credential handling, or malicious patterns exist.",
+  "valueStatement": "Create reliable test suites for Python code using pytest fixtures, parametrization, and async support. The framework handles test discovery, setup, teardown, and reporting automatically.",
+  "userTitle": "Write Python tests with pytest",
+  "limitations": [
+    "Does not install pytest automatically; requires uv add --dev pytest",
+    "Does not provide test database or mocking libraries; they must be added separately",
+    "Does not generate tests automatically; tests must be written manually",
+    "Does not run tests in parallel by default; requires pytest-xdist for parallel execution"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Python developers",
+      "title": "Unit test creation",
+      "description": "Write and run unit tests to verify individual functions and classes work correctly"
+    },
+    {
+      "targetUser": "API developers",
+      "title": "API integration testing",
+      "description": "Test REST APIs using TestClient fixtures with request and response validation"
+    },
+    {
+      "targetUser": "Async developers",
+      "title": "Async code testing",
+      "description": "Write tests for async functions using pytest-asyncio mark and async fixtures"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic test",
+      "scenario": "Write a unit test",
+      "prompt": "Write a pytest test for the calculate_total function that verifies it correctly sums a list of prices"
+    },
+    {
+      "title": "Parametrized test",
+      "scenario": "Multiple test cases",
+      "prompt": "Create a parametrized pytest test that verifies the parse_input function handles valid and invalid inputs correctly"
+    },
+    {
+      "title": "Fixture-based test",
+      "scenario": "Shared test setup",
+      "prompt": "Write a pytest fixture that creates a test user and use it in tests for user-related API endpoints"
+    },
+    {
+      "title": "Async test",
+      "scenario": "Async function testing",
+      "prompt": "Write an async pytest test using pytest-asyncio to verify the fetch_data async function returns expected results"
+    }
+  ],
+  "bestPractices": [
+    "Use fixtures to share setup code and avoid repetition across tests",
+    "Parametrize tests instead of writing separate tests for each input combination",
+    "Keep tests independent; avoid shared state between test functions",
+    "Use meaningful test names that describe what is being verified"
+  ],
+  "antiPatterns": [
+    "Avoid using eval() in production code; only for testing safe arithmetic expressions",
+    "Do not hardcode API keys or secrets in tests; use environment variables or fixtures",
+    "Avoid testing multiple unrelated things in a single test function"
+  ],
+  "faq": [
+    {
+      "question": "How do I run a specific test function?",
+      "answer": "Use uv run pytest path/to/test.py::function_name to run a single test function."
+    },
+    {
+      "question": "How do I skip slow tests during development?",
+      "answer": "Mark slow tests with @pytest.mark.slow and run pytest -m 'not slow' to exclude them."
+    },
+    {
+      "question": "How do I test code that reads environment variables?",
+      "answer": "Use the monkeypatch fixture to setenv with test values before the test runs."
+    },
+    {
+      "question": "How do I test async functions?",
+      "answer": "Install pytest-asyncio, add @pytest.mark.asyncio decorator, and write async test functions."
+    },
+    {
+      "question": "How do I share fixtures across test files?",
+      "answer": "Place fixtures in conftest.py at the tests directory root; pytest discovers them automatically."
+    },
+    {
+      "question": "How do I test that code raises exceptions?",
+      "answer": "Use pytest.raises(ExceptionType, match='error pattern') as context manager to verify exceptions."
+    }
+  ],
+  "seoKeywords": [
+    "pytest",
+    "python testing",
+    "test automation",
+    "pytest fixtures",
+    "pytest parametrize",
+    "claude code testing",
+    "python unit tests",
+    "claude testing",
+    "codex testing",
+    "test-driven development"
+  ],
+  "sourceUrl": "https://github.com/bossjones/logging-lab/tree/main/.claude/skills/pytest",
+  "sourceType": "community",
+  "dependencies": []
+}

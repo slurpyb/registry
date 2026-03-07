@@ -1,0 +1,142 @@
+{
+  "name": "writing-to-logseq",
+  "type": "skill",
+  "description": "Expert in writing data to Logseq DB graphs via HTTP API. Auto-invokes when users want to create pages, add blocks, update content, set properties, or sync conversation notes to their Logseq graph. Provides CRUD operations with safety guidelines.\n",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "Logseq integration",
+  "quality": 5,
+  "qualityReason": "Clear API and use case",
+  "bundleHints": [
+    "knowledge-management",
+    "mcp-integrations",
+    "note-taking"
+  ],
+  "tags": [
+    "api",
+    "database",
+    "http-api",
+    "knowledge-management",
+    "logseq",
+    "notes",
+    "sync"
+  ],
+  "capabilities": [
+    "Create pages with initial content and properties",
+    "Add blocks as children or siblings of existing content",
+    "Update and delete blocks and pages",
+    "Set typed properties (text, number, date, checkbox)",
+    "Add and remove tags from blocks",
+    "Sync conversation notes with timestamps"
+  ],
+  "author": "C0ntr0lledCha0s",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate Logseq integration skill for knowledge management. Static analysis flagged 258 patterns but 99% are false positives from markdown documentation being misidentified as code execution. The actual implementation only makes local HTTP API calls to localhost:12315 with user-configured tokens. No external network access, no shell commands, no credential exfiltration.",
+  "valueStatement": "Manually copying information to Logseq takes time. This skill provides programmatic access to create pages, add blocks, set properties, and sync conversation notes directly to your Logseq graph via the HTTP API.",
+  "userTitle": "Write to Logseq knowledge graphs",
+  "limitations": [
+    "Requires Logseq HTTP API to be enabled with API token",
+    "Only connects to local Logseq instance (localhost)",
+    "Cannot query or read data (use separate reading skill)",
+    "Rate limited by Logseq API responsiveness"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Knowledge Workers",
+      "title": "Capture AI conversation insights",
+      "description": "Automatically sync Claude Code conversations to your Logseq knowledge base with timestamps for later reference."
+    },
+    {
+      "targetUser": "Project Managers",
+      "title": "Create structured project pages",
+      "description": "Generate project pages with tasks, properties, and nested blocks following consistent templates."
+    },
+    {
+      "targetUser": "Researchers",
+      "title": "Build interconnected knowledge graphs",
+      "description": "Create linked pages, add tags, and build relationships between research notes and sources."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create simple page",
+      "scenario": "New page from notes",
+      "prompt": "Create a Logseq page called '{{Page Title}}' with this content: {{content}}"
+    },
+    {
+      "title": "Add task with properties",
+      "scenario": "Task tracking entry",
+      "prompt": "Add a task block to my '{{Project}}' page with content '{{task description}}', priority '{{priority}}', and due date {{date}}"
+    },
+    {
+      "title": "Sync conversation",
+      "scenario": "Save AI conversation",
+      "prompt": "Sync these conversation notes to Logseq under 'Claude Notes/{{topic}}': {{notes}}"
+    },
+    {
+      "title": "Build knowledge structure",
+      "scenario": "Complex knowledge base entry",
+      "prompt": "Create a structured Logseq page for '{{subject}}' in the '{{category}}' namespace with overview, key points, and action items sections"
+    }
+  ],
+  "bestPractices": [
+    "Use get_or_create_page() instead of create_page() to avoid duplicate errors",
+    "Verify resources exist before deleting with confirm-before-delete checks",
+    "Add rate limiting (0.1s delay) between batch operations to avoid overwhelming the API"
+  ],
+  "antiPatterns": [
+    "Don't use create_page() multiple times with the same title (causes DuplicateError)",
+    "Avoid bulk delete operations without size limits (prevents accidental data loss)",
+    "Do not modify system properties like uuid, created-at, or block/parent directly"
+  ],
+  "faq": [
+    {
+      "question": "Is Logseq API required?",
+      "answer": "Yes, Logseq must have HTTP API enabled in settings with an API token configured."
+    },
+    {
+      "question": "Can this read Logseq data?",
+      "answer": "No, this skill only handles write operations. Use the 'reading-logseq' skill for data retrieval."
+    },
+    {
+      "question": "What data types are supported?",
+      "answer": "Strings, numbers, dates (linked format), checkboxes, and tags are fully supported."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes, all operations target your local Logseq instance only. No data leaves your machine."
+    },
+    {
+      "question": "Why do I get DuplicateError?",
+      "answer": "The page already exists. Use get_or_create_page() for idempotent operations."
+    },
+    {
+      "question": "How is this different from other skills?",
+      "answer": "This provides direct HTTP API access for programmatic control. Other methods may use file-based syncing."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code Logseq integration",
+    "Logseq API writer",
+    "knowledge base automation",
+    "Claude Code writing skills",
+    "Logseq graph database",
+    "Claude Codex Logseq",
+    "notes automation",
+    "Claude Code productivity",
+    "Logseq API",
+    "Claude Code plugin"
+  ],
+  "sourceUrl": "https://github.com/C0ntr0lledCha0s/claude-code-plugin-automations/tree/main/logseq-expert/skills/writing-to-logseq",
+  "sourceType": "community",
+  "dependencies": []
+}

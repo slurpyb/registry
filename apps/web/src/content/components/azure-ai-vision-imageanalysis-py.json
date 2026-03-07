@@ -1,0 +1,144 @@
+{
+  "name": "azure-ai-vision-imageanalysis-py",
+  "type": "skill",
+  "description": "Azure AI Vision Image Analysis SDK for captions, tags, objects, OCR, people detection, and smart cropping. Use for computer vision and image understanding tasks.",
+  "domain": "ai-ml",
+  "subdomain": "computer-vision",
+  "specialty": "Image Understanding",
+  "quality": 5,
+  "qualityReason": "Comprehensive vision capabilities",
+  "bundleHints": [
+    "computer-vision",
+    "image-analysis",
+    "azure-ai"
+  ],
+  "tags": [
+    "azure",
+    "captions",
+    "computer-vision",
+    "image-analysis",
+    "ocr",
+    "people-detection",
+    "python",
+    "python-sdk",
+    "tags"
+  ],
+  "capabilities": [
+    "Generate captions for images using Azure AI Vision",
+    "Detect and identify objects with bounding boxes",
+    "Extract text from images using OCR",
+    "Detect people in images with location coordinates",
+    "Create smart thumbnail crops automatically",
+    "Analyze multiple visual features in a single call"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only documentation skill containing reference material for the Azure AI Vision Image Analysis SDK. No executable code was detected. The skill provides documentation on how to use Microsoft's Azure computer vision service for image analysis tasks including captioning, object detection, OCR, and smart cropping. No security concerns identified.",
+  "valueStatement": "Developers need to integrate computer vision capabilities into Python applications but struggle with complex Azure SDK documentation. This skill provides ready-to-use code examples and best practices for image captioning, object detection, OCR, and smart cropping with Azure AI Vision.",
+  "userTitle": "Analyze Images with Azure AI Vision",
+  "limitations": [
+    "Requires Azure subscription and valid credentials",
+    "Network connectivity needed for API calls",
+    "Image size limited to 20MB per request",
+    "Only supports specific image formats (JPEG, PNG, GIF, BMP, WEBP, ICO, TIFF, MPO)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Business analysts processing large volumes of paper documents",
+      "title": "Automate Document Processing",
+      "description": "Extract text from scanned documents and forms automatically using OCR capabilities"
+    },
+    {
+      "targetUser": "Developers building media management applications",
+      "title": "Build Image Cataloging Systems",
+      "description": "Automatically generate captions and tags for uploaded images in media libraries"
+    },
+    {
+      "targetUser": "Web developers needing automated image optimization",
+      "title": "Create Smart Thumbnails",
+      "description": "Generate contextually-aware image crops for responsive web design"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Image Caption",
+      "prompt": "Show me how to get a caption for an image using Azure AI Vision ImageAnalysisClient in Python",
+      "scenario": "Getting started with image captioning"
+    },
+    {
+      "title": "Extract Text from Image",
+      "prompt": "Write Python code to extract all text from an image using the READ visual feature",
+      "scenario": "Performing OCR on documents"
+    },
+    {
+      "title": "Detect Objects with Bounding Boxes",
+      "prompt": "How do I detect objects in an image and get their bounding box coordinates using Azure AI Vision?",
+      "scenario": "Object detection for computer vision applications"
+    },
+    {
+      "title": "Async Batch Processing",
+      "prompt": "Show me how to use the async client to analyze multiple images concurrently",
+      "scenario": "High-throughput image processing"
+    }
+  ],
+  "bestPractices": [
+    "Request only the visual features you need to reduce latency and cost",
+    "Use async clients for high-throughput batch processing scenarios",
+    "Always handle HttpResponseError for robust error handling"
+  ],
+  "antiPatterns": [
+    "Requesting all visual features at once when you only need one",
+    "Ignoring error handling for network failures or invalid images",
+    "Using API keys in code instead of environment variables"
+  ],
+  "faq": [
+    {
+      "question": "What image formats does Azure AI Vision support?",
+      "answer": "Supported formats include JPEG, PNG, GIF, BMP, WEBP, ICO, TIFF, and MPO. Maximum file size is 20MB."
+    },
+    {
+      "question": "How do I authenticate with Azure AI Vision?",
+      "answer": "You can use API key authentication with AzureKeyCredential or Entra ID authentication with DefaultAzureCredential."
+    },
+    {
+      "question": "What is the difference between CAPTION and DENSE_CAPTIONS?",
+      "answer": "CAPTION provides a single sentence describing the entire image. DENSE_CAPTIONS provides multiple captions for different regions within the image."
+    },
+    {
+      "question": "Can I analyze local images instead of URLs?",
+      "answer": "Yes, use the analyze() method with image_data parameter instead of analyze_from_url()."
+    },
+    {
+      "question": "How do I optimize for cost when using Azure AI Vision?",
+      "answer": "Only request the visual features you need. Each feature adds to the cost and processing time."
+    },
+    {
+      "question": "Does this skill work with Claude Code and Codex?",
+      "answer": "Yes, this skill is compatible with Claude, Codex, and Claude Code for generating code examples and explanations."
+    }
+  ],
+  "seoKeywords": [
+    "azure ai vision",
+    "computer vision python",
+    "image analysis sdk",
+    "ocr python",
+    "object detection azure",
+    "image captioning api",
+    "smart cropping",
+    "claude",
+    "codex",
+    "claude code"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-ai-vision-imageanalysis-py",
+  "sourceType": "community",
+  "dependencies": []
+}

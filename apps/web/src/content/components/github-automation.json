@@ -1,0 +1,144 @@
+{
+  "name": "github-automation",
+  "type": "skill",
+  "description": "Automate GitHub repositories, issues, pull requests, branches, CI/CD, and permissions via Rube MCP (Composio). Manage code workflows, review PRs, search code, and handle deployments programmatically.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "programmatic control",
+  "quality": 5,
+  "qualityReason": "End-to-end automation",
+  "bundleHints": [
+    "github-automation",
+    "mcp-integrations"
+  ],
+  "tags": [
+    "automation",
+    "ci-cd",
+    "code-workflows",
+    "composio",
+    "deployments",
+    "devops",
+    "github",
+    "pr-review",
+    "pull-requests",
+    "rube-mcp"
+  ],
+  "capabilities": [
+    "Create, list, and manage GitHub issues with labels, assignees, and comments",
+    "Search, review, merge, and manage pull requests with CI status checks",
+    "Create repositories, branches, and manage branch protection rules",
+    "Search code and commits across repositories with advanced filters",
+    "Trigger GitHub Actions workflows and monitor deployment status",
+    "Manage repository collaborators and check user permissions"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 190 static analysis findings are false positives. The SKILL.md file is documentation-only Markdown describing GitHub API usage via Rube MCP. No executable code is present. Backtick patterns are Markdown inline code formatting, not shell execution. The hardcoded URL is a legitimate MCP server endpoint for user configuration.",
+  "valueStatement": "Streamline your GitHub operations by automating issues, pull requests, branches, and CI/CD pipelines. This skill integrates with Rube MCP to execute GitHub API actions programmatically through Claude, Codex, or Claude Code.",
+  "userTitle": "Automate GitHub workflows and repository management",
+  "limitations": [
+    "Requires Rube MCP server connection to be configured and active",
+    "GitHub OAuth authentication required through Rube Manage Connections",
+    "Actions limited to authenticated user's repository access permissions",
+    "Cannot execute operations on private repos without proper authorization"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development Team Lead",
+      "title": "Development Team Lead",
+      "description": "Automate PR review workflows by listing open pull requests, checking CI status, and merging approved changes with explicit confirmation."
+    },
+    {
+      "targetUser": "Open Source Maintainer",
+      "title": "Open Source Maintainer",
+      "description": "Manage incoming issues and feature requests by creating labeled issues, assigning contributors, and tracking progress across multiple repositories."
+    },
+    {
+      "targetUser": "DevOps Engineer",
+      "title": "DevOps Engineer",
+      "description": "Monitor and trigger CI/CD pipelines, check deployment statuses, and manage branch protection rules for production branches."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List Open Issues",
+      "prompt": "List all open issues in the repository owner/repo and summarize their status.",
+      "scenario": "Quick overview of pending issues"
+    },
+    {
+      "title": "Create Feature Request Issue",
+      "prompt": "Create a new issue in owner/repo with title 'Feature: X' and body describing the feature requirements. Add labels 'enhancement' and assign to user 'devname'.",
+      "scenario": "Documenting new feature requests"
+    },
+    {
+      "title": "Review and Merge PR",
+      "prompt": "Find open pull requests in owner/repo by author 'contributor'. Check the CI status for each PR. If checks pass, prepare merge summary for my approval.",
+      "scenario": "PR review workflow with safety checks"
+    },
+    {
+      "title": "Trigger Deployment Workflow",
+      "prompt": "List available workflows in owner/repo. Trigger the 'deploy.yml' workflow on the 'main' branch with inputs for environment 'production'. Monitor the deployment status.",
+      "scenario": "Production deployment automation"
+    }
+  ],
+  "bestPractices": [
+    "Always verify CI check status before merging any pull request",
+    "Request explicit user confirmation for destructive operations like merge or delete",
+    "Use pagination parameters to iterate through large result sets completely"
+  ],
+  "antiPatterns": [
+    "Merging pull requests without checking CI status or merge conflicts",
+    "Assuming labels or assignees were set without verifying user permissions",
+    "Deleting repositories or branches without explicit user confirmation"
+  ],
+  "faq": [
+    {
+      "question": "What is Rube MCP and do I need it?",
+      "answer": "Rube MCP is an MCP server that provides GitHub API access. You must add https://rube.app/mcp to your MCP client configuration and complete GitHub OAuth authentication before using this skill."
+    },
+    {
+      "question": "Can this skill access private repositories?",
+      "answer": "Yes, but only repositories where the authenticated GitHub user has appropriate permissions. Access is controlled by your GitHub OAuth token scopes."
+    },
+    {
+      "question": "How does pagination work for listing operations?",
+      "answer": "List endpoints return paginated results. Use page and per_page parameters (max 100 per page). Iterate until you receive fewer results than requested."
+    },
+    {
+      "question": "Why did my issue creation silently drop labels?",
+      "answer": "Labels, assignees, and milestones require push access to set. If you lack permission, these fields are silently ignored by the GitHub API."
+    },
+    {
+      "question": "Can I merge a pull request automatically?",
+      "answer": "No. This skill requires explicit user confirmation before any merge operation. This is a safety measure to prevent accidental merges."
+    },
+    {
+      "question": "What happens if a branch is unprotected?",
+      "answer": "The GET branch protection endpoint returns 404 for unprotected branches. Treat this as no protection rules applied to that branch."
+    }
+  ],
+  "seoKeywords": [
+    "GitHub automation",
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "pull request management",
+    "CI/CD automation",
+    "Rube MCP",
+    "Composio",
+    "repository management",
+    "GitHub API"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/github-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

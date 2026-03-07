@@ -1,0 +1,145 @@
+{
+  "name": "ai-html-generate",
+  "type": "skill",
+  "description": "Use AI to recreate PDF page as semantic HTML. Consumes three inputs (PNG image, parsed text, ASCII preview) for complete contextual understanding and accurate generation.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "PDF to HTML",
+  "quality": 5,
+  "qualityReason": "Multi-input contextual approach",
+  "bundleHints": [
+    "document-pipeline",
+    "pdf-tools",
+    "html-generation"
+  ],
+  "tags": [
+    "contextual",
+    "document-conversion",
+    "document-processing",
+    "html-generation",
+    "pdf-conversion",
+    "png",
+    "semantic-markup",
+    "text-parsing"
+  ],
+  "capabilities": [
+    "Generate semantic HTML5 from PDF pages using AI",
+    "Process PNG images, JSON text data, and ASCII previews together",
+    "Apply consistent CSS class naming conventions",
+    "Validate text coverage to prevent AI hallucination",
+    "Create metadata logs for generation tracking",
+    "Output properly structured HTML with semantic elements"
+  ],
+  "author": "AbeJitsu",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill consists solely of documentation describing how to use AI for PDF-to-HTML conversion. SKILL.md is a markdown file containing prompts and instructions - not executable code. All 59 static findings are false positives: backticks are markdown code formatting, file paths are documentation examples, and there is no actual cryptographic code, shell execution, or file operations in this skill. The skill contains no network operations, no credential access, and no command execution capabilities.",
+  "valueStatement": "Manually converting PDF pages to semantic HTML is time-consuming and error-prone. This skill uses AI to automatically generate semantic HTML5 from PDF pages with three sources of context for high accuracy.",
+  "userTitle": "Convert PDF Pages to Semantic HTML",
+  "limitations": [
+    "Requires three specific input files from previous extraction skills",
+    "Output is probabilistic and may need verification",
+    "Cannot process encrypted or password-protected PDFs",
+    "Visual accuracy depends on PNG image quality"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Technical Writers",
+      "title": "Document Accessibility",
+      "description": "Convert textbook chapters to accessible HTML for screen readers and web display with proper semantic markup."
+    },
+    {
+      "targetUser": "Content Engineers",
+      "title": "PDF Content Migration",
+      "description": "Migrate PDF documentation to web-ready HTML with consistent class names and structured formatting."
+    },
+    {
+      "targetUser": "Publishing Teams",
+      "title": "Digital Publishing",
+      "description": "Transform printed materials into digital formats with proper heading hierarchies and semantic elements."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Generation",
+      "scenario": "Convert a single PDF page",
+      "prompt": "Convert the attached PDF page to semantic HTML5. Use the PNG image for layout, the JSON data for text accuracy, and the ASCII preview for structure."
+    },
+    {
+      "title": "With Coverage Check",
+      "scenario": "Verify all content is preserved",
+      "prompt": "Generate HTML that includes every word from the source JSON. Do not add any bridging text or transitional phrases between pages."
+    },
+    {
+      "title": "Semantic Structure",
+      "scenario": "Apply proper document semantics",
+      "prompt": "Create semantic HTML with proper heading hierarchy (h1 to h4), list structures, and CSS classes. Use classes like page-container, section-heading, paragraph, and bullet-list."
+    },
+    {
+      "title": "Multi-Modal Context",
+      "scenario": "Combine all three inputs",
+      "prompt": "Analyze the PNG image for visual layout, use the JSON for exact text content, and follow the ASCII preview for element relationships. Generate HTML5 that accurately recreates the page."
+    }
+  ],
+  "bestPractices": [
+    "Run the verification script after each page generation to catch AI hallucination early",
+    "Use all three input sources (PNG, JSON, ASCII) for complete context",
+    "Check coverage percentage is between 99-100% before proceeding to the next page",
+    "Do not consolidate chapters until all individual pages pass the verification gate"
+  ],
+  "antiPatterns": [
+    "Skipping the text verification step and proceeding to consolidation",
+    "Accepting coverage above 100% which indicates the AI added invented content",
+    "Consolidating pages with any coverage below 95%",
+    "Allowing the AI to add bridging text between page boundaries"
+  ],
+  "faq": [
+    {
+      "question": "Which AI models support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It requires vision capabilities for the PNG image input and text generation for the HTML output."
+    },
+    {
+      "question": "What happens if text coverage is below 95%?",
+      "answer": "Coverage below 95% indicates missing content. Regenerate the page and re-run verification. Never proceed with pages that fail the quality gate."
+    },
+    {
+      "question": "Can this skill process scanned PDFs without text layers?",
+      "answer": "No. This skill requires rich_extraction.json from a previous text extraction skill. Scanned images need OCR processing first."
+    },
+    {
+      "question": "Is my document data sent to external servers?",
+      "answer": "Document data is only sent to the configured AI API endpoint. No data is collected or stored by this skill itself. See your AI provider's privacy policy."
+    },
+    {
+      "question": "Why does the verification sometimes show over 100% coverage?",
+      "answer": "Coverage above 100% means the AI added words not present in the source. This is hallucination. Regenerate with stricter boundary instructions."
+    },
+    {
+      "question": "How is this skill different from other PDF converters?",
+      "answer": "This skill uses three sources of context (visual, textual, structural) instead of a single input. It applies semantic CSS classes and includes validation gates to prevent errors."
+    }
+  ],
+  "seoKeywords": [
+    "pdf to html converter",
+    "semantic html generator",
+    "ai html generation",
+    "claude code",
+    "document conversion",
+    "pdf accessibility",
+    "html5 markup",
+    "claude",
+    "codex",
+    "claude code"
+  ],
+  "sourceUrl": "https://github.com/AbeJitsu/Game-Settings-Panel/tree/main/.claude/skills/calypso/ai-html-generate",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "react-best-practices",
+  "type": "skill",
+  "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance pat...",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Optimization",
+  "quality": 5,
+  "qualityReason": "Detailed, authoritative optimization rules",
+  "bundleHints": [
+    "react-stack",
+    "frontend-toolkit",
+    "performance-suite"
+  ],
+  "tags": [
+    "bundle",
+    "next.js",
+    "optimization",
+    "performance",
+    "react",
+    "vercel"
+  ],
+  "capabilities": [
+    "Eliminate async waterfalls using Promise.all() and proper await placement",
+    "Reduce bundle size with dynamic imports and code splitting strategies",
+    "Optimize server-side rendering with React.cache() and LRU caching",
+    "Prevent unnecessary re-renders using proper dependency arrays and memoization",
+    "Improve client-side data fetching with SWR deduplication patterns",
+    "Guide automated refactoring of React/Next.js code for performance"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer detected 912 patterns but all are FALSE POSITIVES. The skill contains markdown documentation with code examples for educational purposes, not executable code. Patterns like 'backtick execution' are shell commands in README examples (pnpm build), 'dynamic imports' are React next/dynamic usage examples, 'storage access' shows localStorage caching patterns, and 'network' patterns are fetch API documentation examples. No actual security vulnerabilities exist.",
+  "valueStatement": "Poor React performance leads to slow load times and frustrated users. This skill provides 45 prioritized rules from Vercel Engineering to eliminate waterfalls, reduce bundle sizes, and optimize rendering.",
+  "userTitle": "Optimize React and Next.js Performance with Vercel Best Practices",
+  "limitations": [
+    "Focuses on performance optimization, not general React patterns or accessibility",
+    "Examples use TypeScript syntax; JavaScript-only projects need adaptation",
+    "Some patterns require React 18+ features like Suspense and startTransition",
+    "Does not cover testing strategies or debugging performance issues"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend Developer Building React Applications",
+      "title": "Frontend Developer Building React Applications",
+      "description": "Use this skill when writing new components or pages to ensure optimal performance from the start. The skill guides bundle optimization, proper data fetching patterns, and re-render prevention techniques."
+    },
+    {
+      "targetUser": "Tech Lead Reviewing Pull Requests",
+      "title": "Tech Lead Reviewing Pull Requests",
+      "description": "Reference these rules during code review to catch performance anti-patterns like sequential async calls, unnecessary barrel imports, or missing Suspense boundaries before merging."
+    },
+    {
+      "targetUser": "AI Assistant Refactoring Legacy Code",
+      "title": "AI Assistant Refactoring Legacy Code",
+      "description": "Apply these prioritized rules to systematically improve existing React codebases, starting with critical waterfall elimination before addressing medium-impact rendering optimizations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Review Component for Performance Issues",
+      "prompt": "Review this React component using Vercel best practices. Identify waterfalls, unnecessary re-renders, and bundle optimization opportunities. Suggest specific fixes with code examples.",
+      "scenario": "Code review"
+    },
+    {
+      "title": "Refactor Sequential Fetching to Parallel",
+      "prompt": "Refactor this code to eliminate async waterfalls. Use Promise.all() for independent operations and move awaits into branches where results are actually needed.",
+      "scenario": "Eliminating waterfalls"
+    },
+    {
+      "title": "Optimize Bundle Size for Heavy Components",
+      "prompt": "Apply code splitting strategies to this component. Identify opportunities for next/dynamic imports, conditional loading, and preloading on user interactions.",
+      "scenario": "Bundle optimization"
+    },
+    {
+      "title": "Fix Re-render Performance Issues",
+      "prompt": "Analyze this component for unnecessary re-renders. Apply memoization, proper dependency arrays, derived state subscriptions, and functional setState patterns as appropriate.",
+      "scenario": "Re-render optimization"
+    }
+  ],
+  "bestPractices": [
+    "Start with critical waterfall elimination before medium-impact optimizations",
+    "Use React.cache() for per-request deduplication and LRU cache for cross-request caching",
+    "Extract stable callbacks using functional setState and store handlers in refs when needed"
+  ],
+  "antiPatterns": [
+    "Sequential await calls for independent operations",
+    "Importing entire utility libraries instead of specific functions",
+    "Passing functions directly as effect dependencies instead of primitives"
+  ],
+  "faq": [
+    {
+      "question": "What React versions are supported?",
+      "answer": "Most patterns work with React 17+. Advanced patterns like startTransition, useTransition, and Suspense for data fetching require React 18+."
+    },
+    {
+      "question": "Can I use this with JavaScript instead of TypeScript?",
+      "answer": "Yes, all patterns apply to JavaScript projects. Examples use TypeScript syntax for clarity but the concepts transfer directly."
+    },
+    {
+      "question": "Should I apply all 45 rules at once?",
+      "answer": "No. Start with CRITICAL priority rules (async waterfalls, bundle optimization) for maximum impact, then address HIGH and MEDIUM priorities progressively."
+    },
+    {
+      "question": "Does this skill work with Next.js App Router?",
+      "answer": "Yes. Server component patterns like React.cache(), use cache(), and server parallel fetching are specifically designed for App Router architecture."
+    },
+    {
+      "question": "How do I measure performance improvements?",
+      "answer": "Use Web Vitals (LCP, FID, CLS) and React DevTools Profiler. The skill provides impact estimates like '2-10x improvement' for each pattern."
+    },
+    {
+      "question": "Can Claude Code automatically apply these fixes?",
+      "answer": "Yes. Provide the skill context and ask Claude Code to review or refactor specific files. It will apply appropriate rules with code examples."
+    }
+  ],
+  "seoKeywords": [
+    "React performance optimization",
+    "Next.js best practices",
+    "Claude Code React skills",
+    "Codex performance guide",
+    "Vercel React patterns",
+    "bundle optimization",
+    "React waterfalls",
+    "server components",
+    "Claude Code marketplace",
+    "React code generation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/react-best-practices",
+  "sourceType": "community",
+  "dependencies": []
+}

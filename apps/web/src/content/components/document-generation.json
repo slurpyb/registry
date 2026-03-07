@@ -1,0 +1,141 @@
+{
+  "name": "document-generation",
+  "type": "skill",
+  "description": "A powerful skill for generating and processing professional documents (Word, PowerPoint, Excel, PDF).",
+  "domain": "tools",
+  "subdomain": "office",
+  "specialty": "professional docs",
+  "quality": 4,
+  "qualityReason": "Broad but well-defined scope",
+  "bundleHints": [
+    "office-automation",
+    "doc-tools"
+  ],
+  "tags": [
+    "document",
+    "generation",
+    "office",
+    "pdf",
+    "processing",
+    "word"
+  ],
+  "capabilities": [
+    "Generate Word documents with headings, paragraphs, lists, and tables from HTML",
+    "Create PowerPoint presentations with themes, images, tables, and charts",
+    "Build Excel spreadsheets from structured data lists",
+    "Convert HTML content to formatted PDF documents",
+    "Extract text from existing PDF files",
+    "Convert Markdown to HTML for document processing"
+  ],
+  "author": "BOHUYESHAN-APB",
+  "icon": "docs",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate document generation skill with standard office automation libraries. HTTP requests only for fetching user-specified images. Filesystem access limited to controlled output directories. Static findings of 'weak cryptographic algorithm' and 'system reconnaissance' are false positives - scanner misidentified variable names and string patterns.",
+  "valueStatement": "Manually creating reports, presentations, and spreadsheets takes significant time. This skill automates document generation from HTML content and structured data, producing formatted Word, PowerPoint, Excel, and PDF files in seconds.",
+  "userTitle": "Generate professional office documents",
+  "limitations": [
+    "Requires Python libraries: python-docx, python-pptx, openpyxl, reportlab, pypdf",
+    "Images must be accessible via local path or HTTP URL",
+    "PDF generation depends on WeasyPrint installation",
+    "Complex formatting may require manual adjustment after generation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Technical writers",
+      "title": "Auto-generate documentation",
+      "description": "Convert Markdown or HTML documentation into formatted Word and PDF reports automatically."
+    },
+    {
+      "targetUser": "Business analysts",
+      "title": "Create presentation decks",
+      "description": "Transform data summaries and analysis into PowerPoint slides with charts and visualizations."
+    },
+    {
+      "targetUser": "Data professionals",
+      "title": "Export data to spreadsheets",
+      "description": "Convert lists and dictionaries into properly formatted Excel workbooks for reporting."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple Word report",
+      "scenario": "Generate a basic Word document",
+      "prompt": "Generate a Word document named 'report.docx' with a heading 'Project Status' and a paragraph summarizing that all tasks are complete."
+    },
+    {
+      "title": "Presentation slides",
+      "scenario": "Create a PowerPoint presentation",
+      "prompt": "Create a PowerPoint with two slides. The first slide should have the title 'Quarterly Review'. The second slide should have the title 'Results' with bullet points showing revenue growth, new customers, and market expansion."
+    },
+    {
+      "title": "Data spreadsheet",
+      "scenario": "Build an Excel file",
+      "prompt": "Generate an Excel file named 'budget.xlsx' with columns for Category, Expected, and Actual, containing three rows for Software, Marketing, and Office Supplies."
+    },
+    {
+      "title": "PDF document",
+      "scenario": "Convert content to PDF",
+      "prompt": "Convert this HTML content to a PDF file named 'summary.pdf': '<h1>Executive Summary</h1><p>The project was completed successfully with all milestones achieved.</p>'"
+    }
+  ],
+  "bestPractices": [
+    "Provide well-structured HTML with semantic tags for best formatting results",
+    "Use CSS color codes in hex format for consistent styling in Word documents",
+    "Test with small documents first before generating large reports",
+    "Ensure image URLs are publicly accessible when using web-hosted images"
+  ],
+  "antiPatterns": [
+    "Embedding malicious URLs in image src attributes to probe internal networks",
+    "Using untrusted HTML content that could contain exploit attempts",
+    "Generating documents to system directories outside the project scope",
+    "Processing sensitive PDFs without verifying the source content"
+  ],
+  "faq": [
+    {
+      "question": "What document formats are supported?",
+      "answer": "Word (.docx), PowerPoint (.pptx), Excel (.xlsx), and PDF files are supported for both generation and processing."
+    },
+    {
+      "question": "What are the file size limits?",
+      "answer": "Document size limits depend on available memory. For large documents, consider processing in smaller chunks to avoid memory issues."
+    },
+    {
+      "question": "Can this skill integrate with cloud storage?",
+      "answer": "The skill writes files to local directories. Integration with cloud storage requires additional setup using platform-specific tools."
+    },
+    {
+      "question": "Is my data safe when processing documents?",
+      "answer": "All processing happens locally on your machine. No document content is sent to external servers except when you provide image URLs."
+    },
+    {
+      "question": "Why are my images not appearing in the output?",
+      "answer": "Images must be accessible via local file path or HTTP URL. Check that URLs are publicly accessible and file paths are correct."
+    },
+    {
+      "question": "How does this compare to manual document creation?",
+      "answer": "This skill automates repetitive formatting tasks. Complex design work still benefits from manual tools, but generation saves significant time for standard documents."
+    }
+  ],
+  "seoKeywords": [
+    "document generation",
+    "Word docx",
+    "PowerPoint pptx",
+    "Excel xlsx",
+    "PDF creation",
+    "office documents",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/BOHUYESHAN-APB/N-T-AI/tree/main/backend/app/skills/common/document_skill",
+  "sourceType": "community",
+  "dependencies": []
+}

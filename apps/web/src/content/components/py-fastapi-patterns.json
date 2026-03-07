@@ -1,0 +1,143 @@
+{
+  "name": "py-fastapi-patterns",
+  "type": "skill",
+  "description": "FastAPI patterns for API design. Use when creating endpoints, handling dependencies, error handling, or working with OpenAPI schemas.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "API design",
+  "quality": 5,
+  "qualityReason": "Core backend framework patterns",
+  "bundleHints": [
+    "python-backend",
+    "fastapi-stack"
+  ],
+  "tags": [
+    "api-design",
+    "backend",
+    "dependencies",
+    "endpoints",
+    "error handling",
+    "fastapi",
+    "openapi",
+    "python",
+    "rest"
+  ],
+  "capabilities": [
+    "Implement dependency injection with FastAPI Depends",
+    "Create proper response models to filter sensitive data",
+    "Handle errors with HTTPException and custom handlers",
+    "Design clean OpenAPI schemas with descriptions",
+    "Organize routes with APIRouter prefixes and tags",
+    "Validate request bodies with Pydantic Field validators"
+  ],
+  "author": "CJHarmath",
+  "icon": "🐍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown explanations and Python code examples. No executable scripts, network calls, file system access, or environment variable access. Static findings are false positives triggered by documentation keywords and markdown syntax.",
+  "valueStatement": "Building APIs with FastAPI requires understanding dependency injection, response models, and OpenAPI schema design. This skill provides battle-tested patterns that prevent common bugs and improve developer experience for frontend teams.",
+  "userTitle": "Apply FastAPI Best Practices",
+  "limitations": [
+    "Does not generate complete API projects or boilerplate",
+    "Does not integrate with specific databases or ORMs",
+    "Does not provide runtime execution or testing capabilities",
+    "Focuses on patterns rather than complete implementation examples"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Python Developers",
+      "title": "Build Maintainable APIs",
+      "description": "Apply dependency chains and response models to create APIs that are easy to maintain and evolve over time."
+    },
+    {
+      "targetUser": "Full-Stack Developers",
+      "title": "Improve Frontend Integration",
+      "description": "Design OpenAPI schemas that generate accurate TypeScript types for frontend code generation tools."
+    },
+    {
+      "targetUser": "API Architects",
+      "title": "Standardize Team Patterns",
+      "description": "Establish consistent error handling and route organization across multiple API services."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Dependency Injection",
+      "scenario": "Setting up authentication dependencies",
+      "prompt": "Show me how to create a dependency chain in FastAPI for authentication. Include get_session, get_current_user, and get_current_active_user dependencies that can be used in endpoints."
+    },
+    {
+      "title": "Response Models",
+      "scenario": "Protecting sensitive data",
+      "prompt": "Explain how to use response_model in FastAPI to prevent exposing internal fields like hashed_password. Show a User model with read and create variants."
+    },
+    {
+      "title": "Error Handling",
+      "scenario": "Creating consistent error responses",
+      "prompt": "How do I create custom exception handlers in FastAPI that return consistent error responses with error codes? Include both the exception class and the handler."
+    },
+    {
+      "title": "Route Ordering",
+      "scenario": "Avoiding route conflicts",
+      "prompt": "Explain why route ordering matters in FastAPI. Show an example of how putting /users/me before /users/{user_id} prevents matching issues."
+    }
+  ],
+  "bestPractices": [
+    "Always define specific routes before generic parameterized routes to prevent incorrect matching",
+    "Use response_model on every endpoint to control output and generate accurate OpenAPI schemas",
+    "Chain dependencies from most generic (session) to most specific (current_user) for reusability"
+  ],
+  "antiPatterns": [
+    "Omitting response_model exposes internal fields like hashed_password in API responses",
+    "Placing generic routes before specific routes causes /users/me to be captured as a user_id parameter",
+    "Using bare except clauses or generic HTTPException without status codes creates inconsistent error responses"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with FastAPI async endpoints?",
+      "answer": "Yes. All patterns support both sync and async endpoint definitions. Dependencies can be async functions using await."
+    },
+    {
+      "question": "What Python versions are supported?",
+      "answer": "FastAPI requires Python 3.8 or later. Most patterns work with Python 3.9+ features like the | type union operator."
+    },
+    {
+      "question": "Can I use these patterns with other frameworks?",
+      "answer": "The dependency injection concept applies to other frameworks. Response models and OpenAPI patterns are FastAPI-specific."
+    },
+    {
+      "question": "Is my data safe when using these patterns?",
+      "answer": "Yes. This skill contains only documentation patterns. No data leaves your environment when applying these practices."
+    },
+    {
+      "question": "Why am I getting 422 validation errors?",
+      "answer": "Pydantic v2 is strict by default. Check that your request body matches all Field validators including min_length and max_length constraints."
+    },
+    {
+      "question": "How does this compare to Django REST Framework?",
+      "answer": "FastAPI provides automatic OpenAPI generation and native async support. DRF has more built-in viewsets but requires more configuration for API docs."
+    }
+  ],
+  "seoKeywords": [
+    "FastAPI patterns",
+    "Python API development",
+    "FastAPI dependency injection",
+    "OpenAPI schema",
+    "API design best practices",
+    "FastAPI error handling",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "Pydantic models"
+  ],
+  "sourceUrl": "https://github.com/CJHarmath/claude-agents-skills/tree/main/skills/py-fastapi-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,146 @@
+{
+  "name": "kegg-database",
+  "type": "skill",
+  "description": "Direct REST API access to KEGG (academic use only). Pathway analysis, gene-pathway mapping, metabolic pathways, drug interactions, ID conversion. For Python workflows with multiple databases, prefer bioservices. Use this for direct HTTP/REST work or KEGG-specific control.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "pathway analysis",
+  "quality": 5,
+  "qualityReason": "Specialized research database",
+  "bundleHints": [
+    "bioinformatics-tools",
+    "pathway-analysis",
+    "genomics-research"
+  ],
+  "tags": [
+    "academic",
+    "bioinformatics",
+    "databases",
+    "drug interactions",
+    "gene mapping",
+    "gene-mapping",
+    "id conversion",
+    "metabolic pathways",
+    "pathway-analysis",
+    "rest api",
+    "rest-api"
+  ],
+  "capabilities": [
+    "Query KEGG databases (pathway, genes, compounds, drugs, enzymes, diseases)",
+    "Retrieve pathway information, gene sequences, and compound structures",
+    "Map genes to pathways and find pathway-gene associations",
+    "Convert identifiers between KEGG and external databases (NCBI, UniProt, PubChem)",
+    "Search compounds by chemical formula, exact mass, or molecular weight",
+    "Check drug-drug interactions using KEGG DDI data"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "Non-academic use of KEGG requires a commercial license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 253 static findings are false positives. The scanner incorrectly flags Markdown backticks as Ruby shell execution, KEGG API URLs as suspicious network targets, and bioinformatics identifiers (pathway IDs, gene names) as weak crypto algorithms. This is a legitimate bioinformatics research tool that uses standard urllib for HTTP requests to the official KEGG REST API. No malicious code, command injection, or data exfiltration present.",
+  "valueStatement": "Researchers need efficient access to KEGG bioinformatics data for pathway analysis and gene mapping. This skill provides Python helper functions for all KEGG REST API operations including pathway retrieval, gene-pathway mapping, compound searches, and ID conversion between databases.",
+  "userTitle": "Query KEGG database for pathways and genes",
+  "limitations": [
+    "Academic use only - commercial use requires separate KEGG licensing",
+    "Maximum 10 entries per API call (1 entry for image/kgml/json formats)",
+    "No interactive pathway visualization - returns raw data for external tools",
+    "Rate limiting applies - avoid rapid-fire requests to the KEGG API"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Bioinformatics researchers",
+      "title": "Pathway enrichment analysis",
+      "description": "Map genes of interest to KEGG pathways and retrieve detailed pathway information for enrichment studies."
+    },
+    {
+      "targetUser": "Computational biologists",
+      "title": "Cross-database integration",
+      "description": "Convert KEGG gene IDs to UniProt, NCBI Gene IDs, or PubChem for integration with other analysis pipelines."
+    },
+    {
+      "targetUser": "Pharmacology researchers",
+      "title": "Drug interaction screening",
+      "description": "Search drug databases and check potential drug-drug interactions using KEGG DDI endpoint."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List pathways",
+      "scenario": "Get all human pathways",
+      "prompt": "Use kegg_list to retrieve all KEGG pathways for human (hsa) and show the first 10 pathway IDs and names."
+    },
+    {
+      "title": "Find genes",
+      "scenario": "Search genes by keyword",
+      "prompt": "Search the KEGG genes database for entries matching 'p53' using kegg_find and display the results."
+    },
+    {
+      "title": "Map pathways",
+      "scenario": "Find gene pathways",
+      "prompt": "Use kegg_link to find all KEGG pathways that contain the TP53 gene (hsa:7157) and retrieve basic info for each."
+    },
+    {
+      "title": "Convert IDs",
+      "scenario": "Cross-database mapping",
+      "prompt": "Convert all human gene KEGG IDs to NCBI Gene IDs using kegg_conv and show the first 5 mapping pairs."
+    }
+  ],
+  "bestPractices": [
+    "Cache API results locally to reduce redundant requests and respect rate limits.",
+    "Check HTTP status codes (200=success, 400=bad request, 404=not found) for error handling.",
+    "Use specific organism codes (hsa, mmu, eco) to narrow results and improve performance."
+  ],
+  "antiPatterns": [
+    "Making rapid-fire requests without delays - violates KEGG API usage guidelines.",
+    "Ignoring HTTP error responses - always handle 400/404 errors appropriately.",
+    "Requesting more than 10 entries in a single call - KEGG limits batch operations."
+  ],
+  "faq": [
+    {
+      "question": "What is KEGG?",
+      "answer": "KEGG (Kyoto Encyclopedia of Genes and Genomes) is a database for understanding high-level functions of biological systems from genomic and molecular data."
+    },
+    {
+      "question": "Is this skill free to use?",
+      "answer": "KEGG API is free for academic use. Commercial applications require a separate license from KEGG."
+    },
+    {
+      "question": "What organisms are supported?",
+      "answer": "KEGG supports thousands of organisms including human (hsa), mouse (mmu), yeast (sce), and E. coli (eco)."
+    },
+    {
+      "question": "Can I get sequence data?",
+      "answer": "Yes, use kegg_get with 'aaseq' for protein sequences or 'ntseq' for nucleotide sequences."
+    },
+    {
+      "question": "How do I convert gene IDs?",
+      "answer": "Use kegg_conv with target database (uniprot, ncbi-geneid) and source (organism code or specific gene ID)."
+    },
+    {
+      "question": "What are the API limits?",
+      "answer": "Maximum 10 entries per request. Image, KGML, and JSON formats allow only one entry at a time."
+    }
+  ],
+  "seoKeywords": [
+    "KEGG database API",
+    "pathway analysis",
+    "gene mapping",
+    "Claude scientific skills",
+    "KEGG REST API",
+    "metabolic pathways",
+    "drug interactions",
+    "bioinformatics tools",
+    "Claude Code",
+    "Claude Codex"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/kegg-database",
+  "sourceType": "community",
+  "dependencies": []
+}

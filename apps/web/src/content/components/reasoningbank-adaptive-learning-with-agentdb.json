@@ -1,0 +1,143 @@
+{
+  "name": "reasoningbank-adaptive-learning-with-agentdb",
+  "type": "skill",
+  "description": "Implement ReasoningBank adaptive learning with AgentDB for trajectory tracking, verdict judgment, memory distillation, and pattern recognition to build self-learning agents that improve decision-making through experience.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "Self-learning",
+  "quality": 5,
+  "qualityReason": "Specific agent learning and memory system",
+  "bundleHints": [
+    "agent-framework",
+    "adaptive-learning",
+    "ai-ecosystem"
+  ],
+  "tags": [
+    "adaptive",
+    "adaptive-learning",
+    "agentdb",
+    "memory",
+    "meta-learning",
+    "pattern-recognition",
+    "reasoningbank",
+    "trajectory"
+  ],
+  "capabilities": [
+    "Initialize ReasoningBank with AgentDB for vector storage",
+    "Track agent decision trajectories with reasoning and context",
+    "Judge decision verdicts using efficiency, correctness, and novelty criteria",
+    "Distill learned patterns from successful decision paths",
+    "Apply learned patterns to improve future decision-making",
+    "Measure improvement in decision quality over time"
+  ],
+  "author": "DNYoussef",
+  "icon": "🧠",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only TypeScript code examples and process documentation. All 34 static findings are FALSE POSITIVES. The scanner incorrectly identified TypeScript template literals (backticks for string interpolation) as shell command execution. All URLs are documentation links to external resources. No executable code, network operations, filesystem access, or external command execution is present. This skill is instructional content only.",
+  "valueStatement": "Building self-learning agents requires tracking decision trajectories and extracting patterns from experience. ReasoningBank with AgentDB provides a 5-phase system for trajectory tracking, verdict judgment, memory distillation, and pattern recognition to continuously improve decision quality.",
+  "userTitle": "Implement adaptive learning with ReasoningBank",
+  "limitations": [
+    "Requires AgentDB installed and configured with vector database support",
+    "Pattern mining quality depends on trajectory data volume and diversity",
+    "Does not include pre-trained models or automatic neural network training",
+    "Verdict criteria must be explicitly defined for each use case"
+  ],
+  "useCases": [
+    {
+      "targetUser": "ML Engineers",
+      "title": "Build self-improving agents",
+      "description": "Create agents that learn from experience and improve decision quality through adaptive feedback loops."
+    },
+    {
+      "targetUser": "AI Researchers",
+      "title": "Implement meta-learning systems",
+      "description": "Develop systems that learn to learn by extracting patterns across multiple decision trajectories."
+    },
+    {
+      "targetUser": "Software Architects",
+      "title": "Add pattern recognition",
+      "description": "Enhance existing AI systems with memory consolidation and pattern application capabilities."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Setup",
+      "scenario": "Initialize adaptive learning system",
+      "prompt": "I want to implement adaptive learning with ReasoningBank and AgentDB. Initialize the system with trajectory tracking, verdict judgment, and pattern recognition capabilities."
+    },
+    {
+      "title": "Track Decisions",
+      "scenario": "Record agent reasoning",
+      "prompt": "Set up trajectory tracking for my agent. I want to record every decision, the reasoning behind it, the context, and the outcome for later analysis."
+    },
+    {
+      "title": "Evaluate Quality",
+      "scenario": "Judge decision outcomes",
+      "prompt": "Help me implement a verdict judgment system. I need to evaluate decisions based on efficiency, correctness, and novelty criteria and store the verdicts."
+    },
+    {
+      "title": "Extract Patterns",
+      "scenario": "Distill learned patterns",
+      "prompt": "Implement memory distillation to extract successful patterns from our trajectory history. Apply pattern mining with configurable support and confidence thresholds."
+    }
+  ],
+  "bestPractices": [
+    "Start with a trajectory window of 1000 entries and adjust based on memory constraints",
+    "Define verdict criteria that align with your specific success metrics",
+    "Use feedback loops to continuously refine patterns from new experiences"
+  ],
+  "antiPatterns": [
+    "Setting verdict threshold too high causes insufficient learning data",
+    "Distilling patterns without enough trajectories leads to unreliable patterns",
+    "Ignoring pattern application defeats the purpose of adaptive learning"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "Works with Claude, Codex, and Claude Code for implementing adaptive learning patterns."
+    },
+    {
+      "question": "How many trajectories are needed for effective learning?",
+      "answer": "At least 100 trajectories with diverse outcomes are recommended for reliable pattern extraction."
+    },
+    {
+      "question": "Can I integrate with existing agent frameworks?",
+      "answer": "Yes, ReasoningBank provides a modular API for trajectory tracking and pattern application with any agent framework."
+    },
+    {
+      "question": "Is my trajectory data stored securely?",
+      "answer": "Trajectories are stored in AgentDB's vector database with configurable encryption and access controls."
+    },
+    {
+      "question": "Why are my patterns not improving decisions?",
+      "answer": "Check verdict threshold settings, ensure sufficient trajectory diversity, and verify patterns are being applied in makeDecision calls."
+    },
+    {
+      "question": "How does this compare to traditional RL?",
+      "answer": "ReasoningBank provides explicit reasoning traces and pattern extraction rather than opaque neural network weights for interpretable learning."
+    }
+  ],
+  "seoKeywords": [
+    "ReasoningBank",
+    "AgentDB",
+    "adaptive learning",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "trajectory tracking",
+    "pattern recognition",
+    "self-learning agents",
+    "meta-learning"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/agentdb/when-implementing-adaptive-learning-use-reasoningbank-agentdb",
+  "sourceType": "community",
+  "dependencies": []
+}

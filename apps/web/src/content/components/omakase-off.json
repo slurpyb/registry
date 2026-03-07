@@ -1,0 +1,141 @@
+{
+  "name": "omakase-off",
+  "type": "skill",
+  "description": "This skill should be used as the entry gate for build/create/implement requests. Triggers on \"build X\", \"create Y\", \"implement Z\", \"add feature\", \"try both approaches\", \"not sure which approach\". Offers brainstorm-together or omakase (chef's choice parallel exploration) options. Detects indecision during brainstorming to offer parallel exploration.",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "Request routing",
+  "quality": 5,
+  "qualityReason": "Orchestrates complex workflows",
+  "bundleHints": [
+    "agent-orchestration",
+    "workflow-engine",
+    "development-gateway"
+  ],
+  "tags": [
+    "build-request",
+    "decision-making",
+    "development-orchestration",
+    "gatekeeper",
+    "parallel-exploration",
+    "workflow"
+  ],
+  "capabilities": [
+    "Detects build/create/implement requests and presents collaboration options",
+    "Identifies indecision during brainstorming through passive analysis",
+    "Generates multiple implementation approaches in parallel",
+    "Orchestrates git worktrees for isolated variant development",
+    "Runs automated scenario tests against all variants",
+    "Compares results and recommends the best approach"
+  ],
+  "author": "2389-research",
+  "icon": "🍱",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. External command patterns in documentation are example git commands. High-risk crypto and C2 patterns are regex false positives triggered by benign words. This is a legitimate workflow orchestration skill.",
+  "valueStatement": "Users often struggle to choose between implementation approaches. This skill detects indecision and offers parallel exploration of different approaches, letting tests determine the best solution.",
+  "userTitle": "Explore multiple solutions in parallel",
+  "limitations": [
+    "Does not execute code directly; orchestrates other skills",
+    "Relies on external skills for testing and code review",
+    "Cannot make architectural decisions without user input",
+    "Maximum of 5-6 variants to prevent combinatorial explosion"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers starting new projects",
+      "title": "New project architecture decisions",
+      "description": "When starting a new project and unsure about technology choices (React vs Vue, SQL vs NoSQL), explore both in parallel with real tests."
+    },
+    {
+      "targetUser": "Engineers modernizing existing codebases",
+      "title": "Refactoring trade-offs",
+      "description": "Evaluate different refactoring approaches by implementing variants and comparing their test results and code quality."
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Feature implementation alternatives",
+      "description": "Compare different implementation strategies for complex features by running parallel experiments."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic trigger",
+      "prompt": "I want to build a CLI todo app. Can you help me get started?",
+      "scenario": "User requests to build something new"
+    },
+    {
+      "title": "Indecision scenario",
+      "prompt": "Should I use JSON files or SQLite for storage? I'm not sure which is better.",
+      "scenario": "User expresses uncertainty about a technical decision"
+    },
+    {
+      "title": "Parallel exploration request",
+      "prompt": "I need to add authentication. Let's try both JWT and session-based approaches to see which works better.",
+      "scenario": "User explicitly wants to explore multiple approaches"
+    },
+    {
+      "title": "Complex project setup",
+      "prompt": "Build me a full-stack React app with a Node backend. I'm open to different approaches for the database and API style.",
+      "scenario": "Complex project with multiple architectural decisions"
+    }
+  ],
+  "bestPractices": [
+    "Let the skill detect indecision naturally during brainstorming rather than forcing parallel exploration upfront",
+    "Limit to 5-6 variants maximum to avoid combinatorial explosion",
+    "Always use scenario testing rather than manual verification for fair comparison"
+  ],
+  "antiPatterns": [
+    "Using omakase for trivial decisions like file naming or directory structure",
+    "Skipping cleanup of failed variant worktrees after selection",
+    "Running too many variants without focusing on the primary architectural axis"
+  ],
+  "faq": [
+    {
+      "question": "What triggers omakase-off?",
+      "answer": "The skill triggers on phrases like 'build X', 'create Y', 'implement Z', 'add feature', 'try both approaches', or expressions of uncertainty like 'not sure which approach'."
+    },
+    {
+      "question": "How many variants can I explore?",
+      "answer": "The skill recommends a maximum of 5-6 variants. This prevents combinatorial explosion while still allowing meaningful comparison of different approaches."
+    },
+    {
+      "question": "How are variants tested?",
+      "answer": "All variants run the same scenario tests. The skill uses the scenario-testing skill to create end-to-end tests that run against all variants equally."
+    },
+    {
+      "question": "What happens to the losing variants?",
+      "answer": "Losing variants are cleaned up by removing their git worktrees and branches. The result is documented in result.md for future reference."
+    },
+    {
+      "question": "Can I use this for small decisions?",
+      "answer": "No. The skill is designed for architectural decisions like storage engines or frameworks. Trivial decisions like file locations should be made normally."
+    },
+    {
+      "question": "What skills does this orchestrate?",
+      "answer": "It coordinates with brainstorming, writing-plans, git-worktrees, parallel-agents, scenario-testing, fresh-eyes, and finish-branch skills."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "parallel exploration",
+    "implementation alternatives",
+    "omakase development",
+    "decision workflow",
+    "multiple approaches",
+    "development strategy",
+    "solution comparison"
+  ],
+  "sourceUrl": "https://github.com/2389-research/claude-plugins/tree/main/test-kitchen/skills/omakase-off",
+  "sourceType": "community",
+  "dependencies": []
+}

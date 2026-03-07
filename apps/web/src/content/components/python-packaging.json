@@ -1,0 +1,140 @@
+{
+  "name": "python-packaging",
+  "type": "skill",
+  "description": "Create distributable Python packages with proper project structure, setup.py/pyproject.toml, and publishing to PyPI. Use when packaging Python libraries, creating CLI tools, or distributing Python code.",
+  "domain": "languages",
+  "subdomain": "python",
+  "specialty": "package creation",
+  "quality": 5,
+  "qualityReason": "Specific and actionable process",
+  "bundleHints": [
+    "python-stack",
+    "open-source"
+  ],
+  "tags": [
+    "distribution",
+    "packaging",
+    "pypi",
+    "pyproject.toml",
+    "python",
+    "setup.py",
+    "setuptools"
+  ],
+  "capabilities": [
+    "Guide creation of Python package structure with src layout or flat layout",
+    "Generate pyproject.toml configurations with complete metadata",
+    "Create CLI tools using Click or argparse with entry points",
+    "Build wheels and source distributions for distribution",
+    "Publish packages to PyPI, TestPyPI, or private repositories",
+    "Configure automated publishing with GitHub Actions workflows"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill consists entirely of markdown documentation teaching Python packaging best practices. Static analyzer flagged 118 patterns (backticks, URLs, config examples) that are documentation content, not executable code. All findings are false positives from code examples in fenced markdown blocks. No actual security risks detected.",
+  "valueStatement": "Python developers struggle with complex packaging workflows and inconsistent project structures. This skill provides complete guidance for creating professional Python packages using modern standards like pyproject.toml and setuptools.",
+  "userTitle": "Build and publish Python packages with PyPI",
+  "limitations": [
+    "Provides documentation and guidance only - does not execute packaging commands",
+    "Requires user to have Python and packaging tools installed locally",
+    "Does not manage actual PyPI credentials or authentication tokens",
+    "Cannot validate package publishing success without user feedback"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Python developers building open-source libraries",
+      "title": "Library Author Publishing",
+      "description": "Create a new Python library for distribution on PyPI with proper project structure, metadata, and automated publishing workflows."
+    },
+    {
+      "targetUser": "Developers creating developer tools or utilities",
+      "title": "CLI Tool Distribution",
+      "description": "Package command-line tools with entry points, making them easily installable via pip with executable commands."
+    },
+    {
+      "targetUser": "Engineering teams managing internal Python packages",
+      "title": "Enterprise Package Management",
+      "description": "Set up private package indexes and namespace packages for organizing code across multiple teams and repositories."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a basic Python package structure",
+      "prompt": "Help me create a new Python package called 'my-tool' with a src layout, pyproject.toml using setuptools, and a basic module structure. I want to include pytest for testing.",
+      "scenario": "Beginner setting up their first distributable package"
+    },
+    {
+      "title": "Add CLI entry points to existing package",
+      "prompt": "I have an existing Python package with utility functions. Show me how to add CLI entry points using Click so users can run 'mytool' from the command line after installation.",
+      "scenario": "Intermediate user adding command-line interface"
+    },
+    {
+      "title": "Configure automated PyPI publishing",
+      "prompt": "Create a GitHub Actions workflow that builds and publishes my Python package to PyPI when I create a new release. Include package validation and TestPyPI testing steps.",
+      "scenario": "Advanced user automating release workflow"
+    },
+    {
+      "title": "Set up namespace packages for monorepo",
+      "prompt": "I need to split my company's codebase into multiple packages (company-core, company-api, company-utils) that share a namespace. Show me the complete project structure and pyproject.toml configurations.",
+      "scenario": "Advanced multi-package architecture"
+    }
+  ],
+  "bestPractices": [
+    "Use src/ layout to prevent accidental imports from uninstalled source directory",
+    "Define all metadata in pyproject.toml following PEP 621 for modern packaging",
+    "Test package installation in a clean virtual environment before publishing to PyPI"
+  ],
+  "antiPatterns": [
+    "Do not use setup.py as primary configuration - migrate to pyproject.toml",
+    "Avoid flat layout for libraries as it allows importing without installation",
+    "Never commit API tokens or credentials - use environment variables for PyPI authentication"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between pyproject.toml and setup.py?",
+      "answer": "pyproject.toml is the modern standard (PEP 518/621) that declares build requirements and metadata in a single file. setup.py is the legacy approach using executable Python code. New projects should use pyproject.toml with a build backend like setuptools or hatchling."
+    },
+    {
+      "question": "Should I publish to TestPyPI before PyPI?",
+      "answer": "Yes, always test on TestPyPI first. It is a separate index that mirrors PyPI's functionality. Upload your package there, install it in a clean environment, verify all functionality works, then publish to the real PyPI."
+    },
+    {
+      "question": "How do I include data files in my package?",
+      "answer": "Use the package-data configuration in pyproject.toml under [tool.setuptools.package-data]. Specify patterns like '*.json' or 'templates/*.html'. Access files at runtime using importlib.resources.files() for modern Python."
+    },
+    {
+      "question": "What version should I start with for my first release?",
+      "answer": "Start with 0.1.0 for initial releases to indicate the package is in early development. Use semantic versioning (MAJOR.MINOR.PATCH). Move to 1.0.0 when you have a stable public API you do not want to break."
+    },
+    {
+      "question": "Can I automatically version my package from git tags?",
+      "answer": "Yes, use setuptools-scm in your build-system.requires. Configure it in pyproject.toml to read version information from git tags. This ensures version matches git history and automates version management."
+    },
+    {
+      "question": "How do I create a CLI tool that users can install with pip?",
+      "answer": "Define entry points in pyproject.toml under [project.scripts]. Map a command name to a Python function path like 'mytool = my_package.cli:main'. After installation, users can run 'mytool' from their terminal."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Python packaging",
+    "PyPI publishing",
+    "pyproject.toml",
+    "setuptools",
+    "Python wheels",
+    "package distribution"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/python-packaging",
+  "sourceType": "community",
+  "dependencies": []
+}

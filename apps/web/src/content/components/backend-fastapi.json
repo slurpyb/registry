@@ -1,0 +1,139 @@
+{
+  "name": "backend-fastapi",
+  "type": "skill",
+  "description": "Documentation for the FastAPI backend, endpoints, and dependency injection.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "FastAPI Documentation",
+  "quality": 4,
+  "qualityReason": "Documentation-focused utility",
+  "bundleHints": [
+    "python-backend",
+    "fastapi-stack"
+  ],
+  "tags": [
+    "api",
+    "backend",
+    "dependency-injection",
+    "documentation",
+    "fastapi",
+    "rag"
+  ],
+  "capabilities": [
+    "Explains the POST /api/chat endpoint for RAG conversations",
+    "Documents the POST /api/ask-selection endpoint for targeted Q&A",
+    "Describes environment variables (GEMINI_API_KEY, QDRANT_URL)",
+    "Details backend entry point and startup commands",
+    "Covers utils and helper modules for embeddings and prompts"
+  ],
+  "author": "AbdulSamad94",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing no executable code. The SKILL.md file describes FastAPI backend architecture without any scripts, network calls, or file system access capabilities. All 40 static findings are false positives caused by the scanner misinterpreting documentation text as code patterns.",
+  "valueStatement": "This skill provides documentation about the FastAPI backend powering the chatbot and RAG features. It covers endpoint specifications, environment configuration, and dependency injection patterns for developers building or maintaining backend services.",
+  "userTitle": "Explore FastAPI Backend Architecture",
+  "limitations": [
+    "Does not generate or modify backend code",
+    "Does not execute or test API endpoints",
+    "Cannot debug or troubleshoot backend issues",
+    "Does not manage database or vector store connections"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developers",
+      "title": "Understand Endpoint Flow",
+      "description": "Learn how chat requests flow through embeddings, vector search, and LLM generation"
+    },
+    {
+      "targetUser": "AI Developers",
+      "title": "Integrate with RAG Pipeline",
+      "description": "Connect AI assistants to the backend for retrieval-augmented generation capabilities"
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Configure Backend Services",
+      "description": "Set up environment variables and understand service dependencies for deployment"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Endpoint Overview",
+      "scenario": "Getting started with the backend",
+      "prompt": "What endpoints does the FastAPI backend expose and what do they do?"
+    },
+    {
+      "title": "Chat Endpoint",
+      "scenario": "Understanding RAG chat flow",
+      "prompt": "Explain the POST /api/chat endpoint and its processing steps"
+    },
+    {
+      "title": "Environment Setup",
+      "scenario": "Configuring backend services",
+      "prompt": "What environment variables are required to run the FastAPI backend?"
+    },
+    {
+      "title": "Architecture Deep Dive",
+      "scenario": "Understanding backend structure",
+      "prompt": "Describe the backend architecture including models, utils, and main entry point"
+    }
+  ],
+  "bestPractices": [
+    "Use the /api/chat endpoint for general conversation with RAG context",
+    "Use /api/ask-selection when users select specific text for targeted questions",
+    "Ensure QDRANT_URL and QDRANT_API_KEY are configured before starting the backend"
+  ],
+  "antiPatterns": [
+    "Calling backend endpoints without proper authentication tokens",
+    "Skipping vector store configuration when deploying to production",
+    "Using the wrong API key type for embedding versus generation"
+  ],
+  "faq": [
+    {
+      "question": "What tools is this skill compatible with?",
+      "answer": "This skill works with Claude, Codex, and Claude Code for exploring backend documentation."
+    },
+    {
+      "question": "What are the rate limits for the API endpoints?",
+      "answer": "Rate limits are not defined in the documentation. Check the actual backend implementation for limits."
+    },
+    {
+      "question": "Can this skill integrate with other Python frameworks?",
+      "answer": "The documentation is specific to FastAPI. Other frameworks require separate documentation."
+    },
+    {
+      "question": "Is my chat data stored or sent to external services?",
+      "answer": "The backend uses GEMINI_API_KEY for LLM calls and Qdrant for vector storage. Data handling depends on your configuration."
+    },
+    {
+      "question": "Why is my backend not starting?",
+      "answer": "Verify GEMINI_API_KEY, QDRANT_URL, and QDRANT_API_KEY are set. Check that port 8000 is available."
+    },
+    {
+      "question": "How does this compare to other backend frameworks?",
+      "answer": "This FastAPI backend is optimized for RAG workloads with vector search. It differs from Flask/Django in async support."
+    }
+  ],
+  "seoKeywords": [
+    "FastAPI",
+    "backend",
+    "API endpoints",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "RAG chatbot",
+    "dependency injection",
+    "Qdrant",
+    "Python backend"
+  ],
+  "sourceUrl": "https://github.com/AbdulSamad94/Hackhaton-SpecsKitPlus/tree/master/.claude/skills/backend",
+  "sourceType": "community",
+  "dependencies": []
+}

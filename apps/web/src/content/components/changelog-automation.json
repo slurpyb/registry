@@ -1,0 +1,142 @@
+{
+  "name": "changelog-automation",
+  "type": "skill",
+  "description": "Automate changelog generation from commits, PRs, and releases following Keep a Changelog format. Use when setting up release workflows, generating release notes, or standardizing commit conventions.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "user-facing notes",
+  "quality": 5,
+  "qualityReason": "Transforms technical to user-friendly",
+  "bundleHints": [
+    "release-workflow",
+    "product-communication"
+  ],
+  "tags": [
+    "changelog",
+    "conventional-commits",
+    "customer-communication",
+    "documentation",
+    "git",
+    "release-automation",
+    "release-notes",
+    "semantic-versioning"
+  ],
+  "capabilities": [
+    "Generate changelogs from git commit history using Conventional Commits format",
+    "Configure automated release workflows with semantic-release or standard-version",
+    "Create GitHub Actions workflows for CI/CD release automation",
+    "Implement commit message validation with commitlint and husky",
+    "Generate release notes with git-cliff or commitizen tools",
+    "Set up semantic versioning based on commit types"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 69 patterns (external_commands: 45, network: 13, env_access: 3, blocker: 8) but all are false positives. The skill consists entirely of markdown documentation with code examples. External command patterns are bash examples in documentation blocks, URLs are reference links, and token references are GitHub Actions workflow templates for user configuration. No executable code or actual security risks detected.",
+  "valueStatement": "Manual changelog creation is error-prone and time-consuming. This skill automates release notes using Conventional Commits and Keep a Changelog format.",
+  "userTitle": "Automate Changelog Generation from Commits",
+  "limitations": [
+    "Requires consistent Conventional Commits format in git history for best results",
+    "Cannot generate changelogs for projects without commit history or unreliable logs",
+    "Tool configuration requires Node.js, Rust, or Python depending on chosen method",
+    "Does not execute commands directly - provides configuration patterns only"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Library maintainers publishing to npm or PyPI",
+      "title": "Open Source Library Maintainer",
+      "description": "Set up automated changelog generation for npm package releases using semantic-release with GitHub Actions."
+    },
+    {
+      "targetUser": "Release engineers managing multi-team releases",
+      "title": "Enterprise Release Manager",
+      "description": "Standardize commit conventions across teams and generate internal release notes with security audit sections."
+    },
+    {
+      "targetUser": "Individual developers maintaining versioned projects",
+      "title": "Solo Developer",
+      "description": "Implement lightweight changelog automation using git-cliff with minimal configuration overhead."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Changelog Setup",
+      "prompt": "Help me set up automated changelog generation for my project. I want to use Conventional Commits and generate a CHANGELOG.md file following Keep a Changelog format.",
+      "scenario": "Beginner setting up first changelog automation"
+    },
+    {
+      "title": "Commit Linting Configuration",
+      "prompt": "Configure commitlint with husky to enforce Conventional Commits in my repository. Include rules for type validation and subject line formatting.",
+      "scenario": "Team enforcing commit message standards"
+    },
+    {
+      "title": "GitHub Actions Release Workflow",
+      "prompt": "Create a GitHub Actions workflow that runs semantic-release on push to main, generates changelog, creates GitHub releases, and publishes to npm.",
+      "scenario": "Full CI/CD automation for package publishing"
+    },
+    {
+      "title": "Custom Changelog Template",
+      "prompt": "Configure git-cliff with a custom template that includes sections for features, bug fixes, security updates, and contributor acknowledgments with GitHub links.",
+      "scenario": "Advanced customization with specific formatting needs"
+    }
+  ],
+  "bestPractices": [
+    "Use Conventional Commits format consistently to enable automation and clear history",
+    "Mark breaking changes with exclamation mark (feat!:) or BREAKING CHANGE footer for visibility",
+    "Reference issue numbers in commit footers to link changes to tracked work"
+  ],
+  "antiPatterns": [
+    "Manually editing generated CHANGELOG.md files - always regenerate from commit history",
+    "Mixing unrelated changes in single commits - keep one logical change per commit",
+    "Skipping commit validation in CI - always enforce conventions before merge"
+  ],
+  "faq": [
+    {
+      "question": "What is Conventional Commits format?",
+      "answer": "Conventional Commits is a specification for commit messages with structure: type(scope): description. Types include feat, fix, docs, style, refactor, perf, test, chore, and more."
+    },
+    {
+      "question": "How do I handle breaking changes?",
+      "answer": "Add exclamation mark after type (feat!: description) or include BREAKING CHANGE: in commit footer with migration instructions."
+    },
+    {
+      "question": "Can I use this with existing git history?",
+      "answer": "Yes, but results depend on commit quality. For inconsistent history, consider starting changelog from a specific tag using git-cliff range options."
+    },
+    {
+      "question": "Which tool should I choose?",
+      "answer": "Use standard-version for simple npm projects, semantic-release for full automation, git-cliff for speed and customization, or commitizen for Python projects."
+    },
+    {
+      "question": "How do I exclude certain commits from changelog?",
+      "answer": "Configure commit parsers to skip specific types. Most tools exclude docs, style, test, and chore by default. Add skip rules for other types as needed."
+    },
+    {
+      "question": "Can I publish to multiple registries?",
+      "answer": "Yes, semantic-release supports multiple plugins. Configure @semantic-release/npm for npm, @semantic-release/github for releases, and custom plugins for other targets."
+    }
+  ],
+  "seoKeywords": [
+    "Claude changelog automation",
+    "Claude Code release notes",
+    "Codex changelog generator",
+    "Conventional Commits",
+    "Keep a Changelog",
+    "semantic versioning",
+    "automated release notes",
+    "git changelog",
+    "GitHub Actions release",
+    "standard-version"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/changelog-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,138 @@
+{
+  "name": "self-test",
+  "type": "skill",
+  "description": "Pattern for testing your own code during implementation. Ensures quality before declaring complete.",
+  "domain": "testing",
+  "subdomain": "unit",
+  "specialty": "Implementation testing",
+  "quality": 4,
+  "qualityReason": "Good practice, slightly generic",
+  "bundleHints": [
+    "testing-workflow",
+    "quality-assurance"
+  ],
+  "tags": [
+    "code-coverage",
+    "implementation",
+    "quality-assurance",
+    "testing",
+    "workflow"
+  ],
+  "capabilities": [
+    "Iterative test-run-fix workflow for implementation",
+    "Run specific test files or affected tests",
+    "Execute lint checks with automatic fixes",
+    "Run type checking for TypeScript or Python",
+    "Pre-complete checklist before marking work done"
+  ],
+  "author": "Clouder0",
+  "icon": "🧪",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing testing pattern guidance. All 14 static findings are false positives caused by the scanner misinterpreting markdown code block delimiters as shell backticks and JSON description fields as cryptographic patterns. The skill contains no executable code, scripts, or network operations.",
+  "valueStatement": "Catch issues early with an iterative testing workflow. Run tests, lint, and typecheck after each code change before declaring work complete.",
+  "userTitle": "Test your code during implementation",
+  "limitations": [
+    "Does not create test files automatically",
+    "Relies on project-specific run-tests and lint skills",
+    "Requires existing test infrastructure in the project",
+    "Commands vary by programming language and framework"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software engineers",
+      "title": "Verify each code change",
+      "description": "Run tests after writing new code to catch bugs immediately."
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Catch issues early",
+      "description": "Use the test-lint-typecheck loop before moving to the next task."
+    },
+    {
+      "targetUser": "QA specialists",
+      "title": "Maintain code quality",
+      "description": "Ensure code meets quality standards before integration."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Run tests after changes",
+      "scenario": "After writing new code",
+      "prompt": "Run the tests for the file I just modified and report the results."
+    },
+    {
+      "title": "Full verification",
+      "scenario": "Before marking complete",
+      "prompt": "Run tests, lint, and typecheck on my recent changes and fix any issues found."
+    },
+    {
+      "title": "Specific test file",
+      "scenario": "Testing a single module",
+      "prompt": "Run the test file for {module_name} to verify the implementation."
+    },
+    {
+      "title": "Continuous checking",
+      "scenario": "Iterative development",
+      "prompt": "After each code change, run the self-test loop to ensure quality before proceeding."
+    }
+  ],
+  "bestPractices": [
+    "Run tests immediately after writing new code, not at the end",
+    "Fix failures right away instead of accumulating them",
+    "Use the complete checklist before marking work as pre-complete"
+  ],
+  "antiPatterns": [
+    "Batching all testing until the end of implementation",
+    "Ignoring test failures and continuing anyway",
+    "Skipping tests because the code seems to work"
+  ],
+  "faq": [
+    {
+      "question": "Which programming languages are supported?",
+      "answer": "Any language with test, lint, and typecheck tools including JavaScript, TypeScript, Python, Go, and Rust."
+    },
+    {
+      "question": "What if my project has no tests?",
+      "answer": "This skill requires existing test infrastructure. Set up tests first using your framework's testing tools."
+    },
+    {
+      "question": "Can I use this with CI/CD pipelines?",
+      "answer": "Yes, the same commands used locally (npm test, pytest) typically run in CI environments."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. This skill only reads files and runs test commands you specify. No data leaves your machine."
+    },
+    {
+      "question": "Why are my tests failing after small changes?",
+      "answer": "This is the intended behavior. Small, incremental testing helps identify exactly which change introduced an issue."
+    },
+    {
+      "question": "How does this compare to manual testing?",
+      "answer": "Automated tests run faster, catch regressions, and document expected behavior. Manual testing cannot match this reliability."
+    }
+  ],
+  "seoKeywords": [
+    "self-test skill",
+    "code testing",
+    "implementation testing",
+    "Claude Code testing",
+    "test-driven development",
+    "lint checking",
+    "type checking",
+    "quality assurance",
+    "code verification",
+    "continuous testing"
+  ],
+  "sourceUrl": "https://github.com/Clouder0/dotagent/tree/main/.claude/skills/self-test",
+  "sourceType": "community",
+  "dependencies": []
+}

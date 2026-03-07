@@ -1,0 +1,139 @@
+{
+  "name": "ml-engineer",
+  "type": "skill",
+  "description": "Build production ML systems with PyTorch 2.x, TensorFlow, and",
+  "domain": "ai-ml",
+  "subdomain": "ml-ops",
+  "specialty": "production ML systems",
+  "quality": 5,
+  "qualityReason": "Specific, actionable, production-focused",
+  "bundleHints": [
+    "mlops-stack",
+    "ml-engineering"
+  ],
+  "tags": [
+    "a/b testing",
+    "feature engineering",
+    "machine-learning",
+    "mlops",
+    "model serving",
+    "model-serving",
+    "monitoring",
+    "pytorch",
+    "tensorflow"
+  ],
+  "capabilities": [
+    "Design production-ready ML serving architectures with PyTorch 2.x, TensorFlow 2.x, and TorchServe",
+    "Implement feature stores using Feast, Tecton, or cloud-native solutions for batch and real-time features",
+    "Build distributed training pipelines with PyTorch DDP, Horovod, and DeepSpeed for multi-GPU workloads",
+    "Create model monitoring systems for data drift, model drift, and performance degradation detection",
+    "Develop A/B testing frameworks with statistical testing, gradual rollouts, and multi-armed bandits",
+    "Optimize inference performance through quantization, batching, caching, and hardware acceleration"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Prompt-only skill with no executable code. Static analysis found 0 files with executable content and computed risk score of 0/100. The SKILL.md file contains only markdown documentation and AI assistant instructions for ML engineering tasks. No security concerns identified.",
+  "valueStatement": "Deploying machine learning models to production requires expertise in serving, monitoring, and infrastructure that many teams lack. This skill provides battle-tested patterns for building reliable, scalable ML systems using modern frameworks like PyTorch 2.x and TensorFlow.",
+  "userTitle": "Build Production ML Systems with Expert Guidance",
+  "limitations": [
+    "Provides guidance and code patterns but does not execute ML training or inference directly",
+    "Requires access to actual ML infrastructure (GPU clusters, cloud platforms) for deployment",
+    "Model performance depends on data quality and domain-specific tuning beyond this skill's scope",
+    "Cloud-specific implementations require appropriate AWS, GCP, or Azure credentials and setup"
+  ],
+  "useCases": [
+    {
+      "targetUser": "ML engineers building consumer-facing recommendation features",
+      "title": "Real-time Recommendation System",
+      "description": "Design a high-throughput recommendation engine handling 100K predictions per second with Redis caching and model serving via TorchServe."
+    },
+    {
+      "targetUser": "Data platform teams implementing MLOps practices",
+      "title": "ML Pipeline Automation",
+      "description": "Build end-to-end ML pipelines with Apache Airflow or Kubeflow that automate data processing, training, validation, and deployment."
+    },
+    {
+      "targetUser": "ML platform engineers responsible for production model reliability",
+      "title": "Model Performance Monitoring",
+      "description": "Implement comprehensive monitoring with Prometheus and Grafana to track data drift, prediction latency, and business metrics in production."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Beginner: ML Model Deployment Basics",
+      "prompt": "I have a trained PyTorch model saved as model.pth. Guide me through deploying it as a REST API using FastAPI and Docker. Include health checks, input validation, and basic logging."
+    },
+    {
+      "title": "Intermediate: Feature Store Design",
+      "prompt": "Design a feature store architecture for our e-commerce recommendation system. We need both batch features (user purchase history) and real-time features (session activity). Compare Feast vs Tecton for our use case."
+    },
+    {
+      "title": "Advanced: Distributed Training Strategy",
+      "prompt": "We need to train a 2B parameter transformer model on 8xA100 GPUs. Recommend a distributed training strategy using PyTorch FSDP or DeepSpeed. Include gradient checkpointing, mixed precision, and communication optimization."
+    },
+    {
+      "title": "Expert: Production ML Monitoring",
+      "prompt": "Design a comprehensive monitoring system for our fraud detection model serving 10K requests/second. Include data drift detection, model performance tracking, alerting thresholds, and automated rollback triggers."
+    }
+  ],
+  "bestPractices": [
+    "Always implement comprehensive input validation and data quality checks before model inference to catch drift early",
+    "Use infrastructure as code (Terraform, CloudFormation) for reproducible ML infrastructure deployments",
+    "Design for graceful degradation with fallback models and circuit breakers to maintain service during failures"
+  ],
+  "antiPatterns": [
+    "Deploying models without monitoring for data drift or performance degradation leads to silent failures",
+    "Hardcoding model paths or hyperparameters in application code instead of using model registries",
+    "Running training and inference on the same infrastructure causes resource contention and unpredictable latency"
+  ],
+  "faq": [
+    {
+      "question": "Which ML frameworks does this skill support?",
+      "answer": "Primary support for PyTorch 2.x and TensorFlow 2.x. Also covers JAX/Flax for research workloads, scikit-learn and gradient boosting libraries for classical ML, and Hugging Face Transformers for LLM applications."
+    },
+    {
+      "question": "Can this skill help with cloud-specific ML services?",
+      "answer": "Yes. Provides guidance for AWS SageMaker, Azure ML, GCP Vertex AI, and Databricks ML. Includes infrastructure as code templates and best practices for each platform."
+    },
+    {
+      "question": "Does this skill help with model optimization for edge deployment?",
+      "answer": "Yes. Covers TensorFlow Lite, PyTorch Mobile, and ONNX Runtime for edge devices. Includes quantization, pruning, and distillation techniques for resource-constrained environments."
+    },
+    {
+      "question": "What monitoring tools are recommended for production ML?",
+      "answer": "Recommends Prometheus and Grafana for infrastructure metrics, Evidently AI or WhyLabs for ML-specific monitoring, and custom business metric dashboards. Includes alerting configuration guidance."
+    },
+    {
+      "question": "How does this skill handle model versioning and rollback?",
+      "answer": "Covers MLflow Model Registry, DVC, and Git LFS for versioning. Provides strategies for blue-green deployments, canary releases, and automated rollback based on performance thresholds."
+    },
+    {
+      "question": "Can this skill help with distributed training setup?",
+      "answer": "Yes. Provides configurations for PyTorch DDP, FSDP, Horovod, and DeepSpeed. Covers multi-node setup, gradient accumulation, mixed precision training, and communication optimization."
+    }
+  ],
+  "seoKeywords": [
+    "Claude ML engineer",
+    "Codex machine learning",
+    "Claude Code MLOps",
+    "PyTorch production",
+    "TensorFlow serving",
+    "model deployment",
+    "feature engineering",
+    "ML infrastructure",
+    "A/B testing ML",
+    "model monitoring"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ml-engineer",
+  "sourceType": "community",
+  "dependencies": []
+}

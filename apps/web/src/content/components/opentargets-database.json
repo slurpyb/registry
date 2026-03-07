@@ -1,0 +1,142 @@
+{
+  "name": "opentargets-database",
+  "type": "skill",
+  "description": "Query Open Targets Platform for target-disease associations, drug target discovery, tractability/safety data, genetics/omics evidence, known drugs, for therapeutic target identification.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "Drug discovery",
+  "quality": 5,
+  "qualityReason": "Specialized biomedical tool",
+  "bundleHints": [
+    "bioinformatics-tools",
+    "drug-discovery",
+    "genomics-database"
+  ],
+  "tags": [
+    "biomedical research",
+    "drug discovery",
+    "genomics",
+    "pharmacology",
+    "target-disease",
+    "therapeutic targets",
+    "tractability"
+  ],
+  "capabilities": [
+    "Query gene-disease associations with evidence scores",
+    "Retrieve drug-target evidence from multiple data types",
+    "Access tractability and safety data for targets",
+    "Find known drugs and clinical trial phases for diseases",
+    "Search entities by gene symbol, disease name, or drug name",
+    "Evaluate target druggability across small molecule, antibody, and PROTAC modalities"
+  ],
+  "author": "davila7",
+  "icon": "🔬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a pure read-only API client for the Open Targets Platform biomedical database. The static scanner produced 152 false positives primarily by misclassifying markdown code formatting backticks as shell commands, biomedical terminology as system reconnaissance, and variable names containing 'crypt' as weak cryptography. The actual Python code only makes GraphQL requests to https://api.platform.opentargets.org/api/v4/graphql with no filesystem access, command execution, or data exfiltration. All behavior matches the stated purpose of querying therapeutic target data.",
+  "valueStatement": "Find therapeutic targets and drug candidates using integrated genetic, omics, and clinical data. Query gene-disease associations with evidence scores to accelerate drug discovery.",
+  "userTitle": "Query Open Targets for drug targets",
+  "limitations": [
+    "Requires biological interpretation of association scores",
+    "Under-studied diseases may have limited evidence",
+    "API is optimized for exploratory queries, not bulk analyses",
+    "Does not provide clinical decision support or recommendations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Drug discovery scientists",
+      "title": "Prioritize therapeutic targets",
+      "description": "Evaluate candidate genes using genetic evidence, tractability scores, and safety data from multiple sources."
+    },
+    {
+      "targetUser": "Academic researchers",
+      "title": "Find evidence for genes",
+      "description": "Search for supporting evidence linking genes to diseases using GWAS, literature, and pathway data."
+    },
+    {
+      "targetUser": "Pharma competitive analysts",
+      "title": "Map drug development landscape",
+      "description": "Identify drugs in clinical trials for a target and assess the competitive pipeline."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Search target",
+      "scenario": "Find gene information",
+      "prompt": "Use opentargets-database to search for BRCA1 and retrieve target information including tractability, safety liabilities, and associated diseases with scores."
+    },
+    {
+      "title": "Find disease targets",
+      "scenario": "Get targets for disease",
+      "prompt": "Search for Alzheimer's disease using opentargets-database, then retrieve the top 10 associated targets with their evidence scores."
+    },
+    {
+      "title": "Get drug information",
+      "scenario": "Find drugs for target",
+      "prompt": "Use opentargets-database to get information about aspirin (CHEMBL25) including mechanism of action, drug type, and clinical trial phases."
+    },
+    {
+      "title": "Evidence analysis",
+      "scenario": "Deep dive evidence",
+      "prompt": "Use opentargets-database to retrieve detailed evidence for the association between a gene and disease, filtering by genetic_association and known_drug data types."
+    }
+  ],
+  "bestPractices": [
+    "Start with genetic evidence (GWAS, ClinVar) as the strongest disease relevance indicator",
+    "Check tractability assessments to understand druggability before pursuing target validation",
+    "Review safety liabilities early to avoid targets with poor therapeutic windows"
+  ],
+  "antiPatterns": [
+    "Using association scores as clinical success probabilities instead of relative ranking metrics",
+    "Relying solely on text-mining literature evidence without manual validation",
+    "Ignoring genetic constraint (pLI scores) when assessing target safety"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. All tools can query the Open Targets API using the provided Python functions."
+    },
+    {
+      "question": "What are the rate limits for the Open Targets API?",
+      "answer": "The GraphQL API is designed for exploratory queries. For systematic analyses of many targets, use data downloads or Google BigQuery instead."
+    },
+    {
+      "question": "How does this integrate with my existing workflows?",
+      "answer": "Import the query_opentargets.py functions directly. Use search_entities to find IDs, then pass them to get_target_info, get_disease_info, or other functions."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only makes read-only requests to Open Targets servers. No user data is stored or transmitted beyond the query parameters sent to the API."
+    },
+    {
+      "question": "Why do some diseases have low scores despite strong evidence?",
+      "answer": "Association scores rank targets relative to each other within a disease. Under-studied or rare diseases may have lower scores due to limited research."
+    },
+    {
+      "question": "How does this compare to similar tools?",
+      "answer": "Open Targets integrates 20+ data sources including GWAS Catalog, ClinVar, ChEMBL, and Reactome. It provides standardized evidence with unified scoring across sources."
+    }
+  ],
+  "seoKeywords": [
+    "Open Targets Platform",
+    "drug discovery",
+    "therapeutic targets",
+    "target validation",
+    "genomics",
+    "Claude AI",
+    "Codex",
+    "Claude Code",
+    "genetics",
+    "pharmacology"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/opentargets-database",
+  "sourceType": "community",
+  "dependencies": []
+}

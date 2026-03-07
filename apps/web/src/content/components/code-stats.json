@@ -1,0 +1,143 @@
+{
+  "name": "code-stats",
+  "type": "skill",
+  "description": "Analyze codebase with tokei (fast line counts by language) and difft (semantic AST-aware diffs). Get quick project overview without manual counting. Triggers on: how big is codebase, count lines of code, what languages, show semantic diff, compare files, code statistics.",
+  "domain": "data",
+  "subdomain": "analytics",
+  "specialty": "codebase metrics",
+  "quality": 4,
+  "qualityReason": "Useful analytics tool",
+  "bundleHints": [
+    "code-analytics",
+    "dev-tools"
+  ],
+  "tags": [
+    "ast-diffs",
+    "code-analysis",
+    "code-counting",
+    "diff-tool",
+    "difft",
+    "line-counts",
+    "project-overview",
+    "statistics",
+    "tokei"
+  ],
+  "capabilities": [
+    "Count code lines by programming language with tokei",
+    "Generate compact or detailed statistics reports",
+    "Compare files with AST-aware semantic diffs using difftastic",
+    "Filter statistics by language, path, or depth",
+    "Export statistics in JSON or YAML format for scripting",
+    "Integrate difftastic with git for semantic comparisons"
+  ],
+  "author": "0xDarkMatter",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing markdown reference materials for CLI tools tokei and difftastic. No executable code, network calls, or file system access beyond reading its own documentation files. All 134 static findings are false positives triggered by shell command examples in documentation code blocks.",
+  "valueStatement": "Understanding codebase size and changes requires manual counting and line-by-line diff analysis. This skill provides quick access to tokei for instant code statistics by language and difftastic for semantic, AST-aware code comparisons.",
+  "userTitle": "Analyze code statistics and semantic diffs",
+  "limitations": [
+    "Requires tokei and difftastic CLI tools to be installed first",
+    "Does not install or configure external tools on your system",
+    "Cannot analyze code without user providing file paths or directory",
+    "Limited to supported languages in tokei and difftastic"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development Teams",
+      "title": "Track codebase growth",
+      "description": "Monitor project size changes over time with language breakdowns and code line statistics."
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Review semantic changes",
+      "description": "Compare refactored code with semantic diffs that ignore formatting changes and recognize moved code."
+    },
+    {
+      "targetUser": "Project Managers",
+      "title": "Assess refactoring impact",
+      "description": "Understand code composition before and after refactoring with accurate line counts."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick count",
+      "scenario": "Get a fast overview of project size",
+      "prompt": "How big is my codebase? Show me code statistics by language using tokei."
+    },
+    {
+      "title": "Language filter",
+      "scenario": "Focus on specific languages",
+      "prompt": "Count only TypeScript and JavaScript files in my project. Exclude node_modules."
+    },
+    {
+      "title": "Semantic compare",
+      "scenario": "Compare code changes intelligently",
+      "prompt": "Show a semantic diff between my old file and new file using difftastic."
+    },
+    {
+      "title": "CI check",
+      "scenario": "Enforce code size limits",
+      "prompt": "Check if my codebase exceeds 100000 lines. Fail the check if it does."
+    }
+  ],
+  "bestPractices": [
+    "Exclude generated directories like node_modules, dist, and vendor from statistics.",
+    "Use JSON output for scripting and CI integration with jq for data extraction.",
+    "Set up difftastic as your git external diff tool for consistent semantic comparisons."
+  ],
+  "antiPatterns": [
+    "Running tokei on production servers without excluding build artifacts.",
+    "Using traditional line diffs for refactoring review instead of semantic diffs.",
+    "Comparing file sizes instead of code lines for project health assessment."
+  ],
+  "faq": [
+    {
+      "question": "How do I install tokei and difftastic?",
+      "answer": "Run brew install tokei difft on macOS. On Linux, use cargo install tokei difftastic."
+    },
+    {
+      "question": "What languages does tokei support?",
+      "answer": "Tokei supports over 100 programming languages including JavaScript, TypeScript, Python, Rust, Go, and more."
+    },
+    {
+      "question": "Can I use difftastic with GitHub or GitLab?",
+      "answer": "Difftastic is a local CLI tool. For web interfaces, export diffs to text files or use inline mode for copy-paste."
+    },
+    {
+      "question": "Is my code data sent to external servers?",
+      "answer": "No. Both tokei and difftastic run locally on your machine with no network communication."
+    },
+    {
+      "question": "Why are semantic diffs different from regular diffs?",
+      "answer": "Semantic diffs use AST parsing to understand code structure, ignoring formatting changes and recognizing moved code."
+    },
+    {
+      "question": "How does tokei compare to cloc or sloccount?",
+      "answer": "Tokei is faster, multi-threaded, respects gitignore, and has lower memory usage than cloc."
+    }
+  ],
+  "seoKeywords": [
+    "code statistics",
+    "line count",
+    "tokei",
+    "difftastic",
+    "semantic diff",
+    "code analysis",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "codebase metrics"
+  ],
+  "sourceUrl": "https://github.com/0xDarkMatter/claude-mods/tree/main/skills/code-stats",
+  "sourceType": "community",
+  "dependencies": []
+}

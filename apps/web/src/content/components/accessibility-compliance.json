@@ -1,0 +1,149 @@
+{
+  "name": "accessibility-compliance",
+  "type": "skill",
+  "description": "Implement WCAG 2.2 compliant interfaces with mobile accessibility, inclusive design patterns, and assistive technology support. Use when auditing accessibility, implementing ARIA patterns, building for screen readers, or ensuring inclusive user experiences.",
+  "domain": "design",
+  "subdomain": "accessibility",
+  "specialty": "inclusive implementation",
+  "quality": 4,
+  "qualityReason": "Good specificity, minor overlap",
+  "bundleHints": [
+    "accessibility-suite",
+    "ui-compliance"
+  ],
+  "tags": [
+    "a11y",
+    "accessibility",
+    "aria",
+    "aria-patterns",
+    "assistive-tech",
+    "compliance",
+    "design-system",
+    "implementation",
+    "inclusive-design",
+    "keyboard-navigation",
+    "mobile-accessibility",
+    "screen-reader",
+    "wcag"
+  ],
+  "capabilities": [
+    "Generate WCAG 2.2 Level AA and AAA compliant code patterns",
+    "Implement accessible React components with proper ARIA attributes",
+    "Create keyboard-navigable interfaces with focus management",
+    "Build screen reader compatible content with semantic HTML and live regions",
+    "Design mobile-accessible interfaces for VoiceOver and TalkBack",
+    "Audit existing code for accessibility violations"
+  ],
+  "author": "wshobson",
+  "icon": "♿",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation-only reference for accessibility compliance. All 225 static findings are false positives caused by the scanner misinterpreting markdown code fences and documentation links as security issues. The 'Ruby/shell backtick execution' patterns are markdown code block delimiters (```tsx, ```typescript). The 'Hardcoded URL' patterns are legitimate links to accessibility standards resources (W3C, A11y Project). No executable code, network requests, or command execution is present. This skill is safe for publication.",
+  "valueStatement": "Build inclusive digital experiences that comply with WCAG 2.2 standards. This skill provides code patterns, guidelines, and best practices for screen readers, keyboard navigation, and mobile accessibility.",
+  "userTitle": "Create WCAG 2.2 Accessible Interfaces",
+  "limitations": [
+    "Does not test or validate accessibility automatically",
+    "Does not replace manual testing with assistive technologies",
+    "Does not provide legal compliance certification",
+    "Does not include accessibility testing tool integration"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers building inclusive user interfaces",
+      "title": "Building Accessible React Components",
+      "description": "Generate accessible button, modal, and form components with proper ARIA attributes, focus management, and keyboard support."
+    },
+    {
+      "targetUser": "QA engineers and accessibility specialists",
+      "title": "Accessibility Code Review",
+      "description": "Review code for WCAG compliance issues including color contrast, semantic HTML, and accessibility attribute correctness."
+    },
+    {
+      "targetUser": "Mobile developers and cross-platform engineers",
+      "title": "Mobile App Accessibility",
+      "description": "Implement touch target sizing, gesture alternatives, and assistive technology support for iOS and Android applications."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Component Accessibility",
+      "prompt": "Create an accessible [component name] component that follows WCAG 2.2 guidelines. Include proper ARIA attributes, keyboard navigation support, and screen reader announcements.",
+      "scenario": "Generating a single accessible UI component"
+    },
+    {
+      "title": "Form with Validation",
+      "prompt": "Build an accessible form with proper labeling, error handling, and live region announcements. Include error messages linked via aria-describedby and keyboard-accessible validation.",
+      "scenario": "Creating accessible form with accessibility validation"
+    },
+    {
+      "title": "Modal Dialog",
+      "prompt": "Implement an accessible modal dialog with focus trapping, Escape key closure, proper ARIA roles (dialog, alertdialog), and focus return to trigger element on close.",
+      "scenario": "Creating accessible modal or dialog component"
+    },
+    {
+      "title": "Accessibility Audit",
+      "prompt": "Review the following code for WCAG 2.2 compliance. Check for semantic HTML, ARIA attributes, keyboard accessibility, color contrast, and screen reader compatibility. List any violations with fix suggestions.",
+      "scenario": "Auditing code for accessibility issues"
+    }
+  ],
+  "bestPractices": [
+    "Use semantic HTML elements first before adding ARIA attributes - native elements provide built-in accessibility",
+    "Ensure all interactive elements are keyboard accessible with visible focus indicators",
+    "Test with real assistive technologies (NVDA, JAWS, VoiceOver, TalkBack) during development"
+  ],
+  "antiPatterns": [
+    "Using role='presentation' on tables that contain meaningful data relationships",
+    "Removing outline styles without providing alternative visible focus indicators",
+    "Using aria-label or aria-labelledby without providing visible text alternatives"
+  ],
+  "faq": [
+    {
+      "question": "What WCAG levels does this skill support?",
+      "answer": "This skill covers WCAG 2.2 Level A, AA, and AAA success criteria with specific guidance for each level."
+    },
+    {
+      "question": "Does this skill automatically test my code for accessibility?",
+      "answer": "No. This skill provides patterns and guidance. Manual testing with assistive technologies and automated tools like axe DevTools are still recommended."
+    },
+    {
+      "question": "What is the minimum touch target size for mobile accessibility?",
+      "answer": "WCAG 2.2 requires a minimum target size of 24x24 CSS pixels (Level AA) with a recommended 44x44 CSS pixels (Level AAA)."
+    },
+    {
+      "question": "When should I use aria-live regions?",
+      "answer": "Use aria-live regions to announce dynamic content changes to screen readers, such as form validation errors, search results updates, or loading state changes."
+    },
+    {
+      "question": "What is the difference between aria-disabled and disabled?",
+      "answer": "The disabled attribute prevents keyboard interaction and focus. aria-disabled only announces the state to assistive technology but does not prevent interaction."
+    },
+    {
+      "question": "How do I make custom keyboard shortcuts accessible?",
+      "answer": "Provide visible documentation of shortcuts, allow customization, ensure they do not conflict with browser shortcuts, and announce them via aria-keyshortcuts."
+    }
+  ],
+  "seoKeywords": [
+    "accessibility",
+    "WCAG",
+    "WCAG 2.2",
+    "a11y",
+    "accessible design",
+    "inclusive design",
+    "screen reader",
+    "keyboard navigation",
+    "ARIA",
+    "Claud",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/accessibility-compliance/",
+  "sourceType": "community",
+  "dependencies": []
+}

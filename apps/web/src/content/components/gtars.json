@@ -1,0 +1,141 @@
+{
+  "name": "gtars",
+  "type": "skill",
+  "description": "High-performance toolkit for genomic interval analysis in Rust with Python bindings. Use when working with genomic regions, BED files, coverage tracks, overlap detection, tokenization for ML models, or fragment analysis in computational genomics and machine learning applications.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "genomic intervals",
+  "quality": 5,
+  "qualityReason": "High-performance bio toolkit",
+  "bundleHints": [
+    "bioinformatics-tools",
+    "genomics-analysis"
+  ],
+  "tags": [
+    "bed-files",
+    "bioinformatics",
+    "coverage-analysis",
+    "genomics",
+    "interval-analysis",
+    "machine-learning",
+    "ml-tokenization",
+    "overlap-detection",
+    "rust"
+  ],
+  "capabilities": [
+    "Detect overlaps between genomic regions using IGD indexing",
+    "Generate coverage tracks from sequencing data in WIG and BigWig formats",
+    "Tokenize genomic regions for machine learning applications",
+    "Process reference genome sequences following GA4GH refget protocol",
+    "Split and analyze fragment files for single-cell genomics"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 209 static findings are false positives. The static analyzer incorrectly flagged markdown documentation syntax as security risks. No malicious code present. This is a legitimate genomic analysis toolkit.",
+  "valueStatement": "Process and analyze genomic interval data for bioinformatics research. Gtars provides high-performance tools for overlap detection, coverage analysis, and ML tokenization of genomic sequences.",
+  "userTitle": "Analyze genomic intervals and coverage tracks",
+  "limitations": [
+    "Requires genomic interval files in standard formats (BED, WIG, BigWig, FASTA)",
+    "CLI installation requires Rust toolchain for full feature set",
+    "Memory-mapped processing may require sufficient RAM for very large files"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Bioinformatics researchers",
+      "title": "Peak overlap analysis",
+      "description": "Identify overlapping regulatory elements and annotate variants by comparing ChIP-seq peaks."
+    },
+    {
+      "targetUser": "Computational biologists",
+      "title": "Coverage visualization",
+      "description": "Generate coverage tracks from ATAC-seq or ChIP-seq data for genome browser visualization."
+    },
+    {
+      "targetUser": "ML engineers",
+      "title": "Genomic ML preprocessing",
+      "description": "Convert genomic regions into discrete tokens for training transformer models on DNA sequences."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic overlap query",
+      "scenario": "Find overlapping regions",
+      "prompt": "Use gtars to build an IGD index from my peaks.bed file and query overlaps with promoters.bed."
+    },
+    {
+      "title": "Coverage generation",
+      "scenario": "Create track files",
+      "prompt": "Generate a BigWig coverage track from my ATAC-seq fragments using gtars uniwig with 10bp resolution."
+    },
+    {
+      "title": "ML tokenization",
+      "scenario": "Prepare training data",
+      "prompt": "Create a TreeTokenizer from my training_regions.bed and tokenize the genomic coordinates for ML model input."
+    },
+    {
+      "title": "Fragment processing",
+      "scenario": "Single-cell analysis",
+      "prompt": "Split my fragments.tsv by cell barcodes using gtars fragsplit and output to cluster-specific directories."
+    }
+  ],
+  "bestPractices": [
+    "Use memory-mapped mode (mmap=True) when processing large genomic files for better performance.",
+    "Build IGD indexes once and reuse them for multiple overlap queries.",
+    "Specify thread count explicitly for predictable resource usage in batch processing."
+  ],
+  "antiPatterns": [
+    "Do not process GB-scale files without enabling memory-mapped mode.",
+    "Avoid running multiple gtars commands sequentially when parallel processing is available.",
+    "Do not skip format validation when integrating with external pipelines."
+  ],
+  "faq": [
+    {
+      "question": "What file formats does gtars support?",
+      "answer": "Gtars supports BED for intervals, WIG/BigWig for coverage tracks, FASTA for reference genomes, and TSV for fragment files."
+    },
+    {
+      "question": "Do I need Rust installed to use gtars?",
+      "answer": "Python bindings work without Rust. The CLI requires Rust/Cargo only if installing from source."
+    },
+    {
+      "question": "How does gtars compare to bedtools?",
+      "answer": "Gtars offers similar interval operations with Rust performance, plus specialized ML tokenization and BigWig support."
+    },
+    {
+      "question": "Can gtars handle chromosome-scale files?",
+      "answer": "Yes, memory-mapped mode enables processing of chromosome-scale files with minimal RAM usage."
+    },
+    {
+      "question": "What is IGD indexing?",
+      "answer": "Integrated Genome Database is a data structure for fast overlap queries on large genomic interval collections."
+    },
+    {
+      "question": "Is gtars compatible with geniml?",
+      "answer": "Yes, gtars is the foundation for geniml and provides core preprocessing operations for genomic ML workflows."
+    }
+  ],
+  "seoKeywords": [
+    "gtars",
+    "genomic interval analysis",
+    "BED file processing",
+    "coverage tracks",
+    "overlap detection",
+    "genomics",
+    "bioinformatics",
+    "machine learning",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/gtars",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,136 @@
+{
+  "name": "c4-component",
+  "type": "skill",
+  "description": "Expert C4 Component-level documentation specialist. Synthesizes C4",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "component architecture",
+  "quality": 5,
+  "qualityReason": "Clear scope and actionable output",
+  "bundleHints": [
+    "architecture-docs",
+    "c4-stack"
+  ],
+  "tags": [
+    "architecture",
+    "c4",
+    "components",
+    "diagrams",
+    "documentation",
+    "interfaces",
+    "relationships"
+  ],
+  "capabilities": [
+    "Synthesize multiple C4 Code files into logical component groupings",
+    "Define clear component boundaries with documented rationale",
+    "Create Mermaid C4Component diagrams showing component relationships",
+    "Document component interfaces with protocols and operations",
+    "Generate master component index with all system components",
+    "Identify and document external system dependencies"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only documentation skill with no executable code. Static analysis scanned 0 files and found 0 potential security issues with a risk score of 0/100. The skill generates C4 architecture component documentation and Mermaid diagrams without accessing external systems, executing commands, or handling sensitive data.",
+  "valueStatement": "Struggle with translating code-level documentation into clear component architecture? This skill synthesizes C4 Code artifacts into Component-level diagrams with defined boundaries, interfaces, and relationships.",
+  "userTitle": "Create C4 Component Architecture Diagrams",
+  "limitations": [
+    "Requires existing C4 Code-level documentation as input",
+    "Does not analyze actual source code directly",
+    "Cannot validate component implementation against documentation",
+    "Component relationships must be inferred from provided documentation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software architects documenting system structure",
+      "title": "Architecture Documentation for New Systems",
+      "description": "Transform scattered code documentation into cohesive component architecture diagrams for new or refactored systems."
+    },
+    {
+      "targetUser": "Development teams planning microservices migration",
+      "title": "Component Boundary Definition",
+      "description": "Define clear boundaries between authentication, data access, and business logic components during system redesign."
+    },
+    {
+      "targetUser": "Engineering managers building team onboarding materials",
+      "title": "Onboarding Documentation",
+      "description": "Generate comprehensive component documentation to help new team members understand system architecture quickly."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Component Overview",
+      "prompt": "Create C4 Component documentation for [Component Name]. Purpose: [brief description]. Primary technology: [tech stack]. List 3-5 key features and identify 2-3 main interfaces."
+    },
+    {
+      "title": "Component Diagram Generation",
+      "prompt": "Generate a Mermaid C4Component diagram for [Container Name]. Include components: [list components], their types, descriptions, and show relationships between them and any external systems."
+    },
+    {
+      "title": "Interface Documentation",
+      "prompt": "Document all interfaces for the [Component Name] component. For each interface specify: protocol (REST/GraphQL/gRPC/Events), description of what it provides, and list all operations with their signatures and return types."
+    },
+    {
+      "title": "Full Component Synthesis",
+      "prompt": "Synthesize the following C4 Code files into component-level documentation: [list files]. For each resulting component provide: name, description, type, technology, purpose, features, code elements, interfaces, dependencies, and a Mermaid component diagram."
+    }
+  ],
+  "bestPractices": [
+    "Keep components focused on a single responsibility or bounded context",
+    "Document both provided interfaces and consumed dependencies for each component",
+    "Use consistent naming conventions that reflect component purpose and type"
+  ],
+  "antiPatterns": [
+    "Creating components that are too granular (single class per component)",
+    "Omitting interface protocols which makes integration unclear",
+    "Showing container-level relationships instead of component-level detail"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between C4 Component and C4 Container level?",
+      "answer": "Container level shows high-level deployment units like applications and databases. Component level zooms into a single container to show logical components within it, their responsibilities, and how they interact."
+    },
+    {
+      "question": "Do I need to provide actual code for this skill to work?",
+      "answer": "No, this skill works with C4 Code-level documentation files. It synthesizes existing documentation rather than analyzing source code directly."
+    },
+    {
+      "question": "What Mermaid syntax should I use for component diagrams?",
+      "answer": "Use C4Component diagram type with Container_Boundary to show components within a single container. Include Component, ComponentDb, Container_Ext, and System_Ext elements with Rel statements for relationships."
+    },
+    {
+      "question": "How many components should a typical container have?",
+      "answer": "There is no fixed number. Focus on logical boundaries and single responsibilities. A well-structured container typically has 5-15 components depending on complexity."
+    },
+    {
+      "question": "Can this skill help identify missing components?",
+      "answer": "Yes, by analyzing code-level documentation gaps and unclear responsibilities, the skill can suggest additional components needed for complete architecture coverage."
+    },
+    {
+      "question": "Should I document external systems at component or container level?",
+      "answer": "Document external systems at both levels. At component level, show which specific components interact with external systems. At container level, show the container-to-system relationships."
+    }
+  ],
+  "seoKeywords": [
+    "C4 architecture",
+    "component diagrams",
+    "software architecture",
+    "Claude Code skills",
+    "Claude documentation",
+    "Codex architecture tools",
+    "Mermaid diagrams",
+    "system design",
+    "software documentation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/c4-component",
+  "sourceType": "community",
+  "dependencies": []
+}

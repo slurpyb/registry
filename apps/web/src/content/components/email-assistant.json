@@ -1,0 +1,139 @@
+{
+  "name": "email-assistant",
+  "type": "skill",
+  "description": "User asks to read, check, or manage emails - User asks to reply to or send an email - User asks to draft an email response",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "email management",
+  "quality": 4,
+  "qualityReason": "Clear user actions supported",
+  "bundleHints": [
+    "mcp-tools",
+    "email-assistant"
+  ],
+  "tags": [
+    "email",
+    "gmail",
+    "mcp",
+    "productivity",
+    "reading",
+    "replying"
+  ],
+  "capabilities": [
+    "List and browse recent emails in inbox",
+    "Read full email content with attachments",
+    "Search for specific emails by criteria",
+    "Draft email replies in matching language",
+    "Draft new emails with attachments",
+    "Validate drafts before sending"
+  ],
+  "author": "ClementWalter",
+  "icon": "✉️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown guidelines for AI behavior. No executable code, file system access, or network operations. The static findings are false positives triggered by documentation strings (metadata URLs, placeholder examples, and FAQ text) that the scanner misinterpreted as security patterns.",
+  "valueStatement": "Users spend too much time managing email workflows manually. This skill provides structured guidelines for reading, drafting, and sending emails through Gmail MCP tools with proper validation and language matching.",
+  "userTitle": "Manage Gmail with AI assistance",
+  "limitations": [
+    "Cannot send emails without explicit user approval",
+    "Limited to Gmail MCP tool capabilities",
+    "Cannot access non-Gmail email accounts"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Busy professionals",
+      "title": "Quick email triage",
+      "description": "Browse inbox and read important emails efficiently"
+    },
+    {
+      "targetUser": "Multilingual users",
+      "title": "Language-matched responses",
+      "description": "Draft replies in the same language as received emails"
+    },
+    {
+      "targetUser": "Teams with shared accounts",
+      "title": "Draft review workflow",
+      "description": "Create email drafts for team review before sending"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List recent emails",
+      "scenario": "Check inbox",
+      "prompt": "Show me my recent emails"
+    },
+    {
+      "title": "Read specific email",
+      "scenario": "Read selected message",
+      "prompt": "Read the third email from today"
+    },
+    {
+      "title": "Draft reply",
+      "scenario": "Respond to message",
+      "prompt": "Draft a reply to this email"
+    },
+    {
+      "title": "Send new email",
+      "scenario": "Compose message",
+      "prompt": "Send an email to team@example.com about the project update"
+    }
+  ],
+  "bestPractices": [
+    "Always ask for user confirmation before sending any email",
+    "Match the language of incoming emails for replies",
+    "Keep email drafts concise and focused on key points"
+  ],
+  "antiPatterns": [
+    "Sending emails without explicit user approval",
+    "Ignoring the original email language when drafting replies",
+    "Creating overly verbose email drafts with unnecessary pleasantries"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It requires Gmail MCP tools to be configured."
+    },
+    {
+      "question": "What are the email sending limits?",
+      "answer": "Limits depend on your Gmail account type and MCP tool configuration. Standard Gmail limits apply."
+    },
+    {
+      "question": "Can I use this with multiple Gmail accounts?",
+      "answer": "Yes. Specify the account using 1Password item names like Gmail Zama Claude or Gmail Personal Claude."
+    },
+    {
+      "question": "Is my email data stored anywhere?",
+      "answer": "No. The skill only reads email content through MCP tools. Data remains in your Gmail account."
+    },
+    {
+      "question": "Why was my draft rejected?",
+      "answer": "Drafts require explicit confirmation. Review the draft and reply with yes or send it to proceed."
+    },
+    {
+      "question": "How is this different from email filters?",
+      "answer": "This skill provides AI-assisted reading and drafting. Email filters automate sorting. They work together."
+    }
+  ],
+  "seoKeywords": [
+    "email assistant",
+    "gmail mcp",
+    "claude email",
+    "claude-code gmail",
+    "email automation",
+    "email draft",
+    "gmail tools",
+    "codex email",
+    "email management",
+    "ai email"
+  ],
+  "sourceUrl": "https://github.com/ClementWalter/rookie-marketplace/tree/main/gmail-mcp/skills/email-assistant",
+  "sourceType": "community",
+  "dependencies": []
+}

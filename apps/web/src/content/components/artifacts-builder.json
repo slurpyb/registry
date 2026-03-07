@@ -1,0 +1,140 @@
+{
+  "name": "artifacts-builder",
+  "type": "skill",
+  "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Claude HTML artifacts",
+  "quality": 5,
+  "qualityReason": "Specific artifact creation",
+  "bundleHints": [
+    "frontend-artifacts",
+    "react-stack"
+  ],
+  "tags": [
+    "claude-artifacts",
+    "frontend",
+    "modern-web",
+    "react",
+    "shadcn-ui",
+    "state-management",
+    "tailwind"
+  ],
+  "capabilities": [
+    "Initialize React + Vite project with TypeScript",
+    "Install and configure Tailwind CSS with shadcn/ui theming",
+    "Add 40+ pre-built shadcn/ui components",
+    "Configure path aliases for clean imports",
+    "Bundle React app into single self-contained HTML file",
+    "Support dark mode and CSS variables theming"
+  ],
+  "author": "davila7",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "Complete terms in LICENSE.txt",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate frontend build tool for creating Claude.ai artifacts. Scripts initialize React projects, install npm packages via standard package managers, and bundle code into self-contained HTML. All static findings are false positives: license URLs are legitimate, shell commands are standard build tooling, and cryptographic alerts are triggered by version numbers and legal text, not actual crypto usage.",
+  "valueStatement": "Creating complex interactive artifacts for Claude.ai requires modern frontend tooling. This skill sets up a complete React development environment with shadcn/ui components and bundles everything into a single HTML file ready to share in conversations.",
+  "userTitle": "Build powerful React artifacts for Claude",
+  "limitations": [
+    "Requires Node.js 18 or higher on your system",
+    "Not for simple single-file HTML or JSX artifacts",
+    "Does not test artifacts automatically",
+    "Cannot create artifacts requiring server-side code"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Interactive dashboards",
+      "description": "Build data visualization dashboards with charts, tables, and real-time state management"
+    },
+    {
+      "targetUser": "UX designers",
+      "title": "UI component showcases",
+      "description": "Create polished component libraries and interactive design systems with shadcn/ui components"
+    },
+    {
+      "targetUser": "Product managers",
+      "title": "Prototype applications",
+      "description": "Build functional prototypes with routing, forms, and complex user flows"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic artifact",
+      "scenario": "Create a simple interactive artifact",
+      "prompt": "Use the artifacts-builder skill to create a [describe your artifact idea]. Initialize the project, develop the UI with appropriate shadcn components, and bundle it into a single HTML file I can share as an artifact."
+    },
+    {
+      "title": "Dashboard with data",
+      "scenario": "Build a data-driven dashboard",
+      "prompt": "Create an interactive dashboard artifact using artifacts-builder. Include [list data sources or metrics]. Use appropriate charts, tables, and filtering controls. Make it visually clean with dark mode support."
+    },
+    {
+      "title": "Multi-view application",
+      "scenario": "Build a multi-page application",
+      "prompt": "Use artifacts-builder to create a [describe application] with multiple views and navigation. Include [list required components]. Bundle everything into a single artifact that feels like a complete application."
+    },
+    {
+      "title": "Form-heavy interface",
+      "scenario": "Create complex form experience",
+      "prompt": "Build a comprehensive form interface with validation using artifacts-builder. Include fields for [list data to collect]. Use react-hook-form with zod validation and display errors clearly. Style with shadcn/ui components."
+    }
+  ],
+  "bestPractices": [
+    "Use shadcn/ui components consistently for a cohesive look across artifacts",
+    "Test artifacts in browser before sharing to catch rendering issues",
+    "Keep artifacts focused on a single purpose rather than trying to do too much"
+  ],
+  "antiPatterns": [
+    "Do not use this for simple HTML snippets that could be written directly",
+    "Avoid excessive animations or visual effects that slow down the artifact",
+    "Do not include external CDN links - bundle everything locally"
+  ],
+  "faq": [
+    {
+      "question": "Does this work with Claude Free?",
+      "answer": "Yes. The bundled HTML files work in any Claude plan. Only Claude Code uses the skill itself."
+    },
+    {
+      "question": "What is the maximum artifact size?",
+      "answer": "Artifacts have no strict limit but smaller files load faster. Keep under 500KB for best performance."
+    },
+    {
+      "question": "Can I use external APIs in artifacts?",
+      "answer": "Yes, but ensure CORS is enabled on the API. Client-side calls work if the server allows cross-origin requests."
+    },
+    {
+      "question": "Is my data safe when building artifacts?",
+      "answer": "Yes. All processing happens locally on your machine. No data is sent to external servers during build."
+    },
+    {
+      "question": "Why is my artifact not rendering correctly?",
+      "answer": "Check browser console for errors. Ensure all dependencies are bundled. Avoid server-side features like Node.js modules."
+    },
+    {
+      "question": "How is this different from writing artifacts directly?",
+      "answer": "This enables complex state, routing, and 40+ pre-built components. Best for multi-view apps, not simple static content."
+    }
+  ],
+  "seoKeywords": [
+    "Claude artifacts builder",
+    "React artifacts for Claude",
+    "shadcn UI Claude Code",
+    "Tailwind CSS artifacts",
+    "Claude Code development skill",
+    "React TypeScript artifacts",
+    "interactive Claude artifacts",
+    "multi-component artifacts",
+    "Claude frontend tools",
+    "artifact bundler"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/artifacts-builder",
+  "sourceType": "community",
+  "dependencies": []
+}

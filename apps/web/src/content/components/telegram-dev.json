@@ -1,0 +1,144 @@
+{
+  "name": "telegram-dev",
+  "type": "skill",
+  "description": "Telegram 生态开发全栈指南 - 涵盖 Bot API、Mini Apps (Web Apps)、MTProto 客户端开发。包括消息处理、支付、内联模式、Webhook、认证、存储、传感器 API 等完整开发资源。",
+  "domain": "web-development",
+  "subdomain": "fullstack",
+  "specialty": "Telegram ecosystem",
+  "quality": 5,
+  "qualityReason": "Comprehensive ecosystem coverage",
+  "bundleHints": [
+    "telegram-stack",
+    "fullstack-dev",
+    "messaging-platform"
+  ],
+  "tags": [
+    "bot",
+    "bot-api",
+    "mini-app",
+    "mini-apps",
+    "mtproto",
+    "payments",
+    "telegram",
+    "webapp",
+    "webhook"
+  ],
+  "capabilities": [
+    "Create Telegram bots with Bot API and handle messages",
+    "Build Mini Apps with JavaScript WebApp SDK",
+    "Implement webhooks for production deployments",
+    "Add inline keyboards and interactive buttons",
+    "Integrate payments with Telegram Stars",
+    "Use TDLib for custom client development"
+  ],
+  "author": "2025Emma",
+  "icon": "📱",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing educational content for Telegram bot development. All code examples are standard, legitimate API usage patterns targeting official Telegram endpoints. The 471 static findings are false positives triggered by markdown code formatting (backticks), legitimate SHA-256 HMAC for initData validation, and standard web APIs. No malicious code, credential theft patterns, or suspicious network activity detected.",
+  "valueStatement": "Need to create a Telegram bot or web app? This skill provides complete guides for Bot API, Mini Apps, and client development with practical code examples.",
+  "userTitle": "Build Telegram Bots and Mini Apps",
+  "limitations": [
+    "Does not include executable code or scripts to run",
+    "Requires your own Telegram Bot token and API credentials",
+    "Does not cover backend hosting or deployment configurations",
+    "Mini App features require HTTPS and public URL"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers building chatbots",
+      "title": "Chatbot Development",
+      "description": "Create interactive Telegram bots for customer service, notifications, or automation tasks"
+    },
+    {
+      "targetUser": "Web app developers",
+      "title": "Mini App Creation",
+      "description": "Build web applications that run inside Telegram with native UI components and device access"
+    },
+    {
+      "targetUser": "Product managers",
+      "title": "Payment Integration",
+      "description": "Add Telegram Stars payment system to accept payments within your bot or mini app"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Bot Setup",
+      "scenario": "Getting started with Telegram bots",
+      "prompt": "How do I create a Telegram bot and send my first message using Python?"
+    },
+    {
+      "title": "Webhook Configuration",
+      "scenario": "Setting up production webhook",
+      "prompt": "Configure a Flask webhook to receive Telegram updates and respond automatically"
+    },
+    {
+      "title": "Mini App Development",
+      "scenario": "Building Telegram web apps",
+      "prompt": "Create a Telegram Mini App with main button, theme support, and data validation"
+    },
+    {
+      "title": "Advanced UI",
+      "scenario": "Adding interactive elements",
+      "prompt": "Implement inline keyboard with callback buttons and handle user interactions in python-telegram-bot"
+    }
+  ],
+  "bestPractices": [
+    "Always validate initData on the server side before trusting user data",
+    "Use environment variables to store your bot token securely",
+    "Implement rate limiting to avoid hitting Telegram API limits"
+  ],
+  "antiPatterns": [
+    "Do not hardcode bot tokens in source code or commit to version control",
+    "Do not trust client-side data without server-side validation",
+    "Do not make blocking API calls in handlers without using async properly"
+  ],
+  "faq": [
+    {
+      "question": "What programming languages are supported?",
+      "answer": "Python, JavaScript, PHP, Go, Java, and C# have official Telegram libraries available"
+    },
+    {
+      "question": "What are the Telegram API rate limits?",
+      "answer": "Group messages max 20 per minute, private chats max 30 per second"
+    },
+    {
+      "question": "How do I validate Mini App user data?",
+      "answer": "Use HMAC-SHA256 with your bot token to verify the initData hash on your server"
+    },
+    {
+      "question": "Is my data safe in Telegram Mini Apps?",
+      "answer": "Mini Apps run in a sandbox. Store sensitive data server-side, use SecureStorage for local secrets"
+    },
+    {
+      "question": "Why is my webhook not receiving updates?",
+      "answer": "Check HTTPS certificate, public accessibility, and that the endpoint returns 200 OK quickly"
+    },
+    {
+      "question": "How is Bot API different from Telegram API?",
+      "answer": "Bot API is HTTP-based for bots only. Telegram API uses MTProto for full Telegram functionality"
+    }
+  ],
+  "seoKeywords": [
+    "telegram bot development",
+    "telegram mini app",
+    "telegram api",
+    "bot api",
+    "webapp",
+    "claude",
+    "codex",
+    "claude-code",
+    "chatbot",
+    "mtproto"
+  ],
+  "sourceUrl": "https://github.com/2025Emma/vibe-coding-cn/tree/main/i18n/zh/skills/telegram-dev",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "telegram-mini-app",
+  "type": "skill",
+  "description": "Expert in building Telegram Mini Apps (TWA) - web apps that run inside Telegram with native-like experience. Covers the TON ecosystem, Telegram Web App API, payments, user authentication, and building viral mini apps that monetize. Use when: telegram mini app, TWA, telegram web app, TON app, mini app.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "TWA development",
+  "quality": 5,
+  "qualityReason": "Specific to TWA and TON",
+  "bundleHints": [
+    "telegram-stack",
+    "web3-dev",
+    "frontend-toolkit"
+  ],
+  "tags": [
+    "blockchain",
+    "bot-development",
+    "mini-apps",
+    "payments",
+    "telegram",
+    "ton",
+    "ton-blockchain",
+    "web-apps"
+  ],
+  "capabilities": [
+    "Design Mini App architecture using Telegram Web App API",
+    "Integrate TON Connect for wallet connections and blockchain transactions",
+    "Implement in-app payments using Telegram Stars and TON",
+    "Build viral referral mechanics and gamification features",
+    "Create mobile-first responsive UI matching Telegram theme",
+    "Authenticate users via Telegram initData"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 41 patterns that are all false positives. The skill file (SKILL.md) is documentation-only markdown containing code examples. Backticks are markdown code fences, not shell execution. URLs are official Telegram SDK links or documentation placeholders. No executable code or security risks present.",
+  "valueStatement": "Create native-feeling web applications that run inside Telegram for 800M+ users. Integrate TON blockchain, payments, and viral mechanics without leaving the Telegram ecosystem.",
+  "userTitle": "Build Telegram Mini Apps with TON Integration",
+  "limitations": [
+    "Requires Telegram bot as entry point for Mini App distribution",
+    "TON Connect integration needs manifest file hosted on HTTPS domain",
+    "Mini Apps run in webview with Telegram API constraints",
+    "Payment processing limited to Telegram Stars and TON cryptocurrency"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Blockchain game developers targeting Telegram's 800M users",
+      "title": "Web3 Gaming Mini App",
+      "description": "Build a play-to-earn game with TON wallet integration, NFT rewards, and viral referral mechanics that spreads through Telegram shares."
+    },
+    {
+      "targetUser": "Small businesses selling directly through Telegram channels",
+      "title": "E-commerce Storefront",
+      "description": "Create a shoppable Mini App with Telegram Stars payments, order tracking, and seamless checkout inside the Telegram interface."
+    },
+    {
+      "targetUser": "Telegram channel admins and community managers",
+      "title": "Community Engagement Tool",
+      "description": "Develop a gamified loyalty app with daily rewards, streaks, leaderboards, and achievement badges to boost channel engagement."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Mini App Setup",
+      "prompt": "Create a Telegram Mini App HTML template with proper viewport settings, Telegram Web App SDK initialization, and user data extraction from initDataUnsafe.",
+      "scenario": "Starting a new Mini App project from scratch"
+    },
+    {
+      "title": "React Mini App with Hooks",
+      "prompt": "Build a React hook for Telegram Web App integration that exposes user data, query ID, and core methods like expand, close, and ready with proper TypeScript types.",
+      "scenario": "Building a Mini App using React framework"
+    },
+    {
+      "title": "TON Wallet Integration",
+      "prompt": "Implement TON Connect wallet integration for a React Mini App including the UI provider wrapper, connection button component, and manifest file configuration.",
+      "scenario": "Adding cryptocurrency wallet connection to Web3 Mini App"
+    },
+    {
+      "title": "Payment and Transaction Flow",
+      "prompt": "Create a payment button component that sends TON transactions using tonConnectUI, handles nanoton conversion, and sets transaction validity windows.",
+      "scenario": "Implementing cryptocurrency payments in a Mini App"
+    }
+  ],
+  "bestPractices": [
+    "Always validate initData using Telegram's HMAC verification on your backend before trusting user identity",
+    "Match Telegram theme using themeParams CSS variables for seamless native feel",
+    "Design mobile-first with touch targets minimum 44px and test on actual devices"
+  ],
+  "antiPatterns": [
+    "Ignoring Telegram theme parameters resulting in jarring visual transitions",
+    "Designing for desktop when 95 percent of Telegram usage is mobile",
+    "Skipping loading states which makes users think the app is broken"
+  ],
+  "faq": [
+    {
+      "question": "How do users discover my Mini App?",
+      "answer": "Mini Apps are accessed through bot commands, inline buttons, or direct links. Users can also find them via Telegram's Mini Apps directory once published."
+    },
+    {
+      "question": "Can I use my existing web app as a Mini App?",
+      "answer": "Yes, but you must integrate the Telegram Web App SDK and adapt your UI to match Telegram theme. Mobile-first responsive design is essential."
+    },
+    {
+      "question": "What is TON Connect and do I need it?",
+      "answer": "TON Connect is a protocol for connecting TON wallets to Mini Apps. You only need it if your app requires blockchain transactions or crypto payments."
+    },
+    {
+      "question": "How do Telegram Stars payments work?",
+      "answer": "Telegram Stars is Telegram's virtual currency. Users buy Stars, then spend them in Mini Apps. Developers withdraw earnings as TON cryptocurrency."
+    },
+    {
+      "question": "Can Mini Apps access user data without permission?",
+      "answer": "No. User data comes from initDataUnsafe which Telegram provides only when the user opens your Mini App. Always verify this data on your backend."
+    },
+    {
+      "question": "Do I need to host my Mini App on specific servers?",
+      "answer": "Any HTTPS-hosted web app works. Telegram does not require specific hosting. However, TON Connect requires a valid HTTPS domain for the manifest file."
+    }
+  ],
+  "seoKeywords": [
+    "Telegram Mini Apps",
+    "TON blockchain",
+    "Telegram Web App",
+    "Claude Code skills",
+    "Codex integration",
+    "Telegram bot development",
+    "crypto payments",
+    "TWA development",
+    "Telegram SDK"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/telegram-mini-app",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "cryptofeed",
+  "type": "skill",
+  "description": "Cryptofeed - Real-time cryptocurrency market data feeds from 40+ exchanges. WebSocket streaming, normalized data, order books, trades, tickers. Python library for algorithmic trading and market data analysis.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "crypto market streaming",
+  "quality": 5,
+  "qualityReason": "Specific library and use case",
+  "bundleHints": [
+    "trading-pipeline",
+    "crypto-data"
+  ],
+  "tags": [
+    "cryptocurrency",
+    "market-data",
+    "order-books",
+    "python",
+    "trading",
+    "websocket"
+  ],
+  "capabilities": [
+    "Connect to 40+ cryptocurrency exchanges via WebSocket",
+    "Process real-time trades, tickers, and order book updates",
+    "Normalize data across exchanges for consistent handling",
+    "Aggregate NBBO feeds for cross-exchange arbitrage",
+    "Write data directly to backends like Redis, Kafka, MongoDB",
+    "Handle authenticated channels for private account data"
+  ],
+  "author": "2025Emma",
+  "icon": "📈",
+  "version": "1.0.1",
+  "license": "XFree86",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown files with guidance for using the Cryptofeed Python library. Static findings are false positives: markdown backticks flagged as shell execution, documentation URLs as network access, and crypto terminology as weak algorithms. No executable code, scripts, or actual security risks present.",
+  "valueStatement": "Developers need a reliable way to stream real-time cryptocurrency data from multiple exchanges. Cryptofeed provides normalized WebSocket feeds from 40+ exchanges, simplifying algorithmic trading and market data analysis.",
+  "userTitle": "Build crypto trading systems with Cryptofeed",
+  "limitations": [
+    "Requires Python 3.8 or higher",
+    "Exchanges must support WebSocket connections",
+    "Only provides data feeds, does not execute trades",
+    "Rate limits vary by exchange"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Algorithmic traders",
+      "title": "Multi-exchange price monitoring",
+      "description": "Aggregate real-time prices from Binance, Coinbase, and Kraken to identify arbitrage opportunities."
+    },
+    {
+      "targetUser": "Data engineers",
+      "title": "Market data pipelines",
+      "description": "Stream exchange data directly to Redis, Kafka, or MongoDB for downstream analytics."
+    },
+    {
+      "targetUser": "Quantitative researchers",
+      "title": "Order book analysis",
+      "description": "Capture and analyze L2/L3 order book depth and trade flows for strategy research."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic connection",
+      "scenario": "Connect to a single exchange",
+      "prompt": "Show me how to set up a FeedHandler to stream ticker data from Coinbase for BTC-USD using Cryptofeed."
+    },
+    {
+      "title": "Multi-feed setup",
+      "scenario": "Connect to multiple exchanges",
+      "prompt": "How do I subscribe to trade data from both Binance and Bitfinex simultaneously using Cryptofeed?"
+    },
+    {
+      "title": "NBBO aggregation",
+      "scenario": "Cross-exchange best bid/offer",
+      "prompt": "Create an NBBO feed that aggregates the best bid and ask from Coinbase, Kraken, and Gemini for BTC-USD."
+    },
+    {
+      "title": "Backend integration",
+      "scenario": "Persist data to storage",
+      "prompt": "How do I configure Cryptofeed to write incoming ticker data directly to Redis or Kafka?"
+    }
+  ],
+  "bestPractices": [
+    "Use virtual environments to isolate Cryptofeed and its dependencies",
+    "Implement reconnection logic to handle exchange disconnections gracefully",
+    "Subscribe only to necessary channels to minimize bandwidth and rate limit usage"
+  ],
+  "antiPatterns": [
+    "Running multiple FeedHandlers for the same exchange simultaneously",
+    "Ignoring error callbacks and connection failure notifications",
+    "Hardcoding API keys directly in callback functions or scripts"
+  ],
+  "faq": [
+    {
+      "question": "Which exchanges does Cryptofeed support?",
+      "answer": "Cryptofeed supports 40+ exchanges including Binance, Coinbase, Kraken, Bitfinex, Gemini, OKX, Bybit, and many others."
+    },
+    {
+      "question": "What data channels are available?",
+      "answer": "Public channels include TRADES, TICKER, L1/L2/L3_BOOK, FUNDING, OPEN_INTEREST, LIQUIDATIONS, INDEX, and CANDLES."
+    },
+    {
+      "question": "Can I use authenticated endpoints?",
+      "answer": "Yes, authenticated channels support ORDER_INFO, TRANSACTIONS, BALANCES, and FILLS for private account data."
+    },
+    {
+      "question": "Is my data safe with this library?",
+      "answer": "Cryptofeed only reads public data or your authenticated credentials locally. No data is transmitted to third parties."
+    },
+    {
+      "question": "What backends can I write data to?",
+      "answer": "Supported backends include Redis, MongoDB, Kafka, InfluxDB, PostgreSQL, Arctic, ZeroMQ, and GCP Pub/Sub."
+    },
+    {
+      "question": "How does Cryptofeed compare to CCXT?",
+      "answer": "CCXT focuses on REST API trading. Cryptofeed specializes in WebSocket streaming with normalized data across exchanges."
+    }
+  ],
+  "seoKeywords": [
+    "cryptocurrency data feed",
+    "cryptofeed tutorial",
+    "crypto websocket streaming",
+    "algorithmic trading Python",
+    "exchange API integration",
+    "order book data",
+    "real-time market data",
+    "cryptocurrency exchange",
+    "Claude Code crypto",
+    "market data analysis"
+  ],
+  "sourceUrl": "https://github.com/2025Emma/vibe-coding-cn/tree/main/i18n/zh/skills/cryptofeed",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "vue-pinia-best-practices",
+  "type": "skill",
+  "description": "Pinia stores, state management patterns, store setup, and reactivity with stores.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Pinia stores",
+  "quality": 5,
+  "qualityReason": "Specific, modern state solution",
+  "bundleHints": [
+    "vue-stack",
+    "frontend",
+    "state-management"
+  ],
+  "tags": [
+    "pinia",
+    "reactivity",
+    "state-management",
+    "store-patterns",
+    "vue-composition-api",
+    "vue3",
+    "vuex-alternative"
+  ],
+  "capabilities": [
+    "Fix 'No Active Pinia' initialization errors by ensuring correct plugin order",
+    "Implement setup stores that properly expose state to DevTools and SSR",
+    "Preserve reactivity when destructuring store properties",
+    "Bind store methods correctly to maintain 'this' context in templates",
+    "Manage ephemeral filter state using URL parameters",
+    "Scale Pinia for large applications with proper conventions"
+  ],
+  "author": "github.com/vuejs-ai",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 215 patterns in markdown documentation files. All findings are FALSE POSITIVES. The 'Ruby/shell backtick execution' patterns are markdown code blocks using backticks for syntax highlighting. The 'Weak cryptographic algorithm' and 'System reconnaissance' findings are false positives from documentation text. No executable code, network calls, or file system operations exist in this skill. Risk level: safe.",
+  "valueStatement": "Vue applications often face state management issues like reactivity loss, initialization errors, and debugging challenges. This skill provides proven patterns and solutions for implementing Pinia stores correctly in Vue 3 applications.",
+  "userTitle": "Implement Pinia State Management Best Practices",
+  "limitations": [
+    "Does not generate new Pinia store code from scratch",
+    "Does not migrate Vuex stores to Pinia automatically",
+    "Does not provide runtime performance profiling",
+    "Does not include server-side rendering configuration"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Vue developers encountering runtime errors with Pinia",
+      "title": "Debug Pinia Initialization Errors",
+      "description": "Resolve 'getActivePinia was called but there was no active Pinia' errors by fixing plugin initialization order and store usage timing."
+    },
+    {
+      "targetUser": "Vue developers working with reactive store data",
+      "title": "Fix Store Reactivity Issues",
+      "description": "Restore reactivity when destructuring store properties or calling store methods from Vue templates."
+    },
+    {
+      "targetUser": "Senior Vue developers and architects",
+      "title": "Scale State Management",
+      "description": "Apply Pinia conventions and patterns suitable for large Vue applications with multiple stores and complex state requirements."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Fix Pinia Initialization Error",
+      "prompt": "I'm getting the error 'getActivePinia() was called but there was no active Pinia' in my Vue 3 app. How do I fix this?",
+      "scenario": "Initial setup and configuration"
+    },
+    {
+      "title": "Setup Store Best Practices",
+      "prompt": "What are the best practices for setting up a Pinia store in Vue 3? Include the difference between options stores and setup stores.",
+      "scenario": "Learning store patterns"
+    },
+    {
+      "title": "Store Reactivity Solutions",
+      "prompt": "My Pinia store properties stop updating the UI when I destructure them. How do I preserve reactivity?",
+      "scenario": "Fixing reactivity issues"
+    },
+    {
+      "title": "Large App Architecture",
+      "prompt": "What patterns and conventions should I use when building a large Vue application with Pinia for multiple teams and many stores?",
+      "scenario": "Scalable architecture design"
+    }
+  ],
+  "bestPractices": [
+    "Always call app.use(pinia) before mounting the Vue app and before installing other plugins that might use stores",
+    "Use storeToRefs() when destructuring state to maintain reactivity, but destructure actions normally",
+    "Avoid calling store constructors at module level; instead, use lazy initialization or composables"
+  ],
+  "antiPatterns": [
+    "Calling useXxxStore() outside of setup functions, composables, or after Pinia initialization",
+    "Destructuring store state directly without storeToRefs(), which breaks Vue reactivity",
+    "Using methods: {} in setup stores without binding 'this' context for template usage"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between options stores and setup stores in Pinia?",
+      "answer": "Options stores use the traditional Vuex-like syntax with state, getters, and actions properties. Setup stores use the Vue Composition API style with ref() for state, computed() for getters, and regular functions for actions. Setup stores offer more flexibility and better TypeScript support."
+    },
+    {
+      "question": "How do I persist Pinia state across page refreshes?",
+      "answer": "Use the pinia-plugin-persistedstate plugin or manually save state to localStorage in store subscriptions. For URL-persistent state like filters, use reactive URL query parameters with vue-router."
+    },
+    {
+      "question": "Can I use Pinia with Vue 2?",
+      "answer": "Yes, Pinia has a Vue 2 compatible version (pinia@^2.0.0). However, Vue 3 is recommended for new projects as Pinia was designed primarily for Vue 3's Composition API."
+    },
+    {
+      "question": "How do I access a store from another store?",
+      "answer": "Import and instantiate the other store directly within your store's setup function. In setup stores, you can call useOtherStore() and use its methods. Avoid circular dependencies between stores."
+    },
+    {
+      "question": "Why is my setup store not showing in Vue DevTools?",
+      "answer": "Ensure your setup store returns the state object. Pinia DevTools require a returned state reference. If using computed properties for state, switch to ref() for the state fields you want to see in DevTools."
+    },
+    {
+      "question": "How do I reset all stores to their initial state?",
+      "answer": "For options stores, define a $reset() method using this.$patch. For setup stores, create a reset function that reinitializes your ref values. Consider using initial state constants to ensure consistent resets."
+    }
+  ],
+  "seoKeywords": [
+    "Pinia",
+    "Vue 3 state management",
+    "Vue Pinia tutorial",
+    "Pinia store patterns",
+    "Pinia setup stores",
+    "Vue state management best practices",
+    "Pinia reactivity",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/vuejs-ai/skills/tree/main/skills/vue-pinia-best-practices/",
+  "sourceType": "community",
+  "dependencies": []
+}

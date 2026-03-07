@@ -1,0 +1,143 @@
+{
+  "name": "code-explainer",
+  "type": "skill",
+  "description": "Explain complex code to team members in clear, understandable terms for effective knowledge shari...",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "knowledge sharing",
+  "quality": 4,
+  "qualityReason": "Clear knowledge transfer",
+  "bundleHints": [
+    "documentation",
+    "team-collaboration"
+  ],
+  "tags": [
+    "clarity",
+    "code documentation",
+    "code-documentation",
+    "knowledge sharing",
+    "onboarding",
+    "team communication",
+    "team-communication",
+    "technical writing",
+    "technical-writing"
+  ],
+  "capabilities": [
+    "Generate high-level code overviews with purpose and system context",
+    "Create step-by-step execution walkthroughs with technical details",
+    "Build visual ASCII diagrams showing data flow and architecture",
+    "Adapt explanations for junior, mid-level, senior, or non-technical audiences",
+    "Provide analogies connecting code concepts to real-world scenarios",
+    "Include security notes, best practices, and common pitfalls"
+  ],
+  "author": "CuriousLearner",
+  "icon": "📖",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is pure documentation containing only markdown instructions for explaining code. Static scanner flagged 164 issues but all are FALSE POSITIVES: markdown code fences were misidentified as shell backticks, educational references to process.env and crypto APIs were misclassified as credential access, and standard JWT terminology (like 'C2' algorithm identifier) was flagged as C2 infrastructure. No executable code, network calls, file access, or command execution capabilities exist.",
+  "valueStatement": "Complex code can confuse team members and slow onboarding. This skill generates easy-to-understand explanations with analogies, diagrams, and step-by-step breakdowns adapted to any audience level.",
+  "userTitle": "Explain code with clear descriptions",
+  "limitations": [
+    "Does not execute or test code - only explains provided code snippets",
+    "Does not access external files or repositories directly",
+    "Cannot modify or refactor code - only describes it",
+    "Depends on user providing the code to be explained"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Engineering Managers",
+      "title": "Accelerate team onboarding",
+      "description": "Help new developers understand legacy codebases faster with clear, structured explanations."
+    },
+    {
+      "targetUser": "Technical Writers",
+      "title": "Create documentation drafts",
+      "description": "Generate initial documentation drafts that can be refined into official guides and manuals."
+    },
+    {
+      "targetUser": "Senior Developers",
+      "title": "Mentor junior team members",
+      "description": "Provide consistent, detailed explanations that reinforce learning during code reviews."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Code Explanation",
+      "scenario": "Explain any code snippet",
+      "prompt": "Use @code-explainer to explain this code: [paste your code here]"
+    },
+    {
+      "title": "Audience-Targeted",
+      "scenario": "Explain for specific audience",
+      "prompt": "Use @code-explainer --audience [junior|senior|non-technical] to explain this code: [code]"
+    },
+    {
+      "title": "Visual Diagram",
+      "scenario": "Include flow diagrams",
+      "prompt": "Use @code-explainer --with-diagrams to visualize how this code works: [code]"
+    },
+    {
+      "title": "Step-by-Step",
+      "scenario": "Detailed line-by-line walkthrough",
+      "prompt": "Use @code-explainer --step-by-step to walk through this code line by line: [code]"
+    }
+  ],
+  "bestPractices": [
+    "Provide the full context around the code snippet for more accurate explanations",
+    "Specify the audience level to get appropriately detailed explanations",
+    "Ask for diagrams when visualizing complex data flows or architecture"
+  ],
+  "antiPatterns": [
+    "Providing only isolated snippets without surrounding context",
+    "Expecting the skill to modify or refactor your code",
+    "Using for security-critical code without manual review of explanations"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill execute the code it explains?",
+      "answer": "No. The skill only generates text explanations. It does not run, test, or modify any code."
+    },
+    {
+      "question": "What programming languages are supported?",
+      "answer": "All languages. The skill works with any programming language by analyzing the syntax and structure provided."
+    },
+    {
+      "question": "Can I use this skill to document my entire codebase?",
+      "answer": "Provide code snippets or files piece by piece. The skill explains each section but does not scan directories."
+    },
+    {
+      "question": "Is my code sent to external servers?",
+      "answer": "No. The skill runs entirely within your AI tool. Code is processed locally and never transmitted externally."
+    },
+    {
+      "question": "Why are my explanations too basic or too advanced?",
+      "answer": "Use the --audience flag with junior, senior, or non-technical to adjust the explanation depth for your needs."
+    },
+    {
+      "question": "How is this different from asking Claude directly?",
+      "answer": "This skill provides structured templates, visual diagrams, audience adaptation, and educational best practices consistently."
+    }
+  ],
+  "seoKeywords": [
+    "Claude code explanation",
+    "AI code documentation",
+    "technical onboarding tool",
+    "code tutorial generator",
+    "developer knowledge sharing",
+    "codeExplainer for Claude",
+    "code documentation AI",
+    "learning code fast",
+    "software education",
+    "programming explanations"
+  ],
+  "sourceUrl": "https://github.com/CuriousLearner/devkit/tree/main/skills/code-explainer",
+  "sourceType": "community",
+  "dependencies": []
+}

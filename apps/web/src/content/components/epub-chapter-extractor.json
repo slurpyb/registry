@@ -1,0 +1,141 @@
+{
+  "name": "epub-chapter-extractor",
+  "type": "skill",
+  "description": "Extract all chapters from an EPUB file into separate markdown files. Use when the user wants to split an EPUB into individual chapter files, extract EPUB chapters, or convert an ebook to separate markdown documents.",
+  "domain": "tools",
+  "subdomain": "search",
+  "specialty": "ebook splitting",
+  "quality": 5,
+  "qualityReason": "Specific and well-defined task",
+  "bundleHints": [
+    "content-processing",
+    "ebook-tools"
+  ],
+  "tags": [
+    "chapter",
+    "conversion",
+    "document",
+    "ebook",
+    "epub",
+    "extraction",
+    "markdown"
+  ],
+  "capabilities": [
+    "Extract all chapters from EPUB files into separate markdown files",
+    "Automatically number output files for proper sorting",
+    "Convert HTML content to clean markdown format",
+    "Handle nested table of contents with hierarchy levels",
+    "Clean HTML by removing scripts, styles, and empty tags",
+    "Create organized output folders named after the source EPUB"
+  ],
+  "author": "Abilityai",
+  "icon": "📚",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All 29 static findings are FALSE_POSITIVES. The skill is a legitimate document conversion tool that reads EPUB files and writes markdown to user-specified locations. No network activity, no data exfiltration, no malicious patterns. Static findings stem from markdown code blocks being misidentified as shell execution, standard Claude skills paths flagged as hidden file access, and text patterns incorrectly matching crypto/ransomware keywords.",
+  "valueStatement": "Converting ebooks to separate chapter files takes time and requires specialized tools. This skill automatically extracts each chapter from an EPUB into its own markdown file with proper formatting and numbering.",
+  "userTitle": "Extract EPUB chapters to markdown",
+  "limitations": [
+    "Only supports EPUB format, not PDF, MOBI, or other ebook formats",
+    "Requires Python dependencies: ebooklib, beautifulsoup4, html2text, lxml",
+    "Cannot preserve complex formatting like tables or multi-column layouts",
+    "May not work with DRM-protected or encrypted EPUB files"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Researchers",
+      "title": "Extract research book chapters",
+      "description": "Convert academic ebooks into individual chapter files for easier reference and citation management"
+    },
+    {
+      "targetUser": "Writers",
+      "title": "Organize long-form content",
+      "description": "Break down multi-author anthologies or textbooks into separate documents for focused reading"
+    },
+    {
+      "targetUser": "Content Creators",
+      "title": "Prepare ebook content for blogs",
+      "description": "Convert ebook chapters into markdown for republishing as blog posts or articles"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic extraction",
+      "scenario": "Extract chapters from an EPUB file",
+      "prompt": "Extract all chapters from mybook.epub"
+    },
+    {
+      "title": "Custom output location",
+      "scenario": "Extract to specific folder",
+      "prompt": "Extract chapters from book.epub to my-output-folder"
+    },
+    {
+      "title": "Process existing file",
+      "scenario": "Work with file in known path",
+      "prompt": "Extract chapters from /Users/name/Documents/book.epub"
+    },
+    {
+      "title": "Convert for analysis",
+      "scenario": "Prepare chapters for AI processing",
+      "prompt": "Extract all chapters from the textbook.epub in my downloads folder so I can analyze each chapter separately"
+    }
+  ],
+  "bestPractices": [
+    "Place EPUB files in a dedicated folder before extraction for organized output",
+    "Use descriptive EPUB filenames to create meaningful output folder names",
+    "Verify extracted markdown files retain chapter headings for navigation"
+  ],
+  "antiPatterns": [
+    "Do not use on DRM-protected ebooks as extraction may violate terms of service",
+    "Do not expect complex formatting like tables to transfer perfectly",
+    "Do not assume all EPUB files have properly structured table of contents"
+  ],
+  "faq": [
+    {
+      "question": "What ebook formats are supported?",
+      "answer": "Only EPUB format is supported. PDF, MOBI, AZW, and other formats require different tools."
+    },
+    {
+      "question": "Can I extract protected or DRM files?",
+      "answer": "DRM-protected files cannot be extracted and may violate copyright or license terms."
+    },
+    {
+      "question": "How are output files named?",
+      "answer": "Files are numbered sequentially like 01_chapter_title.md for proper filesystem sorting."
+    },
+    {
+      "question": "Where are extracted files saved?",
+      "answer": "By default, files are saved to a folder named after the EPUB in the same directory as the source file."
+    },
+    {
+      "question": "What dependencies are required?",
+      "answer": "The skill uses ebooklib, beautifulsoup4, html2text, and lxml which are installed via uv run."
+    },
+    {
+      "question": "How does this compare to Calibre?",
+      "answer": "This is a focused command-line tool for markdown extraction. Calibre offers more format support but requires GUI."
+    }
+  ],
+  "seoKeywords": [
+    "EPUB to markdown converter",
+    "extract EPUB chapters",
+    "ebook to text converter",
+    "Claude Code skill",
+    "document extraction",
+    "chapter splitter",
+    "ebook conversion",
+    "markdown converter",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/Abilityai/cornelius/tree/main/.claude/skills/epub-chapter-extractor",
+  "sourceType": "community",
+  "dependencies": []
+}

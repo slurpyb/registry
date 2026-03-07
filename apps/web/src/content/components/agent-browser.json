@@ -1,0 +1,154 @@
+{
+  "name": "agent-browser",
+  "type": "skill",
+  "description": "Browser automation for AI agents via inference.sh.\nNavigate web pages, interact with elements using @e refs, take screenshots, record video.\nCapabilities: web scraping, form filling, clicking, typing, drag-drop, file upload, JavaScript execution.\nUse for: web automation, data extraction, testing, agent browsing, research.\nTriggers: browser, web automation, scrape, navigate, click, fill form, screenshot,\nbrowse web, playwright, headless browser, web agent, surf internet, record video\n",
+  "domain": "tools",
+  "subdomain": "browser",
+  "specialty": "web automation",
+  "quality": 5,
+  "qualityReason": "Clear capabilities and tooling",
+  "bundleHints": [
+    "browser-tools",
+    "automation"
+  ],
+  "tags": [
+    "form-filling",
+    "inference.sh",
+    "interaction",
+    "navigation",
+    "scraping",
+    "screenshots"
+  ],
+  "capabilities": [
+    "Navigate to web pages and extract structured data",
+    "Fill forms automatically with pre-configured data",
+    "Take screenshots of web pages",
+    "Record videos of browser sessions",
+    "Handle authentication and sessions",
+    "Execute JavaScript in browsers",
+    "Upload files to web forms",
+    "Click elements, drag and drop items"
+  ],
+  "author": "inferencesh",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a browser automation skill that requires shell execution and network access for legitimate functionality. The tool uses shell commands to control browsers, which is expected for a browser automation skill. All network URLs are for legitimate browser automation targets, not data exfiltration. The heuristic findings are \"false\" positives - the skill performs legitimate automation operations, not malicious activities.",
+  "valueStatement": "This skill automates web browser interactions through Claude. It handles navigation, form filling, data extraction, and task workflows without manual clicks or typing. Perfect for research, testing, and repetitive web-based tasks.",
+  "userTitle": "Automate Web Tasks",
+  "limitations": [
+    "Requires browser automation dependencies installed",
+    "Limited to browsers supported by underlying automation library",
+    "No support for dynamic AJAX-heavy applications without JavaScript execution",
+    "Web authentication requires credentials configuration",
+    "Slow for extremely large-scale scraping operations",
+    "Blocked by some sophisticated CAPTCHA systems",
+    "Not suitable for real-time interactive browsing"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Researchers and analysts",
+      "title": "Automate Web Research",
+      "description": "Research teams use this skill to systematically gather data from multiple websites. It automates repetitive data entry and extraction tasks, allowing researchers to process large datasets efficiently."
+    },
+    {
+      "targetUser": "Software developers and QA engineers",
+      "title": "Test Web Applications",
+      "description": "QA teams automate testing workflows by navigating through applications, filling forms, and verifying functionality. This reduces manual testing time and catches regressions early."
+    },
+    {
+      "targetUser": "E-commerce and marketing professionals",
+      "title": "Collect Product Information",
+      "description": "E-commerce and marketing teams scrape product information from competitor sites, monitor price changes, and gather competitive intelligence automatically."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Beginner: Simple Data Extraction",
+      "prompt": "Navigate to https://example.com/products and extract the product names and prices from the first page. Return the data as a JSON list.",
+      "scenario": "First time user needs to extract basic product information"
+    },
+    {
+      "title": "Intermediate: Form Filling and Submission",
+      "prompt": "Navigate to https://example.com/contact and fill in the form with: Name: John Doe, Email: john@example.com, Message: Please send me more information. Submit the form and confirm it was successful.",
+      "scenario": "User needs to fill out a contact form automatically"
+    },
+    {
+      "title": "Advanced: Authentication and Data Retrieval",
+      "prompt": "Navigate to https://example.com/login and authenticate with username: myuser and password: mypass123. Once logged in, navigate to the /dashboard page and extract all the data displayed there. Return the results in a structured format.",
+      "scenario": "User needs to work with authenticated web applications"
+    },
+    {
+      "title": "Expert: Complex Workflow Automation",
+      "prompt": "1. Navigate to https://example.com/search and search for 'javascript tutorials'.\n2. Extract titles and links from the first 10 results.\n3. For each link, navigate to it and extract the main content.\n4. Compile all extracted content into a single markdown document with proper headings.\n5. Take a screenshot of the final results page.",
+      "scenario": "Advanced user needs to perform multi-step automated research"
+    }
+  ],
+  "bestPractices": [
+    "Always test automation workflows with small data sets first",
+    "Configure browser user agents to avoid detection by some websites",
+    "Implement proper delays between actions to simulate human behavior",
+    "Save screenshots or videos for debugging complex workflows",
+    "Validate extracted data before processing to catch parsing errors",
+    "Use session management for authenticated workflows to maintain state",
+    "Clear browser cache before starting new automation sessions",
+    "Monitor browser console for errors that might indicate problems"
+  ],
+  "antiPatterns": [
+    "Don't automate without first understanding the target website's terms of service",
+    "Avoid filling forms with excessive data or at high speed - this triggers captchas",
+    "Never pass sensitive credentials in plain text without proper security considerations",
+    "Don't ignore error messages - they indicate problems with the automation",
+    "Avoid scraping without checking for robots.txt files on target sites",
+    "Don't ignore rate limits - excessive requests will get you blocked",
+    "Avoid hardcoding credentials in scripts - use environment variables instead"
+  ],
+  "faq": [
+    {
+      "question": "What browsers does this skill support?",
+      "answer": "This skill supports browsers that the underlying automation library (Playwright) can control, including Chrome, Firefox, Safari, and Edge. You can specify which browser to use in your requests."
+    },
+    {
+      "question": "Can I handle authentication with this skill?",
+      "answer": "Yes, this skill provides templates for authenticated sessions. You can configure credentials and the skill will handle login, session management, and data retrieval while maintaining authentication state."
+    },
+    {
+      "question": "Will this skill help with CAPTCHA challenges?",
+      "answer": "This skill can handle basic CAPTCHAs but not advanced ones. For sites with complex CAPTCHAs, you may need to manually complete them or use a separate CAPTCHA-solving service."
+    },
+    {
+      "question": "How do I handle dynamic content loading?",
+      "answer": "The skill includes JavaScript execution capabilities. You can wait for dynamic content to load by using waits or checking for element visibility before proceeding with extraction."
+    },
+    {
+      "question": "Can I record videos of automation sessions?",
+      "answer": "Yes, this skill supports video recording. You can request video capture of your automation sessions for debugging or demonstration purposes."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "All data processing happens locally or in the browser context. Your credentials and data are handled according to the skill's documented practices. Avoid entering sensitive information into test forms."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "browser automation",
+    "web scraping",
+    "form automation",
+    "headless browser",
+    "web agent",
+    "data extraction",
+    "web testing"
+  ],
+  "sourceUrl": "https://github.com/inferencesh/skills/tree/main/skills/agentic-browser/",
+  "sourceType": "community",
+  "dependencies": []
+}

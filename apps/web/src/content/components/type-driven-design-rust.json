@@ -1,0 +1,137 @@
+{
+  "name": "type-driven-design-rust",
+  "type": "skill",
+  "description": "Type-driven design patterns in Rust - typestate, newtype, builder pattern, and compile-time guarantees",
+  "domain": "languages",
+  "subdomain": "rust",
+  "specialty": "typestate patterns",
+  "quality": 5,
+  "qualityReason": "Leverages Rust's strengths",
+  "bundleHints": [
+    "rust-patterns",
+    "systems-programming"
+  ],
+  "tags": [
+    "builder",
+    "compile-time-safety",
+    "design-patterns",
+    "newtype",
+    "rust",
+    "type-systems"
+  ],
+  "capabilities": [
+    "Implement the newtype pattern to prevent mixing similar values",
+    "Apply typestate pattern to enforce state machine transitions at compile time",
+    "Create builder patterns with compile-time validation",
+    "Use phantom types for type-level programming",
+    "Design APIs that make invalid states unrepresentable"
+  ],
+  "author": "EmilLindfors",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The scanner incorrectly flagged 'type-driven design' references as cryptographic algorithms, markdown backticks as shell command execution, and documentation URLs as network security risks. This is pure educational documentation about Rust patterns with no actual security concerns.",
+  "valueStatement": "Manual validation and runtime checks are error-prone and costly. This skill teaches type-driven design patterns in Rust that move correctness guarantees from runtime to compile time, eliminating entire classes of bugs before code runs.",
+  "userTitle": "Design Safer Rust APIs with Types",
+  "limitations": [
+    "Does not generate code or refactor existing projects",
+    "Does not evaluate performance or runtime characteristics",
+    "Does not provide project setup or build configuration",
+    "Cannot enforce types across FFI boundaries or unsafe code"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building financial services",
+      "title": "Building Safe Financial Systems",
+      "description": "Create type-safe financial APIs where AccountId and Amount types cannot be accidentally swapped, preventing costly errors in money transfer logic."
+    },
+    {
+      "targetUser": "Systems programmers and protocol engineers",
+      "title": "Modeling Protocol State Machines",
+      "description": "Design network protocols or database sessions where connection states like Disconnected, Connected, and Authenticated are enforced by the type system."
+    },
+    {
+      "targetUser": "Library authors and API designers",
+      "title": "Validating API Inputs at Compile Time",
+      "description": "Construct builders that require all mandatory fields before building, eliminating runtime validation and providing better error messages."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Newtype Pattern Introduction",
+      "prompt": "Show me how to use the newtype pattern in Rust to prevent mixing up UserId and OrderId in my API. Include both the problem (plain types) and solution (newtypes).",
+      "scenario": "Learning basic type safety with newtypes"
+    },
+    {
+      "title": "Typestate Pattern for Connections",
+      "prompt": "Help me implement a connection type that enforces calling connect() before authenticate() before send_data(). Use typestate to make invalid state transitions impossible at compile time.",
+      "scenario": "Enforcing state machine transitions"
+    },
+    {
+      "title": "Compile-Time Validated Builder",
+      "prompt": "Create a ConfigBuilder in Rust where host and port are required fields that must be set before build() is called. The builder should return Config directly (not Result) since validity is guaranteed at compile time.",
+      "scenario": "Building with compile-time guarantees"
+    },
+    {
+      "title": "Phantom Types for Type-Level Constraints",
+      "prompt": "Show me how to use phantom types to create a type-safe ID system where UserId and OrderId are incompatible types, and foreign keys like Order.user_id must match the correct ID type.",
+      "scenario": "Advanced phantom type patterns"
+    }
+  ],
+  "bestPractices": [
+    "Encode domain invariants in types rather than runtime checks to catch bugs at compile time",
+    "Use marker types for state to enforce valid transitions and make illegal states unrepresentable",
+    "Leverage Rust's zero-cost abstractions - type-level constraints add no runtime overhead"
+  ],
+  "antiPatterns": [
+    "Using boolean flags like is_connected instead of state types that prevent invalid operations",
+    "Deferring validation to runtime when types could enforce correctness at compile time",
+    "Exposing raw primitive types in public APIs where domain types would provide better safety"
+  ],
+  "faq": [
+    {
+      "question": "What is the typestate pattern in Rust?",
+      "answer": "Typestate is a pattern where a type carries compile-time information about its current state. Methods are only available for specific states, preventing invalid operations like calling send_data() before authenticate()."
+    },
+    {
+      "question": "How does the newtype pattern improve safety?",
+      "answer": "The newtype pattern wraps a primitive type in a struct, creating a distinct type. This prevents accidentally passing AccountId where OrderId is expected since the compiler treats them as incompatible types."
+    },
+    {
+      "question": "Do type-driven patterns add runtime overhead?",
+      "answer": "No. All type-driven design patterns in Rust compile to zero-cost abstractions. Newtypes have the same size as their inner type, and phantom types are optimized away entirely."
+    },
+    {
+      "question": "When should I avoid type-driven design?",
+      "answer": "Consider alternatives when states are highly dynamic, transitions depend on runtime data, compile times become prohibitive, or the API complexity outweighs the safety benefits."
+    },
+    {
+      "question": "What is the difference between runtime and compile-time validation?",
+      "answer": "Runtime validation returns errors at execution time (Result or panic). Compile-time validation makes invalid states impossible to represent, so errors appear during compilation with better error messages."
+    },
+    {
+      "question": "Can type-driven design work with async code?",
+      "answer": "Yes. State types work seamlessly with async. The builder pattern shown in this skill includes async send() methods that are only available when the request is properly constructed."
+    }
+  ],
+  "seoKeywords": [
+    "Rust type-driven design",
+    "typestate pattern Rust",
+    "newtype pattern Rust",
+    "compile-time safety",
+    "Claude Code",
+    "Rust design patterns",
+    "Rust type system",
+    "phantom types Rust"
+  ],
+  "sourceUrl": "https://github.com/EmilLindfors/claude-marketplace/tree/main/plugins/rust-modern-patterns/skills/type-driven-design",
+  "sourceType": "community",
+  "dependencies": []
+}

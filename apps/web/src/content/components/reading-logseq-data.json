@@ -1,0 +1,142 @@
+{
+  "name": "reading-logseq-data",
+  "type": "skill",
+  "description": "Expert in reading data from Logseq DB graphs via HTTP API or CLI. Auto-invokes when users want to fetch pages, blocks, or properties from Logseq, execute Datalog queries against their graph, search content, or retrieve backlinks and relationships. Provides the logseq-client library for operations.\n",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "Logseq DB",
+  "quality": 5,
+  "qualityReason": "Specific knowledge graph data access skill",
+  "bundleHints": [
+    "knowledge-management",
+    "data-query",
+    "graph-databases"
+  ],
+  "tags": [
+    "blocks",
+    "database",
+    "datalog",
+    "http-api",
+    "knowledge-base",
+    "knowledge-graph",
+    "logseq",
+    "query"
+  ],
+  "capabilities": [
+    "Fetch pages and blocks from Logseq graphs via HTTP API or CLI",
+    "Execute Datalog queries against the local Logseq database",
+    "Search content across all blocks in a graph",
+    "Retrieve backlinks and page references",
+    "Get page and block properties and metadata",
+    "Auto-detect available backends (HTTP API or CLI)"
+  ],
+  "author": "C0ntr0lledCha0s",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Read-only data access skill for Logseq knowledge graphs. All 175 static findings are false positives: backticks in markdown are Clojure/Datalog syntax examples, subprocess calls invoke the Logseq CLI with hardcoded arguments, and URLs are localhost endpoints. Environment access is limited to Logseq-specific configuration variables only.",
+  "valueStatement": "Users need to extract and query data from their Logseq knowledge graphs. This skill provides a unified Python client library for fetching pages, blocks, properties, and executing advanced Datalog queries against local Logseq graphs via HTTP API or CLI.",
+  "userTitle": "Read Logseq data and execute Datalog queries",
+  "limitations": [
+    "Write operations are not supported - this is a read-only skill",
+    "Requires Logseq to be running with API enabled or CLI installed",
+    "Cannot query remote Logseq graphs - only local graphs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Knowledge Workers",
+      "title": "Query personal knowledge base",
+      "description": "Extract and analyze notes, tasks, and references from personal Logseq knowledge graphs for research and planning."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Build Logseq integrations",
+      "description": "Use the Python client library to read data from Logseq for custom workflows, automation, and reporting."
+    },
+    {
+      "targetUser": "Researchers",
+      "title": "Analyze linked references",
+      "description": "Find backlinks, trace relationships, and run complex queries to discover connections across knowledge bases."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Get a page",
+      "scenario": "Fetching specific page content",
+      "prompt": "Get the page titled \"[Page Title]\" from my Logseq graph and show its properties and blocks."
+    },
+    {
+      "title": "Find by property",
+      "scenario": "Filtering by custom properties",
+      "prompt": "Find all pages tagged as \"[Tag Name]\" where the property [Property Name] is greater than [Value]."
+    },
+    {
+      "title": "List backlinks",
+      "scenario": "Finding page references",
+      "prompt": "Show me all blocks that reference the page \"[Page Title]\" and which pages they belong to."
+    },
+    {
+      "title": "Complex aggregation",
+      "scenario": "Advanced analytics",
+      "prompt": "Count all tasks by status and show which pages have the most incomplete tasks. Use Datalog aggregation."
+    }
+  ],
+  "bestPractices": [
+    "Use specific pull patterns in Datalog queries to fetch only needed fields instead of wildcard selections",
+    "Include filtering clauses early in queries to reduce result sets before processing",
+    "Batch multiple item lookups into single queries using the :in clause with list parameters"
+  ],
+  "antiPatterns": [
+    "Fetching entire graphs with unbounded queries that can cause memory issues",
+    "Ignoring error handling for connection failures when Logseq is not running",
+    "Running expensive queries during interactive sessions without limit parameters"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill require Logseq to be running?",
+      "answer": "Yes. For HTTP API mode, Logseq must be running with API enabled on localhost port 12315. For CLI mode, the logseq binary must be installed."
+    },
+    {
+      "question": "What types of queries can I run?",
+      "answer": "This skill supports full Datalog queries including filtering, aggregations, recursive queries, and complex joins across pages and blocks."
+    },
+    {
+      "question": "Can I write data back to Logseq?",
+      "answer": "No. This skill is read-only. Use the writing-logseq-data skill for write operations like creating pages or updating properties."
+    },
+    {
+      "question": "Is my data sent to external servers?",
+      "answer": "No. All data stays on your machine. HTTP requests go to localhost (127.0.0.1:12315) and CLI queries access local graph files only."
+    },
+    {
+      "question": "Why does my query return no results?",
+      "answer": "Check that Logseq is running with API enabled, your graph is loaded, and your query uses correct entity attributes like :block/title."
+    },
+    {
+      "question": "How is this different from direct file access?",
+      "answer": "This skill uses Logseq official API which understands the graph schema, relationships, and properties that raw files do not expose."
+    }
+  ],
+  "seoKeywords": [
+    "claude code logseq skill",
+    "logseq datalog query",
+    "claude logseq integration",
+    "read logseq database",
+    "logseq API client",
+    "logseq knowledge graph",
+    "claude code data skills",
+    "logseq graph queries",
+    "logseq data extraction",
+    "claude code database skills"
+  ],
+  "sourceUrl": "https://github.com/C0ntr0lledCha0s/claude-code-plugin-automations/tree/main/logseq-expert/skills/reading-logseq-data",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,135 @@
+{
+  "name": "writing-config-files",
+  "type": "skill",
+  "description": "Use this skill when you need to write configuration files in `src/config` for the Next.js app",
+  "domain": "web-development",
+  "subdomain": "fullstack",
+  "specialty": "Next.js config",
+  "quality": 5,
+  "qualityReason": "Specific to app structure",
+  "bundleHints": [
+    "nextjs-stack",
+    "fullstack-patterns",
+    "config-management"
+  ],
+  "tags": [
+    "configuration",
+    "file-structure",
+    "modular",
+    "nextjs",
+    "src-config",
+    "typescript"
+  ],
+  "capabilities": [
+    "Generate new configuration files in src/config directory",
+    "Create modular config files with single responsibility",
+    "Enforce 50-line maximum per configuration file",
+    "Separate related configs into multiple focused files"
+  ],
+  "author": "Emz1998",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged markdown backticks as shell command patterns and misidentified YAML content as cryptographic code. Manual review confirms these are false positives. The SKILL.md file contains only YAML frontmatter and markdown documentation with no actual code execution, cryptographic operations, or security risks.",
+  "valueStatement": "Create clean, maintainable configuration files for Next.js applications. This skill enforces modular patterns and follows best practices for organizing app settings.",
+  "userTitle": "Write modular config files",
+  "limitations": [
+    "Only writes files in src/config directory",
+    "Does not modify existing configuration files",
+    "Does not validate configuration values",
+    "Does not read or analyze existing configs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Feature developers adding new settings",
+      "title": "Add new app settings",
+      "description": "Create a new configuration file for feature flags, API endpoints, or theme settings"
+    },
+    {
+      "targetUser": "DevOps engineers managing deployments",
+      "title": "Organize environment configs",
+      "description": "Create modular environment-based configuration files for different deployment targets"
+    },
+    {
+      "targetUser": "Team leads establishing code standards",
+      "title": "Standardize team configs",
+      "description": "Generate configuration files that follow team conventions for consistency"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic config request",
+      "prompt": "Write a config file for [describe the configuration purpose] in src/config/[file-name].ts"
+    },
+    {
+      "title": "Feature-specific config",
+      "prompt": "Create a modular config file for [feature name] with all related settings. Place it in src/config and keep each config item in its own file."
+    },
+    {
+      "title": "Type-safe config",
+      "prompt": "Write a TypeScript config file for [configuration area] with proper type definitions. Export a single config object and keep file under 50 lines."
+    },
+    {
+      "title": "Multi-file config",
+      "prompt": "Set up a config module for [feature] with separate files for each config concern. Each file should contain one function or constant and stay under 50 lines."
+    }
+  ],
+  "bestPractices": [
+    "Keep each config file focused on a single concern",
+    "Use TypeScript types for configuration validation",
+    "Export config values as constants or getter functions",
+    "Limit file size to under 50 lines for maintainability"
+  ],
+  "antiPatterns": [
+    "Combining unrelated settings in one file",
+    "Exceeding 50 lines per config file",
+    "Mixing configuration with business logic",
+    "Using any types instead of proper TypeScript types"
+  ],
+  "faq": [
+    {
+      "question": "What directories can this skill write to?",
+      "answer": "This skill writes configuration files to the src/config directory only."
+    },
+    {
+      "question": "Does this skill modify existing files?",
+      "answer": "No, this skill only creates new configuration files. It does not modify or delete existing files."
+    },
+    {
+      "question": "What file formats are supported?",
+      "answer": "The skill creates TypeScript (.ts) files with proper type definitions."
+    },
+    {
+      "question": "How are configuration values validated?",
+      "answer": "The skill uses TypeScript types to define configuration shapes but does not validate runtime values."
+    },
+    {
+      "question": "Can I create nested config directories?",
+      "answer": "The skill follows a flat structure in src/config. For nested configurations, consider subdirectories within src/config."
+    },
+    {
+      "question": "Does this skill handle environment variables?",
+      "answer": "The skill can reference environment variables in config files but does not read or validate them directly."
+    }
+  ],
+  "seoKeywords": [
+    "Claude skill",
+    "Claude Code",
+    "Next.js configuration",
+    "config files",
+    "TypeScript config",
+    "app settings",
+    "code style",
+    "developer tools"
+  ],
+  "sourceUrl": "https://github.com/Emz1998/nexly-notes/tree/main/archive/skills/code-style/config",
+  "sourceType": "community",
+  "dependencies": []
+}

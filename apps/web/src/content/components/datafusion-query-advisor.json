@@ -1,0 +1,145 @@
+{
+  "name": "datafusion-query-advisor",
+  "type": "skill",
+  "description": "Reviews SQL queries and DataFrame operations for optimization opportunities including predicate pushdown, partition pruning, column projection, and join ordering. Activates when users write DataFusion queries or experience slow query performance.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "query optimization",
+  "quality": 5,
+  "qualityReason": "Specific optimization for DataFusion",
+  "bundleHints": [
+    "data-optimization",
+    "query-engine"
+  ],
+  "tags": [
+    "apache-arrow",
+    "dataframe",
+    "datafusion",
+    "join-order",
+    "predicate-pushdown",
+    "projection",
+    "pruning",
+    "query-performance",
+    "sql",
+    "sql-optimization"
+  ],
+  "capabilities": [
+    "Analyzes SQL queries for predicate pushdown optimization opportunities",
+    "Identifies missing partition pruning in Hive-style partitioned data",
+    "Recommends column projection to avoid reading unnecessary columns",
+    "Suggests join order improvements and broadcast join strategies",
+    "Provides rewritten query examples with performance explanations",
+    "Guides users through EXPLAIN plan analysis"
+  ],
+  "author": "EmilLindfors",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. This is a documentation-only skill containing SQL and Rust code examples for educational purposes. The detected 'external_commands' patterns are markdown inline code formatting (backticks), not actual shell execution. No executable code exists that could pose security risks.",
+  "valueStatement": "Slow DataFusion queries waste resources and time. This skill analyzes SQL and DataFrame operations to identify performance issues and suggest concrete optimizations for predicate pushdown, partition pruning, column projection, and join ordering.",
+  "userTitle": "Optimize DataFusion SQL Queries",
+  "limitations": [
+    "Cannot access actual query execution to measure real performance",
+    "Does not have access to data schemas or statistics",
+    "Cannot modify user code directly, only provides suggestions",
+    "Limited to patterns described in the skill documentation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data engineers and analysts using Apache DataFusion",
+      "title": "Improve Slow DataFusion Queries",
+      "description": "When a user reports a slow DataFusion query, analyze the SQL or DataFrame code and suggest concrete optimizations like moving filters to the SQL layer for predicate pushdown, adding partition column filters, or selecting only required columns."
+    },
+    {
+      "targetUser": "Developers learning DataFusion optimization",
+      "title": "Learn Query Optimization Patterns",
+      "description": "A developer new to DataFusion wants to understand best practices for writing efficient queries. The skill provides educational examples showing good versus bad patterns with explanations of why certain approaches are faster."
+    },
+    {
+      "targetUser": "Data engineers preparing production workloads",
+      "title": "Review Query Before Production",
+      "description": "Before deploying a DataFusion query to production, have the skill review it for common anti-patterns like late filtering, missing statistics collection, or inefficient join strategies."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Query Review",
+      "prompt": "Review this DataFusion query for optimization opportunities:\n\n```sql\n{query}\n```\n\nLook for issues with predicate pushdown, partition pruning, column projection, and join ordering. Provide specific suggestions with rewritten queries.",
+      "scenario": "User shares a SQL query and wants optimization advice"
+    },
+    {
+      "title": "DataFrame API Analysis",
+      "prompt": "Analyze this DataFrame code for performance issues:\n\n```rust\n{code}\n```\n\nSuggest improvements for predicate pushdown, filtering placement, and memory-efficient operations like using execute_stream instead of collect.",
+      "scenario": "User shares Rust DataFrame code using the DataFusion Rust API"
+    },
+    {
+      "title": "EXPLAIN Plan Review",
+      "prompt": "Review this EXPLAIN output and identify performance bottlenecks:\n\n{explain_output}\n\nPoint out any full table scans, missing predicate pushdown, or inefficient join strategies with specific recommendations.",
+      "scenario": "User wants help interpreting an EXPLAIN plan"
+    },
+    {
+      "title": "Pattern Comparison",
+      "prompt": "Compare these two approaches for {use_case} and explain which is more efficient and why:\n\nApproach 1:\n{snippet1}\n\nApproach 2:\n{snippet2}",
+      "scenario": "User wants to understand trade-offs between different query patterns"
+    }
+  ],
+  "bestPractices": [
+    "Always use EXPLAIN to verify that filters are pushed down to the TableScan node and partitions are being pruned",
+    "Filter early and often - apply WHERE clauses as early as possible in your query to reduce data volume",
+    "Select only the columns you need using explicit column lists instead of SELECT * for better I/O performance"
+  ],
+  "antiPatterns": [
+    "Using SELECT * on wide tables when you only need a few columns - this causes unnecessary I/O",
+    "Filtering data in application code after calling collect() - move filters to SQL for predicate pushdown",
+    "Joining large tables without considering broadcast joins for small dimension tables"
+  ],
+  "faq": [
+    {
+      "question": "What is predicate pushdown and why does it matter?",
+      "answer": "Predicate pushdown moves filter operations from the query engine to the storage layer. This allows DataFusion to skip reading entire files or row groups that do not match the filter, significantly reducing I/O and improving query speed."
+    },
+    {
+      "question": "How does partition pruning work in DataFusion?",
+      "answer": "For Hive-style partitioned data, DataFusion can skip reading entire partitions when filters match partition column values. Include filters on partition columns (year, month, day) to enable this optimization."
+    },
+    {
+      "question": "When should I use execute_stream instead of collect()?",
+      "answer": "Use execute_stream when processing large result sets that may not fit in memory. Stream processing fetches batches incrementally while collect() loads all data into memory at once, which can cause OOM errors."
+    },
+    {
+      "question": "What is column projection?",
+      "answer": "Column projection is the optimization where DataFusion reads only the columns specified in SELECT rather than entire rows. With columnar formats like Parquet, this reduces I/O significantly for tables with many columns."
+    },
+    {
+      "question": "How do I check if my query optimizations are working?",
+      "answer": "Run EXPLAIN or EXPLAIN ANALYZE to see the query plan. Look for TableScan nodes with filters pushed down and verify that only necessary columns are being read. Partition pruning appears as skipped partitions in the plan."
+    },
+    {
+      "question": "What is a broadcast join and when should I use it?",
+      "answer": "A broadcast join loads a small table into memory and broadcasts it to all executor nodes, avoiding a shuffle operation. Use broadcast joins when joining a large table with a small dimension table (typically under 100MB) for better performance."
+    }
+  ],
+  "seoKeywords": [
+    "DataFusion query optimization",
+    "SQL performance tuning",
+    "predicate pushdown",
+    "partition pruning",
+    "column projection",
+    "join optimization",
+    "DataFrame operations",
+    "Apache Arrow",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/EmilLindfors/claude-marketplace/tree/main/plugins/rust-data-engineering/skills/datafusion-query-advisor",
+  "sourceType": "community",
+  "dependencies": []
+}

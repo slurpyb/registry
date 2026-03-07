@@ -1,0 +1,142 @@
+{
+  "name": "nestjs-expert",
+  "type": "skill",
+  "description": "Nest.js framework expert specializing in module architecture, dependency injection, middleware, guards, interceptors, testing with Jest/Supertest, TypeORM/Mongoose integration, and Passport.js authentication. Use PROACTIVELY for any Nest.js application issues including architecture decisions, testing strategies, performance optimization, or debugging complex dependency injection problems. If a specialized expert is a better fit, I will recommend switching and stop.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "NestJS framework",
+  "quality": 5,
+  "qualityReason": "Deep framework specialization",
+  "bundleHints": [
+    "node-backend",
+    "nestjs-stack"
+  ],
+  "tags": [
+    "backend",
+    "dependency-injection",
+    "framework",
+    "middleware",
+    "nestjs",
+    "node.js",
+    "nodejs",
+    "testing",
+    "typescript"
+  ],
+  "capabilities": [
+    "Diagnose NestJS dependency injection issues and circular dependency problems",
+    "Guide module architecture decisions and provider configuration",
+    "Implement authentication with Passport.js and JWT strategies",
+    "Set up testing with Jest including unit, integration, and e2e tests",
+    "Configure TypeORM entities, relationships, and migrations",
+    "Debug common NestJS errors from GitHub issues and Stack Overflow"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill provides documentation and CLI command references for Nest.js development - standard patterns for a framework expert skill. No malicious code execution, credential exfiltration, or cryptographic vulnerabilities exist. External commands are documented CLI tools, network URLs are official documentation links, and environment variable references are legitimate configuration guidance.",
+  "valueStatement": "NestJS developers face complex architectural challenges including dependency injection, module organization, and authentication setup. This skill provides expert guidance on NestJS patterns, testing strategies, and common issue resolution.",
+  "userTitle": "Build Enterprise NestJS Applications",
+  "limitations": [
+    "Does not write complete applications - provides guidance and code patterns",
+    "Cannot access external APIs or run live database queries",
+    "Limited to NestJS framework - not a general-purpose coding assistant"
+  ],
+  "useCases": [
+    {
+      "targetUser": "NestJS developers debugging runtime errors",
+      "title": "Fix NestJS Dependency Injection Errors",
+      "description": "Resolve 'Cannot resolve dependencies' errors by identifying missing providers, incorrect module exports, or circular dependencies."
+    },
+    {
+      "targetUser": "Developers implementing authentication in NestJS",
+      "title": "Set Up JWT Authentication",
+      "description": "Configure Passport.js strategies with JWT, proper guard implementation, and token validation."
+    },
+    {
+      "targetUser": "Developers establishing testing patterns",
+      "title": "Write Comprehensive Tests",
+      "description": "Create unit tests with mocks, integration tests with test database, and e2e tests with Supertest."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Fix Circular Dependency",
+      "prompt": "I'm getting 'Circular dependency detected' error in my NestJS application between UserService and AuthService. Help me resolve this using forwardRef() or refactor the architecture.",
+      "scenario": "Debugging dependency injection errors"
+    },
+    {
+      "title": "Set Up JWT Auth",
+      "prompt": "I need to implement JWT authentication in my NestJS app with Passport.js. Show me how to configure the JwtStrategy, JwtModule, and AuthGuard.",
+      "scenario": "Implementing authentication"
+    },
+    {
+      "title": "Write Unit Tests",
+      "prompt": "Help me write unit tests for my UserService using Jest. It depends on UserRepository and JwtService. Show me proper mocking.",
+      "scenario": "Testing NestJS services"
+    },
+    {
+      "title": "Configure TypeORM Entities",
+      "prompt": "I have a User entity with relationships to Posts and Comments. Show me how to configure OneToMany and ManyToOne relationships in TypeORM with NestJS.",
+      "scenario": "Database integration"
+    }
+  ],
+  "bestPractices": [
+    "Use dependency injection to keep services loosely coupled and testable",
+    "Follow the modular architecture: one feature module per domain entity",
+    "Always validate DTOs using class-validator and class-transformer pipes"
+  ],
+  "antiPatterns": [
+    "Avoid importing modules directly into controllers - use service injection",
+    "Do not skip validation pipes - always validate incoming request data",
+    "Avoid tight coupling between modules - use exports and interfaces"
+  ],
+  "faq": [
+    {
+      "question": "What is NestJS?",
+      "answer": "NestJS is a Node.js framework for building efficient, scalable server-side applications. It uses TypeScript and combines elements of OOP, FP, and FRP."
+    },
+    {
+      "question": "How do I fix circular dependencies in NestJS?",
+      "answer": "Use forwardRef() on both sides of the circular dependency, or refactor to extract shared logic into a third module."
+    },
+    {
+      "question": "How do I test NestJS services?",
+      "answer": "Use @nestjs/testing to create Test.createTestingModule(). Mock dependencies using useValue or useClass, then compile and test the service."
+    },
+    {
+      "question": "What is the difference between guards and interceptors?",
+      "answer": "Guards determine if a route can be accessed (authorization). Interceptors transform requests/responses or add extra logic before/after method execution."
+    },
+    {
+      "question": "How do I configure TypeORM with NestJS?",
+      "answer": "Use @nestjs/typeorm package. Import TypeOrmModule.forRoot() in AppModule and TypeOrmModule.forFeature() in feature modules with entity arrays."
+    },
+    {
+      "question": "Can this skill write complete applications?",
+      "answer": "This skill provides expert guidance, code patterns, and troubleshooting. It helps you understand and implement NestJS solutions rather than generating complete applications."
+    }
+  ],
+  "seoKeywords": [
+    "NestJS",
+    "NestJS expert",
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "Node.js framework",
+    "TypeScript backend",
+    "NestJS tutorial",
+    "NestJS testing",
+    "NestJS authentication"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/nestjs-expert",
+  "sourceType": "community",
+  "dependencies": []
+}

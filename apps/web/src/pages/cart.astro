@@ -1,0 +1,16 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import Wrapper from "@/components/foundations/containers/Wrapper.astro"
+import { CartManager } from "@/components/react/CartManager"
+
+const seo = {
+  title: "Cart — OCX Registry",
+  description: "Build your custom OCX profile with selected components.",
+}
+---
+
+<BaseLayout seo={seo}>
+  <Wrapper class="py-8">
+    <CartManager client:only="react" />
+  </Wrapper>
+</BaseLayout>

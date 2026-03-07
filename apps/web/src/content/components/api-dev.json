@@ -1,0 +1,141 @@
+{
+  "name": "api-dev",
+  "type": "skill",
+  "description": "Modern API development patterns for building high-performance, scalable web services. Expert in async/await patterns, REST/GraphQL APIs, middleware, error handling, rate limiting, OpenAPI documentation, testing, and production optimizations. Framework-agnostic patterns that work with Python, Node.js, Go, and other languages.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "high-performance APIs",
+  "quality": 5,
+  "qualityReason": "Comprehensive modern API development guide",
+  "bundleHints": [
+    "backend-api",
+    "performance",
+    "fullstack-dev"
+  ],
+  "tags": [
+    "api",
+    "async",
+    "backend",
+    "middleware",
+    "performance",
+    "rate-limiting",
+    "rest"
+  ],
+  "capabilities": [
+    "Design RESTful and GraphQL APIs with modern patterns",
+    "Implement async/await patterns with connection pooling",
+    "Add rate limiting with Redis sliding window algorithm",
+    "Create circuit breaker for fault tolerance",
+    "Generate OpenAPI/Swagger documentation",
+    "Write async API tests with pytest and httpx"
+  ],
+  "author": "Azeem-2",
+  "icon": "🔌",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing example code patterns for API development. Static scanner flagged standard patterns (HTTP clients, connection strings, pickle serialization) as suspicious, but these are legitimate examples in documentation. No malicious intent found. Original audit correctly rated this skill safe.",
+  "valueStatement": "Building scalable APIs requires mastering async patterns, error handling, and rate limiting. This skill provides ready-to-use code patterns for circuit breakers, caching, testing, and production configurations that work across Python, Node.js, and Go.",
+  "userTitle": "Build High-Performance REST APIs",
+  "limitations": [
+    "Does not generate complete API projects from templates",
+    "Does not connect to databases or external services",
+    "Does not deploy or configure production infrastructure"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Build production APIs",
+      "description": "Implement async APIs with proper error handling, rate limiting, and circuit breakers for production reliability."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Configure API monitoring",
+      "description": "Set up Prometheus metrics, structured logging, health checks, and performance optimization for API services."
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Create API tests",
+      "description": "Write comprehensive unit and integration tests for API endpoints with mocking and pagination validation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create async API client",
+      "scenario": "Need HTTP client with retry logic",
+      "prompt": "Create an async API client in Python with connection pooling, retry logic, and metrics tracking for high-performance HTTP requests."
+    },
+    {
+      "title": "Add rate limiting",
+      "scenario": "Protect API from abuse",
+      "prompt": "Implement rate limiting middleware using Redis sliding window algorithm with configurable limits per user or IP address."
+    },
+    {
+      "title": "Design API versioning",
+      "scenario": "Multiple API versions needed",
+      "prompt": "Design an API versioning strategy supporting header-based, URL path-based, and query parameter-based version detection."
+    },
+    {
+      "title": "Set up API testing",
+      "scenario": "Need comprehensive test coverage",
+      "prompt": "Write async API tests using pytest and httpx including unit tests, integration tests, and rate limiting validation."
+    }
+  ],
+  "bestPractices": [
+    "Always use connection pooling with limits to prevent resource exhaustion",
+    "Implement circuit breakers to prevent cascade failures in distributed systems",
+    "Use structured logging with correlation IDs for API request tracing"
+  ],
+  "antiPatterns": [
+    "Making synchronous HTTP calls in async handlers",
+    "Skipping rate limiting on public API endpoints",
+    "Not validating input schema before processing requests"
+  ],
+  "faq": [
+    {
+      "question": "Which programming languages are supported?",
+      "answer": "Patterns work with Python, Node.js, Go, and other languages. Code examples focus on Python async patterns."
+    },
+    {
+      "question": "What are the performance limits for rate limiting?",
+      "answer": "Default is 100 requests per minute with configurable limits. Redis-backed implementation supports high concurrency."
+    },
+    {
+      "question": "How do I integrate with existing frameworks?",
+      "answer": "Patterns are framework-agnostic. Examples show FastAPI and aiohttp but concepts apply to Express, Gin, and others."
+    },
+    {
+      "question": "Is my data safe when using these patterns?",
+      "answer": "Yes. This skill only provides patterns. No data leaves your environment when implementing these patterns."
+    },
+    {
+      "question": "Why is my async API running slowly?",
+      "answer": "Check for blocking synchronous calls, missing connection pooling, or unoptimized database queries in async contexts."
+    },
+    {
+      "question": "How does this compare to Express.js or FastAPI directly?",
+      "answer": "This skill provides patterns that work within any framework. FastAPI and Express handle routing while patterns add reliability."
+    }
+  ],
+  "seoKeywords": [
+    "API development patterns",
+    "REST API design",
+    "async await patterns",
+    "Claude Code API skill",
+    "API rate limiting",
+    "OpenAPI documentation",
+    "API testing patterns",
+    "circuit breaker pattern",
+    "API performance optimization",
+    "GraphQL API patterns"
+  ],
+  "sourceUrl": "https://github.com/Azeem-2/HackthonII/tree/master/.claude/skills/api-dev",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "dotnet-backend-patterns",
+  "type": "skill",
+  "description": "Master C#/.NET backend development patterns for building robust APIs, MCP servers, and enterprise applications. Covers async/await, dependency injection, Entity Framework Core, Dapper, configuration, caching, and testing with xUnit. Use when developing .NET backends, reviewing C# code, or designing API architectures.",
+  "domain": "languages",
+  "subdomain": "csharp",
+  "specialty": "C# backend patterns",
+  "quality": 5,
+  "qualityReason": "Deep language expertise",
+  "bundleHints": [
+    ".net-stack",
+    "backend-patterns"
+  ],
+  "tags": [
+    "api",
+    "async",
+    "backend",
+    "csharp",
+    "dependency-injection",
+    "dotnet",
+    "ef-core"
+  ],
+  "capabilities": [
+    "Generate repository and service layer templates following clean architecture",
+    "Optimize EF Core queries with AsNoTracking, Include, and compiled queries",
+    "Implement Dapper patterns for high-performance data access",
+    "Configure dependency injection with proper lifetime management",
+    "Design caching strategies using Redis and memory cache",
+    "Apply specification pattern for complex query composition"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 134 static analysis findings are false positives. The 'backtick execution' patterns (87 locations) are markdown code fences in documentation files. The 'weak cryptographic algorithm' findings (11 locations) are LINQ Expression<Func> patterns for the Specification pattern. The 'system reconnaissance' and 'filesystem' findings are normal C# property access and YAML frontmatter. This is a legitimate educational skill containing documentation and code examples for .NET backend development.",
+  "valueStatement": "Developing enterprise .NET applications requires mastering complex patterns for data access, dependency injection, and clean architecture. This skill provides battle-tested patterns for EF Core, Dapper, caching, and resilient API design.",
+  "userTitle": "Build production .NET backends with modern patterns",
+  "limitations": [
+    "Focused on .NET/C# projects only - not applicable to other languages",
+    "Provides backend patterns only - does not cover frontend or UI development",
+    "Code examples assume .NET 6+ and modern C# features",
+    "Does not replace hands-on testing or code review processes"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers starting new .NET projects",
+      "title": "Greenfield API Development",
+      "description": "Build a new REST API from scratch with proper layering, dependency injection, and data access patterns."
+    },
+    {
+      "targetUser": "Technical leads managing legacy system migration",
+      "title": "Legacy Code Modernization",
+      "description": "Refactor existing .NET Framework code to modern .NET patterns with improved performance and maintainability."
+    },
+    {
+      "targetUser": "Senior developers conducting code reviews",
+      "title": "Performance Optimization Review",
+      "description": "Review and optimize existing data access code for EF Core or Dapper-based applications."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Repository Pattern Setup",
+      "prompt": "Create a repository pattern implementation for a Product entity with CRUD operations using Entity Framework Core. Include async methods, proper disposal, and follow clean architecture principles."
+    },
+    {
+      "title": "Query Optimization Review",
+      "prompt": "Review this EF Core query for performance issues. Identify N+1 problems, missing AsNoTracking calls, and opportunities for projection. Suggest optimized alternatives.",
+      "scenario": "Code review scenario with existing inefficient query"
+    },
+    {
+      "title": "Dapper Micro-ORM Implementation",
+      "prompt": "Implement a Dapper-based repository for high-performance read operations. Include connection management, parameter handling, and multi-mapping for joined tables.",
+      "scenario": "High-traffic read endpoint requiring maximum performance"
+    },
+    {
+      "title": "Clean Architecture Service Layer",
+      "prompt": "Design a service layer that orchestrates repository calls, caching, and validation. Apply dependency injection, CQRS separation, and resilience patterns for external calls.",
+      "scenario": "Building application layer in clean architecture solution"
+    }
+  ],
+  "bestPractices": [
+    "Use AsNoTracking for read-only queries to reduce memory overhead",
+    "Register database contexts and connections as Scoped lifetime in DI",
+    "Apply the specification pattern for complex, composable query criteria"
+  ],
+  "antiPatterns": [
+    "Synchronous database calls in async code paths - always use Async methods",
+    "Loading entire entities when only specific columns are needed",
+    "Allowing lazy loading to trigger N+1 query problems"
+  ],
+  "faq": [
+    {
+      "question": "When should I use Dapper instead of EF Core?",
+      "answer": "Use Dapper for performance-critical queries, complex SQL (CTEs, window functions), or read-heavy workloads. Use EF Core for rich domain models with relationships, change tracking needs, or when you prefer LINQ-to-SQL translation."
+    },
+    {
+      "question": "What is the specification pattern and when should I use it?",
+      "answer": "The specification pattern encapsulates query criteria in reusable classes. Use it for complex queries that are reused across your application, or when you need composable filter criteria with paging and sorting."
+    },
+    {
+      "question": "How do I prevent N+1 query problems in EF Core?",
+      "answer": "Use Include for eager loading related data, avoid lazy loading in loops, and use AsSplitQuery when including multiple collections to prevent cartesian explosion."
+    },
+    {
+      "question": "What is the recommended service lifetime for DbContext?",
+      "answer": "Scoped lifetime is recommended for DbContext in web applications. This ensures one instance per HTTP request, which is required for change tracking and identity map patterns."
+    },
+    {
+      "question": "How can I improve EF Core query performance?",
+      "answer": "Use AsNoTracking for read-only queries, project to DTOs with Select, use compiled queries for hot paths, apply proper indexing, and avoid client-side evaluation by ensuring queries can translate to SQL."
+    },
+    {
+      "question": "What caching strategy should I implement?",
+      "answer": "Use memory caching for small, frequently accessed data within a single instance. Use Redis for distributed caching across multiple instances. Always set expiration times and have cache miss fallback logic."
+    }
+  ],
+  "seoKeywords": [
+    ".NET backend patterns",
+    "C# API development",
+    "Entity Framework Core",
+    "Dapper ORM",
+    "Claude Code skills",
+    "Claude .NET assistant",
+    "Codex backend helper",
+    "clean architecture .NET",
+    "ASP.NET Core patterns",
+    "microservices C#"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dotnet-backend-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

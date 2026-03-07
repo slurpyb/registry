@@ -1,0 +1,138 @@
+{
+  "name": "lint-fixer",
+  "type": "skill",
+  "description": "Use this skill to run npm run lint and fix linting issues. Triggers on fixing lint errors after code changes or validating code against project style guidelines.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "fix linting",
+  "quality": 5,
+  "qualityReason": "Actionable, common need",
+  "bundleHints": [
+    "frontend-tooling",
+    "code-quality"
+  ],
+  "tags": [
+    "code-quality",
+    "javascript",
+    "linting",
+    "npm",
+    "typescript"
+  ],
+  "capabilities": [
+    "Run the npm run lint workflow in projects",
+    "Apply Biome and oxlint auto fixes for style issues",
+    "Run TypeScript type checking with tsgo",
+    "Run secretlint for secret and credential detection",
+    "Guide manual fixes for remaining lint errors"
+  ],
+  "author": "yamadashy",
+  "icon": "🧹",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill with no executable code. Contains only markdown documentation and JSON metadata files. The static findings are all false positives triggered by tool names, license identifiers, and hash fields in documentation - not actual malicious code or command execution. This skill describes a legitimate lint-fixing workflow.",
+  "valueStatement": "Lint failures slow down code reviews and block releases. This skill runs the project lint workflow and guides fixes while keeping code behavior unchanged.",
+  "userTitle": "Fix lint issues with project lint workflow",
+  "limitations": [
+    "Requires npm run lint to be configured in the project",
+    "Type errors from tsgo require manual fixes",
+    "Does not change code behavior to satisfy lint rules",
+    "Test execution depends on npm run test availability"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developer",
+      "title": "Pre merge lint cleanup",
+      "description": "Fix style and lint errors before opening a pull request."
+    },
+    {
+      "targetUser": "Tech lead",
+      "title": "Team lint consistency",
+      "description": "Apply standard lint fixes after shared refactors across the codebase."
+    },
+    {
+      "targetUser": "CI maintainer",
+      "title": "Reduce CI lint failures",
+      "description": "Guide contributors to resolve lint errors that block the CI pipeline."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Run lint and fix",
+      "scenario": "After code changes in a JS project",
+      "prompt": "Run npm run lint, list failures by tool, fix safe issues, and re run lint to confirm."
+    },
+    {
+      "title": "Type error focus",
+      "scenario": "Lint passes but tsgo fails",
+      "prompt": "Run npm run lint, focus on tsgo errors, explain each fix, and keep behavior unchanged."
+    },
+    {
+      "title": "Secretlint check",
+      "scenario": "Before releasing a build",
+      "prompt": "Run npm run lint, review secretlint results, and remove any detected secrets safely."
+    },
+    {
+      "title": "Strict lint pass",
+      "scenario": "CI fails on lint step",
+      "prompt": "Run npm run lint, apply Biome and oxlint auto fixes, then re run lint and summarize remaining issues."
+    }
+  ],
+  "bestPractices": [
+    "Review auto fixes before committing changes to ensure they match intent",
+    "Re run npm run lint after each fix round to track progress",
+    "Run npm run test after lint passes to verify no breakage"
+  ],
+  "antiPatterns": [
+    "Changing runtime behavior just to satisfy lint rules",
+    "Ignoring secretlint findings without reviewing them",
+    "Skipping the final lint rerun before committing"
+  ],
+  "faq": [
+    {
+      "question": "What projects are supported?",
+      "answer": "Projects that define npm run lint with Biome, oxlint, tsgo, and secretlint in package scripts."
+    },
+    {
+      "question": "What are the known limits?",
+      "answer": "Type errors from tsgo need manual fixes and are not auto resolved by the skill."
+    },
+    {
+      "question": "How do I integrate this in CI?",
+      "answer": "Use it before or after a CI lint step to guide fixes and verify the lint pass."
+    },
+    {
+      "question": "Does it access my private data?",
+      "answer": "No. It only runs project lint commands that already exist in your repository."
+    },
+    {
+      "question": "What if lint still fails after using this?",
+      "answer": "Check remaining errors, fix them manually, and re run npm run lint until it passes."
+    },
+    {
+      "question": "How is this different from a code formatter?",
+      "answer": "It runs multiple lint and type checking tools, not just formatting rules."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "lint fixer",
+    "npm run lint",
+    "Biome",
+    "oxlint",
+    "TypeScript lint",
+    "code quality",
+    "linting"
+  ],
+  "sourceUrl": "https://github.com/yamadashy/repomix/tree/main/.claude/skills/lint-fixer",
+  "sourceType": "community",
+  "dependencies": []
+}

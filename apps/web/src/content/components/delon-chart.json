@@ -1,0 +1,142 @@
+{
+  "name": "delon-chart",
+  "type": "skill",
+  "description": "@delon/chart skill - G2Plot enterprise charting components with @delon/chart. For ng-events construction site progress tracking system.",
+  "domain": "data",
+  "subdomain": "visualization",
+  "specialty": "enterprise charts",
+  "quality": 4,
+  "qualityReason": "Specific charting integration",
+  "bundleHints": [
+    "angular-dashboards",
+    "data-visualization",
+    "enterprise-analytics"
+  ],
+  "tags": [
+    "angular",
+    "charts",
+    "dashboard",
+    "data",
+    "enterprise-ui",
+    "g2plot",
+    "visualization"
+  ],
+  "capabilities": [
+    "Create chart card containers with titles and trend indicators",
+    "Build bar charts with custom heights and colors",
+    "Generate pie and donut charts with legends",
+    "Implement radar charts for multi-dimensional data",
+    "Display timeline charts for time-series data",
+    "Add trend indicators showing percentage changes"
+  ],
+  "author": "7Spade",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown content and TypeScript code examples. No executable code, scripts, network calls, or file system access. All 61 static findings are false positives caused by the scanner misinterpreting documentation patterns as security threats.",
+  "valueStatement": "Creating enterprise charts in Angular requires understanding G2Plot APIs and ng-alain patterns. This skill provides ready-to-use component patterns for bar, pie, radar, and timeline charts using @delon/chart.",
+  "userTitle": "Build Angular Charts with G2Plot",
+  "limitations": [
+    "Requires @delon/chart package installed in Angular project",
+    "Only supports ng-alain compatible Angular applications",
+    "Does not include chart export or image generation features",
+    "Limited to predefined chart types (bar, pie, radar, timeline)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Angular developers",
+      "title": "Build dashboard visualizations",
+      "description": "Create data dashboards with multiple chart types for business intelligence"
+    },
+    {
+      "targetUser": "Ng-alain users",
+      "title": "Add charts to admin interfaces",
+      "description": "Integrate enterprise charts into admin dashboards using component patterns"
+    },
+    {
+      "targetUser": "Data analysts",
+      "title": "Visualize task progress",
+      "description": "Display task status breakdowns and growth metrics with interactive charts"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic bar chart",
+      "scenario": "Creating a simple bar chart",
+      "prompt": "Show me how to create a bar chart with @delon/chart using Angular signals"
+    },
+    {
+      "title": "Pie chart with legend",
+      "scenario": "Creating a pie chart",
+      "prompt": "How do I create a pie chart with legend and donut option using @delon/chart"
+    },
+    {
+      "title": "Dashboard with multiple charts",
+      "scenario": "Building a dashboard",
+      "prompt": "Create a dashboard example with chart-card, bar chart, and pie chart components"
+    },
+    {
+      "title": "Performance optimization",
+      "scenario": "Optimizing chart performance",
+      "prompt": "What are the best practices for optimizing chart performance and handling large datasets"
+    }
+  ],
+  "bestPractices": [
+    "Use computed signals for reactive chart data instead of direct mutations",
+    "Transform data outside templates using computed() for better performance",
+    "Handle loading and empty states with @if blocks for better user experience"
+  ],
+  "antiPatterns": [
+    "Mutating chart data directly without using signals - use .update() method instead",
+    "Putting complex filtering logic in template bindings - use computed signals instead",
+    "Re-fetching data on every change detection cycle - memoize with computed signals"
+  ],
+  "faq": [
+    {
+      "question": "Which Angular versions are supported?",
+      "answer": "@delon/chart supports Angular 17+ with standalone components and signals for reactive data binding."
+    },
+    {
+      "question": "What chart types are available?",
+      "answer": "Bar, mini-bar, pie, radar, timeline, chart-card, and trend components are included in the library."
+    },
+    {
+      "question": "How do I install this package?",
+      "answer": "Run npm install @delon/chart@20.1.0 and import components directly in standalone Angular components."
+    },
+    {
+      "question": "Is data sent to external servers?",
+      "answer": "No. This is a client-side charting library. Data remains in your Angular application."
+    },
+    {
+      "question": "Why is my chart not updating?",
+      "answer": "Ensure you are using signals for data. Direct array mutations do not trigger change detection."
+    },
+    {
+      "question": "How does this compare to ng-zorro charts?",
+      "answer": "@delon/chart builds on @ant-design/charts (G2Plot) with Angular-specific wrappers for ng-alain projects."
+    }
+  ],
+  "seoKeywords": [
+    "@delon/chart",
+    "Angular charts",
+    "G2Plot",
+    "data visualization",
+    "ng-alain",
+    "Claude Code",
+    "Codex",
+    "claude",
+    "chart components",
+    "Angular dashboard"
+  ],
+  "sourceUrl": "https://github.com/7Spade/ng-dragon/tree/main/.github/skills/delon-chart",
+  "sourceType": "community",
+  "dependencies": []
+}

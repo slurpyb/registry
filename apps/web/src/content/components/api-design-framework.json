@@ -1,0 +1,145 @@
+{
+  "name": "api-design-framework",
+  "type": "skill",
+  "description": "Use this skill when designing REST, GraphQL, or gRPC APIs. Provides comprehensive API design patterns, versioning strategies, error handling conventions, authentication approaches, and OpenAPI/AsyncAPI templates. Ensures consistent, well-documented, and developer-friendly APIs across all backend services.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "comprehensive patterns",
+  "quality": 5,
+  "qualityReason": "Broad yet structured API design guide",
+  "bundleHints": [
+    "backend-api",
+    "api-framework",
+    "fullstack-dev"
+  ],
+  "tags": [
+    "api",
+    "authentication",
+    "backend",
+    "documentation",
+    "graphql",
+    "grpc",
+    "rest",
+    "versioning"
+  ],
+  "capabilities": [
+    "Design REST APIs following HTTP best practices and status code conventions",
+    "Create GraphQL schemas with connection patterns and mutation input types",
+    "Define gRPC services with protobuf message structures",
+    "Write OpenAPI 3.1 and AsyncAPI 3.0 specifications from templates",
+    "Implement API versioning strategies for backward compatibility",
+    "Design pagination, filtering, and rate limiting patterns"
+  ],
+  "author": "AI Agent Hub",
+  "icon": "🔌",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only Markdown guidance and YAML templates for API design. No executable code, no file system access beyond its own directory, no network calls, no code execution capabilities. All 300 static findings are false positives caused by the scanner misidentifying documentation patterns as security issues.",
+  "valueStatement": "APIs often suffer from inconsistent patterns and poor documentation. This framework provides proven design patterns, error handling conventions, and ready-to-use OpenAPI and AsyncAPI templates. Build developer-friendly APIs that scale.",
+  "userTitle": "Design REST, GraphQL, and gRPC APIs",
+  "limitations": [
+    "Does not generate implementation code or server stubs",
+    "Does not validate existing API specifications",
+    "Does not test API endpoints or generate test cases",
+    "Does not deploy or monitor APIs in production"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developers",
+      "title": "Design New APIs",
+      "description": "Create consistent, well-documented APIs from proven patterns and templates"
+    },
+    {
+      "targetUser": "System Architects",
+      "title": "Standardize API Patterns",
+      "description": "Establish team-wide conventions for REST, GraphQL, and gRPC services"
+    },
+    {
+      "targetUser": "Technical Writers",
+      "title": "Write API Documentation",
+      "description": "Generate OpenAPI and AsyncAPI specs with comprehensive examples"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic REST Design",
+      "scenario": "Design a user management API",
+      "prompt": "Design a REST API for user management. Include endpoints for listing users with pagination, creating users, updating profiles, and deleting accounts. Show proper status codes and error response format."
+    },
+    {
+      "title": "GraphQL Schema",
+      "scenario": "Create a GraphQL mutation",
+      "prompt": "Create a GraphQL mutation for creating an order. Include the input type, payload type with error handling, and show how to return field-level validation errors."
+    },
+    {
+      "title": "gRPC Definition",
+      "scenario": "Define a payment service",
+      "prompt": "Write a protobuf definition for a payment service. Include streaming support for real-time transaction updates and use appropriate gRPC status codes for error handling."
+    },
+    {
+      "title": "API Documentation",
+      "scenario": "Generate OpenAPI spec",
+      "prompt": "Generate an OpenAPI 3.1 specification for an e-commerce API. Include authentication with Bearer tokens, rate limiting headers, and comprehensive error responses with examples."
+    }
+  ],
+  "bestPractices": [
+    "Use plural nouns for resources and kebab-case for multi-word paths like /shopping-carts",
+    "Return appropriate HTTP status codes: 201 for creation, 204 for successful deletion with no content",
+    "Include pagination with cursor or offset-based pagination and include total counts",
+    "Design error responses with machine-readable codes and human-readable messages"
+  ],
+  "antiPatterns": [
+    "Using verbs in URLs like /getUsers or /createTodo - use HTTP methods instead",
+    "Ignoring HTTP semantics by using POST for all operations",
+    "Returning generic 500 errors without request IDs for debugging",
+    "Exposing internal database fields directly in API responses"
+  ],
+  "faq": [
+    {
+      "question": "What API styles does this skill support?",
+      "answer": "REST, GraphQL, and gRPC with dedicated guidance and templates for each approach."
+    },
+    {
+      "question": "What is the recommended versioning strategy?",
+      "answer": "URI versioning like /api/v1/users is recommended for public APIs for visibility and cache-friendliness."
+    },
+    {
+      "question": "How does this integrate with AI agents?",
+      "answer": "Agents reference this skill when designing APIs to apply consistent patterns and generate OpenAPI specs."
+    },
+    {
+      "question": "Does this skill store any data?",
+      "answer": "No. This is a read-only knowledge skill containing documentation and templates only."
+    },
+    {
+      "question": "Why use cursor-based pagination?",
+      "answer": "Cursor pagination provides consistent results even when data changes during pagination and works better for real-time data."
+    },
+    {
+      "question": "How is this different from code generation tools?",
+      "answer": "This focuses on API design patterns and documentation. It does not generate implementation code or server stubs."
+    }
+  ],
+  "seoKeywords": [
+    "API design",
+    "REST API",
+    "GraphQL",
+    "gRPC",
+    "OpenAPI specification",
+    "API documentation",
+    "API versioning",
+    "Claude Code",
+    "Claude",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/ArieGoldkin/ai-agent-hub/tree/main/skills/api-design-framework",
+  "sourceType": "community",
+  "dependencies": []
+}

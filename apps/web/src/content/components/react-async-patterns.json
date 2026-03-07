@@ -1,0 +1,143 @@
+{
+  "name": "react-async-patterns",
+  "type": "skill",
+  "description": "Async/await correctness in React with Zustand. Use when debugging race conditions, missing awaits, floating promises, or async timing issues. Works for both React web and React Native.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Async handling",
+  "quality": 5,
+  "qualityReason": "Specific async debugging in React contexts",
+  "bundleHints": [
+    "react-stack",
+    "state-management",
+    "debugging-tools"
+  ],
+  "tags": [
+    "async",
+    "debugging",
+    "race-conditions",
+    "react",
+    "react-native",
+    "timing",
+    "typescript",
+    "zustand"
+  ],
+  "capabilities": [
+    "Identify floating promises in async function calls",
+    "Apply post-condition validation after async operations",
+    "Detect hidden async patterns in Zustand actions",
+    "Choose between sequential and parallel async execution",
+    "Implement proper async patterns in useEffect hooks",
+    "Configure ESLint rules for async code quality"
+  ],
+  "author": "CJHarmath",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown guidance for React async patterns. No executable code, no file access, no network calls, no external commands. Contains only code examples and best practices. All 56 static findings are false positives from documentation patterns being misidentified as security issues.",
+  "valueStatement": "Async bugs in React often work in development but fail under load. This skill provides battle-tested patterns for floating promises, race conditions, and async timing issues with Zustand and React Query.",
+  "userTitle": "Fix React async bugs with proven patterns",
+  "limitations": [
+    "Does not execute code or modify your project files",
+    "Cannot debug live applications remotely",
+    "Does not replace testing or linting tools",
+    "Does not integrate with build tools or CI/CD pipelines"
+  ],
+  "useCases": [
+    {
+      "targetUser": "React Developers",
+      "title": "Debug async timing bugs",
+      "description": "Diagnose why data loads inconsistently or race conditions appear under load in production."
+    },
+    {
+      "targetUser": "Full-Stack Engineers",
+      "title": "Implement Zustand async actions",
+      "description": "Write async state management code that properly handles promises without race conditions."
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Catch async anti-patterns",
+      "description": "Review React codebases for missing awaits, unhandled promises, and async anti-patterns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Fix floating promise",
+      "scenario": "Async function not awaited",
+      "prompt": "I have an async function that seems to not be waiting properly. The function is called but the code after it runs before completion. Help me identify the floating promise and fix it."
+    },
+    {
+      "title": "Race condition help",
+      "scenario": "State updates out of order",
+      "prompt": "My React component has race conditions between state updates. Multiple async operations are interfering with each other. Show me how to properly sequence these operations."
+    },
+    {
+      "title": "useEffect async",
+      "scenario": "Async effect causing issues",
+      "prompt": "I need to fetch data in useEffect but useEffect cannot be async directly. Show me the correct pattern for async data loading with proper cleanup to avoid memory leaks."
+    },
+    {
+      "title": "Async Zustand pattern",
+      "scenario": "Zustand async state management",
+      "prompt": "I have a Zustand store with async actions. Some work correctly and others have timing issues. Help me identify hidden async patterns and apply the proper async Zustand action pattern."
+    }
+  ],
+  "bestPractices": [
+    "Always await async function calls or explicitly mark them as fire-and-forget with a comment",
+    "Validate post-conditions after async operations that subsequent code depends on",
+    "Use AbortController with fetch calls in useEffect for proper cancellation on unmount"
+  ],
+  "antiPatterns": [
+    "Calling async functions without await, return, or explicit fire-and-forget comment",
+    "Using Promise.all for operations that have dependencies or must run in sequence",
+    "Passing async callbacks directly to useEffect without inner async function pattern"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with React Native?",
+      "answer": "Yes. All patterns documented work for both React web and React Native. Zustand and React Query are fully compatible with React Native."
+    },
+    {
+      "question": "What async operations does this cover?",
+      "answer": "The skill covers API calls, database operations, file reads, promise chains, Zustand actions, and any async pattern involving JavaScript promises."
+    },
+    {
+      "question": "Can I use this with other state libraries?",
+      "answer": "Yes. The patterns for floating promises, race conditions, and useEffect async apply to Redux, Recoil, Jotai, and any React state management library."
+    },
+    {
+      "question": "Does this skill modify my code?",
+      "answer": "No. This skill provides guidance and examples only. It does not execute code, modify files, or integrate with your development environment."
+    },
+    {
+      "question": "What if my async bug is not covered?",
+      "answer": "Describe your specific async issue in detail. The skill provides patterns and debugging techniques that can be adapted to many async scenarios beyond the documented examples."
+    },
+    {
+      "question": "How is this different from React Query?",
+      "answer": "React Query is a library that handles async state management. This skill documents patterns for writing correct async code regardless of whether you use React Query, Zustand, or React state directly."
+    }
+  ],
+  "seoKeywords": [
+    "React async patterns",
+    "Zustand async",
+    "React race conditions",
+    "floating promises",
+    "async await React",
+    "TypeScript async",
+    "React Query patterns",
+    "useEffect async",
+    "Claude Code async",
+    "React debugging"
+  ],
+  "sourceUrl": "https://github.com/CJHarmath/claude-agents-skills/tree/main/skills/react-async-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

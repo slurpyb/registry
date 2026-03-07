@@ -1,0 +1,139 @@
+{
+  "name": "python-performance-optimization",
+  "type": "skill",
+  "description": "Profile and optimize Python code using cProfile, memory profilers, and performance best practices. Use when debugging slow Python code, optimizing bottlenecks, or improving application performance.",
+  "domain": "languages",
+  "subdomain": "python",
+  "specialty": "performance profiling",
+  "quality": 5,
+  "qualityReason": "Clear purpose and tools",
+  "bundleHints": [
+    "performance-stack",
+    "python-stack"
+  ],
+  "tags": [
+    "bottlenecks",
+    "cprofile",
+    "debugging",
+    "memory",
+    "memory-profiler",
+    "optimization",
+    "performance",
+    "profiling",
+    "python"
+  ],
+  "capabilities": [
+    "Profile Python code using cProfile, line_profiler, and memory_profiler",
+    "Identify CPU and memory bottlenecks with detailed call graphs",
+    "Apply optimization patterns including caching, generators, and vectorization",
+    "Optimize database queries with indexing and batch operations",
+    "Implement multiprocessing for CPU-bound and async I/O for I/O-bound tasks",
+    "Detect memory leaks using tracemalloc and garbage collection tools"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 68 patterns but all are false positives. The backtick detections are markdown code formatting, not shell execution. Network and URL findings are educational examples using test endpoints. SQLite references are documentation examples. System reconnaissance patterns are legitimate profiling tool demonstrations. This is a documentation-only skill with no executable code or security risks.",
+  "valueStatement": "Slow Python code wastes resources and frustrates users. This skill provides systematic profiling and optimization techniques to identify bottlenecks and improve performance.",
+  "userTitle": "Optimize Python code performance and profiling",
+  "limitations": [
+    "Requires Python code access for profiling and analysis",
+    "Optimization recommendations depend on specific use case context",
+    "Some tools require external package installation (line_profiler, memory_profiler)",
+    "Production profiling may require elevated system permissions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers maintaining Python web services",
+      "title": "Debug slow API endpoints",
+      "description": "Profile a web application to identify slow database queries and optimize response times."
+    },
+    {
+      "targetUser": "Data engineers working with large datasets",
+      "title": "Optimize data processing pipelines",
+      "description": "Analyze memory usage and execution time of ETL workflows to reduce resource consumption."
+    },
+    {
+      "targetUser": "Scientists and researchers running numerical computations",
+      "title": "Improve algorithm efficiency",
+      "description": "Profile computational code to identify inefficient patterns and apply appropriate optimizations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic profiling setup",
+      "prompt": "Help me profile this Python function to identify performance bottlenecks. Here is my code: [paste code]. Show me how to use cProfile to measure execution time and find slow functions."
+    },
+    {
+      "title": "Memory leak investigation",
+      "prompt": "My Python application uses increasing memory over time. Help me use memory_profiler and tracemalloc to identify memory leaks in this code: [paste code]. Explain what the output means."
+    },
+    {
+      "title": "Optimization recommendations",
+      "prompt": "I have profiled my code and found these bottlenecks: [paste profiling output]. Recommend specific optimization techniques and show before/after code examples for each suggestion."
+    },
+    {
+      "title": "Advanced production profiling",
+      "prompt": "Guide me through setting up py-spy to profile a running Python production service without stopping it. Explain how to generate flame graphs and interpret the results to find hot paths."
+    }
+  ],
+  "bestPractices": [
+    "Always profile before optimizing to identify actual bottlenecks, not assumed ones",
+    "Use appropriate data structures: dictionaries for lookups, sets for membership tests, generators for large sequences",
+    "Cache expensive computations with functools.lru_cache and batch I/O operations to reduce system call overhead"
+  ],
+  "antiPatterns": [
+    "Optimizing code without profiling data leads to wasted effort on non-bottlenecks",
+    "String concatenation in loops using + operator instead of join() causes quadratic time complexity",
+    "Loading entire files or datasets into memory when iterator-based processing would suffice"
+  ],
+  "faq": [
+    {
+      "question": "Which profiler should I use first?",
+      "answer": "Start with cProfile for overall CPU profiling. It is built into Python and shows which functions consume the most time. Use line_profiler for detailed line-by-line analysis of specific hot functions."
+    },
+    {
+      "question": "How do I profile production code without impacting performance?",
+      "answer": "Use py-spy, a sampling profiler that attaches to running processes with minimal overhead. It can generate flame graphs and does not require code changes or restarts."
+    },
+    {
+      "question": "Why is my optimized code slower than the original?",
+      "answer": "Common causes include premature optimization of cold paths, added complexity causing cache misses, or micro-optimizations that interfere with Python's internal optimizations. Always benchmark changes."
+    },
+    {
+      "question": "When should I use multiprocessing versus threading?",
+      "answer": "Use multiprocessing for CPU-bound tasks to bypass the GIL and utilize multiple cores. Use threading or asyncio for I/O-bound tasks where the GIL is released during I/O operations."
+    },
+    {
+      "question": "How can I reduce memory usage in my Python application?",
+      "answer": "Use generators instead of lists for large sequences, implement __slots__ in classes with many instances, avoid keeping unnecessary references, and use weak references for caches."
+    },
+    {
+      "question": "Is NumPy always faster than pure Python?",
+      "answer": "NumPy excels at vectorized numerical operations on large arrays due to C implementation. For small datasets or non-numerical tasks, pure Python may be simpler and equally fast."
+    }
+  ],
+  "seoKeywords": [
+    "Python performance optimization",
+    "cProfile profiling",
+    "memory profiler Python",
+    "Claude Code Python",
+    "Codex performance tuning",
+    "Python bottleneck analysis",
+    "line profiler tutorial",
+    "Python optimization best practices",
+    "py-spy production profiling",
+    "Claude Python assistant"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/python-performance-optimization",
+  "sourceType": "community",
+  "dependencies": []
+}

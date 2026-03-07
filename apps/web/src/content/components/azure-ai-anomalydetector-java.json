@@ -1,0 +1,143 @@
+{
+  "name": "azure-ai-anomalydetector-java",
+  "type": "skill",
+  "description": "Build anomaly detection applications with Azure AI Anomaly Detector SDK for Java. Use when implementing univariate/multivariate anomaly detection, time-series analysis, or AI-powered monitoring.",
+  "domain": "ai-ml",
+  "subdomain": "ml-ops",
+  "specialty": "Anomaly Detection",
+  "quality": 5,
+  "qualityReason": "Clear use case and SDK focus",
+  "bundleHints": [
+    "ml-ops",
+    "time-series",
+    "azure-ai"
+  ],
+  "tags": [
+    "anomaly-detection",
+    "azure",
+    "java",
+    "machine-learning",
+    "monitoring",
+    "multivariate",
+    "time-series",
+    "univariate"
+  ],
+  "capabilities": [
+    "Create sync and async AnomalyDetector clients with AzureKeyCredential or DefaultAzureCredential",
+    "Perform univariate batch anomaly detection on complete time-series datasets",
+    "Detect anomalies in streaming data using last-point detection",
+    "Identify change points in time-series trends",
+    "Train multivariate models across 300+ correlated signals using Graph Attention Network",
+    "Execute batch and real-time multivariate anomaly inference with contributor analysis"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 35 static analysis findings are false positives. The external_commands detections misidentified Java code examples in markdown as Ruby shell execution. The network URLs are documentation placeholders for Azure blob storage. Environment variable access uses standard System.getenv() patterns recommended by Microsoft Azure SDK. The skill is documentation for Microsoft's official Azure AI Anomaly Detector SDK with no malicious intent.",
+  "valueStatement": "Detect anomalies in time-series data using Azure Cognitive Services. This skill provides Java SDK patterns for univariate and multivariate anomaly detection with real-time streaming support.",
+  "userTitle": "Build Anomaly Detection Apps with Azure AI SDK for Java",
+  "limitations": [
+    "Requires Azure AI Anomaly Detector service subscription and valid API credentials",
+    "Univariate detection requires minimum 12 data points for accurate results",
+    "Multivariate model training is a long-running operation requiring polling",
+    "Blob storage URLs needed for multivariate training and inference data"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineer",
+      "title": "IT Operations Monitoring",
+      "description": "Detect anomalies in server metrics like CPU usage, memory consumption, and network traffic to identify potential outages before they impact users."
+    },
+    {
+      "targetUser": "Data Scientist",
+      "title": "Financial Fraud Detection",
+      "description": "Analyze transaction patterns across multiple variables to identify suspicious activities and potential fraud in real-time payment systems."
+    },
+    {
+      "targetUser": "IoT Developer",
+      "title": "IoT Sensor Analytics",
+      "description": "Monitor industrial equipment sensor data to detect early warning signs of equipment failure and enable predictive maintenance schedules."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Basic Univariate Client",
+      "prompt": "Create a Java class that initializes the Azure AI Anomaly Detector univariate client using environment variables for the endpoint and API key. Include error handling for missing credentials.",
+      "scenario": "Getting started with anomaly detection"
+    },
+    {
+      "title": "Implement Batch Anomaly Detection",
+      "prompt": "Write a method that performs batch anomaly detection on a time-series dataset. The method should accept a list of timestamps and values, configure detection sensitivity, and return a list of detected anomalies with their expected values and confidence scores.",
+      "scenario": "Analyzing historical data"
+    },
+    {
+      "title": "Build Streaming Anomaly Detector",
+      "prompt": "Create a streaming anomaly detection service that processes incoming data points in real-time. Use the detectUnivariateLastPoint method to check each new data point and trigger alerts when anomalies exceed a severity threshold.",
+      "scenario": "Real-time monitoring system"
+    },
+    {
+      "title": "Train and Deploy Multivariate Model",
+      "prompt": "Implement a complete multivariate anomaly detection workflow: (1) prepare training data in Azure Blob Storage, (2) train a model with configurable sliding window, (3) poll for training completion, (4) run batch inference on new data, and (5) extract top contributing variables for each detected anomaly.",
+      "scenario": "Production multi-signal analysis"
+    }
+  ],
+  "bestPractices": [
+    "Use at least 12 data points for univariate detection and align TimeGranularity with your actual data frequency for accurate results",
+    "Configure sensitivity between 80-95 for production usecases to balance false positives and missed anomalies",
+    "Handle HttpResponseException to gracefully manage API rate limits and service errors"
+  ],
+  "antiPatterns": [
+    "Do not use sensitivity values below 50 which may miss significant anomalies or above 99 which generates excessive false positives",
+    "Avoid calling detectUnivariateLastPoint without maintaining sufficient historical context for the algorithm",
+    "Do not hardcode API keys or endpoints in source code - always use environment variables or Azure Key Vault"
+  ],
+  "faq": [
+    {
+      "question": "What is the minimum data requirement for anomaly detection?",
+      "answer": "Univariate detection requires at least 12 data points. Multivariate models perform best with 200-1000 training points depending on pattern complexity."
+    },
+    {
+      "question": "How do I choose between univariate and multivariate detection?",
+      "answer": "Use univariate for single metric analysis like CPU usage. Use multivariate when monitoring 2+ correlated signals where anomalies may only appear in their relationships."
+    },
+    {
+      "question": "Can I use this skill without an Azure subscription?",
+      "answer": "No. The Azure AI Anomaly Detector SDK requires an active Azure Cognitive Services subscription with the Anomaly Detector resource provisioned."
+    },
+    {
+      "question": "How long does multivariate model training take?",
+      "answer": "Training is asynchronous and typically completes within minutes depending on data volume. Use the polling pattern to check training status until the model reaches Ready state."
+    },
+    {
+      "question": "What time granularities are supported?",
+      "answer": "Supported granularities include: Yearly, Monthly, Weekly, Daily, Hourly, Minutely, Secondly, and MicroSecondly. Match granularity to your data collection frequency."
+    },
+    {
+      "question": "How do I handle authentication securely?",
+      "answer": "Use DefaultAzureCredential in production for managed identity support. For development, store credentials in environment variables or Azure Key Vault, never in source code."
+    }
+  ],
+  "seoKeywords": [
+    "Azure AI Anomaly Detector",
+    "anomaly detection Java",
+    "time-series analysis",
+    "multivariate anomaly detection",
+    "univariate anomaly detection",
+    "Azure Cognitive Services",
+    "Claude Code skills",
+    "Claude SDK integration",
+    "Codex anomaly detection",
+    "Java machine learning"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-ai-anomalydetector-java",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "sqlalchemy-2-0",
+  "type": "skill",
+  "description": "Modern async ORM with type-safe models and efficient queries",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "async ORM",
+  "quality": 5,
+  "qualityReason": "Specific, modern ORM use",
+  "bundleHints": [
+    "python-stack",
+    "database-toolkit"
+  ],
+  "tags": [
+    "async",
+    "database",
+    "models",
+    "orm",
+    "python",
+    "queries",
+    "sqlalchemy",
+    "type-safe"
+  ],
+  "capabilities": [
+    "Create async engine and session configuration for PostgreSQL, SQLite, and MySQL",
+    "Define type-safe SQLAlchemy models with annotated column types",
+    "Implement CRUD operations with async/await patterns",
+    "Configure one-to-many and many-to-many relationships with cascade options",
+    "Use selectinload and joinedload for efficient relationship loading",
+    "Integrate with FastAPI using dependency injection for session management"
+  ],
+  "author": "bossjones",
+  "icon": "🗄️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is documentation-only content containing SQLAlchemy 2.0 ORM examples. All 131 static findings are false positives. The scanner misinterpreted markdown code fences as shell commands, SQL ORDER BY .desc() (descending sort) as weak crypto, and standard database queries as reconnaissance. No executable code, network calls, or credential access exists.",
+  "valueStatement": "This skill provides ready-to-use SQLAlchemy 2.0+ patterns for async database operations. It includes type-safe models, CRUD operations, relationships, and performance optimizations for building robust data services.",
+  "userTitle": "Build async database operations with SQLAlchemy 2.0",
+  "limitations": [
+    "Does not include database migration setup (see Alembic skill for migrations)",
+    "Does not provide connection pooling configuration examples",
+    "Does not cover raw SQL migration strategies or schema management",
+    "Does not include transaction retry logic or error handling patterns"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Python developers",
+      "title": "Build async API backends",
+      "description": "Create FastAPI endpoints with async SQLAlchemy sessions for high-concurrency web services."
+    },
+    {
+      "targetUser": "Data engineers",
+      "title": "Design type-safe data models",
+      "description": "Define validated ORM models with annotated columns for consistent database schemas."
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Optimize database queries",
+      "description": "Use eager loading and streaming patterns to reduce N+1 queries and memory usage."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic model setup",
+      "scenario": "Setting up async SQLAlchemy",
+      "prompt": "Show me how to create an async SQLAlchemy 2.0 engine and session factory for PostgreSQL with a User model that has id, name, and email fields."
+    },
+    {
+      "title": "Relationship queries",
+      "scenario": "Fetching related data",
+      "prompt": "Write a function that fetches a User with all their Posts loaded, using selectinload to avoid N+1 queries."
+    },
+    {
+      "title": "FastAPI integration",
+      "scenario": "Adding database to API",
+      "prompt": "Create a FastAPI dependency that provides an async SQLAlchemy session, properly handling cleanup with try/finally."
+    },
+    {
+      "title": "Custom session routing",
+      "scenario": "Read-write splitting",
+      "prompt": "Implement a custom AsyncRoutingSession that routes read-only models to a read replica database."
+    }
+  ],
+  "bestPractices": [
+    "Use expire_on_commit=False to avoid unnecessary reloads after commits",
+    "Prefer selectinload over lazy loading for collections to prevent N+1 queries",
+    "Always close sessions properly using async with context managers"
+  ],
+  "antiPatterns": [
+    "Avoid lazy loading in async contexts as it can cause connection leaks",
+    "Do not use sync sessions with async engines as this blocks the event loop",
+    "Avoid committing transactions inside nested context managers without proper scoping"
+  ],
+  "faq": [
+    {
+      "question": "What databases support async SQLAlchemy?",
+      "answer": "PostgreSQL with asyncpg, SQLite with aiosqlite, and MySQL with aiomysql are fully supported async drivers."
+    },
+    {
+      "question": "How do I prevent N+1 queries with relationships?",
+      "answer": "Use selectinload() or joinedload() in your query options to eagerly load related data in a single query."
+    },
+    {
+      "question": "What is the difference between classic and annotated models?",
+      "answer": "Annotated models use Python type hints with mapped_column for better IDE support and type checking."
+    },
+    {
+      "question": "How do I handle sessions in FastAPI dependencies?",
+      "answer": "Create an async generator function that yields the session and closes it in a finally block."
+    },
+    {
+      "question": "Can I use raw SQL with async SQLAlchemy?",
+      "answer": "Yes, use sqlalchemy.text() to execute raw SQL with proper parameterized queries for security."
+    },
+    {
+      "question": "How do I stream large result sets?",
+      "answer": "Use session.stream(select(Model)) and iterate with async for to process records without loading all into memory."
+    }
+  ],
+  "seoKeywords": [
+    "sqlalchemy",
+    "sqlalchemy 2.0",
+    "async orm",
+    "python database",
+    "type-safe models",
+    "async python",
+    "claude code",
+    "claude",
+    "codex",
+    "fastapi database"
+  ],
+  "sourceUrl": "https://github.com/bossjones/logging-lab/tree/main/.claude/skills/sqlalchemy",
+  "sourceType": "community",
+  "dependencies": []
+}

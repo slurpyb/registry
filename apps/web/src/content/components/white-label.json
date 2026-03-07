@@ -1,0 +1,141 @@
+{
+  "name": "white-label",
+  "type": "skill",
+  "description": "Complete WordPress white-labeling using FREE plugins only - ASE, Branda, White Label CMS, Admin Menu Editor. Covers login page branding, admin cleanup, security hardening, and client handoff preparation.",
+  "domain": "cms",
+  "subdomain": "wordpress",
+  "specialty": "branding automation",
+  "quality": 4,
+  "qualityReason": "Specific WordPress use",
+  "bundleHints": [
+    "wordpress-tools",
+    "white-label"
+  ],
+  "tags": [
+    "automation",
+    "branding",
+    "client handoff",
+    "client-handoff",
+    "security hardening",
+    "white-label",
+    "wordpress"
+  ],
+  "capabilities": [
+    "Automates configuration of ASE, Branda, and White Label CMS plugins",
+    "Uploads and configures custom logos for login and admin areas",
+    "Sets custom login URLs for security hardening",
+    "Configures dashboard widgets, admin menus, and user permissions",
+    "Applies brand colors to login page and admin interface",
+    "Hides WordPress branding and replaces with client branding"
+  ],
+  "author": "CrazySwami",
+  "icon": "🏷️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate WordPress white-labeling automation tool. Static scanner flagged documentation code examples as external commands, color hex codes as weak cryptographic algorithms, and standard WordPress API calls as system reconnaissance. All findings are false positives. The skill uses standard WP-CLI and Docker operations to configure legitimate WordPress plugins.",
+  "valueStatement": "Manually configuring WordPress white-labeling plugins takes hours and is error-prone. This skill automates the entire process using free plugins, creating professional branded experiences in minutes.",
+  "userTitle": "Automate WordPress White-Labeling for Clients",
+  "limitations": [
+    "Requires WordPress with WP-CLI access or Docker container",
+    "Only works with free plugins (ASE, Branda, White Label CMS)",
+    "Logo must be accessible via URL for download",
+    "Cannot modify plugin code or add premium features"
+  ],
+  "useCases": [
+    {
+      "targetUser": "WordPress developers",
+      "title": "Client Site Handoff",
+      "description": "Quickly brand WordPress sites before handing off to clients with professional login pages."
+    },
+    {
+      "targetUser": "Web agencies",
+      "title": "Bulk WordPress Branding",
+      "description": "Apply consistent branding across multiple client sites using JSON configuration files."
+    },
+    {
+      "targetUser": "Freelance developers",
+      "title": "Professional WordPress Setup",
+      "description": "Create polished, white-labeled WordPress experiences that hide default branding."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Setup",
+      "scenario": "Simple branding for a client",
+      "prompt": "White-label this WordPress site for ABC Company with blue colors (#2271b1) and logo from https://example.com/logo.png"
+    },
+    {
+      "title": "Security + Branding",
+      "scenario": "Secure and brand client site",
+      "prompt": "Set up white-labeling for Tech Solutions Inc with custom login URL /secure-portal and security hardening"
+    },
+    {
+      "title": "Agency Template",
+      "scenario": "Apply standard agency branding",
+      "prompt": "Apply our standard agency white-label config from agency-branding.json to container wordpress-client-1"
+    },
+    {
+      "title": "Custom Dashboard",
+      "scenario": "Create branded client dashboard",
+      "prompt": "Configure white-label CMS with custom welcome panel and quick links to Pages, Media, and Contact"
+    }
+  ],
+  "bestPractices": [
+    "Test the configuration on a staging site before applying to production",
+    "Keep a backup of original WordPress settings before running automation",
+    "Use descriptive login URLs that clients can remember easily"
+  ],
+  "antiPatterns": [
+    "Do not use common login URLs like /login or /admin for security",
+    "Avoid uploading oversized logos that slow down the login page",
+    "Never hide essential admin menus that clients need for content management"
+  ],
+  "faq": [
+    {
+      "question": "Which plugins does this skill configure?",
+      "answer": "It configures ASE, Branda, White Label CMS, and Admin Menu Editor - all free WordPress plugins."
+    },
+    {
+      "question": "Can I use this with existing WordPress sites?",
+      "answer": "Yes, any WordPress site with WP-CLI access or Docker container works."
+    },
+    {
+      "question": "What if I do not have a logo URL?",
+      "answer": "Skip logo configuration or upload to media library first, then use the attachment ID."
+    },
+    {
+      "question": "Is it safe to change the login URL?",
+      "answer": "Yes, the skill uses ASE plugin to safely change login URLs while maintaining functionality."
+    },
+    {
+      "question": "Can I undo the white-labeling changes?",
+      "answer": "Changes modify WordPress options which can be reverted manually or by deactivating plugins."
+    },
+    {
+      "question": "Does this work with WordPress multisite?",
+      "answer": "Current implementation works best with single installations. Multisite may need per-site configuration."
+    }
+  ],
+  "seoKeywords": [
+    "wordpress white label",
+    "client branding automation",
+    "claude wordpress",
+    "white label cms",
+    "branda plugin",
+    "ase plugin",
+    "wordpress admin branding",
+    "claude code wordpress",
+    "client handoff automation",
+    "wordpress customization"
+  ],
+  "sourceUrl": "https://github.com/CrazySwami/wordpress-dev-skills/tree/main/skills/white-label",
+  "sourceType": "community",
+  "dependencies": []
+}

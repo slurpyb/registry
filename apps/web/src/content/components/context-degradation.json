@@ -1,0 +1,143 @@
+{
+  "name": "context-degradation",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"diagnose context problems\", \"fix lost-in-middle issues\", \"debug agent failures\", \"understand context poisoning\", or mentions context degradation, attention patterns, context clash, context confusion, or agent performance degradation. Provides patterns for recognizing and mitigating context failures.",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "context debugging",
+  "quality": 5,
+  "qualityReason": "Essential for agent reliability",
+  "bundleHints": [
+    "llm-debugging",
+    "agent-optimization",
+    "performance-tuning"
+  ],
+  "tags": [
+    "agent-debugging",
+    "attention-mechanisms",
+    "context-engineering",
+    "diagnosis",
+    "failure-analysis",
+    "llm-performance"
+  ],
+  "capabilities": [
+    "Diagnose lost-in-middle effects where critical information gets ignored",
+    "Detect context poisoning from hallucinations and error accumulation",
+    "Identify context distraction from irrelevant information",
+    "Analyze context clash from contradictory information",
+    "Provide model-specific degradation thresholds",
+    "Recommend architectural patterns for mitigation"
+  ],
+  "author": "ChakshuGautam",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is an educational documentation skill with no executable code that modifies files, makes network calls, or accesses sensitive data. The Python utility module contains only in-memory text processing functions for analyzing context strings. All 59 static findings are false positives - the scanner incorrectly flagged documentation patterns and metadata as security risks.",
+  "valueStatement": "LLM agents fail unpredictably as context grows. This skill helps you identify and fix context degradation issues like lost-in-middle effects, poisoning, and attention collapse so your agents stay reliable at scale.",
+  "userTitle": "Diagnose context degradation patterns",
+  "limitations": [
+    "Does not access actual model attention weights (uses simulation)",
+    "Cannot modify your running agent or system state",
+    "Cannot detect all hallucination patterns reliably",
+    "Only provides analysis and recommendations, not automatic fixes"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Agent developers",
+      "title": "Debug agent failures",
+      "description": "Investigate why your agent produces incorrect outputs during long conversations."
+    },
+    {
+      "targetUser": "ML engineers",
+      "title": "Design robust systems",
+      "description": "Architect context management strategies that prevent degradation in production systems."
+    },
+    {
+      "targetUser": "AI researchers",
+      "title": "Understand attention patterns",
+      "description": "Learn how context length affects model behavior and design experiments accordingly."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick diagnosis",
+      "scenario": "Agent is failing mid-conversation",
+      "prompt": "My agent is producing incorrect outputs after 20+ conversation turns. Diagnose potential context degradation issues."
+    },
+    {
+      "title": "Specific pattern",
+      "scenario": "Suspect lost-in-middle",
+      "prompt": "I placed critical instructions in the middle of context but the agent ignores them. Explain the lost-in-middle effect."
+    },
+    {
+      "title": "Architectural design",
+      "scenario": "Building long-context system",
+      "prompt": "Design context management patterns to handle 100K+ tokens without degradation."
+    },
+    {
+      "title": "Poisoning recovery",
+      "scenario": "Context contains errors",
+      "prompt": "My agent context contains hallucinated information that keeps propagating. How do I detect and recover from context poisoning?"
+    }
+  ],
+  "bestPractices": [
+    "Place critical information at the start or end of context, never buried in the middle.",
+    "Monitor context length and implement compaction triggers before reaching degradation thresholds.",
+    "Validate retrieved documents before adding them to context to prevent poisoning.",
+    "Use version filtering to exclude outdated information that causes context clash."
+  ],
+  "antiPatterns": [
+    "Adding all available information to context hoping more is better.",
+    "Placing critical instructions in the middle of long documents.",
+    "Assuming larger context windows eliminate degradation problems.",
+    "Ignoring error accumulation that can poison context over time."
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with Claude Code?",
+      "answer": "Yes, this skill works with Claude Code. The patterns apply to all major LLMs including Claude, GPT, and Gemini."
+    },
+    {
+      "question": "What context lengths cause degradation?",
+      "answer": "Degradation typically begins around 60K-100K tokens for Claude models. Severe degradation appears around 150K-200K tokens depending on task complexity."
+    },
+    {
+      "question": "Can I integrate this with my agent?",
+      "answer": "The skill provides patterns and analysis. The Python module can be imported into your codebase for programmatic context health checking."
+    },
+    {
+      "question": "Does this access my data?",
+      "answer": "No. The skill only processes text strings you provide. No files are read, no network calls are made, no data leaves your system."
+    },
+    {
+      "question": "How does lost-in-middle differ from forgetting?",
+      "answer": "Lost-in-middle is about attention allocation, not memory. The model attends less to middle content regardless of its importance."
+    },
+    {
+      "question": "How does this compare to context-fundamentals?",
+      "answer": "context-degradation builds on context-fundamentals by focusing specifically on failure patterns and mitigation strategies."
+    }
+  ],
+  "seoKeywords": [
+    "context degradation",
+    "lost in middle",
+    "Claude context",
+    "LLM attention patterns",
+    "context poisoning",
+    "agent debugging",
+    "context engineering",
+    "Claude Code",
+    "long context",
+    "attention degradation"
+  ],
+  "sourceUrl": "https://github.com/ChakshuGautam/games/tree/main/.claude/skills/context-degradation",
+  "sourceType": "community",
+  "dependencies": []
+}

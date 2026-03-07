@@ -1,0 +1,142 @@
+{
+  "name": "move-code-quality",
+  "type": "skill",
+  "description": "Analyzes Move language packages against the official Move Book Code Quality Checklist. Use this skill when reviewing Move code, checking Move 2024 Edition compliance, or analyzing Move packages for best practices. Activates automatically when working with .move files or Move.toml manifests.",
+  "domain": "languages",
+  "subdomain": "other",
+  "specialty": "Move language review",
+  "quality": 5,
+  "qualityReason": "Specific blockchain language",
+  "bundleHints": [
+    "blockchain-dev",
+    "move-lang"
+  ],
+  "tags": [
+    "2024 edition",
+    "blockchain",
+    "code quality",
+    "code-quality",
+    "code-review",
+    "compliance",
+    "move",
+    "sui"
+  ],
+  "capabilities": [
+    "Scans Move projects for Move.toml and .move files",
+    "Checks Move 2024 Edition compliance",
+    "Reviews function signatures and parameter ordering",
+    "Analyzes testing patterns and assertions",
+    "Validates module syntax, imports, and constants naming",
+    "Evaluates modern Move macros and syntax patterns"
+  ],
+  "author": "davila7",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure prompt-based skill containing only documentation and AI instructions. No executable code, file system access, network calls, or command execution exists in the skill definition. All 139 static findings are FALSE POSITIVES caused by the scanner misinterpreting Move code examples, error constants, and documentation links.",
+  "valueStatement": "Move code reviews require deep knowledge of the Move Book Code Quality Checklist. This skill provides automated analysis against 50 rules for Move 2024 Edition best practices including code organization, function signatures, testing patterns, and modern syntax.",
+  "userTitle": "Check Move Code Quality",
+  "limitations": [
+    "Does not execute or compile Move code",
+    "Does not fix issues automatically",
+    "Does not access external APIs",
+    "Does not modify project files"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Move Developers",
+      "title": "Code Review Before Deploy",
+      "description": "Review Move packages against official checklist before mainnet deployment"
+    },
+    {
+      "targetUser": "Security Auditors",
+      "title": "Blockchain Security Analysis",
+      "description": "Audit smart contract code for quality issues and best practice violations"
+    },
+    {
+      "targetUser": "New Move Developers",
+      "title": "Learn Modern Move Patterns",
+      "description": "Get feedback on code while learning Move 2024 Edition standards"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Full Package Review",
+      "scenario": "Review entire Move project",
+      "prompt": "Analyze my Move package for code quality issues. Check Move.toml configuration, all .move files, and test modules against the Move Book checklist."
+    },
+    {
+      "title": "Specific File Check",
+      "scenario": "Review single module",
+      "prompt": "Check this Move file for quality issues. Focus on function signatures, parameter ordering, and modern syntax usage."
+    },
+    {
+      "title": "Manifest Validation",
+      "scenario": "Review Move.toml",
+      "prompt": "Review my Move.toml file. Check edition specification, dependencies, and named address configuration."
+    },
+    {
+      "title": "Testing Best Practices",
+      "scenario": "Audit test modules",
+      "prompt": "Review my Move tests. Check test attributes, naming conventions, assertions, and cleanup patterns."
+    }
+  ],
+  "bestPractices": [
+    "Run this skill before committing Move code to catch quality issues early",
+    "Focus on critical issues first - Move 2024 Edition is required for modern features",
+    "Use the provided examples to understand both problematic and correct patterns"
+  ],
+  "antiPatterns": [
+    "Skipping this review before mainnet deployment",
+    "Ignoring parameter ordering guidelines - they enable proper composability",
+    "Using outdated explicit framework dependencies in Move.toml"
+  ],
+  "faq": [
+    {
+      "question": "Which Move editions are supported?",
+      "answer": "Only Move 2024 Edition (2024.beta or 2024) is supported. All checklist features require this edition."
+    },
+    {
+      "question": "Does this skill compile my code?",
+      "answer": "No. This skill analyzes code structure and patterns. Use the Move compiler for syntax checking."
+    },
+    {
+      "question": "Can this skill fix issues automatically?",
+      "answer": "No. The skill provides detailed feedback with code examples but does not modify your files."
+    },
+    {
+      "question": "Is my code data safe?",
+      "answer": "Yes. The skill only reads files you explicitly request to analyze. No code leaves your environment."
+    },
+    {
+      "question": "How does this compare to a Move linter?",
+      "answer": "This skill checks 50 best practice rules including naming, structure, and composability that linters may miss."
+    },
+    {
+      "question": "What blockchain frameworks work with this skill?",
+      "answer": "Primary focus is on Sui Move patterns. The checklist aligns with Move Book standards for all Move chains."
+    }
+  ],
+  "seoKeywords": [
+    "Move code review",
+    "Move 2024 Edition",
+    "Sui Move quality checker",
+    "Move code quality checklist",
+    "Move programming best practices",
+    "Sui blockchain code review",
+    "Move linter",
+    "Move static analysis",
+    "Move code audit",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/move-code-quality",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,139 @@
+{
+  "name": "documentation",
+  "type": "skill",
+  "description": "Enforces documentation standards and structure for this project. This skill should be used when creating, updating, or organizing documentation to ensure compliance with project rules, prevent redundancy, and maintain screen-based organization. Activates when user asks to create/update docs or when documentation needs to be generated.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "project compliance",
+  "quality": 5,
+  "qualityReason": "Actionable project-level rules",
+  "bundleHints": [
+    "docs-governance",
+    "project-standards"
+  ],
+  "tags": [
+    "consistency",
+    "documentation",
+    "governance",
+    "standards",
+    "templates",
+    "workflows"
+  ],
+  "capabilities": [
+    "Search documentation without loading full files into context",
+    "Extract, update, or delete specific sections by heading",
+    "Apply consistent templates for screen, feature, and architecture docs",
+    "Detect and consolidate duplicate documentation",
+    "Validate files against project documentation rules",
+    "Split large files exceeding 500 lines into logical sections"
+  ],
+  "author": "DaoThiHuong2111",
+  "icon": "docs",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 805 static findings are false positives. The analyzer flagged markdown documentation showing example shell commands and technical keywords as security risks. Actual shell scripts are legitimate documentation utilities using standard Unix tools.",
+  "valueStatement": "Managing documentation at scale leads to duplicated content and inconsistent structures. This skill provides section-level editing tools, templates, and workflows to maintain clean, DRY documentation that stays in sync with code.",
+  "userTitle": "Enforce Documentation Standards",
+  "limitations": [
+    "Designed for markdown documentation only",
+    "Cannot process binary or non-text file formats",
+    "Templates assume screen-based project structure",
+    "Scripts require bash and standard Unix utilities"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project maintainers",
+      "title": "Standardize new documentation",
+      "description": "Apply consistent templates and structure when adding new feature or screen documentation."
+    },
+    {
+      "targetUser": "Documentation leads",
+      "title": "Find and fix duplicates",
+      "description": "Detect redundant content across docs and consolidate into single authoritative sources."
+    },
+    {
+      "targetUser": "Developer experience teams",
+      "title": "Maintain documentation at scale",
+      "description": "Enforce size limits, code references, and DRY principles across growing codebases."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create screen docs",
+      "scenario": "New feature screen needs documentation",
+      "prompt": "Create documentation for the new {screen-name} screen following the project templates. Check for existing docs first."
+    },
+    {
+      "title": "Update related docs",
+      "scenario": "Code change affects existing docs",
+      "prompt": "Find all documentation related to {feature-name} and update the affected sections to match the code changes."
+    },
+    {
+      "title": "Check for duplicates",
+      "scenario": "Before creating new documentation",
+      "prompt": "Search for existing documentation about {topic}. If duplicates exist, consolidate them instead of creating new files."
+    },
+    {
+      "title": "Split large files",
+      "scenario": "Documentation file exceeds size limits",
+      "prompt": "Check docs/screens/{screen-name}/README.md line count. If over 450 lines, split into focused sub-files."
+    }
+  ],
+  "bestPractices": [
+    "Always search for existing documentation before creating new files",
+    "Use section-level scripts to minimize context usage when making targeted updates",
+    "Validate every new or modified file against references/rules.md before committing"
+  ],
+  "antiPatterns": [
+    "Creating duplicate documentation instead of updating existing files",
+    "Leaving files over 500 lines without splitting into focused sub-files",
+    "Omitting file:line references when documenting code behavior"
+  ],
+  "faq": [
+    {
+      "question": "What file formats does this skill support?",
+      "answer": "Markdown files (.md) with standard heading structure for section-level operations."
+    },
+    {
+      "question": "How does section-level editing work?",
+      "answer": "Scripts identify sections by markdown headings (H2, H3) and operate on content blocks between them."
+    },
+    {
+      "question": "What happens if a file exceeds 500 lines?",
+      "answer": "The skill detects oversized files and recommends splitting into focused sub-files by topic."
+    },
+    {
+      "question": "Can this skill work with documentation outside the docs/ folder?",
+      "answer": "Yes, scripts accept custom directories as parameters for flexibility."
+    },
+    {
+      "question": "How are duplicates detected?",
+      "answer": "The doc-find-duplicates.sh script compares file content and section headings for similarity."
+    },
+    {
+      "question": "What tools are required for the scripts?",
+      "answer": "Standard Unix utilities: grep, find, wc, stat, sed, sort, comm. Available on most systems."
+    }
+  ],
+  "seoKeywords": [
+    "documentation management",
+    "documentation standards",
+    "Claude documentation",
+    "Claude Code documentation",
+    "documentation templates",
+    "section-level editing",
+    "DRY documentation",
+    "code documentation",
+    "developer documentation"
+  ],
+  "sourceUrl": "https://github.com/DaoThiHuong2111/codeh-cli/tree/main/.claude/skills/documentation",
+  "sourceType": "community",
+  "dependencies": []
+}

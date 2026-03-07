@@ -1,0 +1,142 @@
+{
+  "name": "code-documentation-doc-generate",
+  "type": "skill",
+  "description": "You are a documentation expert specializing in creating comprehensive, maintainable documentation from code. Generate API docs, architecture diagrams, user guides, and technical references using AI-powered analysis and industry best practices.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "API documentation",
+  "quality": 5,
+  "qualityReason": "Comprehensive doc generation",
+  "bundleHints": [
+    "documentation",
+    "dev-tools"
+  ],
+  "tags": [
+    "ai-generation",
+    "api-docs",
+    "architecture-diagrams",
+    "code-generation",
+    "documentation",
+    "readme",
+    "technical-reference",
+    "technical-writing",
+    "user-guides"
+  ],
+  "capabilities": [
+    "Generate API documentation from code endpoints and schemas",
+    "Create architecture diagrams using Mermaid or PlantUML",
+    "Build README files with setup, usage, and contribution guidelines",
+    "Extract and document configuration options and environment variables",
+    "Set up CI/CD pipelines for automated documentation generation",
+    "Produce user guides and tutorials from workflow analysis"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 91 static findings are false positives triggered by documentation examples in the skill. The skill provides templates and examples for generating documentation. No actual code execution, network calls, or credential access occurs. Risk level: SAFE.",
+  "valueStatement": "Create comprehensive API documentation, architecture diagrams, user guides, and technical references from source code using AI-powered analysis.",
+  "userTitle": "Generate Code Documentation Automatically",
+  "limitations": [
+    "Requires access to the source code to generate accurate documentation",
+    "Cannot verify if generated documentation matches actual behavior without testing",
+    "May need manual review for highly specialized domain-specific terminology"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers and API teams",
+      "title": "API Documentation for Web Services",
+      "description": "Automatically generate OpenAPI specs and interactive API docs from REST endpoint code"
+    },
+    {
+      "targetUser": "Open source maintainers and project leads",
+      "title": "Project README Generation",
+      "description": "Create comprehensive README files with installation, usage examples, and contribution guidelines"
+    },
+    {
+      "targetUser": "Software architects and technical leads",
+      "title": "Architecture Documentation",
+      "description": "Generate system architecture diagrams and component documentation from code structure"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic API Documentation",
+      "prompt": "Generate API documentation for the endpoints in this codebase. Include request/response schemas, authentication requirements, and example requests.",
+      "scenario": "When you need quick API docs for a new project"
+    },
+    {
+      "title": "Complete Project README",
+      "prompt": "Create a comprehensive README.md for this project. Include: project description, installation steps, usage examples, configuration options, and contribution guidelines.",
+      "scenario": "When starting a new project or documenting an existing one"
+    },
+    {
+      "title": "Architecture Overview",
+      "prompt": "Analyze the codebase structure and generate architecture documentation. Include a system diagram, component descriptions, data flows, and technology stack summary.",
+      "scenario": "When onboarding new team members or planning refactoring"
+    },
+    {
+      "title": "Documentation Automation Setup",
+      "prompt": "Set up automated documentation generation for this project. Include CI/CD configuration, doc linting rules, and deployment to a documentation hosting platform.",
+      "scenario": "When establishing documentation best practices for a team"
+    }
+  ],
+  "bestPractices": [
+    "Always verify generated documentation matches actual code behavior through testing",
+    "Keep documentation synchronized with code using CI/CD automation",
+    "Include practical code examples that users can copy and adapt"
+  ],
+  "antiPatterns": [
+    "Generating documentation without reviewing for accuracy",
+    "Including sensitive information like API keys or internal URLs in public docs",
+    "Creating documentation that cannot be verified or tested automatically"
+  ],
+  "faq": [
+    {
+      "question": "What types of documentation can this skill generate?",
+      "answer": "This skill can generate API documentation, architecture diagrams, README files, user guides, and technical references. It supports OpenAPI/Swagger specs, Mermaid diagrams, and various documentation formats."
+    },
+    {
+      "question": "Does this skill execute code on my project?",
+      "answer": "No. This skill analyzes your code to understand its structure and generates documentation based on that analysis. It does not modify or execute your codebase."
+    },
+    {
+      "question": "Can I integrate this with my CI/CD pipeline?",
+      "answer": "Yes. The skill includes guidance for setting up automated documentation generation in CI/CD pipelines using tools like GitHub Actions, GitLab CI, or similar platforms."
+    },
+    {
+      "question": "What programming languages are supported?",
+      "answer": "The skill works with any programming language. It analyzes code structure and generates language-agnostic documentation. Specific language support depends on the documentation format (e.g., JSDoc for JavaScript, Docstrings for Python)."
+    },
+    {
+      "question": "How do I keep documentation in sync with my code?",
+      "answer": "Set up automated doc generation in your CI pipeline to run on each commit. You can also use doc linting tools to catch inconsistencies before deployment."
+    },
+    {
+      "question": "Can this skill document private or internal APIs?",
+      "answer": "Yes. The skill can document any API. However, ensure you review generated documentation to remove any sensitive internal URLs, credentials, or proprietary information before sharing externally."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "documentation generator",
+    "API docs",
+    "technical writing",
+    "code documentation",
+    "README generator",
+    "doc generation",
+    "auto documentation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/code-documentation-doc-generate",
+  "sourceType": "community",
+  "dependencies": []
+}

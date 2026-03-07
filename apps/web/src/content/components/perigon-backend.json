@@ -1,0 +1,146 @@
+{
+  "name": "perigon-backend",
+  "type": "skill",
+  "description": "Perigon ASP.NET Core + EF Core + Aspire conventions",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "asp.net core",
+  "quality": 5,
+  "qualityReason": "Specific tech stack defined",
+  "bundleHints": [
+    "perigon-stack",
+    "dotnet-stack"
+  ],
+  "tags": [
+    "api",
+    "asp.net core",
+    "aspire",
+    "backend",
+    "backend-conventions",
+    "c#",
+    "dotnet",
+    "ef-core",
+    "entity framework",
+    "perigon"
+  ],
+  "capabilities": [
+    "Apply architecture patterns (Definition, Modules, Services layers)",
+    "Create entities with proper inheritance and Guid v7 IDs",
+    "Implement manager patterns with CRUD operations",
+    "Design DTOs with Mapster projections",
+    "Build REST controllers following conventions",
+    "Configure Aspire AppHost and migrations"
+  ],
+  "author": "AterDev",
+  "icon": "⚙️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only markdown documentation for ASP.NET Core + EF Core + Aspire development conventions. No executable code, file system access, network operations, or external commands exist. All 29 static findings are false positives triggered by benign documentation text such as Git hashes, version numbers, and software architecture terminology.",
+  "valueStatement": "This skill provides standardized conventions for building ASP.NET Core backend services. It covers architecture patterns, entity design, database operations, manager patterns, DTO mapping, and controller best practices for consistent, maintainable codebases.",
+  "userTitle": "Apply ASP.NET Core backend conventions",
+  "limitations": [
+    "Requires existing Perigon template structure",
+    "Focused on SQL Server and PostgreSQL databases",
+    "Does not generate code - provides conventions only",
+    "Not suitable for non-.NET backends"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Enforce coding standards",
+      "description": "Apply consistent conventions across a team working on ASP.NET Core projects"
+    },
+    {
+      "targetUser": "API architects",
+      "title": "Structure new services",
+      "description": "Set up new services following the Definition, Modules, Services architecture"
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Build REST endpoints",
+      "description": "Create controllers and managers with proper separation of concerns"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New entity",
+      "scenario": "Creating database entity",
+      "prompt": "Create a new entity for [entity name] following Perigon conventions. It should inherit EntityBase, use Guid v7 client-generated ID, include proper max lengths for strings, and add appropriate enums with [Description] attributes."
+    },
+    {
+      "title": "Manager CRUD",
+      "scenario": "Implementing manager operations",
+      "prompt": "Implement the Manager class for [entity name] following Perigon conventions. Use ManagerBase, include FindAsync, ExistAsync, ListAsync, PageListAsync, InsertAsync, UpdateAsync, DeleteAsync, BulkInsertAsync operations, and throw BusinessException for errors."
+    },
+    {
+      "title": "REST controller",
+      "scenario": "Building API endpoints",
+      "prompt": "Create a REST controller for [entity name] following Perigon conventions. Inherit from RestControllerBase, use proper HTTP verb attributes, return ActionResult<T>, use Problem/NotFound for errors, and keep business logic in the manager."
+    },
+    {
+      "title": "EF configuration",
+      "scenario": "Setting up database mapping",
+      "prompt": "Configure EF Core for [entity name] following Perigon conventions. Use proper DbContext, configure relationships with foreign keys, set decimal precision to (10,2) or (18,6), and use AsNoTracking for read operations."
+    }
+  ],
+  "bestPractices": [
+    "Use Code First approach with <Nullable>enable for type safety",
+    "Prefer Queryable with Select projections over loading full entities",
+    "Keep controllers thin - delegate all business logic to managers",
+    "Use ExecuteInTransactionAsync for operations requiring atomicity"
+  ],
+  "antiPatterns": [
+    "Avoid returning ActionResult from managers or touching HttpContext",
+    "Do not use string-delimited lists - use arrays or JSON instead",
+    "Avoid manager-to-manager references that create tight coupling",
+    "Do not wrap responses in ApiResponse at the controller level"
+  ],
+  "faq": [
+    {
+      "question": "Which databases are supported?",
+      "answer": "SQL Server (commercial) and PostgreSQL are the primary databases. Other EF Core providers may work but are not covered."
+    },
+    {
+      "question": "What is the maximum project size?",
+      "answer": "No hard limits. Conventions scale from small APIs to large enterprise backends with multiple bounded contexts."
+    },
+    {
+      "question": "How does this integrate with existing code?",
+      "answer": "Designed for Perigon template projects. Existing ASP.NET Core projects can adopt conventions selectively."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. This skill only provides text-based conventions. It does not access files, execute code, or transmit data."
+    },
+    {
+      "question": "Why is my code not generating?",
+      "answer": "This skill provides conventions and guidelines. It instructs the AI on how to write code - it does not generate code itself."
+    },
+    {
+      "question": "How is this different from other .NET skills?",
+      "answer": "Perigon focuses on specific architecture (Definition, Modules, Services), EF Core patterns, and Aspire integration with strict conventions."
+    }
+  ],
+  "seoKeywords": [
+    "ASP.NET Core",
+    "Entity Framework Core",
+    "backend development",
+    "C# API",
+    "Perigon conventions",
+    "EF Core",
+    "dotnet",
+    "REST API",
+    "Claude Code",
+    "Clade"
+  ],
+  "sourceUrl": "https://github.com/AterDev/Perigon.template/tree/main/ApiStandard/.github/skills/perigon-backend",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,136 @@
+{
+  "name": "lint-dotnet",
+  "type": "skill",
+  "description": "Run .NET architecture linter to check for MSBuild/CPM violations",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": ".NET linter",
+  "quality": 4,
+  "qualityReason": "Specific to .NET stack",
+  "bundleHints": [
+    ".NET-toolkit",
+    "code-quality"
+  ],
+  "tags": [
+    ".net",
+    "architecture",
+    "cpm",
+    "linter",
+    "msbuild"
+  ],
+  "capabilities": [
+    "Check for hardcoded versions in Directory.Packages.props",
+    "Validate Version.props import locations",
+    "Ensure Version.props is a symlink not copied",
+    "Detect inline PackageReference Version attributes"
+  ],
+  "author": "ANcpLua",
+  "icon": "🛡️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 24 static findings are FALSE POSITIVES. The analyzer misidentified markdown documentation examples as executable code and cryptographic metadata hashes as weak algorithms. This is a documentation-only skill that references an external bash script for linting .NET architecture patterns. No actual execution, network calls, or file access occurs within the skill files.",
+  "valueStatement": ".NET projects often have inconsistent build patterns that cause maintenance problems. This skill runs an automated linter to check for MSBuild violations and Central Package Management issues before they cause problems in your codebase.",
+  "userTitle": "Lint .NET architecture rules",
+  "limitations": [
+    "Only checks MSBuild and XML patterns in .props and .csproj files",
+    "Does not fix violations automatically",
+    "Requires .NET project structure with standard layout",
+    "Does not validate package versions against NuGet feeds"
+  ],
+  "useCases": [
+    {
+      "targetUser": ".NET Developers",
+      "title": "Validate project structure",
+      "description": "Check that your .NET project follows established architecture patterns before committing code changes"
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Enforce build standards",
+      "description": "Run as part of CI pipelines to ensure all projects maintain consistent build patterns across teams"
+    },
+    {
+      "targetUser": "Tech Leads",
+      "title": "Review architecture compliance",
+      "description": "Audit repositories for consistent use of Central Package Management and proper version handling conventions"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic lint",
+      "scenario": "Run architecture check",
+      "prompt": "/lint-dotnet"
+    },
+    {
+      "title": "Lint with output",
+      "scenario": "Check current directory",
+      "prompt": "/lint-dotnet to check for any MSBuild violations in this project"
+    },
+    {
+      "title": "Fix guidance",
+      "scenario": "After violations found",
+      "prompt": "/lint-dotnet and explain how to fix the violations that are reported"
+    },
+    {
+      "title": "Full validation",
+      "scenario": "Pre-commit check",
+      "prompt": "/lint-dotnet to validate that all .NET architecture rules are satisfied before I commit"
+    }
+  ],
+  "bestPractices": [
+    "Run /lint-dotnet before committing .NET projects to catch architecture violations early in development",
+    "Use Central Package Management for all version references to ensure consistency across solutions",
+    "Keep Version.props as a symlink in consumer repositories, never copy the file directly"
+  ],
+  "antiPatterns": [
+    "Hardcoding versions like Version=\"1.2.3\" directly in Directory.Packages.props instead of using variables",
+    "Importing Version.props from arbitrary .props files outside the allowed list",
+    "Copying Version.props instead of symlinking it in downstream repositories"
+  ],
+  "faq": [
+    {
+      "question": "What versions of .NET does this support?",
+      "answer": "This linter checks MSBuild patterns compatible with .NET Core 3.1 and all newer .NET versions including .NET 5 and beyond."
+    },
+    {
+      "question": "Does this linter modify files?",
+      "answer": "No. The linter only reads project files and reports violations. It does not automatically fix any issues."
+    },
+    {
+      "question": "Can I integrate this into my CI pipeline?",
+      "answer": "Yes. The underlying script runs from bash and requires only the .NET SDK installed on your CI agents."
+    },
+    {
+      "question": "Does this send any data externally?",
+      "answer": "No. The linter runs entirely locally and only reads project files on your machine without network access."
+    },
+    {
+      "question": "What rules are currently implemented?",
+      "answer": "RULE_A checks hardcoded versions, RULE_B checks import locations, RULE_C checks symlinks, RULE_G checks inline version attributes."
+    },
+    {
+      "question": "How is this different from dotnet format?",
+      "answer": "dotnet format styles code for formatting. This linter enforces architectural patterns like Central Package Management and version handling conventions."
+    }
+  ],
+  "seoKeywords": [
+    ".NET linter",
+    "MSBuild",
+    "Central Package Management",
+    "architecture lint",
+    "Claude Code",
+    "Directory.Packages.props",
+    "Version.props",
+    "package references",
+    ".NET Core",
+    "NuGet"
+  ],
+  "sourceUrl": "https://github.com/ANcpLua/ancplua-claude-plugins/tree/main/plugins/dotnet-architecture-lint/skills/dotnet-architecture-lint",
+  "sourceType": "community",
+  "dependencies": []
+}

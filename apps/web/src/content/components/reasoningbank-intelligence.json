@@ -1,0 +1,141 @@
+{
+  "name": "reasoningbank-intelligence",
+  "type": "skill",
+  "description": "Implement adaptive learning with ReasoningBank for pattern recognition, strategy optimization, and continuous improvement. Use when building self-learning agents, optimizing workflows, or implementing meta-cognitive systems.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "adaptive learning",
+  "quality": 4,
+  "qualityReason": "Clear use case, strong specificity",
+  "bundleHints": [
+    "ai-agents",
+    "ml-ops"
+  ],
+  "tags": [
+    "adaptive",
+    "ai-agents",
+    "continuous-improvement",
+    "machine-learning",
+    "optimization",
+    "pattern-recognition",
+    "self-learning",
+    "strategy-optimization"
+  ],
+  "capabilities": [
+    "Records and learns from task experiences with outcomes and metrics",
+    "Recognizes patterns in agent behavior and environmental triggers",
+    "Recommends optimal strategies based on historical performance",
+    "Implements transfer learning between related domains",
+    "Provides continuous learning with automatic model updates"
+  ],
+  "author": "DNYoussef",
+  "icon": "🧠",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is pure documentation with TypeScript code examples for implementing adaptive learning systems. Contains no executable code, network calls, or file system operations. Static scanner produced 35 false positives by misinterpreting SHA256 hashes as weak crypto, GitHub URLs as hardcoded endpoints, and markdown code blocks as shell commands. All findings dismissed after human evaluation.",
+  "valueStatement": "AI agents waste time repeating the same mistakes and using suboptimal strategies. ReasoningBank Intelligence enables your agents to learn from every experience, recognize patterns, and continuously improve their performance over time.",
+  "userTitle": "Build Self-Learning AI Agents with Adaptive Intelligence",
+  "limitations": [
+    "Requires 100+ experiences per task type for reliable recommendations",
+    "Needs AgentDB for persistent storage and vector search capabilities",
+    "Performance depends on quality and consistency of recorded data",
+    "Learning rate and thresholds must be carefully tuned"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI developers building autonomous agents",
+      "title": "Create Self-Improving Code Review Agents",
+      "description": "Build agents that learn which review strategies find the most bugs and adapt their approach based on code complexity and language."
+    },
+    {
+      "targetUser": "DevOps teams optimizing workflows",
+      "title": "Optimize CI/CD Pipeline Strategies",
+      "description": "Learn from deployment outcomes to predict failures and automatically select the safest deployment strategy for each situation."
+    },
+    {
+      "targetUser": "Data scientists building ML systems",
+      "title": "Implement Meta-Learning for Model Selection",
+      "description": "Create systems that learn which machine learning models work best for different types of data and automatically select optimal approaches."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Experience Recording",
+      "scenario": "Record a simple task outcome",
+      "prompt": "Use ReasoningBank to record this experience: Task: API testing, Approach: automated_tests_first, Outcome: found 3 bugs in 15 minutes, Context: Node.js REST API"
+    },
+    {
+      "title": "Pattern Learning",
+      "scenario": "Teach the system a new pattern",
+      "prompt": "Help me implement pattern learning in ReasoningBank for this observation: When database queries slow down after 5pm, adding read replicas solves performance issues with 90% confidence"
+    },
+    {
+      "title": "Strategy Comparison",
+      "scenario": "Compare multiple approaches",
+      "prompt": "Use ReasoningBank to compare these bug fixing strategies: debug_first, test_first, reproduce_then_fix. Show success rates and time metrics."
+    },
+    {
+      "title": "Transfer Knowledge",
+      "scenario": "Apply learning across domains",
+      "prompt": "Implement knowledge transfer in ReasoningBank from JavaScript code review patterns to TypeScript code review, considering 80% similarity between languages"
+    }
+  ],
+  "bestPractices": [
+    "Record both successful and failed experiences to build balanced learning data",
+    "Include rich context like environment conditions, constraints, and relevant metadata",
+    "Set confidence thresholds to filter out low-quality learnings and prevent noise"
+  ],
+  "antiPatterns": [
+    "Only recording successes creates biased models that ignore failure patterns",
+    "Using generic context reduces pattern matching accuracy and recommendation quality",
+    "Keeping all historical data forever leads to storage bloat and slower queries"
+  ],
+  "faq": [
+    {
+      "question": "Is this compatible with my existing Claude Code setup?",
+      "answer": "Yes, ReasoningBank Intelligence works with any Claude Code installation that has agentic-flow v1.5.11+ and AgentDB v1.0.4+."
+    },
+    {
+      "question": "How much data do I need before seeing good recommendations?",
+      "answer": "You need at least 100 experiences per task type for reliable recommendations, with quality improving significantly after 500+ experiences."
+    },
+    {
+      "question": "Can I integrate this with other AI tools besides Claude?",
+      "answer": "Yes, ReasoningBank works with Codex and other AI tools through the agentic-flow framework, storing learnings in a tool-agnostic format."
+    },
+    {
+      "question": "Is my learning data safe and private?",
+      "answer": "All data is stored locally in your AgentDB instance. No learning data is sent to external services or shared with third parties."
+    },
+    {
+      "question": "What if the system learns wrong patterns?",
+      "answer": "You can review and delete learned patterns, adjust confidence thresholds, or reset specific learning categories while keeping others."
+    },
+    {
+      "question": "How does this compare to traditional ML model training?",
+      "answer": "ReasoningBank provides immediate incremental learning without lengthy training cycles, making it ideal for rapidly changing development environments."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "AI agents",
+    "machine learning",
+    "pattern recognition",
+    "adaptive learning",
+    "ReasoningBank",
+    "strategy optimization",
+    "meta-cognitive systems",
+    "Codex",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/reasoningbank-intelligence",
+  "sourceType": "community",
+  "dependencies": []
+}

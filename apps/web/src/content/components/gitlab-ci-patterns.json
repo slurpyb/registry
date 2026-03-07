@@ -1,0 +1,142 @@
+{
+  "name": "gitlab-ci-patterns",
+  "type": "skill",
+  "description": "Build GitLab CI/CD pipelines with multi-stage workflows, caching, and distributed runners for scalable automation. Use when implementing GitLab CI/CD, optimizing pipeline performance, or setting up automated testing and deployment.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "pipeline design",
+  "quality": 5,
+  "qualityReason": "Optimized pipeline design",
+  "bundleHints": [
+    "ci-cd-toolkit",
+    "gitlab-ci"
+  ],
+  "tags": [
+    "automation",
+    "caching",
+    "ci-cd",
+    "deployment",
+    "distributed-runners",
+    "gitlab",
+    "multi-stage",
+    "pipelines",
+    "scalable"
+  ],
+  "capabilities": [
+    "Provide a basic multi-stage pipeline with build, test, and deploy jobs",
+    "Show Docker build and push jobs with registry login steps",
+    "Provide multi-environment Kubernetes deployment templates using kubectl",
+    "Outline Terraform validate, plan, and apply pipeline stages",
+    "Include security scanning patterns with GitLab templates and Trivy",
+    "Show caching patterns and child pipeline generation examples"
+  ],
+  "author": "wshobson",
+  "icon": "🦊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only static GitLab CI YAML examples and DevOps guidance. No executable code, scripts, network calls, or file access behavior is present. All 32 static findings are false positives: hash values, YAML frontmatter, markdown code block delimiters, and placeholder URLs were misidentified as security risks.",
+  "valueStatement": "Teams often struggle to design reliable GitLab CI workflows at scale. This skill provides proven pipeline patterns for builds, tests, deployments, caching, and security scanning.",
+  "userTitle": "Build GitLab CI pipeline patterns",
+  "limitations": [
+    "Does not execute or validate pipelines in a live GitLab project",
+    "Examples require project-specific variables and files to be configured",
+    "Does not provide secrets management beyond CI variable mentions",
+    "Runner setup and configuration details are not included"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineer",
+      "title": "Standardize CI templates",
+      "description": "Create consistent GitLab CI patterns for multiple repositories and teams."
+    },
+    {
+      "targetUser": "Backend developer",
+      "title": "Add deployment stages",
+      "description": "Extend an existing pipeline with Kubernetes deployment jobs."
+    },
+    {
+      "targetUser": "Platform lead",
+      "title": "Speed up pipelines",
+      "description": "Apply caching and artifact patterns to reduce build times."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Starter pipeline",
+      "scenario": "New repository needs CI basics",
+      "prompt": "Create a simple GitLab CI pipeline with build, test, and deploy stages for a Node.js service."
+    },
+    {
+      "title": "Docker build push",
+      "scenario": "Publish images to registry",
+      "prompt": "Provide a GitLab CI job to build and push Docker images on main and tags."
+    },
+    {
+      "title": "Terraform workflow",
+      "scenario": "Infrastructure as code pipeline",
+      "prompt": "Generate validate, plan, and apply stages for Terraform with manual apply."
+    },
+    {
+      "title": "Multi-env deploy",
+      "scenario": "Staging and production in Kubernetes",
+      "prompt": "Design staging and production deploy jobs using kubectl with a shared template."
+    }
+  ],
+  "bestPractices": [
+    "Use specific image tags for reproducible builds",
+    "Cache dependencies with stable keys to speed up jobs",
+    "Use manual approval gates for production deployments"
+  ],
+  "antiPatterns": [
+    "Using latest image tags in production pipelines",
+    "Skipping artifacts for build outputs needed downstream",
+    "Deploying to production without an approval gate"
+  ],
+  "faq": [
+    {
+      "question": "Which GitLab versions are supported?",
+      "answer": "Patterns target standard GitLab CI features and work on recent GitLab versions."
+    },
+    {
+      "question": "Are there limits on pipeline size?",
+      "answer": "Limits depend on your GitLab plan and runner capacity, not on this skill."
+    },
+    {
+      "question": "Can this integrate with existing runners?",
+      "answer": "Yes, examples assume standard GitLab runners and can be adapted to your setup."
+    },
+    {
+      "question": "Is any sensitive data collected?",
+      "answer": "No, content is static documentation without file, environment, or network access."
+    },
+    {
+      "question": "What if a job fails after using this?",
+      "answer": "Check runner logs, image availability, and variable configuration, then adjust."
+    },
+    {
+      "question": "How does this compare to GitHub Actions?",
+      "answer": "Focuses on GitLab CI syntax and features instead of GitHub Actions workflows."
+    }
+  ],
+  "seoKeywords": [
+    "GitLab CI",
+    "CI CD pipelines",
+    "pipeline patterns",
+    "DevOps automation",
+    "Kubernetes deploy",
+    "Terraform pipeline",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/gitlab-ci-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

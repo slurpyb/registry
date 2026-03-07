@@ -1,0 +1,142 @@
+{
+  "name": "debugging-websocket-issues",
+  "type": "skill",
+  "description": "Use when seeing WebSocket errors like \"Invalid frame header\", \"RSV1 must be clear\", or \"WS_ERR_UNEXPECTED_RSV_1\" - covers multiple WebSocketServer conflicts, compression issues, and raw frame debugging techniques",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "frame debugging",
+  "quality": 5,
+  "qualityReason": "Specific error coverage",
+  "bundleHints": [
+    "real-time-debug",
+    "websocket-troubleshooting",
+    "nodejs-ops"
+  ],
+  "tags": [
+    "compression",
+    "debugging",
+    "frame-header",
+    "network",
+    "nodejs",
+    "real-time",
+    "websocket"
+  ],
+  "capabilities": [
+    "Diagnose Invalid frame header errors caused by multiple WebSocketServer instances",
+    "Fix RSV1 and compression-related WebSocket failures",
+    "Inspect raw WebSocket frames for HTTP contamination",
+    "Implement proper upgrade request routing with noServer mode",
+    "Identify hex patterns that indicate common WebSocket problems",
+    "Debug abnormal closure code 1006 disconnections"
+  ],
+  "author": "AgentWorkforce",
+  "icon": "🔌",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 55 static findings evaluated as false positives. The skill contains only documentation and TypeScript code examples for WebSocket debugging. Pattern matching incorrectly flagged WebSocket protocol terms like RSV1 and perMessageDeflate as cryptographic operations, TypeScript template literals as shell commands, and legitimate URL parsing examples as network risks. No executable code, network requests, or security threats identified.",
+  "valueStatement": "WebSocket connections frequently fail with cryptic errors like Invalid frame header or RSV1 must be clear. This skill provides structured debugging techniques to diagnose and fix multiple WebSocketServer conflicts, compression mismatches, and raw frame inspection methods.",
+  "userTitle": "Debug WebSocket Connection Issues",
+  "limitations": [
+    "Cannot fix network infrastructure issues like load balancers or proxies",
+    "Does not cover WebSocket security configurations like authentication",
+    "Limited to Node.js ws library patterns",
+    "Does not address client-side WebSocket implementation issues"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers working with Node.js WebSocket servers",
+      "title": "Fix Multiple WebSocketServer Conflicts",
+      "description": "Diagnose and resolve errors when multiple WebSocketServer instances on the same HTTP server cause frame corruption and unexpected disconnections."
+    },
+    {
+      "targetUser": "Full-stack developers troubleshooting real-time communication",
+      "title": "Debug Compression-Related WebSocket Errors",
+      "description": "Identify and fix RSV1 errors caused by perMessageDeflate compression mismatches between client and server."
+    },
+    {
+      "targetUser": "DevOps engineers debugging production WebSocket issues",
+      "title": "Inspect Raw WebSocket Frame Data",
+      "description": "Use frame inspection techniques to detect when raw HTTP responses are being written to WebSocket connections."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic WebSocket Error",
+      "prompt": "I am seeing the error 'Invalid WebSocket frame: RSV1 must be clear' in my Node.js WebSocket server. Help me diagnose the cause and fix it.",
+      "scenario": "Diagnosing RSV1 errors"
+    },
+    {
+      "title": "Multiple WebSocket Servers",
+      "prompt": "I have two WebSocketServer instances attached to the same HTTP server with different paths. Clients are receiving garbled data. How do I fix this conflict?",
+      "scenario": "Resolving WebSocketServer conflicts"
+    },
+    {
+      "title": "Frame Inspection",
+      "prompt": "How can I inspect the raw bytes being received on my WebSocket connection to debug what the client is actually receiving?",
+      "scenario": "Raw frame debugging"
+    },
+    {
+      "title": "Client-Server Compression Mismatch",
+      "prompt": "My WebSocket connection works in isolation but fails when integrated into my application with error WS_ERR_UNEXPECTED_RSV_1. The client does not support compression. How do I disable perMessageDeflate on the server?",
+      "scenario": "Fixing compression mismatches"
+    }
+  ],
+  "bestPractices": [
+    "Use noServer mode with manual routing when attaching multiple WebSocketServer instances to prevent upgrade handler conflicts",
+    "Disable perMessageDeflate explicitly when clients may not support compression to avoid RSV1 errors",
+    "Inspect raw frame bytes during debugging to distinguish between actual frame corruption and HTTP contamination"
+  ],
+  "antiPatterns": [
+    "Attaching multiple WebSocketServer instances to the same HTTP server without using noServer mode",
+    "Assuming RSV1 errors always indicate compression issues without checking for raw HTTP contamination",
+    "Not verifying that upgrade handlers properly destroy sockets for unrecognized paths"
+  ],
+  "faq": [
+    {
+      "question": "What causes Invalid frame header errors in WebSocket?",
+      "answer": "Most Invalid frame header errors stem from raw HTTP being written to an upgraded WebSocket socket, not actual frame corruption. The most common cause is multiple WebSocketServer instances where both upgrade handlers fire, and the non-matching one writes an HTTP 400 response to the now-WebSocket socket."
+    },
+    {
+      "question": "How do I fix RSV1 must be clear errors?",
+      "answer": "This error occurs when RSV1 bit is set on a frame that should not have it. Fix by setting perMessageDeflate: false on your WebSocketServer configuration, or ensure client and server have matching compression capabilities."
+    },
+    {
+      "question": "Why does my WebSocket work in isolation but fail in my app?",
+      "answer": "This is the classic symptom of multiple WebSocketServer conflict. When integrated, another library or code path also attaches an upgrade handler, causing the upgrade process to be interrupted or have HTTP written to it."
+    },
+    {
+      "question": "What does hex pattern 48545450 indicate?",
+      "answer": "48545450 is the hex representation of HTTP. When you see this in WebSocket frame data, it means raw HTTP text was written to the WebSocket connection instead of proper WebSocket frames."
+    },
+    {
+      "question": "What is code 1006 in WebSocket?",
+      "answer": "WebSocket close code 1006 means abnormal closure. It indicates the connection was closed without a proper WebSocket close handshake, often due to server-side abortHandshake calls or socket destruction."
+    },
+    {
+      "question": "Should I use perMessageDeflate compression?",
+      "answer": "Only if both client and server support it. Compression reduces bandwidth but adds processing overhead and can cause compatibility issues. When in doubt, explicitly set perMessageDeflate: false for maximum compatibility."
+    }
+  ],
+  "seoKeywords": [
+    "websocket debugging",
+    "websocket errors",
+    "RSV1 must be clear",
+    "Invalid frame header",
+    "WebSocketServer",
+    "Node.js WebSocket",
+    "real-time debugging",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/AgentWorkforce/relay/tree/main/.claude/skills/debugging-websocket-issues",
+  "sourceType": "community",
+  "dependencies": []
+}

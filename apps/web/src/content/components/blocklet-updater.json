@@ -1,0 +1,141 @@
+{
+  "name": "blocklet-updater",
+  "type": "skill",
+  "description": "Creates a new release for a blocklet project by bumping version, building, and bundling. Use when asked to \"create a new release\", \"bump and bundle\", or \"update blocklet version\".",
+  "domain": "devops",
+  "subdomain": "deployment",
+  "specialty": "release management",
+  "quality": 5,
+  "qualityReason": "Clear versioning workflow",
+  "bundleHints": [
+    "deployment-automation",
+    "release-tools"
+  ],
+  "tags": [
+    "arcblock",
+    "blocklet",
+    "build",
+    "bundle",
+    "deployment",
+    "release",
+    "version-bump"
+  ],
+  "capabilities": [
+    "Bump blocklet version using blocklet version command",
+    "Install dependencies and run build when package.json build script exists",
+    "Locate index.html entry point in common output directories",
+    "Verify and update blocklet.yml main field alignment",
+    "Run metadata verification with blocklet meta",
+    "Create release bundle with blocklet bundle --create-release"
+  ],
+  "author": "ArcBlock",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing workflow guidance for blocklet releases. No executable code, scripts, or network calls. Static findings are false positives: detected command patterns are bash examples in documentation, not shell execution; cryptographic algorithm warnings are pattern matches in JSON metadata; network detection is source URL in metadata. The skill only guides AI to run standard blocklet CLI commands in user projects.",
+  "valueStatement": "Manually creating blocklet releases requires running multiple commands in sequence. This skill automates the entire release workflow including version bump, build, metadata verification, and bundle creation.",
+  "userTitle": "Create blocklet releases with version bump and bundle",
+  "limitations": [
+    "Only works with blocklet projects that have blocklet.yml",
+    "Requires blocklet CLI (@blocklet/cli) to be installed",
+    "Does not handle custom build configurations outside standard patterns",
+    "Cannot recover from build failures - exits immediately on error"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Blocklet developers",
+      "title": "Release automation",
+      "description": "Automate the complete release workflow for blocklet projects with a single prompt"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "CI/CD integration",
+      "description": "Standardize release processes across multiple blocklet projects"
+    },
+    {
+      "targetUser": "Plugin authors",
+      "title": "Version management",
+      "description": "Ensure consistent versioning and metadata for ArcBlock plugins"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic release",
+      "scenario": "Create a standard release",
+      "prompt": "Bump and bundle this blocklet project"
+    },
+    {
+      "title": "Patch version",
+      "scenario": "Increment patch version",
+      "prompt": "Run blocklet-updater to create a new patch release for this blocklet"
+    },
+    {
+      "title": "Full release",
+      "scenario": "Complete release workflow",
+      "prompt": "Update the version, build the project, verify metadata, and create a release bundle for this blocklet"
+    },
+    {
+      "title": "Troubleshooting",
+      "scenario": "Debug release issues",
+      "prompt": "Check if this is a valid blocklet project and walk through the release steps to identify any issues"
+    }
+  ],
+  "bestPractices": [
+    "Ensure blocklet CLI is installed globally before running release workflow",
+    "Run pnpm install manually first if network issues are suspected",
+    "Verify blocklet.yml has all required fields: did, name, version"
+  ],
+  "antiPatterns": [
+    "Running the skill on non-blocklet projects without blocklet.yml",
+    "Skipping build failure investigation - always fix build errors first",
+    "Modifying the main field without verifying index.html location"
+  ],
+  "faq": [
+    {
+      "question": "What projects work with this skill?",
+      "answer": "Only ArcBlock blocklet projects with a valid blocklet.yml file. Other projects will exit with an error."
+    },
+    {
+      "question": "What version bump types are supported?",
+      "answer": "The skill uses 'patch' by default. You can request 'minor' or 'major' bumps in your prompt."
+    },
+    {
+      "question": "Does it work with npm instead of pnpm?",
+      "answer": "No, the skill specifically uses pnpm for dependency installation. Ensure pnpm is available in your environment."
+    },
+    {
+      "question": "Is my project data safe?",
+      "answer": "Yes. The skill only operates on your project files locally. No data is sent to external servers."
+    },
+    {
+      "question": "What causes immediate exit?",
+      "answer": "Missing blocklet.yml, version bump failure, build failure, missing index.html, or bundle creation failure."
+    },
+    {
+      "question": "How does it compare to manual releases?",
+      "answer": "The skill automates the same commands you would run manually, reducing errors and ensuring consistent workflow."
+    }
+  ],
+  "seoKeywords": [
+    "blocklet release",
+    "arcblock",
+    "blocklet updater",
+    "version bump",
+    "claude",
+    "codex",
+    "claude-code",
+    "bundle creation",
+    "deployment automation",
+    "release automation"
+  ],
+  "sourceUrl": "https://github.com/ArcBlock/agent-skills/tree/main/plugins/blocklet/skills/blocklet-updater",
+  "sourceType": "community",
+  "dependencies": []
+}

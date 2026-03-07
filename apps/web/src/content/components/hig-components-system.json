@@ -1,0 +1,143 @@
+{
+  "name": "hig-components-system",
+  "type": "skill",
+  "description": "Apple Human Interface Guidelines for system experience components including widgets, live activities, notifications, complications, and more.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "system experiences",
+  "quality": 5,
+  "qualityReason": "Complete system component",
+  "bundleHints": [
+    "apple-design",
+    "system-ui"
+  ],
+  "tags": [
+    "apple hig",
+    "complications",
+    "ios design",
+    "live activities",
+    "live-activities",
+    "notifications",
+    "platform-experience",
+    "system-integration",
+    "widgets"
+  ],
+  "capabilities": [
+    "Provides Apple HIG guidance for widgets, live activities, and notifications",
+    "Explains complication design for watchOS with family-specific layouts",
+    "Documents App Clip requirements including size limits and discovery methods",
+    "Covers home screen quick actions, top shelf, and watch face design",
+    "References official Apple Developer documentation with direct links",
+    "Recommends appropriate system surfaces based on use case requirements"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only markdown documentation files with Apple Human Interface Guidelines content. All 1196 static analysis findings are FALSE POSITIVES: URLs are documentation references to developer.apple.com, not network calls; 'C2 keywords' and 'weak crypto' patterns appear in API documentation text, not executable code; 'external_commands' are code examples in markdown, not shell execution. The skill has no executable code, no network capabilities, and poses no security risk.",
+  "valueStatement": "Designers and developers struggle to create compliant system experiences across Apple platforms. This skill provides authoritative Human Interface Guidelines for widgets, live activities, notifications, complications, and more.",
+  "userTitle": "Design system experiences with Apple HIG",
+  "limitations": [
+    "Contains documentation only - does not execute code or build components",
+    "References may become outdated as Apple updates HIG - verify with latest docs",
+    "Does not provide platform-specific implementation code samples",
+    "Limited to system experience components - use other skills for UI controls"
+  ],
+  "useCases": [
+    {
+      "targetUser": "iOS app designer",
+      "title": "iOS App Widget Design",
+      "description": "Design a home screen widget for a fitness app showing daily activity rings."
+    },
+    {
+      "targetUser": "mobile developer",
+      "title": "Live Activity Implementation",
+      "description": "Plan a live activity for food delivery tracking from order to arrival."
+    },
+    {
+      "targetUser": "watchOS developer",
+      "title": "Watch Complication Planning",
+      "description": "Design watch face complications for a weather app with multiple sizes."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Widget Design Basics",
+      "prompt": "What are the key principles for designing an effective iOS home screen widget? I need to display news headlines.",
+      "scenario": "beginner"
+    },
+    {
+      "title": "Live Activity Suitability",
+      "prompt": "Should my meditation timer app use a live activity? What are the design requirements for timer-based live activities?",
+      "scenario": "intermediate"
+    },
+    {
+      "title": "Notification Strategy",
+      "prompt": "Design a notification strategy for a task management app. What types of notifications are appropriate and how should they be grouped?",
+      "scenario": "intermediate"
+    },
+    {
+      "title": "Multi-Platform System Experience",
+      "prompt": "I'm building a ride-sharing app. Recommend the optimal system experiences for iOS, watchOS, and explain how they should work together for the rider experience.",
+      "scenario": "advanced"
+    }
+  ],
+  "bestPractices": [
+    "Design for glanceability - users should understand content in 1-2 seconds",
+    "Respect system and update budgets to avoid throttling or disabled updates",
+    "Always deep-link to relevant content, never to the app root screen"
+  ],
+  "antiPatterns": [
+    "Displaying ads or promotional content in widgets or live activities",
+    "Sending notifications for purely marketing purposes without user value",
+    "Requiring full app install to complete tasks started in an App Clip"
+  ],
+  "faq": [
+    {
+      "question": "What is the maximum size for an App Clip?",
+      "answer": "App Clips must be 10MB or less for cellular download. Keep them as small as possible for faster launch times, especially in low-bandwidth situations."
+    },
+    {
+      "question": "How often can widgets update?",
+      "answer": "Widget update frequency depends on system budget and widget activity level. Typical ranges are 15-30 minutes for active widgets. The system may throttle updates based on battery and usage patterns."
+    },
+    {
+      "question": "Can live activities appear on the Dynamic Island?",
+      "answer": "Yes, live activities can appear on Dynamic Island for iPhone 14 Pro and later. Design for both Dynamic Island compact/expanded states and Lock Screen presentation."
+    },
+    {
+      "question": "What are complication families?",
+      "answer": "Complication families are size categories for watch face complications: modular small/large, circular small/medium/large, graphic corner/rectangular, and utilitarian small/large. Each requires distinct layout designs."
+    },
+    {
+      "question": "Do home screen quick actions require user permission?",
+      "answer": "No, home screen quick actions (3D Touch/Haptic Touch) are system-managed and appear automatically when users long-press your app icon. No permission is needed."
+    },
+    {
+      "question": "What content works best for tvOS top shelf?",
+      "answer": "Top shelf should showcase featured content: new episodes, trending items, continue watching, or personalized recommendations. Use high-quality artwork and keep content fresh to encourage engagement."
+    }
+  ],
+  "seoKeywords": [
+    "Apple HIG",
+    "iOS widget design",
+    "live activities guide",
+    "notification design",
+    "Apple Developer",
+    "Claude Code skills",
+    "Codex assistant",
+    "watchOS complications",
+    "tvOS top shelf",
+    "App Clip design"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hig-components-system",
+  "sourceType": "community",
+  "dependencies": []
+}

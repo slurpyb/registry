@@ -1,0 +1,146 @@
+{
+  "name": "active-directory-attacks",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"attack Active Directory\", \"exploit AD\", \"Kerberoasting\", \"DCSync\", \"pass-the-hash\", \"BloodHound enumeration\", \"Golden Ticket\", \"Silver Ticket\", \"AS-REP roasting\", \"NTLM relay\", or needs guidance on Windows domain penetration testing.",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "AD exploitation",
+  "quality": 5,
+  "qualityReason": "Specific and critical for red teams",
+  "bundleHints": [
+    "pentesting-toolkit",
+    "ad-security"
+  ],
+  "tags": [
+    "active-directory",
+    "attack-path",
+    "authorized-testing",
+    "domain-enumeration",
+    "kerberos",
+    "lateral-movement",
+    "penetration-testing",
+    "red-team",
+    "security"
+  ],
+  "capabilities": [
+    "Provides reference commands for BloodHound AD enumeration and attack path discovery",
+    "Documents Kerberos attack techniques including Kerberoasting, AS-REP roasting, and ticket attacks",
+    "Contains credential extraction methods using Impacket, Mimikatz, and secretsdump",
+    "Includes lateral movement techniques like pass-the-hash and pass-the-ticket",
+    "References AD CS exploitation and delegation attack patterns",
+    "Covers critical CVE exploitation including ZeroLogon and PrintNightmare"
+  ],
+  "author": "sickn33",
+  "icon": "🛡️",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains documentation and reference material for Active Directory penetration testing techniques. Static analysis flagged 200+ patterns (PowerShell commands, tool references, IP addresses) but all are FALSE POSITIVES - the files are markdown documentation, not executable code. Content describes legitimate security tools (BloodHound, Impacket, Mimikatz) used by penetration testers. Risk is LOW because: (1) files are read-only reference material, (2) no code execution occurs, (3) content is educational for authorized security testing. Recommend adding disclaimer about authorized use only.",
+  "valueStatement": "Security teams need comprehensive reference material for authorized Active Directory assessments. This skill provides documented attack techniques and tool commands for penetration testers conducting red team operations.",
+  "userTitle": "Execute Active Directory penetration testing and red team assessments",
+  "limitations": [
+    "This skill provides documentation only - it does not execute any commands automatically",
+    "Requires user to have appropriate tools installed (Impacket, Mimikatz, BloodHound, etc.)",
+    "Commands are designed for authorized penetration testing environments only",
+    "Does not provide automated target discovery or network scanning capabilities"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Penetration tester conducting authorized red team engagement",
+      "title": "Red Team Assessment Planning",
+      "description": "Security consultants preparing for authorized AD assessments use this skill to plan attack paths and select appropriate tools for engagement scope."
+    },
+    {
+      "targetUser": "Security operations analyst or threat hunter",
+      "title": "Blue Team Defense Research",
+      "description": "Defensive security teams study attack techniques to understand adversary TTPs and improve detection rules for their SIEM and EDR platforms."
+    },
+    {
+      "targetUser": "Cybersecurity trainer or student in authorized lab",
+      "title": "Security Training and Education",
+      "description": "Instructors use documented techniques to teach students about AD vulnerabilities and proper remediation strategies in controlled lab environments."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic AD Reconnaissance",
+      "prompt": "I need to perform authorized Active Directory reconnaissance. What BloodHound commands should I use to enumerate domain users, groups, and computers? Target domain is example.local with credentials user:password.",
+      "scenario": "Initial enumeration phase of authorized penetration test"
+    },
+    {
+      "title": "Kerberoasting Attack",
+      "prompt": "Show me how to perform Kerberoasting against an Active Directory domain. Include commands for extracting TGS tickets with Impacket and cracking them with hashcat.",
+      "scenario": "Credential harvesting phase with valid domain user access"
+    },
+    {
+      "title": "Lateral Movement Strategy",
+      "prompt": "I have compromised a low-privilege domain user. What are the recommended lateral movement techniques to escalate privileges? Compare pass-the-hash, overpass-the-hash, and delegation attacks.",
+      "scenario": "Mid-engagement escalation during red team operation"
+    },
+    {
+      "title": "Domain Dominance Planning",
+      "prompt": "Explain how to achieve domain dominance using DCSync and Golden Ticket attacks. Include the prerequisites, commands, and detection avoidance considerations for each technique.",
+      "scenario": "Advanced phase of comprehensive AD security assessment"
+    }
+  ],
+  "bestPractices": [
+    "Always obtain written authorization before executing any AD attack techniques against production environments",
+    "Document all compromised accounts and accessed systems for client reporting and remediation guidance",
+    "Synchronize time with domain controller before Kerberos attacks to avoid clock skew failures",
+    "Use stealth techniques like user enumeration limits to avoid account lockouts during password spraying",
+    "Restore any modified system state (like ZeroLogon password changes) after testing completion"
+  ],
+  "antiPatterns": [
+    "Never execute attack commands against environments without explicit written authorization from the owner",
+    "Do not run aggressive password spraying that could lock out legitimate user accounts",
+    "Avoid leaving Golden Tickets or other persistence mechanisms without documenting them for removal",
+    "Do not modify production Active Directory objects, GPOs, or configurations without approval"
+  ],
+  "faq": [
+    {
+      "question": "Is this skill legal to use?",
+      "answer": "This skill provides educational documentation for security professionals. Only use these techniques against systems you own or have explicit written authorization to test. Unauthorized access to computer systems is illegal."
+    },
+    {
+      "question": "What tools do I need to execute these attacks?",
+      "answer": "Common tools include Impacket (Python), Mimikatz (Windows), Rubeus (Windows), BloodHound/SharpHound, CrackMapExec, and hashcat. Most are available on Kali Linux by default."
+    },
+    {
+      "question": "Can this skill automatically run attacks?",
+      "answer": "No. This skill provides reference documentation only. It does not execute any commands automatically. Users must manually run commands in their own environment."
+    },
+    {
+      "question": "What is the difference between Kerberoasting and AS-REP Roasting?",
+      "answer": "Kerberoasting targets service accounts with SPNs by requesting crackable TGS tickets. AS-REP Roasting targets user accounts with 'Do not require Kerberos preauthentication' enabled by requesting crackable AS-REP responses."
+    },
+    {
+      "question": "How do I detect these attacks in my environment?",
+      "answer": "Enable advanced audit policies for Kerberos authentication, monitor for unusual TGS requests, track DCSync patterns (replication traffic), and use BloodHound defensively to identify attack paths before adversaries do."
+    },
+    {
+      "question": "What is a Golden Ticket and why is it dangerous?",
+      "answer": "A Golden Ticket is a forged Kerberos TGT created with the krbtgt password hash. It grants persistent domain admin access that survives password changes. Detection requires monitoring for abnormal ticket lifetimes and encryption types."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code Active Directory",
+    "Codex penetration testing",
+    "Claude red team skills",
+    "AD attack documentation",
+    "Kerberos attacks guide",
+    "security assessment tools",
+    "Mimikatz reference",
+    "BloodHound enumeration",
+    "lateral movement techniques",
+    "domain compromise testing"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/active-directory-attacks",
+  "sourceType": "community",
+  "dependencies": []
+}

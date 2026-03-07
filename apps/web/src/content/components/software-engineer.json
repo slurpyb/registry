@@ -1,0 +1,143 @@
+{
+  "name": "software-engineer",
+  "type": "skill",
+  "description": "Builds and refactors code safely; prefers small diffs, clear validation steps, and testable outcomes.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "safe code changes",
+  "quality": 4,
+  "qualityReason": "Broad but well-scoped engineering role",
+  "bundleHints": [
+    "engineering-practices",
+    "code-quality",
+    "workflow"
+  ],
+  "tags": [
+    "code review",
+    "code safety",
+    "refactoring",
+    "small diffs",
+    "software engineering",
+    "testing",
+    "validation"
+  ],
+  "capabilities": [
+    "Guides developers to create small, focused code changes that are easy to review",
+    "Asks clarifying questions when requirements are ambiguous before implementing",
+    "Suggests using existing repository patterns and utilities instead of adding new dependencies",
+    "Proposes validation steps like unit tests or build commands when behavior changes",
+    "Instructs to avoid destructive actions unless explicitly requested by the user"
+  ],
+  "author": "ACSKamloops",
+  "icon": "👨‍💻",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are FALSE POSITIVES. The skill contains only guidance for safe code development practices. The source_url field is metadata, not a network call. Words like 'code', 'refactor', and 'testable' were incorrectly flagged by pattern matching. No actual security risks found.",
+  "valueStatement": "Code changes often introduce bugs and regressions. This skill guides developers through safe code building and refactoring by preferring minimal, reviewable changes and clear validation steps.",
+  "userTitle": "Build and Refactor Code Safely",
+  "limitations": [
+    "Does not execute code or run tests automatically",
+    "Does not have access to specific project coding standards or style guides",
+    "Does not generate comprehensive test suites from scratch",
+    "Provides guidance but does not make architectural decisions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers working with legacy or complex codebases",
+      "title": "Safe Code Refactoring",
+      "description": "Refactor legacy code with minimal, reviewable changes. The skill breaks down large refactors into smaller steps, asks clarifying questions about ambiguous requirements, and suggests validation tests at each step."
+    },
+    {
+      "targetUser": "Feature developers seeking consistent code quality",
+      "title": "Feature Implementation Guidance",
+      "description": "Implement new features following existing patterns. The skill guides developers to use repository utilities, prefer small diffs, and propose quick validation steps to confirm correct behavior."
+    },
+    {
+      "targetUser": "Developers preparing pull requests for review",
+      "title": "Code Review Preparation",
+      "description": "Prepare code changes for review. The skill ensures changes are minimal, well-scoped, and include appropriate validation steps to make the review process smoother."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Refactor Request",
+      "prompt": "Refactor the function [FUNCTION_NAME] to improve readability while maintaining its current behavior.",
+      "scenario": "When you need to refactor a specific function with clear scope"
+    },
+    {
+      "title": "Feature with Clarification",
+      "prompt": "I need to add a feature to [FILE]. The feature should [DESCRIPTION]. There are some aspects I am unsure about: [LIST_QUESTIONS].",
+      "scenario": "When implementing a feature with ambiguous requirements"
+    },
+    {
+      "title": "Pattern-Based Implementation",
+      "prompt": "Implement the new [FEATURE] following the existing patterns in the [DIRECTORY] directory. Suggest a quick validation step to confirm it works correctly.",
+      "scenario": "When adding features that should match existing code patterns"
+    },
+    {
+      "title": "Safe Modification Request",
+      "prompt": "Make a minimal change to [FILE] to [GOAL]. Review the change and propose a validation command.",
+      "scenario": "When you need a small, focused code change with verification"
+    }
+  ],
+  "bestPractices": [
+    "Start with small, reviewable patches instead of large refactors",
+    "Ask clarifying questions when requirements are unclear before writing code",
+    "Use existing repository patterns and utilities instead of introducing new dependencies",
+    "Always propose a validation step when changing code behavior"
+  ],
+  "antiPatterns": [
+    "Making large, sweeping changes without breaking them into smaller steps",
+    "Implementing features without confirming understanding of requirements",
+    "Adding new dependencies when existing utilities would work",
+    "Skipping validation steps when behavior changes"
+  ],
+  "faq": [
+    {
+      "question": "What makes this skill different from a standard coding assistant?",
+      "answer": "This skill specifically emphasizes safe, incremental code changes. It prioritizes small diffs, clarity, and validation over rapid implementation. It also explicitly asks clarifying questions when requirements are ambiguous."
+    },
+    {
+      "question": "Does this skill run tests automatically?",
+      "answer": "No, the skill suggests validation steps like unit tests or build commands but does not execute them. It relies on the developer or CI system to run actual tests."
+    },
+    {
+      "question": "How does this skill handle ambiguous requirements?",
+      "answer": "The skill explicitly instructs to ask 1-3 clarifying questions before implementing when requirements are unclear. This prevents wasted effort on incorrect implementations."
+    },
+    {
+      "question": "What kinds of changes does this skill prefer?",
+      "answer": "The skill prefers minimal, reviewable patches. It favors existing repository patterns and utilities over new dependencies. It also asks for explicit user approval before any destructive actions."
+    },
+    {
+      "question": "Can this skill help with test-driven development?",
+      "answer": "The skill can suggest validation steps including tests when behavior changes. However, it does not generate comprehensive test suites from scratch or enforce TDD methodology."
+    },
+    {
+      "question": "What tools does this skill work with?",
+      "answer": "This skill supports Claude, Codex, and Claude Code. It provides guidance that works across different AI coding assistants."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "software engineering",
+    "code refactoring",
+    "code review",
+    "software development",
+    "code safety",
+    "unit testing",
+    "code quality"
+  ],
+  "sourceUrl": "https://github.com/ACSKamloops/shs-engine/tree/master/.codex/skills/software-engineer",
+  "sourceType": "community",
+  "dependencies": []
+}

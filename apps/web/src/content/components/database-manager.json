@@ -1,0 +1,143 @@
+{
+  "name": "database-manager",
+  "type": "skill",
+  "description": "Manages Supabase database schema, migrations, and queries for CookMode V2. Use this when the user needs to create/modify tables, write migrations, update RLS policies, or troubleshoot database issues.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "supabase management",
+  "quality": 5,
+  "qualityReason": "Specific to Supabase with clear scope",
+  "bundleHints": [
+    "supabase-stack",
+    "postgres-tools"
+  ],
+  "tags": [
+    "database",
+    "migrations",
+    "postgresql",
+    "queries",
+    "rls",
+    "schema",
+    "supabase"
+  ],
+  "capabilities": [
+    "Create and modify database tables with proper constraints",
+    "Write SQL migrations following best practices",
+    "Configure Row Level Security policies",
+    "Debug database errors and performance issues",
+    "Optimize queries with proper indexing",
+    "Implement real-time data synchronization"
+  ],
+  "author": "AdamFehse",
+  "icon": "🗄️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing SQL templates and best practices for Supabase database operations. No executable code, scripts, network calls, or external command execution exists. All 66 static findings are false positives caused by the scanner misinterpreting SQL CHECK constraints as cryptographic algorithms, Markdown backticks as shell execution, and 'SAM' in 'Row Level Security' as Windows SAM database.",
+  "valueStatement": "Database management requires deep knowledge of SQL patterns and Supabase features. This skill provides expert guidance for creating tables, writing migrations, configuring RLS policies, and troubleshooting database issues with confidence.",
+  "userTitle": "Manage Supabase Database Schema and Migrations",
+  "limitations": [
+    "Provides guidance only - does not execute SQL directly",
+    "Does not access or modify your actual Supabase instance",
+    "Does not handle database credentials or authentication",
+    "Requires Supabase project already configured"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Schema Design and Migration",
+      "description": "Design new tables, write safe migrations, and manage schema evolution for Supabase projects."
+    },
+    {
+      "targetUser": "Backend engineers",
+      "title": "RLS Policy Configuration",
+      "description": "Configure Row Level Security policies for data protection and multi-tenant access control."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Database Troubleshooting",
+      "description": "Diagnose database issues, optimize slow queries, and fix constraint violations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create New Table",
+      "scenario": "Add a tracking table",
+      "prompt": "Create a migration to add a new table for tracking recipe cooking times with columns for recipe_slug, start_time, end_time, and notes."
+    },
+    {
+      "title": "Add RLS Policy",
+      "scenario": "Secure data access",
+      "prompt": "Write SQL to add RLS policies so users can only read their own recipe data but admins can access everything."
+    },
+    {
+      "title": "Optimize Query",
+      "scenario": "Fix slow query",
+      "prompt": "Review this query and suggest indexes to improve performance: SELECT * FROM ingredient_checks WHERE recipe_slug = ?"
+    },
+    {
+      "title": "Debug Issue",
+      "scenario": "Data not syncing",
+      "prompt": "My real-time updates stopped working. What could be causing this and how do I check the configuration?"
+    }
+  ],
+  "bestPractices": [
+    "Always include rollback steps in migrations for safe reversal",
+    "Test migrations locally before applying to production databases",
+    "Use proper indexing on frequently filtered columns like recipe_slug",
+    "Document schema changes in your project alongside the migration"
+  ],
+  "antiPatterns": [
+    "Dropping tables without backup or rollback plan",
+    "Modifying columns without understanding dependent objects",
+    "Skipping RLS policies even in trusted environments",
+    "Writing migrations without proper transaction handling"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill connect to my Supabase instance?",
+      "answer": "No. This skill provides SQL templates and guidance. You apply the generated SQL to your database using the Supabase dashboard, CLI, or client SDK."
+    },
+    {
+      "question": "What Supabase features are supported?",
+      "answer": "Full support for PostgreSQL tables, RLS policies, migrations, indexes, real-time subscriptions, and the Supabase JavaScript client."
+    },
+    {
+      "question": "Can I use this with other PostgreSQL databases?",
+      "answer": "Yes. Most SQL patterns work on any PostgreSQL database. Supabase-specific features like RLS and real-time are clearly marked."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only generates SQL guidance locally. No data leaves your machine. Always review generated SQL before applying."
+    },
+    {
+      "question": "How do I troubleshoot failed migrations?",
+      "answer": "Check the error message from Supabase, verify syntax matches your PostgreSQL version, and ensure you have proper permissions. Rollback steps are in the migration comments."
+    },
+    {
+      "question": "How is this different from Supabase CLI?",
+      "answer": "This skill provides expert guidance and SQL patterns. The CLI executes migrations and manages projects. Use both together for best results."
+    }
+  ],
+  "seoKeywords": [
+    "Supabase database management",
+    "PostgreSQL schema design",
+    "database migrations",
+    "RLS policies",
+    "CookMode V2 database",
+    "Claude database skill",
+    "Codex database management",
+    "Claude Code database skill",
+    "Supabase troubleshooting",
+    "SQL templates"
+  ],
+  "sourceUrl": "https://github.com/AdamFehse/cookmodeV2/tree/main/.claude/skills/database-manager",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "article-list-processor",
+  "type": "skill",
+  "description": "读取包含文章列表的 Markdown 文件，自动抓取原文内容并生成爆款文案。",
+  "domain": "automation",
+  "subdomain": "scripts",
+  "specialty": "Content scraping",
+  "quality": 5,
+  "qualityReason": "Actionable content pipeline",
+  "bundleHints": [
+    "content-automation",
+    "batch-processing"
+  ],
+  "tags": [
+    "ai-writing",
+    "automation",
+    "batch-processing",
+    "content-generation",
+    "markdown",
+    "web-scraping"
+  ],
+  "capabilities": [
+    "Parse Markdown files containing article links in standard [Title](URL) format",
+    "Fetch full article content from URLs using readability extraction",
+    "Generate viral posts using Defou x Stanley content framework",
+    "Automatically trigger verification and optimization after generation",
+    "Archive processed input files and save outputs organized by date",
+    "Watch input directory for new files and process automatically"
+  ],
+  "author": "wangdefou-dev",
+  "icon": "📄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate content processing skill with no malicious intent. Static scanner flagged 177 issues but most are false positives from pattern misidentification. The skill reads local Markdown files, fetches article content from user-specified URLs, calls Anthropic API for content generation, and writes output files. All operations follow expected workflow patterns with no data exfiltration, no command injection risks, and no credential misuse.",
+  "valueStatement": "You have a list of article links but no time to read and rewrite each one. This skill automatically fetches article content and generates viral posts using a proven content framework.",
+  "userTitle": "Process article lists into viral posts",
+  "limitations": [
+    "Requires valid Anthropic API key to generate content",
+    "Cannot process paywalled or blocked article content",
+    "Limited to 15,000 characters per article due to context limits",
+    "Rate limited to 2 concurrent articles to avoid overloading sources"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content Creators",
+      "title": "Batch Content Repurposing",
+      "description": "Turn a list of 20 article links into 20 viral posts in one automated session."
+    },
+    {
+      "targetUser": "Newsletter Curators",
+      "title": "Weekly Digest Generation",
+      "description": "Convert collected article links into formatted content for your newsletter subscribers."
+    },
+    {
+      "targetUser": "Social Media Managers",
+      "title": "Social Post Pipeline",
+      "description": "Build a pipeline to transform industry articles into platform-specific viral posts."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic List Processing",
+      "scenario": "Process a simple article list",
+      "prompt": "Create a markdown file in local_inputs/ with article links in [Title](URL) format, then run the article list processor."
+    },
+    {
+      "title": "Single Article Test",
+      "scenario": "Test with one article",
+      "prompt": "Create test_list.md with one article link to verify the full workflow works correctly."
+    },
+    {
+      "title": "Batch Processing",
+      "scenario": "Process multiple articles",
+      "prompt": "Drop multiple markdown files into local_inputs/ and the processor will handle each file sequentially."
+    },
+    {
+      "title": "Custom Content Style",
+      "scenario": "Modify content framework",
+      "prompt": "Edit the generateContent function prompts to customize the output style for your specific audience."
+    }
+  ],
+  "bestPractices": [
+    "Use clear, descriptive article titles in your markdown files for better generated content.",
+    "Test with a single article first to verify API configuration before batch processing.",
+    "Keep article lists under 50 links per file to maintain manageable processing times."
+  ],
+  "antiPatterns": [
+    "Do not process articles from paywalled sites without permission.",
+    "Avoid processing extremely long articles that may exceed context limits.",
+    "Do not modify the input directory path while the watcher is running."
+  ],
+  "faq": [
+    {
+      "question": "What file formats are supported?",
+      "answer": "Only .md and .txt files in local_inputs/ are processed. Other files are ignored."
+    },
+    {
+      "question": "How long does processing take?",
+      "answer": "Each article takes 30-60 seconds. With 2 concurrent workers, 10 articles take about 5 minutes."
+    },
+    {
+      "question": "What happens to failed fetches?",
+      "answer": "Failed articles are skipped with an error log. The processor continues with remaining articles."
+    },
+    {
+      "question": "Can I use this without an API key?",
+      "answer": "Set MOCK_MODE=true in .env to test without API calls. No content will be generated."
+    },
+    {
+      "question": "Where are output files saved?",
+      "answer": "Generated posts are saved to outputs/defou-stanley-posts/ with timestamped filenames."
+    },
+    {
+      "question": "How do I stop the watcher?",
+      "answer": "Press Ctrl+C in the terminal. Use npm run skill:list to restart anytime."
+    }
+  ],
+  "seoKeywords": [
+    "article to post converter",
+    "batch content generation",
+    "AI content automation",
+    "web scraping for content",
+    "viral post generator",
+    "Claude content skill",
+    "Codex writing assistant",
+    "content workflow automation",
+    "markdown to post",
+    "article rewriter"
+  ],
+  "sourceUrl": "https://github.com/wangdefou-dev/defou-workflow-agent/tree/main/skills/article-list-processor",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "senior-secops",
+  "type": "skill",
+  "description": "Comprehensive SecOps skill for application security, vulnerability management, compliance, and secure development practices. Includes security scanning, vulnerability assessment, compliance checking, and security automation. Use when implementing security controls, conducting security audits, responding to vulnerabilities, or ensuring compliance requirements.",
+  "domain": "security",
+  "subdomain": "compliance",
+  "specialty": "vulnerability management",
+  "quality": 5,
+  "qualityReason": "Focused security operations",
+  "bundleHints": [
+    "secops-suite",
+    "compliance-toolkit"
+  ],
+  "tags": [
+    "assessment",
+    "audit",
+    "compliance",
+    "devsecops",
+    "policy",
+    "scanning",
+    "secure-dev",
+    "security",
+    "vulnerability"
+  ],
+  "capabilities": [
+    "Scan codebases for security vulnerabilities and misconfigurations",
+    "Assess target systems for common security weaknesses",
+    "Verify compliance against security standards and frameworks",
+    "Generate security assessment reports in JSON format",
+    "Support multiple programming languages and frameworks",
+    "Provide security best practices and anti-patterns documentation"
+  ],
+  "author": "alirezarezvani",
+  "icon": "🛡️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 78 static findings are FALSE POSITIVES. The analyzer misidentified markdown documentation code blocks (showing bash commands and TypeScript examples) as executable shell commands, and flagged placeholder code patterns as cryptographic/network threats. The actual Python scripts are legitimate scaffolding templates for security tooling with no malicious code, no network operations, and no unsanitized external command execution. This is a defensive security skill with safe, read-only scanning capabilities.",
+  "valueStatement": "Security teams spend hours manually reviewing code and configurations for vulnerabilities. This SecOps skill provides automated security scanning, vulnerability assessment, and compliance checking tools to streamline security operations and ensure consistent coverage across codebases.",
+  "userTitle": "Automate security scanning and compliance checks",
+  "limitations": [
+    "Does not perform penetration testing or exploit validation",
+    "Does not access external APIs or live services",
+    "Relies on user-provided target paths and configurations",
+    "Scanner scripts are scaffolding templates requiring full implementation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security Engineers",
+      "title": "Automate security assessments",
+      "description": "Run automated security scans on codebases to identify vulnerabilities before deployment."
+    },
+    {
+      "targetUser": "DevSecOps Teams",
+      "title": "Integrate security into CI/CD",
+      "description": "Add security scanning steps to pipelines using the provided CLI tools and templates."
+    },
+    {
+      "targetUser": "Compliance Officers",
+      "title": "Verify security controls",
+      "description": "Check systems against compliance requirements and generate audit documentation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Security Scan",
+      "scenario": "Scan a project directory",
+      "prompt": "Use the senior-secops skill to scan my project at [path] for security vulnerabilities. Show me the findings and recommendations."
+    },
+    {
+      "title": "Compliance Check",
+      "scenario": "Verify compliance standards",
+      "prompt": "Run a compliance check on [target] to verify it meets security standards. Generate a report of any gaps."
+    },
+    {
+      "title": "Vulnerability Assessment",
+      "scenario": "Assess system security",
+      "prompt": "Use the vulnerability assessor to analyze [target] for security weaknesses. Provide a detailed findings report."
+    },
+    {
+      "title": "Security Review",
+      "scenario": "Full security audit",
+      "prompt": "Perform a complete security review using all senior-secops tools. Analyze [target], check compliance, and summarize risks."
+    }
+  ],
+  "bestPractices": [
+    "Run security scans early in the development cycle to catch issues before they reach production",
+    "Use the JSON output format for automated integration with CI/CD pipelines and dashboards",
+    "Review and implement the security best practices documented in the reference guides"
+  ],
+  "antiPatterns": [
+    "Skipping security scans due to time pressure and deploying vulnerable code to production",
+    "Ignoring low-severity findings that can accumulate into significant security debt",
+    "Using security tools only for compliance checks without acting on the findings"
+  ],
+  "faq": [
+    {
+      "question": "What programming languages does the scanner support?",
+      "answer": "The skill provides guidance for TypeScript, JavaScript, Python, Go, Swift, and Kotlin codebases."
+    },
+    {
+      "question": "Can I integrate this into GitHub Actions?",
+      "answer": "Yes. The CLI tools support JSON output that can be parsed and used in CI/CD pipeline steps."
+    },
+    {
+      "question": "Does the skill perform live penetration testing?",
+      "answer": "No. The tools perform static analysis and compliance checks, not active exploitation or penetration testing."
+    },
+    {
+      "question": "What compliance frameworks are supported?",
+      "answer": "The reference documentation covers general security standards. Specific framework validation requires user configuration."
+    },
+    {
+      "question": "How do I customize the security rules?",
+      "answer": "Modify the scanner scripts and configuration to add custom rules matching your security requirements."
+    },
+    {
+      "question": "Can I generate reports in formats other than JSON?",
+      "answer": "Currently only JSON output is supported. The output can be post-processed to other formats as needed."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "security scanning",
+    "vulnerability assessment",
+    "compliance checking",
+    "SecOps automation",
+    "application security",
+    "security audit",
+    "devsecops"
+  ],
+  "sourceUrl": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-secops",
+  "sourceType": "community",
+  "dependencies": []
+}

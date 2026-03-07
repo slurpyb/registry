@@ -1,0 +1,143 @@
+{
+  "name": "benchling-integration",
+  "type": "skill",
+  "description": "Benchling R&D platform integration. Access registry (DNA, proteins), inventory, ELN entries, workflows via API, build Benchling Apps, query Data Warehouse, for lab data management automation.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "lab automation",
+  "quality": 5,
+  "qualityReason": "Specific life science platform",
+  "bundleHints": [
+    "lab-automation",
+    "bioinformatics-stack"
+  ],
+  "tags": [
+    "api",
+    "benchling",
+    "biotech",
+    "dna",
+    "eln",
+    "lab-automation",
+    "life-sciences",
+    "registry",
+    "research"
+  ],
+  "capabilities": [
+    "Authenticate with Benchling using API keys or OAuth for secure access",
+    "Create, read, update, and archive DNA, RNA, and protein sequences",
+    "Manage laboratory inventory including containers, boxes, and locations",
+    "Create and query electronic lab notebook entries and protocols",
+    "Automate workflow tasks and monitor task progress asynchronously",
+    "Query the Data Warehouse using SQL for analytics and reporting"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🔬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing reference materials for the Benchling R&D platform API. Static analysis flagged 476 patterns in markdown files, but ALL findings are FALSE POSITIVES. The scanner detected markdown code formatting (backticks), example URLs, and placeholder credentials in documentation examples - not actual executable code with security implications.",
+  "valueStatement": "Automate laboratory workflows and manage biological data by integrating with the Benchling R&D platform. Access DNA sequences, protein data, inventory, and electronic lab notebooks through the Python SDK or REST API.",
+  "userTitle": "Integrate with Benchling R&D Platform",
+  "limitations": [
+    "Requires an active Benchling account with API access enabled",
+    "Does not include the actual Benchling SDK - users must install it separately",
+    "Rate limits and permissions are determined by the Benchling tenant configuration",
+    "No offline functionality - requires continuous API connectivity"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Research Scientists",
+      "title": "Automate Sequence Registration",
+      "description": "Bulk import DNA and protein sequences from FASTA files directly into the Benchling registry with proper naming and custom fields."
+    },
+    {
+      "targetUser": "Lab Managers",
+      "title": "Inventory Tracking",
+      "description": "Monitor sample locations, track container transfers, and audit inventory changes across freezer locations and storage units."
+    },
+    {
+      "targetUser": "Data Analysts",
+      "title": "Research Analytics",
+      "description": "Export experimental data from the Data Warehouse for compliance reporting and integration with external BI tools."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Connection",
+      "scenario": "Connect to a Benchling tenant",
+      "prompt": "Show me how to authenticate with Benchling using an API key and create a connection to my tenant."
+    },
+    {
+      "title": "Sequence Operations",
+      "scenario": "Work with DNA sequences",
+      "prompt": "How do I create a new DNA sequence, register it in the registry, and link it to a notebook entry?"
+    },
+    {
+      "title": "Inventory Management",
+      "scenario": "Track samples and containers",
+      "prompt": "Create a workflow to transfer containers between locations and track the movement history."
+    },
+    {
+      "title": "Automation Script",
+      "scenario": "Bulk operations",
+      "prompt": "Write a script to find all sequences with a specific schema and export their names, bases, and creation dates to CSV."
+    }
+  ],
+  "bestPractices": [
+    "Store API credentials in environment variables or secret managers, never hardcode them in scripts",
+    "Use HTTPS for all API connections - Benchling requires secure communication",
+    "Implement proper error handling with retry logic for rate limits and transient failures"
+  ],
+  "antiPatterns": [
+    "Do not commit API keys or credentials to version control systems",
+    "Avoid making requests without checking rate limits or implementing backoff strategies",
+    "Do not hardcode tenant URLs - use configuration files or environment variables instead"
+  ],
+  "faq": [
+    {
+      "question": "How do I get my Benchling API credentials?",
+      "answer": "Log into Benchling, go to Profile Settings, and generate an API key. Store it securely as it is shown only once."
+    },
+    {
+      "question": "What Python version is required?",
+      "answer": "The Benchling SDK requires Python 3.7 or higher. Check your version with python --version."
+    },
+    {
+      "question": "Can I use this skill offline?",
+      "answer": "No, this skill requires an active internet connection to communicate with the Benchling API."
+    },
+    {
+      "question": "How do I handle rate limits?",
+      "answer": "The SDK automatically retries on 429 errors with exponential backoff. Configure max_retries in RetryStrategy if needed."
+    },
+    {
+      "question": "What authentication methods are supported?",
+      "answer": "API Key authentication for scripts and OAuth 2.0 Client Credentials for multi-user applications."
+    },
+    {
+      "question": "Does this skill include the SDK?",
+      "answer": "No, you must install the benchling-sdk package separately using pip or poetry."
+    }
+  ],
+  "seoKeywords": [
+    "Benchling integration",
+    "lab data management",
+    "DNA sequence registry",
+    "scientific API integration",
+    "laboratory automation",
+    "biological data platform",
+    "research data management",
+    "life sciences software",
+    "Claude Code Benchling",
+    "Claude integration"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/benchling-integration",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,139 @@
+{
+  "name": "researching-best-practices",
+  "type": "skill",
+  "description": "Automatically activated when user asks \"what's the best way to...\", \"how should I...\", \"what are best practices for...\", or requests recommendations, industry standards, or proven approaches for implementing features",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "best practices",
+  "quality": 5,
+  "qualityReason": "Strong trigger and actionable output",
+  "bundleHints": [
+    "engineering-excellence",
+    "learning-path"
+  ],
+  "tags": [
+    "best-practices",
+    "design-patterns",
+    "recommendations",
+    "software-engineering",
+    "standards"
+  ],
+  "capabilities": [
+    "Discover current industry standards and best practices for software development",
+    "Identify and explain design patterns with use case recommendations",
+    "Analyze codebases to evaluate existing patterns against best practices",
+    "Compare implementation approaches with trade-off analysis",
+    "Provide context-specific recommendations with code examples",
+    "Research using web sources, documentation, and codebase analysis"
+  ],
+  "author": "C0ntr0lledCha0s",
+  "icon": "📚",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 295 static findings are FALSE POSITIVES. The analyzer incorrectly flagged markdown documentation content as executable code. Backticks in markdown code examples were misidentified as Ruby shell execution. Security terms like 'bcrypt' in documentation were flagged as weak crypto algorithms. Command examples like 'grep' were flagged as system reconnaissance. This is a pure research skill with no code execution, no file writes, and no network calls in the skill definition itself.",
+  "valueStatement": "Developers often struggle to find current industry standards and proven approaches for implementation challenges. This skill provides researched best practices, design patterns, and recommendations tailored to specific project contexts.",
+  "userTitle": "Research software engineering best practices",
+  "limitations": [
+    "Recommendations are based on research and general best practices, not project-specific requirements",
+    "Does not execute code or make changes to user projects",
+    "Web research is limited to publicly available documentation and resources",
+    "Cannot access private repositories or internal company documentation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developers",
+      "title": "Architecture and Design Decisions",
+      "description": "Get recommendations on architectural patterns, framework choices, and project structure organization"
+    },
+    {
+      "targetUser": "Security Engineers",
+      "title": "Security Best Practices",
+      "description": "Research OWASP guidelines, authentication approaches, and secure coding patterns"
+    },
+    {
+      "targetUser": "Tech Leads",
+      "title": "Code Quality Standards",
+      "description": "Establish team coding standards, testing strategies, and code review checklists"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Authentication Approach",
+      "scenario": "Choosing auth method",
+      "prompt": "What is the best way to handle authentication in a React application with a Node.js backend?"
+    },
+    {
+      "title": "API Design",
+      "scenario": "REST API standards",
+      "prompt": "What are the best practices for designing a RESTful API for a CRUD application?"
+    },
+    {
+      "title": "Code Organization",
+      "scenario": "Project structure",
+      "prompt": "How should I structure a Next.js application for scalability and maintainability?"
+    },
+    {
+      "title": "Security Audit",
+      "scenario": "Code review",
+      "prompt": "Review my authentication code against security best practices and suggest improvements"
+    }
+  ],
+  "bestPractices": [
+    "Always provide context about your tech stack when asking for recommendations",
+    "Request trade-off analysis when choosing between multiple approaches",
+    "Ask for specific code examples aligned with your existing codebase patterns"
+  ],
+  "antiPatterns": [
+    "Asking for outdated practices without specifying a time period",
+    "Ignoring project constraints when evaluating recommendations",
+    "Applying patterns without understanding the reasoning behind them"
+  ],
+  "faq": [
+    {
+      "question": "What programming languages and frameworks are supported?",
+      "answer": "Recommendations cover major languages including JavaScript, TypeScript, Python, Go, Java, and Rust with framework-specific guidance."
+    },
+    {
+      "question": "How current are the best practices?",
+      "answer": "The skill researches current standards from official documentation and community resources, prioritizing 2024-2025 practices."
+    },
+    {
+      "question": "Does this skill modify my code?",
+      "answer": "No. This is a research and advisory skill only. It provides recommendations but never writes or changes any code."
+    },
+    {
+      "question": "How does the skill research information?",
+      "answer": "It uses codebase analysis (Read, Grep, Glob) to understand your project and web search (WebSearch, WebFetch) to research external standards."
+    },
+    {
+      "question": "Can I use this for security audits?",
+      "answer": "Yes. The skill includes comprehensive security checklists based on OWASP Top 10 and can review code against security best practices."
+    },
+    {
+      "question": "How is this different from a general coding assistant?",
+      "answer": "This skill specializes in research methodology, providing evidence-based recommendations with trade-off analysis rather than quick answers."
+    }
+  ],
+  "seoKeywords": [
+    "software engineering best practices",
+    "design patterns",
+    "Claude Code skill",
+    "coding standards",
+    "industry standards 2025",
+    "software development guidelines",
+    "code quality patterns",
+    "security best practices",
+    "performance optimization",
+    "API design patterns"
+  ],
+  "sourceUrl": "https://github.com/C0ntr0lledCha0s/claude-code-plugin-automations/tree/main/research-agent/skills/researching-best-practices",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,51 @@
+---
+import { getCollection } from "astro:content"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import Wrapper from "@/components/foundations/containers/Wrapper.astro"
+import { HomePage } from "@/components/react/HomePage"
+import { SITE_NAME } from "@/site.config"
+
+// Get some featured components (high quality, with icons)
+const allComponents = await getCollection("components")
+const featured = allComponents
+  .filter((c) => c.data.quality && c.data.quality >= 4 && c.data.icon)
+  .sort(() => Math.random() - 0.5)
+  .slice(0, 6)
+  .map((c) => ({
+    name: c.data.name,
+    type: c.data.type,
+    description: c.data.description,
+    icon: c.data.icon,
+    domain: c.data.domain,
+    quality: c.data.quality,
+  }))
+
+// Stats
+const stats = {
+  total: allComponents.length,
+  skills: allComponents.filter((c) => c.data.type === "skill").length,
+  agents: allComponents.filter((c) => c.data.type === "agent").length,
+  plugins: allComponents.filter((c) => c.data.type === "plugin").length,
+  commands: allComponents.filter((c) => c.data.type === "command").length,
+  bundles: allComponents.filter((c) => c.data.type === "bundle").length,
+}
+
+const domains = [...new Set(allComponents.map((c) => c.data.domain).filter(Boolean))] as string[]
+
+const seo = {
+  title: `${SITE_NAME} — AI Component Registry`,
+  description: `Browse ${stats.total.toLocaleString()} AI components: skills, plugins, agents, commands, and bundles. Build your custom OCX profile.`,
+  canonical: "/",
+}
+---
+
+<BaseLayout seo={seo}>
+  <Wrapper>
+    <HomePage
+      client:only="react"
+      stats={stats}
+      featured={featured}
+      domains={domains}
+    />
+  </Wrapper>
+</BaseLayout>

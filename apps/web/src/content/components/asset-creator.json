@@ -1,0 +1,139 @@
+{
+  "name": "asset-creator",
+  "type": "skill",
+  "description": "Create visual assets (images, illustrations) using AI (OpenAI DALL-E).",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "AI image generation",
+  "quality": 5,
+  "qualityReason": "Clear creative output",
+  "bundleHints": [
+    "visual-content",
+    "ai-creativity"
+  ],
+  "tags": [
+    "ai-art",
+    "creative",
+    "dall-e",
+    "illustrations",
+    "image-generation",
+    "visual-assets"
+  ],
+  "capabilities": [
+    "Generate 1024x1024 HD images using DALL-E 3",
+    "Create assets in minimalist, flat design style",
+    "Save images to organized public directory structure",
+    "Support for vivid and natural image styles",
+    "Automatic directory creation for asset organization"
+  ],
+  "author": "AayushBaniya2006",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "The asset-creator skill is a legitimate image generation tool using OpenAI's DALL-E API. All static findings evaluated are false positives. The 'external_commands' patterns are documentation examples for running the script via npx tsx, not dynamic command execution. The 'env_access' patterns are standard secure credential handling via process.env.OPENAI_API_KEY. The 'filesystem' operations are confined to the public directory for saving generated images. The critical heuristic findings are false alarms triggered by documentation patterns, not actual malicious behavior.",
+  "valueStatement": "Stop searching for stock photos. Create unique, on-brand visuals instantly with AI image generation. This skill integrates DALL-E 3 to produce high-quality assets tailored to your exact specifications.",
+  "userTitle": "Generate custom images with AI-powered DALL-E integration",
+  "limitations": [
+    "Requires valid OpenAI API key with DALL-E access",
+    "Generates JPG/PNG only (no true transparency)",
+    "Fixed 1024x1024 output resolution",
+    "Single image generation per request"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Web developers",
+      "title": "Create hero section illustrations",
+      "description": "Generate custom hero images for landing pages that match your brand style."
+    },
+    {
+      "targetUser": "Marketing teams",
+      "title": "Design social media graphics",
+      "description": "Produce unique visuals for blog posts and campaigns without stock photo limits."
+    },
+    {
+      "targetUser": "Product designers",
+      "title": "Generate UI mockup assets",
+      "description": "Create placeholder images and illustrations for prototypes and wireframes."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic image generation",
+      "scenario": "Simple product illustration",
+      "prompt": "Create an image of a modern dashboard interface with charts, minimalist flat design, white background"
+    },
+    {
+      "title": "Marketing hero image",
+      "scenario": "Landing page header visual",
+      "prompt": "Generate a hero image showing people collaborating on laptops, corporate memphis style, tech blue colors"
+    },
+    {
+      "title": "Icon-style illustration",
+      "scenario": "Feature section icons",
+      "prompt": "Create minimalist icons representing security, speed, analytics, and collaboration, flat vector style"
+    },
+    {
+      "title": "Complex scene generation",
+      "scenario": "About page illustration",
+      "prompt": "Design an isometric illustration of a modern office space with team members, clean aesthetic"
+    }
+  ],
+  "bestPractices": [
+    "Always specify white background for easy web integration",
+    "Include style keywords like minimalist, flat design, vector style",
+    "Use folder parameter to organize assets by project or category"
+  ],
+  "antiPatterns": [
+    "Avoid requesting transparent backgrounds - DALL-E outputs JPG/PNG with solid backgrounds",
+    "Do not generate multiple images in one prompt - create separate requests",
+    "Never use vague prompts without style specifications - results will be inconsistent"
+  ],
+  "faq": [
+    {
+      "question": "What image formats does it support?",
+      "answer": "DALL-E 3 generates JPG images saved as PNG. True transparency is not available."
+    },
+    {
+      "question": "Can I generate multiple images at once?",
+      "answer": "Currently supports single image generation per request. Run multiple commands for multiple assets."
+    },
+    {
+      "question": "What resolution are the images?",
+      "answer": "All images are generated at 1024x1024 pixels in HD quality."
+    },
+    {
+      "question": "Do I need a special OpenAI account?",
+      "answer": "Yes, you need an OpenAI API key with DALL-E access. Pay-per-use pricing applies."
+    },
+    {
+      "question": "Can I use these images commercially?",
+      "answer": "OpenAI grants full usage rights for generated images, including commercial use."
+    },
+    {
+      "question": "How do I style the images consistently?",
+      "answer": "Use style keywords and choose vivid or natural style parameter for consistent results."
+    }
+  ],
+  "seoKeywords": [
+    "DALL-E image generation",
+    "AI art creator",
+    "Claude Code visual assets",
+    "OpenAI image API",
+    "custom illustrations",
+    "brand imagery",
+    "stock photo alternative",
+    "AI-generated graphics",
+    "minimalist design",
+    "web asset creation"
+  ],
+  "sourceUrl": "https://github.com/AayushBaniya2006/blinkfund/tree/main/.claude/skills/asset-creator/",
+  "sourceType": "community",
+  "dependencies": []
+}

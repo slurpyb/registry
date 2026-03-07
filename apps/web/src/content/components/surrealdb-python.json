@@ -1,0 +1,142 @@
+{
+  "name": "surrealdb-python",
+  "type": "skill",
+  "description": "Master SurrealDB 2.3.x with Python for multi-model database operations including CRUD, graph relationships, vector search, and real-time queries. Use when working with SurrealDB databases, implementing graph traversal, semantic search with embeddings, or building RAG applications.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "multi-model operations",
+  "quality": 5,
+  "qualityReason": "Specific tech stack focus",
+  "bundleHints": [
+    "python-data",
+    "multi-model-db"
+  ],
+  "tags": [
+    "graph",
+    "graph database",
+    "multi-model database",
+    "python",
+    "realtime",
+    "surrealdb",
+    "vector search",
+    "vector-search"
+  ],
+  "capabilities": [
+    "Connect to SurrealDB with authentication and namespace selection",
+    "Perform CRUD operations using create, select, update, merge, patch, upsert, and delete",
+    "Create and traverse graph relationships using RELATE statement and arrow syntax",
+    "Implement vector similarity search with KNN queries and embedding storage",
+    "Subscribe to live data changes for real-time application updates",
+    "Build RAG applications combining vector search with graph relationships"
+  ],
+  "author": "ActiveInferenceInstitute",
+  "icon": "🗄️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing Markdown guides and Python code examples for SurrealDB operations. All 172 static findings are false positives: the analyzer misinterprets markdown backticks as shell execution, vector similarity functions as crypto algorithms, and database queries as reconnaissance. No executable code, no network calls, no file system access beyond documentation references.",
+  "valueStatement": "Building applications with SurrealDB requires understanding its multi-model capabilities including graph relationships, vector embeddings, and real-time subscriptions. This skill provides comprehensive guidance for using the Python SDK to implement CRUD operations, semantic search, and graph traversal patterns.",
+  "userTitle": "Work with SurrealDB in Python",
+  "limitations": [
+    "Does not include SurrealDB server installation or administration",
+    "Requires separate setup of embedding models for vector operations",
+    "No built-in migration or schema versioning tools",
+    "Real-time subscriptions require persistent connection management"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI Engineers",
+      "title": "Build RAG Applications",
+      "description": "Store document embeddings and retrieve relevant context for language model generation using semantic similarity search."
+    },
+    {
+      "targetUser": "Data Engineers",
+      "title": "Implement Knowledge Graphs",
+      "description": "Model complex entity relationships with typed edges and metadata for sophisticated graph traversal queries."
+    },
+    {
+      "targetUser": "Backend Developers",
+      "title": "Create Real-Time Apps",
+      "description": "Subscribe to live data changes for dashboards, chat applications, or notification systems with automatic updates."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Connection",
+      "scenario": "Connecting to SurrealDB",
+      "prompt": "Show me how to connect to SurrealDB using the Python async SDK with authentication and select a namespace and database."
+    },
+    {
+      "title": "Graph Operations",
+      "scenario": "Creating relationships",
+      "prompt": "Help me create a RELATE statement in SurrealDB to connect two entities with metadata, and then show how to traverse the relationship."
+    },
+    {
+      "title": "Vector Search",
+      "scenario": "Semantic similarity search",
+      "prompt": "Write a SurrealQL query using the KNN operator to find the 5 most similar documents based on cosine similarity with a query embedding."
+    },
+    {
+      "title": "Real-Time Subscriptions",
+      "scenario": "Live data updates",
+      "prompt": "Show me how to subscribe to live changes on a SurrealDB table and handle CREATE, UPDATE, and DELETE notifications."
+    }
+  ],
+  "bestPractices": [
+    "Use context managers (async with) for automatic connection cleanup and proper resource management.",
+    "Parameterize queries with named parameters ($variable) to prevent injection attacks.",
+    "Add timeouts to recursive graph queries and create indexes on frequently accessed fields for performance."
+  ],
+  "antiPatterns": [
+    "Avoid hardcoding credentials in source code; use environment variables instead.",
+    "Do not skip schema definitions when data integrity is important; use SCHEMAFULL tables.",
+    "Avoid unlimited recursive traversal without depth limits or timeouts, which can cause performance issues."
+  ],
+  "faq": [
+    {
+      "question": "What Python version is required?",
+      "answer": "SurrealDB Python SDK requires Python 3.8 or higher with asyncio support for async operations."
+    },
+    {
+      "question": "What embedding models work with SurrealDB?",
+      "answer": "Any embedding model can be used including Sentence Transformers, OpenAI embeddings, and HuggingFace models. Vectors are stored as arrays."
+    },
+    {
+      "question": "How do I integrate with LangChain?",
+      "answer": "Use SurrealDBStore from langchain_community.vectorstores for direct LangChain integration with similarity search."
+    },
+    {
+      "question": "Is my data safe with vector search?",
+      "answer": "Vectors are stored in your SurrealDB database. No data is sent to external services unless you use cloud embedding APIs."
+    },
+    {
+      "question": "Why are my queries slow?",
+      "answer": "Add indexes on vector fields and frequently queried metadata. Use appropriate K values and add timeouts to complex queries."
+    },
+    {
+      "question": "How does this compare to Neo4j?",
+      "answer": "SurrealDB combines document, graph, and vector storage in one database, simplifying architecture for AI applications."
+    }
+  ],
+  "seoKeywords": [
+    "SurrealDB Python SDK",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "multi-model database",
+    "vector search",
+    "graph database",
+    "RAG applications",
+    "semantic search",
+    "real-time queries"
+  ],
+  "sourceUrl": "https://github.com/ActiveInferenceInstitute/Journal-Utilities/tree/main/.claude/skills/surrealdb-python",
+  "sourceType": "community",
+  "dependencies": []
+}

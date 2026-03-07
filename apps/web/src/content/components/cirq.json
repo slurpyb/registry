@@ -1,0 +1,143 @@
+{
+  "name": "cirq",
+  "type": "skill",
+  "description": "Quantum computing framework for building, simulating, optimizing, and executing quantum circuits. Use this skill when working with quantum algorithms, quantum circuit design, quantum simulation (noiseless or noisy), running on quantum hardware (Google, IonQ, AQT, Pasqal), circuit optimization and compilation, noise modeling and characterization, or quantum experiments and benchmarking (VQE, QAOA, QPE, randomized benchmarking).",
+  "domain": "science",
+  "subdomain": "research",
+  "specialty": "quantum computing",
+  "quality": 5,
+  "qualityReason": "Highly specific technical domain",
+  "bundleHints": [
+    "quantum-stack",
+    "research-computing"
+  ],
+  "tags": [
+    "algorithms",
+    "circuits",
+    "hardware",
+    "optimization",
+    "quantum-computing",
+    "scientific",
+    "simulation"
+  ],
+  "capabilities": [
+    "Build quantum circuits with gates, measurements, and parameterized operations",
+    "Simulate circuits using state vector, density matrix, and stabilizer methods",
+    "Run circuits on quantum hardware from Google, IonQ, Azure, AQT, and Pasqal",
+    "Model and simulate noise including depolarizing, amplitude damping, and thermal noise",
+    "Optimize circuits through gate decomposition, merging, and qubit routing",
+    "Implement quantum algorithms including VQE, QAOA, and Quantum Phase Estimation"
+  ],
+  "author": "davila7",
+  "icon": "⚛️",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing markdown guides and code examples for the Cirq quantum computing library. All 336 static findings are false positives - the scanner detected markdown code formatting backticks, quantum computing terminology, and documentation URLs, misinterpreting them as security issues. No executable code, network endpoints, or file operations exist.",
+  "valueStatement": "Quantum computing requires specialized tools for circuit design and simulation. This skill provides comprehensive guidance for Cirq, enabling you to create quantum algorithms, run noisy simulations, and execute on real quantum hardware from multiple providers.",
+  "userTitle": "Build and simulate quantum circuits",
+  "limitations": [
+    "Requires Python and Cirq library installation (uv pip install cirq)",
+    "Hardware access requires separate accounts and API credentials",
+    "Simulation scales exponentially with qubit count (practical limit 25-30 qubits)",
+    "Does not provide quantum hardware itself, only integration interfaces"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Quantum researchers",
+      "title": "Research quantum algorithms",
+      "description": "Design and test new quantum algorithms including variational methods, optimization, and phase estimation"
+    },
+    {
+      "targetUser": "Physics students",
+      "title": "Learn quantum computing",
+      "description": "Understand quantum circuit concepts through simulation and experiment with fundamental quantum phenomena"
+    },
+    {
+      "targetUser": "Algorithm developers",
+      "title": "Develop quantum software",
+      "description": "Build and compile quantum circuits for deployment on multiple quantum computing platforms"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic circuit",
+      "scenario": "Create a simple Bell state circuit",
+      "prompt": "Create a Bell state preparation circuit using Cirq with two qubits, Hadamard and CNOT gates, and measurement"
+    },
+    {
+      "title": "Noisy simulation",
+      "scenario": "Simulate circuit with depolarizing noise",
+      "prompt": "Show how to add depolarizing noise to a quantum circuit and simulate it using DensityMatrixSimulator"
+    },
+    {
+      "title": "Parameterized circuits",
+      "scenario": "Run parameter sweeps",
+      "prompt": "Create a parameterized quantum circuit with sympy symbols and demonstrate parameter sweeps using cirq.Linspace"
+    },
+    {
+      "title": "Hardware execution",
+      "scenario": "Run on quantum processor",
+      "prompt": "Show how to compile and run a circuit on Google Quantum AI hardware with device validation and qubit selection"
+    }
+  ],
+  "bestPractices": [
+    "Start with simulator testing before running on expensive quantum hardware",
+    "Use density matrix simulation only when needed for mixed states or noise",
+    "Select best qubits using calibration data to improve hardware results",
+    "Optimize circuits for target hardware gateset before submission"
+  ],
+  "antiPatterns": [
+    "Running unvalidated circuits directly on hardware without simulator testing",
+    "Using density matrix simulation for pure state circuits (exponentially slower)",
+    "Ignoring device constraints and qubit connectivity when designing circuits",
+    "Running simulations with too many qubits without considering memory limits"
+  ],
+  "faq": [
+    {
+      "question": "What quantum hardware providers are supported?",
+      "answer": "Cirq supports Google Quantum AI, IonQ, Azure Quantum, AQT, and Pasqal. Each requires separate API credentials and accounts."
+    },
+    {
+      "question": "How many qubits can I simulate?",
+      "answer": "Exact simulation scales as 2^n in memory. Practical limits are typically 25-30 qubits (several GB of RAM). Clifford circuits can simulate more efficiently."
+    },
+    {
+      "question": "How do I install Cirq?",
+      "answer": "Run 'uv pip install cirq' for the core library. Add provider-specific packages like cirq-google, cirq-ionq, or cirq-aqt for hardware access."
+    },
+    {
+      "question": "Is my quantum circuit data safe?",
+      "answer": "Cirq runs locally. Hardware providers may log submitted circuits for service operation. Review each provider's privacy policy for details."
+    },
+    {
+      "question": "Why is my simulation slow?",
+      "answer": "State vector simulation is faster than density matrix. Reduce qubits or use CliffordSimulator for Clifford-only circuits. Monitor memory usage."
+    },
+    {
+      "question": "How does Cirq compare to Qiskit?",
+      "answer": "Cirq focuses on circuit-level design with deep hardware integration. Qiskit offers higher-level abstractions and a larger ecosystem. Choose based on your use case."
+    }
+  ],
+  "seoKeywords": [
+    "cirq",
+    "quantum computing",
+    "quantum circuits",
+    "quantum simulation",
+    "Google Quantum AI",
+    "quantum algorithms",
+    "QPU hardware",
+    "VQE",
+    "QAOA",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/cirq",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "nuxt",
+  "type": "skill",
+  "description": "Nuxt full-stack Vue framework with SSR, auto-imports, and file-based routing. Use when working with Nuxt apps, server routes, useFetch, middleware, or hybrid rendering.",
+  "domain": "web-development",
+  "subdomain": "fullstack",
+  "specialty": "Vue SSR",
+  "quality": 5,
+  "qualityReason": "Full-stack framework clarity",
+  "bundleHints": [
+    "vue-stack",
+    "nuxt-framework",
+    "ssr-apps"
+  ],
+  "tags": [
+    "auto-imports",
+    "file-routing",
+    "frontend",
+    "nuxt3",
+    "ssr",
+    "vue",
+    "web-development"
+  ],
+  "capabilities": [
+    "Explain Nuxt project structure and directory conventions for pages, components, and composables",
+    "Guide on configuring nuxt.config.ts with runtime config, app.config, and environment variables",
+    "Describe data fetching patterns using useFetch, useAsyncData, and $fetch with caching",
+    "Document server routes and API creation using the Nitro engine with file-based API handlers",
+    "Explain rendering modes including SSR, SPA, and hybrid rendering with route rules",
+    "Provide guidance on state management with useState, Pinia integration, and SSR-safe patterns"
+  ],
+  "author": "antfu",
+  "icon": "V",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing markdown reference files about the Nuxt framework. Static analysis detected patterns in documentation text (code examples, URLs, environment variable references) that were flagged as security issues. These are false positives since this skill contains no executable code - it only provides framework documentation to help AI agents understand Nuxt concepts. The skill is safe for publication.",
+  "valueStatement": "Developing full-stack Vue applications requires understanding server-side rendering, file-based routing, and the Nuxt module ecosystem. This skill provides comprehensive documentation for building production-ready Nuxt applications with the Nitro server engine.",
+  "userTitle": "Build Nuxt applications with SSR",
+  "limitations": [
+    "This skill provides documentation only and does not execute code or modify user projects",
+    "Skill does not install dependencies, run build commands, or interact with package managers",
+    "Does not provide debugging capabilities or runtime error analysis for existing applications"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers new to Nuxt who need guidance on project setup and structure",
+      "title": "Set up a new Nuxt project",
+      "description": "Use this skill when initializing a new Nuxt application, configuring the project structure, and understanding the default directory conventions for pages, layouts, and components."
+    },
+    {
+      "targetUser": "Backend developers building APIs within Nuxt applications",
+      "title": "Build server API routes",
+      "description": "Learn how to create API endpoints using Nuxt server routes, handle request/response, and organize server utilities with the Nitro engine."
+    },
+    {
+      "targetUser": "Full-stack developers optimizing application performance",
+      "title": "Optimize data fetching",
+      "description": "Understand best practices for fetching data in Nuxt including parallel requests, caching strategies, and avoiding hydration mismatches in SSR contexts."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Getting started with Nuxt",
+      "prompt": "I want to build a Nuxt 3 application. Explain the project structure, including the pages directory, components folder, and composables. What are the key directories and their purposes?",
+      "scenario": "When starting a new Nuxt project and needing an overview of the directory structure"
+    },
+    {
+      "title": "Configuring Nuxt",
+      "prompt": "How do I configure my Nuxt application? I need to understand nuxt.config.ts, the difference between runtime config and app config, and how to use environment variables.",
+      "scenario": "When configuring a Nuxt application with different environments"
+    },
+    {
+      "title": "Data fetching patterns",
+      "prompt": "Explain the different ways to fetch data in Nuxt 3. When should I use useFetch versus useAsyncData? How do I handle caching and parallel requests?",
+      "scenario": "When implementing data fetching in a Nuxt page or component"
+    },
+    {
+      "title": "Server routes and API",
+      "prompt": "How do I create API routes in Nuxt using the Nitro server? Show me how to create a file-based API endpoint, handle different HTTP methods, and access request body and query parameters.",
+      "scenario": "When building backend API endpoints within a Nuxt application"
+    }
+  ],
+  "bestPractices": [
+    "Use useFetch for data fetching in pages and components as it handles loading states, errors, and caching automatically",
+    "Configure route rules to enable swr or ISR caching for pages that do not need real-time data",
+    "Keep sensitive configuration in runtime config and expose only what is needed through public runtime config"
+  ],
+  "antiPatterns": [
+    "Do not manually import components from the components directory - Nuxt auto-imports them",
+    "Avoid using process.env directly in components - use runtime config instead for proper hydration",
+    "Do not make API calls in the setup function without proper error handling - use useFetch with error handling"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between useFetch and useAsyncData?",
+      "answer": "useFetch is the recommended wrapper around useAsyncData that provides a simpler API. useAsyncData gives you more control over the data fetching lifecycle while useFetch handles common patterns automatically including type inference and error handling."
+    },
+    {
+      "question": "How does file-based routing work in Nuxt?",
+      "answer": "Nuxt automatically generates routes from the pages/ directory. Each Vue file becomes a route based on its file path. Dynamic routes use square bracket notation like [id].vue for parameters."
+    },
+    {
+      "question": "What rendering modes does Nuxt support?",
+      "answer": "Nuxt supports universal rendering (SSR), client-side rendering (SPA), and hybrid rendering. You can configure per-page rendering using route rules in nuxt.config.ts."
+    },
+    {
+      "question": "How do I create a server API route in Nuxt?",
+      "answer": "Create .ts files in the server/api/ directory. The file path determines the route URL. Use defineEventHandler to handle requests and readBody or getQuery to access request data."
+    },
+    {
+      "question": "What is the Nitro server engine?",
+      "answer": "Nitro is Nuxt's server engine that powers server routes, API endpoints, and SSR. It provides a unified API for building serverless-friendly applications that deploy to any platform."
+    },
+    {
+      "question": "How do I manage state in Nuxt?",
+      "answer": "Use useState for simple shared state that is SSR-safe. For complex state management, integrate Pinia which has official Nuxt support. Both work seamlessly with server-side rendering."
+    }
+  ],
+  "seoKeywords": [
+    "Nuxt",
+    "Nuxt 3",
+    "Vue SSR",
+    "server-side rendering",
+    "file-based routing",
+    "Vue.js framework",
+    "Nitro server",
+    "auto-imports",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/antfu/skills/tree/main/skills/nuxt/",
+  "sourceType": "community",
+  "dependencies": []
+}

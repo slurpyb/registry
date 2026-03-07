@@ -1,0 +1,141 @@
+{
+  "name": "security-management",
+  "type": "skill",
+  "description": "Manage security policies, firewall zones, access control rules (ACLs), and guest network access. Perform comprehensive security audits and compliance reviews.",
+  "domain": "security",
+  "subdomain": "compliance",
+  "specialty": "Policy management",
+  "quality": 4,
+  "qualityReason": "Clear network focus with audit scope",
+  "bundleHints": [
+    "network-security",
+    "compliance-audit"
+  ],
+  "tags": [
+    "acl",
+    "audits",
+    "firewall",
+    "guest-network",
+    "network-security",
+    "security-audit"
+  ],
+  "capabilities": [
+    "List and view all firewall zones with their configuration details",
+    "Review and manage access control rules (ACLs) across the network",
+    "List and manage guest network hotspot vouchers with expiration tracking",
+    "Retrieve system information for security compliance verification",
+    "Generate comprehensive security audit reports with findings and recommendations"
+  ],
+  "author": "DataKnifeAI",
+  "icon": "🛡️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 23 static findings are false positives. The skill is a legitimate UniFi network security management tool. Detected patterns are metadata references (source_url, source_type) and markdown code formatting (backticks) in documentation. No malicious code patterns present.",
+  "valueStatement": "Network administrators struggle to maintain consistent security policies across distributed UniFi networks. This skill provides centralized management of firewall zones, access control rules, and guest network policies with automated compliance reporting.",
+  "userTitle": "Manage UniFi Network Security",
+  "limitations": [
+    "Requires authenticated access to a UniFi Network controller or UniFi OS console",
+    "Only displays information and does not modify firewall rules directly",
+    "Cannot create new firewall zones or ACL rules through this skill",
+    "Limited to read-only operations for security compliance and auditing purposes"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Network administrators and security officers",
+      "title": "Quarterly Security Audit",
+      "description": "Network administrators use this skill to perform comprehensive security reviews. The skill lists all firewall zones, reviews ACL policies, checks guest access vouchers, and generates compliance reports with recommendations."
+    },
+    {
+      "targetUser": "IT support teams and help desk personnel",
+      "title": "Guest Network Management",
+      "description": "IT support staff use this skill to monitor guest network access. The skill lists active vouchers, shows expiration dates, and helps identify expired or expiring vouchers that need renewal."
+    },
+    {
+      "targetUser": "Security analysts and compliance auditors",
+      "title": "Network Segmentation Review",
+      "description": "Security analysts use this skill to assess network segmentation. The skill displays firewall zones, shows isolation policies, and helps verify that network segments are properly separated according to security requirements."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Firewall Review",
+      "prompt": "Show me all firewall zones and their current configuration on our UniFi network.",
+      "scenario": "Getting started with security configuration review"
+    },
+    {
+      "title": "Access Control Audit",
+      "prompt": "List all access control rules (ACLs) on our UniFi network and explain what each rule controls.",
+      "scenario": "Reviewing network access policies"
+    },
+    {
+      "title": "Guest Access Check",
+      "prompt": "List all active guest network vouchers. Which ones are expired or expiring soon?",
+      "scenario": "Monitoring guest network access and voucher lifecycle"
+    },
+    {
+      "title": "Complete Security Assessment",
+      "prompt": "Perform a complete security audit of our UniFi network. Include firewall zones, ACL rules, guest access vouchers, and provide a compliance summary with recommendations.",
+      "scenario": "Comprehensive security compliance review"
+    }
+  ],
+  "bestPractices": [
+    "Review firewall zones and ACL rules quarterly to ensure they align with current security policies and network changes.",
+    "Monitor guest network voucher expiration dates and implement automated renewal notifications.",
+    "Document all security policy changes and maintain audit logs for compliance verification.",
+    "Apply the principle of least privilege when reviewing access control rules."
+  ],
+  "antiPatterns": [
+    "Avoid using this skill to modify firewall rules without proper change control documentation.",
+    "Do not ignore expired guest vouchers as they may indicate unauthorized network access.",
+    "Avoid making changes during peak network usage hours without scheduling maintenance windows.",
+    "Do not rely solely on automated audits without periodic manual security reviews."
+  ],
+  "faq": [
+    {
+      "question": "What credentials does this skill need?",
+      "answer": "The skill requires API credentials for your UniFi Network controller or UniFi OS console. You will need to provide the base URL and API credentials through your Claude Code configuration."
+    },
+    {
+      "question": "Can this skill modify firewall rules?",
+      "answer": "No. This skill is read-only for security purposes. It displays firewall zones, ACL rules, and guest vouchers but does not make any changes. Use the UniFi controller interface for modifications."
+    },
+    {
+      "question": "How does this skill handle guest vouchers?",
+      "answer": "The skill lists active vouchers with their status, creation date, and expiration date. It can identify expired or expiring vouchers but cannot create, modify, or delete vouchers."
+    },
+    {
+      "question": "What is included in a security audit?",
+      "answer": "A security audit includes firewall zone review, ACL rule analysis, guest network assessment, and compliance verification. The output provides a summary with findings and recommendations."
+    },
+    {
+      "question": "Does this skill work with UniFi Dream Machine?",
+      "answer": "Yes. This skill works with any UniFi Network controller or UniFi OS-based device including UniFi Dream Machine, Dream Router, UniFi Console, and cloud-hosted controllers."
+    },
+    {
+      "question": "How often should I run security audits?",
+      "answer": "Best practice is to run quarterly audits or after any network infrastructure changes. For high-security environments, monthly audits may be appropriate."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "UniFi security management",
+    "firewall zone management",
+    "access control list",
+    "guest network voucher",
+    "network security audit",
+    "UniFi ACL rules",
+    "network compliance"
+  ],
+  "sourceUrl": "https://github.com/DataKnifeAI/unifi-network-mcp/tree/main/.github/skills/security-management",
+  "sourceType": "community",
+  "dependencies": []
+}

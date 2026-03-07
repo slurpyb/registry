@@ -1,0 +1,140 @@
+{
+  "name": "drugbank-database",
+  "type": "skill",
+  "description": "Access and analyze comprehensive drug information from the DrugBank database including drug properties, interactions, targets, pathways, chemical structures, and pharmacology data. This skill should be used when working with pharmaceutical data, drug discovery research, pharmacology studies, drug-drug interaction analysis, target identification, chemical similarity searches, ADMET predictions, or any task requiring detailed drug and drug target information from DrugBank.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "drug data analysis",
+  "quality": 5,
+  "qualityReason": "Highly specialized database",
+  "bundleHints": [
+    "bioinformatics-suite",
+    "pharma-research"
+  ],
+  "tags": [
+    "bioinformatics",
+    "cheminformatics",
+    "drug-discovery",
+    "pathways",
+    "pharmacology",
+    "research",
+    "targets"
+  ],
+  "capabilities": [
+    "Access drug properties, pharmacology, and clinical data by DrugBank ID",
+    "Extract drug-drug interactions and build interaction networks",
+    "Query drug targets, enzymes, transporters, and biological pathways",
+    "Calculate chemical properties, similarity, and ADMET predictions",
+    "Search drugs by name, CAS number, or keywords",
+    "Build searchable drug datasets and export to DataFrames"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "💊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate scientific skill for accessing the DrugBank bioinformatics database. All 353 static findings are FALSE POSITIVES caused by the analyzer misinterpreting Markdown code block syntax and bioinformatics terminology. The skill uses the official drugbank-downloader package for authenticated access to a recognized public database. No actual security risks were identified after manual evaluation.",
+  "valueStatement": "DrugBank is a comprehensive bioinformatics database containing detailed drug information. This skill enables programmatic access to drug properties, interactions, targets, pathways, and chemical structures for pharmacology research and drug discovery.",
+  "userTitle": "Access DrugBank drug database information",
+  "limitations": [
+    "Requires valid DrugBank account credentials for database access",
+    "Latest version access may require paid commercial license",
+    "Chemical similarity analysis requires RDKit package installation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Pharmacology researchers",
+      "title": "Drug mechanism research",
+      "description": "Extract mechanism of action, pharmacodynamics, and ADME data for drug candidates"
+    },
+    {
+      "targetUser": "Clinical pharmacists",
+      "title": "Interaction safety analysis",
+      "description": "Check drug-drug interactions for polypharmacy regimens and identify contraindications"
+    },
+    {
+      "targetUser": "Drug discovery scientists",
+      "title": "Similarity-based repurposing",
+      "description": "Find structurally similar drugs to identify potential repurposing candidates"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Get drug information",
+      "scenario": "Look up a specific drug",
+      "prompt": "Get information for drug DB00001 including name, type, indication, and mechanism of action"
+    },
+    {
+      "title": "Check drug interactions",
+      "scenario": "Analyze drug combinations",
+      "prompt": "Check if aspirin (DB00945) and warfarin (DB00682) have any known drug-drug interactions"
+    },
+    {
+      "title": "Find drug targets",
+      "scenario": "Identify drug targets",
+      "prompt": "Find all protein targets for metformin (DB00331) and their UniProt IDs"
+    },
+    {
+      "title": "Chemical similarity search",
+      "scenario": "Find similar compounds",
+      "prompt": "Find 5 drugs structurally similar to aspirin based on Tanimoto similarity"
+    }
+  ],
+  "bestPractices": [
+    "Use environment variables for DrugBank credentials, never hardcode them",
+    "Specify exact DrugBank version for reproducible research",
+    "Cache parsed XML data to avoid repeated downloads and parsing"
+  ],
+  "antiPatterns": [
+    "Using outdated DrugBank versions without version specification",
+    "Ignoring interaction severity classifications in safety analysis",
+    "Trusting predicted ADMET properties without experimental validation"
+  ],
+  "faq": [
+    {
+      "question": "How do I get DrugBank access credentials?",
+      "answer": "Create a free account at go.drugbank.com and accept the academic license agreement"
+    },
+    {
+      "question": "Is commercial use allowed?",
+      "answer": "Academic use is free. Commercial use requires a paid DrugBank license"
+    },
+    {
+      "question": "What Python packages do I need?",
+      "answer": "Install drugbank-downloader, lxml, pandas, rdkit, networkx, and scikit-learn"
+    },
+    {
+      "question": "Can I search drugs by name?",
+      "answer": "Yes, use the search_by_name function with exact or partial matching"
+    },
+    {
+      "question": "How do I check multiple drug interactions?",
+      "answer": "Use check_polypharmacy() with a list of DrugBank IDs to find all pairwise interactions"
+    },
+    {
+      "question": "What chemical properties are available?",
+      "answer": "SMILES, InChI, molecular weight, logP, polar surface area, and Lipinski's Rule of Five compliance"
+    }
+  ],
+  "seoKeywords": [
+    "DrugBank database",
+    "drug information",
+    "drug interactions",
+    "drug discovery",
+    "pharmacology",
+    "cheminformatics",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "bioinformatics"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/drugbank-database",
+  "sourceType": "community",
+  "dependencies": []
+}

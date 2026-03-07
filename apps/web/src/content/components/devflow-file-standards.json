@@ -1,0 +1,141 @@
+{
+  "name": "devflow-file-standards",
+  "type": "skill",
+  "description": "File naming conventions, directory structure, and YAML frontmatter standards for CC-DevFlow. Consolidates shared conventions from all agents.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "file conventions",
+  "quality": 5,
+  "qualityReason": "Specific and enforceable standards",
+  "bundleHints": [
+    "devflow",
+    "documentation",
+    "standards"
+  ],
+  "tags": [
+    "code organization",
+    "directory structure",
+    "documentation",
+    "naming",
+    "naming conventions",
+    "standards",
+    "structure",
+    "yaml frontmatter"
+  ],
+  "capabilities": [
+    "Enforces REQ-XXX format for requirement identification",
+    "Standardizes TXXX format for task tracking",
+    "Defines UPPERCASE_WITH_UNDERSCORES.md for primary documents",
+    "Specifies lowercase-with-dashes.md for supporting documents",
+    "Requires YAML frontmatter for PRD, TECH_DESIGN, EPIC, and TASKS files",
+    "Standardizes orchestration_status.json schema for workflow tracking"
+  ],
+  "author": "Dimon94",
+  "icon": "📁",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains ONLY documentation about file naming conventions and directory structures. No executable code, network access, or file system operations exist. All 91 static findings are false positives: the scanner misinterprets documentation examples as code, YAML patterns as cryptographic algorithms, and markdown backticks as shell execution.",
+  "valueStatement": "Inconsistent file naming creates confusion and slows development teams. This skill provides standardized conventions for naming files, organizing directories, and formatting YAML metadata across AI-powered development workflows.",
+  "userTitle": "Standardize File Naming Conventions",
+  "limitations": [
+    "Only handles naming conventions, not content quality standards",
+    "Requires CC-DevFlow workflow system for full integration",
+    "Fixed pattern formats cannot be customized per project"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development Team Lead",
+      "title": "Enforce Team Standards",
+      "description": "Ensure all team members follow consistent file naming and directory structures across requirements, tasks, and documentation."
+    },
+    {
+      "targetUser": "AI Workflow Developer",
+      "title": "Automate File Organization",
+      "description": "Integrate standardized naming into AI-driven development workflows for automatic file generation and organization."
+    },
+    {
+      "targetUser": "Project Architect",
+      "title": "Structure Multi-Agent Projects",
+      "description": "Define clear file organization patterns for projects involving multiple AI agents and human contributors."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Check File Naming",
+      "scenario": "Verify file follows standards",
+      "prompt": "Is 'user-authentication.md' correctly named for a supporting document in CC-DevFlow?"
+    },
+    {
+      "title": "Generate Requirement ID",
+      "scenario": "Create requirement identifier",
+      "prompt": "Generate a valid REQ-ID for a user authentication feature following the REQ-\\\\d{3} pattern."
+    },
+    {
+      "title": "Create Directory Structure",
+      "scenario": "Set up requirement folder",
+      "prompt": "Show me the complete directory structure for REQ-123 including all required subdirectories."
+    },
+    {
+      "title": "Validate YAML Frontmatter",
+      "scenario": "Check document metadata",
+      "prompt": "What are the required YAML frontmatter fields for a PRD.md file in CC-DevFlow?"
+    }
+  ],
+  "bestPractices": [
+    "Always validate REQ-ID format before creating requirement directories",
+    "Use consistent naming patterns across all project documentation",
+    "Include YAML frontmatter in all primary documents for metadata tracking"
+  ],
+  "antiPatterns": [
+    "Mixing naming styles (kebab-case, snake_case, CamelCase) within the same project",
+    "Skipping YAML frontmatter on primary documents like PRD.md and EPIC.md",
+    "Creating custom naming patterns outside the defined standards"
+  ],
+  "faq": [
+    {
+      "question": "Is this compatible with non-CC-DevFlow projects?",
+      "answer": "Yes, naming conventions can be adopted independently, but full benefits require CC-DevFlow integration."
+    },
+    {
+      "question": "Can I customize the naming patterns?",
+      "answer": "Patterns are fixed to ensure consistency across workflows. Custom patterns would break automation."
+    },
+    {
+      "question": "How does this integrate with Git?",
+      "answer": "Standards include Git branch naming like feature/REQ-XXX-{slug-title} for seamless version control."
+    },
+    {
+      "question": "Is this skill safe to use?",
+      "answer": "This skill only provides documentation. It contains no code that accesses files, network, or credentials."
+    },
+    {
+      "question": "What files require YAML frontmatter?",
+      "answer": "Primary documents: PRD.md, TECH_DESIGN.md, EPIC.md, and TASKS.md all require frontmatter."
+    },
+    {
+      "question": "How do I validate compliance?",
+      "answer": "Use the validation scripts in .claude/scripts/ to check file naming before committing changes."
+    }
+  ],
+  "seoKeywords": [
+    "file naming conventions",
+    "directory structure standards",
+    "YAML frontmatter",
+    "CC-DevFlow",
+    "project organization",
+    "Claude Code",
+    "workflow standardization",
+    "naming patterns",
+    "requirement ID format",
+    "task ID format"
+  ],
+  "sourceUrl": "https://github.com/Dimon94/cc-devflow/tree/main/.claude/skills/devflow-file-standards",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "seedance2-api",
+  "type": "skill",
+  "description": "Out-of-the-box Seedance 2.0 API skill — just one API key to generate AI videos. Builds storyboards, generates reference images with Seedream 4.5, submits video tasks, and polls results. Supports both MCP and standalone Python script mode. Use when the user mentions seedance, AI video, storyboard, or video generation.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "AI video generation",
+  "quality": 5,
+  "qualityReason": "Specific API with full workflow defined",
+  "bundleHints": [
+    "ai-content",
+    "video-generation"
+  ],
+  "tags": [
+    "ai-video",
+    "api",
+    "media",
+    "seedance",
+    "seedream",
+    "storyboard",
+    "video-generation"
+  ],
+  "capabilities": [
+    "Build storyboards with structured templates for video prompts",
+    "Generate reference images using Seedream 4.5 text-to-image and editing",
+    "Submit video generation tasks to Seedance 2.0 API with flexible parameters",
+    "Poll and retrieve video results with automatic status checking",
+    "Support both MCP tool mode and standalone Python script mode",
+    "Handle multi-asset videos with image, video, and audio references"
+  ],
+  "author": "hexiaochun",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate AI video generation skill that accesses the xskill.ai API. Static findings show network calls and environment variable access, which are expected for API-based skills. The detected 'external_commands' are false positives from Chinese template text in markdown code blocks. No malicious behavior detected.",
+  "valueStatement": "This skill enables Claude, Codex, and Claude Code users to generate professional AI videos by building storyboards, creating reference images, and submitting video generation tasks to Seedance 2.0 API. It streamlines the complex multi-step video creation process into a simple, automated workflow.",
+  "userTitle": "Generate AI Videos from Storyboards",
+  "limitations": [
+    "Requires valid XSKILL_API_KEY for API authentication",
+    "Cannot generate realistic human faces in videos",
+    "Maximum 12 files per task: up to 9 images, 3 videos, and 3 audio files",
+    "Video generation takes approximately 10 minutes per task"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content creators, marketers, social media managers",
+      "title": "Content Creator Video Production",
+      "description": "Quickly generate marketing videos, social media content, or short films by building storyboards and letting AI handle the video generation."
+    },
+    {
+      "targetUser": "Software developers building video automation tools",
+      "title": "Developer Prototyping",
+      "description": "Integrate AI video generation into automated workflows or pipelines using the Python script mode for programmatic video creation."
+    },
+    {
+      "targetUser": "Filmmakers, animators, creative directors",
+      "title": "Creative Concept Visualization",
+      "description": "Visualize creative concepts and story ideas by generating reference images and video previews before committing to full production."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Video Request",
+      "prompt": "Help me generate a video about [describe your video concept]. I want it to be [duration] seconds in [aspect ratio] format with a [style] style.",
+      "scenario": "User wants a simple video without existing assets"
+    },
+    {
+      "title": "Video with Reference Images",
+      "prompt": "Generate a [duration]-second [style] video at [aspect ratio]. I have reference images for the character and background. Help me build a storyboard and submit the video task to Seedance.",
+      "scenario": "User has reference images they want to use"
+    },
+    {
+      "title": "First and Last Frame Video",
+      "prompt": "Create a video that transitions smoothly from [describe first frame] to [describe last frame]. Use first_last_frames mode with a [duration] second duration at [aspect ratio].",
+      "scenario": "User wants precise control over start and end frames"
+    },
+    {
+      "title": "Complete Production Workflow",
+      "prompt": "I want to create a complete video: First, generate reference images for [describe scenes]. Then build a storyboard with camera movements and transitions. Finally, submit the video task with all assets and poll for results.",
+      "scenario": "User wants full end-to-end video production workflow"
+    }
+  ],
+  "bestPractices": [
+    "Provide detailed scene descriptions including lighting, camera movement, and mood for better video quality",
+    "Use the auto-poll feature with appropriate timeouts to avoid missing results",
+    "Generate reference images first before submitting video tasks to ensure quality assets"
+  ],
+  "antiPatterns": [
+    "Avoid submitting vague prompts without storyboard structure - results will be poor",
+    "Do not exceed file limits (9 images, 3 videos, 3 audio) as tasks will fail",
+    "Avoid using realistic human face uploads - Seedance does not support this"
+  ],
+  "faq": [
+    {
+      "question": "How do I get an API key for Seedance?",
+      "answer": "Get your API key from https://www.xskill.ai/#/v2/api-keys and set it as the XSKILL_API_KEY environment variable."
+    },
+    {
+      "question": "What is the difference between Omni Reference and First Last Frames mode?",
+      "answer": "Omni Reference uses multiple image/video/audio files as references throughout the video. First Last Frames mode specifically controls the exact starting and ending frames of the video."
+    },
+    {
+      "question": "How long does video generation take?",
+      "answer": "Video generation typically takes approximately 10 minutes. Use the poll command with a 600-second timeout to wait for results."
+    },
+    {
+      "question": "Can I use my own images in the video?",
+      "answer": "Yes, you can upload local images or provide URLs. Use the upload command or direct URL input when submitting tasks."
+    },
+    {
+      "question": "What aspect ratios are supported?",
+      "answer": "Supported ratios include 16:9, 9:16, 1:1, 21:9, 4:3, and 3:4."
+    },
+    {
+      "question": "Does this skill work without MCP?",
+      "answer": "Yes, the skill includes a standalone Python script (scripts/seedance_api.py) that can be run directly from the command line when MCP is unavailable."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code AI video generation",
+    "Seedance 2.0 skill for Claude",
+    "AI video generation Claude",
+    "storyboard to video Claude",
+    "Claude Code video creation",
+    "Seedream 4.5 image generation",
+    "video generation API skill",
+    "AI video workflow automation",
+    "Claude Codex media skill",
+    "text to video skill"
+  ],
+  "sourceUrl": "https://github.com/hexiaochun/seedance2-api/tree/main/.cursor/skills/seedance2-api/",
+  "sourceType": "community",
+  "dependencies": []
+}

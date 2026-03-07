@@ -1,0 +1,142 @@
+{
+  "name": "azure-eventhub-py",
+  "type": "skill",
+  "description": "Azure Event Hubs SDK for Python streaming. Use for high-throughput event ingestion, producers, consumers, and checkpointing.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "event streaming",
+  "quality": 5,
+  "qualityReason": "Specific SDK use case",
+  "bundleHints": [
+    "azure-events",
+    "python-streaming",
+    "pipelines"
+  ],
+  "tags": [
+    "azure",
+    "checkpointing",
+    "cloud-integration",
+    "event-hubs",
+    "producers-consumers",
+    "python",
+    "streaming"
+  ],
+  "capabilities": [
+    "Create EventHubProducerClient to send events to Event Hub",
+    "Create EventHubConsumerClient to receive events from Event Hub",
+    "Use BlobCheckpointStore for tracking consumer progress",
+    "Implement async clients for high-throughput scenarios",
+    "Send events to specific partitions using partition keys",
+    "Get Event Hub properties and partition information"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing reference material for Azure Event Hubs Python SDK. Static analysis scanned 0 files (0 lines) as this is a prompt-only skill with no executable code. No security issues detected. The skill provides legitimate technical documentation for Azure Event Hubs, a standard cloud messaging service.",
+  "valueStatement": "Build high-throughput event streaming pipelines with Azure Event Hubs Python SDK. This skill provides code patterns for producers, consumers, and checkpoint stores.",
+  "userTitle": "Integrate Azure Event Hubs with Python",
+  "limitations": [
+    "Requires valid Azure Event Hub namespace and credentials",
+    "Does not create or manage Event Hub resources",
+    "Does not handle application-level error recovery",
+    "Requires blob storage account for checkpoint store"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data engineers building real-time data pipelines",
+      "title": "Build event ingestion pipeline",
+      "description": "Create a producer that sends high-volume events from IoT devices or applications to Azure Event Hubs"
+    },
+    {
+      "targetUser": "Developers building event-driven applications",
+      "title": "Process streaming events",
+      "description": "Build a consumer application that receives and processes events with checkpointing for reliable delivery"
+    },
+    {
+      "targetUser": "Performance engineers optimizing event processing",
+      "title": "Implement async event processing",
+      "description": "Use async clients to handle high-throughput event streaming with better resource utilization"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Send events to Event Hub",
+      "prompt": "Show me how to create an EventHubProducerClient and send a batch of events using azure-eventhub Python SDK",
+      "scenario": "Setting up event producer"
+    },
+    {
+      "title": "Receive events with checkpointing",
+      "prompt": "How do I set up an EventHubConsumerClient with BlobCheckpointStore to receive events and track progress?",
+      "scenario": "Building reliable consumer"
+    },
+    {
+      "title": "Async event streaming",
+      "prompt": "Show me the async version of EventHubProducerClient and EventHubConsumerClient for high-throughput scenarios",
+      "scenario": "Performance optimization"
+    },
+    {
+      "title": "Partition and routing",
+      "prompt": "How do I send events to specific partitions using partition_id or partition_key with azure-eventhub?",
+      "scenario": "Partitioned event routing"
+    }
+  ],
+  "bestPractices": [
+    "Use batches when sending multiple events to reduce network calls",
+    "Use checkpoint stores in production for reliable event processing",
+    "Use async clients for high-throughput scenarios"
+  ],
+  "antiPatterns": [
+    "Sending events one at a time without batching",
+    "Not updating checkpoints causing duplicate processing on restart",
+    "Not using context managers for client connections"
+  ],
+  "faq": [
+    {
+      "question": "What is Azure Event Hubs?",
+      "answer": "Azure Event Hubs is a big data streaming platform and event ingestion service from Microsoft Azure. It can stream millions of events per second."
+    },
+    {
+      "question": "What is the difference between EventHubProducerClient and EventHubConsumerClient?",
+      "answer": "ProducerClient sends events to Event Hub. ConsumerClient receives events from Event Hub. They are used on opposite sides of the streaming pipeline."
+    },
+    {
+      "question": "What is checkpointing?",
+      "answer": "Checkpointing tracks the last processed event in a partition. It uses BlobCheckpointStore to persist the position so consumers can resume from where they left off."
+    },
+    {
+      "question": "What is a partition key?",
+      "answer": "A partition key is a string that ensures all events with the same key go to the same partition. This maintains ordering for related events."
+    },
+    {
+      "question": "Do I need Azure Blob Storage for Event Hubs?",
+      "answer": "Blob storage is required only when using checkpoint stores. For simple consumers without checkpointing, you do not need blob storage."
+    },
+    {
+      "question": "What authentication does Azure Event Hubs support?",
+      "answer": "The SDK uses DefaultAzureCredential which supports managed identities, service principals, and other Azure authentication methods."
+    }
+  ],
+  "seoKeywords": [
+    "Azure Event Hubs",
+    "event streaming",
+    "Python SDK",
+    "EventHubProducerClient",
+    "EventHubConsumerClient",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "cloud messaging",
+    "checkpoint store"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-eventhub-py",
+  "sourceType": "community",
+  "dependencies": []
+}

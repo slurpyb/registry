@@ -1,0 +1,141 @@
+{
+  "name": "internationalizing-websites",
+  "type": "skill",
+  "description": "Adds multi-language support to Next.js websites with proper SEO configuration including hreflang tags, localized sitemaps, and language-specific content. Use when adding new languages, setting up i18n, optimizing for international SEO, or when user mentions localization, translation, multi-language, or specific languages like Japanese, Korean, Chinese.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Next.js i18n",
+  "quality": 5,
+  "qualityReason": "SEO-aware implementation",
+  "bundleHints": [
+    "nextjs-stack",
+    "i18n-seo"
+  ],
+  "tags": [
+    "hreflang",
+    "i18n",
+    "internationalization",
+    "localization",
+    "localized-sitemaps",
+    "nextjs",
+    "seo"
+  ],
+  "capabilities": [
+    "Add new language files by copying English templates to target language files",
+    "Configure Next.js locale settings in locale.ts and request.ts files",
+    "Generate hreflang tags for SEO across multiple language versions",
+    "Update sitemap.xml with localized URLs for search engine indexing",
+    "Provide complete i18n workflow checklist with step-by-step guidance",
+    "Support multiple language codes including ja, zh, ko, ar, and European languages"
+  ],
+  "author": "ZhanlinCui",
+  "icon": "🌍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static scanner produced many false positives due to markdown documentation being misinterpreted. The skill contains legitimate i18n automation scripts that modify translation files and configuration - this is expected behavior for an internationalization tool. All detected patterns in markdown files are documentation content (code blocks, links, technical terms), not executable code. The JavaScript scripts perform standard file operations for adding language support.",
+  "valueStatement": "This skill automates adding multi-language support to Next.js websites, including hreflang tags, locale configuration, translation files, and SEO optimization for international markets.",
+  "userTitle": "Add Multi-Language Support to Next.js",
+  "limitations": [
+    "Requires existing English (en) translation files as templates",
+    "Designed specifically for Next.js projects with i18n folder structure",
+    "Does not provide actual translations - only sets up the i18n infrastructure",
+    "May require manual adjustment for complex routing scenarios"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Web developers expanding to Asian markets",
+      "title": "Expanding to Japanese Market",
+      "description": "Developer wants to add Japanese language support to their Next.js website for SEO in Japan. The skill sets up ja.json translation files, configures locale settings, and generates hreflang tags."
+    },
+    {
+      "targetUser": "SEO specialists and digital marketers",
+      "title": "Setting Up Multi-Language SEO",
+      "description": "SEO specialist needs proper hreflang implementation across English, German, and French versions to avoid duplicate content penalties and improve regional search rankings."
+    },
+    {
+      "targetUser": "Development teams planning localization projects",
+      "title": "Building Translation Infrastructure",
+      "description": "Development team preparing for translation workflow by setting up i18n file structure, locale configuration, and automated file generation scripts."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Add Basic Language Support",
+      "prompt": "Use the Internationalizing Websites skill to add Japanese (ja) language support to our Next.js website. We have English translation files in i18n/messages/en.json that should be used as templates.",
+      "scenario": "Adding single language support"
+    },
+    {
+      "title": "Configure Multi-Language SEO",
+      "prompt": "Use the Internationalizing Websites skill to set up hreflang tags and SEO configuration for English, German (de), and French (fr) versions of our website. Make sure search engines can properly index each language version.",
+      "scenario": "Setting up SEO for multiple languages"
+    },
+    {
+      "title": "Expand to Multiple Asian Languages",
+      "prompt": "Use the Internationalizing Websites skill to add support for Japanese (ja), Chinese (zh), Korean (ko), and Vietnamese (vi) to our Next.js application. Configure proper locale codes including zh-hk for Traditional Chinese.",
+      "scenario": "Adding multiple Asian languages"
+    },
+    {
+      "title": "Complete i18n Workflow",
+      "prompt": "Follow the complete Internationalizing Websites workflow to add Spanish (es) and Portuguese (pt) support. Include setting up translation files, configuring locale.ts, updating request.ts language mappings, and generating the sitemap with new language URLs.",
+      "scenario": "Full i18n implementation with all configurations"
+    }
+  ],
+  "bestPractices": [
+    "Always start with complete English translation files as templates before adding new languages",
+    "Use proper locale codes (en, ja, zh-CN) and configure regional variants (zh-HK, zh-TW) separately",
+    "Run the i18n-add-languages.mjs script after adding new language files to auto-update configurations",
+    "Verify hreflang tags render correctly and test with Google Rich Results Test tool"
+  ],
+  "antiPatterns": [
+    "Do not skip the configuration verification step - always check locale.ts and request.ts after running scripts",
+    "Avoid adding languages without having translation content ready - the skill creates file structure, not translations",
+    "Do not forget to update sitemap.xml with new language URLs for proper search engine indexing"
+  ],
+  "faq": [
+    {
+      "question": "What languages does this skill support?",
+      "answer": "The skill supports all common languages including Japanese (ja), Chinese (zh, zh-hk), Korean (ko), Arabic (ar), Vietnamese (vi), and all European languages (en, de, es, fr, it, pt, ru)."
+    },
+    {
+      "question": "Do I need translation files already?",
+      "answer": "Yes, you need English (en) translation files as templates. The skill copies these to create new language files, but does not provide actual translations - those must be added manually or via translation services."
+    },
+    {
+      "question": "Does this automatically translate my content?",
+      "answer": "No, this skill sets up the i18n infrastructure (files, configuration, SEO tags). Translation of actual content must be done separately using translation tools or services."
+    },
+    {
+      "question": "How do hreflang tags help SEO?",
+      "answer": "Hreflang tags tell search engines which language/region a page is for, preventing duplicate content penalties and helping your page rank in local search results for each target market."
+    },
+    {
+      "question": "Can this work with Next.js App Router?",
+      "answer": "The skill is designed for Next.js i18n folder structure with locale configuration. Some manual adjustment may be needed for App Router projects depending on your routing setup."
+    },
+    {
+      "question": "What files does the script modify?",
+      "answer": "The i18n-add-languages.mjs script modifies: translation files in i18n/messages and i18n/pages, locale.ts configuration, request.ts language mappings, and public/sitemap.xml."
+    }
+  ],
+  "seoKeywords": [
+    "internationalization skill",
+    "i18n Next.js",
+    "hreflang tags",
+    "multi-language SEO",
+    "localization Claude",
+    "translation workflow",
+    "Next.js i18n",
+    "Claude Code i18n",
+    "Codex internationalization"
+  ],
+  "sourceUrl": "https://github.com/ZhanlinCui/Ultimate-Agent-Skills-Collection/tree/main/internationalizing-websites",
+  "sourceType": "community",
+  "dependencies": []
+}

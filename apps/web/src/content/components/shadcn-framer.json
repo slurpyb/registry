@@ -1,0 +1,142 @@
+{
+  "name": "shadcn-framer",
+  "type": "skill",
+  "description": "ShadCN UI + Framer Motion patterns.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "animation patterns",
+  "quality": 5,
+  "qualityReason": "Specific animation integration",
+  "bundleHints": [
+    "shadcn-animation",
+    "ui-interactions"
+  ],
+  "tags": [
+    "animation",
+    "animations",
+    "components",
+    "framer-motion",
+    "interactions",
+    "react",
+    "shadcn",
+    "ui",
+    "ui-components"
+  ],
+  "capabilities": [
+    "Create fade-in and fade-out animations for React components",
+    "Build animated lists with staggered transitions and exit animations",
+    "Implement page transitions with enter and exit effects",
+    "Add hover and tap effects to cards using spring physics",
+    "Create pulse animations for loading skeletons",
+    "Animate ShadCN Dialog components with scale and opacity effects"
+  ],
+  "author": "Barnhardt-Enterprises-Inc",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing TypeScript code examples for ShadCN UI and Framer Motion integration. All 31 static findings are false positives: shell command detections are TypeScript code blocks, crypto algorithm flags are animation variant names like 'hidden', and reconnaissance flags are animation state names like 'show'. No executable code, network calls, filesystem access, or external commands detected.",
+  "valueStatement": "Creating smooth animations for ShadCN UI components requires understanding Framer Motion patterns. This skill provides ready-to-use code patterns for fade-ins, hover effects, dialog animations, page transitions, and loading skeletons.",
+  "userTitle": "Build animated ShadCN UI components with Framer Motion",
+  "limitations": [
+    "Does not provide pre-built components - only code patterns to copy",
+    "Does not include ShadCN installation or project setup automation",
+    "Does not handle complex animation state management beyond basic examples",
+    "No built-in accessibility checks for animated content"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend Developer",
+      "title": "Adding Animations to Dashboards",
+      "description": "Create engaging dashboard interfaces with animated cards, lists, and page transitions using ShadCN components."
+    },
+    {
+      "targetUser": "UX Designer",
+      "title": "Prototyping Animated Interactions",
+      "description": "Rapidly prototype smooth animations for modal dialogs, hover states, and loading indicators in React projects."
+    },
+    {
+      "targetUser": "Full-Stack Developer",
+      "title": "Enhancing User Interfaces",
+      "description": "Add professional polish to admin panels and content-heavy applications with minimal animation overhead."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Fade Animation",
+      "scenario": "Simple entry animation",
+      "prompt": "Create a fade-in animation for a React component using Framer Motion. Use 'use client' directive and animate opacity from 0 to 1 with a 0.3 second duration."
+    },
+    {
+      "title": "Animated List",
+      "scenario": "Staggered list items",
+      "prompt": "Build an animated list component that shows items one by one using Framer Motion staggerChildren. Include AnimatePresence for exit animations on list items."
+    },
+    {
+      "title": "Interactive Hover Card",
+      "scenario": "Card with scale on hover",
+      "prompt": "Create a hoverable card component that scales up slightly when hovered and scales down when tapped. Use spring transition with stiffness 300 and damping 20."
+    },
+    {
+      "title": "Animated Dialog",
+      "scenario": "Modal with scale effect",
+      "prompt": "Implement an animated ShadCN Dialog that scales from 0.95 to 1.0 with opacity fade when opening. Use AnimatePresence to handle the exit animation."
+    }
+  ],
+  "bestPractices": [
+    "Always use 'use client' directive for Framer Motion components",
+    "Use AnimatePresence to properly unmount animated components with exit animations",
+    "Apply layout prop to motion elements for smooth reordering animations"
+  ],
+  "antiPatterns": [
+    "Avoid mixing multiple animation libraries in the same component",
+    "Do not animate expensive properties like filter or box-shadow excessively",
+    "Avoid removing 'use client' from components that use Framer Motion hooks"
+  ],
+  "faq": [
+    {
+      "question": "Which React frameworks are supported?",
+      "answer": "Works with Next.js 15 App Router and any React project supporting 'use client' directive."
+    },
+    {
+      "question": "What is the minimum Framer Motion version?",
+      "answer": "Requires Framer Motion v10 or later for all animation features to work correctly."
+    },
+    {
+      "question": "Can these patterns work with custom components?",
+      "answer": "Yes, Framer Motion patterns apply to any React component, not just ShadCN components."
+    },
+    {
+      "question": "Is any data stored or sent externally?",
+      "answer": "No, this skill is purely documentation-based with no network calls or data persistence."
+    },
+    {
+      "question": "Why is my animation not rendering?",
+      "answer": "Ensure the component uses 'use client' and that Framer Motion is properly imported and installed."
+    },
+    {
+      "question": "How does this compare to CSS animations?",
+      "answer": "Framer Motion provides declarative animations with physics-based springs, exit animations, and layout transitions that CSS cannot easily achieve."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "ShadCN UI",
+    "Framer Motion",
+    "React animations",
+    "UI components",
+    "component patterns",
+    "animated interfaces"
+  ],
+  "sourceUrl": "https://github.com/Barnhardt-Enterprises-Inc/quetrex-claude/tree/main/skills/shadcn-framer",
+  "sourceType": "community",
+  "dependencies": []
+}

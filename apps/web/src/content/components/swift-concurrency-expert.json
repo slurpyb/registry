@@ -1,0 +1,140 @@
+{
+  "name": "swift-concurrency-expert",
+  "type": "skill",
+  "description": "Swift Concurrency review and remediation for Swift 6.2+. Use when asked to review Swift Concurrency usage, improve concurrency compliance, or fix Swift concurrency compiler errors in a feature or file.",
+  "domain": "mobile",
+  "subdomain": "ios",
+  "specialty": "concurrency review",
+  "quality": 5,
+  "qualityReason": "Expert-level remediation focus",
+  "bundleHints": [
+    "swift-audit",
+    "concurrency-pro"
+  ],
+  "tags": [
+    "actor-isolation",
+    "compiler-errors",
+    "concurrency",
+    "sendable",
+    "swift",
+    "swift-6"
+  ],
+  "capabilities": [
+    "Triage Swift concurrency compiler diagnostics and identify offending symbols",
+    "Check project concurrency settings including strict concurrency level",
+    "Apply minimal safe fixes for actor isolation and Sendable compliance",
+    "Handle UI-bound types with @MainActor annotations",
+    "Fix protocol conformance issues on main actor types",
+    "Apply isolated conformances for Swift 6.2 approachable concurrency"
+  ],
+  "author": "Dimillian",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only reference materials and workflow guidance for Swift concurrency patterns. All 111 static findings are false positives caused by the scanner misinterpreting markdown code fences and documentation text as executable code. No executable code, scripts, network calls, or file system access exists.",
+  "valueStatement": "Swift concurrency code often produces compiler errors that are difficult to resolve. This skill provides systematic triage and safe fix patterns for Swift 6.2+ concurrency compliance with minimal behavior changes.",
+  "userTitle": "Review and fix Swift concurrency issues",
+  "limitations": [
+    "Does not modify project build settings automatically",
+    "Does not execute or test code changes",
+    "Limited to Swift 6.2+ concurrency features",
+    "Cannot guarantee thread safety without runtime testing"
+  ],
+  "useCases": [
+    {
+      "targetUser": "iOS Developers",
+      "title": "Fix concurrency errors",
+      "description": "Resolve Swift compiler errors when migrating to Swift 6 concurrency mode."
+    },
+    {
+      "targetUser": "SwiftUI Developers",
+      "title": "Apply UI concurrency patterns",
+      "description": "Implement proper @MainActor isolation and Sendable closures in SwiftUI apps."
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Audit concurrency safety",
+      "description": "Review code for data-race safety and actor isolation compliance."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick error fix",
+      "scenario": "Compiler error",
+      "prompt": "Fix this Swift concurrency error: [paste error message and code]"
+    },
+    {
+      "title": "Actor isolation",
+      "scenario": "Main actor issues",
+      "prompt": "Make this type or function properly isolated for @MainActor compliance: [paste code]"
+    },
+    {
+      "title": "Sendable conformance",
+      "scenario": "Sendable errors",
+      "prompt": "Add proper Sendable conformance to this type: [paste type definition]"
+    },
+    {
+      "title": "Architecture review",
+      "scenario": "Codebase audit",
+      "prompt": "Review this Swift file for concurrency issues and suggest fixes for Swift 6.2 compliance"
+    }
+  ],
+  "bestPractices": [
+    "Apply the smallest safe fix that preserves existing behavior while satisfying data-race safety",
+    "Prefer @MainActor annotations on UI-bound types over @unchecked Sendable workarounds",
+    "Use isolated conformances instead of forcing nonisolated workarounds for main actor types"
+  ],
+  "antiPatterns": [
+    "Using @unchecked Sendable without proving thread safety",
+    "Applying blanket @MainActor annotations to entire projects without analysis",
+    "Ignoring compiler diagnostics instead of understanding the underlying concurrency issue"
+  ],
+  "faq": [
+    {
+      "question": "What Swift versions are supported?",
+      "answer": "This skill focuses on Swift 6.2+ concurrency features and migration tooling."
+    },
+    {
+      "question": "What are the limits on concurrent operations?",
+      "answer": "No limits imposed by the skill. Review capacity depends on code complexity and context size."
+    },
+    {
+      "question": "Does this integrate with Xcode?",
+      "answer": "The skill provides guidance. You apply fixes manually in Xcode or your preferred editor."
+    },
+    {
+      "question": "Is my code safe to share?",
+      "answer": "Yes. This skill processes code locally in your AI session without external transmission."
+    },
+    {
+      "question": "Why do I still see errors after applying fixes?",
+      "answer": "Check project build settings for Swift Compiler - Concurrency flags. Some modes require full module adoption."
+    },
+    {
+      "question": "How does this compare to SwiftLint?",
+      "answer": "This skill addresses compile-time concurrency checking. SwiftLint provides additional static analysis rules."
+    }
+  ],
+  "seoKeywords": [
+    "Swift concurrency",
+    "Swift 6.2",
+    "actor isolation",
+    "Sendable",
+    "main actor",
+    "async await",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Xcode concurrency"
+  ],
+  "sourceUrl": "https://github.com/Dimillian/Skills/tree/main/swift-concurrency-expert",
+  "sourceType": "community",
+  "dependencies": []
+}

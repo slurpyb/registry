@@ -1,0 +1,141 @@
+{
+  "name": "toon-format",
+  "type": "skill",
+  "description": "TOON (Token-Oriented Object Notation) encoding for LLM-efficient data representation. 30-60% token savings vs JSON for structured data.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "token-efficient encoding",
+  "quality": 4,
+  "qualityReason": "Useful for LLM efficiency",
+  "bundleHints": [
+    "llm-optimization",
+    "data-pipelines"
+  ],
+  "tags": [
+    "compression",
+    "data-format",
+    "efficiency",
+    "json",
+    "llm",
+    "structured-data",
+    "tabular"
+  ],
+  "capabilities": [
+    "Encodes tabular data in TOON format with 30-60% token savings vs JSON",
+    "Validates TOON syntax using the official @toon-format/cli tool",
+    "Provides complete format rules for proper TOON syntax",
+    "Auto-fixes common TOON formatting errors with documented scripts",
+    "Supports nested objects, multi-line strings, and explicit array counts",
+    "Creates efficient documentation indexes and manifests for LLMs"
+  ],
+  "author": "Consiliency",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown files with format rules and validation examples. No executable code, scripts, or network operations. All 142 static findings are false positives from the scanner misinterpreting documentation code blocks as executable shell commands and example hash values as cryptographic operations.",
+  "valueStatement": "JSON wastes tokens in LLM prompts. TOON reduces token usage by 30-60% while keeping data human-readable. Transform tabular data into a compact format optimized for AI consumption.",
+  "userTitle": "Format data efficiently with TOON notation",
+  "limitations": [
+    "Only suitable for uniform tabular data structures",
+    "Requires the official TOON CLI for validation",
+    "Not ideal for deeply nested or non-uniform data",
+    "Limited ecosystem compared to JSON"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI developers",
+      "title": "Optimize LLM prompt data",
+      "description": "Reduce token costs by encoding documentation and indexes in TOON format before sending to language models."
+    },
+    {
+      "targetUser": "Technical writers",
+      "title": "Create efficient documentation indexes",
+      "description": "Build structured indexes and manifests that consume fewer tokens when processed by AI systems."
+    },
+    {
+      "targetUser": "Data engineers",
+      "title": "Format tabular data for AI processing",
+      "description": "Transform CSV-like datasets into TOON for more efficient LLM consumption and analysis."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Convert JSON to TOON",
+      "scenario": "You have JSON data that needs TOON formatting",
+      "prompt": "Convert this JSON array to TOON format with proper syntax: use explicit count, 2-space indentation, and add blank line after arrays. Here's the JSON: [paste your data]"
+    },
+    {
+      "title": "Validate TOON file",
+      "scenario": "Check if your TOON syntax is correct",
+      "prompt": "Validate this TOON file and fix any syntax errors: missing counts, wrong indentation, or formatting issues. Show the corrected version: [paste your TOON]"
+    },
+    {
+      "title": "Design tabular structure",
+      "scenario": "Plan data layout for TOON encoding",
+      "prompt": "Help me design a TOON format for this data. Show how to structure it as tabular arrays with proper column definitions: [describe your data]"
+    },
+    {
+      "title": "Batch convert documents",
+      "scenario": "Transform multiple files to TOON",
+      "prompt": "Create a script to convert these documentation files to TOON format. Include validation and error handling: [list your files]"
+    }
+  ],
+  "bestPractices": [
+    "Always validate with npx @toon-format/cli --decode before using in production",
+    "Design data structures for tabular representation when possible",
+    "Keep JSON as canonical source and generate TOON for LLM transport"
+  ],
+  "antiPatterns": [
+    "Using TOON for deeply nested or irregular data structures",
+    "Including comments or YAML-style lists in TOON files",
+    "Forgetting blank lines after tabular arrays"
+  ],
+  "faq": [
+    {
+      "question": "Is TOON compatible with standard JSON parsers?",
+      "answer": "No, TOON requires specialized parsers. Use official libraries for TypeScript (@toon-format/toon) and Python (python-toon)."
+    },
+    {
+      "question": "What are the token savings compared to JSON?",
+      "answer": "TOON typically saves 30-60% tokens by using compact tabular syntax and removing unnecessary punctuation."
+    },
+    {
+      "question": "Can I use TOON for configuration files?",
+      "answer": "No, use JSON instead. TOON is optimized for LLM prompts, not for tools that expect standard JSON."
+    },
+    {
+      "question": "How do I handle validation errors?",
+      "answer": "Run the auto-fix scripts in order from validation-tools.md, then re-validate with npx @toon-format/cli --decode."
+    },
+    {
+      "question": "Does TOON support all JSON features?",
+      "answer": "No, TOON lacks comments, YAML-style lists, and multiline strings. It's designed for tabular data efficiency."
+    },
+    {
+      "question": "When should I choose TOON over JSON?",
+      "answer": "Use TOON for uniform tabular data sent to LLMs. Use JSON for configuration, APIs, or programmatic data manipulation."
+    }
+  ],
+  "seoKeywords": [
+    "TOON format",
+    "LLM data encoding",
+    "token optimization",
+    "JSON alternative",
+    "Claude Code",
+    "structured data",
+    "tabular format",
+    "AI data format",
+    "token savings",
+    "efficient serialization"
+  ],
+  "sourceUrl": "https://github.com/Consiliency/treesitter-chunker/tree/main/.ai-dev-kit/skills/toon-format",
+  "sourceType": "community",
+  "dependencies": []
+}

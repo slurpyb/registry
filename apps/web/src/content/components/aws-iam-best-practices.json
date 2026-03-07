@@ -1,0 +1,143 @@
+{
+  "name": "aws-iam-best-practices",
+  "type": "skill",
+  "description": "IAM policy review, hardening, and least privilege implementation",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "IAM Hardening",
+  "quality": 5,
+  "qualityReason": "Specific and security-critical",
+  "bundleHints": [
+    "aws-security",
+    "iam-toolkit",
+    "appsec"
+  ],
+  "tags": [
+    "access-control",
+    "aws",
+    "iam",
+    "iam-policies",
+    "kiro-cli",
+    "least-privilege",
+    "policy-review",
+    "security"
+  ],
+  "capabilities": [
+    "Review IAM policies for security issues and overly permissive access",
+    "Identify users and roles without MFA enabled",
+    "Detect old access keys requiring rotation",
+    "Generate least-privilege IAM policy templates",
+    "Create MFA-required and IP-restricted access policies",
+    "Provide IAM hardening checklists and automation scripts"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 48 static findings are false positives. The skill contains legitimate AWS CLI commands for IAM security auditing, AWS documentation URLs, RFC5737 documentation IP addresses, and standard IAM policy syntax. This is a defensive security skill focused on IAM hardening and least privilege implementation with no malicious functionality.",
+  "valueStatement": "This skill helps Claude and Codex users implement AWS IAM best practices by reviewing policies, identifying overly permissive access, and generating least-privilege IAM configurations.",
+  "userTitle": "Review and Harden IAM Policies",
+  "limitations": [
+    "Does not execute AWS API calls - provides guidance and templates only",
+    "Cannot modify live IAM configurations directly",
+    "Requires manual implementation of recommended policies",
+    "Python automation script requires boto3 and AWS credentials"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security engineers performing IAM audits",
+      "title": "Security Engineer Auditing IAM",
+      "description": "Security engineer reviews AWS account IAM configurations quarterly, identifying overly permissive policies and users without MFA for remediation"
+    },
+    {
+      "targetUser": "Developers needing minimal IAM permissions",
+      "title": "Developer Creating S3 Access Policy",
+      "description": "Developer creates a least-privilege S3 access policy that grants only required permissions to specific bucket prefixes"
+    },
+    {
+      "targetUser": "DevOps engineers securing AWS environments",
+      "title": "DevOps Implementing MFA Enforcement",
+      "description": "DevOps team implements MFA-required policies to enforce multi-factor authentication for sensitive AWS operations"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic IAM Policy Review",
+      "prompt": "Review my IAM policies for common security issues like overly permissive actions, wildcard resources, or missing conditions.",
+      "scenario": "When you need a quick security check of existing IAM configurations"
+    },
+    {
+      "title": "Find Users Without MFA",
+      "prompt": "Find all IAM users in my account that do not have MFA enabled and generate a list for remediation.",
+      "scenario": "When auditing MFA compliance across the account"
+    },
+    {
+      "title": "Create Least Privilege S3 Policy",
+      "prompt": "Create an IAM policy that allows read and write access to a specific S3 bucket prefix for a single user, using conditions for security.",
+      "scenario": "When granting minimal S3 permissions to a new user"
+    },
+    {
+      "title": "Generate MFA Enforcement Policy",
+      "prompt": "Generate an IAM policy that denies all actions unless the requester has authenticated with MFA.",
+      "scenario": "When hardening account security with MFA requirements"
+    }
+  ],
+  "bestPractices": [
+    "Use AWS managed policies instead of inline policies for better auditability and reusability",
+    "Implement least privilege by granting only the specific actions needed for each use case",
+    "Enable MFA for all users, especially those with administrative access"
+  ],
+  "antiPatterns": [
+    "Using wildcard (*) in Action or Resource elements - always specify exact permissions",
+    "Granting administrative access as a default - use role-based access control instead",
+    "Skipping regular access reviews - schedule quarterly IAM policy audits"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill execute AWS API calls?",
+      "answer": "No, this skill provides guidance, templates, and example commands. It does not directly modify AWS IAM configurations."
+    },
+    {
+      "question": "Can this skill create IAM policies for me?",
+      "answer": "Yes, it can generate IAM policy JSON templates based on your requirements for least privilege access."
+    },
+    {
+      "question": "What AWS CLI commands does this skill reference?",
+      "answer": "It provides examples using standard AWS CLI commands like list-policies, get-policy, list-users, and simulate-principal-policy for IAM auditing."
+    },
+    {
+      "question": "Is this skill safe to use in production environments?",
+      "answer": "Yes, this is a defensive security skill focused on hardening IAM. It provides read-only analysis and template generation."
+    },
+    {
+      "question": "Does this skill work with AWS Organizations?",
+      "answer": "The skill focuses on account-level IAM but can analyze policies across accounts when run with appropriate cross-account access."
+    },
+    {
+      "question": "What Python libraries are needed for automation?",
+      "answer": "The included Python script requires boto3 and standard library modules. Configure AWS credentials before running."
+    }
+  ],
+  "seoKeywords": [
+    "AWS IAM best practices",
+    "IAM policy review",
+    "least privilege IAM",
+    "AWS access control",
+    "IAM security hardening",
+    "Claude Code IAM",
+    "Codex IAM安全",
+    "Claude IAM policy",
+    "AWS IAM audit",
+    "IAM least privilege"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/security/aws-iam-best-practices",
+  "sourceType": "community",
+  "dependencies": []
+}

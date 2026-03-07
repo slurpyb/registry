@@ -1,0 +1,139 @@
+{
+  "name": "subagent-orchestration",
+  "type": "skill",
+  "description": "This skill should be used when coordinating multiple subagents, implementing orchestrator\npatterns, or managing parallel agent workflows.\nTrigger phrases: \"orchestrate agents\", \"coordinate subagents\", \"parallel agents\",\n\"multi-agent workflow\", \"delegate to agents\", \"run agents in parallel\", \"launch multiple agents\".\n",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "workflow coordination",
+  "quality": 5,
+  "qualityReason": "Clear purpose and actionable scope",
+  "bundleHints": [
+    "agent-orchestration",
+    "multi-agent-systems"
+  ],
+  "tags": [
+    "coordination",
+    "multi-agent",
+    "orchestration",
+    "parallel-execution",
+    "subagents",
+    "workflows"
+  ],
+  "capabilities": [
+    "Define clear scopes for subagent tasks with explicit file lists",
+    "Specify files that subagents must NOT modify",
+    "Coordinate parallel execution of independent subagent tasks",
+    "Create task templates with constraints and business rules",
+    "Reference documentation using @file syntax for subagent context"
+  ],
+  "author": "DieGopherLT",
+  "icon": "🎼",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a pure documentation resource containing only markdown guidelines for coordinating subagent workflows. No code execution, network access, file operations, or external command capabilities exist. All 28 static findings are false positives caused by pattern matching on benign text like 'orchestrate' and workflow terminology. This is not executable code.",
+  "valueStatement": "Managing multiple AI subagents can lead to conflicting changes and scope creep. This skill provides structured guidelines for orchestrating parallel agent workflows with clear boundaries, file scopes, and task isolation.",
+  "userTitle": "Coordinate Multiple AI Subagents in Parallel",
+  "limitations": [
+    "Does not execute code - only provides coordination guidelines",
+    "Does not directly invoke subagents - recommendations for users",
+    "Requires users to define task scopes manually",
+    "Does not enforce task boundaries automatically"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Parallel Code Reviews",
+      "description": "Run multiple subagents to review different modules of a codebase simultaneously"
+    },
+    {
+      "targetUser": "Feature Developers",
+      "title": "Independent Feature Work",
+      "description": "Coordinate subagents to work on separate features without conflicts"
+    },
+    {
+      "targetUser": "System Architects",
+      "title": "Distributed Analysis",
+      "description": "Analyze different system components in parallel for architectural decisions"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Subagent Request",
+      "scenario": "Ask for subagent help",
+      "prompt": "orchestrate agents: Task: [description]. Files to modify: [list]. Files NOT to touch: [list]. Constraints: [rules]."
+    },
+    {
+      "title": "Parallel Tasks",
+      "scenario": "Run independent tasks",
+      "prompt": "launch multiple agents in parallel: Agent 1: Task [A], modify [files], don't touch [files]. Agent 2: Task [B], modify [files], don't touch [files]."
+    },
+    {
+      "title": "With Documentation",
+      "scenario": "Provide reference docs",
+      "prompt": "coordinate subagents: Task [X]. Reference docs: [@file1, @file2]. Files: [modify], [exclude]. Constraints: [requirements]."
+    },
+    {
+      "title": "Full Scope Definition",
+      "scenario": "Complete task specification",
+      "prompt": "orchestrate agents with scope: Task [name]. Files to modify: [exact paths]. Files NOT to touch: [specific exclusions]. Business rules: [list]. Technical requirements: [list]. Reference: [@docs]."
+    }
+  ],
+  "bestPractices": [
+    "Always define explicit file boundaries for each subagent",
+    "Specify files NOT to touch to prevent unintended modifications",
+    "Use @file references to provide subagents with relevant context"
+  ],
+  "antiPatterns": [
+    "Vague file specifications like 'update related files'",
+    "Missing exclusions that allow subagents to modify unrelated code",
+    "Sequential dependencies disguised as parallel tasks"
+  ],
+  "faq": [
+    {
+      "question": "What triggers this skill?",
+      "answer": "Use trigger phrases like 'orchestrate agents', 'coordinate subagents', 'parallel agents', 'launch multiple agents', or 'delegate to agents'."
+    },
+    {
+      "question": "Can this skill run subagents automatically?",
+      "answer": "No. This skill provides guidelines for users to define and coordinate subagent tasks with proper scope boundaries."
+    },
+    {
+      "question": "How does parallel execution differ from sequential?",
+      "answer": "Parallel tasks are completely independent with no shared dependencies. Sequential tasks require results from previous tasks before starting."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only provides guidance. No data is sent externally. Subagents run within your controlled environment."
+    },
+    {
+      "question": "What if subagent scopes overlap?",
+      "answer": "Avoid overlapping scopes. Define exclusive file lists for each subagent. Use 'Files NOT to touch' to enforce boundaries."
+    },
+    {
+      "question": "How does this compare to single-agent workflows?",
+      "answer": "This skill enables faster completion of independent tasks by running subagents in parallel. Single-agent workflows handle sequential or dependent tasks."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code subagent orchestration",
+    "multi-agent coordination",
+    "parallel AI agents",
+    "Claude subagent workflow",
+    "agent orchestration patterns",
+    "Claude Code workflow",
+    "multi-agent AI coordination",
+    "subagent delegation",
+    "parallel agent execution",
+    "Claude Code orchestration"
+  ],
+  "sourceUrl": "https://github.com/DieGopherLT/claude-kit/tree/main/skills/subagent-orchestration",
+  "sourceType": "community",
+  "dependencies": []
+}

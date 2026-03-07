@@ -1,0 +1,141 @@
+{
+  "name": "scikit-bio",
+  "type": "skill",
+  "description": "Biological data toolkit. Sequence analysis, alignments, phylogenetic trees, diversity metrics (alpha/beta, UniFrac), ordination (PCoA), PERMANOVA, FASTA/Newick I/O, for microbiome analysis.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "biological data",
+  "quality": 5,
+  "qualityReason": "Specialized, research-grade",
+  "bundleHints": [
+    "bioinformatics-stack",
+    "microbiome"
+  ],
+  "tags": [
+    "alignments",
+    "bioinformatics",
+    "diversity",
+    "diversity-analysis",
+    "microbiome",
+    "phylogenetics",
+    "sequence-analysis"
+  ],
+  "capabilities": [
+    "Guide users through reading and writing FASTA, FASTQ, GenBank, and Newick file formats",
+    "Demonstrate pairwise and multiple sequence alignment techniques using dynamic programming",
+    "Show how to calculate alpha diversity metrics including Shannon, Simpson, and Faith Phylogenetic Diversity",
+    "Explain beta diversity calculations using Bray-Curtis, Jaccard, and UniFrac distances",
+    "Provide examples of phylogenetic tree construction with UPGMA, Neighbor Joining, and tree comparison methods",
+    "Demonstrate statistical testing with PERMANOVA, ANOSIM, Mantel tests and ordination analysis"
+  ],
+  "author": "davila7",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "BSD-3-Clause",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing markdown reference material for the scikit-bio Python bioinformatics library. All 137 static findings are false positives from Python code examples within markdown documentation. No executable code, network calls, or system access present.",
+  "valueStatement": "Biological research requires specialized tools for DNA sequence analysis, phylogenetic trees, and diversity metrics. This skill provides guidance for using scikit-bio to process sequences, calculate alpha and beta diversity, and perform statistical tests on microbiome data.",
+  "userTitle": "Analyze biological sequences and microbiome diversity",
+  "limitations": [
+    "Provides documentation and guidance only, does not execute code or install libraries",
+    "Users must install scikit-bio separately using pip or conda package managers",
+    "Does not include tools for sequence assembly, variant calling, or genome annotation",
+    "Requires user to have Python programming knowledge to implement examples"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Microbiome Researchers",
+      "title": "Analyze microbial community composition",
+      "description": "Calculate diversity metrics from OTU tables, perform PCoA ordination, and test group differences with PERMANOVA statistical tests."
+    },
+    {
+      "targetUser": "Bioinformatics Scientists",
+      "title": "Process DNA sequencing data",
+      "description": "Read FASTQ files, filter sequences by quality scores, find motifs, translate to proteins, and export results."
+    },
+    {
+      "targetUser": "Computational Biologists",
+      "title": "Build and compare phylogenetic trees",
+      "description": "Construct trees from distance matrices, calculate patristic distances, and compare tree topologies using Robinson-Foulds metrics."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Read DNA Sequence",
+      "scenario": "Load and analyze a FASTA file",
+      "prompt": "Show me how to use scikit-bio to read a DNA sequence from a FASTA file, get its reverse complement, transcribe it to RNA, and find all ATG start codon positions."
+    },
+    {
+      "title": "Calculate Alpha Diversity",
+      "scenario": "Measure community richness and evenness",
+      "prompt": "Help me use scikit-bio to calculate Shannon diversity, Simpson index, and observed OTU counts from a sample-by-feature abundance matrix."
+    },
+    {
+      "title": "Run PERMANOVA Test",
+      "scenario": "Test if sample groups differ significantly",
+      "prompt": "Guide me through running a PERMANOVA test in scikit-bio using a beta diversity distance matrix and a categorical grouping variable with 999 permutations."
+    },
+    {
+      "title": "Build Phylogenetic Tree",
+      "scenario": "Construct tree from sequence distances",
+      "prompt": "Show me how to use scikit-bio to build a neighbor-joining tree from a distance matrix, root it at the midpoint, and calculate cophenetic distances between all tips."
+    }
+  ],
+  "bestPractices": [
+    "Use generators when reading large sequence files to minimize memory usage",
+    "Validate that phylogenetic tree tip names exactly match OTU identifiers before calculating phylogenetic diversity",
+    "Run PERMDISP test alongside PERMANOVA to verify group dispersion homogeneity"
+  ],
+  "antiPatterns": [
+    "Loading entire multi-gigabyte FASTA files into memory instead of using streaming generators",
+    "Providing relative abundance proportions instead of integer counts for diversity calculations",
+    "Running PERMANOVA without checking dispersion assumptions using PERMDISP test"
+  ],
+  "faq": [
+    {
+      "question": "What file formats does scikit-bio support?",
+      "answer": "FASTA, FASTQ, GenBank, EMBL, QSeq for sequences. Newick for trees. BIOM format (HDF5 and JSON) for abundance tables. Also supports Clustal, PHYLIP, Stockholm alignments."
+    },
+    {
+      "question": "Can I use this skill with QIIME 2 data?",
+      "answer": "Yes. Export QIIME 2 artifacts to get BIOM tables, Newick trees, and distance matrices that scikit-bio can read directly."
+    },
+    {
+      "question": "How do I install the scikit-bio library?",
+      "answer": "Run pip install scikit-bio or conda install -c conda-forge scikit-bio. Requires Python 3.9 or later."
+    },
+    {
+      "question": "What is the difference between weighted and unweighted UniFrac?",
+      "answer": "Unweighted UniFrac uses presence/absence of taxa. Weighted UniFrac considers abundance differences. Use weighted for quantitative community comparisons."
+    },
+    {
+      "question": "Why do my phylogenetic metrics fail?",
+      "answer": "Check that tree tip names exactly match feature IDs in your count matrix. Mismatches cause errors. Use tree.shear() to prune mismatched tips."
+    },
+    {
+      "question": "Is this skill safe to use with sensitive genomic data?",
+      "answer": "This skill only provides documentation. Your data stays local when you run code. No data is transmitted or stored by the skill."
+    }
+  ],
+  "seoKeywords": [
+    "scikit-bio",
+    "bioinformatics",
+    "sequence analysis",
+    "phylogenetic trees",
+    "microbiome analysis",
+    "diversity metrics",
+    "PERMANOVA",
+    "Claude Code",
+    "Claude",
+    "DNA RNA protein"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/scikit-bio",
+  "sourceType": "community",
+  "dependencies": []
+}

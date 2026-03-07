@@ -1,0 +1,140 @@
+{
+  "name": "employment-contract-templates",
+  "type": "skill",
+  "description": "Create employment contracts, offer letters, and HR policy documents following legal best practices. Use when drafting employment agreements, creating HR policies, or standardizing employment documentation.",
+  "domain": "business",
+  "subdomain": "legal",
+  "specialty": "HR documentation",
+  "quality": 5,
+  "qualityReason": "Clear, high-value legal use case",
+  "bundleHints": [
+    "hr-tools",
+    "legal-stack"
+  ],
+  "tags": [
+    "compliance",
+    "contracts",
+    "employment",
+    "hr",
+    "legal",
+    "offer-letter",
+    "policy",
+    "template",
+    "templates",
+    "workforce"
+  ],
+  "capabilities": [
+    "Generate offer letters with position details, compensation, and benefits",
+    "Create employment agreements with confidentiality and IP assignment clauses",
+    "Draft employee handbook policies including PTO, holidays, and code of conduct",
+    "Provide jurisdiction-specific guidance and disclaimers",
+    "Structure non-compete and non-solicitation agreements",
+    "Include termination conditions and severance provisions"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 23 patterns that are all false positives. The 'backtick execution' detections are markdown code block delimiters (```) in documentation, not shell commands. The 'hardcoded URLs' are reference links to government resources (SHRM, DOL, EEOC). The 'weak cryptography' and 'system reconnaissance' findings matched placeholder text like [X] in legal templates. This skill contains only markdown documentation templates with no executable code, network calls, or security risks.",
+  "valueStatement": "Employment documentation requires legal precision and consistency. This skill provides templates and guidance for creating employment contracts, offer letters, and HR policies that follow best practices.",
+  "userTitle": "Create employment contracts and HR documents",
+  "limitations": [
+    "Templates are not legal advice and require qualified counsel review",
+    "Employment laws vary by jurisdiction and may require customization",
+    "Cannot provide jurisdiction-specific legal guidance without additional research",
+    "Does not replace consultation with licensed employment attorney"
+  ],
+  "useCases": [
+    {
+      "targetUser": "HR Manager",
+      "title": "HR Professional Onboarding",
+      "description": "HR managers creating standardized employment documentation for new hires across multiple departments."
+    },
+    {
+      "targetUser": "Small Business Owner",
+      "title": "Small Business Owner",
+      "description": "Business owners without dedicated HR staff need templates for their first employees."
+    },
+    {
+      "targetUser": "Corporate Attorney",
+      "title": "Legal Department Support",
+      "description": "In-house counsel drafting employment agreements with consistent clause structure."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Offer Letter",
+      "prompt": "Create an offer letter for a Software Engineer position with a base salary of $120,000, remote work arrangement, and standard benefits including health insurance and 401(k)."
+    },
+    {
+      "title": "Employment Contract with IP Assignment",
+      "prompt": "Draft an employment agreement for a full-time developer including confidentiality obligations, IP assignment clause, 12-month non-compete, and at-will employment terms under California law."
+    },
+    {
+      "title": "Employee Handbook Section",
+      "prompt": "Generate an employee handbook section covering paid time off policy with tiered accrual based on tenure, sick leave provisions, and observed holidays."
+    },
+    {
+      "title": "Complete Onboarding Package",
+      "prompt": "Create a complete employment documentation package including offer letter, employment agreement with all standard clauses, and acknowledgment forms for a senior executive hire."
+    }
+  ],
+  "bestPractices": [
+    "Always consult qualified legal counsel before using employment templates in your jurisdiction",
+    "Customize templates with specific company details, compensation, and role requirements",
+    "Ensure at-will employment language is included where applicable under state law"
+  ],
+  "antiPatterns": [
+    "Using generic templates without jurisdiction-specific legal review",
+    "Making verbal promises that could create implied employment contracts",
+    "Applying non-compete clauses in states where they are unenforceable"
+  ],
+  "faq": [
+    {
+      "question": "Are these templates legally binding?",
+      "answer": "These templates provide standard contract language but are not legal advice. Employment laws vary by jurisdiction. Always consult qualified legal counsel before using any employment documents."
+    },
+    {
+      "question": "Can I use these templates in any state or country?",
+      "answer": "Templates are based on US employment law conventions. Requirements vary significantly by state and country. Local legal review is essential before use."
+    },
+    {
+      "question": "What is at-will employment?",
+      "answer": "At-will employment means either the employer or employee may terminate the employment relationship at any time, with or without cause or notice, subject to certain legal exceptions."
+    },
+    {
+      "question": "Are non-compete agreements enforceable?",
+      "answer": "Non-compete enforceability varies significantly by jurisdiction. Some states like California generally prohibit them. Always consult local counsel before including non-compete clauses."
+    },
+    {
+      "question": "Do I need separate NDAs if the employment contract has confidentiality clauses?",
+      "answer": "Often the confidentiality provisions in an employment agreement are sufficient. A separate NDA may be useful for contractors or when broader protection is needed."
+    },
+    {
+      "question": "How often should employment templates be updated?",
+      "answer": "Review templates annually or when employment laws change. Significant legal updates, company policy changes, or jurisdictional moves should trigger immediate review."
+    }
+  ],
+  "seoKeywords": [
+    "Claude employment contract templates",
+    "Codex HR document generator",
+    "Claude Code legal templates",
+    "employment agreement creator",
+    "offer letter template",
+    "employee handbook generator",
+    "HR policy documents",
+    "legal contract assistant",
+    "employment documentation",
+    "contract drafting AI"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/employment-contract-templates",
+  "sourceType": "community",
+  "dependencies": []
+}

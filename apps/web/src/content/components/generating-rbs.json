@@ -1,0 +1,139 @@
+{
+  "name": "generating-rbs",
+  "type": "skill",
+  "description": "Generates RBS type signatures from Ruby source files. Triggers when creating type definitions, adding types to Ruby code, or generating .rbs files for classes/modules without existing RBS signatures.",
+  "domain": "languages",
+  "subdomain": "ruby",
+  "specialty": "type signatures",
+  "quality": 5,
+  "qualityReason": "Specific Ruby typing tool integration",
+  "bundleHints": [
+    "ruby-typing",
+    "rbs-stack",
+    "static-analysis"
+  ],
+  "tags": [
+    "rbs",
+    "ruby",
+    "static-analysis",
+    "type-signatures",
+    "typing"
+  ],
+  "capabilities": [
+    "Analyzes Ruby source files to identify classes, modules, methods, and constants",
+    "Generates pure RBS signature files following RBS syntax conventions",
+    "Eliminates untyped types by inferring proper types from code context",
+    "Validates RBS signatures using rbs validate command",
+    "Checks type safety with steep check when Steep is configured"
+  ],
+  "author": "DmitryPogrebnoy",
+  "icon": "rb",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static findings (1979) are false positives. The scanner misinterprets reference documentation files as executable code. All external_commands findings are markdown code blocks, blocker findings are RBS type signatures, and network findings are documentation links. The skill only reads Ruby files and generates RBS signatures - no network calls, credential access, or dangerous capabilities exist.",
+  "valueStatement": "This skill generates RBS type signatures for Ruby code from scratch. It analyzes Ruby source files and creates corresponding .rbs signature files with proper type definitions.",
+  "userTitle": "Generate RBS Type Signatures for Ruby",
+  "limitations": [
+    "Does not handle RBS-inline signatures or update existing signatures",
+    "Does not execute Ruby code from the project",
+    "Requires user clarification for ambiguous type scenarios",
+    "Only performs type safety checks if Steep is configured in the project"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Ruby Developers",
+      "title": "Add Static Types to Ruby Codebase",
+      "description": "Generate type signatures for Ruby classes without existing RBS files"
+    },
+    {
+      "targetUser": "Steep Users",
+      "title": "Prepare Types for Type Checking",
+      "description": "Create RBS files needed for Steep static type checking"
+    },
+    {
+      "targetUser": "Library Authors",
+      "title": "Document Public API Types",
+      "description": "Generate type signatures for library classes and modules"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic RBS Generation",
+      "scenario": "Generate types for a single class",
+      "prompt": "Generate RBS signatures for app/models/user.rb and place them in the sig/ directory"
+    },
+    {
+      "title": "Module with Methods",
+      "scenario": "Generate types for a module with multiple methods",
+      "prompt": "Create RBS signatures for lib/services/payment_processor.rb including all public and private methods"
+    },
+    {
+      "title": "Generic Classes",
+      "scenario": "Generate types for generic classes",
+      "prompt": "Generate RBS signatures for lib/collections/repository.rb with proper type parameters for generics"
+    },
+    {
+      "title": "Full Project Types",
+      "scenario": "Generate types for entire project structure",
+      "prompt": "Generate RBS signatures for all Ruby files in app/ and lib/ directories, maintaining directory structure in sig/"
+    }
+  ],
+  "bestPractices": [
+    "Run rbs validate after generating signatures to ensure internal consistency",
+    "Use steep check to verify type safety when Steep is configured",
+    "Review generated signatures for unnecessary untyped types"
+  ],
+  "antiPatterns": [
+    "Using untyped as a default instead of inferring proper types",
+    "Generating signatures without reviewing for correctness",
+    "Skipping validation with rbs validate before committing"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between this skill and RBS inline?",
+      "answer": "This skill generates standalone .rbs files. RBS inline generates comments within Ruby files."
+    },
+    {
+      "question": "Does this skill work with RBS inline annotations?",
+      "answer": "No, this skill only generates pure RBS signatures from scratch, not from inline annotations."
+    },
+    {
+      "question": "What Ruby syntax does this skill support?",
+      "answer": "Full Ruby syntax including generics, blocks, keyword arguments, and union types."
+    },
+    {
+      "question": "Where should generated RBS files be placed?",
+      "answer": "In the sig/ directory, mirroring the Ruby source file directory structure."
+    },
+    {
+      "question": "Can this skill update existing RBS signatures?",
+      "answer": "No, this skill only generates new signatures from scratch. Use other tools for updates."
+    },
+    {
+      "question": "What happens if a method has untyped parameters?",
+      "answer": "The skill attempts to infer proper types from code context. If inference fails, untyped is used as last resort."
+    }
+  ],
+  "seoKeywords": [
+    "RBS generator",
+    "Ruby type signatures",
+    "Ruby static typing",
+    "RBS syntax",
+    "Steep type checker",
+    "Ruby Steep",
+    "type annotations Ruby",
+    "Claude Code Ruby",
+    "Codex",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/DmitryPogrebnoy/ruby-agent-skills/tree/main/source/plugins/ruby-type-signature-skills/skills/generating-rbs",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "deployment-audit-skill",
+  "type": "skill",
+  "description": "Use DigitalOcean MCP and related tools to check deployment health, crash logs, environment consistency, and runtime issues for Unite-Hub / Synthex. Use when diagnosing deployment failures or verifying readiness.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "DigitalOcean audit",
+  "quality": 4,
+  "qualityReason": "Specific provider and scope",
+  "bundleHints": [
+    "devops-toolkit",
+    "monitoring-suite"
+  ],
+  "tags": [
+    "audit",
+    "consistency",
+    "crash-logs",
+    "deployment",
+    "digitalocean",
+    "monitoring",
+    "vercel"
+  ],
+  "capabilities": [
+    "Retrieve and analyze crash logs from DigitalOcean App Platform using doctl CLI commands",
+    "Compare environment variables across local files, Vercel settings, and DigitalOcean app specs",
+    "Validate required environment variables for Next.js, Supabase, Stripe, and authentication services",
+    "Generate human-readable audit reports documenting deployment health status",
+    "Check build processes for TypeScript errors and missing dependencies",
+    "Document common deployment issues with suggested fixes"
+  ],
+  "author": "CleanExpo",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This deployment audit skill reads local environment files and documents CLI commands for checking DigitalOcean and Vercel deployments. Static scanner flagged 43 patterns, but all are false positives or legitimate devops operations. The skill accesses .env files to validate configuration consistency, which is its intended purpose. No malicious behavior detected.",
+  "valueStatement": "Deployment failures are difficult to diagnose without centralized health checks. This skill audits crash logs, environment variable consistency, and runtime issues across DigitalOcean and Vercel to help you quickly identify and resolve deployment problems.",
+  "userTitle": "Audit Deployment Health on DigitalOcean and Vercel",
+  "limitations": [
+    "Requires manual execution of CLI commands documented in the skill output",
+    "Only monitors DigitalOcean and Vercel platforms, not other cloud providers",
+    "Cannot automatically fix deployment issues, only identifies and documents them",
+    "Designed specifically for Unite-Hub and Synthex projects, may need adaptation for other applications"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineers responding to production incidents",
+      "title": "Diagnose Production Crashes",
+      "description": "Quickly identify why your application is crashing in production by retrieving and analyzing recent crash logs from DigitalOcean App Platform."
+    },
+    {
+      "targetUser": "Developers preparing production deployments",
+      "title": "Verify Pre-Deployment Configuration",
+      "description": "Before deploying to production, validate that all required environment variables are set correctly across all platforms to prevent configuration-related failures."
+    },
+    {
+      "targetUser": "Platform engineers maintaining deployment infrastructure",
+      "title": "Audit Environment Consistency",
+      "description": "Compare environment variables across local development, Vercel, and DigitalOcean to ensure consistency and identify configuration drift between environments."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Health Check",
+      "prompt": "Run a deployment health check for my application",
+      "scenario": "Quick overview of current deployment status"
+    },
+    {
+      "title": "Crash Log Analysis",
+      "prompt": "Retrieve and analyze the recent crash logs from DigitalOcean",
+      "scenario": "Investigating why the application keeps restarting"
+    },
+    {
+      "title": "Environment Variable Audit",
+      "prompt": "Compare environment variables between local, Vercel, and DigitalOcean to find any mismatches",
+      "scenario": "Debugging configuration issues across environments"
+    },
+    {
+      "title": "Full Deployment Audit",
+      "prompt": "Perform a complete deployment audit including environment check, build verification, and runtime validation, then generate a report",
+      "scenario": "Comprehensive pre-deployment readiness check"
+    }
+  ],
+  "bestPractices": [
+    "Run deployment audits before every production deployment to catch configuration issues early",
+    "Set up automated monitoring to check deployment health on a regular schedule",
+    "Document all environment variable changes in the audit registry for future reference"
+  ],
+  "antiPatterns": [
+    "Skipping environment variable validation and deploying with missing configuration",
+    "Ignoring crash log patterns and only fixing individual incidents without addressing root causes",
+    "Running audits only after problems occur instead of proactively monitoring deployment health"
+  ],
+  "faq": [
+    {
+      "question": "What platforms does this skill support?",
+      "answer": "This skill is designed for DigitalOcean App Platform and Vercel. It checks deployment health, crash logs, and environment variables across these platforms."
+    },
+    {
+      "question": "Can this skill automatically fix deployment issues?",
+      "answer": "No, this skill identifies and documents issues but does not automatically apply fixes. It provides recommended actions that you can implement manually."
+    },
+    {
+      "question": "Do I need CLI tools installed to use this skill?",
+      "answer": "Yes, you need the DigitalOcean CLI (doctl) installed and configured to retrieve deployment information. The skill provides commands that Claude Code can execute."
+    },
+    {
+      "question": "What environment variables does this skill check?",
+      "answer": "The skill validates required variables including Supabase URLs and keys, NextAuth configuration, OAuth credentials, Stripe keys, and optional service API keys for SendGrid, Resend, and SEO tools."
+    },
+    {
+      "question": "How often should I run deployment audits?",
+      "answer": "Run audits before every production deployment, after any configuration changes, and when investigating runtime issues. For active projects, daily automated audits are recommended."
+    },
+    {
+      "question": "Where are audit reports saved?",
+      "answer": "Reports are saved to docs/audit/DEPLOYMENT_HEALTH.md for human-readable summaries and docs/audit/AUDIT_ISSUES_REGISTRY.json for structured issue tracking."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "deployment audit",
+    "DigitalOcean monitoring",
+    "Vercel troubleshooting",
+    "environment variables",
+    "crash logs",
+    "devops automation",
+    "deployment health"
+  ],
+  "sourceUrl": "https://github.com/CleanExpo/Unite-Hub/tree/main/.claude/skills/deployment-audit",
+  "sourceType": "community",
+  "dependencies": []
+}

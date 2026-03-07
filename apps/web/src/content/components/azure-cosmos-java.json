@@ -1,0 +1,142 @@
+{
+  "name": "azure-cosmos-java",
+  "type": "skill",
+  "description": "Azure Cosmos DB SDK for Java. NoSQL database operations with global distribution, multi-model support, and reactive patterns.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "cosmos db",
+  "quality": 5,
+  "qualityReason": "Clear SDK integration",
+  "bundleHints": [
+    "azure-data",
+    "java-db",
+    "nosql"
+  ],
+  "tags": [
+    "azure",
+    "cosmos-db",
+    "database",
+    "global-distribution",
+    "java",
+    "nosql",
+    "reactive"
+  ],
+  "capabilities": [
+    "Generate Java code for Cosmos DB client initialization with key-based authentication",
+    "Create database and container operations with proper partition key configuration",
+    "Implement CRUD operations using sync and async client patterns",
+    "Write SQL queries for document retrieval with parameterized queries",
+    "Configure consistency levels and connection modes for optimal performance",
+    "Handle CosmosException errors with appropriate retry logic"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only skill containing documentation and code examples for Azure Cosmos DB Java SDK. Static analysis scanned 0 files with 0 findings and a risk score of 0/100. The skill provides instructional content for database operations without any executable code. The only risk factor is env_access for environment variable usage in authentication examples, which is standard practice for credential management.",
+  "valueStatement": "Integrating Azure Cosmos DB into Java applications requires understanding SDK patterns and best practices. This skill provides comprehensive guidance for database operations, reactive programming, and global distribution.",
+  "userTitle": "Build Cosmos DB Applications with Java",
+  "limitations": [
+    "Requires valid Azure Cosmos DB account credentials for actual operations",
+    "Code examples target azure-cosmos SDK v4+ and may not work with older versions",
+    "Does not cover other Cosmos DB APIs (MongoDB, Cassandra, Gremlin, Table)",
+    "Performance tuning requires understanding of your specific workload patterns"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Java developers building enterprise applications",
+      "title": "Enterprise Application Developer",
+      "description": "Build scalable backend services that store and retrieve data from globally distributed Cosmos DB containers with proper partitioning strategies."
+    },
+    {
+      "targetUser": "DevOps engineers and architects",
+      "title": "Cloud Migration Specialist",
+      "description": "Migrate existing database applications to Azure Cosmos DB with guidance on SDK integration and consistency model selection."
+    },
+    {
+      "targetUser": "Full-stack developers using Java backends",
+      "title": "Full-Stack Developer",
+      "description": "Implement reactive data access patterns using the async client for high-throughput scenarios in modern web applications."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Client Setup",
+      "prompt": "Show me how to create a CosmosClient in Java using environment variables for the endpoint and key. Include proper error handling.",
+      "scenario": "Beginner setting up initial connection to Cosmos DB"
+    },
+    {
+      "title": "Container Creation with Partition Key",
+      "prompt": "Generate Java code to create a database and container in Cosmos DB. The container should use /userId as the partition key. Use the async client pattern.",
+      "scenario": "Creating database schema for user data storage"
+    },
+    {
+      "title": "CRUD Operations with Reactive Pattern",
+      "prompt": "Write Java code that creates, reads, updates, and deletes a user document in Cosmos DB using reactive chains with the async client. Include proper error handling for each operation.",
+      "scenario": "Implementing full data lifecycle operations"
+    },
+    {
+      "title": "Optimized Query with Request Options",
+      "prompt": "Create a parameterized SQL query in Java that retrieves users by status from Cosmos DB. Configure CosmosQueryRequestOptions for optimal performance and iterate through paged results.",
+      "scenario": "Advanced querying with performance considerations"
+    }
+  ],
+  "bestPractices": [
+    "Reuse CosmosClient instance throughout your application - creating new clients is expensive",
+    "Choose partition keys with high cardinality and even distribution for optimal scaling",
+    "Use async client for high-throughput scenarios and reactive programming patterns"
+  ],
+  "antiPatterns": [
+    "Creating new CosmosClient instances for each operation - causes connection pool exhaustion",
+    "Using strong consistency level without understanding latency implications across regions",
+    "Ignoring 429 rate limit responses - always implement retry logic or use built-in retry policy"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between CosmosClient and CosmosAsyncClient?",
+      "answer": "CosmosClient is synchronous and blocks until operations complete. CosmosAsyncClient uses reactive programming with non-blocking operations, better for high-throughput scenarios."
+    },
+    {
+      "question": "How do I handle authentication for Cosmos DB in Java?",
+      "answer": "Use key-based authentication with endpoint and key from environment variables. Store credentials securely and never hardcode them in source code."
+    },
+    {
+      "question": "What consistency level should I choose for my application?",
+      "answer": "Session consistency is recommended for most applications. Strong consistency has higher latency. Eventual consistency offers lowest latency but no ordering guarantees."
+    },
+    {
+      "question": "How do I optimize query performance in Cosmos DB?",
+      "answer": "Use parameterized queries, select only needed properties, leverage partition key in WHERE clauses, and configure appropriate request options for your query patterns."
+    },
+    {
+      "question": "What happens when I exceed my provisioned RU/s?",
+      "answer": "Cosmos DB returns 429 status code with retry-after header. The SDK has built-in retry logic, but you should also handle this in your application code."
+    },
+    {
+      "question": "Can I use this skill for other Cosmos DB APIs besides NoSQL?",
+      "answer": "This skill focuses on the NoSQL (SQL) API. MongoDB, Cassandra, Gremlin, and Table APIs have different SDKs and connection patterns."
+    }
+  ],
+  "seoKeywords": [
+    "Azure Cosmos DB",
+    "Java SDK",
+    "NoSQL database",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "reactive programming",
+    "global distribution",
+    "azure-cosmos",
+    "database operations"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-cosmos-java",
+  "sourceType": "community",
+  "dependencies": []
+}

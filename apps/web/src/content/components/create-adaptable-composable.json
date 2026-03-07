@@ -1,0 +1,144 @@
+{
+  "name": "create-adaptable-composable",
+  "type": "skill",
+  "description": "Create a library-grade Vue composable that accepts maybe-reactive inputs (MaybeRef / MaybeRefOrGetter) so callers can pass a plain value, ref, or getter. Normalize inputs with toValue()/toRef() inside reactive effects (watch/watchEffect) to keep behavior predictable and reactive. Use this skill when user asks for creating adaptable or reusable composables.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Vue composable",
+  "quality": 5,
+  "qualityReason": "High-quality Vue pattern",
+  "bundleHints": [
+    "vue-composables",
+    "frontend-libraries",
+    "reactivity"
+  ],
+  "tags": [
+    "composables",
+    "library-grade",
+    "maybe-ref",
+    "reactivity",
+    "vue",
+    "vue-composition-api"
+  ],
+  "capabilities": [
+    "Design Vue composables with flexible MaybeRef input types",
+    "Create composables accepting both reactive and non-reactive values",
+    "Implement proper input normalization using toRef() and toValue()",
+    "Apply Vue reactivity patterns for predictable behavior",
+    "Build library-grade APIs with computed-friendly inputs"
+  ],
+  "author": "vuejs-ai",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged TypeScript template literals as shell backticks and random text patterns as cryptographic algorithms. All findings are false positives. The skill contains only Vue.js documentation with TypeScript code examples for creating composables. No shell commands, cryptographic code, or security risks exist.",
+  "valueStatement": "Creating Vue composables with flexible input types is challenging. This skill provides a pattern for building library-grade composables that accept both reactive and non-reactive inputs using MaybeRef and MaybeRefOrGetter types.",
+  "userTitle": "Create Adaptable Vue Composable",
+  "limitations": [
+    "This skill provides guidance patterns, not executable code generation",
+    "Requires Vue 3 or Nuxt 3 project context",
+    "Does not create full composable implementations, only architectural patterns",
+    "User must implement actual composable logic following the documented patterns"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Vue component developers needing reusable title management",
+      "title": "Building a Read-Only Title Manager",
+      "description": "Create a composable that sets the document title and accepts title as MaybeRefOrGetter, allowing plain strings, refs, or getter functions."
+    },
+    {
+      "targetUser": "Library authors creating reusable state management utilities",
+      "title": "Creating a Writable Counter Composable",
+      "description": "Build a counter composable with MaybeRef input for the initial count, enabling two-way binding with reactive and non-reactive values."
+    },
+    {
+      "targetUser": "Frontend engineers building form abstraction layers",
+      "title": "Designing a Flexible Form Input Handler",
+      "description": "Design composables that accept DOM elements or computed targets as MaybeRefOrGetter for flexible input handling in various contexts."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Composable Request",
+      "prompt": "Create an adaptable composable called useUserPreferences that accepts a MaybeRefOrGetter for theme configuration. The composable should watch the value and apply the theme to the document body.",
+      "scenario": "User wants to create a reusable theme management composable"
+    },
+    {
+      "title": "Two-Way Binding Request",
+      "prompt": "Build a useLocalStorage composable that accepts a MaybeRef for the initial value and key. The composable should sync the ref value with localStorage and return a writable ref.",
+      "scenario": "Developer needs persistent state management with localStorage"
+    },
+    {
+      "title": "Computed Input Pattern",
+      "prompt": "Create a useDebouncedValue composable where the input is MaybeRefOrGetter. Use watch() with toRef() for reactive sources and return a computed value that updates with debouncing.",
+      "scenario": "Building a debounced input for search or filtering"
+    },
+    {
+      "title": "Multi-Input Composable",
+      "prompt": "Design a useFormValidator composable that accepts multiple MaybeRef inputs for form field values and a MaybeRefOrGetter for validation rules. Normalize all inputs and return validation state.",
+      "scenario": "Creating a flexible form validation utility"
+    }
+  ],
+  "bestPractices": [
+    "Use MaybeRefOrGetter for read-only, computed-friendly inputs to accept refs, getters, or plain values",
+    "Use toRef() inside watch/watchEffect sources to properly resolve reactive dependencies",
+    "Use toValue() for non-reactive value normalization to extract actual values",
+    "Avoid MaybeRefOrGetter for function parameters that might be callback functions to prevent accidental invocation"
+  ],
+  "antiPatterns": [
+    "Do not pass user-provided callbacks directly to MaybeRefOrGetter without type guards",
+    "Do not normalize inputs outside reactive contexts like watch or watchEffect",
+    "Do not mix toRef() and toValue() inconsistently within the same composable",
+    "Do not assume all parameters should be MaybeRef - use plain types when reactivity is not needed"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between MaybeRef and MaybeRefOrGetter?",
+      "answer": "MaybeRef accepts values, refs, shallowRefs, and writable computed refs. MaybeRefOrGetter adds ComputedRef and getter functions. Use MaybeRef for writable parameters and MaybeRefOrGetter for read-only inputs."
+    },
+    {
+      "question": "When should I use toRef() vs toValue()?",
+      "answer": "Use toRef() for watch/watchEffect sources to maintain reactivity. Use toValue() for extracting plain values from refs, getters, or non-reactive inputs in non-reactive contexts."
+    },
+    {
+      "question": "Can I use these composables in Nuxt 3?",
+      "answer": "Yes, Nuxt 3 is built on Vue 3 and fully supports the Composition API including MaybeRef, MaybeRefOrGetter, toRef(), and toValue()."
+    },
+    {
+      "question": "How do I handle undefined or null values?",
+      "answer": "Explicitly include null or undefined in your type definition like MaybeRef<T | null>. The toValue() function handles null/undefined appropriately."
+    },
+    {
+      "question": "Should I use MaybeRefOrGetter for event handlers?",
+      "answer": "No, avoid MaybeRefOrGetter for callbacks. Callbacks are functions, not getters. Using MaybeRefOrGetter might accidentally invoke them. Use explicit function types instead."
+    },
+    {
+      "question": "How do I create composables with multiple MaybeRef parameters?",
+      "answer": "Apply the pattern to each parameter individually. Use toRef() or toValue() in watch/watchEffect to normalize each input. Example: watch([toRef(a), toRef(b)], ([newA, newB]) => {...})"
+    }
+  ],
+  "seoKeywords": [
+    "Vue 3 composable",
+    "MaybeRef",
+    "MaybeRefOrGetter",
+    "Vue reactivity",
+    "Vue composable pattern",
+    "Vue Composition API",
+    "Vue reusable logic",
+    "toRef",
+    "toValue",
+    "claude code",
+    "claude",
+    "codex"
+  ],
+  "sourceUrl": "https://github.com/vuejs-ai/skills/tree/main/skills/create-adaptable-composable/",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,147 @@
+{
+  "name": "iac-checkov",
+  "type": "skill",
+  "description": "Infrastructure as Code (IaC) security scanning using Checkov with 750+ built-in policies for Terraform, CloudFormation, Kubernetes, Dockerfile, and ARM templates. Use when: (1) Scanning IaC files for security misconfigurations and compliance violations, (2) Validating cloud infrastructure against CIS, PCI-DSS, HIPAA, and SOC2 benchmarks, (3) Detecting secrets and hardcoded credentials in IaC, (4) Implementing policy-as-code in CI/CD pipelines, (5) Generating compliance reports with remediation guidance for cloud security posture management.\n",
+  "domain": "security",
+  "subdomain": "devsecops",
+  "specialty": "IaC scanning",
+  "quality": 5,
+  "qualityReason": "Comprehensive IaC security scan",
+  "bundleHints": [
+    "security-toolkit",
+    "devsecops"
+  ],
+  "tags": [
+    "750-policies",
+    "arm",
+    "checkov",
+    "cloud-security",
+    "cloudformation",
+    "compliance",
+    "dockerfile",
+    "iac",
+    "kubernetes",
+    "policy-as-code",
+    "terraform"
+  ],
+  "capabilities": [
+    "Scan Terraform files for AWS, Azure, and GCP misconfigurations",
+    "Analyze Kubernetes manifests for pod security violations",
+    "Detect hardcoded secrets and credentials in IaC files",
+    "Generate compliance reports mapped to CIS, PCI-DSS, HIPAA, and SOC2",
+    "Create custom security policies for organization requirements",
+    "Integrate scanning into GitHub Actions, GitLab CI, and pre-commit hooks"
+  ],
+  "author": "AgentSecOps",
+  "icon": "🛡️",
+  "version": "0.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill with no executable code. Contains YAML configuration templates and markdown guides for Checkov, an open-source IaC security scanner. All 300 static findings are false positives caused by scanner misinterpreting documentation text (check IDs, URLs, security examples) as malicious patterns.",
+  "valueStatement": "Manual review of Terraform, Kubernetes, and CloudFormation files misses critical misconfigurations. This skill integrates Checkov to automatically scan IaC for 750+ security policies, detecting encryption gaps, overly permissive access, and compliance violations before deployment.",
+  "userTitle": "Scan Infrastructure as Code for Security",
+  "limitations": [
+    "Does not fix issues automatically - requires manual remediation",
+    "Scans static IaC files only, not live cloud infrastructure",
+    "Requires Checkov installation (pip install checkov)",
+    "Does not scan Terraform state files or plan outputs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "CI/CD Security Gates",
+      "description": "Block deployments with CRITICAL or HIGH severity issues by integrating Checkov scans into GitHub Actions or GitLab CI pipelines."
+    },
+    {
+      "targetUser": "Security Architects",
+      "title": "Compliance Mapping",
+      "description": "Generate reports mapping IaC findings to CIS, PCI-DSS, HIPAA, and SOC2 requirements for audit preparation."
+    },
+    {
+      "targetUser": "Platform Teams",
+      "title": "Custom Policy Enforcement",
+      "description": "Define organization-specific security policies that extend beyond built-in checks to enforce naming conventions and tagging requirements."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Terraform Scan",
+      "scenario": "Scan Terraform for issues",
+      "prompt": "Run Checkov to scan my Terraform files in the infrastructure/ directory. Show all HIGH and CRITICAL findings with file paths, line numbers, and remediation guidance."
+    },
+    {
+      "title": "Kubernetes Security",
+      "scenario": "Audit K8s manifests",
+      "prompt": "Scan Kubernetes manifests in the k8s/ directory using Checkov. Focus on pod security standards, privilege escalation risks, and container security context issues."
+    },
+    {
+      "title": "Compliance Report",
+      "scenario": "Generate audit documentation",
+      "prompt": "Run a Checkov compliance scan against CIS AWS Foundations benchmark. Generate a JSON report and summarize which controls are passing and failing."
+    },
+    {
+      "title": "Custom Policy",
+      "scenario": "Create org-specific rule",
+      "prompt": "Help me write a custom Checkov policy in Python that ensures all S3 buckets have encryption enabled and are blocked from public access. Include the check logic and how to load it."
+    }
+  ],
+  "bestPractices": [
+    "Run Checkov on every PR that modifies IaC files to catch issues early",
+    "Start with --soft-fail mode to build team awareness before enforcing gates",
+    "Use baseline files to track remediation progress without blocking on existing debt",
+    "Document legitimate suppressions with ticket numbers and business justification"
+  ],
+  "antiPatterns": [
+    "Using blanket suppressions (skip-check: *) instead of targeting specific resources",
+    "Skipping all LOW severity findings without reviewing them for context",
+    "Running scans only in production pipelines instead of developer workflows",
+    "Ignoring false positives instead of tuning policies or adding suppressions"
+  ],
+  "faq": [
+    {
+      "question": "Does Checkov scan Terraform state files?",
+      "answer": "No, Checkov scans .tf files and configuration. Use tfsec or Trivy for state file and plan analysis."
+    },
+    {
+      "question": "Which cloud providers are supported?",
+      "answer": "AWS, Azure, GCP, OCI, Alibaba Cloud, and Kubernetes. Terraform, CloudFormation, ARM, and Docker support."
+    },
+    {
+      "question": "How to integrate with existing CI/CD?",
+      "answer": "Use the bridgecrewio/checkov-action for GitHub Actions or the Docker image for GitLab CI, Jenkins, and Azure DevOps."
+    },
+    {
+      "question": "Are credentials required to scan IaC?",
+      "answer": "No, Checkov performs static analysis. Cloud provider credentials are only needed for module downloads."
+    },
+    {
+      "question": "Why am I seeing false positives?",
+      "answer": "Add inline suppressions with justifications. Update to latest Checkov version which improves accuracy."
+    },
+    {
+      "question": "How does this compare to tfsec or Terrascan?",
+      "answer": "Checkov has more policies and better multi-cloud support. It uses graph-based analysis to understand resource relationships."
+    }
+  ],
+  "seoKeywords": [
+    "claude iac scanner",
+    "claude code terraform security",
+    "checkov ai skill",
+    "infrastructure as code security",
+    "terraform vulnerability scan",
+    "kubernetes manifest audit",
+    "cloudformation security",
+    "devsecops ci cd",
+    "compliance automation",
+    "policy as code"
+  ],
+  "sourceUrl": "https://github.com/AgentSecOps/SecOpsAgentKit/tree/main/skills/devsecops/iac-checkov",
+  "sourceType": "community",
+  "dependencies": []
+}

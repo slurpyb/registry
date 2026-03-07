@@ -1,0 +1,143 @@
+{
+  "name": "ffuf-claude-skill",
+  "type": "skill",
+  "description": "Web fuzzing with ffuf",
+  "domain": "business",
+  "subdomain": "legal",
+  "specialty": "breach analysis",
+  "quality": 4,
+  "qualityReason": "Niche legal domain focus",
+  "bundleHints": [
+    "legal-tools",
+    "compliance-suite"
+  ],
+  "tags": [
+    "crown",
+    "document-review",
+    "evidence-extraction",
+    "ffuf",
+    "fiduciary",
+    "historical-records",
+    "legal-analysis",
+    "reconnaissance",
+    "security-testing",
+    "web-fuzzing",
+    "web-scanning"
+  ],
+  "capabilities": [
+    "Execute ffuf web fuzzing scans for directory and file discovery",
+    "Build optimized ffuf command arguments for various recon scenarios",
+    "Parse and analyze ffuf scan results for actionable findings",
+    "Integrate ffuf with other reconnaissance tools in the workflow",
+    "Configure wordlists and filter options for efficient scanning"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The hardcoded URLs at lines 4 and 22 are legitimate GitHub repository links in documentation. The 'weak cryptographic algorithm' flags at lines 3 and 20 incorrectly identify 'ffuf' (Fast Web Fuzzer) as a cryptographic algorithm - it is actually a well-known web fuzzing security tool. No actual security risks detected.",
+  "valueStatement": "Ffuf (Fast Web Fuzzer) helps security professionals discover hidden web resources. This skill provides patterns and guidance for integrating ffuf into Claude Code workflows for efficient web reconnaissance.",
+  "userTitle": "Web Fuzzing with Ffuf",
+  "limitations": [
+    "Does not include ffuf binary - must be installed separately",
+    "No native output parsing - results require manual analysis",
+    "Limited to command-line interface patterns"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security professionals conducting web application assessments",
+      "title": "Directory Discovery Scan",
+      "description": "Scan target web servers for hidden directories and files using common wordlists"
+    },
+    {
+      "targetUser": "Bug bounty hunters and penetration testers",
+      "title": "Parameter Fuzzing",
+      "description": "Discover hidden parameters in web applications that may reveal functionality or vulnerabilities"
+    },
+    {
+      "targetUser": "Red team members and security auditors",
+      "title": "Subdomain Enumeration",
+      "description": "Identify valid subdomains during the reconnaissance phase of security assessments"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Directory Scan",
+      "prompt": "Run an ffuf scan to discover directories on [TARGET_URL] using the common wordlist. Show me the results.",
+      "scenario": "Quick directory enumeration on a target"
+    },
+    {
+      "title": "Filtered Results Scan",
+      "prompt": "Perform an ffuf scan on [TARGET_URL] but filter out 403 and 404 status codes. Use a medium-sized wordlist.",
+      "scenario": "Scan with status code filtering"
+    },
+    {
+      "title": "Extension Fuzzing",
+      "prompt": "Scan [TARGET_URL] for common file extensions like .php, .asp, .txt using ffuf. Exclude 404 responses.",
+      "scenario": "Discovering specific file types"
+    },
+    {
+      "title": "Recursive Directory Scan",
+      "prompt": "Run a recursive ffuf scan on [TARGET_URL] starting with the /api/ path. Use the small wordlist and match responses with 200 status.",
+      "scenario": "Deep directory structure discovery"
+    }
+  ],
+  "bestPractices": [
+    "Start with small wordlists and progressively increase size to avoid overwhelming the target",
+    "Use appropriate filters to exclude noisy responses like 404 and 403 status codes",
+    "Always obtain proper authorization before scanning any target that you do not own"
+  ],
+  "antiPatterns": [
+    "Running ffuf without rate limiting which may trigger WAF blocks or DOS protection",
+    "Using default wordlists without customization for the specific target technology",
+    "Ignoring redirect chains - ffuf follows redirects by default which may miss discovery"
+  ],
+  "faq": [
+    {
+      "question": "Do I need to install ffuf separately?",
+      "answer": "Yes, ffuf must be installed on your system before using this skill. Download it from github.com/ffuf/ffuf."
+    },
+    {
+      "question": "Can this skill scan multiple targets simultaneously?",
+      "answer": "No, ffuf scans one target at a time. You can run multiple scans sequentially in your workflow."
+    },
+    {
+      "question": "What wordlists are available with ffuf?",
+      "answer": "Ffuf supports any wordlist file. Common sources include SecLists, Dirb, and custom wordlists you create."
+    },
+    {
+      "question": "Is ffuf safe to use on production systems?",
+      "answer": "Ffuf sends many requests which may impact server performance. Always get authorization before scanning."
+    },
+    {
+      "question": "Can ffuf discover subdomains?",
+      "answer": "Yes, ffuf can enumerate subdomains when used with a subdomain wordlist and appropriate DNS settings."
+    },
+    {
+      "question": "Does this skill parse JSON output from ffuf?",
+      "answer": "This skill provides guidance on parsing results. You may need to use jq or other tools for complex parsing."
+    }
+  ],
+  "seoKeywords": [
+    "ffuf",
+    "web fuzzing",
+    "web reconnaissance",
+    "security testing",
+    "directory enumeration",
+    "subdomain fuzzing",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "penetration testing"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/web-app/public/skills/ffuf-claude-skill",
+  "sourceType": "community",
+  "dependencies": []
+}

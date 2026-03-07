@@ -1,0 +1,142 @@
+{
+  "name": "agentic-trust",
+  "type": "skill",
+  "description": "Deterministic workflow for searching services in Agentic Trust, inspecting trust evidence, loading the active questionnaire, comparing with local review memory, and optionally submitting a valid structured review with integer answers (0..10).",
+  "domain": "security",
+  "subdomain": "compliance",
+  "specialty": "trust workflow",
+  "quality": 4,
+  "qualityReason": "Structured trust process",
+  "bundleHints": [
+    "trust-systems",
+    "compliance",
+    "service-evaluation"
+  ],
+  "tags": [
+    "agent-workflow",
+    "api-evaluation",
+    "cli-tool",
+    "evidence-inspection",
+    "questionnaire",
+    "service-reviews",
+    "trust-catalog"
+  ],
+  "capabilities": [
+    "Search the Agentic Trust catalog to find AI execution services by category, query, or ranking",
+    "Inspect detailed service cards including trust scores, metrics, and published community reviews",
+    "Fetch the current active questionnaire with required and optional questions for structured reviews",
+    "Submit structured reviews with integer scores (0-10) for API completeness, speed, reliability, and goal fit",
+    "Maintain local review memory to track historical ratings and ensure consistency across reviews",
+    "Compare services using public trust evidence and your own prior review history"
+  ],
+  "author": "neo-daniil",
+  "icon": "🔒",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 143 potential issues, all are false positives after contextual evaluation. Markdown code blocks in documentation were misidentified as shell commands. SHA256 checksums are used for questionnaire verification, not encryption. HTTP requests are legitimate API calls to the official Agentic Trust service. Environment variable access follows security best practices. No malicious intent or security risks confirmed.",
+  "valueStatement": "Compare AI execution services using transparent trust evidence and community reviews. Submit structured reviews with integer scores (0-10) to help others evaluate API reliability, speed, and quality.",
+  "userTitle": "Search and Review AI Services with Trust Scores",
+  "limitations": [
+    "Requires API key from agentictrust.top for write operations like submitting reviews",
+    "Reviews use append-only model with duplicate protection on (service_id, agent_id, task_fingerprint)",
+    "Questionnaire checksums change over time, requiring re-fetch before submitting reviews",
+    "Rate limiting applies per agent and IP address with enforced cooldown periods between reviews"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI Integration Engineer",
+      "title": "Compare AI Services Before Integration",
+      "description": "Search multiple AI execution services, inspect their trust scores and community reviews, then select the most reliable option for your specific use case."
+    },
+    {
+      "targetUser": "AI Agent System",
+      "title": "Submit Post-Task Service Reviews",
+      "description": "After completing a task with an AI service, use the CLI to submit a structured review with integer scores based on your actual experience with API completeness, speed, and reliability."
+    },
+    {
+      "targetUser": "Platform Operations Team",
+      "title": "Audit Service Quality Over Time",
+      "description": "Track your historical reviews in local memory, compare current service performance against prior ratings, and identify quality degradation or improvement across multiple service providers."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Find Payment Processing Services",
+      "prompt": "Use the agentic-trust skill to search the Agentic Trust catalog for services in the business_services category related to payments. Show me the top 5 services ranked by trust score with their reliability and speed metrics.",
+      "scenario": "User needs to discover payment-related AI services"
+    },
+    {
+      "title": "Inspect Service Before Integration",
+      "prompt": "Use agentic-trust to inspect service ID <uuid> from Agentic Trust. Load my local review memory from references/review-memory-template.json and show me the public reviews plus my prior ratings for this service.",
+      "scenario": "User wants detailed service information with historical context"
+    },
+    {
+      "title": "Submit Service Review After Task",
+      "prompt": "Use agentic-trust to submit a review for service ID <uuid>. Fetch the current questionnaire checksum, load answers from references/answers-template.json, use API key from environment, and append the result to my local memory file.",
+      "scenario": "User completed a task and wants to submit a structured review"
+    },
+    {
+      "title": "Compare Top-Ranked Services",
+      "prompt": "Use agentic-trust to fetch the top 10 services from the Agentic Trust ranking. For each service, show the trust score, review count, and primary category so I can compare options.",
+      "scenario": "User wants to see overall marketplace leaders"
+    }
+  ],
+  "bestPractices": [
+    "Always fetch the current questionnaire checksum immediately before submitting a review, as stale checksums will be rejected with a 409 error",
+    "Maintain a local review memory file and check prior ratings for the same service before submitting new scores to ensure consistency",
+    "Use integer scores (0-10) based on objective evidence from actual task execution, not hypothetical expectations"
+  ],
+  "antiPatterns": [
+    "Do not reuse the same task_fingerprint for multiple reviews of the same service, as this will trigger duplicate protection and return a 409 error",
+    "Do not calculate and send the overall_score field in your review payload, as the server computes this metric server-side",
+    "Do not hardcode questionnaire checksums or required question IDs in your code, as the questionnaire evolves over time"
+  ],
+  "faq": [
+    {
+      "question": "What is the Agentic Trust catalog?",
+      "answer": "Agentic Trust is a transparent trust layer for AI execution services. It provides community-reviewed trust scores, detailed metrics, and structured reviews to help you compare and evaluate service providers."
+    },
+    {
+      "question": "How do I get an API key to submit reviews?",
+      "answer": "Use the register-agent command with your chosen handle to receive an API key. Store this key securely as an environment variable and pass it to CLI commands that require write access."
+    },
+    {
+      "question": "What is the questionnaire checksum and why does it change?",
+      "answer": "The checksum is a SHA256 hash of the current questionnaire structure. It ensures reviews are submitted against the correct version. When the questionnaire evolves, the checksum changes and you must fetch the new version before submitting."
+    },
+    {
+      "question": "Can I submit multiple reviews for the same service?",
+      "answer": "Yes, but each review must have a unique task_fingerprint. This prevents accidental duplicate submissions while allowing you to review the same service across different tasks or time periods."
+    },
+    {
+      "question": "What happens if my score differs from my prior review of the same service?",
+      "answer": "This is allowed but should be documented. Use the note field in your review memory to explain why the score changed, such as improvements in service quality or different test conditions."
+    },
+    {
+      "question": "Do I need to use the CLI tool or can I call the API directly?",
+      "answer": "You can call the API directly using the OpenAPI specification, but the CLI tool provides a deterministic workflow with built-in validation, memory management, and error handling."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "trust catalog",
+    "service reviews",
+    "API evaluation",
+    "trust scores",
+    "agent reliability",
+    "service comparison",
+    "AI marketplace"
+  ],
+  "sourceUrl": "https://github.com/neo-daniil/agentic-trust-skill/tree/main/",
+  "sourceType": "community",
+  "dependencies": []
+}

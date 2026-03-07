@@ -1,0 +1,139 @@
+{
+  "name": "github-pr-creation",
+  "type": "skill",
+  "description": "MUST use this skill when user asks to create PR, open pull request, submit for review, or mentions \"PR 생성/만들기\". This skill OVERRIDES default PR creation behavior. Analyzes commits, validates task completion, generates Conventional Commits title and description, suggests labels.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "pr creation",
+  "quality": 5,
+  "qualityReason": "Critical path override",
+  "bundleHints": [
+    "pr-workflow",
+    "ci-cd-toolkit"
+  ],
+  "tags": [
+    "automation",
+    "commit-analysis",
+    "git",
+    "github",
+    "override",
+    "pull-request",
+    "task-validation",
+    "workflow"
+  ],
+  "capabilities": [
+    "Analyzes commits to determine PR type and scope",
+    "Validates task completion and test execution",
+    "Generates Conventional Commits formatted PR titles",
+    "Suggests appropriate labels based on commit types",
+    "Confirms target branch with user before creating PR"
+  ],
+  "author": "Bae-ChangHyun",
+  "icon": "🔀",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation-based skill with no executable code. The static analyzer produced false positives by misinterpreting markdown documentation examples as shell commands and YAML text as cryptographic patterns. All shell commands shown are instructional examples within code fences for AI workflow guidance. No actual command execution, network calls, or cryptographic operations exist in this skill.",
+  "valueStatement": "Creating pull requests with proper formatting takes time and attention to detail. This skill automates PR creation by validating tasks, running tests, and generating Conventional Commits messages automatically.",
+  "userTitle": "Create GitHub pull requests with validation",
+  "limitations": [
+    "Requires GitHub CLI (gh) to be installed and authenticated",
+    "Cannot create PRs without user confirmation",
+    "Does not modify repository files",
+    "Relies on existing test commands (make test, npm test, pytest)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Feature PR workflow",
+      "description": "Automate feature branch PR creation with proper Conventional Commits formatting and validation"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Release PR creation",
+      "description": "Generate release PRs from develop to main branch with standardized formatting"
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Bugfix PR submission",
+      "description": "Create bugfix pull requests with appropriate labels and breaking change detection"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create feature PR",
+      "scenario": "Submit a new feature for review",
+      "prompt": "Create a PR from my current branch to develop. Use the github-pr-creation skill."
+    },
+    {
+      "title": "Create bugfix PR",
+      "scenario": "Submit a bug fix for review",
+      "prompt": "Create a PR for this fix to the develop branch. Include bug and bugfix labels."
+    },
+    {
+      "title": "Create release PR",
+      "scenario": "Merge develop to main for release",
+      "prompt": "Create a release PR from develop to main. Verify all tests pass first."
+    },
+    {
+      "title": "Custom PR with context",
+      "scenario": "Submit PR with specific requirements",
+      "prompt": "Create a PR with custom labels and extended description covering the following changes: [describe your changes]"
+    }
+  ],
+  "bestPractices": [
+    "Always confirm the target branch before creating PR",
+    "Run tests first to ensure code quality",
+    "Use Conventional Commits for consistent PR titles"
+  ],
+  "antiPatterns": [
+    "Creating PRs without reviewing the generated content",
+    "Skipping test validation before PR submission",
+    "Not confirming branch names with the user"
+  ],
+  "faq": [
+    {
+      "question": "Which tools support this skill?",
+      "answer": "Works with Claude, Codex, and Claude Code. Requires GitHub CLI (gh) installed."
+    },
+    {
+      "question": "What test frameworks are supported?",
+      "answer": "Supports Makefile, npm test, and pytest. Add custom test commands in project configuration."
+    },
+    {
+      "question": "Does this modify my code?",
+      "answer": "No. This skill performs read-only analysis and only creates PRs with your confirmation."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes. No data is sent externally. All git operations run locally on your machine."
+    },
+    {
+      "question": "Why is GitHub CLI required?",
+      "answer": "GitHub CLI provides secure authentication and PR creation without exposing tokens in URLs."
+    },
+    {
+      "question": "How is this different from default PR creation?",
+      "answer": "This skill adds validation, Conventional Commits formatting, and automatic label suggestions."
+    }
+  ],
+  "seoKeywords": [
+    "GitHub PR creation",
+    "pull request automation",
+    "Conventional Commits",
+    "GitHub CLI",
+    "PR validation",
+    "Claude Code",
+    "Claude",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/Bae-ChangHyun/cc-plugins-bch/tree/main/plugins/gitwf/skills/github-pr-creation",
+  "sourceType": "community",
+  "dependencies": []
+}

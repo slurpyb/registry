@@ -1,0 +1,148 @@
+{
+  "name": "ssh",
+  "type": "skill",
+  "description": "SSH remote access patterns and utilities. Connect to servers, manage keys, tunnels, and transfers.",
+  "domain": "devops",
+  "subdomain": "containers",
+  "specialty": "SSH utilities",
+  "quality": 4,
+  "qualityReason": "Broad but essential utility",
+  "bundleHints": [
+    "devops-toolkit",
+    "infrastructure-access"
+  ],
+  "tags": [
+    "key-management",
+    "port-forwarding",
+    "remote-access",
+    "rsync",
+    "scp",
+    "secure-shell",
+    "server-connection",
+    "servers",
+    "ssh",
+    "transfers",
+    "tunneling"
+  ],
+  "capabilities": [
+    "Connect to remote servers using SSH with various authentication methods",
+    "Transfer files securely using SCP and rsync protocols",
+    "Set up SSH tunnels for local and remote port forwarding",
+    "Generate and manage SSH keys including Ed25519 and RSA types",
+    "Configure jump hosts and bastion servers for internal access",
+    "Use SSH multiplexing for efficient connection reuse"
+  ],
+  "author": "Dicklesworthstone",
+  "icon": "🔐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation skill providing SSH reference patterns. Static scanner flagged 151 potential issues, but all are false positives from markdown code examples. The skill contains only documentation with SSH command examples in code blocks. No executable code, network requests, or credential access. The skill promotes security best practices including Ed25519 keys and key-based authentication.",
+  "valueStatement": "Managing remote servers securely requires reliable SSH patterns. This skill provides documentation for SSH connections, key management, file transfers, and tunneling for Claude Code.",
+  "userTitle": "Secure SSH Remote Access",
+  "limitations": [
+    "This skill provides documentation patterns only, not executable code",
+    "Does not store or manage credentials - users provide their own",
+    "Does not automate key rotation or certificate management",
+    "Does not provide interactive terminal session handling"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineers and system administrators",
+      "title": "Connect to cloud servers securely",
+      "description": "Establish SSH connections to cloud servers with proper key authentication and port configuration."
+    },
+    {
+      "targetUser": "Deployment engineers and developers",
+      "title": "Transfer deployment files",
+      "description": "Copy application artifacts and configuration files to remote servers using SCP or rsync."
+    },
+    {
+      "targetUser": "Security engineers and developers",
+      "title": "Access internal services through tunnels",
+      "description": "Create SSH tunnels to access databases and services behind firewalls or in private networks."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic SSH connection",
+      "prompt": "Show me how to connect to a remote server using SSH with a specific port and identity file.",
+      "scenario": "Connecting to a server with non-standard port and key-based auth"
+    },
+    {
+      "title": "File transfer commands",
+      "prompt": "What are the commands to copy files to and from a remote server using SCP and rsync?",
+      "scenario": "Deploying application files to production servers"
+    },
+    {
+      "title": "Port forwarding setup",
+      "prompt": "How do I set up an SSH tunnel to access a database on a remote server through a jump host?",
+      "scenario": "Accessing internal databases from local development machine"
+    },
+    {
+      "title": "Key generation and management",
+      "prompt": "What SSH key types are recommended, and how do I generate them and copy public keys to servers?",
+      "scenario": "Setting up key-based authentication for new servers"
+    }
+  ],
+  "bestPractices": [
+    "Use Ed25519 keys instead of RSA for better security and performance",
+    "Configure SSH multiplexing to reuse connections and reduce latency",
+    "Set up jump hosts for accessing servers in private networks securely"
+  ],
+  "antiPatterns": [
+    "Using password authentication instead of key-based auth",
+    "Connecting with verbose flags in production scripts",
+    "Hardcoding connection details instead of using SSH config files"
+  ],
+  "faq": [
+    {
+      "question": "What SSH key type should I use?",
+      "answer": "Use Ed25519 keys for modern systems. They offer better security with smaller key sizes and faster generation. Use RSA (4096 bits) only for legacy systems that do not support Ed25519."
+    },
+    {
+      "question": "How do I avoid entering my passphrase repeatedly?",
+      "answer": "Use ssh-agent to cache your decrypted keys. Run 'eval \"$(ssh-agent -s)\"' then 'ssh-add ~/.ssh/id_ed25519' to load your key once per session."
+    },
+    {
+      "question": "What is the difference between SCP and rsync?",
+      "answer": "SCP is simpler for quick file copies. Rsync is better for directories and repeated syncs because it only copies changed files and offers better compression options."
+    },
+    {
+      "question": "How do I access a server behind a firewall?",
+      "answer": "Use a jump host (bastion). Connect through it with 'ssh -J jumphost user@internal-server' or configure ProxyJump in your SSH config file."
+    },
+    {
+      "question": "What is SSH multiplexing and why should I use it?",
+      "answer": "Multiplexing reuses a single SSH connection for multiple commands, reducing connection overhead. Configure it in ~/.ssh/config with ControlMaster, ControlPath, and ControlPersist options."
+    },
+    {
+      "question": "How do I troubleshoot SSH connection issues?",
+      "answer": "Use verbose mode: 'ssh -v user@host' for standard output, '-vv' for more details, or '-vvv' for maximum verbosity to see exactly what is happening during connection negotiation."
+    }
+  ],
+  "seoKeywords": [
+    "SSH",
+    "secure shell",
+    "remote access",
+    "SSH key management",
+    "SSH tunneling",
+    "SCP file transfer",
+    "port forwarding",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "SSH config",
+    "jump host",
+    "bastion server"
+  ],
+  "sourceUrl": "https://github.com/Dicklesworthstone/agent_flywheel_clawdbot_skills_and_integrations/tree/main/skills/ssh",
+  "sourceType": "community",
+  "dependencies": []
+}

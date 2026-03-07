@@ -1,0 +1,140 @@
+{
+  "name": "storage-debug-instrumentation",
+  "type": "skill",
+  "description": "Add comprehensive debugging and observability tooling for backend storage layers (PostgreSQL, ChromaDB) and startup metrics. Includes storage drift detection, raw data inspection endpoints, and a Next.js admin dashboard.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "Storage observability",
+  "quality": 5,
+  "qualityReason": "Deep storage insights",
+  "bundleHints": [
+    "devops-toolkit",
+    "observability-suite"
+  ],
+  "tags": [
+    "chromadb",
+    "debugging",
+    "drift-detection",
+    "inspection",
+    "observability",
+    "postgres",
+    "storage"
+  ],
+  "capabilities": [
+    "Inspect raw storage data from PostgreSQL and ChromaDB databases",
+    "Detect storage drift between databases with missing and dangling entry reports",
+    "Track startup phase timing including DB init, cache preload, and RSS refresh",
+    "Browse paginated articles with source filters and date range options",
+    "View storage summary metrics at a glance on a unified debug dashboard"
+  ],
+  "author": "BenderFendor",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill (SKILL.md) providing implementation instructions for debugging tools. No executable code, scripts, or network operations are present. All 103 static findings are FALSE POSITIVES: the skill describes adding debug endpoints but contains no actual implementation code. URLs flagged are localhost development endpoints, and backticks are markdown code block syntax, not shell execution.",
+  "valueStatement": "Storage issues in PostgreSQL and ChromaDB are hard to diagnose without visibility. This skill provides a complete debugging toolkit with endpoints and a dashboard for inspecting storage state, detecting drift, and tracking startup performance.",
+  "userTitle": "Add debugging tools for storage layers",
+  "limitations": [
+    "Requires implementing backend debug endpoints described in the skill",
+    "Requires Next.js frontend setup for the visual dashboard",
+    "Provides observability only - no automatic issue resolution",
+    "Dashboard requires web browser access to view"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Debug storage synchronization",
+      "description": "Identify articles missing from ChromaDB or dangling entries causing search issues"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Monitor startup performance",
+      "description": "Track database initialization, cache preload, and RSS refresh durations over time"
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Inspect storage state",
+      "description": "Browse raw article data and verify storage layer contents during development"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Enable debugging",
+      "scenario": "Add debug tools to project",
+      "prompt": "Use the storage-debug-instrumentation skill to add debugging endpoints and a dashboard for inspecting PostgreSQL and ChromaDB storage."
+    },
+    {
+      "title": "Investigate storage issues",
+      "scenario": "Find missing articles",
+      "prompt": "My application is missing articles in search results. Use storage-debug-instrumentation to help me find articles that exist in PostgreSQL but are missing from ChromaDB."
+    },
+    {
+      "title": "Review startup metrics",
+      "scenario": "Check boot performance",
+      "prompt": "My application started slowly. Use storage-debug-instrumentation to show me the startup timeline and identify which phase is taking the longest."
+    },
+    {
+      "title": "Fix storage drift",
+      "scenario": "Resolve sync problems",
+      "prompt": "I found storage drift between my databases. Use storage-debug-instrumentation to show me samples of missing-in-chroma and dangling entries so I can fix the synchronization issue."
+    }
+  ],
+  "bestPractices": [
+    "Secure debug endpoints with authentication before exposing in production",
+    "Use pagination when browsing large datasets to avoid performance impact",
+    "Monitor storage drift regularly to catch synchronization issues early"
+  ],
+  "antiPatterns": [
+    "Leaving debug endpoints publicly accessible without authentication",
+    "Manually checking for drift instead of using automated detection",
+    "Ignoring startup delays without investigating the root cause"
+  ],
+  "faq": [
+    {
+      "question": "Which AI platforms work with this skill?",
+      "answer": "Compatible with Claude, Codex, and Claude Code for implementing debugging tools."
+    },
+    {
+      "question": "How do I activate this skill?",
+      "answer": "Call the skill when you need to add or use debug endpoints for storage inspection."
+    },
+    {
+      "question": "What data does this skill access?",
+      "answer": "The skill describes accessing PostgreSQL and ChromaDB databases through debug endpoints."
+    },
+    {
+      "question": "Does this skill send data externally?",
+      "answer": "No external network calls. Debug endpoints are local to your application."
+    },
+    {
+      "question": "What are the usage limits?",
+      "answer": "No limits. Dashboard pagination handles large datasets efficiently."
+    },
+    {
+      "question": "How is this different from other debugging tools?",
+      "answer": "Provides end-to-end storage visibility with drift detection across two database systems."
+    }
+  ],
+  "seoKeywords": [
+    "debugging",
+    "storage",
+    "PostgreSQL",
+    "ChromaDB",
+    "observability",
+    "startup metrics",
+    "drift detection",
+    "dashboard",
+    "Claude Code",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/BenderFendor/Thesis/tree/main/.github/skills/storage-debug-instrumentation",
+  "sourceType": "community",
+  "dependencies": []
+}

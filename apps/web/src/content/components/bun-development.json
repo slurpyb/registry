@@ -1,0 +1,140 @@
+{
+  "name": "bun-development",
+  "type": "skill",
+  "description": "Modern JavaScript/TypeScript development with Bun runtime. Covers package management, bundling, testing, and migration from Node.js. Use when working with Bun, optimizing JS/TS development speed, or migrating from Node.js to Bun.",
+  "domain": "languages",
+  "subdomain": "typescript",
+  "specialty": "Bun runtime",
+  "quality": 5,
+  "qualityReason": "Modern runtime specialization",
+  "bundleHints": [
+    "js-stack",
+    "bun"
+  ],
+  "tags": [
+    "bun",
+    "bundling",
+    "javascript",
+    "nodejs-migration",
+    "runtime",
+    "typescript"
+  ],
+  "capabilities": [
+    "Install and configure Bun runtime on macOS, Linux, and Windows",
+    "Create and initialize new Bun projects with TypeScript support",
+    "Manage packages using Bun's built-in package manager",
+    "Run and test JavaScript/TypeScript code with Bun",
+    "Build and bundle applications for production",
+    "Use Bun's built-in APIs for HTTP, SQLite, and file operations"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate Bun runtime development skill. All 117 static findings are false positives: external commands are standard Bun CLI tools, network URLs point to official Bun documentation, environment access patterns are standard Bun/Node.js development practices, and the pipe-to-shell pattern is the official Bun installation method. No malicious intent detected.",
+  "valueStatement": "This skill provides comprehensive documentation for developing with the Bun JavaScript runtime, covering installation, project setup, package management, testing, and migration from Node.js.",
+  "userTitle": "Bun Development Guide",
+  "limitations": [
+    "Does not support all Node.js APIs that rely on older JavaScript runtimes",
+    "Some npm packages may have compatibility issues with Bun",
+    "Windows support is newer and less mature than macOS/Linux",
+    "Limited enterprise tooling compared to Node.js ecosystem"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers starting new projects wanting faster tooling",
+      "title": "New Project Initialization",
+      "description": "Quickly set up new JavaScript/TypeScript projects with Bun's fast package manager and built-in tooling"
+    },
+    {
+      "targetUser": "Teams looking to optimize existing Node.js applications",
+      "title": "Node.js Migration",
+      "description": "Migrate existing Node.js projects to use Bun for improved performance"
+    },
+    {
+      "targetUser": "Backend developers building fast microservices",
+      "title": "Performance-Critical Applications",
+      "description": "Build high-performance HTTP servers and APIs using Bun's native APIs"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create New Bun Project",
+      "prompt": "Use the bun-development skill to help me initialize a new TypeScript project with Bun. Set up a basic project structure with testing configured.",
+      "scenario": "Starting a new project with Bun"
+    },
+    {
+      "title": "Install Dependencies",
+      "prompt": "Use bun-development to install the following packages: express, typescript, and @types/express. Show me how to add dev dependencies as well.",
+      "scenario": "Adding packages to a Bun project"
+    },
+    {
+      "title": "Write and Run Tests",
+      "prompt": "Use bun-development to help me write tests for a simple math utility file. Show me how to use bun:test with common matchers.",
+      "scenario": "Testing with Bun's built-in test runner"
+    },
+    {
+      "title": "Build for Production",
+      "prompt": "Use bun-development to show me how to bundle my TypeScript application for production deployment, including minification and source maps.",
+      "scenario": "Building for production"
+    }
+  ],
+  "bestPractices": [
+    "Use Bun-native APIs like Bun.file() and Bun.serve() for better performance instead of Node.js compatibility layers",
+    "Keep package.json scripts simple - leverage Bun's fast execution for direct file running",
+    "Use Bun.password.hash() for secure password hashing instead of external libraries"
+  ],
+  "antiPatterns": [
+    "Avoid using Node.js-specific APIs like require() when import statements work in Bun",
+    "Do not rely on process.hrtime() - use Bun.nanoseconds() instead",
+    "Avoid heavy Express/Fastify setups when Bun.serve() provides faster HTTP handling"
+  ],
+  "faq": [
+    {
+      "question": "What is Bun?",
+      "answer": "Bun is a fast, all-in-one JavaScript runtime designed to replace Node.js. It includes a package manager, test runner, and bundler in a single tool."
+    },
+    {
+      "question": "Is Bun faster than Node.js?",
+      "answer": "Yes, Bun is significantly faster for startup time (about 25ms vs 100ms+), package installation (10-100x faster), and running TypeScript natively."
+    },
+    {
+      "question": "Can I use existing Node.js packages with Bun?",
+      "answer": "Most npm packages work with Bun, but some packages with native bindings may have compatibility issues. Test your dependencies before migrating production code."
+    },
+    {
+      "question": "How do I migrate from Node.js to Bun?",
+      "answer": "Replace npm commands with bun equivalents (npm install -> bun install), update scripts in package.json, and add @types/bun for TypeScript support."
+    },
+    {
+      "question": "Does Bun support TypeScript?",
+      "answer": "Yes, Bun has native TypeScript support. You can run .ts files directly without transpilation."
+    },
+    {
+      "question": "What testing framework does Bun use?",
+      "answer": "Bun has a built-in test runner called bun:test that is compatible with Jest. You can use describe, it, expect, and other familiar patterns."
+    }
+  ],
+  "seoKeywords": [
+    "bun",
+    "bun runtime",
+    "javascript development",
+    "typescript development",
+    "nodejs migration",
+    "bun test",
+    "bun build",
+    "claude",
+    "codex",
+    "claude code"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/bun-development",
+  "sourceType": "community",
+  "dependencies": []
+}

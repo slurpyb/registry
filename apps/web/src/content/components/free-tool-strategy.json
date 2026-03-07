@@ -1,0 +1,144 @@
+{
+  "name": "free-tool-strategy",
+  "type": "skill",
+  "description": "When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation, SEO value, or brand awareness. Also use when the user mentions \"engineering as marketing,\" \"free tool,\" \"marketing tool,\" \"calculator,\" \"generator,\" \"interactive tool,\" \"lead gen tool,\" \"build a tool for leads,\" or \"free resource.\" This skill bridges engineering and marketing — useful for founders and technical marketers.",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "free tool planning",
+  "quality": 5,
+  "qualityReason": "Clear strategic use case",
+  "bundleHints": [
+    "growth-stack",
+    "marketing-automation"
+  ],
+  "tags": [
+    "engineering-as-marketing",
+    "growth",
+    "growth-hacking",
+    "lead-gen",
+    "lead-generation",
+    "marketing",
+    "product-led",
+    "seo"
+  ],
+  "capabilities": [
+    "Evaluate free tool ideas against business goals and target audience fit",
+    "Calculate expected ROI for tool investments including lead value and build costs",
+    "Identify optimal tool types for different marketing objectives",
+    "Develop SEO and promotion strategies for tool launch and ongoing growth",
+    "Design lead capture strategies that balance usage volume with conversion rates",
+    "Create comprehensive tool strategy documents with implementation specs"
+  ],
+  "author": "coreyhaines31",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All 10 static findings are false positives. The static analyzer misidentified mathematical notation (X x Y% x Z) as shell backtick execution, business terms like 'value' and 'average' as weak cryptographic algorithms, and standard marketing language about traffic and keywords as network reconnaissance. This is a pure documentation skill with no executable code.",
+  "valueStatement": "Creating free tools for marketing can attract qualified leads and build brand awareness, but many teams struggle to identify viable tool ideas and justify the investment. This skill provides a systematic framework for planning, evaluating, and executing engineering-as-marketing strategies that deliver measurable ROI.",
+  "userTitle": "Build Free Marketing Tools That Generate Leads",
+  "limitations": [
+    "Does not build or code the actual tools",
+    "Does not provide technical implementation code or architecture",
+    "Does not access external data sources or APIs for keyword research",
+    "Does not integrate with marketing automation platforms"
+  ],
+  "useCases": [
+    {
+      "targetUser": "SaaS founders, technical marketers",
+      "title": "SaaS Founders Planning Lead Generation Tools",
+      "description": "A SaaS founder wants to create a free tool that generates qualified leads for their product. This skill helps validate the idea, calculate expected ROI, and plan a tool strategy document."
+    },
+    {
+      "targetUser": "Marketing managers, growth teams",
+      "title": "Marketing Teams Evaluating Tool Investments",
+      "description": "A marketing team needs to justify building a custom calculator or assessment tool. This skill provides evaluation frameworks and ROI projections to support budget requests."
+    },
+    {
+      "targetUser": "Digital agencies, marketing consultants",
+      "title": "Agencies Developing Client Service Offerings",
+      "description": "An agency wants to add free tool development as a service offering. This skill helps scope projects, identify profitable tool types, and structure client proposals."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Initial Tool Idea Evaluation",
+      "prompt": "I want to build a free [tool type, e.g., calculator, generator, assessment] for [target audience]. The tool would help them [core value proposition]. Help me evaluate if this is a viable engineering-as-marketing idea. Consider: search demand, audience fit to our buyers, uniqueness vs existing tools, and build feasibility.",
+      "scenario": "Evaluating a new tool idea against market opportunity and business fit"
+    },
+    {
+      "title": "ROI and Investment Analysis",
+      "prompt": "Help me calculate the expected ROI for building a free [tool name]. We estimate [X] monthly leads, a [Y%] lead-to-customer rate, and average customer value of [$Z]. Our estimated build cost is [$amount] with monthly maintenance of [$amount]. Show me the payback period and whether this investment makes sense.",
+      "scenario": "Building a business case for tool investment"
+    },
+    {
+      "title": "Tool Type Selection",
+      "prompt": "Our target audience [description] struggles with [common problem]. What type of free tool would work best: calculator, generator, analyzer, tester, library, or interactive educational? Consider their search behavior, potential for lead capture, and alignment with our product.",
+      "scenario": "Selecting the optimal tool format for a specific audience and problem"
+    },
+    {
+      "title": "Complete Tool Strategy Document",
+      "prompt": "Create a comprehensive free tool strategy document for [tool concept]. Include: concept summary, target audience, lead generation fit, SEO opportunity with target keywords, build approach recommendation, lead capture strategy, success metrics, promotion plan, and implementation timeline.",
+      "scenario": "Generating a complete strategy document ready for team review"
+    }
+  ],
+  "bestPractices": [
+    "Start with validated demand—research search volume and existing solutions before building",
+    "Align tool value with your product: tools should educate users on problems your product solves",
+    "Keep the MVP focused: solve one problem well before adding features",
+    "Design lead capture early—decide upfront whether to gate, partially gate, or leave open"
+  ],
+  "antiPatterns": [
+    "Building tools without validating search demand or audience fit first",
+    "Creating tools that do not connect naturally to your product or sales funnel",
+    "Over-engineering the MVP with unnecessary features before validating core value",
+    "Ignoring promotion—tools need launch and ongoing marketing to generate traffic"
+  ],
+  "faq": [
+    {
+      "question": "What types of free tools work best for lead generation?",
+      "answer": "Calculators work well for personalized results people share. Generators create tangible output worth bookmarking. Analyzers and auditors appeal to curiosity and create awareness of problems your product solves. The best choice depends on your audience's problems and how they connect to your product."
+    },
+    {
+      "question": "How do I validate a tool idea before investing in build?",
+      "answer": "Research search demand using keyword tools. Check what existing solutions exist and identify how you could be different. Survey your target audience to confirm the problem matters to them. Calculate basic ROI using estimated lead values and rough build costs. Consider building a no-code prototype first to test interest."
+    },
+    {
+      "question": "Should I gate my free tool behind an email wall?",
+      "answer": "Gating decisions depend on your goals. Fully gated tools generate more leads but reduce usage and SEO value. Partially gated (email for full results) balances capture with reach. Ungated tools maximize traffic and brand awareness but generate fewer direct leads. Choose based on your primary objective."
+    },
+    {
+      "question": "How long does it take to build a free marketing tool?",
+      "answer": "Simple calculators or generators can be built in days using no-code tools. More complex tools with personalization and lead capture may take 2-4 weeks. Custom-built tools with unique functionality typically require 1-3 months. Start with an MVP to validate demand before investing in full development."
+    },
+    {
+      "question": "How do I promote a free tool once it is built?",
+      "answer": "Announce to your email list and write a blog post about the tool. Submit to Product Hunt if applicable. Reach out to industry newsletters and publications. Create supporting content targeting the keywords the tool ranks for. Share interesting anonymized results on social media to demonstrate value."
+    },
+    {
+      "question": "How do I measure success for a free marketing tool?",
+      "answer": "Track traffic and traffic sources, keyword rankings, and backlinks acquired. Monitor engagement metrics like completions, time on page, and return visitors. Measure conversion metrics including email captures, lead quality, and pipeline influenced. Survey new customers to attribute how many came through the tool."
+    }
+  ],
+  "seoKeywords": [
+    "engineering as marketing",
+    "free tool strategy",
+    "lead generation tools",
+    "marketing ROI calculator",
+    "SEO tools for marketers",
+    "content marketing tools",
+    "lead magnet strategy",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/coreyhaines31/marketingskills/tree/main/skills/free-tool-strategy",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,144 @@
+{
+  "name": "wiki-architect",
+  "type": "skill",
+  "description": "Analyzes code repositories and generates hierarchical documentation structures with onboarding guides. Use when the user wants to create a wiki, generate documentation, map a codebase structure, or understand a project's architecture at a high level.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "structure analysis",
+  "quality": 5,
+  "qualityReason": "Codebase structure mapping",
+  "bundleHints": [
+    "docs-automation",
+    "onboarding"
+  ],
+  "tags": [
+    "codebase-analysis",
+    "documentation",
+    "hierarchical",
+    "learning-paths",
+    "mapping",
+    "onboarding",
+    "wiki"
+  ],
+  "capabilities": [
+    "Analyze repository structure and identify architectural patterns",
+    "Generate hierarchical JSON catalogues with nested documentation sections",
+    "Create principal-level guides with architecture diagrams and tradeoffs",
+    "Build zero-to-hero learning paths for new developers",
+    "Produce getting started guides with setup and usage instructions",
+    "Cite specific files and line numbers in all documentation prompts"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 13 potential issues, all confirmed as false positives after review. External command patterns were Markdown code spans using backticks for inline code formatting. Cryptographic and reconnaissance patterns were word matches in documentation text. No actual security risks found.",
+  "valueStatement": "Transform complex codebases into organized, hierarchical documentation with structured learning paths. Automate wiki creation with architecture diagrams, onboarding guides, and developer documentation.",
+  "userTitle": "Generate Wiki Documentation from Any Codebase",
+  "limitations": [
+    "Cannot execute code or test runtime behavior during analysis",
+    "Limited to static analysis of file structure and content",
+    "Requires existing codebase structure to generate meaningful documentation",
+    "May need human review for complex domain-specific terminology",
+    "Small repositories (10 files or fewer) use simplified structure"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Engineering managers and technical leads",
+      "title": "New Team Member Onboarding",
+      "description": "Create comprehensive onboarding guides that help new developers understand codebase architecture, key components, and contribution workflows from day one."
+    },
+    {
+      "targetUser": "Software engineers and architects",
+      "title": "Legacy System Documentation",
+      "description": "Generate structured documentation for existing projects lacking proper docs, mapping architectural layers and component relationships automatically."
+    },
+    {
+      "targetUser": "Open source maintainers",
+      "title": "Open Source Wiki Creation",
+      "description": "Produce professional wikis and documentation sites for open source projects to improve contributor experience and user adoption."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Wiki Generation",
+      "prompt": "Create a wiki for this repository",
+      "scenario": "Quick start request for basic documentation structure"
+    },
+    {
+      "title": "Onboarding Guide Creation",
+      "prompt": "Generate an onboarding guide for this codebase that helps new developers understand the architecture and start contributing",
+      "scenario": "Creating learning paths for new team members"
+    },
+    {
+      "title": "Architecture Documentation",
+      "prompt": "Analyze this repository and produce a hierarchical documentation catalogue with architecture diagrams, component breakdowns, and file references",
+      "scenario": "Deep technical documentation with architectural insights"
+    },
+    {
+      "title": "Complete Wiki with Learning Paths",
+      "prompt": "Create a comprehensive wiki including principal-level architecture guide, zero-to-hero learning path, getting started documentation, and deep dive into subsystems with specific file references",
+      "scenario": "Full documentation suite for complex projects"
+    }
+  ],
+  "bestPractices": [
+    "Provide clear project context when invoking the skill, such as project type and primary goals",
+    "Review generated documentation for accuracy and add domain-specific knowledge",
+    "Use the output as a template and customize based on team standards and conventions",
+    "Keep the generated wiki updated as the codebase evolves"
+  ],
+  "antiPatterns": [
+    "Expecting runtime behavior analysis without executing the codebase",
+    "Using this skill for non-code projects or pure content repositories",
+    "Assuming generated documentation replaces human-written explanations entirely",
+    "Invoking the skill on empty or minimally populated repositories"
+  ],
+  "faq": [
+    {
+      "question": "What types of projects can Wiki Architect analyze?",
+      "answer": "Wiki Architect works with any codebase including web applications, APIs, libraries, and tools. It detects languages and frameworks from file extensions and build configuration to generate appropriate documentation structures."
+    },
+    {
+      "question": "How does Wiki Architect handle small versus large repositories?",
+      "answer": "Small repositories with 10 or fewer files receive simplified documentation with Getting Started and Onboarding sections only. Larger repositories get full hierarchical catalogues with Deep Dive sections covering all architectural layers."
+    },
+    {
+      "question": "Can I customize the generated documentation structure?",
+      "answer": "Yes. The output is a JSON catalogue that serves as a template. You can modify the structure, add sections, adjust prompts, and refine content to match your team's documentation standards and project requirements."
+    },
+    {
+      "question": "Does Wiki Architect execute my code to understand behavior?",
+      "answer": "No. Wiki Architect performs static analysis only, examining file structure, names, and content. It does not execute code or analyze runtime behavior, keeping the analysis safe and fast."
+    },
+    {
+      "question": "What file formats and programming languages are supported?",
+      "answer": "The skill detects languages from file extensions and works with any programming language. It automatically selects appropriate comparison languages for cross-learning explanations based on the detected primary language."
+    },
+    {
+      "question": "How accurate are the file references in generated documentation?",
+      "answer": "File references are based on actual repository structure at the time of analysis. As your codebase changes, regenerate documentation to keep citations current. Always verify references match your current codebase state."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "wiki generation",
+    "documentation generator",
+    "codebase documentation",
+    "developer onboarding",
+    "software architecture",
+    "learning paths",
+    "technical documentation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/wiki-architect",
+  "sourceType": "community",
+  "dependencies": []
+}

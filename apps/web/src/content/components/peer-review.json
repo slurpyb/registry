@@ -1,0 +1,144 @@
+{
+  "name": "peer-review",
+  "type": "skill",
+  "description": "Structured manuscript/grant review with checklist-based evaluation. Use when writing formal peer reviews with specific criteria methodology assessment, statistical validity, reporting standards compliance (CONSORT/STROBE), and constructive feedback. Best for actual review writing, manuscript revision. For evaluating claims/evidence quality use scientific-critical-thinking; for quantitative scoring frameworks use scholar-evaluation.",
+  "domain": "science",
+  "subdomain": "research",
+  "specialty": "manuscript evaluation",
+  "quality": 5,
+  "qualityReason": "Structured academic review",
+  "bundleHints": [
+    "research-tools",
+    "peer-review"
+  ],
+  "tags": [
+    "checklist",
+    "grant-review",
+    "methodology",
+    "peer-review",
+    "reporting-standards",
+    "research",
+    "scientific-criteria",
+    "scientific-writing",
+    "statistical-validity",
+    "statistics"
+  ],
+  "capabilities": [
+    "Conduct structured manuscript review across seven stages from initial assessment to ethical verification",
+    "Evaluate statistical methods including power analysis, assumption checking, and multiple comparison corrections",
+    "Assess reproducibility through data availability, code sharing, and methodological transparency",
+    "Verify compliance with discipline-specific reporting guidelines (CONSORT, PRISBE, PRISMA, ARRIVE)",
+    "Provide constructive feedback organized by major issues, minor issues, and line-by-line comments",
+    "Review scientific presentations with visual inspection workflow"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All 106 static findings are false positives. The skill is a scientific peer review documentation tool. Detected 'C2 keywords' are false positives from legitimate terms like 'command-line'. 'Weak cryptographic algorithm' references are educational content in reference materials for evaluating manuscript methodology. Backtick patterns are markdown code formatting in documentation examples. No actual malicious code execution patterns exist.",
+  "valueStatement": "Researchers need systematic tools to evaluate manuscripts against rigorous methodological and reporting standards. This skill provides structured peer review workflows with checklist-based assessment for statistical rigor, reproducibility, and compliance with discipline-specific guidelines.",
+  "userTitle": "Review Scientific Manuscripts with Structured Checklists",
+  "limitations": [
+    "Does not access external databases or verify citations in real-time",
+    "Cannot evaluate image data or perform image integrity analysis",
+    "Does not replace domain expert judgment for highly specialized fields",
+    "Relies on provided manuscript content without access to supplementary materials"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Academic researchers and journal editors",
+      "title": "Journal Manuscript Review",
+      "description": "Evaluate original research submissions for peer-reviewed journals. Assess methodology rigor, statistical validity, figure quality, and compliance with reporting guidelines. Generate structured review reports with major and minor comments."
+    },
+    {
+      "targetUser": "Grant reviewers and funding agency staff",
+      "title": "Grant Proposal Assessment",
+      "description": "Review grant applications for funding agencies. Evaluate innovation, methodology soundness, feasibility, and statistical power. Provide feedback on weaknesses and required clarifications before submission."
+    },
+    {
+      "targetUser": "Researchers reviewing preprints on platforms like bioRxiv",
+      "title": "Preprint Quality Check",
+      "description": "Assess preprint manuscripts for methodological quality and reproducibility concerns. Identify statistical issues, missing controls, and potential problems before formal journal submission."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Manuscript Review",
+      "prompt": "Review this manuscript using the peer-review skill. Evaluate the Introduction for clarity and literature context, Methods for reproducibility and statistical rigor, Results for appropriate presentation, and Discussion for balanced conclusions. Provide a summary statement with overall recommendation and list major and minor comments.",
+      "scenario": "Initial manuscript evaluation for journal submission"
+    },
+    {
+      "title": "Statistical Methods Audit",
+      "prompt": "Focus the peer review on statistical methods only. Check sample size justification, assumption verification, appropriate test selection, multiple comparison correction, and effect size reporting. List any statistical concerns with specific recommendations.",
+      "scenario": "Detailed statistical validation of research methods"
+    },
+    {
+      "title": "Reporting Standards Compliance",
+      "prompt": "Review this manuscript for compliance with [CONSORT/STROBE/PRISMA/ARRIVE] reporting guidelines. Check that all required elements are present and adequately described. Note any missing or incomplete checklist items.",
+      "scenario": "Verification of discipline-specific reporting standards"
+    },
+    {
+      "title": "Comprehensive Multi-Stage Review",
+      "prompt": "Conduct a full peer review following all seven stages: Initial Assessment, Detailed Section Review, Methodological Rigor, Reproducibility Assessment, Figure Evaluation, Ethical Review, and Writing Quality. Provide a complete structured report with summary, major comments, minor comments, and author questions.",
+      "scenario": "Complete manuscript evaluation with all review stages"
+    }
+  ],
+  "bestPractices": [
+    "Always verify statistical assumptions rather than accepting reported p-values at face value. Request raw data when necessary to confirm proper analysis.",
+    "Distinguish between major issues affecting validity and minor issues affecting clarity. Prioritize feedback to help authors improve rather than simply criticize.",
+    "Use reporting guidelines (CONSORT, STROBE, PRISMA) as checklists to ensure comprehensive evaluation and consistent standards across reviews."
+  ],
+  "antiPatterns": [
+    "Avoid vague criticism without specific examples. Always reference specific sections, figures, or line numbers to make feedback actionable.",
+    "Do not request additional experiments beyond the scope of the study without clear justification for how they would change conclusions.",
+    "Avoid personal judgments about the authors. Focus evaluation on the science, methodology, and reporting quality only."
+  ],
+  "faq": [
+    {
+      "question": "What manuscript types can this skill review?",
+      "answer": "This skill supports original research articles, reviews and meta-analyses, methods papers, short reports, preprints, and grant proposals across scientific disciplines."
+    },
+    {
+      "question": "Does this skill verify citations or check for plagiarism?",
+      "answer": "No. This skill evaluates methodology, statistics, and reporting standards. Citation verification and plagiarism detection require access to external databases not available here."
+    },
+    {
+      "question": "Can this skill review specialized fields like clinical trials or genomics?",
+      "answer": "Yes. The skill includes reference materials for discipline-specific guidelines including CONSORT for trials, STROBE for observational studies, and MIAME/MINSEQE for genomics."
+    },
+    {
+      "question": "How does this skill handle statistical expertise?",
+      "answer": "The skill provides structured checklists for common statistical issues but cannot replace domain expert judgment for highly specialized analyses."
+    },
+    {
+      "question": "Does this skill access external data repositories?",
+      "answer": "No. The skill reviews only the manuscript content provided. Data availability statements are evaluated but not verified against actual repositories."
+    },
+    {
+      "question": "What reporting guidelines are supported?",
+      "answer": "The skill references CONSORT (trials), STROBE (observational), PRISMA (reviews), ARRIVE (animal research), MIAME (microarrays), MINSEQE (sequencing), and others in the reporting standards reference."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "peer review",
+    "scientific manuscript review",
+    "methodology assessment",
+    "statistical validation",
+    "research evaluation",
+    "grant review",
+    "reporting standards"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/peer-review",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "lovable",
+  "type": "skill",
+  "description": "Integration skill for Lovable.dev projects. Activates when working with:\n- Lovable.dev projects with GitHub sync\n- Supabase Edge Functions that need deployment\n- Database migrations for Lovable Cloud\n- Projects with supabase/ directory structure\n- Any mention of \"Lovable\", \"deploy edge function\", \"apply migration\"\n\nProvides exact Lovable prompts for backend operations that can't be done via GitHub alone.\n",
+  "domain": "devops",
+  "subdomain": "deployment",
+  "specialty": "Lovable.dev sync",
+  "quality": 4,
+  "qualityReason": "Project-specific integration",
+  "bundleHints": [
+    "lovable-stack",
+    "fullstack-dev"
+  ],
+  "tags": [
+    "cloud-migrations",
+    "deployment",
+    "edge-functions",
+    "github-sync",
+    "lovable",
+    "supabase"
+  ],
+  "capabilities": [
+    "Generate exact Lovable prompts for edge function deployment",
+    "Provide database migration and RLS policy prompts",
+    "Detect secret requirements from codebase patterns",
+    "Generate project structure maps for faster navigation",
+    "Guide workflow for GitHub to Lovable sync",
+    "Support both Lovable Cloud and own Supabase backends"
+  ],
+  "author": "10K-Digital",
+  "icon": "🔗",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown reference files. The static scanner flagged 458 patterns as potential security issues, but ALL findings are FALSE POSITIVES. The scanner detected markdown code formatting (backticks), documentation of environment variable patterns, and URL mentions in templates. There is NO executable code, no scripts, no network calls, and no filesystem access beyond reading documentation. The skill provides contextual guidance for working with Lovable.dev projects.",
+  "valueStatement": "Lovable uses two-way GitHub sync for frontend but requires Lovable prompts for backend operations. This skill provides exact prompts for deploying edge functions, applying migrations, and managing database operations without memorizing documentation.",
+  "userTitle": "Integrate with Lovable.dev projects",
+  "limitations": [
+    "Does not execute deployments automatically (yolo mode is separate skill)",
+    "Does not access Lovable API directly",
+    "Requires user to copy-paste prompts into Lovable chat"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Deploy backend changes",
+      "description": "Get exact prompts to deploy edge functions and apply migrations after making code changes"
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Manage database operations",
+      "description": "Create tables, add RLS policies, and manage database relationships through Lovable prompts"
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Configure project setup",
+      "description": "Run init command to generate CLAUDE.md with project context, secrets tracking, and deployment workflows"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Deploy edge function",
+      "scenario": "After editing Supabase Edge Function",
+      "prompt": "Deploy the send-email edge function"
+    },
+    {
+      "title": "Apply migrations",
+      "scenario": "After creating migration file",
+      "prompt": "Apply pending Supabase migrations"
+    },
+    {
+      "title": "Create table",
+      "scenario": "Need new database table",
+      "prompt": "Create a profiles table with columns: id (uuid), email (text), name (text)"
+    },
+    {
+      "title": "Add RLS policy",
+      "scenario": "Secure table access",
+      "prompt": "Enable RLS on profiles allowing users to only read their own rows"
+    }
+  ],
+  "bestPractices": [
+    "Always commit and push to main branch before deployment",
+    "Run /init-lovable to generate project-specific CLAUDE.md",
+    "Track secrets in CLAUDE.md to avoid runtime errors",
+    "Test edge functions locally before deploying to Lovable"
+  ],
+  "antiPatterns": [
+    "Deploying from feature branches (only main syncs with Lovable)",
+    "Skipping secret configuration before deployment",
+    "Creating tables directly in Supabase dashboard (use Lovable prompts instead)",
+    "Forgetting to apply migrations after pushing to GitHub"
+  ],
+  "faq": [
+    {
+      "question": "Which Claude tools support this skill?",
+      "answer": "This skill works with Claude Code, Claude, and Codex. It activates automatically when working with Lovable projects."
+    },
+    {
+      "question": "What backend types are supported?",
+      "answer": "Both Lovable Cloud (fully managed by Lovable) and own Supabase (direct dashboard access) are supported."
+    },
+    {
+      "question": "How do I automate deployments?",
+      "answer": "Enable yolo mode for browser automation. This requires the Chrome extension and runs deployments automatically after git push."
+    },
+    {
+      "question": "Is my code safe with this skill?",
+      "answer": "Yes. This is a documentation-only skill. It never executes code, accesses production systems, or sends data externally."
+    },
+    {
+      "question": "Why do I need prompts instead of direct deployment?",
+      "answer": "Lovable manages backend infrastructure. Frontend syncs via GitHub but backend operations require prompts for security and validation."
+    },
+    {
+      "question": "How is this different from Supabase CLI?",
+      "answer": "Supabase CLI works for your own Supabase. For Lovable Cloud, you must use Lovable prompts since Lovable manages the infrastructure."
+    }
+  ],
+  "seoKeywords": [
+    "lovable",
+    "lovable dev",
+    "claude code",
+    "claude",
+    "codex",
+    "supabase edge functions",
+    "database migrations",
+    "deployment prompts",
+    "github sync",
+    "react projects"
+  ],
+  "sourceUrl": "https://github.com/10K-Digital/lovable-claude-code/tree/main/plugins/lovable/skills/lovable",
+  "sourceType": "community",
+  "dependencies": []
+}

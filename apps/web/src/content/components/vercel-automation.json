@@ -1,0 +1,141 @@
+{
+  "name": "vercel-automation",
+  "type": "skill",
+  "description": "Automate Vercel tasks via Rube MCP (Composio): manage deployments, domains, DNS, env vars, projects, and teams. Always search tools first for current schemas.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "Rube MCP",
+  "quality": 5,
+  "qualityReason": "Precise integration use",
+  "bundleHints": [
+    "mcp-automation",
+    "vercel-workflow"
+  ],
+  "tags": [
+    "automation",
+    "composio",
+    "deployment",
+    "devops",
+    "dns",
+    "mcp",
+    "team-management",
+    "vercel",
+    "vercel-api"
+  ],
+  "capabilities": [
+    "List and inspect Vercel deployments with filtering by state and target environment",
+    "Create new deployments using git sources or file uploads",
+    "Manage environment variables across production, preview, and development environments",
+    "Configure custom domains and manage DNS records including A, CNAME, MX, and TXT types",
+    "View deployment logs, events, and build/runtime error details",
+    "Manage team memberships and project settings"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 80 patterns but all are false positives. The skill is documentation-only (Markdown file) describing MCP tool usage for Vercel. Detected 'backtick execution' patterns are code block formatting in Markdown, not shell commands. Network URL is documentation for MCP endpoint. No executable code or security risks present.",
+  "valueStatement": "Streamline Vercel platform management through AI-powered automation. This skill enables seamless deployment management, domain configuration, and environment variable control via Composio MCP integration.",
+  "userTitle": "Automate Vercel deployments and infrastructure",
+  "limitations": [
+    "Requires active Rube MCP server connection and Vercel OAuth authentication",
+    "Cannot deploy without proper git repository integration or file source",
+    "Environment variable changes require new deployments to take effect",
+    "Rate limits apply to Vercel API endpoints"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Team leads managing multiple Vercel projects",
+      "title": "Development Team Lead",
+      "description": "Automate deployment monitoring and debugging across multiple projects. Quickly identify failed builds, inspect logs, and trigger redeployments without leaving the AI chat interface."
+    },
+    {
+      "targetUser": "DevOps engineers managing Vercel infrastructure",
+      "title": "DevOps Engineer",
+      "description": "Streamline environment variable management and DNS configuration. Bulk update environment settings across preview and production environments with automated validation."
+    },
+    {
+      "targetUser": "Developers deploying personal or client projects",
+      "title": "Full-Stack Developer",
+      "description": "Deploy code changes directly from chat by triggering deployments, monitoring build progress, and verifying production rollouts with real-time status updates."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List Recent Deployments",
+      "prompt": "List the last 10 deployments for my project and show me which ones are in production.",
+      "scenario": "Quick deployment status check"
+    },
+    {
+      "title": "Debug Failed Deployment",
+      "prompt": "My deployment failed with an ERROR state. Get the deployment logs and events to identify what went wrong.",
+      "scenario": "Troubleshooting build failures"
+    },
+    {
+      "title": "Add Environment Variables",
+      "prompt": "Add a new environment variable DATABASE_URL to my project for production and preview environments.",
+      "scenario": "Environment configuration"
+    },
+    {
+      "title": "Configure Custom Domain",
+      "prompt": "Check the DNS configuration for example.com and create the necessary DNS records to connect it to my Vercel project.",
+      "scenario": "Domain setup and DNS management"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before executing workflows",
+    "Verify connection status shows ACTIVE before running any Vercel operations",
+    "Use deployment events and logs to debug timing issues and build failures"
+  ],
+  "antiPatterns": [
+    "Do not poll the API excessively when monitoring deployments - use appropriate polling intervals",
+    "Do not provide both gitSource and files parameters when creating deployments - choose one",
+    "Do not expect to read back secret environment variable values after creation - they are write-only"
+  ],
+  "faq": [
+    {
+      "question": "What do I need to set up before using this skill?",
+      "answer": "You need Rube MCP connected (https://rube.app/mcp) and an active Vercel connection via RUBE_MANAGE_CONNECTIONS with the vercel toolkit. Follow the OAuth flow to authenticate."
+    },
+    {
+      "question": "Can I deploy to both preview and production environments?",
+      "answer": "Yes, specify the target parameter as 'preview' or 'production' when creating deployments. Production deployments update the production domain alias automatically."
+    },
+    {
+      "question": "Why can't I read back my secret environment variable?",
+      "answer": "Environment variables with type 'secret' are write-only for security. Only the ID is returned after creation. Use type 'plain' for variables you need to read."
+    },
+    {
+      "question": "How do I find my project ID?",
+      "answer": "Use VERCEL_LIST_PROJECTS to list all projects, then find your project by name and extract the id field for subsequent operations."
+    },
+    {
+      "question": "What deployment states should I monitor?",
+      "answer": "Deployments progress through: INITIALIZING, ANALYZING, BUILDING, DEPLOYING, and finally READY or ERROR. Only READY deployments are live and serving traffic."
+    },
+    {
+      "question": "Can I manage DNS records for any domain?",
+      "answer": "The domain must first be added to your Vercel account. DNS management is only available for domains you own through Vercel."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code Vercel automation",
+    "Claude Vercel deployment",
+    "Codex Vercel MCP",
+    "Composio Vercel integration",
+    "Vercel API automation",
+    "AI DevOps skills",
+    "Vercel deployment management",
+    "Claude Code marketplace"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/vercel-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,147 @@
+{
+  "name": "testing-strategy-builder",
+  "type": "skill",
+  "description": "Use this skill when creating comprehensive testing strategies for applications. Provides test planning templates, coverage targets, test case structures, and guidance for unit, integration, E2E, and performance testing. Ensures robust quality assurance across the development lifecycle.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "strategy creation",
+  "quality": 5,
+  "qualityReason": "Comprehensive, template-driven strategy tool",
+  "bundleHints": [
+    "test-automation-suite",
+    "quality-assurance",
+    "project-setup"
+  ],
+  "tags": [
+    "automation",
+    "coverage",
+    "coverage-targets",
+    "quality-assurance",
+    "templates",
+    "test-case-structures",
+    "test-planning",
+    "test-strategy",
+    "testing",
+    "unit-integration-e2e"
+  ],
+  "capabilities": [
+    "Generate test plans with risk-based testing priorities and coverage targets",
+    "Create test case templates with Given-When-Then structure and validation checkpoints",
+    "Apply the Testing Trophy model for balanced test distribution",
+    "Configure quality gates for CI/CD pipelines with coverage thresholds",
+    "Design test data strategies using factories and fixtures",
+    "Identify coverage gaps using comprehensive checklists"
+  ],
+  "author": "AI Agent Hub",
+  "icon": "🧪",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown files, code examples, and templates. No executable scripts, no network calls, no file system access beyond its own resources, and no environment variable access. The static scanner incorrectly flagged documentation examples showing testing tool commands (e.g., 'npm install jest') as backtick execution, and security testing references (e.g., discussing JWT, SQL injection testing) as cryptographic algorithm patterns. A prior Claude audit confirmed this skill contains only testing guidance and best practices.",
+  "valueStatement": "Creating effective testing strategies is time-consuming and error-prone. This skill provides ready-to-use templates, coverage checklists, and proven patterns for unit, integration, E2E, and performance testing. It helps teams establish quality gates and ensure robust test coverage across all development phases.",
+  "userTitle": "Build comprehensive testing strategies",
+  "limitations": [
+    "Does not execute tests or generate test code automatically",
+    "Does not install or configure testing tools on your system",
+    "Does not integrate with specific CI/CD platforms beyond general guidance",
+    "Does not provide project-specific test recommendations without context"
+  ],
+  "useCases": [
+    {
+      "targetUser": "QA Engineers",
+      "title": "Create test plans",
+      "description": "Develop comprehensive test plans with templates covering unit, integration, and E2E testing phases."
+    },
+    {
+      "targetUser": "DevOps Teams",
+      "title": "Set up CI quality gates",
+      "description": "Configure automated testing pipelines with coverage thresholds and quality gates for continuous integration."
+    },
+    {
+      "targetUser": "Software Developers",
+      "title": "Improve test coverage",
+      "description": "Identify gaps in existing test coverage and apply best practices for writing maintainable tests."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New project testing",
+      "scenario": "Starting a new feature or project",
+      "prompt": "Create a testing strategy for our new [language/framework] [application type]. Include coverage targets, recommended tools, and a test plan outline."
+    },
+    {
+      "title": "Coverage analysis",
+      "scenario": "Improving existing test coverage",
+      "prompt": "Review our current test setup and suggest how to improve coverage for [module/component]. What tests are missing and what patterns should we use?"
+    },
+    {
+      "title": "CI/CD integration",
+      "scenario": "Setting up continuous testing",
+      "prompt": "Design a CI/CD pipeline with quality gates for our [JavaScript/Python] project. Include linting, unit tests, integration tests, and coverage reporting."
+    },
+    {
+      "title": "E2E test design",
+      "scenario": "Writing end-to-end tests",
+      "prompt": "Write a complete E2E test plan for the [user journey] in our application using Playwright. Include test data setup and validation checkpoints."
+    }
+  ],
+  "bestPractices": [
+    "Follow the Testing Trophy model with most tests at integration level",
+    "Use Given-When-Then pattern for clear, focused test cases",
+    "Establish quality gates in CI/CD before merging code",
+    "Test critical paths (payment, auth, data mutations) at 100% coverage"
+  ],
+  "antiPatterns": [
+    "Testing implementation details instead of user-visible behavior",
+    "Creating giant test cases that cover multiple workflows",
+    "Writing flaky tests with non-deterministic timing or shared state",
+    "Using 100% coverage as the sole indicator of test quality"
+  ],
+  "faq": [
+    {
+      "question": "What testing frameworks does this skill support?",
+      "answer": "Supports JavaScript/TypeScript (Jest, Vitest, Playwright, k6) and Python (pytest, Locust). Can guide you to select tools based on your project framework."
+    },
+    {
+      "question": "What coverage targets should I aim for?",
+      "answer": "Recommended: 80% overall, 95-100% for critical paths (payment, auth), 90% for business logic, 70% for UI components."
+    },
+    {
+      "question": "How do I integrate testing into CI/CD?",
+      "answer": "The skill provides YAML pipeline examples with stages for linting, type checking, unit tests, coverage reporting, and E2E tests with quality gates."
+    },
+    {
+      "question": "Does this skill write or run tests?",
+      "answer": "No, this skill provides guidance, templates, and patterns. You write and execute tests using your chosen testing framework."
+    },
+    {
+      "question": "How do I handle external API testing?",
+      "answer": "Use mocking for external APIs in unit tests and sandbox/test environments for integration tests. The skill provides detailed mocking examples."
+    },
+    {
+      "question": "How is this different from code-review-playbook?",
+      "answer": "Testing Strategy Builder focuses on test planning and coverage. Code Review Playbook guides code review processes and quality standards."
+    }
+  ],
+  "seoKeywords": [
+    "testing strategy",
+    "test automation",
+    "code coverage",
+    "unit testing",
+    "integration testing",
+    "E2E testing",
+    "quality assurance",
+    "CI/CD testing",
+    "Claude Code testing",
+    "Playwright testing"
+  ],
+  "sourceUrl": "https://github.com/ArieGoldkin/ai-agent-hub/tree/main/skills/testing-strategy-builder",
+  "sourceType": "community",
+  "dependencies": []
+}

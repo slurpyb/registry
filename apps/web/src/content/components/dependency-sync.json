@@ -1,0 +1,141 @@
+{
+  "name": "dependency-sync",
+  "type": "skill",
+  "description": "Detect new imports in modified files and auto-install missing dependencies. Works with npm, uv, pip, cargo, go mod, and other package managers. Triggers after code implementation to keep manifests in sync.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "auto-install dependencies",
+  "quality": 5,
+  "qualityReason": "Specific, actionable, multi-manager support",
+  "bundleHints": [
+    "devops-toolkit",
+    "automation-stack"
+  ],
+  "tags": [
+    "automation",
+    "dependency-management",
+    "development",
+    "imports",
+    "manifests",
+    "package-managers",
+    "sync"
+  ],
+  "capabilities": [
+    "Detect new imports in modified code files",
+    "Map import names to correct package names across languages",
+    "Identify package manager from project manifest files",
+    "Classify dependencies as production or development",
+    "Update package manifests with correct dependency entries",
+    "Suggest documentation updates for new dependencies"
+  ],
+  "author": "Consiliency",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill providing guidance to AI assistants for dependency management. Contains only markdown files with code examples showing legitimate package manager commands. No executable code, scripts, network calls, credential access, or persistence mechanisms detected. All static findings are false positives triggered by markdown documentation patterns.",
+  "valueStatement": "Manually tracking and updating package manifests wastes time and causes errors. This skill automatically detects new imports in your code and updates the correct manifest files with the right package names and version constraints.",
+  "userTitle": "Sync Dependencies Automatically",
+  "limitations": [
+    "Does not execute installations automatically (requires user approval)",
+    "Does not resolve version conflicts between dependencies",
+    "Does not validate that packages exist in registries",
+    "Does not handle private registry authentication"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Fast project setup",
+      "description": "Automatically add dependencies when writing code without switching contexts to install packages manually"
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Verify manifest consistency",
+      "description": "Check that code changes include proper dependency updates in package manifests before merging"
+    },
+    {
+      "targetUser": "AI coding assistants",
+      "title": "Autonomous dependency management",
+      "description": "Guide AI agents to properly detect and sync dependencies across Python, Node.js, Go, Rust, and other languages"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic sync request",
+      "scenario": "Simple dependency sync",
+      "prompt": "Check my recently modified files for new imports and update the package manifest accordingly"
+    },
+    {
+      "title": "Sync with confirmation",
+      "scenario": "Manual approval required",
+      "prompt": "Detect new dependencies in my code changes and show me what will be added to package.json before installing anything"
+    },
+    {
+      "title": "Dev dependencies only",
+      "scenario": "Testing framework setup",
+      "prompt": "Find test-related imports in my test files and add them as dev dependencies to pyproject.toml"
+    },
+    {
+      "title": "Multi-language project",
+      "scenario": "Mixed codebase",
+      "prompt": "Scan all modified Python and TypeScript files, map imports to packages, and update the appropriate manifest for each language"
+    }
+  ],
+  "bestPractices": [
+    "Run dependency-sync after implementing new features but before committing",
+    "Review the proposed changes before approving installation",
+    "Use PROMPT_BEFORE_INSTALL=true when working with production systems"
+  ],
+  "antiPatterns": [
+    "Running dependency-sync on untrusted code without reviewing changes",
+    "Skipping the verification step when unsure about import usage",
+    "Installing packages without checking if they are already in the manifest"
+  ],
+  "faq": [
+    {
+      "question": "Which package managers are supported?",
+      "answer": "npm, yarn, pnpm, bun (Node.js), uv, poetry, pip (Python), cargo (Rust), go get (Go), pub (Dart/Flutter)"
+    },
+    {
+      "question": "How are production vs development dependencies distinguished?",
+      "answer": "The skill checks test file patterns, type definition markers (@types/*), linter/formatter names, and build tool names to classify correctly"
+    },
+    {
+      "question": "Can this skill handle monorepos with multiple manifests?",
+      "answer": "Yes, it detects which manifest files exist and updates the appropriate one based on the modified file locations"
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "This skill only reads cookbook files and provides guidance. It does not access credentials, make network calls, or execute commands without user approval"
+    },
+    {
+      "question": "What happens if a package name does not match the import name?",
+      "answer": "The cookbook files contain common mappings (e.g., PIL -> pillow, cv2 -> opencv-python) and the skill falls back to assuming the import name matches the package name"
+    },
+    {
+      "question": "How does this compare to dependabot or renovate?",
+      "answer": "Dependency-sync detects new imports in code you are writing. Dependabot and renovate update existing versions. They complement each other"
+    }
+  ],
+  "seoKeywords": [
+    "dependency sync",
+    "package manager",
+    "npm",
+    "pip",
+    "uv",
+    "cargo",
+    "import detection",
+    "dependency management",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/Consiliency/treesitter-chunker/tree/main/.ai-dev-kit/skills/dependency-sync",
+  "sourceType": "community",
+  "dependencies": []
+}

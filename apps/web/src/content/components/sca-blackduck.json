@@ -1,0 +1,142 @@
+{
+  "name": "sca-blackduck",
+  "type": "skill",
+  "description": "Software Composition Analysis (SCA) using Synopsys Black Duck for identifying open source vulnerabilities, license compliance risks, and supply chain security threats with CVE, CWE, and OWASP framework mapping. Use when: (1) Scanning dependencies for known vulnerabilities and security risks, (2) Analyzing open source license compliance and legal risks, (3) Identifying outdated or unmaintained dependencies, (4) Integrating SCA into CI/CD pipelines for continuous dependency monitoring, (5) Providing remediation guidance for vulnerable dependencies with CVE and CWE mappings, (6) Assessing supply chain security risks and third-party component threats.\n",
+  "domain": "security",
+  "subdomain": "devsecops",
+  "specialty": "SCA analysis",
+  "quality": 5,
+  "qualityReason": "Enterprise-grade SCA tool",
+  "bundleHints": [
+    "devsecops",
+    "supply-chain-security"
+  ],
+  "tags": [
+    "blackduck",
+    "cve",
+    "dependency-scanning",
+    "license-compliance",
+    "owasp",
+    "sca",
+    "supply-chain",
+    "vulnerability-management"
+  ],
+  "capabilities": [
+    "Scan project dependencies for known vulnerabilities using Black Duck Detect",
+    "Map vulnerability findings to CVE, CWE, and OWASP Top 10 categories",
+    "Analyze open source license compliance and identify risky licenses",
+    "Generate Software Bill of Materials (SBOM) in CycloneDX or SPDX formats",
+    "Integrate SCA scanning into GitHub Actions, GitLab CI, and Jenkins pipelines",
+    "Apply security policies that fail builds on critical and high severity vulnerabilities"
+  ],
+  "author": "AgentSecOps",
+  "icon": "🛡️",
+  "version": "0.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill consists entirely of documentation, configuration templates, and CI/CD workflow examples for legitimate security tooling. All 474 static findings are FALSE POSITVES. The flagged patterns appear in educational security documentation discussing attack patterns for detection purposes, not in malicious code. The skill promotes security best practices for dependency scanning.",
+  "valueStatement": "Open source dependencies often contain known vulnerabilities and license compliance risks. This skill integrates Synopsys Black Duck SCA to automatically detect vulnerabilities, map findings to CVE/CWE/OWASP frameworks, and enforce license compliance policies in CI/CD pipelines.",
+  "userTitle": "Scan dependencies for vulnerabilities and license compliance",
+  "limitations": [
+    "Requires Synopsys Black Duck subscription or on-premise installation",
+    "API token and Black Duck URL must be configured as environment variables",
+    "Does not perform SAST or DAST - only dependency composition analysis",
+    "Scans are executed by external Black Duck Detect tool, not by this skill"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security Engineers",
+      "title": "Vulnerability monitoring",
+      "description": "Continuously monitor production dependencies for new CVEs and enforce remediation SLAs"
+    },
+    {
+      "targetUser": "DevOps Teams",
+      "title": "CI/CD security gates",
+      "description": "Block deployments when critical or high severity vulnerabilities are detected in dependencies"
+    },
+    {
+      "targetUser": "Legal Teams",
+      "title": "License compliance audits",
+      "description": "Identify GPL, AGPL, and other restricted licenses that may create legal liability"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick dependency scan",
+      "scenario": "Scan project for vulnerabilities",
+      "prompt": "Scan this project for dependency vulnerabilities using Black Duck. Show me all critical and high severity findings with their CVE numbers, affected versions, and remediation recommendations."
+    },
+    {
+      "title": "License compliance check",
+      "scenario": "Analyze license risks",
+      "prompt": "Review the dependencies in this project and identify any license compliance risks. Categorize by risk level and suggest alternatives for high risk licenses like GPL or AGPL."
+    },
+    {
+      "title": "CI/CD integration",
+      "scenario": "Configure pipeline scanning",
+      "prompt": "Create a GitHub Actions workflow that runs Black Duck SCA on every pull request and fails the build if any critical vulnerabilities are found."
+    },
+    {
+      "title": "SBOM generation",
+      "scenario": "Generate software bill of materials",
+      "prompt": "Generate a CycloneDX SBOM for this project showing all direct and transitive dependencies with their license information and version numbers."
+    }
+  ],
+  "bestPractices": [
+    "Run Black Duck scans on every pull request to catch new vulnerabilities before merge",
+    "Configure policy to fail builds on critical and high severity findings",
+    "Generate and archive SBOMs for every release for supply chain transparency"
+  ],
+  "antiPatterns": [
+    "Ignoring low severity vulnerabilities without assessment - they can escalate",
+    "Using latest dependency versions without scanning first - may introduce risks",
+    "Skipping scans in CI/CD for faster builds - increases deployment risk"
+  ],
+  "faq": [
+    {
+      "question": "What Black Duck subscription is required?",
+      "answer": "Requires Black Duck on-premise or hosted subscription with API access. Contact Synopsys for pricing."
+    },
+    {
+      "question": "What programming languages are supported?",
+      "answer": "Supports all major languages: JavaScript, Python, Java, Go, Ruby, .NET, PHP, Rust, C/C++, and Docker containers."
+    },
+    {
+      "question": "How are credentials secured?",
+      "answer": "API tokens must be set as environment variables (BLACKDUCK_URL, BLACKDUCK_TOKEN) in CI/CD secrets, never in code."
+    },
+    {
+      "question": "Does this replace SAST tools?",
+      "answer": "No. Black Duck SCA analyzes dependencies. Use SAST tools like Semgrep or CodeQL for application code security."
+    },
+    {
+      "question": "What happens to cached results?",
+      "answer": "Temporary files are cleaned up by default. Configure cleanup settings to retain results for compliance if needed."
+    },
+    {
+      "question": "How does it compare to free tools?",
+      "answer": "Black Duck provides comprehensive vulnerability database, license compliance, and enterprise features. Free alternatives include OWASP Dependency-Check."
+    }
+  ],
+  "seoKeywords": [
+    "blackduck sca",
+    "dependency scanning",
+    "vulnerability management",
+    "software composition analysis",
+    "license compliance",
+    "cve detection",
+    "claude",
+    "codex",
+    "claude-code",
+    "owasp"
+  ],
+  "sourceUrl": "https://github.com/AgentSecOps/SecOpsAgentKit/tree/main/skills/appsec/sca-blackduck",
+  "sourceType": "community",
+  "dependencies": []
+}

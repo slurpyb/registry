@@ -1,0 +1,140 @@
+{
+  "name": "prescriptive-actions",
+  "type": "skill",
+  "description": "Use when the user asks for recommendations, next steps, best approaches, or “what should I do” guidance to achieve a goal or fix a problem.",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "action guidance",
+  "quality": 5,
+  "qualityReason": "Highly actionable user support",
+  "bundleHints": [
+    "decision-support",
+    "learning-path"
+  ],
+  "tags": [
+    "advice",
+    "best-practices",
+    "decision-support",
+    "guidance",
+    "next-steps",
+    "recommendations"
+  ],
+  "capabilities": [
+    "Provide structured recommendations with clear rationale",
+    "Compare alternative approaches with tradeoffs",
+    "Identify key risks without mitigation plans",
+    "Suggest 2-5 immediate next actions",
+    "Restate goals in one clear sentence",
+    "Keep guidance high-level and directional"
+  ],
+  "author": "BellaBe",
+  "icon": "🎯",
+  "version": "1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only a SKILL.md markdown template defining a prompt structure. No executable code, file access, network calls, or system commands. The static scanner produced false positives by detecting hex substrings (md5, sha1, crc, c2) within natural language text. All 13 flagged items are benign metadata or documentation - not cryptographic code, C2 infrastructure, or security threats. Pure documentation skill with zero attack surface.",
+  "valueStatement": "Users often need clear guidance on what to do next but lack structure for making decisions. This skill provides prioritized recommendations with explicit tradeoffs so users can act confidently.",
+  "userTitle": "Get actionable recommendations with tradeoffs",
+  "limitations": [
+    "Does not create detailed roadmaps or timelines",
+    "Does not provide runbooks or checklists",
+    "Does not define success criteria or tests",
+    "Does not execute or implement any recommendations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product managers",
+      "title": "Product strategy decisions",
+      "description": "Get recommendation frameworks for feature prioritization or technical debt decisions with clear tradeoffs"
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Technical approach selection",
+      "description": "Receive guidance on architecture choices, library selection, or refactoring strategies with pros and cons"
+    },
+    {
+      "targetUser": "Operations teams",
+      "title": "Incident response direction",
+      "description": "Obtain initial guidance for troubleshooting complex issues when time-sensitive decisions are needed"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic recommendation request",
+      "scenario": "Asking for guidance",
+      "prompt": "What should I do about [specific situation or problem]?"
+    },
+    {
+      "title": "Approach comparison",
+      "scenario": "Choosing between options",
+      "prompt": "Compare [Option A] versus [Option B] for [use case or context]. Which approach do you recommend?"
+    },
+    {
+      "title": "Best practice inquiry",
+      "scenario": "Seeking expert advice",
+      "prompt": "What is the recommended approach for [task or goal]? Include alternatives and key tradeoffs."
+    },
+    {
+      "title": "Complex decision support",
+      "scenario": "Multi-factor decisions",
+      "prompt": "Help me decide on [decision] considering [constraints or requirements]. Provide recommendation with rationale."
+    }
+  ],
+  "bestPractices": [
+    "Ask for tradeoffs explicitly to understand real costs of each option",
+    "Request key risks upfront to avoid surprises during implementation",
+    "Use immediate next actions to start rather than waiting for perfect plans"
+  ],
+  "antiPatterns": [
+    "Asking for detailed implementation steps instead of high-level guidance",
+    "Requesting complete risk mitigation plans when only direction is needed",
+    "Asking for timelines or roadmaps when this skill provides directional guidance"
+  ],
+  "faq": [
+    {
+      "question": "Is this skill compatible with all Claude models?",
+      "answer": "Yes. This skill works with Claude, Codex, and Claude Code through standard prompting patterns."
+    },
+    {
+      "question": "What is the maximum complexity of problems this skill handles?",
+      "answer": "The skill handles most decision guidance scenarios. Extremely domain-specific technical issues may require specialized expertise."
+    },
+    {
+      "question": "How do I combine this with other skills like planning?",
+      "answer": "Use this skill first for direction, then switch to planning-action for detailed execution roadmaps when ready."
+    },
+    {
+      "question": "Does this skill store or share my data?",
+      "answer": "No. This is a prompt template skill with no data storage or network access of any kind."
+    },
+    {
+      "question": "Why are there no mitigation plans for risks?",
+      "answer": "The skill focuses on directional guidance. Full mitigation planning requires deeper analysis available through other skills."
+    },
+    {
+      "question": "How is this different from the planning skill?",
+      "answer": "Prescriptive-actions provides recommendations and tradeoffs. Planning-action creates detailed timelines and execution steps."
+    }
+  ],
+  "seoKeywords": [
+    "Claude recommendations",
+    "AI guidance",
+    "prescriptive actions",
+    "decision support",
+    "best practices",
+    "actionable advice",
+    "Claude Code",
+    "OpenAI Codex",
+    "troubleshooting steps",
+    "decision-making"
+  ],
+  "sourceUrl": "https://github.com/BellaBe/lean-os/tree/main/.claude/skills/action-prescriptive",
+  "sourceType": "community",
+  "dependencies": []
+}

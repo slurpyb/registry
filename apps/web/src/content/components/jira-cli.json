@@ -1,0 +1,145 @@
+{
+  "name": "jira-cli",
+  "type": "skill",
+  "description": "Interact with Jira from the command line to create, list, view, edit, and transition issues, manage sprints and epics, and perform common Jira workflows. Use when the user asks about Jira tasks, tickets, issues, sprints, or needs to manage project work items.",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "command-line",
+  "quality": 5,
+  "qualityReason": "Clear CLI use case",
+  "bundleHints": [
+    "cli-tools",
+    "jira-tools",
+    "dev-productivity"
+  ],
+  "tags": [
+    "automation",
+    "cli",
+    "epics",
+    "issue management",
+    "issue-tracking",
+    "jira",
+    "project-management",
+    "sprints",
+    "terminal",
+    "workflows"
+  ],
+  "capabilities": [
+    "Create, list, view, edit, and delete Jira issues",
+    "Transition issues through workflow states",
+    "Manage sprints, epics, and boards",
+    "Assign issues and add comments",
+    "Log work time on issues",
+    "Generate plain text, JSON, or CSV output"
+  ],
+  "author": "Code-and-Sorts",
+  "icon": "🎫",
+  "version": "1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing SKILL.md with example commands for the legitimate jira-cli tool. The static analyzer flagged 99 patterns as potential issues, but ALL findings are FALSE POSITIVES. The 'findings' are standard bash syntax examples in documentation code blocks, not executable code. No command execution, network calls, or file system operations occur - this skill only provides documentation for a trusted open-source tool (github.com/ankitpokhrel/jira-cli).",
+  "valueStatement": "Manage Jira issues without leaving your terminal. This skill provides complete command-line documentation for creating, editing, tracking, and transitioning Jira issues, sprints, and epics.",
+  "userTitle": "Manage Jira Issues from Command Line",
+  "limitations": [
+    "Requires separate installation of jira-cli tool",
+    "Needs JIRA_API_TOKEN environment variable configured",
+    "Requires initial configuration with jira init command",
+    "Some features vary between Jira Cloud and Jira Server"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Quick issue updates",
+      "description": "Create and update Jira issues without switching to a browser or leaving your IDE"
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Sprint tracking",
+      "description": "View sprint progress, list assigned issues, and manage team workloads from terminal"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "CI/CD integration",
+      "description": "Update Jira issues automatically from deployment scripts and pipeline workflows"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a bug",
+      "scenario": "Report new bug",
+      "prompt": "Create a high priority bug titled 'Login fails on mobile' with description 'Users cannot authenticate on iOS devices'"
+    },
+    {
+      "title": "List my tasks",
+      "scenario": "Daily standup prep",
+      "prompt": "Show all Jira issues assigned to me that are in progress or to do status"
+    },
+    {
+      "title": "Complete an issue",
+      "scenario": "Mark work done",
+      "prompt": "Move issue PROJ-123 to Done status and log 2 hours of work with comment 'Fixed authentication bug'"
+    },
+    {
+      "title": "Sprint overview",
+      "scenario": "Team sync",
+      "prompt": "List all issues in the current sprint and show their status in table format"
+    }
+  ],
+  "bestPractices": [
+    "Run jira init first to configure project settings and avoid repeated prompts",
+    "Use --plain flag for scripting to get predictable, machine-parseable output",
+    "Store JIRA_API_TOKEN securely in your shell profile or environment manager"
+  ],
+  "antiPatterns": [
+    "Never share or commit your JIRA_API_TOKEN to version control systems",
+    "Avoid interactive mode in automated scripts - use explicit flags instead",
+    "Do not rely on implicit project context - specify project explicitly in commands"
+  ],
+  "faq": [
+    {
+      "question": "What Jira versions are supported?",
+      "answer": "Works with Jira Cloud and most Jira Server instances. Some advanced features may vary between versions."
+    },
+    {
+      "question": "How do I install jira-cli?",
+      "answer": "Use brew install ankitpokhrel/jira-cli/jira-cli on macOS, or download binaries from the GitHub releases page."
+    },
+    {
+      "question": "Can I use this in CI/CD pipelines?",
+      "answer": "Yes, use --plain or --raw flags for script-friendly output that integrates with automation tools."
+    },
+    {
+      "question": "Is my Jira data secure with this tool?",
+      "answer": "Yes, jira-cli uses HTTPS for all API calls and your API token for authentication. This skill only provides documentation."
+    },
+    {
+      "question": "What output formats are available?",
+      "answer": "Default interactive UI, --plain for text, --raw for JSON, and --csv for spreadsheet-compatible output."
+    },
+    {
+      "question": "How do I manage sprints from command line?",
+      "answer": "Use jira sprint list --current to view active sprint, then jira sprint add to add issues to the sprint."
+    }
+  ],
+  "seoKeywords": [
+    "jira cli",
+    "jira command line",
+    "jira automation",
+    "issue tracking cli",
+    "jira issue management",
+    "project management",
+    "Claude",
+    "Claude Code",
+    "developer tools",
+    "sprint management"
+  ],
+  "sourceUrl": "https://github.com/Code-and-Sorts/awesome-copilot-agents/tree/main/skills/jira-cli",
+  "sourceType": "community",
+  "dependencies": []
+}

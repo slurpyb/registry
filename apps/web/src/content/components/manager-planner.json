@@ -1,0 +1,141 @@
+{
+  "name": "manager-planner",
+  "type": "skill",
+  "description": "Orchestrates Pukaist agents, enforces plan-first workflow, runs integrity tests, and delegates tasks; use for coordination or system audits.",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "agent orchestration",
+  "quality": 4,
+  "qualityReason": "Strong coordination logic",
+  "bundleHints": [
+    "ai-orchestrator-suite",
+    "planning-agent"
+  ],
+  "tags": [
+    "coordination",
+    "integrity-tests",
+    "orchestration",
+    "planning",
+    "project-management",
+    "pukaist",
+    "workflow"
+  ],
+  "capabilities": [
+    "Orchestrates 6 specialized Pukaist agents (Gatekeeper, Analyst, Scribe, Archivist, Historian, Barrister)",
+    "Enforces plan-first workflow requiring user approval before any task execution",
+    "Runs automated integrity tests to verify system health and stability",
+    "Performs system audits checking log consistency, queue health, and output validation",
+    "Delegates tasks to specific agents based on workflow requirements",
+    "Maintains quality control standards including verbatim citation and neutral voice requirements"
+  ],
+  "author": "ACSKamloops",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill is a legitimate workflow orchestration system for document processing. Scanner flagged SHA256 hashes as C2/weak crypto (they are secure hashes for file integrity), and documentation code examples in SKILL.md as command execution (they are markdown references, not code). No malicious patterns confirmed.",
+  "valueStatement": "Managing complex multi-agent projects requires coordination across team members. This skill orchestrates Pukaist agents with a strict plan-first workflow, ensuring every task is approved before execution and maintaining system integrity through automated testing.",
+  "userTitle": "Coordinate Agent Workflows with Plan-First Approach",
+  "limitations": [
+    "Designed specifically for Pukaist system integration, may not work with other agent frameworks",
+    "Requires the full Pukaist agent ecosystem to function (6 specialized agents)",
+    "Cannot execute tasks without a user-approved plan; always requires human approval",
+    "Limited to document processing workflows; not a general-purpose project management tool"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Legal operations teams managing high-volume document review projects",
+      "title": "Manage Document Review Pipelines",
+      "description": "Coordinate document ingestion, OCR processing, evidence extraction, and legal brief synthesis across multiple specialized agents with quality checkpoints."
+    },
+    {
+      "targetUser": "System administrators overseeing automated document processing systems",
+      "title": "System Health Monitoring",
+      "description": "Run comprehensive system audits that verify queue integrity, log consistency, and output quality across all active agents in the workflow."
+    },
+    {
+      "targetUser": "Project managers coordinating cross-functional teams with defined workflows",
+      "title": "Multi-Phase Project Coordination",
+      "description": "Break down complex projects into atomic steps, present plans for approval, and delegate to specialized agents while tracking progress through the pipeline."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start New Document Review",
+      "prompt": "I need to process a new batch of documents through the review pipeline. Start by assessing the current system state, then present a plan for me to approve.",
+      "scenario": "Initial document batch intake and workflow initiation"
+    },
+    {
+      "title": "Run System Health Check",
+      "prompt": "Check the system health. Run the integrity tests and health check commands. Report any issues found and suggest fixes.",
+      "scenario": "Routine system maintenance and stability verification"
+    },
+    {
+      "title": "Audit Agent Outputs",
+      "prompt": "Perform a deep audit of recent agent outputs. Check that all files have valid citations, neutral language, and proper provenance logging.",
+      "scenario": "Quality assurance review of completed work"
+    },
+    {
+      "title": "Delegate Complex Task",
+      "prompt": "I need to complete a complex multi-step task. Please break it down into atomic steps with the appropriate agent assignments, then wait for my approval before proceeding.",
+      "scenario": "Task decomposition and agent delegation"
+    }
+  ],
+  "bestPractices": [
+    "Always wait for user approval before delegating tasks; the plan-first approach prevents wasted work and ensures alignment.",
+    "Run integrity tests before major operations to ensure the system is stable and ready to process tasks.",
+    "Use bounded snapshots and targeted reads rather than dumping entire documents to maintain efficiency."
+  ],
+  "antiPatterns": [
+    "Never start implementing a task immediately without presenting a plan first; this violates the core workflow principle.",
+    "Do not rely on a single sample when validating outputs; sample multiple files across different categories.",
+    "Avoid letting tasks stall in InProgress status for more than 24 hours without intervention."
+  ],
+  "faq": [
+    {
+      "question": "What is the Pukaist system?",
+      "answer": "Pukaist is a multi-agent document processing system with 6 specialized agents. This skill coordinates those agents to ensure proper workflow execution."
+    },
+    {
+      "question": "Can I skip the planning phase?",
+      "answer": "No. The plan-first approach is a core design principle. You must always draft and get approval before any agent executes tasks."
+    },
+    {
+      "question": "What happens if integrity tests fail?",
+      "answer": "If any test fails, you must stop all operations and fix the underlying issue before proceeding with any task execution."
+    },
+    {
+      "question": "How do I add new agents to the system?",
+      "answer": "This skill manages the existing 6 Pukaist agents. Adding new agents would require updates to the agent roster in the skill documentation."
+    },
+    {
+      "question": "What quality standards are enforced?",
+      "answer": "All outputs must have valid citations, neutral language (no opinions), and verifiable provenance. This ensures legal-grade documentation."
+    },
+    {
+      "question": "How do I recover from a stalled queue?",
+      "answer": "Check Flagged_Tasks.tsv for errors. For items stuck in InProgress, review the Agent_Communication_Log to identify the blocker, then take corrective action."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "workflow orchestration",
+    "project planning",
+    "task coordination",
+    "agent management",
+    "multi-agent system",
+    "project management",
+    "team coordination"
+  ],
+  "sourceUrl": "https://github.com/ACSKamloops/shs-engine/tree/master/.codex/skills/manager-planner",
+  "sourceType": "community",
+  "dependencies": []
+}

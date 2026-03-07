@@ -1,0 +1,141 @@
+{
+  "name": "drizzle-orm-patterns",
+  "type": "skill",
+  "description": "This skill provides comprehensive Drizzle ORM patterns for PostgreSQL with Vercel Edge Runtime support. Drizzle is Quetrex's chosen ORM because it's edge-first, type-safe, and supports all deployme...",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "Drizzle with Edge",
+  "quality": 5,
+  "qualityReason": "Specific runtime integration",
+  "bundleHints": [
+    "typescript-stack",
+    "edge-database"
+  ],
+  "tags": [
+    "database",
+    "deployment",
+    "edge runtime",
+    "orm",
+    "postgresql",
+    "type-safe",
+    "typescript"
+  ],
+  "capabilities": [
+    "Write type-safe queries with Drizzle ORM for PostgreSQL",
+    "Implement database transactions with rollback and isolation levels",
+    "Create and manage schema migrations with Drizzle Kit",
+    "Deploy to Vercel Edge Runtime with serverless PostgreSQL",
+    "Detect and prevent SQL injection vulnerabilities with validation script",
+    "Optimize performance with indexes, batch operations, and N+1 prevention"
+  ],
+  "author": "Barnhardt-Enterprises-Inc",
+  "icon": "🗄️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 931 static findings are FALSE POSITIVES. The static analyzer misidentified TypeScript template literals as shell commands, vulnerable code examples as actual exploits, and standard database patterns as sensitive data access. This is legitimate documentation with a defensive security validator tool that only reads files specified by the user. No malicious intent, no credential access, no data exfiltration, no persistence mechanisms.",
+  "valueStatement": "Building type-safe database queries with Drizzle ORM can be complex. This skill provides complete patterns for queries, transactions, migrations, and edge deployment with automated security validation.",
+  "userTitle": "Use Drizzle ORM patterns for PostgreSQL databases",
+  "limitations": [
+    "Requires Drizzle ORM and PostgreSQL database setup",
+    "Does not include runtime database connection management",
+    "Does not generate database schema automatically",
+    "Validator script requires Python 3 and TypeScript files to analyze"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Build type-safe database layers",
+      "description": "Create robust data access layers with Drizzle ORM patterns for production applications."
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Deploy edge-compatible database code",
+      "description": "Implement database operations that run in Vercel Edge Functions and serverless environments."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Manage schema migrations safely",
+      "description": "Execute database migrations with rollback strategies and zero-downtime deployment patterns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic query pattern",
+      "scenario": "Write a select query with filters",
+      "prompt": "Use the drizzle-orm-patterns skill to help me write a Drizzle ORM query that selects users where status equals 'active' and created_at is after January 1, 2024."
+    },
+    {
+      "title": "Transaction safety",
+      "scenario": "Implement multi-step operations",
+      "prompt": "Show me how to use Drizzle ORM transactions with proper rollback handling for creating a user and their profile together."
+    },
+    {
+      "title": "Edge deployment",
+      "scenario": "Deploy to serverless environment",
+      "prompt": "Help me configure Drizzle ORM for Vercel Edge Runtime with Neon serverless PostgreSQL."
+    },
+    {
+      "title": "Security validation",
+      "scenario": "Check code for vulnerabilities",
+      "prompt": "Use the validate-queries.py script to check my user-service.ts file for SQL injection risks and performance issues."
+    }
+  ],
+  "bestPractices": [
+    "Always use parameterized queries with eq(), like(), and other operators instead of string interpolation",
+    "Add indexes on foreign keys and frequently queried columns for better performance",
+    "Keep transactions short and avoid external API calls inside transaction blocks"
+  ],
+  "antiPatterns": [
+    "Using string interpolation in sql templates which can lead to SQL injection",
+    "Querying inside loops causing N+1 performance problems",
+    "Using select() without specifying fields or limit in production code"
+  ],
+  "faq": [
+    {
+      "question": "Which PostgreSQL drivers work with Drizzle ORM?",
+      "answer": "Drizzle supports @neondatabase/serverless for Edge and WebSocket, pg for Node.js with connection pooling, and @vercel/postgres for Vercel deployments."
+    },
+    {
+      "question": "What are the limits of Edge Runtime transactions?",
+      "answer": "Edge functions have a 25-second timeout. Keep transactions under 1 second and avoid processing large datasets inside transactions."
+    },
+    {
+      "question": "How do I integrate with existing database schemas?",
+      "answer": "Define tables using pgTable() with column definitions. Drizzle can introspect existing databases or you can define schemas manually."
+    },
+    {
+      "question": "Is my data safe when using the validator script?",
+      "answer": "Yes. The validator is a static analysis tool that only reads TypeScript files. It does not connect to databases or transmit data externally."
+    },
+    {
+      "question": "Why is my query slow?",
+      "answer": "Common causes include missing indexes, N+1 queries, select * usage, and unoptimized joins. Use EXPLAIN ANALYZE to diagnose performance issues."
+    },
+    {
+      "question": "How does Drizzle compare to Prisma?",
+      "answer": "Drizzle is edge-compatible with zero dependencies, uses SQL-like syntax, and provides type inference without code generation. Prisma has an easier fluent API but is not edge-compatible."
+    }
+  ],
+  "seoKeywords": [
+    "Drizzle ORM",
+    "PostgreSQL",
+    "TypeScript",
+    "Database patterns",
+    "Edge Runtime",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "ORM queries",
+    "Database migrations"
+  ],
+  "sourceUrl": "https://github.com/Barnhardt-Enterprises-Inc/quetrex-plugin/tree/main/templates/skills/drizzle-orm-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

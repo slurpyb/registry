@@ -1,0 +1,139 @@
+{
+  "name": "minecraft-bukkit-pro",
+  "type": "skill",
+  "description": "Master Minecraft server plugin development with Bukkit, Spigot, and",
+  "domain": "gaming",
+  "subdomain": "game-dev",
+  "specialty": "Server plugins",
+  "quality": 5,
+  "qualityReason": "Expert plugin development",
+  "bundleHints": [
+    "game-development",
+    "java-stack"
+  ],
+  "tags": [
+    "bukkit",
+    "minecraft",
+    "paper-api",
+    "plugin-development",
+    "spigot"
+  ],
+  "capabilities": [
+    "Design event-driven plugin architectures with proper listener priorities",
+    "Implement command systems using Brigadier framework with tab completion",
+    "Create inventory GUI systems with NBT item manipulation",
+    "Optimize performance for high-frequency events like PlayerMoveEvent",
+    "Integrate databases (MySQL, Redis, MongoDB) with connection pooling",
+    "Ensure cross-version compatibility using reflection and modern APIs"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only skill containing development guidance for Minecraft plugin creation. Static analysis scanned 1 file (SKILL.md) with 129 lines and found no executable code, network access, or file system operations. The skill provides AI-driven assistance for Bukkit, Spigot, and Paper API development without any security risks.",
+  "valueStatement": "Creating Minecraft server plugins requires deep knowledge of complex APIs and server internals. This skill provides expert guidance on event systems, commands, world manipulation, and performance optimization for Bukkit, Spigot, and Paper platforms.",
+  "userTitle": "Build Minecraft plugins with Bukkit and Paper APIs",
+  "limitations": [
+    "Cannot execute or test plugin code on actual Minecraft servers",
+    "Does not replace the need for manual testing in production environments",
+    "Recommendations are based on documented best practices, not runtime profiling",
+    "Cannot access proprietary NMS internals without community documentation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Server owners and hobbyist developers",
+      "title": "Independent Plugin Developer",
+      "description": "Build custom gameplay plugins for your survival or minigame server with professional architecture and performance optimization from the start."
+    },
+    {
+      "targetUser": "Professional Minecraft network developers",
+      "title": "Network Development Team",
+      "description": "Scale plugin development across multiple server instances with cross-server synchronization, database integration, and containerized deployment patterns."
+    },
+    {
+      "targetUser": "Students and new Java developers",
+      "title": "Learning Minecraft Development",
+      "description": "Understand Bukkit API fundamentals, event systems, and plugin lifecycle management with guided examples and best practice explanations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Basic Event Listener",
+      "prompt": "Help me create a Bukkit event listener that detects when a player joins the server and sends them a welcome message. Use the modern Paper API with MiniMessage formatting.",
+      "scenario": "Beginner - First plugin feature"
+    },
+    {
+      "title": "Implement Custom Command",
+      "prompt": "Design a command system for a teleportation plugin with subcommands /tpa, /tpaccept, /tpdeny. Include proper permission checks, tab completion, and cooldown management.",
+      "scenario": "Intermediate - Multi-command feature"
+    },
+    {
+      "title": "Optimize Performance-Critical Event",
+      "prompt": "My plugin listens to BlockPhysicsEvent but causes server lag. Review my listener code and suggest optimizations including event cancellation strategies, async processing options, and profiling approaches.",
+      "scenario": "Advanced - Performance tuning"
+    },
+    {
+      "title": "Design Cross-Plugin Integration",
+      "prompt": "I need to integrate Vault for economy and PlaceholderAPI for variables in my shop plugin. Show me how to implement soft dependencies, check for plugin availability, and use their APIs correctly.",
+      "scenario": "Advanced - Ecosystem integration"
+    }
+  ],
+  "bestPractices": [
+    "Always cancel events explicitly when handling them to prevent conflicts with other plugins",
+    "Use async tasks for database operations and never block the main server thread",
+    "Implement proper dependency injection and service layers for testable code architecture"
+  ],
+  "antiPatterns": [
+    "Calling Bukkit API methods from async threads - most methods are not thread-safe",
+    "Storing references to Player or World objects long-term - they become invalid on logout/unload",
+    "Using synchronous database queries in event handlers - causes server TPS drops"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between Bukkit, Spigot, and Paper APIs?",
+      "answer": "Bukkit is the base API specification. Spigot extends Bukkit with performance improvements and additional features. Paper builds on Spigot with further optimizations and modern APIs like Adventure for text formatting. Paper is recommended for new projects."
+    },
+    {
+      "question": "How do I handle cross-version compatibility?",
+      "answer": "Use reflection for version-specific NMS access, detect server version at runtime, and provide fallback implementations. Consider multi-module projects with version-specific code in separate modules."
+    },
+    {
+      "question": "What is the plugin lifecycle in Bukkit?",
+      "answer": "Plugins go through: onLoad (early initialization), onEnable (full activation), runtime operation, onDisable (cleanup). Resources should be allocated in onEnable and released in onDisable."
+    },
+    {
+      "question": "How can I debug plugin performance issues?",
+      "answer": "Use the Spark profiler plugin for production profiling, enable timings reports, and implement custom timing with MinecraftServer.getMinecraftServer().getTickTime() for specific code sections."
+    },
+    {
+      "question": "Should I use YAML or JSON for configuration?",
+      "answer": "YAML is the Bukkit standard with built-in Configuration support. Use YAML for user-facing configs and JSON for machine-readable data. Always version your config format for migration support."
+    },
+    {
+      "question": "How do I test my plugin without a full server?",
+      "answer": "Use MockBukkit for unit testing individual components. For integration testing, set up a local test server with automated startup scripts. Always test on the actual target server software before release."
+    }
+  ],
+  "seoKeywords": [
+    "Minecraft plugin development",
+    "Bukkit API",
+    "Spigot plugins",
+    "Paper Minecraft",
+    "Claude Code skills",
+    "Codex plugin helper",
+    "Minecraft server development",
+    "Bukkit event listeners",
+    "Claude assistant",
+    "plugin architecture"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/minecraft-bukkit-pro",
+  "sourceType": "community",
+  "dependencies": []
+}

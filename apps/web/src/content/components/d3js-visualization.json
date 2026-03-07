@@ -1,0 +1,141 @@
+{
+  "name": "d3js-visualization",
+  "type": "skill",
+  "description": "Professional data visualization creation using D3.js with support for interactive charts, custom visualizations, animations, and responsive design. Use for: (1) Creating custom interactive charts, (2) Building dashboards, (3) Network/graph visualizations, (4) Geographic data mapping, (5) Time series analysis, (6) Real-time data visualization, (7) Complex multi-dimensional data displays",
+  "domain": "data",
+  "subdomain": "visualization",
+  "specialty": "professional D3 charts",
+  "quality": 5,
+  "qualityReason": "Clear, high-quality scope",
+  "bundleHints": [
+    "data-visualization",
+    "d3"
+  ],
+  "tags": [
+    "charts",
+    "d3",
+    "data-analysis",
+    "interactive",
+    "visualization"
+  ],
+  "capabilities": [
+    "Create custom interactive charts including line, bar, scatter, pie, and area charts",
+    "Build force-directed network graphs and hierarchical visualizations",
+    "Implement smooth animations and transitions for data updates",
+    "Add tooltips, hover effects, and keyboard navigation for accessibility",
+    "Create responsive charts that adapt to different screen sizes",
+    "Parse and transform data from CSV, JSON, and other formats"
+  ],
+  "author": "AutumnsGrove",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 399 static findings are FALSE POSITIVES. The static analyzer confused markdown code formatting with shell execution, CSS selectors with reconnaissance, and D3 data binding property names with cryptographic keys. This is a legitimate D3.js visualization skill containing only standard charting code.",
+  "valueStatement": "Build professional, interactive data visualizations with D3.js. Create custom charts, dashboards, network graphs, and real-time displays with full control over every visual element.",
+  "userTitle": "Create Interactive D3.js Visualizations",
+  "limitations": [
+    "Does not generate 3D visualizations or WebGL-based graphics",
+    "Requires basic understanding of SVG coordinate system and D3 patterns",
+    "Performance decreases with more than 1,000 DOM elements (Canvas recommended for larger datasets)",
+    "Does not include pre-built chart components or templates beyond the provided examples"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data Analysts",
+      "title": "Build Dashboard Charts",
+      "description": "Create interactive dashboards with multiple synchronized charts for business intelligence and reporting."
+    },
+    {
+      "targetUser": "Web Developers",
+      "title": "Custom Data Visuals",
+      "description": "Implement unique data visualizations beyond what standard charting libraries can provide."
+    },
+    {
+      "targetUser": "Researchers",
+      "title": "Explore Network Data",
+      "description": "Visualize complex relationships, social networks, and hierarchical structures with force-directed graphs."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Line Chart",
+      "scenario": "Create a simple time series chart",
+      "prompt": "Create a D3.js line chart showing data over time with x and y axes, labels, and a smooth line connecting data points."
+    },
+    {
+      "title": "Bar Chart",
+      "scenario": "Build a comparison chart",
+      "prompt": "Create a grouped bar chart in D3.js that compares multiple categories across different time periods with a legend."
+    },
+    {
+      "title": "Interactive Tooltips",
+      "scenario": "Add hover information",
+      "prompt": "Add tooltips to a D3.js chart that show detailed information when hovering over data points, with smooth positioning."
+    },
+    {
+      "title": "Network Graph",
+      "scenario": "Visualize connections",
+      "prompt": "Create a force-directed network graph in D3.js with draggable nodes, link visualization, and node clustering by group."
+    }
+  ],
+  "bestPractices": [
+    "Use the margin convention for proper spacing around chart elements",
+    "Apply key functions in data joins for consistent element-to-data matching",
+    "Use SVG for fewer than 1,000 elements, Canvas for larger datasets",
+    "Include proper axis labels and legends for accessibility"
+  ],
+  "antiPatterns": [
+    "Avoid hardcoding chart dimensions without responsive handling",
+    "Do not skip the enter/update/exit pattern in data joins",
+    "Avoid using the same color for adjacent data elements without clear distinction",
+    "Do not forget to clean up previous renders before updating charts"
+  ],
+  "faq": [
+    {
+      "question": "What is D3.js?",
+      "answer": "D3.js is a JavaScript library for creating dynamic, interactive data visualizations in web browsers using SVG, HTML, and CSS."
+    },
+    {
+      "question": "How is D3.js different from Chart.js?",
+      "answer": "D3.js provides complete control over every visual element but has a steeper learning curve, while Chart.js offers simpler standard charts with less customization."
+    },
+    {
+      "question": "Can I use D3.js with React or Vue?",
+      "answer": "Yes, D3.js works well with React, Vue, Angular, and Svelte using integration patterns like controlled components or D3 for calculations only."
+    },
+    {
+      "question": "How do I make charts responsive?",
+      "answer": "Use viewBox attributes, CSS max-width, and resize event listeners with debouncing to recalculate dimensions on window changes."
+    },
+    {
+      "question": "What chart type should I use for time series?",
+      "answer": "Line charts are ideal for time series data. Use area charts when showing cumulative totals and bar charts for discrete time periods."
+    },
+    {
+      "question": "How do I improve performance with large datasets?",
+      "answer": "Switch from SVG to Canvas rendering, aggregate or sample data, debounce resize handlers, and minimize unnecessary redraws."
+    }
+  ],
+  "seoKeywords": [
+    "D3.js visualization",
+    "interactive charts",
+    "data visualization",
+    "D3.js charts",
+    "network graph",
+    "dashboard creation",
+    "Claude Code",
+    "claude-code",
+    "claude",
+    "codex"
+  ],
+  "sourceUrl": "https://github.com/AutumnsGrove/ClaudeSkills/tree/master/d3js-visualization",
+  "sourceType": "community",
+  "dependencies": []
+}

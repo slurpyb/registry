@@ -1,0 +1,142 @@
+{
+  "name": "baoyu-xhs-images",
+  "type": "skill",
+  "description": "Xiaohongshu (Little Red Book) infographic series generator with multiple style options. Breaks down content into 1-10 cartoon-style infographics. Use when user asks to create \"小红书图片\", \"XHS images\", or \"RedNote infographics\".",
+  "domain": "marketing",
+  "subdomain": "content-marketing",
+  "specialty": "infographic generation",
+  "quality": 5,
+  "qualityReason": "Specific trigger and output format",
+  "bundleHints": [
+    "social-media-toolkit",
+    "content-creation-stack"
+  ],
+  "tags": [
+    "cartoon-style",
+    "content-creation",
+    "images",
+    "infographic",
+    "mdx",
+    "seo",
+    "social-media",
+    "visual-content",
+    "xiaohongshu"
+  ],
+  "capabilities": [
+    "Generates 1-10 image infographic series for Xiaohongshu platform",
+    "Auto-selects from 9 visual styles (cute, fresh, tech, warm, bold, minimal, retro, pop, notion)",
+    "Auto-selects from 6 layout types (sparse, balanced, dense, list, comparison, flow)",
+    "Analyzes content to recommend optimal style and layout combinations",
+    "Outputs organized image series with outlines and prompts",
+    "Supports both file input and direct content paste"
+  ],
+  "author": "JimLiu",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing no executable code. All 91 static findings are FALSE POSITIVES. The scanner misidentified markdown syntax (MD extension), documentation headings, and markdown code block backticks as security threats.",
+  "valueStatement": "Transform content into engaging Xiaohongshu-style infographic series. Auto-selects visual styles and layouts based on content analysis. Generates 1-10 cartoon-style images optimized for the Xiaohongshu platform.",
+  "userTitle": "Create Xiaohongshu infographic series",
+  "limitations": [
+    "Requires an image generation skill (like baoyu-gemini-web) to actually create images",
+    "Output quality depends on the underlying image generation capability",
+    "Does not support video or animation content"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content creators",
+      "title": "Social media visuals",
+      "description": "Convert blog posts and articles into Xiaohongshu-ready infographic series for social engagement"
+    },
+    {
+      "targetUser": "Marketing professionals",
+      "title": "Brand storytelling",
+      "description": "Transform product descriptions and marketing copy into eye-catching visual content"
+    },
+    {
+      "targetUser": "Educators",
+      "title": "Visual learning materials",
+      "description": "Convert educational content into memorable infographic series for students"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick infographic",
+      "scenario": "Simple content",
+      "prompt": "/baoyu-xhs-images [paste your content here]"
+    },
+    {
+      "title": "Styled by topic",
+      "scenario": "Tech content",
+      "prompt": "/baoyu-xhs-images [content] --style tech"
+    },
+    {
+      "title": "Layout specified",
+      "scenario": "Process content",
+      "prompt": "/baoyu-xhs-images [content] --layout flow"
+    },
+    {
+      "title": "Full customization",
+      "scenario": "Brand consistency",
+      "prompt": "/baoyu-xhs-images [content] --style notion --layout dense"
+    }
+  ],
+  "bestPractices": [
+    "Use --style and --layout flags when you have specific visual requirements",
+    "Match style to content type: tech articles work best with notion/tech, lifestyle with cute/fresh",
+    "Keep individual image content focused: 1-2 main points for sparse, up to 8 for dense layouts"
+  ],
+  "antiPatterns": [
+    "Do not use overly long content per image - dense layout has limits",
+    "Avoid mixing incompatible styles across a single series",
+    "Do not skip the cover image - it is essential for engagement"
+  ],
+  "faq": [
+    {
+      "question": "How many images does it generate?",
+      "answer": "The skill analyzes content complexity and generates 2-10 images. Simple topics get 2-3 images, tutorials 4-6, deep dives 7-10."
+    },
+    {
+      "question": "What styles work best for business content?",
+      "answer": "Minimal and notion styles work best for professional business content. Bold works well for important announcements."
+    },
+    {
+      "question": "Can I mix different layouts in one series?",
+      "answer": "Yes, the skill automatically assigns sparse to covers, appropriate layouts to content pages, and sparse/balanced to endings."
+    },
+    {
+      "question": "What image generation skill should I use?",
+      "answer": "Use baoyu-gemini-web or any image generation skill. The skill will prompt you to choose if multiple are available."
+    },
+    {
+      "question": "Does it support Chinese content?",
+      "answer": "Yes, the skill fully supports Chinese content and Xiaohongshu's native aesthetic. Output language matches input."
+    },
+    {
+      "question": "Where are images saved?",
+      "answer": "Images save to xhs-images/ subdirectory next to the source file, or xhs-outputs/ folder for direct input."
+    }
+  ],
+  "seoKeywords": [
+    "Xiaohongshu",
+    "Little Red Book",
+    "infographic generator",
+    "XHS images",
+    "social media graphics",
+    "Claude Code",
+    "Clude",
+    "Codex",
+    "content visualization",
+    "cartoon style"
+  ],
+  "sourceUrl": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-xhs-images",
+  "sourceType": "community",
+  "dependencies": []
+}

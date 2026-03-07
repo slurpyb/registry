@@ -1,0 +1,141 @@
+{
+  "name": "sop-code-review",
+  "type": "skill",
+  "description": "Comprehensive code review workflow coordinating quality, security, performance, and documentation reviewers. 4-hour timeline for thorough multi-agent review.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "multi-agent review",
+  "quality": 5,
+  "qualityReason": "Thorough multi-agent review process",
+  "bundleHints": [
+    "code-quality",
+    "quality-assurance",
+    "engineering-process"
+  ],
+  "tags": [
+    "code-review",
+    "documentation",
+    "multi-agent",
+    "performance",
+    "quality-assurance",
+    "security",
+    "workflow"
+  ],
+  "capabilities": [
+    "Runs automated checks (linting, tests, coverage, build validation)",
+    "Spawns parallel specialized reviewers (quality, security, performance, architecture, docs)",
+    "Aggregates findings and categorizes by severity",
+    "Generates final review summary with approval recommendations",
+    "Notifies PR authors with actionable feedback"
+  ],
+  "author": "DNYoussef",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only workflow instructions and prompt templates. No executable code, scripts, file system access, network calls, or command execution capabilities. The static findings are all false positives: JavaScript template literals were misidentified as shell backticks, metadata fields were flagged as hardcoded URLs, and documentation text was misclassified as cryptographic algorithms.",
+  "valueStatement": "Manual code reviews are time-consuming and inconsistent. This workflow coordinates multiple specialized AI agents to perform thorough reviews across quality, security, performance, architecture, and documentation in parallel.",
+  "userTitle": "Review code with specialized agents",
+  "limitations": [
+    "Requires MCP servers for agent orchestration (ruv-swarm)",
+    "Cannot directly modify code or merge pull requests",
+    "Reviews are limited to code patterns, not runtime behavior",
+    "Depends on existing test suites for coverage analysis"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development teams",
+      "title": "PR code review",
+      "description": "Automate comprehensive reviews for pull requests before merge"
+    },
+    {
+      "targetUser": "Security engineers",
+      "title": "Security vulnerability scan",
+      "description": "Identify OWASP Top 10 vulnerabilities and security issues in code"
+    },
+    {
+      "targetUser": "Tech leads",
+      "title": "Architecture assessment",
+      "description": "Evaluate code changes for design consistency and scalability"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick PR review",
+      "scenario": "Review a single pull request",
+      "prompt": "Run sop-code-review on PR #123 in repository my-org/backend-api. Focus on security and performance."
+    },
+    {
+      "title": "Security audit",
+      "scenario": "Focus on security issues only",
+      "prompt": "Execute the security review phase of sop-code-review for the authentication module. Check for OWASP vulnerabilities."
+    },
+    {
+      "title": "Full integration review",
+      "scenario": "Complete review with all specialists",
+      "prompt": "Run the full sop-code-review workflow on PR #456. Include integration testing and deployment impact assessment."
+    },
+    {
+      "title": "Architecture review",
+      "scenario": "Deep architecture analysis",
+      "prompt": "Run the architecture review phase for the microservices refactoring PR. Assess scalability and dependency patterns."
+    }
+  ],
+  "bestPractices": [
+    "Run automated checks first to filter obviously broken PRs before manual review",
+    "Use parallel specialized reviewers to complete comprehensive review within 4 hours",
+    "Categorize findings by severity (blocking, high, medium, low) for clear action items"
+  ],
+  "antiPatterns": [
+    "Skipping automated checks and going straight to manual review",
+    "Reviewing only one aspect (like security) without quality or performance checks",
+    "Merging without addressing blocking issues identified in the review"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "Compatible with Claude, Codex, and Claude Code. Requires ruv-swarm MCP server for agent orchestration."
+    },
+    {
+      "question": "How long does a full review take?",
+      "answer": "The complete workflow runs approximately 4 hours with automated checks in 30 minutes and specialized reviews in 2 hours."
+    },
+    {
+      "question": "Can I run only specific review phases?",
+      "answer": "Yes, individual phases can be invoked separately. The workflow supports running security-only or performance-only reviews."
+    },
+    {
+      "question": "Is my code data sent externally?",
+      "answer": "No code leaves your environment. All processing happens through local AI tools and MCP servers you control."
+    },
+    {
+      "question": "What if automated checks fail?",
+      "answer": "The workflow stops and requests fixes from the PR author before proceeding with manual review phases."
+    },
+    {
+      "question": "How is this different from single-agent review?",
+      "answer": "Multiple specialized agents review different aspects simultaneously, providing deeper coverage than a single generalist agent."
+    }
+  ],
+  "seoKeywords": [
+    "code review",
+    "Claude Code",
+    "quality assurance",
+    "security review",
+    "multi-agent",
+    "automated review",
+    "Codex",
+    "software testing",
+    "static analysis",
+    "developer tools"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/sop-code-review",
+  "sourceType": "community",
+  "dependencies": []
+}

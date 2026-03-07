@@ -1,0 +1,144 @@
+{
+  "name": "aws-serverless",
+  "type": "skill",
+  "description": "Specialized skill for building production-ready serverless applications on AWS. Covers Lambda functions, API Gateway, DynamoDB, SQS/SNS event-driven patterns, SAM/CDK deployment, and cold start optimization.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "Lambda Patterns",
+  "quality": 5,
+  "qualityReason": "Production-ready with full stack",
+  "bundleHints": [
+    "serverless-stack",
+    "aws-ops",
+    "backend-patterns"
+  ],
+  "tags": [
+    "api-gateway",
+    "aws",
+    "dynamodb",
+    "event-driven",
+    "lambda",
+    "sam-cdk",
+    "serverless",
+    "sqs-sns"
+  ],
+  "capabilities": [
+    "Generate proper Lambda handler code in Node.js and Python with error handling",
+    "Create AWS SAM templates for API Gateway and Lambda integration",
+    "Implement SQS event-driven processing patterns with retry and DLQ support",
+    "Show best practices for cold start optimization and VPC configuration",
+    "Provide anti-patterns and sharp edges guidance for serverless development"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill provides documentation and code patterns for AWS serverless development. Static analyzer flagged 34 potential issues, but all are false positives triggered by YAML code blocks and standard AWS terminology. The skill contains only legitimate code examples for Lambda handlers, SAM templates, and infrastructure configuration. No malicious patterns found.",
+  "valueStatement": "This skill helps developers create production-ready AWS serverless applications with proper Lambda patterns, API Gateway integration, and event-driven architectures.",
+  "userTitle": "Build Production AWS Serverless Apps",
+  "limitations": [
+    "Does not provision actual AWS resources or credentials",
+    "Does not execute deployed functions or make AWS API calls",
+    "Does not include CDK infrastructure code patterns",
+    "Does not cover Step Functions or AppSync GraphQL APIs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers new to AWS serverless who need starting templates",
+      "title": "New Serverless Project Setup",
+      "description": "Generate proper Lambda handler structure with DynamoDB integration, error handling, and API Gateway response format."
+    },
+    {
+      "targetUser": "Backend engineers building async processing pipelines",
+      "title": "Event-Driven Architecture",
+      "description": "Create SQS-triggered Lambda functions with batch processing, partial failure handling, and dead letter queue configuration."
+    },
+    {
+      "targetUser": "DevOps engineers defining serverless infrastructure",
+      "title": "Infrastructure as Code",
+      "description": "Write SAM templates with proper IAM policies, environment variables, CORS settings, and resource definitions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Lambda Handler",
+      "prompt": "Create a Node.js Lambda handler function that reads from DynamoDB using the AWS SDK v3. Include proper error handling and return an API Gateway compatible response.",
+      "scenario": "Starting a new serverless API endpoint"
+    },
+    {
+      "title": "API Gateway Integration",
+      "prompt": "Write a SAM template that creates an HTTP API with Lambda integration. Include GET and POST endpoints with DynamoDB read and write policies.",
+      "scenario": "Building REST API with Lambda backend"
+    },
+    {
+      "title": "SQS Queue Processing",
+      "prompt": "Create a Lambda function that processes SQS messages in batches. Include partial failure handling that reports failed items back to SQS for retry.",
+      "scenario": "Setting up async message processing"
+    },
+    {
+      "title": "Cold Start Optimization",
+      "prompt": "Show best practices for reducing Lambda cold start times including memory allocation, dependency management, and VPC considerations.",
+      "scenario": "Optimizing production Lambda performance"
+    }
+  ],
+  "bestPractices": [
+    "Initialize AWS SDK clients and database connections outside the Lambda handler for reuse across invocations",
+    "Use DynamoDBDocumentClient for simplified attribute marshaling and unmarshaling",
+    "Configure appropriate timeout values matching your function execution time plus overhead",
+    "Use provisioned concurrency for latency-sensitive applications"
+  ],
+  "antiPatterns": [
+    "Do not create monolithic Lambda functions that handle multiple unrelated operations",
+    "Avoid including large dependencies that are rarely used to reduce deployment package size",
+    "Do not make synchronous calls inside VPC-attached Lambda without considering ENI attachment overhead",
+    "Avoid using wildcard CORS AllowOrigins in production unless explicitly required"
+  ],
+  "faq": [
+    {
+      "question": "What runtime does this skill support?",
+      "answer": "This skill provides patterns for Node.js and Python Lambda runtimes."
+    },
+    {
+      "question": "Does this skill create actual AWS resources?",
+      "answer": "No, this skill generates code templates and patterns. You must deploy them using SAM CLI or CDK."
+    },
+    {
+      "question": "How do I handle DynamoDB connections in Lambda?",
+      "answer": "Create the DynamoDB client outside the handler function so it is reused across invocations."
+    },
+    {
+      "question": "What is the recommended batch size for SQS Lambda?",
+      "answer": "Start with batch size 10 and tune based on your message processing time and failure rate."
+    },
+    {
+      "question": "How do I reduce Lambda cold start times?",
+      "answer": "Increase memory allocation (increases CPU), minimize dependencies, use provisioned concurrency, and avoid VPC if not needed."
+    },
+    {
+      "question": "Can I use this skill for VPC-attached Lambda functions?",
+      "answer": "Yes, but be aware of ENI attachment overhead that affects cold starts. Consider using VPC endpoints for DynamoDB."
+    }
+  ],
+  "seoKeywords": [
+    "AWS serverless",
+    "AWS Lambda",
+    "serverless development",
+    "API Gateway",
+    "DynamoDB",
+    "SAM template",
+    "AWS serverless patterns",
+    "Claud Code",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/aws-serverless",
+  "sourceType": "community",
+  "dependencies": []
+}

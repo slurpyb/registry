@@ -1,0 +1,141 @@
+{
+  "name": "triforce-sync-check",
+  "type": "skill",
+  "description": "Verify 3-Mirror skill sync consistency across .public/skills, .codex/skills, and .claude/skills. Use after skill changes, before commits, or for CI validation.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "skill sync validation",
+  "quality": 4,
+  "qualityReason": "Ensures system integrity",
+  "bundleHints": [
+    "ci-cd",
+    "agent-config"
+  ],
+  "tags": [
+    "ci-cd",
+    "consistency",
+    "quality",
+    "skills-management",
+    "sync",
+    "validation",
+    "verification"
+  ],
+  "capabilities": [
+    "Verify skill count matches across all three directories",
+    "Compare directory structure for consistency",
+    "Check SKILL.md content hashes match exactly",
+    "Validate required YAML fields in each skill",
+    "Detect duplicate skill names",
+    "Run CI validation workflows"
+  ],
+  "author": "Doyajin174",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing verification procedures. No executable code present. All operations are read-only filesystem checks using standard utilities (ls, diff, find, grep, md5). Shell commands shown are examples in documentation, not runtime execution. This is a reference guide for skill synchronization verification.",
+  "valueStatement": "Skills may become inconsistent when copied across platforms. This skill validates that all skill files match between .public/skills, .codex/skills, and .claude/skills directories. Use before commits or in CI pipelines to catch drift early.",
+  "userTitle": "Verify skill sync across platforms",
+  "limitations": [
+    "Does not perform automatic synchronization",
+    "Only validates content already present in directories",
+    "Requires skill directories to exist at expected paths",
+    "Manual intervention needed to fix inconsistencies"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "CI Pipeline Validation",
+      "description": "Add to GitHub Actions workflows to block commits with desynchronized skills"
+    },
+    {
+      "targetUser": "Skill Developers",
+      "title": "Pre-commit Verification",
+      "description": "Check skill consistency before pushing changes to ensure mirrors stay in sync"
+    },
+    {
+      "targetUser": "Quality Assurance",
+      "title": "Deployment Check",
+      "description": "Validate all skills are properly mirrored before production deployments"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Count Check",
+      "scenario": "Verify directory counts match",
+      "prompt": "Count the skills in .public/skills, .codex/skills, and .claude/skills. Report whether all three counts match."
+    },
+    {
+      "title": "Structure Validation",
+      "scenario": "Compare directory structures",
+      "prompt": "Compare the directory structure of .public/skills with .codex/skills and .claude/skills. List any missing or extra directories."
+    },
+    {
+      "title": "Content Verification",
+      "scenario": "Check content hashes match",
+      "prompt": "Verify that all SKILL.md files have matching content hashes across .public/skills, .codex/skills, and .claude/skills. Report any mismatches."
+    },
+    {
+      "title": "Full Audit",
+      "scenario": "Complete validation check",
+      "prompt": "Run a complete triforce sync check: verify counts match, structures match, content hashes match, YAML is valid, and no duplicate skill names exist. Provide a pass/fail summary."
+    }
+  ],
+  "bestPractices": [
+    "Run the sync check before every commit that modifies skills",
+    "Integrate into CI pipelines to catch drift automatically",
+    "Fix issues at the SSOT (.public/skills) first, then sync"
+  ],
+  "antiPatterns": [
+    "Manually editing mirrored directories instead of using sync",
+    "Skipping verification after bulk skill changes",
+    "Ignoring count mismatches without investigating the cause"
+  ],
+  "faq": [
+    {
+      "question": "Which AI platforms are supported?",
+      "answer": "Works with Claude, Codex, and Claude Code. These three platforms each have their own skills directory that should mirror the source."
+    },
+    {
+      "question": "What are the sync limits?",
+      "answer": "The skill checks directories at fixed paths. Custom directory structures require modifying the verification commands manually."
+    },
+    {
+      "question": "How do I integrate with CI/CD?",
+      "answer": "Add the verification commands to your workflow. The skill provides a GitHub Actions example that fails on any mismatch."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes. All operations are read-only. The skill only reads files and compares hashes without modifying anything."
+    },
+    {
+      "question": "What if checks fail?",
+      "answer": "Identify which check failed, edit the source in .public/skills, then run node scripts/sync-skills.js to resynchronize mirrors."
+    },
+    {
+      "question": "How is this different from manual diff?",
+      "answer": "This skill automates multiple checks including counts, hashes, YAML validation, and duplicate detection in a single operation."
+    }
+  ],
+  "seoKeywords": [
+    "Claude skill sync",
+    "Codex skill validation",
+    "Claude Code skill verification",
+    "CI skill check",
+    "3-mirror sync",
+    "skill consistency",
+    "skill deployment",
+    "skill quality",
+    "skill CI/CD",
+    "platform sync"
+  ],
+  "sourceUrl": "https://github.com/Doyajin174/myskills/tree/main/.public/skills/triforce-sync-check",
+  "sourceType": "community",
+  "dependencies": []
+}

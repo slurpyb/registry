@@ -1,0 +1,142 @@
+{
+  "name": "share-skill",
+  "type": "skill",
+  "description": "Automatically share skills, migrate local skills to code repositories, open source skills, skill version management, configure git remote",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "skill migration",
+  "quality": 4,
+  "qualityReason": "Utility for skill sharing",
+  "bundleHints": [
+    "skill-management",
+    "version-control"
+  ],
+  "tags": [
+    "documentation",
+    "git",
+    "migration",
+    "open-source",
+    "remote",
+    "sharing",
+    "skills",
+    "version-control"
+  ],
+  "capabilities": [
+    "Migrate local skills to git repositories with automatic symlink creation",
+    "Initialize Git version control for new skills",
+    "Configure Git remote endpoints for GitHub, GitLab, and other services",
+    "Generate documentation websites from skill metadata",
+    "List available local skills for migration",
+    "Auto-detect code root and GitHub username on first run"
+  ],
+  "author": "guo-yu",
+  "icon": "📤",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill. All 1725 static findings are false positives triggered by pattern matching on markdown documentation text. No executable code exists. The skill describes legitimate git operations for skill migration. Static analyzer misidentified documentation examples as command execution, URLs as network exfiltration, and standard git operations as credential access.",
+  "valueStatement": "Migrate local Claude skills to version-controlled git repositories. Automate the process of opening source skills with automatic Git initialization, remote configuration, and documentation generation.",
+  "userTitle": "Share skills to git repositories",
+  "limitations": [
+    "Requires Git to be installed and configured on the system",
+    "Cannot migrate skills that are already in git repositories",
+    "Documentation generation requires specific skill structure",
+    "Does not handle merge conflicts or complex git scenarios"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Skill Developers",
+      "title": "Open source your skills",
+      "description": "Migrate locally created skills to public GitHub repositories for community sharing"
+    },
+    {
+      "targetUser": "Team Leads",
+      "title": "Version control for skills",
+      "description": "Track skill changes over time and collaborate on skill development using Git workflows"
+    },
+    {
+      "targetUser": "Documentation Writers",
+      "title": "Generate skill documentation",
+      "description": "Create beautiful documentation websites automatically from skill metadata and READMEs"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic skill sharing",
+      "scenario": "Share a named skill",
+      "prompt": "Help me share the port-allocator skill to GitHub"
+    },
+    {
+      "title": "Configure remote",
+      "scenario": "Set up git remote",
+      "prompt": "Configure git remote for my skills repository at git@github.com:myorg/skills.git"
+    },
+    {
+      "title": "List migration options",
+      "scenario": "View available skills",
+      "prompt": "List all my local skills that I can migrate"
+    },
+    {
+      "title": "Generate documentation",
+      "scenario": "Create docs website",
+      "prompt": "Generate a documentation website for my skills repository"
+    }
+  ],
+  "bestPractices": [
+    "Configure remotes explicitly to avoid ambiguity in repository names",
+    "Run /share-skill allow first to grant necessary permissions",
+    "Use natural language with full repository URLs for non-default targets"
+  ],
+  "antiPatterns": [
+    "Using vague repository names like 'another repository' without specifying the full URL",
+    "Attempting to migrate skills that are already under git version control",
+    "Forgetting to configure Git user.name and user.email before migration"
+  ],
+  "faq": [
+    {
+      "question": "Where are my migrated skills stored?",
+      "answer": "Skills are linked to ~/Codes/skills/ by default. Configure code_root to change this location."
+    },
+    {
+      "question": "Does share-skill modify my original skill files?",
+      "answer": "No. Share-skill creates symlinks to your original skill files in the repository."
+    },
+    {
+      "question": "Can I use GitLab instead of GitHub?",
+      "answer": "Yes. Configure remotes with git@gitlab.com addresses using the remote command."
+    },
+    {
+      "question": "What happens if Git is not installed?",
+      "answer": "The skill requires Git. Install Git and configure user.name and user.email first."
+    },
+    {
+      "question": "How do I change the documentation style?",
+      "answer": "Use /share-skill docs --style <name> or configure with /share-skill docs config"
+    },
+    {
+      "question": "Is my configuration data secure?",
+      "answer": "Config is stored in ~/.claude/share-skill-config.json with your remote addresses."
+    }
+  ],
+  "seoKeywords": [
+    "share-skill",
+    "skill migration",
+    "git integration",
+    "claude skill",
+    "version control",
+    "open source skills",
+    "skill management",
+    "claude code",
+    "claude",
+    "codex"
+  ],
+  "sourceUrl": "https://github.com/guo-yu/skills/tree/master/share-skill",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,136 @@
+{
+  "name": "baoyu-cover-image",
+  "type": "skill",
+  "description": "Generate elegant cover images for articles. Analyzes content and creates eye-catching hand-drawn style cover images with multiple style options. Use when user asks to \"generate cover image\", \"create article cover\", or \"make a cover for article\".",
+  "domain": "ai-ml",
+  "subdomain": "computer-vision",
+  "specialty": "Cover Art",
+  "quality": 5,
+  "qualityReason": "Stylish visual generation",
+  "bundleHints": [
+    "content-creation",
+    "ai-art"
+  ],
+  "tags": [
+    "cover-art",
+    "gemini",
+    "hand-drawn",
+    "image-generation",
+    "visual-content"
+  ],
+  "capabilities": [
+    "Analyzes article content to auto-select appropriate visual style",
+    "Generates hand-drawn style cover images in 8 distinct styles",
+    "Creates optimized prompts for AI image generation tools",
+    "Handles multi-language content with matching text styling"
+  ],
+  "author": "JimLiu",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing markdown files with style guidelines and prompt templates for image generation. No executable code, network operations, or file system access. All 41 static findings are false positives from markdown documentation being misinterpreted.",
+  "valueStatement": "Creating visually appealing cover images for articles requires design skills and image generation tools. This skill analyzes your content and automatically generates elegant hand-drawn style cover images in multiple visual styles.",
+  "userTitle": "Generate hand-drawn style article cover images",
+  "limitations": [
+    "Requires an image generation skill (like baoyu-gemini-web) for actual image creation",
+    "Title text limited to 8 characters maximum",
+    "Outputs 2.35:1 aspect ratio covers optimized for WeChat articles"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Bloggers",
+      "title": "Blog Header Images",
+      "description": "Generate matching cover images for your blog posts to increase engagement"
+    },
+    {
+      "targetUser": "Content Creators",
+      "title": "Social Media Thumbnails",
+      "description": "Create eye-catching thumbnails for WeChat articles and social posts"
+    },
+    {
+      "targetUser": "Technical Writers",
+      "title": "Tutorial Series Covers",
+      "description": "Generate consistent visual style covers for documentation and tutorials"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Cover",
+      "scenario": "Quick article cover",
+      "prompt": "/baoyu-cover-image path/to/article.md"
+    },
+    {
+      "title": "Style-Specific",
+      "scenario": "Choose visual style",
+      "prompt": "/baoyu-cover-image article.md --style tech"
+    },
+    {
+      "title": "No Title",
+      "scenario": "Visual only cover",
+      "prompt": "/baoyu-cover-image content.md --no-title"
+    },
+    {
+      "title": "Combined Options",
+      "scenario": "Custom options",
+      "prompt": "/baoyu-cover-image content.md --style minimal --no-title"
+    }
+  ],
+  "bestPractices": [
+    "Provide substantial article content for accurate style selection",
+    "Keep titles under 8 characters for best visual impact",
+    "Review generated images at actual size before publishing"
+  ],
+  "antiPatterns": [
+    "Using generic content descriptions instead of actual article text",
+    "Generating covers without reviewing for cultural appropriateness",
+    "Ignoring style guides when targeting specific audiences"
+  ],
+  "faq": [
+    {
+      "question": "What image generation skills does this work with?",
+      "answer": "Works with any image generation skill like baoyu-gemini-web that accepts prompt files."
+    },
+    {
+      "question": "Can I use this for non-WeChat content?",
+      "answer": "Yes, output can be used anywhere. The 2.35:1 ratio works for most article covers."
+    },
+    {
+      "question": "What languages are supported?",
+      "answer": "The skill matches text language to your content. Supports Chinese, English, and other languages."
+    },
+    {
+      "question": "How long does generation take?",
+      "answer": "Prompt generation is instant. Image generation typically takes 10-30 seconds depending on the service."
+    },
+    {
+      "question": "Can I customize the generated prompt?",
+      "answer": "Yes, you can edit the prompt file at imgs/prompts/cover.md before image generation."
+    },
+    {
+      "question": "What happens if I don't specify a style?",
+      "answer": "The skill analyzes your content and auto-selects the best matching style from 8 options."
+    }
+  ],
+  "seoKeywords": [
+    "cover image generator",
+    "article cover art",
+    "hand-drawn illustrations",
+    "visual content creation",
+    "Gemini image generation",
+    "Claude Code skill",
+    "WeChat cover image",
+    "blog header image",
+    "AI image generator",
+    "content illustration"
+  ],
+  "sourceUrl": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-cover-image",
+  "sourceType": "community",
+  "dependencies": []
+}

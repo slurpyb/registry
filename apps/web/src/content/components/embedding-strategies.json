@@ -1,0 +1,141 @@
+{
+  "name": "embedding-strategies",
+  "type": "skill",
+  "description": "Select and optimize embedding models for semantic search and RAG applications. Use when choosing embedding models, implementing chunking strategies, or optimizing embedding quality for specific domains.",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "RAG optimization",
+  "quality": 5,
+  "qualityReason": "Actionable and domain-specific guidance",
+  "bundleHints": [
+    "rag-pipeline",
+    "llm-ops"
+  ],
+  "tags": [
+    "chunking",
+    "domain-adaptation",
+    "embeddings",
+    "model-selection",
+    "rag",
+    "semantic-search",
+    "text-embedding",
+    "vector-database"
+  ],
+  "capabilities": [
+    "Compare embedding models across dimensions, costs, and use cases",
+    "Implement chunking strategies for optimal retrieval",
+    "Build pipelines for OpenAI and local embedding models",
+    "Evaluate embedding quality with precision, recall, and NDCG metrics",
+    "Handle multilingual and domain-specific content"
+  ],
+  "author": "wshobson",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. C2 keyword alerts triggered by hash hex strings. Weak crypto alerts from hash substrings. External command alerts from ASCII flow diagrams using arrows. Hardcoded URL alerts are legitimate documentation links. No malicious code, command execution, or data exfiltration patterns found.",
+  "valueStatement": "Choosing the right embedding model and chunking strategy is critical for retrieval quality. This skill provides templates and best practices for implementing high-quality vector search pipelines.",
+  "userTitle": "Optimize Embedding Models for Semantic Search",
+  "limitations": [
+    "Does not execute embedding API calls directly",
+    "Does not provision vector database infrastructure",
+    "Does not provide pre-trained embedding models",
+    "Does not handle real-time embedding updates"
+  ],
+  "useCases": [
+    {
+      "targetUser": "ML engineers building RAG applications",
+      "title": "Build RAG Systems",
+      "description": "Implement retrieval-augmented generation by selecting appropriate embedding models and chunking strategies for your document corpus."
+    },
+    {
+      "targetUser": "Search engineers and data scientists",
+      "title": "Optimize Semantic Search",
+      "description": "Improve search relevance by choosing embedding models matched to your content type and implementing proper chunking and preprocessing."
+    },
+    {
+      "targetUser": "Backend developers and data engineers",
+      "title": "Create Embedding Pipelines",
+      "description": "Build scalable pipelines that process documents, chunk content, generate embeddings, and prepare records for vector databases."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Select Embedding Model",
+      "prompt": "I need to choose an embedding model for my [use case: code search / multilingual documents / legal contracts]. My priorities are [priority: accuracy / cost / speed]. I have [constraints: limit on dimensions / need open source / need API access]. Recommend 3 models with rationale.",
+      "scenario": "Choosing the right embedding model"
+    },
+    {
+      "title": "Implement Chunking Strategy",
+      "prompt": "Help me implement chunking for my [data type: technical documentation / conversational data / code]. I need to handle [requirement: preserve context / maintain semantic boundaries / limit chunk size]. Provide Python code for [strategy: token-based / sentence-based / recursive character] chunking.",
+      "scenario": "Implementing document chunking"
+    },
+    {
+      "title": "Build Embedding Pipeline",
+      "prompt": "Create a Python pipeline that [input: processes documents from source / generates embeddings / stores in vector database]. Include [feature: batching / progress tracking / metadata handling]. Use [model: OpenAI embeddings / sentence-transformers].",
+      "scenario": "Building embedding pipelines"
+    },
+    {
+      "title": "Evaluate Retrieval Quality",
+      "prompt": "My embedding-based retrieval has [problem: low recall / inconsistent results / poor precision]. My setup uses [model details]. Analyze potential causes and suggest improvements for [metric: precision at k / recall / ndcg].",
+      "scenario": "Diagnosing retrieval issues"
+    }
+  ],
+  "bestPractices": [
+    "Match embedding model to content type: code, prose, or multilingual",
+    "Normalize embeddings for reliable cosine similarity comparisons",
+    "Use token overlap when chunking to preserve context across boundaries"
+  ],
+  "antiPatterns": [
+    "Mixing different embedding models in the same index",
+    "Ignoring token limits and truncating content mid-thought",
+    "Skipping preprocessing, allowing noise to degrade embedding quality"
+  ],
+  "faq": [
+    {
+      "question": "What embedding model should I start with?",
+      "answer": "Start with text-embedding-3-small for general use. It balances cost and quality. Switch to text-embedding-3-large if you need higher accuracy, or voyage-2 for code and legal content."
+    },
+    {
+      "question": "How do I choose chunk size?",
+      "answer": "512 tokens is a good starting point for most use cases. Adjust based on your content complexity and model token limits. Overlap by 50 tokens to maintain context across chunks."
+    },
+    {
+      "question": "Can I use local embedding models?",
+      "answer": "Yes. Sentence-transformers supports models like BAAI/bge-large-en-v1.5 and intfloat/multilingual-e5-large. These run locally and work well for open-source or offline scenarios."
+    },
+    {
+      "question": "How do I evaluate my embedding quality?",
+      "answer": "Use precision@k, recall@k, MRR, and NDCG@k metrics. Test with known relevant documents and compare retrieved results against ground truth."
+    },
+    {
+      "question": "Should I normalize embeddings?",
+      "answer": "Yes. Normalize embeddings before using cosine similarity. Most modern embedding models produce normalized vectors by default, but local models may require explicit normalization."
+    },
+    {
+      "question": "What preprocessing should I apply?",
+      "answer": "Remove excessive whitespace, normalize unicode characters, and filter special characters. Keep content semantically meaningful. Domain-specific cleaning may be needed for code or structured data."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "embedding models",
+    "semantic search",
+    "vector embeddings",
+    "RAG",
+    "chunking strategies",
+    "text-embedding",
+    "vector search"
+  ],
+  "sourceUrl": "https://github.com/wshobson/agents/tree/main/plugins/llm-application-dev/skills/embedding-strategies",
+  "sourceType": "community",
+  "dependencies": []
+}

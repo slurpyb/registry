@@ -1,0 +1,142 @@
+{
+  "name": "square-automation",
+  "type": "skill",
+  "description": "Automate Square tasks via Rube MCP (Composio): payments, orders, invoices, locations. Always search tools first for current schemas.",
+  "domain": "business",
+  "subdomain": "sales",
+  "specialty": "Square automation",
+  "quality": 4,
+  "qualityReason": "Clear automation scope",
+  "bundleHints": [
+    "sales-automation",
+    "payment-integrations"
+  ],
+  "tags": [
+    "api",
+    "automation",
+    "crm",
+    "invoicing",
+    "orders",
+    "payments",
+    "square"
+  ],
+  "capabilities": [
+    "List and monitor Square payments with date range filtering",
+    "Search and retrieve orders by location, status, and date",
+    "Manage Square business locations and retrieve location details",
+    "Create, view, and cancel Square invoices",
+    "Cancel pending payments and update order states",
+    "Handle pagination for large result sets"
+  ],
+  "author": "sickn33",
+  "icon": "💳",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The detected 'external_commands' patterns (57 instances) are Ruby/shell backtick syntax examples in markdown documentation, not executable code. The network detection is a documentation URL (https://rube.app/mcp) showing where to obtain the Rube MCP server. This skill is legitimate documentation for automating Square payment tasks with no executable code or security risks.",
+  "valueStatement": "Streamline Square payment processing and order management without manual API calls. Automate invoicing, payment tracking, and location management through Claude Code.",
+  "userTitle": "Automate Square Payments and Orders",
+  "limitations": [
+    "Requires active Square OAuth connection via Rube MCP server",
+    "Cannot create new payments or process transactions directly",
+    "Read-only access to payment history (cannot modify completed payments)",
+    "Rate limits apply for bulk operations",
+    "Location IDs must be resolved before most operations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Small business owners",
+      "title": "Payment Reconciliation",
+      "description": "Business owners can automatically list and analyze daily payments across all Square locations to reconcile accounts and identify discrepancies."
+    },
+    {
+      "targetUser": "Customer support teams",
+      "title": "Order Status Tracking",
+      "description": "Support teams can search and retrieve order details by customer name or date to provide real-time order status updates without accessing Square dashboard."
+    },
+    {
+      "targetUser": "Finance professionals",
+      "title": "Invoice Workflow Automation",
+      "description": "Finance teams can list scheduled and unpaid invoices, cancel invalid invoices, and export invoice data for accounting systems."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List Recent Payments",
+      "prompt": "List all Square payments from the last 7 days. Show payment IDs, amounts, and statuses.",
+      "scenario": "Quick payment overview for cash flow monitoring"
+    },
+    {
+      "title": "Find Orders by Date",
+      "prompt": "Search for all completed orders at 'Main Street' location between January 1st and January 31st. Show order IDs and total amounts.",
+      "scenario": "Monthly sales reporting by location"
+    },
+    {
+      "title": "Cancel Pending Invoice",
+      "prompt": "Find the unpaid invoice for customer 'John Doe' sent this month and cancel it using the correct version number.",
+      "scenario": "Correcting billing mistakes before payment"
+    },
+    {
+      "title": "Multi-Location Payment Report",
+      "prompt": "Retrieve payments from all three locations for Q1 2024. Group by location and calculate totals. Handle pagination automatically.",
+      "scenario": "Quarterly revenue analysis across locations"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before executing workflows",
+    "Cache location IDs after initial retrieval to avoid redundant API calls",
+    "Use RFC 3339 timestamp format for all date range filters (e.g., 2024-01-01T00:00:00Z)",
+    "Handle pagination by following cursor values until absent for large result sets"
+  ],
+  "antiPatterns": [
+    "Do not attempt to cancel completed payments - use refund workflows instead",
+    "Avoid calling UPDATE_ORDER without first retrieving the current version number",
+    "Never hardcode location IDs - always resolve them dynamically via LIST_LOCATIONS",
+    "Do not skip pagination handling - large datasets will return incomplete results"
+  ],
+  "faq": [
+    {
+      "question": "Do I need a Square API key?",
+      "answer": "No. This skill uses Rube MCP which handles Square OAuth authentication. Just add https://rube.app/mcp as your MCP server and complete the OAuth flow."
+    },
+    {
+      "question": "Can I process new payments through this skill?",
+      "answer": "No. This skill can list, cancel, and monitor existing payments, but cannot create new payment transactions. Use Square's checkout flows for new payments."
+    },
+    {
+      "question": "Why do I get 'version mismatch' errors when updating orders?",
+      "answer": "UPDATE_ORDER requires the current version field. Always retrieve the order first with SQUARE_RETRIEVE_ORDER to get the latest version number before updating."
+    },
+    {
+      "question": "How do I find my location IDs?",
+      "answer": "Call SQUARE_LIST_LOCATIONS to retrieve all locations. Each location has an 'id' field (e.g., 'L1234ABCD') that you use for filtering orders and payments."
+    },
+    {
+      "question": "Can I cancel completed payments?",
+      "answer": "No. Only pending payments can be cancelled. For completed payments that need reversal, use Square's refund process instead."
+    },
+    {
+      "question": "What happens when I have more than 100 results?",
+      "answer": "Square paginates results. Check the response 'cursor' field and pass it to the next request. Continue until the cursor is absent to get all results."
+    }
+  ],
+  "seoKeywords": [
+    "Square API automation",
+    "Claude Code payments",
+    "Square order management",
+    "invoice automation",
+    "Claude Square integration",
+    "payment processing AI",
+    "Codex Square",
+    "business automation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/square-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

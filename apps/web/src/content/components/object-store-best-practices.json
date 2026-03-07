@@ -1,0 +1,140 @@
+{
+  "name": "object-store-best-practices",
+  "type": "skill",
+  "description": "Ensures proper cloud storage operations with retry logic, error handling, streaming, and efficient I/O patterns. Activates when users work with object_store for S3, Azure, or GCS operations.",
+  "domain": "devops",
+  "subdomain": "cloud",
+  "specialty": "Cloud storage",
+  "quality": 5,
+  "qualityReason": "Production-grade patterns",
+  "bundleHints": [
+    "cloud-storage",
+    "reliability-patterns",
+    "aws-azure-gcp"
+  ],
+  "tags": [
+    "aws-s3",
+    "azure-blob",
+    "cloud-storage",
+    "gcs",
+    "retry-logic",
+    "rust",
+    "streaming"
+  ],
+  "capabilities": [
+    "Review object_store code for missing retry configuration and suggest proper RetryConfig settings",
+    "Identify improper error handling patterns like unwrap() and recommend thiserror-based error types",
+    "Detect memory-intensive loading patterns and suggest streaming for files over 100MB",
+    "Recommend multipart upload patterns for large file reliability and resumable uploads",
+    "Suggest efficient listing with prefixes to reduce costs and improve performance",
+    "Promote atomic write patterns using temporary files and rename operations"
+  ],
+  "author": "EmilLindfors",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 83 static findings are false positives. The scanner misinterpreted Rust code examples in documentation as security threats. This is a legitimate documentation skill providing best practices for the object_store Rust crate. Findings include tokio::spawn (async tasking, not process execution), tempfile usage (local testing only), and YAML frontmatter misidentified as cryptographic patterns.",
+  "valueStatement": "Cloud storage operations fail intermittently due to network issues, rate limiting, and timeouts. This skill provides expert guidance on implementing robust object storage with proper retry logic, error handling, streaming patterns, and efficient I/O for S3, Azure Blob, and Google Cloud Storage.",
+  "userTitle": "Implement cloud storage best practices",
+  "limitations": [
+    "Cannot execute or test actual object_store code - only provides guidance and suggestions",
+    "Does not integrate with cloud providers to validate configurations or credentials",
+    "Cannot monitor production systems for storage issues or performance problems",
+    "Focuses on Rust object_store crate - not applicable to other languages or libraries"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Rust developers building cloud-native applications",
+      "title": "Production S3 integration review",
+      "description": "Review Rust code deploying to AWS S3 and ensure proper retry logic, connection pooling, and error handling are configured for production reliability."
+    },
+    {
+      "targetUser": "Platform engineers migrating between cloud providers",
+      "title": "Multi-cloud storage migration",
+      "description": "Refactor code to use object_store abstraction for portable cloud storage across S3, Azure, and GCS with consistent error handling patterns."
+    },
+    {
+      "targetUser": "Data engineers processing large datasets",
+      "title": "Large file upload optimization",
+      "description": "Optimize memory usage for large file uploads by implementing streaming and multipart upload patterns that handle network interruptions gracefully."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic S3 configuration",
+      "prompt": "I am using the object_store crate with AmazonS3Builder. Please review my configuration and suggest improvements for production use:",
+      "scenario": "User wants feedback on S3 client setup"
+    },
+    {
+      "title": "Error handling improvement",
+      "prompt": "My object_store code is using unwrap() on storage operations and crashing on errors. Show me how to properly handle ObjectStoreError types with custom error enums.",
+      "scenario": "User needs guidance on error handling patterns"
+    },
+    {
+      "title": "Memory optimization for large files",
+      "prompt": "I am loading entire files into memory with bytes().await for files that can be several gigabytes. How do I use streaming to process these files incrementally without memory issues?",
+      "scenario": "User needs to optimize memory usage for large files"
+    },
+    {
+      "title": "Multi-cloud portability",
+      "prompt": "I want to make my object_store code work with both S3 and Azure Blob Storage. What patterns should I use to ensure my code remains portable across providers?",
+      "scenario": "User wants to support multiple cloud providers"
+    }
+  ],
+  "bestPractices": [
+    "Always configure RetryConfig with 3-5 retries and timeout of 10-30 seconds for production cloud storage operations to handle transient failures",
+    "Use streaming with into_stream() for files over 100MB to avoid loading entire files into memory and prevent out-of-memory errors",
+    "Never hardcode credentials - use AmazonS3Builder::from_env() or IAM roles for secure credential management in production"
+  ],
+  "antiPatterns": [
+    "Using unwrap() or expect() on object_store operations - this crashes on errors instead of graceful error handling",
+    "Listing entire buckets without prefixes - this is expensive and slow for buckets with many objects",
+    "Writing directly to final paths - use temporary files with atomic rename to prevent readers from seeing partial data"
+  ],
+  "faq": [
+    {
+      "question": "What retry configuration does object_store recommend for production?",
+      "answer": "object_store recommends configuring RetryConfig with max_retries of 3-5 and retry_timeout of 10-30 seconds. This handles transient network issues, S3 rate limiting (503 SlowDown), and temporary service outages."
+    },
+    {
+      "question": "When should I use multipart upload instead of put()?",
+      "answer": "Use multipart upload for files larger than 100MB. Benefits include: resume capability if uploads fail, better memory efficiency, improved reliability for unstable networks, and parallel upload performance gains."
+    },
+    {
+      "question": "How do I avoid loading entire files into memory?",
+      "answer": "Use streaming with store.get(&path).await?.into_stream(). This returns a stream of chunks that you process incrementally without loading the complete file into memory at once."
+    },
+    {
+      "question": "What is the recommended way to handle errors in object_store?",
+      "answer": "Create custom error types using thiserror that wrap ObjectStoreError. Use match statements to handle specific errors like NotFound differently from network errors. Avoid unwrap() and expect() in production code."
+    },
+    {
+      "question": "How do I optimize listing operations to reduce costs?",
+      "answer": "Always use prefixes to limit LIST operations to relevant objects. Avoid store.list(None) which lists the entire bucket. For large buckets, use streaming with pagination and filter on the client side."
+    },
+    {
+      "question": "How do I make my code work with multiple cloud providers?",
+      "answer": "Use the ObjectStore trait for all operations and avoid provider-specific APIs. Configure each provider using their respective builders (AmazonS3Builder, MicrosoftAzureBuilder, GoogleCloudStorageBuilder) and pass dyn ObjectStore through your application."
+    }
+  ],
+  "seoKeywords": [
+    "Claude object store skill",
+    "Claude Code cloud storage",
+    "AWS S3 best practices Rust",
+    "Azure Blob storage retry logic",
+    "GCS object store tutorial",
+    "cloud storage error handling",
+    "Rust object_store crate guide",
+    "multipart upload large files"
+  ],
+  "sourceUrl": "https://github.com/EmilLindfors/claude-marketplace/tree/main/plugins/rust-data-engineering/skills/object-store-best-practices",
+  "sourceType": "community",
+  "dependencies": []
+}

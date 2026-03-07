@@ -1,0 +1,141 @@
+{
+  "name": "swarm-orchestration",
+  "type": "skill",
+  "description": "Orchestrate multi-agent swarms with agentic-flow for parallel task execution, dynamic topology, and intelligent coordination. Use when scaling beyond single agents, implementing complex workflows, or building distributed AI systems.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "dynamic coordination",
+  "quality": 5,
+  "qualityReason": "Highly specific orchestration logic",
+  "bundleHints": [
+    "agent-orchestration",
+    "swarm-systems"
+  ],
+  "tags": [
+    "agentic-flow",
+    "coordination",
+    "distributed",
+    "dynamic-topology",
+    "multi-agent",
+    "orchestration",
+    "parallel-execution",
+    "workflows"
+  ],
+  "capabilities": [
+    "Initialize multi-agent swarms with mesh, hierarchical, or adaptive topologies",
+    "Execute tasks in parallel or pipeline mode with automatic load balancing",
+    "Share memory and state across all agents in the swarm",
+    "Handle agent failures with retry policies and automatic reassignment",
+    "Monitor swarm metrics including throughput, latency, and success rates"
+  ],
+  "author": "DNYoussef",
+  "icon": "🐝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown content with example code snippets. No executable code, scripts, network calls, or filesystem access detected. Static findings are false positives triggered by documentation syntax (backticks in markdown, topology names like 'hierarchical') and metadata fields. This is safe documentation for agentic-flow commands.",
+  "valueStatement": "Building complex AI systems with multiple agents requires sophisticated coordination. This skill provides proven patterns and commands for orchestrating agent swarms with automatic load balancing, fault tolerance, and intelligent task distribution.",
+  "userTitle": "Orchestrate multi-agent AI swarms",
+  "limitations": [
+    "Requires agentic-flow v1.5.11 or higher installed",
+    "Only works with Node.js 18 or higher environments",
+    "Does not create or manage actual agent processes itself",
+    "Limited to coordination patterns defined in agentic-flow"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI Engineers",
+      "title": "Build distributed AI systems",
+      "description": "Coordinate multiple specialized AI agents to build complex software systems in parallel."
+    },
+    {
+      "targetUser": "DevOps Teams",
+      "title": "Automate CI/CD pipelines",
+      "description": "Orchestrate testing, building, and deployment tasks across multiple agent types."
+    },
+    {
+      "targetUser": "Research Teams",
+      "title": "Scale AI experiments",
+      "description": "Run multiple research tasks concurrently with automatic load balancing and fault tolerance."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Parallel development",
+      "scenario": "Build multiple features",
+      "prompt": "Use swarm orchestration to build a REST API with tests. Initialize a mesh topology with 3 agents: coder, tester, and reviewer. Execute tasks in parallel mode."
+    },
+    {
+      "title": "Sequential pipeline",
+      "scenario": "Follow development stages",
+      "prompt": "Create a pipeline for feature development using hierarchical topology. Use architect for design, coder for implementation, tester for testing, and reviewer for code review."
+    },
+    {
+      "title": "Resilient execution",
+      "scenario": "Handle failures gracefully",
+      "prompt": "Orchestrate a build task with fault tolerance enabled. Set retry with exponential backoff and automatic fallback to reassign tasks on failure. Monitor metrics throughout."
+    },
+    {
+      "title": "Adaptive scaling",
+      "scenario": "Auto-adjust to complexity",
+      "prompt": "Run an adaptive swarm for building a production-ready API. Allow the swarm to automatically select topology and scale agents based on task complexity. Set max time to 1 hour."
+    }
+  ],
+  "bestPractices": [
+    "Start with 2-3 agents and scale up as you understand the task requirements",
+    "Use swarm memory coordination to share context instead of repeating information",
+    "Always set timeouts to prevent hung tasks from blocking the entire swarm"
+  ],
+  "antiPatterns": [
+    "Do not run too many agents simultaneously without load balancing enabled",
+    "Avoid long-running tasks without monitoring metrics and progress",
+    "Do not skip setting up hooks for pre-task and post-task coordination"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. You need agentic-flow v1.5.11 or higher installed."
+    },
+    {
+      "question": "What are the limits on swarm size?",
+      "answer": "The default maximum is 5 agents for mesh topology. You can configure this with the max-agents flag for larger swarms."
+    },
+    {
+      "question": "How does this integrate with existing workflows?",
+      "answer": "Use the hooks integration (pre-task, post-task, session-restore) to coordinate with your existing development workflow and tools."
+    },
+    {
+      "question": "Is my data safe with swarm orchestration?",
+      "answer": "Yes. This skill only provides coordination patterns. All data remains in your environment and is not sent to external services."
+    },
+    {
+      "question": "Why are my agents not coordinating?",
+      "answer": "Verify that you have enabled hooks and that all agents have access to the shared memory store. Check your topology configuration."
+    },
+    {
+      "question": "How is this different from regular agent usage?",
+      "answer": "Regular agents work alone. Swarm orchestration coordinates multiple specialized agents working together with shared state, load balancing, and fault tolerance."
+    }
+  ],
+  "seoKeywords": [
+    "swarm orchestration",
+    "multi-agent AI",
+    "agentic-flow",
+    "Claude Code",
+    "parallel task execution",
+    "distributed AI systems",
+    "agent coordination",
+    "dynamic topology",
+    "workflow automation",
+    "AI agents"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/swarm-orchestration",
+  "sourceType": "community",
+  "dependencies": []
+}

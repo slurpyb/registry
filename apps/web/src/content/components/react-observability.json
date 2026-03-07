@@ -1,0 +1,141 @@
+{
+  "name": "react-observability",
+  "type": "skill",
+  "description": "Logging, error messages, and debugging patterns for React. Use when adding logging, designing error messages, debugging production issues, or improving code observability. Works for both React web and React Native.",
+  "domain": "testing",
+  "subdomain": "monitoring",
+  "specialty": "Debugging",
+  "quality": 5,
+  "qualityReason": "Specific observability patterns for React apps",
+  "bundleHints": [
+    "react-stack",
+    "monitoring-toolkit",
+    "debugging-suite"
+  ],
+  "tags": [
+    "debugging",
+    "error-handling",
+    "logging",
+    "observability",
+    "production",
+    "react"
+  ],
+  "capabilities": [
+    "Generate structured logging patterns with contextual information for React applications",
+    "Design error messages that include diagnostic context and actionable information",
+    "Implement flow tracing for multi-step operations with unique identifiers",
+    "Create sensitive data redaction utilities to prevent credential leakage in logs",
+    "Build error boundaries with comprehensive error reporting and fallback UI",
+    "Add state snapshot debugging helpers for complex async flows"
+  ],
+  "author": "CJHarmath",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Educational skill providing React observability best practices. All static findings are false positives from documentation examples in markdown code blocks. No executable code or security risks detected.",
+  "valueStatement": "Silent failures make debugging impossible. This skill teaches you to write React code with built-in observability through structured logging, contextual error messages, and production-ready debugging patterns.",
+  "userTitle": "Build Observable React Applications with Smart Logging",
+  "limitations": [
+    "Does not execute or test code, only generates patterns and examples",
+    "Logging patterns require integration with your existing logging infrastructure",
+    "Error reporting examples assume Sentry but may need adaptation for other services",
+    "Does not provide production monitoring dashboard configuration"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers troubleshooting production bugs",
+      "title": "Debug Production Issues Without Source Maps",
+      "description": "Add comprehensive logging to React components so production errors include enough context to diagnose issues from logs alone, even when source maps are unavailable."
+    },
+    {
+      "targetUser": "React developers building new application features",
+      "title": "Implement Observability in New React Features",
+      "description": "Design new features with observability from the start by adding structured logging, error boundaries, and flow tracing to complex user workflows."
+    },
+    {
+      "targetUser": "Senior developers improving code quality",
+      "title": "Audit Existing Code for Silent Failures",
+      "description": "Review existing React components to identify and fix silent early returns, missing error context, and unhandled promise rejections that make debugging difficult."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Add Logging to Component",
+      "prompt": "Add structured logging to this React component with proper error context and state snapshots",
+      "scenario": "You have a component with complex logic that needs observability"
+    },
+    {
+      "title": "Design Error Message",
+      "prompt": "Improve this error message to include diagnostic context, relevant state, and a hypothesis about the cause",
+      "scenario": "An error message lacks information needed for debugging"
+    },
+    {
+      "title": "Implement Flow Tracing",
+      "prompt": "Add flow tracing with unique identifiers to this multi-step async operation so I can track execution in logs",
+      "scenario": "A checkout or form submission flow needs better observability"
+    },
+    {
+      "title": "Build Secure Logger with Redaction",
+      "prompt": "Create a logging utility that automatically redacts sensitive fields like passwords, tokens, and API keys from log output",
+      "scenario": "Need to prevent credential leakage in production logs"
+    }
+  ],
+  "bestPractices": [
+    "Log every early return with enough context to understand why the code path was taken and what state led to it",
+    "Include a hypothesis in error messages about what might have caused the failure to speed up debugging",
+    "Use unique flow identifiers for multi-step operations so you can trace entire workflows in log aggregation tools"
+  ],
+  "antiPatterns": [
+    "Logging sensitive data like passwords, tokens, or API keys without redaction can expose credentials in log files",
+    "Generic error messages without context force developers to add logging and redeploy to diagnose production issues",
+    "Silent catches that swallow errors without logging make it impossible to know when failures occur in production"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with React Native?",
+      "answer": "Yes, all patterns work with both React web and React Native. The logging utilities use standard console methods that work in both environments."
+    },
+    {
+      "question": "How do I integrate with my existing logging service?",
+      "answer": "The skill provides logger wrapper patterns that you can customize to send logs to your service. Replace the console calls with your logging SDK calls."
+    },
+    {
+      "question": "Will adding all this logging slow down my app?",
+      "answer": "The skill includes log level filtering so you can control verbosity. Debug logs can be disabled in production while keeping errors and warnings active."
+    },
+    {
+      "question": "Can I use this with TypeScript?",
+      "answer": "Yes, all examples are written in TypeScript with proper type annotations and type assertions for safer error handling."
+    },
+    {
+      "question": "How do I prevent logging sensitive user data?",
+      "answer": "The skill includes a redaction utility that automatically strips sensitive fields from log context objects before they are written to logs or sent to monitoring services."
+    },
+    {
+      "question": "What if I need to debug in production right now?",
+      "answer": "The skill includes a quick debugging template you can add temporarily to dump state at key points, then remove or gate behind a feature flag once the issue is resolved."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "React",
+    "logging",
+    "observability",
+    "debugging",
+    "error handling",
+    "production debugging",
+    "structured logging"
+  ],
+  "sourceUrl": "https://github.com/CJHarmath/claude-agents-skills/tree/main/skills/react-observability",
+  "sourceType": "community",
+  "dependencies": []
+}

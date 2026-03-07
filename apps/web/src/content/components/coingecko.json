@@ -1,0 +1,178 @@
+{
+  "name": "coingecko",
+  "type": "skill",
+  "description": "CoinGecko API documentation - cryptocurrency market data API, price feeds, market cap, volume, historical data. Use when integrating CoinGecko API, building crypto price trackers, or accessing cryptocurrency market data.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "crypto data",
+  "quality": 5,
+  "qualityReason": "Well-defined data source integration",
+  "bundleHints": [
+    "crypto-stack",
+    "market-data"
+  ],
+  "tags": [
+    "api",
+    "bitcoin",
+    "blockchain",
+    "crypto",
+    "cryptocurrency",
+    "defi",
+    "ethereum",
+    "finance",
+    "historical-data",
+    "market-cap",
+    "market-data",
+    "nft",
+    "price-feeds",
+    "prices",
+    "trading"
+  ],
+  "capabilities": [
+    "Retrieve real-time cryptocurrency prices and market data",
+    "Get historical price data and market charts",
+    "Access market cap, volume, and trading statistics",
+    "Query cryptocurrency metadata and contract addresses",
+    "Explore trending coins and gainers/losers",
+    "Fetch NFT collection data and floor prices",
+    "Get exchange listings and trading pair information",
+    "Access global DeFi and blockchain statistics",
+    "Retrieve coin categories and market indices",
+    "Search coins, exchanges, and NFT collections"
+  ],
+  "author": "2025Emma",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "CoinGecko API documentation skill containing cryptocurrency market data references. Static analysis flagged 5874 potential issues across risk categories, but all are FALSE_POSITIVE as this is documentation-only content. Risk factors (external_commands, network, env_access, filesystem) represent mentions in documentation context, not actual executable code. All findings are documentation references to API endpoints, authentication patterns, and cryptocurrency-related terminology that triggers heuristic scanners. Safe for publication with no executable security risks.",
+  "valueStatement": "Access real-time cryptocurrency prices, market cap, volume, and historical data through the CoinGecko API. Essential for building crypto price trackers, DeFi dashboards, and cryptocurrency trading tools.",
+  "userTitle": "CoinGecko API Documentation - Cryptocurrency Market Data",
+  "limitations": [
+    "Free API tier has rate limits (10-50 calls/minute)",
+    "Historical data granularity limited on free tier",
+    "No real-time websocket streams (only polling)",
+    "Some advanced endpoints require paid API plan",
+    "Cannot execute trades or interact with blockchains directly",
+    "Data is sourced from exchanges, may have delays"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Crypto investors and traders",
+      "title": "Crypto Price Tracker",
+      "description": "Build a real-time cryptocurrency price tracking dashboard showing current prices, 24h changes, and market cap for top coins."
+    },
+    {
+      "targetUser": "DeFi users and protocol developers",
+      "title": "DeFi Dashboard",
+      "description": "Create a DeFi dashboard displaying TVL, yield rates, and protocol statistics from across the ecosystem."
+    },
+    {
+      "targetUser": "Crypto portfolio managers",
+      "title": "Portfolio Analyzer",
+      "description": "Build a portfolio tracking tool that monitors holdings and calculates performance based on historical price data."
+    },
+    {
+      "targetUser": "Algorithmic traders",
+      "title": "Trading Bot Integration",
+      "description": "Use CoinGecko API as a price feed source for automated trading strategies and arbitrage bots."
+    },
+    {
+      "targetUser": "Crypto media and content creators",
+      "title": "Crypto News Aggregator",
+      "description": "Combine market data with trending information to create a crypto news and market sentiment dashboard."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Get Current Price",
+      "prompt": "Get the current price and 24h statistics for [COIN_NAME] using the CoinGecko API. Include market cap and trading volume.",
+      "scenario": "Looking up current market data for a specific cryptocurrency"
+    },
+    {
+      "title": "Historical Price Chart",
+      "prompt": "Retrieve the last 30 days of price history for [COIN_ID] and format it as a chart data array showing dates and prices.",
+      "scenario": "Building historical price charts or analyzing price trends"
+    },
+    {
+      "title": "Top Gainers and Losers",
+      "prompt": "List the top 10 cryptocurrencies with the highest 24h percentage gains and the top 10 with the biggest losses.",
+      "scenario": "Market analysis and sentiment tracking"
+    },
+    {
+      "title": "Exchange Comparison",
+      "prompt": "Compare trading volumes and fees between [EXCHANGE_1] and [EXCHANGE_2] for the [COIN_PAIR] trading pair.",
+      "scenario": "Evaluating exchange options for trading"
+    },
+    {
+      "title": "DeFi Statistics",
+      "prompt": "Get current DeFi total value locked (TVL) and list the top 10 DeFi protocols by TVL with their change percentages.",
+      "scenario": "DeFi market research and protocol analysis"
+    }
+  ],
+  "bestPractices": [
+    "Cache API responses to respect rate limits",
+    "Use the API ID (not symbol) for coin queries to avoid ambiguity",
+    "Implement exponential backoff for retry logic",
+    "Store CoinGecko API IDs in a mapping for efficient lookups",
+    "Check 'is_active' status before relying on exchange data",
+    "Use 'vs_currencies' parameter to specify target fiat currency",
+    "Implement proper error handling for network failures",
+    "Rotate between multiple free API keys if available for higher limits"
+  ],
+  "antiPatterns": [
+    "Making API calls inside tight loops without caching",
+    "Using coin symbols instead of IDs (can be ambiguous)",
+    "Ignoring rate limit headers and hitting API blocks",
+    "Not handling API downtime or data gaps",
+    "Assuming real-time data when using historical endpoints",
+    "Storing API keys in client-side code",
+    "Querying the same data repeatedly instead of caching"
+  ],
+  "faq": [
+    {
+      "question": "Is the CoinGecko API free to use?",
+      "answer": "Yes, CoinGecko offers a free tier with 10-50 calls per minute. Higher rate limits and advanced endpoints require a paid API plan."
+    },
+    {
+      "question": "How do I get an API key?",
+      "answer": "Sign up at https://www.coingecko.com/developers/api to get a free API key. Paid plans offer higher limits and additional endpoints."
+    },
+    {
+      "question": "What data can I access without an API key?",
+      "answer": "Basic endpoints like price, market cap, and simple historical data are available without authentication, but with stricter rate limits."
+    },
+    {
+      "question": "How accurate is the market data?",
+      "answer": "CoinGecko aggregates data from 800+ exchanges. There may be slight delays compared to individual exchange data. Always verify with primary sources for trading."
+    },
+    {
+      "question": "Can I use this for live trading?",
+      "answer": "The API is suitable for price feeds and market analysis. For live trading, consider WebSocket feeds from exchanges for lower latency."
+    }
+  ],
+  "seoKeywords": [
+    "cryptocurrency",
+    "crypto prices",
+    "CoinGecko API",
+    "market data",
+    "bitcoin",
+    "ethereum",
+    "DeFi",
+    "trading",
+    "market cap",
+    "volume",
+    "historical crypto data",
+    "token prices",
+    "blockchain"
+  ],
+  "sourceUrl": "https://github.com/2025Emma/vibe-coding-cn/tree/main/i18n/en/skills/coingecko",
+  "sourceType": "community",
+  "dependencies": []
+}

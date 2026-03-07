@@ -1,0 +1,143 @@
+{
+  "name": "bdi-mental-states",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"model agent mental states\", \"implement BDI architecture\", \"create belief-desire-intention models\", \"transform RDF to beliefs\", \"build cognitive agent\", or mentions BDI ontology, mental state modeling, rational agency, or neuro-symbolic AI integration.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "cognitive modeling",
+  "quality": 5,
+  "qualityReason": "Specific agent design pattern",
+  "bundleHints": [
+    "agent-framework",
+    "cognitive-ai"
+  ],
+  "tags": [
+    "agent-architecture",
+    "bdi",
+    "cognitive-architecture",
+    "mental-states",
+    "ontology",
+    "rdf",
+    "reasoning"
+  ],
+  "capabilities": [
+    "Provides BDI ontology patterns for belief-desire-intention modeling",
+    "Includes RDF/Turtle examples for mental state representation",
+    "Offers SPARQL queries for competency validation",
+    "Documents integration patterns for SEMAS and JADE frameworks",
+    "Explains T2B2T (Triples-to-Beliefs-to-Triples) paradigm",
+    "Contains temporal reasoning patterns for mental state evolution"
+  ],
+  "author": "muratcankoylan",
+  "icon": "🧠",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing theoretical BDI ontology patterns. Static findings are false positives triggered by markdown code fences (mistaken as shell commands) and semantic web IRIs (mistaken as network operations). No executable code, system operations, or actual cryptographic implementations exist. The skill is purely instructional content for cognitive architecture modeling.",
+  "valueStatement": "Transform RDF data into cognitive agent architectures using formal Belief-Desire-Intention patterns. Enable AI systems to model rational agency with traceable reasoning chains and semantic interoperability for multi-agent systems.",
+  "userTitle": "Model AI Agent Mental States with BDI Ontology",
+  "limitations": [
+    "Documentation only - no executable implementation provided",
+    "Requires external RDF/SPARQL tools for actual processing",
+    "Ontology examples need adaptation for specific domains",
+    "No built-in consistency checking mechanisms"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI Researchers",
+      "title": "Implement Cognitive Architectures",
+      "description": "Design BDI-based reasoning systems for autonomous agents with traceable mental states"
+    },
+    {
+      "targetUser": "Semantic Web Developers",
+      "title": "Model Agent Beliefs in RDF",
+      "description": "Create RDF graphs representing agent mental states for knowledge-based systems"
+    },
+    {
+      "targetUser": "Multi-Agent System Engineers",
+      "title": "Enable Agent Communication",
+      "description": "Implement belief sharing and coordination protocols using formal ontologies"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic BDI Modeling",
+      "scenario": "Transform simple scenarios into BDI mental states",
+      "prompt": "Given this scenario: [describe situation], create RDF triples representing the agent beliefs, desires, and intentions using BDI ontology patterns"
+    },
+    {
+      "title": "Multi-Agent Coordination",
+      "scenario": "Model shared beliefs across multiple agents",
+      "prompt": "Design BDI mental states for agents that need to coordinate on [task]. Include shared beliefs and complementary intentions"
+    },
+    {
+      "title": "Temporal Reasoning",
+      "scenario": "Track mental state evolution over time",
+      "prompt": "Create BDI mental states that change over time for this sequence: [timeline]. Include validity intervals and process triggers"
+    },
+    {
+      "title": "Conflict Resolution",
+      "scenario": "Resolve conflicting mental states",
+      "prompt": "Given conflicting beliefs [list beliefs] and intentions [list intentions], model the resolution process using BDI justification patterns"
+    }
+  ],
+  "bestPractices": [
+    "Always link mental states to world states via refersTo relationships for grounding",
+    "Include temporal validity intervals for all mental entities to support diachronic reasoning",
+    "Use bidirectional properties (motivates/isMotivatedBy) for flexible querying",
+    "Provide explicit justifications for each mental state to enable explainability"
+  ],
+  "antiPatterns": [
+    "Conflating mental states with world states - beliefs reference but are not world states",
+    "Missing temporal bounds - every mental state needs validity intervals",
+    "Flat belief structures - use compositional modeling with hasPart for complex beliefs",
+    "Direct intention-to-action mapping - intentions specify plans which contain tasks"
+  ],
+  "faq": [
+    {
+      "question": "Is this skill compatible with existing BDI frameworks?",
+      "answer": "Yes, it provides integration patterns for SEMAS, JADE/JADEX, and other BDI platforms through ontology mapping"
+    },
+    {
+      "question": "What are the limitations of the BDI approach?",
+      "answer": "BDI models require explicit representation of all mental states and may not capture subconscious or emotional factors"
+    },
+    {
+      "question": "How do I integrate this with my existing RDF data?",
+      "answer": "Use the T2B2T pattern: translate your RDF to beliefs, apply BDI reasoning, then project back to RDF"
+    },
+    {
+      "question": "Is my data safe when using this ontology?",
+      "answer": "This is documentation only - no data processing occurs. Implementations should validate RDF inputs and use secure SPARQL endpoints"
+    },
+    {
+      "question": "How do I handle inconsistent mental states?",
+      "answer": "Use justification tracking to identify conflicts, then apply resolution strategies like temporal partitioning or belief revision"
+    },
+    {
+      "question": "How does this compare to other cognitive architectures?",
+      "answer": "BDI focuses on practical reasoning with clear mental state distinctions, making it more interpretable than neural approaches"
+    }
+  ],
+  "seoKeywords": [
+    "BDI ontology",
+    "mental state modeling",
+    "cognitive architecture",
+    "RDF reasoning",
+    "agent beliefs",
+    "Claude Code",
+    "AI reasoning",
+    "semantic web",
+    "multi-agent systems",
+    "neuro-symbolic AI"
+  ],
+  "sourceUrl": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/bdi-mental-states",
+  "sourceType": "community",
+  "dependencies": []
+}

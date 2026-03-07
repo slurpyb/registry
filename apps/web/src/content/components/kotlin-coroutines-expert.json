@@ -1,0 +1,138 @@
+{
+  "name": "kotlin-coroutines-expert",
+  "type": "skill",
+  "description": "Expert patterns for Kotlin Coroutines and Flow, covering structured concurrency, error handling, and testing.",
+  "domain": "languages",
+  "subdomain": "other",
+  "specialty": "structured concurrency",
+  "quality": 5,
+  "qualityReason": "Expert concurrency patterns",
+  "bundleHints": [
+    "kotlin-stack",
+    "android-dev",
+    "async-programming"
+  ],
+  "tags": [
+    "async",
+    "concurrency",
+    "coroutines",
+    "error handling",
+    "flow",
+    "kotlin",
+    "testing"
+  ],
+  "capabilities": [
+    "Implement structured concurrency with CoroutineScope",
+    "Handle exceptions in coroutines using CoroutineExceptionHandler",
+    "Build reactive streams with Flow and StateFlow",
+    "Write unit tests for suspending functions using TestScope",
+    "Debug coroutine cancellation and memory leaks"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 26 potential issues (24 external_commands, 2 weak cryptographic). Manual review confirms all are FALSE POSITIVES. The 'external_commands' detections are markdown backtick formatting (e.g., `coroutineScope`) not shell execution. The 'weak cryptographic' detections are misidentified content. This is a legitimate Kotlin Coroutines documentation skill with no security risks.",
+  "valueStatement": "Kotlin Coroutines and Flow can be complex to master. This skill provides expert patterns for structured concurrency, error handling, and testing asynchronous code.",
+  "userTitle": "Master Kotlin Coroutines & Flow",
+  "limitations": [
+    "Does not cover Android-specific coroutine APIs (ViewModelScope, lifecycleScope)",
+    "Does not include Spring WebFlux or backend-specific patterns",
+    "Does not provide runtime execution or code generation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building Kotlin services",
+      "title": "Backend Developer",
+      "description": "Implement async API calls and parallel data fetching in Kotlin microservices"
+    },
+    {
+      "targetUser": "Android developers working with modern Kotlin",
+      "title": "Android Developer",
+      "description": "Handle async UI updates and reactive data streams in Android apps"
+    },
+    {
+      "targetUser": "Engineers reviewing async Kotlin code",
+      "title": "Code Reviewer",
+      "description": "Review coroutine code for proper error handling and structured concurrency patterns"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Coroutine Setup",
+      "prompt": "Show me how to set up a CoroutineScope for parallel API calls in Kotlin",
+      "scenario": "When you need to fetch multiple data sources concurrently"
+    },
+    {
+      "title": "Flow Error Handling",
+      "prompt": "How do I handle errors in a Kotlin Flow pipeline?",
+      "scenario": "When building reactive data streams with error resilience"
+    },
+    {
+      "title": "Coroutine Testing",
+      "prompt": "Write a unit test for a suspending function using TestScope",
+      "scenario": "When testing coroutine-based code with controlled timing"
+    },
+    {
+      "title": "Cancellation Handling",
+      "prompt": "Explain how to properly handle coroutine cancellation without catching CancellationException",
+      "scenario": "When debugging stuck coroutines or implementing cleanup logic"
+    }
+  ],
+  "bestPractices": [
+    "Always use Dispatchers.IO for blocking I/O operations to avoid blocking the main thread",
+    "Cancel coroutine scopes when they are no longer needed (e.g., in ViewModel.onCleared)",
+    "Use TestScope and runTest for deterministic coroutine testing with virtual time"
+  ],
+  "antiPatterns": [
+    "Avoid GlobalScope - it breaks structured concurrency and can lead to memory leaks",
+    "Do not catch CancellationException unless you rethrow it - this breaks cooperative cancellation",
+    "Avoid using suspendCoroutine or suspendCancellableCoroutine when higher-level APIs suffice"
+  ],
+  "faq": [
+    {
+      "question": "What is structured concurrency in Kotlin?",
+      "answer": "Structured concurrency ensures coroutines are tied to a lifecycle scope. When the scope cancels, all its child coroutines are cancelled, preventing leaks."
+    },
+    {
+      "question": "When should I use supervisorScope vs coroutineScope?",
+      "answer": "Use coroutineScope when you want any failure to cancel all children. Use supervisorScope when you want children to fail independently without affecting siblings."
+    },
+    {
+      "question": "How do I test coroutines?",
+      "answer": "Use TestScope and runTest from kotlinx.coroutines.test. Inject TestDispatcher to control virtual time for deterministic testing."
+    },
+    {
+      "question": "What is the difference between Flow and StateFlow?",
+      "answer": "Flow is cold - it produces values only when collected. StateFlow is hot - it retains a current value and emits to all collectors."
+    },
+    {
+      "question": "How do I handle exceptions in Flow?",
+      "answer": "Use catch operator at the end of the pipeline, or use try-catch inside the flow builder. For retrying, use retry or retryWhen operators."
+    },
+    {
+      "question": "What are common causes of coroutine memory leaks?",
+      "answer": "Using GlobalScope, not cancelling scopes when done, capturing context incorrectly, or holding references to actors that are never completed."
+    }
+  ],
+  "seoKeywords": [
+    "Kotlin Coroutines",
+    "Kotlin Flow",
+    "async programming",
+    "structured concurrency",
+    "coroutine testing",
+    "Claude Code",
+    "Codex",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/kotlin-coroutines-expert",
+  "sourceType": "community",
+  "dependencies": []
+}

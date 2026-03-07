@@ -1,0 +1,139 @@
+{
+  "name": "rn-async-patterns",
+  "type": "skill",
+  "description": "Async/await correctness in React Native with Zustand. Use when debugging race conditions, missing awaits, floating promises, or async timing issues in Expo/React Native apps.",
+  "domain": "mobile",
+  "subdomain": "cross-platform",
+  "specialty": "async correctness",
+  "quality": 5,
+  "qualityReason": "Specific to async issues",
+  "bundleHints": [
+    "react-native-stack",
+    "mobile-dev"
+  ],
+  "tags": [
+    "async",
+    "debugging",
+    "expo",
+    "race-conditions",
+    "react-native",
+    "zustand"
+  ],
+  "capabilities": [
+    "Detect floating promises (async calls without await)",
+    "Identify hidden async functions in Zustand stores",
+    "Apply post-condition validation after async operations",
+    "Choose between sequential and parallel async execution",
+    "Fix async useEffect patterns with proper cleanup",
+    "Configure ESLint rules for async code safety"
+  ],
+  "author": "CJHarmath",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown guidance for debugging async patterns in React Native. All 53 static findings are false positives: the scanner misidentified 'async' keywords as cryptographic algorithms, 'Object.keys()' as certificate files, and grep command examples as shell execution. No executable code, network calls, file system access, or command execution capabilities exist.",
+  "valueStatement": "Async bugs in React Native apps often work in development but fail under load. This skill provides patterns to detect and fix race conditions, floating promises, and async timing issues in Zustand-based state management.",
+  "userTitle": "Debug React Native async issues",
+  "limitations": [
+    "Does not execute code or modify your project files",
+    "Does not provide real-time debugging or breakpoints",
+    "Does not connect to running React Native applications",
+    "Requires manual application of suggested fixes to your codebase"
+  ],
+  "useCases": [
+    {
+      "targetUser": "React Native developers",
+      "title": "Debug production async bugs",
+      "description": "Identify why async code works in development but fails under load or on slower devices"
+    },
+    {
+      "targetUser": "Zustand users",
+      "title": "Fix Zustand async patterns",
+      "description": "Detect hidden async in Zustand actions and properly await state updates"
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Review async code quality",
+      "description": "Apply checklist for catching race conditions and missing awaits in pull requests"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Find floating promises",
+      "scenario": "Detect async calls without await",
+      "prompt": "Help me find floating promises in my React Native code. Show me how to identify async function calls that are not awaited and explain the race condition risks."
+    },
+    {
+      "title": "Fix Zustand async",
+      "scenario": "Debug Zustand state issues",
+      "prompt": "My Zustand store has async actions that seem to run out of order. Show me how to properly structure async Zustand actions and validate post-conditions."
+    },
+    {
+      "title": "Parallel vs sequential",
+      "scenario": "Choose execution strategy",
+      "prompt": "I have multiple async operations that might depend on each other. Help me decide when to use Promise.all() versus sequential await statements."
+    },
+    {
+      "title": "Add ESLint rules",
+      "scenario": "Automate async detection",
+      "prompt": "What ESLint rules should I add to my project to automatically catch floating promises, missing awaits, and other async anti-patterns in TypeScript?"
+    }
+  ],
+  "bestPractices": [
+    "Always await async functions or explicitly mark them as fire-and-forget with a comment",
+    "Validate post-conditions after async operations that subsequent code depends on",
+    "Use the inner async function pattern in useEffect with cleanup for race conditions"
+  ],
+  "antiPatterns": [
+    "Calling async functions without await assuming they complete immediately",
+    "Using Promise.all() when operations depend on shared state or must run in order",
+    "Making useEffect callbacks async directly without cleanup handling"
+  ],
+  "faq": [
+    {
+      "question": "Which React Native versions are supported?",
+      "answer": "Works with all React Native versions using TypeScript. Compatible with Expo and bare React Native projects."
+    },
+    {
+      "question": "What are the limits of pattern detection?",
+      "answer": "The skill provides guidance patterns. You must manually apply fixes to your codebase. No automated code scanning included."
+    },
+    {
+      "question": "How do I integrate with my existing codebase?",
+      "answer": "Review the ESLint configuration section and apply the recommended rules. Use the code review checklist during pull requests."
+    },
+    {
+      "question": "Is my code sent anywhere?",
+      "answer": "No. This is a documentation-only skill. Code snippets you share stay in your conversation and are not transmitted externally."
+    },
+    {
+      "question": "Why do async bugs only appear in production?",
+      "answer": "Development environments are fast and predictable. Production has network latency, slower devices, and concurrent operations that expose race conditions."
+    },
+    {
+      "question": "How does this compare to unit testing async code?",
+      "answer": "This skill helps write cleaner async code. Unit tests validate behavior. Use both together for comprehensive async reliability."
+    }
+  ],
+  "seoKeywords": [
+    "React Native async debugging",
+    "Zustand async patterns",
+    "race condition fix",
+    "floating promises TypeScript",
+    "async await React Native",
+    "Expo async debugging",
+    "Claude async code help",
+    "Codex React patterns",
+    "ClauCode async debugging"
+  ],
+  "sourceUrl": "https://github.com/CJHarmath/claude-agents-skills/tree/main/skills/rn-async-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

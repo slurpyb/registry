@@ -1,0 +1,142 @@
+{
+  "name": "cloud-infrastructure",
+  "type": "skill",
+  "description": "Cloud infrastructure design and deployment patterns for AWS, Azure, and",
+  "domain": "devops",
+  "subdomain": "iac",
+  "specialty": "IaC deployment",
+  "quality": 5,
+  "qualityReason": "Specific infrastructure focus",
+  "bundleHints": [
+    "cloud-stack",
+    "iac-pipeline"
+  ],
+  "tags": [
+    "aws",
+    "azure",
+    "cloud",
+    "cost-optimization",
+    "infrastructure",
+    "multi-cloud",
+    "multi-region",
+    "terraform"
+  ],
+  "capabilities": [
+    "Design multi-cloud architecture patterns for AWS, Azure, and GCP",
+    "Implement Infrastructure as Code with Terraform best practices",
+    "Optimize cloud costs using reserved instances, spot instances, and right-sizing",
+    "Configure high availability and multi-region deployments",
+    "Apply cloud security patterns including IAM, encryption, and network isolation",
+    "Set up monitoring, alerting, and observability for cloud workloads"
+  ],
+  "author": "Joseph OBrien",
+  "icon": "☁️",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based documentation skill containing only markdown guidance on cloud architecture. No code execution, network calls, file system access, or external commands. All 37 static findings are false positives from the scanner misinterpreting documentation text as security patterns.",
+  "valueStatement": "Building cloud infrastructure requires understanding complex patterns across multiple platforms. This skill provides expert guidance on architecture design, Infrastructure as Code implementation, cost optimization strategies, and production deployment patterns for AWS, Azure, and GCP.",
+  "userTitle": "Design cloud architecture across AWS, Azure, and GCP",
+  "limitations": [
+    "Does not execute infrastructure deployments or modify cloud resources",
+    "Does not provide real-time cost analysis or access billing data",
+    "Does not integrate with cloud provider APIs for status checks",
+    "Does not generate or apply Terraform configuration files directly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Design production cloud architecture",
+      "description": "Plan multi-tier applications with proper compute, storage, database, and networking patterns across cloud providers."
+    },
+    {
+      "targetUser": "Platform Engineers",
+      "title": "Implement Infrastructure as Code",
+      "description": "Structure Terraform projects with modular design, remote state management, and environment isolation."
+    },
+    {
+      "targetUser": "Cloud Architects",
+      "title": "Optimize cloud costs and reliability",
+      "description": "Reduce spending through reserved capacity, spot instances, and right-sizing while maintaining high availability."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Architecture Design",
+      "scenario": "Designing a new cloud application",
+      "prompt": "Design a cloud architecture for a [application type] with [requirements] requirements. Include compute, storage, database, and networking patterns for [AWS/Azure/GCP/multi-cloud]."
+    },
+    {
+      "title": "Terraform Setup",
+      "scenario": "Setting up IaC project structure",
+      "prompt": "Create a Terraform project structure for a [environment] environment. Include modules for networking, compute, and database with best practices for state management and module versioning."
+    },
+    {
+      "title": "Cost Optimization",
+      "scenario": "Reducing cloud spending",
+      "prompt": "Analyze and optimize cloud costs for a [service type] workload. Identify opportunities using reserved instances, spot capacity, storage lifecycle policies, and resource right-sizing."
+    },
+    {
+      "title": "HA Configuration",
+      "scenario": "Building resilient deployments",
+      "prompt": "Design a high availability deployment across multiple availability zones and regions for a [workload type]. Include load balancing, database replication, automatic failover, and disaster recovery procedures."
+    }
+  ],
+  "bestPractices": [
+    "Use Infrastructure as Code (Terraform, CloudFormation) for all resources to enable reproducible deployments",
+    "Implement defense in depth with security groups, private subnets, and least-privilege IAM policies",
+    "Separate environments (dev, staging, prod) with isolated state and access controls"
+  ],
+  "antiPatterns": [
+    "Using long-term credentials instead of IAM roles for service authentication",
+    "Deploying production workloads to a single availability zone",
+    "Hardcoding values instead of using variables and Terraform workspaces"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with all cloud providers?",
+      "answer": "Yes. The skill covers AWS, Azure, and GCP with specific service mappings and equivalent patterns for each platform."
+    },
+    {
+      "question": "What are the cost optimization limits?",
+      "answer": "The skill provides strategies but does not access billing APIs. Real-time analysis requires integration with cloud cost management tools."
+    },
+    {
+      "question": "Can this skill generate Terraform code?",
+      "answer": "The skill provides patterns and best practices. It does not generate executable Terraform configuration files."
+    },
+    {
+      "question": "Is my cloud data safe when using this skill?",
+      "answer": "This is a prompt-based skill. It reads only the conversation context and generates text. No data leaves your environment."
+    },
+    {
+      "question": "Why are my Terraform deployments failing?",
+      "answer": "Common issues include state lock conflicts, provider version mismatches, and insufficient IAM permissions. Check error messages and state file integrity."
+    },
+    {
+      "question": "How does this compare to cloud-native tools?",
+      "answer": "This skill provides architectural guidance. Cloud-native tools like AWS CDK or Pulumi generate infrastructure code. Use both together for best results."
+    }
+  ],
+  "seoKeywords": [
+    "cloud infrastructure",
+    "AWS architecture",
+    "Azure infrastructure",
+    "GCP cloud",
+    "Terraform",
+    "multi-cloud",
+    "cloud design patterns",
+    "IaC",
+    "cloud deployment",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/89jobrien/steve/tree/main/steve/skills/cloud-infrastructure",
+  "sourceType": "community",
+  "dependencies": []
+}

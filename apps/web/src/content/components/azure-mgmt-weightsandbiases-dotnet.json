@@ -1,0 +1,139 @@
+{
+  "name": "azure-mgmt-weightsandbiases-dotnet",
+  "type": "skill",
+  "description": "Azure Weights & Biases SDK for .NET. Manage W&B ML experiment tracking instances via Azure Marketplace.",
+  "domain": "ai-ml",
+  "subdomain": "ml-ops",
+  "specialty": "experiment-tracking",
+  "quality": 4,
+  "qualityReason": "Clear ML ops integration",
+  "bundleHints": [
+    "ml-ops",
+    "experiment-tracking"
+  ],
+  "tags": [
+    "azure",
+    "dotnet",
+    "experiment-tracking",
+    "experiments",
+    "marketplace",
+    "ml-ops",
+    "mlflow",
+    "sdk",
+    "weights-and-biases"
+  ],
+  "capabilities": [
+    "Create and provision Weights & Biases instances from Azure Marketplace",
+    "Configure Entra ID single sign-on for W&B workspaces",
+    "List and manage W&B instances across subscriptions and resource groups",
+    "Apply managed identity for secure Azure resource access",
+    "Update instance tags and configuration settings",
+    "Delete W&B instances and clean up resources"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis scanned 0 files with 0 lines, identifying no security patterns. Manual review confirms this is a documentation-only skill providing guidance for Azure.ResourceManager.WeightsAndBiases .NET SDK. No executable code, network calls, or credential handling detected. Safe for publication.",
+  "valueStatement": "Machine learning teams need to deploy and manage Weights & Biases experiment tracking infrastructure on Azure. This skill provides .NET SDK guidance for provisioning W&B instances, configuring SSO, and managing ML observability resources.",
+  "userTitle": "Manage W&B ML Experiments on Azure with .NET",
+  "limitations": [
+    "Requires Azure subscription with Marketplace purchase permissions",
+    "SDK is in beta preview (v1.0.0-beta.1) with API version 2024-09-18-preview",
+    "Does not interact directly with W&B experiment data - only manages Azure infrastructure",
+    "Requires DefaultAzureCredential or equivalent Azure authentication setup"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Platform Engineers",
+      "title": "ML Platform Engineer",
+      "description": "Automate W&B instance provisioning across development, staging, and production environments using Infrastructure as Code patterns."
+    },
+    {
+      "targetUser": "Data Science Managers",
+      "title": "Enterprise Data Science Team",
+      "description": "Deploy W&B with enterprise SSO integration for centralized ML experiment tracking across the organization."
+    },
+    {
+      "targetUser": "FinOps Analysts",
+      "title": "Cloud Cost Optimization",
+      "description": "Programmatically manage W&B instance lifecycle to control costs by scaling resources based on project needs."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a W&B Instance",
+      "prompt": "Create a Weights & Biases instance in my Azure resource group with default configuration for a small ML team."
+    },
+    {
+      "title": "Configure SSO for W&B",
+      "prompt": "Set up Entra ID single sign-on for my existing W&B instance using SAML authentication with allowed domains."
+    },
+    {
+      "title": "List W&B Resources",
+      "prompt": "List all Weights & Biases instances in my subscription and show their provisioning state and region."
+    },
+    {
+      "title": "Production W&B Deployment",
+      "prompt": "Create a production-ready W&B instance with managed identity enabled, SSO configured, proper tagging for cost tracking, and error handling for deployment failures."
+    }
+  ],
+  "bestPractices": [
+    "Use DefaultAzureCredential for flexible authentication that works in development and production environments.",
+    "Enable managed identity on W&B instances to securely access other Azure resources without storing credentials.",
+    "Wait for provisioning state to reach Succeeded before using the instance for ML workloads."
+  ],
+  "antiPatterns": [
+    "Do not hardcode subscription IDs or resource names - use environment variables or configuration files.",
+    "Avoid creating W&B instances without tags - this makes cost allocation and resource organization difficult.",
+    "Do not skip SSO configuration for enterprise deployments - manual user management creates security risks."
+  ],
+  "faq": [
+    {
+      "question": "What Azure regions support Weights & Biases instances?",
+      "answer": "Supported regions include East US, Central US, West US, West Europe, Japan East, and Korea Central. Choose the region closest to your compute resources for optimal latency."
+    },
+    {
+      "question": "How do I authenticate to Azure for W&B management?",
+      "answer": "Use DefaultAzureCredential which supports multiple authentication methods including Azure CLI, managed identity, Visual Studio credentials, and environment variables."
+    },
+    {
+      "question": "Can I integrate W&B with Azure Active Directory for SSO?",
+      "answer": "Yes, configure SingleSignOnPropertiesV2 with SAML type, provide your Entra enterprise app ID, and specify allowed domains for automatic user provisioning."
+    },
+    {
+      "question": "What is the difference between this SDK and the W&B Python SDK?",
+      "answer": "This .NET SDK manages Azure infrastructure for W&B instances. The W&B Python SDK is used by data scientists to log experiments, metrics, and models to an existing W&B workspace."
+    },
+    {
+      "question": "How do I check if a W&B instance name is available?",
+      "answer": "Attempt to retrieve the instance by name. A 404 response indicates the name is available. A successful response means the name is already taken."
+    },
+    {
+      "question": "Is the Azure.ResourceManager.WeightsAndBiases SDK production ready?",
+      "answer": "The SDK is currently in beta preview (v1.0.0-beta.1). It is functional but APIs may change. Test thoroughly before using in critical production workflows."
+    }
+  ],
+  "seoKeywords": [
+    "Azure Weights and Biases",
+    "W&B .NET SDK",
+    "ML experiment tracking",
+    "Azure Marketplace",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "Azure Resource Manager",
+    "ML observability",
+    "dotnet SDK"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-mgmt-weightsandbiases-dotnet",
+  "sourceType": "community",
+  "dependencies": []
+}

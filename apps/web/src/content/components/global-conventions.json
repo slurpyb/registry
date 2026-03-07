@@ -1,0 +1,143 @@
+{
+  "name": "global-conventions",
+  "type": "skill",
+  "description": "Follow consistent project structure, version control practices, environment configuration, code review processes, and development conventions across the entire application. Use this skill when organizing project files and directories, when writing commit messages or creating pull requests, when managing environment variables and configuration, when participating in code reviews, when defining testing requirements, when using feature flags, when maintaining changelogs, when documenting setup instructions, or when establishing consistent development practices across the team.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "dev conventions",
+  "quality": 5,
+  "qualityReason": "Project-wide consistency",
+  "bundleHints": [
+    "dev-standards",
+    "workflow"
+  ],
+  "tags": [
+    "best-practices",
+    "code-review",
+    "conventions",
+    "documentation",
+    "env-config",
+    "project-structure",
+    "standards",
+    "team-workflow",
+    "version-control"
+  ],
+  "capabilities": [
+    "Organize project files and directories following consistent patterns",
+    "Write standardized commit messages and create proper pull requests",
+    "Manage environment variables and configuration files correctly",
+    "Participate in code reviews with consistent evaluation criteria",
+    "Define and maintain testing requirements before code merges",
+    "Implement feature flags and manage changelog documentation"
+  ],
+  "author": "DevanB",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only skill containing pure markdown instructions for AI behavior. No executable code, scripts, network calls, filesystem access, or external command execution. All 17 static findings are false positives triggered by metadata and documentation patterns, not actual security risks.",
+  "valueStatement": "Teams struggle with inconsistent code styles and practices across different projects and contributors. This skill provides AI-powered guidance on project structure, commit messages, code reviews, and development standards to maintain consistency across all team members and projects.",
+  "userTitle": "Enforce consistent project conventions",
+  "limitations": [
+    "Does not enforce conventions automatically - only provides guidance",
+    "Does not modify existing code to match conventions",
+    "Does not integrate with CI/CD pipelines or pre-commit hooks",
+    "Relies on AI understanding and applying conventions correctly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development Teams",
+      "title": "Team Standards Guide",
+      "description": "New team members learn project conventions quickly by asking the AI for guidance on each task."
+    },
+    {
+      "targetUser": "Project Maintainers",
+      "title": "Consistency Enforcement",
+      "description": "Maintainers receive consistent guidance when reviewing contributions from multiple contributors."
+    },
+    {
+      "targetUser": "Solo Developers",
+      "title": "Personal Best Practices",
+      "description": "Individual developers maintain disciplined practices across multiple projects and time periods."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Project Structure",
+      "scenario": "Organizing a new feature module",
+      "prompt": "How should I organize the files for a new feature module following our project conventions?"
+    },
+    {
+      "title": "Commit Messages",
+      "scenario": "Writing a commit message",
+      "prompt": "What makes a good commit message for this change that adds user authentication?"
+    },
+    {
+      "title": "Code Review",
+      "scenario": "Reviewing a pull request",
+      "prompt": "What should I look for when reviewing a pull request for our codebase conventions?"
+    },
+    {
+      "title": "Configuration",
+      "scenario": "Managing environment files",
+      "prompt": "How should I set up environment configuration for a new environment like staging?"
+    }
+  ],
+  "bestPractices": [
+    "Apply conventions consistently across all new code contributions",
+    "Document any deviations from standard conventions with clear justification",
+    "Update team documentation when conventions evolve or improve"
+  ],
+  "antiPatterns": [
+    "Applying different conventions to different parts of the codebase without clear rationale",
+    "Making convention decisions without consulting the existing project patterns",
+    "Assuming AI knows your specific project conventions without providing context"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill automatically fix code style issues?",
+      "answer": "No. This skill provides guidance on conventions but does not automatically modify code or enforce rules."
+    },
+    {
+      "question": "Can I customize conventions for my specific project?",
+      "answer": "Yes. Provide your project-specific conventions as context when asking for guidance."
+    },
+    {
+      "question": "Does this integrate with linters or formatters?",
+      "answer": "No. This skill provides conversational guidance rather than integrating with build tools."
+    },
+    {
+      "question": "Is my code or project data shared anywhere?",
+      "answer": "No. This is a prompt-only skill that operates within your existing AI conversation context."
+    },
+    {
+      "question": "Why are my convention suggestions not being followed?",
+      "answer": "Ensure you reference your project conventions explicitly or provide them as background context."
+    },
+    {
+      "question": "How does this compare to using a style guide directly?",
+      "answer": "This skill translates abstract conventions into specific actionable advice for your context."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code conventions skill",
+    "code standards automation",
+    "development best practices",
+    "commit message guidelines",
+    "code review standards",
+    "project structure conventions",
+    "team workflow consistency",
+    "CI/CD conventions",
+    "development practices",
+    "code organization"
+  ],
+  "sourceUrl": "https://github.com/DevanB/lucidlog/tree/master/.claude/skills/global-conventions",
+  "sourceType": "community",
+  "dependencies": []
+}

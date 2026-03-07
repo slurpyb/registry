@@ -1,0 +1,141 @@
+{
+  "name": "simpy",
+  "type": "skill",
+  "description": "Process-based discrete-event simulation framework in Python. Use this skill when building simulations of systems with processes, queues, resources, and time-based events such as manufacturing systems, service operations, network traffic, logistics, or any system where entities interact with shared resources over time.",
+  "domain": "languages",
+  "subdomain": "python",
+  "specialty": "discrete-event simulation",
+  "quality": 5,
+  "qualityReason": "Specific, domain-focused",
+  "bundleHints": [
+    "python-simulation",
+    "modeling-tools",
+    "scientific-python"
+  ],
+  "tags": [
+    "analysis",
+    "discrete-events",
+    "modeling",
+    "process-based",
+    "queueing",
+    "simulation"
+  ],
+  "capabilities": [
+    "Create process-based simulations with Python generator functions",
+    "Model resource contention and queueing behavior with multiple resource types",
+    "Monitor utilization, wait times, and throughput with built-in tracking",
+    "Generate reusable simulation templates for common patterns",
+    "Export results to CSV for external analysis",
+    "Simulate real-time systems synchronized with wall-clock time"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🔬",
+  "version": "1.0.0",
+  "license": "MIT license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 260 potential security issues, but evaluation confirms all are false positives. The 'external_commands' findings are markdown backticks used for code formatting, not shell execution. The 'weak cryptographic algorithm' flags refer to random.seed() for simulation reproducibility. No actual security risks exist in this legitimate SimPy discrete-event simulation skill.",
+  "valueStatement": "SimPy enables you to model complex systems with processes, queues, and shared resources. Simulate manufacturing lines, service operations, network traffic, and logistics to optimize performance before implementation.",
+  "userTitle": "Build Discrete-Event Simulations with SimPy",
+  "limitations": [
+    "Not suitable for continuous simulations with fixed time steps",
+    "Requires Python generator functions for process definition",
+    "No built-in visualization capabilities",
+    "Large-scale models may have performance constraints"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Operations Research Analyst",
+      "title": "Optimize Manufacturing Lines",
+      "description": "Model production workflows to identify bottlenecks, balance capacity, and minimize cycle times."
+    },
+    {
+      "targetUser": "Network Engineer",
+      "title": "Simulate Network Traffic",
+      "description": "Analyze packet routing, bandwidth allocation, and latency under various load conditions."
+    },
+    {
+      "targetUser": "Service Designer",
+      "title": "Design Queue Systems",
+      "description": "Simulate customer flow in banks, hospitals, or retail to determine optimal staffing levels."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Queue Simulation",
+      "scenario": "Customer-server queue with tellers",
+      "prompt": "Create a SimPy simulation of customers arriving at a bank with 2 tellers. Customers arrive every 3-5 minutes and service takes 5-8 minutes. Run for 8 hours and show average wait time."
+    },
+    {
+      "title": "Manufacturing Line",
+      "scenario": "Production with multiple stations",
+      "prompt": "Build a SimPy model of a 3-stage manufacturing line where parts go through cutting (10 min), assembly (15 min), and inspection (5 min). Each stage has 1 machine. Analyze throughput."
+    },
+    {
+      "title": "Network Packet Simulation",
+      "scenario": "Router with bandwidth limits",
+      "prompt": "Simulate packets arriving at a router with 100 Mbps bandwidth. Packets are 1-5 KB and arrive at 50 packets per second. Show queue length and packet loss under peak load."
+    },
+    {
+      "title": "Resource Optimization",
+      "scenario": "Multi-resource allocation",
+      "prompt": "Model a cloud data center with 10 servers handling 3 types of jobs: short (1-5 min), medium (10-20 min), long (30-60 min). Jobs arrive randomly. Find optimal server allocation per job type."
+    }
+  ],
+  "bestPractices": [
+    "Always use context managers (with statement) when requesting resources to ensure proper cleanup and prevent deadlocks",
+    "Set random.seed() for reproducible results when comparing different simulation scenarios",
+    "Monitor and collect data throughout the simulation, not just at the end, to capture transient behavior"
+  ],
+  "antiPatterns": [
+    "Forgetting yield statements in process functions will cause processes to run instantly without proper timing",
+    "Reusing events that have already been triggered will cause simulation errors or unexpected behavior",
+    "Using blocking Python operations like time.sleep() instead of env.timeout() breaks the simulation timing model"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between Environment and RealtimeEnvironment?",
+      "answer": "Environment runs simulations as fast as possible, while RealtimeEnvironment synchronizes simulation time with wall-clock time for real-time or hardware-in-the-loop applications."
+    },
+    {
+      "question": "How do I choose the right resource type for my simulation?",
+      "answer": "Use Resource for basic capacity limits, PriorityResource for priority queuing, Container for bulk materials like fuel or water, and Store for object storage with FIFO or filtering."
+    },
+    {
+      "question": "Can I interrupt a running process in SimPy?",
+      "answer": "Yes, use process.interrupt() to forcefully resume a paused process. This is useful for modeling preemption, timeouts, or external cancellation events."
+    },
+    {
+      "question": "How do I collect custom statistics during a simulation?",
+      "answer": "Use the ResourceMonitor class from the provided scripts or create custom monitors by patching resource methods and tracking events during simulation execution."
+    },
+    {
+      "question": "What is the best way to model parallel processes that need synchronization?",
+      "answer": "Start multiple processes with env.process() and use the yield operator with & operator to wait for all processes to complete, or | for any process completion."
+    },
+    {
+      "question": "How can I export simulation results for external analysis?",
+      "answer": "Use the export_csv() method in ResourceMonitor to save collected data, or write custom export functions using the data dictionaries tracked during simulation."
+    }
+  ],
+  "seoKeywords": [
+    "simpy",
+    "discrete event simulation",
+    "python simulation",
+    "queue modeling",
+    "claude code",
+    "manufacturing simulation",
+    "network simulation",
+    "process optimization",
+    "claude",
+    "codex"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/simpy",
+  "sourceType": "community",
+  "dependencies": []
+}

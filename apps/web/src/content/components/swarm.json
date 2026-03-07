@@ -1,0 +1,140 @@
+{
+  "name": "swarm",
+  "type": "skill",
+  "description": "Autonomous multi-agent workflow system for complex coding tasks. Use when the user requests non-trivial changes that would benefit from autonomous execution with built-in review gates. Ideal for refactoring modules, adding major features, migrating codebases, adding comprehensive test coverage, or any multi-step development task that can run autonomously. NOT for simple fixes, typos, or single-file changes.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "autonomous workflows",
+  "quality": 5,
+  "qualityReason": "Well-defined complex tasking",
+  "bundleHints": [
+    "agent-swarm",
+    "autonomous-coding"
+  ],
+  "tags": [
+    "autonomous",
+    "coding-tasks",
+    "multi-agent",
+    "refactoring",
+    "review-gates",
+    "workflow"
+  ],
+  "capabilities": [
+    "Spawn autonomous AI agents that execute a coordinated plan",
+    "Create structured markdown plans with checkboxes and review gates",
+    "Run agents in iterations until completion or max iterations reached",
+    "Execute review gates (Reviewer, Simplifier, Tester, Gatekeeper) for quality",
+    "Support both Codex CLI and Claude CLI for agent execution",
+    "Provide dry-run mode to preview execution without running agents"
+  ],
+  "author": "nbashaw",
+  "icon": "🐝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "After semantic evaluation, all 115 static findings are false positives. The scanner detected shell patterns, file operations, and hash strings without understanding context. Documentation examples are not executable code. Template placeholders are user-customizable. AI agent spawning is intentional core functionality. The skill operates transparently as open-source workflow automation tooling with no malicious intent or data exfiltration.",
+  "valueStatement": "Complex coding tasks require multiple iterations and coordinated changes across files. This skill spawns autonomous agents that work through a structured plan with built-in review gates. The swarm completes multi-step development work without constant back-and-forth interaction.",
+  "userTitle": "Execute complex tasks with autonomous agent swarms",
+  "limitations": [
+    "Cannot handle tasks requiring frequent user input or clarification",
+    "Not suitable for single-file changes or trivial fixes",
+    "Depends on having Codex or Claude CLI installed and configured",
+    "Cannot explore or understand codebase without explicit context in plan"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software engineers",
+      "title": "Refactor legacy codebases",
+      "description": "Modernize callback-based code to async/await patterns across multiple files with tests and coverage verification."
+    },
+    {
+      "targetUser": "Development teams",
+      "title": "Add comprehensive test coverage",
+      "description": "Implement unit and integration tests for existing features with proper mocking and edge case coverage."
+    },
+    {
+      "targetUser": "Project maintainers",
+      "title": "Migrate codebases between frameworks",
+      "description": "Systematically migrate from REST APIs to GraphQL, or between testing frameworks, with rollback checkpoints."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple refactor request",
+      "scenario": "Refactor a specific module",
+      "prompt": "Use swarm to refactor the auth module. Goal: Convert all files in auth/ to async/await, ensure npm test passes with 80% coverage. Create the plan at AUTH_REFACTOR.md."
+    },
+    {
+      "title": "Feature implementation",
+      "scenario": "Add multi-file feature",
+      "prompt": "Use swarm to add user notification preferences. Goal: Create settings UI, API endpoints, database migration. Plan at NOTIFICATIONS.md. Test command: npm test."
+    },
+    {
+      "title": "Code migration",
+      "scenario": "Migrate testing framework",
+      "prompt": "Use swarm to migrate from Jest to Vitest. Goal: All tests pass, coverage maintained, jest removed from dependencies. Plan at MIGRATION.md."
+    },
+    {
+      "title": "Large-scale changes",
+      "scenario": "Comprehensive refactoring project",
+      "prompt": "Use swarm for the database modernization project. Goal: Convert all models to use Prisma, update all controllers, maintain 100% test pass rate. Plan at DATABASE_MODERNIZATION.md."
+    }
+  ],
+  "bestPractices": [
+    "Start with a specific and measurable goal statement that defines exactly what done looks like",
+    "Include a Gatekeeper checklist with specific test commands and verification steps",
+    "Set MAX_ITERATIONS appropriately for the task scope (default is 20)"
+  ],
+  "antiPatterns": [
+    "Using swarm for single-line fixes or typo corrections",
+    "Creating vague goals like improve the auth system instead of specific measurable outcomes",
+    "Skipping review gates to save iterations, which defeats the quality assurance purpose"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools does swarm support?",
+      "answer": "Swarm supports both Claude CLI and Codex CLI. Use --codex flag for Codex (default) or --claude for Claude."
+    },
+    {
+      "question": "How many iterations does swarm run?",
+      "answer": "By default, swarm runs up to 20 iterations. Override with MAX_ITERATIONS environment variable."
+    },
+    {
+      "question": "Can I preview what swarm would do?",
+      "answer": "Yes, use the --dry-run or -n flag to see what commands would execute without actually running agents."
+    },
+    {
+      "question": "Is my data safe with swarm?",
+      "answer": "Swarm runs locally on your machine using your configured AI tools. No data is sent to external servers beyond what your AI tool uses."
+    },
+    {
+      "question": "Why are agents getting stuck?",
+      "answer": "Check if the plan goal is specific enough. Vague goals cause agents to repeat work. Ensure each step has a clear checkbox."
+    },
+    {
+      "question": "How is swarm different from a single agent?",
+      "answer": "Swarm uses multiple iterations with different agent roles (Worker, Reviewer, Simplifier, Tester, Gatekeeper) to prevent tunnel vision and ensure quality."
+    }
+  ],
+  "seoKeywords": [
+    "swarm skill",
+    "autonomous agents",
+    "multi-agent workflow",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "code refactoring",
+    "automated testing",
+    "code migration",
+    "software development"
+  ],
+  "sourceUrl": "https://github.com/nbashaw/swarm/tree/main/swarm",
+  "sourceType": "community",
+  "dependencies": []
+}

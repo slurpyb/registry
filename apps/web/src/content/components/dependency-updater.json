@@ -1,0 +1,139 @@
+{
+  "name": "dependency-updater",
+  "type": "skill",
+  "description": "Smart dependency management for any language. Auto-detects project type, applies safe updates automatically, prompts for major versions, diagnoses and fixes dependency issues.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "smart updates",
+  "quality": 5,
+  "qualityReason": "Comprehensive, intelligent update logic",
+  "bundleHints": [
+    "devops-toolkit",
+    "security-toolkit"
+  ],
+  "tags": [
+    "automation",
+    "dependencies",
+    "devops",
+    "diagnosis",
+    "package-management",
+    "safe-updates",
+    "security"
+  ],
+  "capabilities": [
+    "Auto-detects project type by scanning for package files (package.json, go.mod, Cargo.toml, etc.)",
+    "Applies safe updates automatically (minor and patch versions) while prompting for major versions",
+    "Respects intentionally pinned versions by skipping fixed dependencies",
+    "Runs security vulnerability audits using ecosystem-specific tools",
+    "Diagnoses and resolves common dependency issues like conflicts and version mismatches"
+  ],
+  "author": "softaworks",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate dependency management skill. Static findings are false positives: scanner misidentified YAML frontmatter and version documentation as cryptographic algorithms. External commands are documentation examples and scripts use hardcoded package manager operations with no injection vectors.",
+  "valueStatement": "Managing dependencies across multiple languages is time-consuming and error-prone. This skill automatically detects your project type, applies safe updates while protecting against breaking changes, and runs security audits.",
+  "userTitle": "Update dependencies across any project",
+  "limitations": [
+    "Does not modify code to fix breaking changes from major version upgrades",
+    "Requires pre-installed package managers and tools for each language ecosystem",
+    "Cannot recover from corrupted node_modules without manual intervention"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Individual developers",
+      "title": "Maintain personal projects",
+      "description": "Keep your personal projects up-to-date with the latest dependency versions while avoiding breaking changes."
+    },
+    {
+      "targetUser": "Security-conscious developers",
+      "title": "Security compliance",
+      "description": "Regularly audit dependencies for vulnerabilities and receive severity-based recommendations for remediation."
+    },
+    {
+      "targetUser": "Engineering teams",
+      "title": "Team dependency governance",
+      "description": "Apply consistent update policies across multiple repositories with safe-by-default update behavior."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick update",
+      "prompt": "update my dependencies",
+      "scenario": "Basic dependency update for the current project"
+    },
+    {
+      "title": "Security audit",
+      "prompt": "audit my dependencies for security vulnerabilities",
+      "scenario": "Check project dependencies for known security issues"
+    },
+    {
+      "title": "Diagnosis",
+      "prompt": "my npm install keeps failing, diagnose the issue",
+      "scenario": "Fix broken dependency installation"
+    },
+    {
+      "title": "Specific language",
+      "prompt": "check for outdated Python packages and update them safely",
+      "scenario": "Target a specific language ecosystem"
+    }
+  ],
+  "bestPractices": [
+    "Run dependency updates in a clean git branch and review changes before merging",
+    "Always run tests after major updates to verify compatibility",
+    "Commit lock files (package-lock.json, yarn.lock, go.sum) alongside dependency changes"
+  ],
+  "antiPatterns": [
+    "Automatically approving all major version updates without reviewing changelogs",
+    "Ignoring security audit results due to low severity",
+    "Updating fixed/pinned versions that were intentionally locked"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill modify my code?",
+      "answer": "No. This skill only updates dependency version numbers in package files. It does not modify application code to adapt to breaking changes from major version upgrades."
+    },
+    {
+      "question": "Is it safe to auto-apply minor and patch updates?",
+      "answer": "Yes. By semantic versioning convention, minor and patch updates are backward compatible. They add features or fix bugs without breaking existing functionality."
+    },
+    {
+      "question": "What happens if a major update breaks my application?",
+      "answer": "The skill prompts you to approve each major update individually. Review the changelog before approving. If something breaks, you can revert the change in version control."
+    },
+    {
+      "question": "Does this work with monorepos?",
+      "answer": "Yes. For Node.js projects, the skill supports recursive mode via taze -r. For other languages, run the skill in each subdirectory containing a package file."
+    },
+    {
+      "question": "What security tools does this skill use?",
+      "answer": "It uses ecosystem-specific tools: npm audit (Node.js), pip-audit and safety (Python), govulncheck (Go), cargo audit (Rust), bundle audit (Ruby), and dotnet list package --vulnerable (.NET)."
+    },
+    {
+      "question": "Can I use this offline?",
+      "answer": "Partial. Checking for outdated packages works offline. Security audits require network access to fetch vulnerability databases. Tool installation requires internet access."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "dependency updater",
+    "package manager",
+    "npm audit",
+    "dependency management",
+    "software dependencies",
+    "update packages",
+    "security audit"
+  ],
+  "sourceUrl": "https://github.com/softaworks/agent-toolkit/tree/main/skills/dependency-updater/",
+  "sourceType": "community",
+  "dependencies": []
+}

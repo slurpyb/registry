@@ -1,0 +1,146 @@
+{
+  "name": "cloud-penetration-testing",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"perform cloud penetration testing\", \"assess Azure or AWS or GCP security\", \"enumerate cloud resources\", \"exploit cloud misconfigurations\", \"test O365 security\", \"extract secrets from cloud environments\", or \"audit cloud infrastructure\". It provides comprehensive techniques for security assessment across major cloud platforms.",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "cloud security testing",
+  "quality": 5,
+  "qualityReason": "Specific offensive use case",
+  "bundleHints": [
+    "security-toolkit",
+    "cloud-security"
+  ],
+  "tags": [
+    "aws",
+    "aws-security",
+    "azure",
+    "azure-security",
+    "cloud-security",
+    "enumeration",
+    "gcp",
+    "gcp-security",
+    "misconfigurations",
+    "penetration-testing"
+  ],
+  "capabilities": [
+    "Execute cloud reconnaissance across Azure, AWS, and GCP environments",
+    "Authenticate to cloud platforms using various credential methods",
+    "Enumerate cloud resources including compute, storage, and identity services",
+    "Test for common cloud misconfigurations and vulnerabilities",
+    "Access cloud metadata services for credential discovery",
+    "Perform privilege escalation and persistence testing in cloud environments"
+  ],
+  "author": "sickn33",
+  "icon": "☁️",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains cloud penetration testing commands and scripts commonly used in authorized security assessments. Static analysis flagged external command execution, network access, and metadata endpoint patterns - all standard elements of legitimate cloud security testing. The skill includes clear authorization requirements and is designed for security professionals. Findings are false positives in this context as they represent standard pen testing techniques for Azure, AWS, and GCP.",
+  "valueStatement": "Security professionals need comprehensive cloud penetration testing capabilities across Azure, AWS, and GCP environments. This skill provides structured workflows for reconnaissance, enumeration, exploitation, and persistence testing with clear authorization requirements.",
+  "userTitle": "Perform Cloud Security Assessment",
+  "limitations": [
+    "Requires explicit written authorization before use",
+    "Cannot bypass multi-factor authentication in most scenarios",
+    "Detection by cloud logging services is unavoidable",
+    "Limited effectiveness against properly secured environments"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Professional penetration testers and security consultants",
+      "title": "Security Consultant Conducting AWS Assessment",
+      "description": "Perform comprehensive AWS security assessment including S3 bucket enumeration, IAM role analysis, and EC2 instance testing"
+    },
+    {
+      "targetUser": "Defensive security teams and SOC analysts",
+      "title": "Blue Team Member Testing Defenses",
+      "description": "Validate organization's cloud security controls by simulating attacker techniques"
+    },
+    {
+      "targetUser": "DevOps engineers and cloud architects",
+      "title": "DevSecOps Engineer Hardening Cloud Infrastructure",
+      "description": "Identify and remediate cloud misconfigurations before attackers can exploit them"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic AWS Enumeration",
+      "prompt": "Use the cloud-penetration-testing skill to enumerate AWS resources. List all S3 buckets, EC2 instances, and IAM users accessible with current credentials. Run: aws sts get-caller-identity first to check authentication.",
+      "scenario": "Initial reconnaissance phase of AWS penetration test"
+    },
+    {
+      "title": "Azure AD User Discovery",
+      "prompt": "Use the cloud-penetration-testing skill to enumerate Azure AD users and groups. List all users, groups, and role assignments. Check for users with password in attributes.",
+      "scenario": "Azure environment reconnaissance"
+    },
+    {
+      "title": "GCP Project Assessment",
+      "prompt": "Use the cloud-penetration-testing skill to assess GCP security. List enabled services, compute instances, storage buckets, and IAM policies. Check for overly permissive service accounts.",
+      "scenario": "GCP cloud security assessment"
+    },
+    {
+      "title": "Comprehensive Cloud Audit",
+      "prompt": "Use the cloud-penetration-testing skill to perform a comprehensive multi-cloud security assessment covering AWS, Azure, and GCP. Document all findings with remediation recommendations.",
+      "scenario": "Full cloud penetration test engagement"
+    }
+  ],
+  "bestPractices": [
+    "Always obtain written authorization before testing any cloud environment",
+    "Document all testing activities and findings for compliance",
+    "Use read-only enumeration techniques first before attempting exploitation",
+    "Respect scope boundaries and do not access systems outside authorization"
+  ],
+  "antiPatterns": [
+    "Running penetration tests without proper authorization",
+    "Testing production systems without notification to operations team",
+    "Attempting to access customer data in multi-tenant environments",
+    "Ignoring detection and alerting mechanisms during testing"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with multi-factor authentication?",
+      "answer": "MFA can limit some attack techniques. The skill documents alternative authentication methods but these require specific conditions to succeed."
+    },
+    {
+      "question": "Can this skill bypass cloud security controls?",
+      "answer": "No. This skill provides testing techniques that work within the capabilities of the provided credentials. Properly secured environments will block unauthorized access."
+    },
+    {
+      "question": "Is password spraying included?",
+      "answer": "The skill references password spraying tools for credential validation testing. This requires explicit authorization and should only be used in authorized assessments."
+    },
+    {
+      "question": "Does this skill work offline?",
+      "answer": "No. Cloud penetration testing requires network access to cloud provider APIs and metadata endpoints."
+    },
+    {
+      "question": "Can I use this for internal security testing?",
+      "answer": "Yes, with proper written authorization from the environment owner. Always document the scope and rules of engagement."
+    },
+    {
+      "question": "What cloud providers are supported?",
+      "answer": "Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) are all covered with specific techniques for each."
+    }
+  ],
+  "seoKeywords": [
+    "cloud penetration testing",
+    "AWS security assessment",
+    "Azure penetration test",
+    "GCP security audit",
+    "cloud security testing",
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "cloud pentesting",
+    "cloud security tools"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cloud-penetration-testing",
+  "sourceType": "community",
+  "dependencies": []
+}

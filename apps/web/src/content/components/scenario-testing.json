@@ -1,0 +1,142 @@
+{
+  "name": "scenario-testing",
+  "type": "skill",
+  "description": "This skill should be used when writing tests, validating features, or needing to verify code works. Triggers on \"write tests\", \"add test coverage\", \"validate feature\", \"integration test\", \"end-to-end\", \"e2e test\", \"mock\", \"unit test\". Enforces scenario-driven testing with real dependencies in .scratch/ directory.",
+  "domain": "testing",
+  "subdomain": "e2e",
+  "specialty": "feature validation",
+  "quality": 4,
+  "qualityReason": "Good, overlaps with testing",
+  "bundleHints": [
+    "testing-suite",
+    "qa-workflow"
+  ],
+  "tags": [
+    "coverage",
+    "e2e-testing",
+    "features",
+    "integration-testing",
+    "scenario-driven",
+    "testing",
+    "validation"
+  ],
+  "capabilities": [
+    "Triggers on test-related prompts to enforce scenario-driven testing methodology",
+    "Validates features by running scenarios with real dependencies in .scratch/",
+    "Promotes reusable testing patterns to scenarios.jsonl specifications",
+    "Ensures zero mocks in test scenarios for authentic validation",
+    "Validates scenarios run independently without ordering dependencies"
+  ],
+  "author": "2389-research",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. Scanner misidentified JSON structure as C2 keywords, YAML frontmatter as cryptographic code, markdown formatting as shell execution, and testing methodology text as system reconnaissance. This is legitimate scenario-driven testing documentation with no security concerns.",
+  "valueStatement": "Tests using mocks create false confidence. This skill enforces scenario-driven testing with real dependencies to prove code works in production-like conditions.",
+  "userTitle": "Validate Code with Scenario Testing",
+  "limitations": [
+    "Does not generate test code automatically",
+    "Does not mock external dependencies - requires real access",
+    "Does not run scenarios automatically - requires manual execution",
+    "Does not integrate with specific test frameworks directly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers implementing new features who need to validate their work",
+      "title": "Validate New Features",
+      "description": "Before declaring a feature complete, create a scenario in .scratch/ that exercises the real system end-to-end to prove it works."
+    },
+    {
+      "targetUser": "QA engineers and developers who want more reliable test coverage",
+      "title": "Replace Mock-Based Testing",
+      "description": "When tempted to use mocks for speed, switch to scenario testing with real dependencies to get accurate validation."
+    },
+    {
+      "targetUser": "Teams building maintainable test suites and documentation",
+      "title": "Document Reusable Test Patterns",
+      "description": "Extract successful scenarios into scenarios.jsonl to create a living specification of validated system behaviors."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Validate a Feature",
+      "prompt": "Use the scenario-testing skill to validate this feature. Create a scenario in .scratch/ that exercises the real system with zero mocks. The scenario must pass before the feature is considered complete.",
+      "scenario": "When you need to prove a feature actually works"
+    },
+    {
+      "title": "Replace Unit Tests",
+      "prompt": "Instead of writing unit tests with mocks, create scenario tests in .scratch/ that use real dependencies. Follow the scenario-testing methodology.",
+      "scenario": "When tempted to write mock-based unit tests"
+    },
+    {
+      "title": "Document a Testing Pattern",
+      "prompt": "Extract this successful scenario into scenarios.jsonl. Include name, description, given/when/then structure, and what it validates.",
+      "scenario": "When you have a working scenario to standardize"
+    },
+    {
+      "title": "Verify CI/CD Readiness",
+      "prompt": "Review that all scenarios in .scratch/ run independently without ordering dependencies. Confirm each scenario can execute in parallel for CI/CD.",
+      "scenario": "When preparing tests for continuous integration"
+    }
+  ],
+  "bestPractices": [
+    "Always use real dependencies in .scratch/ scenarios - mocks hide bugs",
+    "Keep .scratch/ in .gitignore - scratch scenarios are for validation only",
+    "Extract successful patterns to scenarios.jsonl for future reference",
+    "Ensure each scenario runs independently for reliable CI/CD integration"
+  ],
+  "antiPatterns": [
+    "Using mocks to speed up tests - speed does not matter if tests lie",
+    "Skipping validation because a unit test passes - unit tests do not validate features",
+    "Committing .scratch/ scenarios - keep scratch work private and ignored",
+    "Assuming API credentials are unavailable - ask for real test credentials"
+  ],
+  "faq": [
+    {
+      "question": "What is scenario-driven testing?",
+      "answer": "Scenario-driven testing validates code by running real scenarios with actual dependencies. It proves code works in production-like conditions rather than in isolated unit tests with mocks."
+    },
+    {
+      "question": "Why are mocks considered harmful?",
+      "answer": "Mocks test your assumptions about how dependencies behave, not how they actually behave. Only scenarios with real dependencies validate that your code integrates correctly with real systems."
+    },
+    {
+      "question": "What goes in .scratch/?",
+      "answer": "Temporary test scenarios that exercise your feature with real dependencies. These should never be committed and must remain in .gitignore."
+    },
+    {
+      "question": "What is scenarios.jsonl?",
+      "answer": "A committed file containing extracted testing patterns as JSON lines. Each line documents a validated scenario with its name, description, given/when/then structure, and what it validates."
+    },
+    {
+      "question": "Can I use test/sandbox modes for APIs?",
+      "answer": "Yes. Using sandbox or test modes for external APIs is acceptable as long as you are hitting the real service, not mocking its responses."
+    },
+    {
+      "question": "How does scenario testing differ from integration testing?",
+      "answer": "Scenario testing focuses on user-facing workflows that exercise multiple systems together. Integration testing focuses on component interactions. Both use real dependencies, but scenarios prioritize end-to-end user value."
+    }
+  ],
+  "seoKeywords": [
+    "scenario testing",
+    "integration testing",
+    "end-to-end testing",
+    "test validation",
+    "real dependencies",
+    "mock-free testing",
+    "feature validation",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/2389-research/claude-plugins/tree/main/scenario-testing/skills",
+  "sourceType": "community",
+  "dependencies": []
+}

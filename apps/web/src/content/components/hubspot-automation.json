@@ -1,0 +1,145 @@
+{
+  "name": "hubspot-automation",
+  "type": "skill",
+  "description": "Automate HubSpot CRM operations (contacts, companies, deals, tickets, properties) via Rube MCP using Composio integration.",
+  "domain": "business",
+  "subdomain": "sales",
+  "specialty": "CRM automation",
+  "quality": 5,
+  "qualityReason": "Automated CRM operations",
+  "bundleHints": [
+    "sales-automation",
+    "crm-integration"
+  ],
+  "tags": [
+    "automation",
+    "composio",
+    "contacts",
+    "crm",
+    "deals",
+    "hubspot",
+    "rube-mcp",
+    "tickets"
+  ],
+  "capabilities": [
+    "Create, search, and update contacts and companies in HubSpot CRM with batch operations up to 100 records",
+    "Search and filter deals by pipeline stage, owner, and date ranges with pagination support",
+    "Query support tickets by status, date, and custom criteria with property discovery",
+    "Create and manage custom properties for any HubSpot object type including enumeration fields",
+    "Resolve internal property names, pipeline IDs, and stage IDs from display names automatically",
+    "Verify HubSpot connection status and permissions before executing workflows"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 129 external_commands patterns which are FALSE POSITIVES - these are Markdown backticks for code formatting, not Ruby shell execution. One legitimate network dependency detected (rube.app/mcp server) which is the intended MCP architecture. No malicious patterns, credential exfiltration, or command injection vectors found. Skill is safe for publication with network access disclosure.",
+  "valueStatement": "Manual CRM data entry and pipeline management consume hours each week. This skill automates HubSpot operations including contacts, companies, deals, and tickets through AI-powered workflows.",
+  "userTitle": "Automate HubSpot CRM Operations with AI",
+  "limitations": [
+    "Requires active Rube MCP server connection and HubSpot OAuth authentication",
+    "Batch operations limited to 100 records per API call - larger datasets require chunking",
+    "Cannot execute direct HubSpot API calls - all operations route through Composio via Rube MCP",
+    "Property names are immutable after creation and must use internal names, not display labels"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Sales operations managers importing bulk leads",
+      "title": "Sales Team Contact Import",
+      "description": "Import and deduplicate leads from trade show collections by searching existing contacts before batch creation, then associate with relevant companies and deals."
+    },
+    {
+      "targetUser": "Customer support leads managing ticket queues",
+      "title": "Support Ticket Triage Automation",
+      "description": "Search tickets by status and date range, identify overdue items, and update properties to flag priority cases for immediate team attention."
+    },
+    {
+      "targetUser": "Revenue operations analysts tracking sales metrics",
+      "title": "Pipeline Health Reporting",
+      "description": "Retrieve all deal pipelines and stages, search deals by stage and owner, then generate summary reports on pipeline velocity and conversion rates."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a New Contact",
+      "prompt": "Create a HubSpot contact for John Smith with email john.smith@example.com, phone 555-0100, and company Acme Corp. First verify the connection is active, then search for existing contacts with this email to avoid duplicates before creating.",
+      "scenario": "Beginner - Single contact creation with duplicate check"
+    },
+    {
+      "title": "Batch Import Companies",
+      "prompt": "I have 250 companies to import into HubSpot. Chunk them into batches of 100, search for existing companies by domain name to prevent duplicates, then create only the new ones. Store all returned company IDs for later association with contacts.",
+      "scenario": "Intermediate - Batch operations with deduplication"
+    },
+    {
+      "title": "Deal Pipeline Analysis",
+      "prompt": "Retrieve all deal pipelines and their stages. Search for deals in the 'Qualification' stage owned by Sarah Johnson created in the last 30 days. Paginate through all results and summarize the total count, combined deal amount, and average deal size.",
+      "scenario": "Advanced - Multi-step pipeline analysis with pagination"
+    },
+    {
+      "title": "Custom Property Setup",
+      "prompt": "Create a custom enumeration property called 'Lead Source Channel' for contacts with options: Organic Search, Paid Ads, Referral, Trade Show, and Direct. First check existing properties to confirm it doesn't already exist, then create it in the 'Lead Information' property group.",
+      "scenario": "Advanced - Schema modification with validation"
+    }
+  ],
+  "bestPractices": [
+    "Always call HUBSPOT_GET_ACCOUNT_INFO first to verify connection status before executing any CRM operations",
+    "Search for existing records by email or domain before creating contacts or companies to prevent duplicates",
+    "Use READ_ALL_PROPERTIES_FOR_OBJECT_TYPE to discover internal property names before building filter queries",
+    "Chunk batch operations into groups of 100 records maximum and store returned IDs between batches",
+    "Follow pagination cursors via paging.next.after until absent to retrieve complete result sets"
+  ],
+  "antiPatterns": [
+    "Creating contacts without first searching for duplicates - results in fragmented contact records",
+    "Using display names instead of internal property names in filters - returns zero results without errors",
+    "Ignoring batch limits and attempting to create 500+ records in single call - API will reject request",
+    "Assuming date formats are consistent across endpoints - parse defensively for both epoch-ms and ISO strings"
+  ],
+  "faq": [
+    {
+      "question": "What do I need before using this skill?",
+      "answer": "You need Rube MCP configured in your AI client and an active HubSpot connection via Composio. Run HUBSPOT_GET_ACCOUNT_INFO to verify your connection status before starting workflows."
+    },
+    {
+      "question": "How do I avoid creating duplicate contacts?",
+      "answer": "Always call HUBSPOT_SEARCH_CONTACTS_BY_CRITERIA with the contact email before creating. If results exist, update the existing record instead of creating a new one."
+    },
+    {
+      "question": "Why am I getting 'Property values were not valid' errors?",
+      "answer": "This occurs when using incorrect property names or enumeration values. Use HUBSPOT_READ_ALL_PROPERTIES_FOR_OBJECT_TYPE to discover exact internal property names and valid option values."
+    },
+    {
+      "question": "How do I import more than 100 records?",
+      "answer": "Chunk your data into batches of 100 records maximum. Process each batch separately, storing the returned IDs before proceeding to the next batch."
+    },
+    {
+      "question": "Can I create custom fields in HubSpot?",
+      "answer": "Yes. Use HUBSPOT_CREATE_PROPERTY_FOR_SPECIFIED_OBJECT_TYPE to create custom properties. For enumeration fields, pre-define the value and label options in the options array."
+    },
+    {
+      "question": "How do I find the pipeline ID for a specific deal stage?",
+      "answer": "Call HUBSPOT_RETRIEVE_ALL_PIPELINES_FOR_SPECIFIED_OBJECT_TYPE with objectType 'deals', then use HUBSPOT_RETRIEVE_PIPELINE_STAGES to get stage IDs within a specific pipeline."
+    }
+  ],
+  "seoKeywords": [
+    "HubSpot automation",
+    "Claude Code CRM",
+    "Codex HubSpot integration",
+    "AI CRM assistant",
+    "Composio HubSpot",
+    "Rube MCP tools",
+    "Claude Code productivity",
+    "automated contact management",
+    "deal pipeline automation",
+    "CRM workflow automation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hubspot-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

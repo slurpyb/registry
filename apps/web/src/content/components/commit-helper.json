@@ -1,0 +1,142 @@
+{
+  "name": "commit-helper",
+  "type": "skill",
+  "description": "Expert conventional commits assistant for the Logseq Template Graph project. Analyzes git changes and generates proper conventional commit messages with correct type, scope, and format. Use when the user needs help writing commits or validating commit messages.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "conventional commits",
+  "quality": 5,
+  "qualityReason": "Project-specific precision",
+  "bundleHints": [
+    "git-workflow",
+    "logseq-tools"
+  ],
+  "tags": [
+    "commit-messages",
+    "commits",
+    "conventional-commits",
+    "git",
+    "logseq",
+    "type-scope-format",
+    "version-control",
+    "workflow"
+  ],
+  "capabilities": [
+    "Analyzes staged and unstaged git changes using git diff and git status commands",
+    "Determines correct commit type based on file changes (feat, fix, docs, refactor, etc.)",
+    "Suggests appropriate scope for commit messages tailored to project structure",
+    "Validates commit message format against conventional commits standard",
+    "Generates multi-line commit messages with body and footer sections",
+    "Detects breaking changes and suggests appropriate exclamation mark notation"
+  ],
+  "author": "C0ntr0lledCha0s",
+  "icon": "💬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based skill with no executable code. All 249 static findings are false positives: documentation examples showing git commands (not execution), commit message format strings misinterpreted as cryptographic patterns, and version strings flagged as C2 keywords. This is a safe documentation skill.",
+  "valueStatement": "Writing clear commit messages is challenging. This skill analyzes your git changes and suggests properly formatted conventional commits with correct type, scope, and description. It validates format and explains the reasoning behind each suggestion.",
+  "userTitle": "Generate Conventional Commit Messages",
+  "limitations": [
+    "Project-specific scopes are tailored for Logseq Template Graph (templates, classes, properties, ci)",
+    "Does not execute git commit command - requires user to run the command manually",
+    "Does not push changes to remote repositories",
+    "Cannot access remote git history or branches not available locally"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Open source contributors",
+      "title": "Improve commit history",
+      "description": "Generate clear, descriptive commit messages that follow project conventions and improve git history readability."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Automate commit validation",
+      "description": "Ensure all commits follow conventional format for automated changelog generation and semantic versioning."
+    },
+    {
+      "targetUser": "Documentation writers",
+      "title": "Document changes properly",
+      "description": "Create well-structured documentation commits with reference links and clear descriptions of what changed."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic commit help",
+      "scenario": "Quick commit message suggestion",
+      "prompt": "Suggest a commit message for my staged changes"
+    },
+    {
+      "title": "Detailed analysis",
+      "scenario": "Full change analysis with body",
+      "prompt": "Analyze my git diff and create a detailed conventional commit message with explanation"
+    },
+    {
+      "title": "Breaking changes",
+      "scenario": "Detect breaking changes",
+      "prompt": "Check if my changes include breaking changes and create appropriate commit message"
+    },
+    {
+      "title": "Batch commits",
+      "scenario": "Multiple file changes",
+      "prompt": "Look at all my staged changes across different modules and suggest the best commit message"
+    }
+  ],
+  "bestPractices": [
+    "Always check staged changes first with git diff --cached before suggesting commits",
+    "Use imperative mood for descriptions (add, not added; fix, not fixed)",
+    "Include body text when changes need explanation or reference issues and pull requests"
+  ],
+  "antiPatterns": [
+    "Using past tense in descriptions (Fixed bug instead of fix bug)",
+    "Omitting type and scope (just description without feat or fix prefix)",
+    "Ending descriptions with periods or exceeding 72 characters in the subject line"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill commit changes to git?",
+      "answer": "No. This skill only suggests and validates commit messages. You must run git commit yourself with the suggested message."
+    },
+    {
+      "question": "What commit types does this skill support?",
+      "answer": "Standard types: feat, fix, docs, style, refactor, perf, test, build, ops, chore. It also detects breaking changes marked with !."
+    },
+    {
+      "question": "Can I use this skill with any git repository?",
+      "answer": "Yes, but project-specific scopes work best with Logseq Template Graph. For other projects, use generic scopes."
+    },
+    {
+      "question": "Is my code or git history sent anywhere?",
+      "answer": "No. This is a prompt-only skill. All git commands run locally on your machine. No data is transmitted externally."
+    },
+    {
+      "question": "Why does the skill need git command access?",
+      "answer": "Git commands are essential to read staged changes. Commands run locally and are necessary to analyze what files changed."
+    },
+    {
+      "question": "How is this different from other commit tools?",
+      "answer": "This skill provides context-aware suggestions based on actual file changes. It validates format and explains reasoning for each suggestion."
+    }
+  ],
+  "seoKeywords": [
+    "Claude commit helper",
+    "conventional commits",
+    "git commit message generator",
+    "Claude Code git",
+    "commit message best practices",
+    "semantic version commits",
+    "git workflow automation",
+    "codex git tools",
+    "commit message validation",
+    "commit helper skill"
+  ],
+  "sourceUrl": "https://github.com/C0ntr0lledCha0s/logseq-template-graph/tree/main/.claude/skills/commit-helper",
+  "sourceType": "community",
+  "dependencies": []
+}

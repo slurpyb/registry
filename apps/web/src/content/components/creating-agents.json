@@ -1,0 +1,140 @@
+{
+  "name": "creating-agents",
+  "type": "skill",
+  "description": "Creates Claude Code subagents for task delegation. Guides through agent configuration, tool selection, and system prompts. Use this skill when the user wants to create a new agent, delegate tasks to specialists, or asks about subagents.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "agent task delegation",
+  "quality": 5,
+  "qualityReason": "Actionable, clear agent workflow",
+  "bundleHints": [
+    "agent-framework",
+    "ai-orchestration"
+  ],
+  "tags": [
+    "agents",
+    "automation",
+    "configuration",
+    "orchestration",
+    "task-delegation",
+    "workflow"
+  ],
+  "capabilities": [
+    "Guide users through creating custom Claude Code agents with proper configuration",
+    "Provide templates for common agent types: researcher, reviewer, and specialist",
+    "Explain agent file format with YAML frontmatter and system prompts",
+    "Detail available tools, models, and permission modes for agents",
+    "Show how to configure automatic and explicit agent invocation",
+    "Document storage locations and priority for project vs user agents"
+  ],
+  "author": "BrendanShields",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All detected patterns are false positives. The skill contains only documentation and templates for creating Claude Code agents. Backticks in markdown files are for code examples, not execution. Hidden file references are legitimate agent storage locations. No actual security risks identified.",
+  "valueStatement": "Building specialized agents for complex workflows can be challenging without clear guidance. This skill provides templates and configuration reference for creating Claude Code subagents that handle specific tasks with the right tools and permissions.",
+  "userTitle": "Create Custom Claude Code Agents for Task Delegation",
+  "limitations": [
+    "Does not create agents automatically, provides guidance and templates only",
+    "Requires understanding of YAML syntax and markdown formatting",
+    "Agent effectiveness depends on proper system prompt design",
+    "Limited to Claude Code platform agent capabilities"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development teams wanting consistent code review practices",
+      "title": "Create Code Review Agent",
+      "description": "Set up a dedicated agent that reviews code for security, quality, and maintainability with specific project standards"
+    },
+    {
+      "targetUser": "Developers onboarding to new projects or documenting systems",
+      "title": "Build Research-Only Agent",
+      "description": "Configure a read-only agent that explores codebases and documents architecture without making changes"
+    },
+    {
+      "targetUser": "Engineers needing specialized task automation for recurring work",
+      "title": "Design Domain Specialist Agent",
+      "description": "Create an agent with expertise in specific domains like databases, APIs, or testing with custom tools and prompts"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Agent Creation",
+      "prompt": "Help me create a new agent for code review that checks security issues",
+      "scenario": "User wants to create their first custom agent"
+    },
+    {
+      "title": "Configure Agent Tools",
+      "prompt": "I need an agent that can read files and run analysis commands but not modify anything",
+      "scenario": "User needs specific tool restrictions"
+    },
+    {
+      "title": "Set Up Proactive Agent",
+      "prompt": "Create an agent that automatically reviews code before commits",
+      "scenario": "User wants automatic agent invocation"
+    },
+    {
+      "title": "Build Domain Expert",
+      "prompt": "Help me design a database specialist agent with migration expertise and best practices",
+      "scenario": "User needs advanced domain-specific configuration"
+    }
+  ],
+  "bestPractices": [
+    "Grant minimum tools needed for the task following principle of least privilege",
+    "Include clear trigger words in agent descriptions for automatic selection",
+    "Use haiku model for quick lookups and opus for complex reasoning tasks"
+  ],
+  "antiPatterns": [
+    "Granting all tools to every agent without considering security implications",
+    "Writing vague descriptions that make automatic agent selection unreliable",
+    "Creating overly complex agents that try to handle too many unrelated tasks"
+  ],
+  "faq": [
+    {
+      "question": "Where should I store my custom agents?",
+      "answer": "Store project-specific agents in .claude/agents/ for team sharing. Store personal agents in ~/.claude/agents/ for cross-project use. Project agents take priority over user agents."
+    },
+    {
+      "question": "What tools should I give my agent?",
+      "answer": "Grant only the minimum tools needed. For read-only agents use Read, Glob, Grep. For modification agents add Write, Edit, Bash. Use Task if the agent needs to spawn subagents."
+    },
+    {
+      "question": "How do I make an agent run automatically?",
+      "answer": "Include trigger words in the description field and use terms like PROACTIVELY or MUST BE USED to signal automatic invocation based on user requests."
+    },
+    {
+      "question": "Which model should I choose for my agent?",
+      "answer": "Use haiku for quick lookups and simple tasks, sonnet for general work, and opus for complex reasoning. Use inherit to match the parent model context."
+    },
+    {
+      "question": "Can I use the templates as-is or do I need to customize them?",
+      "answer": "The templates provide starting points that you should customize. Adjust the system prompts, tools, and descriptions to match your specific workflow and requirements."
+    },
+    {
+      "question": "How do I debug an agent that is not working?",
+      "answer": "Check file location and naming, validate YAML frontmatter syntax, ensure description includes trigger words, and test with explicit invocation before relying on automatic selection."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Claude Code",
+    "agents",
+    "task delegation",
+    "automation",
+    "workflow",
+    "subagents",
+    "AI configuration",
+    "custom agents",
+    "productivity"
+  ],
+  "sourceUrl": "https://github.com/BrendanShields/spec-flow/tree/main/plugins/spec/skills/creating-agents",
+  "sourceType": "community",
+  "dependencies": []
+}

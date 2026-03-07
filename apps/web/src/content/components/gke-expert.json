@@ -1,0 +1,144 @@
+{
+  "name": "gke-expert",
+  "type": "skill",
+  "description": "Expert guidance for Google Kubernetes Engine (GKE) operations including cluster management, workload deployment, scaling, monitoring, troubleshooting, and optimization. Use when working with GKE clusters, Kubernetes deployments on GCP, container orchestration, or when users need help with kubectl commands, GKE networking, autoscaling, workload identity, or GKE-specific features like Autopilot, Binary Authorization, or Config Sync.",
+  "domain": "devops",
+  "subdomain": "cloud",
+  "specialty": "gke operations",
+  "quality": 5,
+  "qualityReason": "Expert-level guidance",
+  "bundleHints": [
+    "gcp",
+    "kubernetes"
+  ],
+  "tags": [
+    "cluster-management",
+    "container-orchestration",
+    "gcp",
+    "gke",
+    "google-cloud",
+    "kubernetes",
+    "monitoring",
+    "scaling",
+    "troubleshooting",
+    "workload"
+  ],
+  "capabilities": [
+    "Create GKE clusters using Autopilot or Standard mode with proper configuration",
+    "Generate Kubernetes deployment manifests, services, and ingress YAML templates",
+    "Configure autoscaling, workload identity, and security contexts for workloads",
+    "Troubleshoot pod failures, service issues, and performance bottlenecks",
+    "Apply security best practices including PodDisruptionBudgets and security contexts",
+    "Optimize costs using Autopilot, Spot VMs, and right-sizing recommendations"
+  ],
+  "author": "AdminTurnedDevOps",
+  "icon": "☸️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing GKE operational guidance. Static scanner detected 36 issues but all are false positives: 'weak crypto' triggers were SHA256 file hashes (skill-report.json), YAML keywords, and docstrings; 'hardcoded URLs' are official GCP/K8s documentation links; 'shell invocation' is a legitimate kubectl debug command example. The skill has no network access, no file I/O beyond templates, and no credential handling.",
+  "valueStatement": "Managing GKE clusters requires knowledge of GCP APIs, kubectl commands, and Kubernetes best practices. This skill provides ready-to-use workflows, YAML templates, and troubleshooting steps for common GKE scenarios.",
+  "userTitle": "Get expert GKE guidance",
+  "limitations": [
+    "Cannot execute commands or access actual GKE clusters",
+    "Cannot create or modify GCP resources directly",
+    "Cannot access external documentation beyond provided references",
+    "Assumes user has appropriate GCP permissions and kubectl access configured"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Deploy production workloads",
+      "description": "Set up GKE clusters with proper autoscaling, security contexts, and cost controls for production applications."
+    },
+    {
+      "targetUser": "Platform Engineers",
+      "title": "Build GKE standards",
+      "description": "Establish cluster management patterns, workload identity configurations, and GitOps workflows for teams."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Debug container issues",
+      "description": "Diagnose pod crashes, service connectivity problems, and resource constraints using kubectl commands."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create GKE cluster",
+      "scenario": "Set up a new Autopilot cluster",
+      "prompt": "Create an Autopilot GKE cluster in us-central1 region using the regular release channel. Show the gcloud command and required authentication steps."
+    },
+    {
+      "title": "Deploy application",
+      "scenario": "Deploy a web service",
+      "prompt": "Generate a Kubernetes deployment YAML for a Python web app. Include resource requests, liveness probe, and security context that runs as non-root."
+    },
+    {
+      "title": "Configure autoscaling",
+      "scenario": "Enable horizontal pod autoscaling",
+      "prompt": "Set up HPA for my existing deployment targeting 70 percent CPU utilization with 2 to 100 replicas. Also show how to enable cluster autoscaling."
+    },
+    {
+      "title": "Troubleshoot crash",
+      "scenario": "Diagnose CrashLoopBackOff",
+      "prompt": "My pod is in CrashLoopBackOff status. What kubectl commands should I run to diagnose the issue and what are common causes and fixes?"
+    }
+  ],
+  "bestPractices": [
+    "Always authenticate with gcloud container clusters get-credentials after creating a cluster",
+    "Use workload identity instead of service account keys for secure GCP access from pods",
+    "Apply PodDisruptionBudgets to prevent disruption of critical workloads during node maintenance"
+  ],
+  "antiPatterns": [
+    "Running containers as root user or with privileged access",
+    "Hardcoding image tags instead of using specific versions or digest references",
+    "Skipping resource requests and limits which leads to poor scheduling and potential node resource exhaustion"
+  ],
+  "faq": [
+    {
+      "question": "What GKE modes are supported?",
+      "answer": "Both Autopilot recommended for most workloads and Standard mode for specific node requirements are covered."
+    },
+    {
+      "question": "What kubectl operations does this skill support?",
+      "answer": "Cluster authentication, deployments, services, autoscaling, troubleshooting pods, and resource monitoring."
+    },
+    {
+      "question": "Can this skill execute commands on my cluster?",
+      "answer": "No. The skill provides guidance and example commands. You must execute kubectl and gcloud commands yourself."
+    },
+    {
+      "question": "Is my cluster data accessed or stored?",
+      "answer": "No. This skill runs locally and never connects to your GKE clusters or GCP projects."
+    },
+    {
+      "question": "What if commands fail?",
+      "answer": "Check your GCP permissions, ensure kubectl is configured, and verify cluster status with gcloud container clusters list."
+    },
+    {
+      "question": "How does this compare to other K8s skills?",
+      "answer": "This skill focuses specifically on GKE features like Autopilot, workload identity, and GCP integration patterns."
+    }
+  ],
+  "seoKeywords": [
+    "GKE",
+    "Google Kubernetes Engine",
+    "kubernetes",
+    "kubectl",
+    "gcloud",
+    "claude",
+    "codex",
+    "claude-code",
+    "container orchestration",
+    "GCP"
+  ],
+  "sourceUrl": "https://github.com/AdminTurnedDevOps/agentic-demo-repo/tree/main/agentregistry/gke-expert/gke-expert/skills/gke-expert",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,145 @@
+{
+  "name": "hybrid-cloud-networking",
+  "type": "skill",
+  "description": "Configure secure, high-performance connectivity between on-premises infrastructure and cloud platforms using VPN and dedicated connections. Use when building hybrid cloud architectures, connecting data centers to cloud, or implementing secure cross-premises networking.",
+  "domain": "devops",
+  "subdomain": "cloud",
+  "specialty": "Cloud connectivity",
+  "quality": 5,
+  "qualityReason": "Secure hybrid networking focus",
+  "bundleHints": [
+    "hybrid-cloud",
+    "networking"
+  ],
+  "tags": [
+    "aws",
+    "azure",
+    "dedicated",
+    "gcp",
+    "high-performance",
+    "hybrid-cloud",
+    "infrastructure",
+    "networking",
+    "on-premises",
+    "secure",
+    "vpn"
+  ],
+  "capabilities": [
+    "Design hybrid network architectures for AWS, Azure, and GCP connectivity",
+    "Generate Terraform configurations for VPN gateways and customer gateways",
+    "Configure BGP routing and dynamic route propagation between environments",
+    "Implement high-availability patterns with dual tunnels and active-active setups",
+    "Apply security best practices including encryption, network ACLs, and DDoS protection",
+    "Troubleshoot VPN and Direct Connect connectivity issues using AWS CLI and Azure CLI"
+  ],
+  "author": "sickn33",
+  "icon": "🌐",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 54 patterns including shell command references (backticks) and network reconnaissance terms. All findings are FALSE POSITIVES: backticks appear in Terraform HCL code blocks as documentation examples, not executable Ruby code. Network reconnaissance terms refer to legitimate cloud infrastructure monitoring commands (aws ec2 describe-vpn-connections). The skill provides educational documentation and Infrastructure as Code templates for hybrid cloud networking - no executable code, no data exfiltration, and no malicious intent detected.",
+  "valueStatement": "Design and implement secure hybrid cloud networks connecting your datacenter to AWS, Azure, and GCP. This skill provides proven architecture patterns, Infrastructure as Code templates, and best practices for production-ready connectivity.",
+  "userTitle": "Connect On-Premises to Cloud with VPN and Direct Connect",
+  "limitations": [
+    "Requires existing cloud infrastructure accounts and networking knowledge",
+    "Terraform templates must be customized for your specific IP ranges and requirements",
+    "Direct Connect and ExpressRoute circuits require physical hardware provisioning by providers",
+    "Does not execute commands - provides guidance and code templates for manual implementation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Cloud Infrastructure Engineer",
+      "title": "Enterprise Datacenter Extension",
+      "description": "Connect your on-premises datacenter to cloud VPCs using Site-to-Site VPN for initial migration, then upgrade to Direct Connect for production workloads requiring low latency and high bandwidth."
+    },
+    {
+      "targetUser": "Solutions Architect",
+      "title": "Multi-Region Hybrid Architecture",
+      "description": "Design active-active hybrid deployments spanning your datacenter and multiple cloud regions, implementing BGP routing and failover for disaster recovery scenarios."
+    },
+    {
+      "targetUser": "DevOps Engineer",
+      "title": "Compliant Hybrid Cloud Setup",
+      "description": "Build hybrid networks that meet regulatory compliance requirements by implementing encrypted VPN tunnels, private connectivity via Direct Connect/ExpressRoute, and comprehensive monitoring with CloudWatch and Azure Monitor."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic AWS VPN Connection",
+      "prompt": "Help me set up a Site-to-Site VPN connection between my on-premises datacenter (customer gateway IP: 203.0.113.1, BGP ASN: 65000) and AWS VPC (vpc-id: vpc-12345). Generate the Terraform configuration.",
+      "scenario": "User needs initial hybrid connectivity for low-bandwidth workloads"
+    },
+    {
+      "title": "High-Availability Hybrid Network",
+      "prompt": "Design a high-availability hybrid network architecture connecting my on-premises datacenter to both AWS and Azure. Include dual VPN tunnels for redundancy, BGP configuration for dynamic routing, and explain the failover mechanism.",
+      "scenario": "User requires production-ready resilient infrastructure"
+    },
+    {
+      "title": "Direct Connect Migration Path",
+      "prompt": "I currently use Site-to-Site VPN for my hybrid cloud setup. Help me plan a migration to AWS Direct Connect for better performance. Compare costs, bandwidth options, and provide a step-by-step migration plan.",
+      "scenario": "User outgrowing VPN performance and needs dedicated connectivity"
+    },
+    {
+      "title": "Multi-Cloud Hybrid Network",
+      "prompt": "Design a hub-and-spoke hybrid network architecture where my on-premises datacenter connects to AWS (us-east-1), Azure (East US), and GCP (us-central1). Include routing considerations, security boundaries between cloud providers, and cost optimization strategies.",
+      "scenario": "User implementing complex multi-cloud strategy with on-premises presence"
+    }
+  ],
+  "bestPractices": [
+    "Always deploy dual VPN tunnels for redundancy - single points of failure cause production outages",
+    "Use private connectivity (Direct Connect/ExpressRoute) instead of internet VPN for production workloads requiring consistent performance",
+    "Implement comprehensive monitoring using CloudWatch, Azure Monitor, or GCP Cloud Logging to track tunnel status, bandwidth utilization, and BGP session health"
+  ],
+  "antiPatterns": [
+    "Don't use static routing when BGP is available - static routes require manual updates and don't support automatic failover",
+    "Avoid advertising public IP ranges over BGP - this creates routing conflicts and security vulnerabilities",
+    "Don't skip testing failover scenarios before production - validate that traffic switches to secondary tunnel during primary tunnel maintenance"
+  ],
+  "faq": [
+    {
+      "question": "Should I use VPN or Direct Connect for my hybrid network?",
+      "answer": "Use Site-to-Site VPN for initial migration, development environments, and bandwidth under 1 Gbps. Choose Direct Connect or ExpressRoute for production workloads requiring low latency, consistent performance, or bandwidth above 1 Gbps. Many organizations start with VPN and migrate to dedicated connections as workloads grow."
+    },
+    {
+      "question": "What BGP ASN should I use for my on-premises router?",
+      "answer": "Use a private ASN (64512-65534) for internal networks that don't connect to the public internet. If you already have a public ASN from your ISP, use that. Common default: 65000. The cloud side uses provider ASNs (AWS: 64512, Azure: 65515, GCP: 16550)."
+    },
+    {
+      "question": "How long does Direct Connect provisioning take?",
+      "answer": "AWS Direct Connect typically takes 2-4 weeks for physical circuit provisioning through a partner. Azure ExpressRoute similar: 2-4 weeks. VPN connections can be established in minutes. Plan hybrid network architecture well ahead of migration timelines to account for lead times."
+    },
+    {
+      "question": "Can I connect one datacenter to multiple cloud providers?",
+      "answer": "Yes - multi-cloud hybrid networks are common. Each cloud provider requires separate connectivity (Direct Connect to AWS, ExpressRoute to Azure, Interconnect to GCP). Implement a hub-and-spoke pattern with your datacenter as hub, using separate circuits for each cloud provider. Consider transit gateways for simplified routing."
+    },
+    {
+      "question": "How do I troubleshoot VPN tunnel failures?",
+      "answer": "Check tunnel status in cloud console (Up/Down), verify BGP session state (Established/Idle), review CloudWatch logs for tunnel telemetry, confirm on-premises router configuration matches cloud VPN settings, test connectivity from instances on both sides using ping/traceroute, and check security groups/network ACLs aren't blocking required traffic."
+    },
+    {
+      "question": "Does this skill configure my actual network infrastructure?",
+      "answer": "No - this skill provides Terraform templates, architecture guidance, and best practices. You must review, customize, and apply the Infrastructure as Code templates using your own Terraform workflow. The skill helps design and document but does not execute changes to your cloud accounts or network devices."
+    }
+  ],
+  "seoKeywords": [
+    "hybrid cloud networking",
+    "Claude AI",
+    "Codex",
+    "Claude Code",
+    "AWS Direct Connect",
+    "Azure ExpressRoute",
+    "site-to-site VPN",
+    "multi-cloud architecture",
+    "cloud infrastructure",
+    "Terraform networking"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hybrid-cloud-networking",
+  "sourceType": "community",
+  "dependencies": []
+}

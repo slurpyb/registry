@@ -1,0 +1,139 @@
+{
+  "name": "principles",
+  "type": "skill",
+  "description": "Provides development principles, guidelines, and VibeCoder guidance. Use when user mentions 原則, principles, ガイドライン, guidelines, VibeCoder, 安全性, safety, 差分編集, diff-aware. Triggers: 原則, principles, ガイドライン, VibeCoder, 安全性, 差分編集. Do not use for actual implementation - use impl skill instead.",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "development guidelines",
+  "quality": 4,
+  "qualityReason": "Strong internal consistency role",
+  "bundleHints": [
+    "vibecoder-core",
+    "code-quality"
+  ],
+  "tags": [
+    "coding-standards",
+    "diff-aware",
+    "guidelines",
+    "principles",
+    "safety",
+    "vibecoder"
+  ],
+  "capabilities": [
+    "Provide development principles and safety guidelines for all coding tasks",
+    "Guide minimal diff-aware file editing to preserve existing code structure",
+    "Help read and understand repository context including README and Plans.md",
+    "Support VibeCoders (non-technical users) with natural language guidance",
+    "Enforce safety rules like dry-run mode and protected path handling",
+    "Route requests to appropriate sub-skills based on user intent"
+  ],
+  "author": "Chachamaru127",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only meta-skill containing markdown files with development principles and guidelines. All static findings are false positives because bash commands and file operations shown in documentation are educational examples, not executable code. The skill provides safe, read-only guidance for AI-assisted development workflows.",
+  "valueStatement": "AI coding assistants need clear principles to work safely and effectively. This skill provides development guidelines, safety rules, and VibeCoder support for non-technical users to guide AI-assisted development.",
+  "userTitle": "Apply Development Principles and Safety Guidelines",
+  "limitations": [
+    "This skill only provides guidance, it does not execute code changes itself",
+    "Safety mode enforcement depends on external configuration files",
+    "Does not provide implementation code, only principles and guidelines"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI Developers",
+      "title": "Establish Safe Workflows",
+      "description": "Apply consistent safety principles and minimal diff editing to prevent code breakage"
+    },
+    {
+      "targetUser": "Non-Technical Users",
+      "title": "Guide VibeCoders",
+      "description": "Help non-technical users understand AI actions and what to say next"
+    },
+    {
+      "targetUser": "Project Leads",
+      "title": "Standardize Practices",
+      "description": "Ensure all AI-assisted work follows consistent development principles and safety rules"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Apply Safety Principles",
+      "scenario": "Before making changes",
+      "prompt": "What safety principles should I follow before editing this file?"
+    },
+    {
+      "title": "Check Repository Context",
+      "scenario": "New session or task",
+      "prompt": "Read the repository context and tell me about the project structure and current state"
+    },
+    {
+      "title": "Edit Minimally",
+      "scenario": "Making code changes",
+      "prompt": "What are the best practices for making minimal diff edits to preserve existing code?"
+    },
+    {
+      "title": "Help VibeCoder",
+      "scenario": "Non-technical user needs help",
+      "prompt": "I'm not technical. What should I say to get the AI to work on my project?"
+    }
+  ],
+  "bestPractices": [
+    "Read file content before editing to understand the existing code structure",
+    "Apply minimal diff principles to keep changes focused and reviewable",
+    "Check git status and git diff after every change to verify modifications"
+  ],
+  "antiPatterns": [
+    "Using Write tool to overwrite entire files instead of using Edit for targeted changes",
+    "Mixing unrelated changes (formatting, refactoring, feature additions) in one edit",
+    "Ignoring project configuration like safety settings and protected paths"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It is a meta-skill containing sub-skills for different purposes."
+    },
+    {
+      "question": "Does this skill make changes to my codebase?",
+      "answer": "No. This skill only provides guidance and principles. It does not execute code changes or access files beyond reading documentation."
+    },
+    {
+      "question": "How does VibeCoder mode help non-technical users?",
+      "answer": "VibeCoder mode translates technical questions into simple language and provides examples of what users should say to guide the AI."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only reads markdown documentation files. It does not access .env files, credentials, or any user data."
+    },
+    {
+      "question": "Why do I see bash command examples in the documentation?",
+      "answer": "These are example commands shown to the AI assistant for reference. The AI reads them to understand context, but you do not run them directly."
+    },
+    {
+      "question": "How does this differ from other development skills?",
+      "answer": "This skill provides foundational principles and safety guidelines. Other implementation skills actually write code. This skill ensures safe, consistent workflows."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code principles",
+    "AI development guidelines",
+    "code safety rules",
+    "VibeCoder support",
+    "diff-aware editing",
+    "repository context",
+    "Claude AI coding",
+    "Codex development",
+    "AI assistant safety",
+    "development best practices"
+  ],
+  "sourceUrl": "https://github.com/Chachamaru127/claude-code-harness/tree/main/skills/principles",
+  "sourceType": "community",
+  "dependencies": []
+}

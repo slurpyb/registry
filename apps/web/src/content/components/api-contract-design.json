@@ -1,0 +1,141 @@
+{
+  "name": "api-contract-design",
+  "type": "skill",
+  "description": "Design APIs using schema-first approach with OpenAPI/Swagger. Use when creating new APIs, documenting existing ones, or when frontend/backend teams need to work in parallel. Covers OpenAPI spec, validation, and code generation.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "schema-first design",
+  "quality": 5,
+  "qualityReason": "Clear schema-first API design focus",
+  "bundleHints": [
+    "backend-api",
+    "contract-testing",
+    "fullstack-dev"
+  ],
+  "tags": [
+    "api-design",
+    "contract",
+    "documentation",
+    "openapi",
+    "schema-first",
+    "swagger",
+    "typescript"
+  ],
+  "capabilities": [
+    "Create OpenAPI 3.1 specifications with paths, schemas, responses, and security definitions",
+    "Generate TypeScript types from OpenAPI specs using openapi-typescript",
+    "Build type-safe API clients with openapi-fetch or Orval code generation",
+    "Implement request validation with Zod schemas derived from OpenAPI specifications",
+    "Set up interactive API documentation with Swagger UI or Scalar",
+    "Create mock servers for parallel frontend-backend development using Prism"
+  ],
+  "author": "Doyajin174",
+  "icon": "📋",
+  "version": "1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing educational content about API contract design. All static findings are false positives triggered by code examples in documentation. No executable code, network calls, file access, or external commands exist in this skill.",
+  "valueStatement": "Frontend and backend teams often face integration issues when APIs are poorly defined or change frequently. This skill enables collaborative API design using OpenAPI specifications, generating TypeScript types and clients automatically for type-safe development across your entire stack.",
+  "userTitle": "Design Type-Safe APIs with OpenAPI Schema-First Approach",
+  "limitations": [
+    "Requires initial time investment to write comprehensive API specifications before coding begins",
+    "Complex nested schemas may require manual adjustments after type generation",
+    "Breaking changes require careful versioning planning and consumer coordination"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers building new applications",
+      "title": "Build APIs with Parallel Development",
+      "description": "Design API contracts first to enable frontend and backend teams to work in parallel with type safety."
+    },
+    {
+      "targetUser": "Backend engineers documenting existing APIs",
+      "title": "Document Legacy REST APIs",
+      "description": "Create OpenAPI specifications for existing APIs to add documentation and generate type-safe clients."
+    },
+    {
+      "targetUser": "API architects standardizing microservices",
+      "title": "Establish Organization-Wide API Standards",
+      "description": "Define consistent patterns, versioning strategies, and documentation standards across all services."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Todo API",
+      "scenario": "Creating a simple todo CRUD API",
+      "prompt": "Create an OpenAPI 3.1 specification for a todo API with CRUD operations. Include endpoints for creating todos with title and description, listing todos with pagination, updating todo status, and deleting todos. Define proper 400 and 404 error responses."
+    },
+    {
+      "title": "E-commerce Product API",
+      "scenario": "Building product catalog features",
+      "prompt": "Design an OpenAPI specification for an e-commerce product API with filtering by category and price range, cursor-based pagination, search with fuzzy matching, image upload endpoints, and bulk operations. Include OAuth2 security and rate limiting headers."
+    },
+    {
+      "title": "Real-time Chat API",
+      "scenario": "WebSocket messaging platform",
+      "prompt": "Create an OpenAPI 3.1 spec for a chat API with REST endpoints for user and room management, message threading, file attachments, read receipts, and typing indicators. Include WebSocket event documentation and HMAC webhook verification."
+    },
+    {
+      "title": "Multi-tenant SaaS Platform",
+      "scenario": "Enterprise application with RBAC",
+      "prompt": "Design a comprehensive multi-tenant SaaS API with tenant isolation via headers, 50+ RBAC permissions, webhook subscriptions with HMAC verification, GraphQL gateway integration, content negotiation versioning, request transformation middleware, and polymorphic response patterns using discriminator."
+    }
+  ],
+  "bestPractices": [
+    "Use descriptive operationId values that clearly indicate the action such as createUser or getUserById",
+    "Organize large specifications by splitting paths and schemas into separate files with clear naming conventions",
+    "Include comprehensive examples in your schemas to help consumers understand expected data formats and improve documentation"
+  ],
+  "antiPatterns": [
+    "Avoid mixing schema-first and code-first approaches within the same project as it leads to inconsistencies",
+    "Do not skip the team review process since API contracts should be agreed upon before implementation begins",
+    "Never expose sensitive data like passwords or API keys in your OpenAPI examples or documentation"
+  ],
+  "faq": [
+    {
+      "question": "Which OpenAPI version should I use?",
+      "answer": "Use OpenAPI 3.1.0 for new projects. It supports the latest JSON Schema features and is backwards compatible with most tools."
+    },
+    {
+      "question": "How do I handle API versioning?",
+      "answer": "Use URL versioning with paths like /v1 and /v2 or header-based versioning. Document deprecation policies clearly."
+    },
+    {
+      "question": "Can I integrate this with React Query?",
+      "answer": "Yes, use Orval to generate React Query hooks directly from your OpenAPI spec while maintaining full type safety."
+    },
+    {
+      "question": "Is my API specification data safe?",
+      "answer": "The skill only helps you write specifications locally. No API data or specifications are sent to external services."
+    },
+    {
+      "question": "What if generated types do not match my backend?",
+      "answer": "The schema-first approach ensures your backend implements the spec. Use generated types as the source of truth."
+    },
+    {
+      "question": "How does this compare to GraphQL?",
+      "answer": "OpenAPI excels at public APIs with standard REST patterns. GraphQL offers more flexibility for complex queries but requires more setup."
+    }
+  ],
+  "seoKeywords": [
+    "OpenAPI design",
+    "Swagger specification",
+    "TypeScript API client",
+    "schema-first development",
+    "React Query integration",
+    "Claude Code API",
+    "Codex OpenAPI",
+    "API documentation",
+    "TypeScript types",
+    "Zod validation"
+  ],
+  "sourceUrl": "https://github.com/Doyajin174/myskills/tree/main/.public/skills/api-contract-design",
+  "sourceType": "community",
+  "dependencies": []
+}

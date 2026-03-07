@@ -1,0 +1,142 @@
+{
+  "name": "context-persistence",
+  "type": "skill",
+  "description": "Waypoint plans methodology and session survival patterns for Claude Code. Use when working on long-running features, need to resume after context reset, want to document task progress, or need to survive session interruptions. Covers three-file structure (plan/context/tasks), SESSION PROGRESS tracking, quick resume instructions, update frequency, and context handoff patterns.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "session survival",
+  "quality": 5,
+  "qualityReason": "Enables long-term task completion",
+  "bundleHints": [
+    "agent-memory",
+    "workflow-continuity",
+    "long-running-tasks"
+  ],
+  "tags": [
+    "context",
+    "long-running",
+    "memory",
+    "persistence",
+    "planning",
+    "progress-tracking",
+    "workflow"
+  ],
+  "capabilities": [
+    "Creates structured three-file waypoint documentation for task tracking",
+    "Implements SESSION PROGRESS pattern for quick resume after context resets",
+    "Documents decisions with rationale for future reference",
+    "Provides slash commands for plan creation, context updates, and resumption",
+    "Tracks completion status across multi-session projects",
+    "Archives completed work for clean project organization"
+  ],
+  "author": "DojoCodingLabs",
+  "icon": "📍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown content (SKILL.md, 623 lines). No executable code, scripts, network calls, or file system access operations exist. All 74 static findings are false positives triggered by example documentation code blocks and JSON metadata fields, not actual security vulnerabilities.",
+  "valueStatement": "Context resets in Claude Code cause lost progress and repeated explanations. This skill provides a three-file waypoint pattern (plan/context/tasks) that documents decisions, tracks progress, and enables resume in under 60 seconds after interruptions.",
+  "userTitle": "Preserve context after Claude Code resets",
+  "limitations": [
+    "Requires manual updates to maintain accuracy",
+    "Does not auto-detect code changes in the working directory",
+    "Cannot prevent context resets from occurring",
+    "Only applies to Claude Code, not other AI platforms"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Multi-day feature development",
+      "description": "Document complex features that span multiple work sessions and resume quickly after context resets or overnight breaks."
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Team handoff documentation",
+      "description": "Create clear task status documentation that enables smooth handoffs between team members or sessions."
+    },
+    {
+      "targetUser": "AI-assisted researchers",
+      "title": "Long-running research projects",
+      "description": "Maintain context across extended research sessions without losing discoveries, decisions, or progress."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a new waypoint",
+      "scenario": "Start tracking a new task",
+      "prompt": "Create a waypoint plan for implementing user authentication with JWT tokens"
+    },
+    {
+      "title": "Update progress",
+      "scenario": "Document completed work",
+      "prompt": "I completed the login page and am now working on the token refresh logic in auth.ts. Update the context."
+    },
+    {
+      "title": "Resume interrupted work",
+      "scenario": "Continue after context reset",
+      "prompt": "Resume work on the authentication implementation. What was the last progress?"
+    },
+    {
+      "title": "Archive completed task",
+      "scenario": "Mark task as complete",
+      "prompt": "The authentication feature is complete. Archive the waypoint plan."
+    }
+  ],
+  "bestPractices": [
+    "Update SESSION PROGRESS after each significant milestone, not after every line of code",
+    "Be specific in NEXT ACTION with exact file paths and function names for immediate resume",
+    "Include timestamps and document decisions with their rationale for future reference"
+  ],
+  "antiPatterns": [
+    "Leaving context stale for more than 3 days without updates",
+    "Using vague descriptions like working on auth instead of specific tasks",
+    "Skipping the NEXT ACTION section which is critical for quick resume"
+  ],
+  "faq": [
+    {
+      "question": "Which AI platforms support this skill?",
+      "answer": "This skill is designed specifically for Claude Code and its slash command system. It may not work in other AI assistants."
+    },
+    {
+      "question": "How long does it take to resume work after a context reset?",
+      "answer": "With properly maintained waypoint files, resume typically takes under 60 seconds by reading the context and tasks files."
+    },
+    {
+      "question": "Does this skill integrate with other tools?",
+      "answer": "It works with the Claude Code Waypoint Plugin commands but does not directly integrate with external tools."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. This skill only creates and reads markdown files in your plans directory. No data is sent externally or shared."
+    },
+    {
+      "question": "Why is my context showing as stale?",
+      "answer": "Context becomes stale after 3 days without updates, when code changes significantly, or when blockers are noted but not resolved."
+    },
+    {
+      "question": "How is this different from simple note-taking?",
+      "answer": "The waypoint pattern enforces a structured three-file approach with specific sections like SESSION PROGRESS that enable automated resume."
+    }
+  ],
+  "seoKeywords": [
+    "context persistence",
+    "Claude Code",
+    "waypoint plans",
+    "session survival",
+    "context reset",
+    "task tracking",
+    "progress documentation",
+    "AI memory",
+    "workflow continuity",
+    "project planning"
+  ],
+  "sourceUrl": "https://github.com/DojoCodingLabs/claude-code-waypoint/tree/main/.claude/skills/context-persistence",
+  "sourceType": "community",
+  "dependencies": []
+}

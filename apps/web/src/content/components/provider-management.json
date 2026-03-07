@@ -1,0 +1,141 @@
+{
+  "name": "provider-management",
+  "type": "skill",
+  "description": "Skill for managing model provider priorities with authentication (OAuth/Subscription/API), usage limits, and automatic fallback across all major AI providers",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "model routing",
+  "quality": 5,
+  "qualityReason": "Critical for production AI systems",
+  "bundleHints": [
+    "ai-infrastructure",
+    "llm-ops"
+  ],
+  "tags": [
+    "ai providers",
+    "api keys",
+    "authentication",
+    "fallback",
+    "multi-provider",
+    "oauth",
+    "usage limits"
+  ],
+  "capabilities": [
+    "Configure authentication for Anthropic, OpenAI, Google, xAI, and other providers",
+    "Set provider priority order with automatic fallback when limits are reached",
+    "Track usage across all providers with daily and monthly limits",
+    "Manage OAuth, subscription, and API key authentication methods",
+    "Switch providers manually or enable automatic selection",
+    "List all supported models with their provider-specific model IDs"
+  ],
+  "author": "AttendantLion8",
+  "icon": "🔄",
+  "version": "2.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation files (SKILL.md and skill-report.json). No executable code exists. All 71 static findings are false positives triggered by markdown documentation syntax misinterpreted as code patterns. The skill-report.json's own security audit correctly identifies this as 'Pure documentation-only skill' with zero risk.",
+  "valueStatement": "Managing multiple AI providers with different authentication methods and usage limits creates reliability challenges. This skill provides centralized provider management with automatic fallback based on authentication priority and available capacity.",
+  "userTitle": "Switch AI providers automatically with smart fallback",
+  "limitations": [
+    "Does not execute actual API calls - only configures provider settings",
+    "Requires compatible host application for actual provider integration",
+    "OAuth flow depends on provider-specific client configuration",
+    "Usage limits are advisory unless enforced by the host application"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Enterprise developers",
+      "title": "Multi-vendor AI infrastructure",
+      "description": "Configure multiple authentication methods per vendor to ensure continuous availability across different AI services"
+    },
+    {
+      "targetUser": "Individual developers",
+      "title": "Cost optimization",
+      "description": "Set usage limits and priorities to control costs while maintaining access to multiple AI models"
+    },
+    {
+      "targetUser": "AI enthusiasts",
+      "title": "Personal AI toolkit",
+      "description": "Manage subscription, OAuth, and API key access across all major AI providers from one interface"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Check provider status",
+      "scenario": "View current authentication status",
+      "prompt": "Show me the status of all configured AI providers including their authentication type and usage"
+    },
+    {
+      "title": "Add provider authentication",
+      "scenario": "Configure a new API key",
+      "prompt": "Set up Anthropic API authentication with my API key starting with sk-ant-"
+    },
+    {
+      "title": "Configure priority order",
+      "scenario": "Set provider fallback order",
+      "prompt": "Set my provider priority to use Anthropic subscription first, then Anthropic OAuth, then Anthropic API, then Bedrock"
+    },
+    {
+      "title": "Set usage limits",
+      "scenario": "Configure spending controls",
+      "prompt": "Set a daily limit of 1 million tokens and monthly limit of 10 million tokens for my Anthropic API provider"
+    }
+  ],
+  "bestPractices": [
+    "Configure at least two authentication methods per vendor for reliability",
+    "Set usage limits conservatively at 80% of your actual quota",
+    "Prioritize subscription authentication when available for best features"
+  ],
+  "antiPatterns": [
+    "Using only one authentication method creates a single point of failure",
+    "Ignoring usage limits can lead to unexpected billing",
+    "Disabling auto-switch reduces reliability when primary providers hit limits"
+  ],
+  "faq": [
+    {
+      "question": "Which AI providers are supported?",
+      "answer": "All major providers including Anthropic, OpenAI, Google, xAI, Meta Llama, DeepSeek, Mistral, Cohere, and Qwen through services like Bedrock, Vertex, and OpenRouter."
+    },
+    {
+      "question": "What authentication methods work?",
+      "answer": "Three methods: subscription tokens for Pro/Plus plans, OAuth 2.0 for personal accounts, and direct API keys for programmatic access."
+    },
+    {
+      "question": "How does automatic fallback work?",
+      "answer": "When the primary provider reaches its usage limit, the system automatically tries the next provider in priority order until a working one is found."
+    },
+    {
+      "question": "Is my credential data safe?",
+      "answer": "Credentials are stored locally with restricted file permissions (0600). This skill only manages configuration - actual credential storage depends on the host application."
+    },
+    {
+      "question": "Why is the wrong auth method being used?",
+      "answer": "The system always prefers subscription over OAuth over API. Check your priority settings with provider-priority command and ensure limits are not exhausted."
+    },
+    {
+      "question": "How is this different from using providers directly?",
+      "answer": "This skill provides unified management across all providers. You configure once and the system handles switching, limits, and fallback automatically."
+    }
+  ],
+  "seoKeywords": [
+    "AI provider management",
+    "Claude fallback",
+    "OpenAI API",
+    "Google Gemini",
+    "automatic provider switching",
+    "OAuth authentication",
+    "API key management",
+    "multi-provider AI",
+    "usage tracking",
+    "Anthropic subscription"
+  ],
+  "sourceUrl": "https://github.com/AttendantLion8/provider-fallback-plugin/tree/master/skills/provider-management",
+  "sourceType": "community",
+  "dependencies": []
+}

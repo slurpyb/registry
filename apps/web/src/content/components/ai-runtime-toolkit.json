@@ -1,0 +1,144 @@
+{
+  "name": "ai-runtime-toolkit",
+  "type": "skill",
+  "description": "AI Runtime工具装备系统，支持8个内部专业工具和10+个外部CLI工具的整合管理，提供工具发现、执行和配置功能，遵循整合优于创造的设计理念",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "Tool integration",
+  "quality": 5,
+  "qualityReason": "Robust tool orchestration system",
+  "bundleHints": [
+    "ai-runtime",
+    "tool-integration",
+    "dev-automation"
+  ],
+  "tags": [
+    "automation",
+    "cli",
+    "cli-tools",
+    "configuration",
+    "development",
+    "execution-management",
+    "integration",
+    "internal-tools",
+    "tool-discovery",
+    "toolkit"
+  ],
+  "capabilities": [
+    "Auto-detects and manages 18+ development tools",
+    "Runs dependency analysis for Python and JavaScript projects",
+    "Performs code statistics and complexity analysis",
+    "Tests APIs with configurable endpoints",
+    "Analyzes log files with pattern matching",
+    "Checks system and service health status"
+  ],
+  "author": "Dwsy",
+  "icon": "🛠️",
+  "version": "2.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "medium",
+  "safeToPublish": true,
+  "securitySummary": "The toolkit provides legitimate development utilities with tool discovery and management capabilities. Several input validation issues were identified in bash scripts and Python CLI that require user awareness. No malicious behavior or credential exfiltration detected. Risk level set to medium due to command injection potential in tool execution paths.",
+  "valueStatement": "Developers waste time switching between disconnected development tools. This toolkit seamlessly integrates 8 custom AI tools with 10+ popular CLI utilities like ripgrep and jq through a unified discovery system.",
+  "userTitle": "Integrate 18 CLI tools with intelligent discovery",
+  "limitations": [
+    "Requires Python 3.6+ and Node.js for full functionality",
+    "Some tools need external CLI utilities installed separately",
+    "User-provided arguments to tools are not sanitized",
+    "Bash-based tools have limited support on Windows"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developer",
+      "title": "Analyze project dependencies",
+      "description": "Quickly understand your project's dependency tree and identify outdated packages across Python and JavaScript codebases."
+    },
+    {
+      "targetUser": "DevOps Engineer",
+      "title": "Monitor system health",
+      "description": "Check service availability, disk usage, and analyze logs from multiple servers through a single interface."
+    },
+    {
+      "targetUser": "QA Tester",
+      "title": "Test REST APIs",
+      "description": "Validate API endpoints with customizable test scenarios and generate detailed response reports."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick tool discovery",
+      "scenario": "Find available tools",
+      "prompt": "List all available tools in my toolkit and show their basic functions"
+    },
+    {
+      "title": "Dependency analysis",
+      "scenario": "Analyze project dependencies",
+      "prompt": "Run dependency analyzer on current directory and show outdated packages"
+    },
+    {
+      "title": "Log analysis",
+      "scenario": "Debug application errors",
+      "prompt": "Analyze app.log for ERROR patterns and show common error types"
+    },
+    {
+      "title": "Service monitoring",
+      "scenario": "Check system health",
+      "prompt": "Check if all services are running and disk usage is below 80 percent"
+    }
+  ],
+  "bestPractices": [
+    "Validate all user inputs before passing them to tools",
+    "Install external CLI tools (fzf, ripgrep, jq) separately for full functionality",
+    "Run tools in test environments before using on production systems"
+  ],
+  "antiPatterns": [
+    "Running tools with root privileges without understanding their function",
+    "Using unvalidated user input in tool parameters or file paths",
+    "Ignoring security warnings about command injection vulnerabilities"
+  ],
+  "faq": [
+    {
+      "question": "Is this compatible with Claude Code?",
+      "answer": "Yes, the toolkit integrates seamlessly with Claude Code and provides enhanced tool discovery."
+    },
+    {
+      "question": "What is the maximum file size for analysis?",
+      "answer": "Individual tools handle files up to 100MB efficiently. Larger files may require streaming approaches."
+    },
+    {
+      "question": "Can I add my own tools?",
+      "answer": "Yes, create a .meta.yml file following the standard format to register custom tools."
+    },
+    {
+      "question": "How is my data protected?",
+      "answer": "Tools process data locally. No information is sent to external servers except for API testing tools."
+    },
+    {
+      "question": "Why does tool execution fail?",
+      "answer": "Check that external dependencies are installed and verify file permissions for the tools."
+    },
+    {
+      "question": "How does this compare to native CLI tools?",
+      "answer": "The toolkit provides unified discovery and metadata management while preserving the full power of native CLI tools."
+    }
+  ],
+  "seoKeywords": [
+    "AI toolkit",
+    "CLI integration",
+    "Claude Code tools",
+    "developer productivity",
+    "command line utilities",
+    "tool discovery",
+    "automation",
+    "ripgrep",
+    "jq",
+    "fzf"
+  ],
+  "sourceUrl": "https://github.com/Dwsy/ai-runtime/tree/main/toolkit",
+  "sourceType": "community",
+  "dependencies": []
+}

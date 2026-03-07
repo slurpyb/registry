@@ -1,0 +1,144 @@
+{
+  "name": "managing-project-rules",
+  "type": "skill",
+  "description": "Creates and updates modular project rules for Claude Code in .claude/rules/ directory. Use when creating, updating, or modifying rule files, organizing project guidelines, setting up code standards, or when user mentions \"create rules\", \"update rules\", \"add rules\", or \"rule configuration\".",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "Claude rules",
+  "quality": 4,
+  "qualityReason": "Specific to Claude setup",
+  "bundleHints": [
+    "claude-config",
+    "project-rules"
+  ],
+  "tags": [
+    "claude-code",
+    "code-standards",
+    "coding-standards",
+    "documentation",
+    "guidelines",
+    "modular",
+    "project-configuration",
+    "rules-management"
+  ],
+  "capabilities": [
+    "Creates new rule files in .claude/rules/ directory following best practices",
+    "Updates existing rule files while preserving structure and content",
+    "Organizes rules with path-specific frontmatter for conditional application",
+    "Uses subdirectories to group related rules by topic (frontend, backend, general)",
+    "Validates YAML frontmatter syntax for path-specific rules",
+    "Reports file locations, scope, and changes made"
+  ],
+  "author": "Emz1998",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The scanner detected markdown code formatting backticks as Ruby/shell execution and documentation references to symlinks/crypto as security issues. This is a legitimate documentation skill for Claude Code's modular rules feature. No actual code execution, file system operations, or cryptographic operations occur.",
+  "valueStatement": "Managing multiple project rules across different files is time-consuming and error-prone. This skill organizes Claude Code instructions into modular files using the .claude/rules/ directory, making rules focused, maintainable, and team-friendly.",
+  "userTitle": "Create and manage project rules",
+  "limitations": [
+    "Does not execute code or run external commands",
+    "Does not modify files outside the .claude/rules/ directory",
+    "Does not create symlinks or modify filesystem structure",
+    "Does not validate external dependencies or imports"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development teams establishing project-wide coding conventions",
+      "title": "Set up coding standards",
+      "description": "Create focused rule files for code style, testing requirements, and security guidelines. Each rule file covers one topic for easy maintenance."
+    },
+    {
+      "targetUser": "Large projects with multiple codebases or services",
+      "title": "Organize multi-module project rules",
+      "description": "Use subdirectories in .claude/rules/ to separate frontend, backend, and general rules. Apply path-specific rules only when needed."
+    },
+    {
+      "targetUser": "Developers maintaining and evolving project guidelines",
+      "title": "Update existing project rules",
+      "description": "Extend existing rule files by adding new sections, removing duplicates, and preserving valuable content. Consult user before major changes."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a new rule file",
+      "prompt": "Create a rule file for [TOPIC] in .claude/rules/. The rule should cover [KEY_POINTS].",
+      "scenario": "When you need to add a new focused rule for a specific aspect of the project"
+    },
+    {
+      "title": "Add path-specific rules",
+      "prompt": "Create a path-specific rule for [PATTERN] that covers [REQUIREMENTS]. Use YAML frontmatter to scope the rule.",
+      "scenario": "When rules should only apply to certain file types or directories"
+    },
+    {
+      "title": "Organize rules with subdirectories",
+      "prompt": "Organize existing rules into a subdirectory structure. Create [SUBDIRECTORY]/[TOPIC].md for [RULES].",
+      "scenario": "When rules need better organization for a growing project"
+    },
+    {
+      "title": "Update and extend existing rules",
+      "prompt": "Update the existing rule file at .claude/rules/[FILENAME]. Add information about [NEW_CONTENT]. Preserve existing content.",
+      "scenario": "When expanding or improving an existing rule file"
+    }
+  ],
+  "bestPractices": [
+    "Keep each rule file focused on one topic like testing, security, or API design",
+    "Use descriptive filenames in kebab-case that indicate the rule's purpose",
+    "Apply path-specific frontmatter only when rules truly apply to specific file types",
+    "Use subdirectories to group related rules (frontend/, backend/, general/)"
+  ],
+  "antiPatterns": [
+    "Creating one large file that covers multiple unrelated topics",
+    "Using path-specific rules for rules that apply to the entire project",
+    "Making frequent structural changes without consulting the team",
+    "Overlapping rules that contradict or duplicate each other"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between CLAUDE.md and .claude/rules/?",
+      "answer": "CLAUDE.md is a single file for all project instructions. The .claude/rules/ directory allows splitting instructions into multiple focused files. Both are loaded with equal priority."
+    },
+    {
+      "question": "How do path-specific rules work?",
+      "answer": "Add YAML frontmatter with a paths field containing glob patterns. The rule only applies when Claude works on files matching those patterns."
+    },
+    {
+      "question": "Can I share rules across multiple projects?",
+      "answer": "Yes. You can symlink common rule files or directories into .claude/rules/. Symlinks are resolved and loaded normally."
+    },
+    {
+      "question": "What happens with conflicting rules?",
+      "answer": "Rules are loaded alphabetically. When conflicts occur, the most specific rule (with path frontmatter) takes precedence for matching files."
+    },
+    {
+      "question": "How do user-level rules work?",
+      "answer": "Create rules in ~/.claude/rules/ in your home directory. User rules load before project rules, giving project rules higher priority."
+    },
+    {
+      "question": "How many rule files should I create?",
+      "answer": "Create one file per topic. Start with general.md and add specialized files (testing.md, security.md, api.md) as your project grows."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "project rules",
+    "modular rules",
+    ".claude/rules",
+    "coding standards",
+    "project configuration",
+    "rule files",
+    "documentation"
+  ],
+  "sourceUrl": "https://github.com/Emz1998/avaris-ai/tree/master/.claude/skills/rules-management",
+  "sourceType": "community",
+  "dependencies": []
+}

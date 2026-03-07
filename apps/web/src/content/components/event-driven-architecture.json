@@ -1,0 +1,140 @@
+{
+  "name": "event-driven-architecture",
+  "type": "skill",
+  "description": "Generic Event-Driven Architecture patterns with Kafka, Dapr, and modern messaging systems. Provides reusable patterns for building scalable, resilient event-driven microservices. Framework-agnostic implementation supporting multiple message brokers, state stores, and event patterns. Follows 2025 best practices for distributed systems.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "event patterns",
+  "quality": 5,
+  "qualityReason": "Architectural pattern mastery",
+  "bundleHints": [
+    "microservices-architecture",
+    "distributed-systems"
+  ],
+  "tags": [
+    "dapr",
+    "distributed-systems",
+    "event-driven",
+    "kafka",
+    "microservices"
+  ],
+  "capabilities": [
+    "Implement event schemas with versioning, priorities, and correlation tracking",
+    "Build message broker abstractions for Kafka, Redis, RabbitMQ, and cloud services",
+    "Create saga orchestrations with compensation and retry policies",
+    "Apply CQRS patterns with command and query buses",
+    "Integrate with Dapr for state management, pub/sub, and workflows",
+    "Deploy event-driven services on Kubernetes with Dapr sidecar"
+  ],
+  "author": "Azeem-2",
+  "icon": "📡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing Python code patterns for event-driven architecture. No executable code, no network calls to external endpoints, no file system access beyond configuration, no credential handling. Purely instructional content aligned with stated purpose. All 109 static findings are false positives - the scanner misinterpreted code examples, documentation placeholders, and metadata as security issues.",
+  "valueStatement": "Building distributed systems with event-driven patterns requires understanding messaging patterns, saga coordination, and broker integration. This skill provides ready-to-use patterns for Kafka, Dapr, Redis, and pub/sub architectures.",
+  "userTitle": "Build Event-Driven Microservices",
+  "limitations": [
+    "Does not provision or configure message broker infrastructure",
+    "Requires understanding of distributed systems concepts",
+    "Does not include monitoring or observability implementations",
+    "Assumes existing Dapr runtime for Dapr-related patterns"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developers",
+      "title": "Implement Event Sourcing",
+      "description": "Build audit trails and recover system state from immutable event streams"
+    },
+    {
+      "targetUser": "Solutions Architects",
+      "title": "Design Distributed Transactions",
+      "description": "Coordinate multi-service operations with saga patterns and compensation"
+    },
+    {
+      "targetUser": "Platform Engineers",
+      "title": "Deploy with Dapr",
+      "description": "Configure Dapr components for state, pub/sub, and service invocation"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Event Schema",
+      "scenario": "Create an event type",
+      "prompt": "Create a custom DomainEvent for user registration with event_type, aggregate_id, and event_data fields"
+    },
+    {
+      "title": "Pub/Sub Setup",
+      "scenario": "Configure message broker",
+      "prompt": "Set up a KafkaBroker connecting to bootstrap-servers:9092 and create a topic for order events"
+    },
+    {
+      "title": "Saga Orchestration",
+      "scenario": "Coordinate distributed transaction",
+      "prompt": "Create a Saga with three steps: reserve inventory, process payment, and ship order, with compensation actions"
+    },
+    {
+      "title": "CQRS Implementation",
+      "scenario": "Separate read and write models",
+      "prompt": "Implement a CommandBus with CreateTaskCommand and a QueryBus with GetTaskQuery for task management"
+    }
+  ],
+  "bestPractices": [
+    "Use explicit event versioning to support schema evolution",
+    "Design idempotent event handlers to handle duplicate processing",
+    "Leverage broker-level features like Kafka consumer groups for scaling"
+  ],
+  "antiPatterns": [
+    "Avoid synchronous request-response patterns in event handlers",
+    "Do not couple event producers directly to specific consumers",
+    "Avoid storing sensitive data in event payloads without encryption"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "Compatible with Claude, Codex, and Claude Code. Framework-agnostic Python patterns work in any Python environment."
+    },
+    {
+      "question": "What message brokers are supported?",
+      "answer": "Kafka, Redis, RabbitMQ, AWS SQS, Azure Service Bus, GCP Pub/Sub, NATS, and EMQX via abstract broker interface."
+    },
+    {
+      "question": "Does this skill provision infrastructure?",
+      "answer": "No. This skill provides code patterns only. Infrastructure must be configured separately via Kubernetes, Helm, or cloud tools."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Safe. This is documentation-only content. No data is collected, stored, or transmitted. All processing occurs in your environment."
+    },
+    {
+      "question": "Why use event-driven over REST APIs?",
+      "answer": "Event-driven systems achieve loose coupling, better scalability, and enable real-time updates. Sagas coordinate distributed transactions reliably."
+    },
+    {
+      "question": "How does this compare to RPC frameworks?",
+      "answer": "Event-driven uses async messaging instead of synchronous calls. This improves resilience and enables pattern complexity like CQRS and sagas."
+    }
+  ],
+  "seoKeywords": [
+    "event-driven architecture",
+    "Kafka patterns",
+    "Dapr integration",
+    "microservices",
+    "pub/sub",
+    "CQRS pattern",
+    "saga pattern",
+    "event sourcing",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/Azeem-2/HackthonII/tree/master/.claude/skills/event-driven-architecture",
+  "sourceType": "community",
+  "dependencies": []
+}

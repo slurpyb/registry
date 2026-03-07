@@ -1,0 +1,140 @@
+{
+  "name": "developer-growth-analysis",
+  "type": "skill",
+  "description": "Analyzes your recent Claude Code chat history to identify coding patterns, development gaps, and areas for improvement, curates relevant learning resources from HackerNews, and automatically sends a personalized growth report to your Slack DMs.",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "growth analytics",
+  "quality": 5,
+  "qualityReason": "Personalized learning insights",
+  "bundleHints": [
+    "learning-path",
+    "career-development"
+  ],
+  "tags": [
+    "analytics",
+    "career-development",
+    "chat-history",
+    "developer-growth",
+    "hackernews",
+    "learning"
+  ],
+  "capabilities": [
+    "Reads and analyzes Claude Code chat history from the past 24-48 hours",
+    "Identifies development patterns including technologies, problem types, and challenges",
+    "Detects specific skill gaps with evidence-based recommendations",
+    "Curates HackerNews articles tailored to each improvement area",
+    "Generates comprehensive growth reports with action items",
+    "Sends personalized reports directly to your Slack DMs"
+  ],
+  "author": "DYAI2025",
+  "icon": "📈",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 46 static findings are false positives. The skill is a prompt-based documentation file containing only instructions for analyzing chat history, curating learning resources, and sending reports via MCP tools. No executable code, scripts, or direct network/filesystem operations exist in the skill itself. All operations are mediated through Claude Code's built-in tools and Rube MCP integrations.",
+  "valueStatement": "You want to improve as a developer but do not know where to focus. This skill analyzes your Claude Code chat history to identify patterns, skill gaps, and improvement areas, then curates HackerNews learning resources and delivers everything to your Slack.",
+  "userTitle": "Analyze Your Developer Growth",
+  "limitations": [
+    "Requires access to local chat history file (~/.claude/history.jsonl)",
+    "Depends on Rube MCP for HackerNews search and Slack integration",
+    "Analysis is limited to conversations within Claude Code interface",
+    "Cannot access work done outside of Claude Code sessions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developers",
+      "title": "Weekly Growth Review",
+      "description": "Get a weekly summary of your development work, identify skill gaps, and receive curated learning resources."
+    },
+    {
+      "targetUser": "Tech Leads",
+      "title": "Team Pattern Analysis",
+      "description": "Understand common challenges across your team by analyzing individual developer chat patterns."
+    },
+    {
+      "targetUser": "Career Changers",
+      "title": "Skill Gap Identification",
+      "description": "Discover specific areas to focus on when transitioning to a new technology or domain."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Analysis",
+      "scenario": "Get growth insights",
+      "prompt": "Analyze my developer growth from my recent chats"
+    },
+    {
+      "title": "Today's Focus",
+      "scenario": "Review today's work",
+      "prompt": "Analyze my work from today and suggest areas for improvement"
+    },
+    {
+      "title": "Custom Period",
+      "scenario": "Review specific timeframe",
+      "prompt": "Analyze my coding patterns from the past week and identify my top 3 improvement areas"
+    },
+    {
+      "title": "Full Report",
+      "scenario": "Comprehensive analysis",
+      "prompt": "Give me a complete developer growth report including work summary, strengths, weaknesses, and learning resources from HackerNews"
+    }
+  ],
+  "bestPractices": [
+    "Run analysis weekly to track improvement trajectory over time",
+    "Focus on one improvement area before moving to the next",
+    "Apply learning resources to actual work projects for maximum retention"
+  ],
+  "antiPatterns": [
+    "Running analysis too frequently reduces actionable insights",
+    "Ignoring identified patterns and not acting on recommendations",
+    "Skipping the curated resources and relying only on generic tutorials"
+  ],
+  "faq": [
+    {
+      "question": "What data does this skill access?",
+      "answer": "The skill reads your local Claude Code chat history file which contains your messages, projects, and timestamps."
+    },
+    {
+      "question": "How far back does the analysis go?",
+      "answer": "By default, the skill analyzes chat history from the past 24-48 hours based on the current timestamp."
+    },
+    {
+      "question": "Does this integrate with other tools?",
+      "answer": "Yes, it uses Rube MCP for HackerNews searches and Slack message delivery. Both require separate authentication."
+    },
+    {
+      "question": "Is my chat data stored or shared?",
+      "answer": "Chat data is analyzed locally and only shared with you via Slack DM. No data is stored by the skill itself."
+    },
+    {
+      "question": "Why is my report not showing?",
+      "answer": "Ensure Slack is connected via Rube MCP and you have recent Claude Code chat history. The skill requires both MCP tools to function."
+    },
+    {
+      "question": "How is this different from code review?",
+      "answer": "This skill analyzes your development patterns and habits across sessions, focusing on skill gaps and learning, while code review focuses on specific code quality."
+    }
+  ],
+  "seoKeywords": [
+    "developer growth analysis",
+    "Claude Code",
+    "codex",
+    "claude-code",
+    "programming skill improvement",
+    "learning resources",
+    "developer productivity",
+    "HackerNews",
+    "Slack integration",
+    "career development"
+  ],
+  "sourceUrl": "https://github.com/DYAI2025/Stoppclock-page/tree/main/stoppclock_speckit/.claude/commands/skills/developer-growth-analysis",
+  "sourceType": "community",
+  "dependencies": []
+}

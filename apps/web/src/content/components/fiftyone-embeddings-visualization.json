@@ -1,0 +1,144 @@
+{
+  "name": "fiftyone-embeddings-visualization",
+  "type": "skill",
+  "description": "Visualize datasets in 2D using embeddings with UMAP or t-SNE dimensionality reduction. Use when users want to explore dataset structure, find clusters in images, identify outliers, color samples by class or metadata, or understand data distribution. Requires FiftyOne MCP server with @voxel51/brain plugin installed.",
+  "domain": "ai-ml",
+  "subdomain": "computer-vision",
+  "specialty": "similarity detection",
+  "quality": 5,
+  "qualityReason": "Precise duplicate detection",
+  "bundleHints": [
+    "fiftyone-tools",
+    "data-cleaning"
+  ],
+  "tags": [
+    "brain-similarity",
+    "clustering",
+    "dataset-cleaning",
+    "duplicates",
+    "embeddings",
+    "fiftyone",
+    "image-processing",
+    "tsne",
+    "umap",
+    "visualization"
+  ],
+  "capabilities": [
+    "Compute deep learning embeddings using CLIP, DINOv2, or ResNet models",
+    "Generate 2D visualizations with UMAP, t-SNE, or PCA dimensionality reduction",
+    "Color samples by class labels or metadata fields",
+    "Identify outliers and anomalies using uniqueness scoring",
+    "Find natural clusters in image datasets",
+    "Filter and sort samples using embedding-based similarity"
+  ],
+  "author": "AdonaiVera",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only instructions in SKILL.md format. The static scanner produced false positives by misinterpreting: (1) SHA256 hashes as weak cryptographic algorithms and C2 keywords, (2) markdown code block backticks as shell command execution, and (3) documentation URLs as hardcoded network endpoints. No executable code, scripts, network operations, or external command execution is present. This skill merely guides users on using legitimate FiftyOne MCP server tools.",
+  "valueStatement": "Understanding complex image datasets requires seeing how samples relate in embedding space. This skill guides you through computing embeddings and using UMAP or t-SNE to create 2D visualizations that reveal clusters, outliers, and class distributions in your FiftyOne datasets.",
+  "userTitle": "Visualize dataset embeddings in 2D",
+  "limitations": [
+    "Requires FiftyOne MCP server with @voxel51/brain plugin installed",
+    "Large datasets (100K+ images) may take hours to process",
+    "Visualization only works with image datasets that have embeddings",
+    "Requires local FiftyOne App running to view embeddings panel"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Machine learning engineers",
+      "title": "Explore training data",
+      "description": "Visualize class distributions and find mislabeled samples in image datasets before training."
+    },
+    {
+      "targetUser": "Data scientists",
+      "title": "Analyze model predictions",
+      "description": "Compare ground truth vs predictions in embedding space to identify confusion patterns."
+    },
+    {
+      "targetUser": "Researchers",
+      "title": "Find dataset outliers",
+      "description": "Detect anomalous or unique samples that may indicate data quality issues or rare cases."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic visualization",
+      "scenario": "Explore dataset structure",
+      "prompt": "Set context to my dataset and launch the app. Compute CLIP embeddings and create a UMAP visualization. Then tell me how to view it in the FiftyOne App embeddings panel."
+    },
+    {
+      "title": "Find outliers",
+      "scenario": "Detect anomalous samples",
+      "prompt": "My dataset has CLIP embeddings already. Compute a visualization and then find the 50 most unique (outlier) samples. Show me how to identify them in the embeddings panel."
+    },
+    {
+      "title": "Compare classes",
+      "scenario": "Analyze class clustering",
+      "prompt": "Generate a visualization for my classification dataset and color points by ground truth label. Describe what well-separated vs overlapping clusters indicate about class similarity."
+    },
+    {
+      "title": "Publication plots",
+      "scenario": "Create quality visualizations",
+      "prompt": "Create a t-SNE visualization using DINOv2 embeddings for publication-quality plots. What are the advantages of t-SNE over UMAP for this use case?"
+    }
+  ],
+  "bestPractices": [
+    "Use CLIP embeddings for semantic similarity; use DINOv2 for visual similarity only",
+    "Start with UMAP for faster exploration; switch to t-SNE for publication-quality local structure",
+    "Compute uniqueness scores to find outliers more reliably than visual inspection"
+  ],
+  "antiPatterns": [
+    "Skipping the launch_app() call - brain operators require the app executor",
+    "Forgetting to compute embeddings before running compute_visualization",
+    "Using the wrong brain_key between compute_similarity and compute_visualization"
+  ],
+  "faq": [
+    {
+      "question": "What models generate the best embeddings?",
+      "answer": "CLIP models work best for semantic similarity; DINOv2 excels at visual similarity only."
+    },
+    {
+      "question": "How long does visualization take?",
+      "answer": "1,000 images take ~2 minutes for embeddings and 30 seconds for UMAP. 10,000 images take ~15 minutes and 5 minutes."
+    },
+    {
+      "question": "Can I reuse embeddings for multiple visualizations?",
+      "answer": "Yes, store embeddings in a named field and reference it across different brain_key operations."
+    },
+    {
+      "question": "Is my data sent to external servers?",
+      "answer": "No, all computation happens locally using FiftyOne and scikit-learn. No data leaves your machine."
+    },
+    {
+      "question": "Why is my visualization slow?",
+      "answer": "Use UMAP instead of t-SNE, faster models like MobileNet-V2, or process a subset first with set_view(limit=1000)."
+    },
+    {
+      "question": "What is the difference between UMAP and t-SNE?",
+      "answer": "UMAP is faster and preserves global structure better; t-SNE shows better local cluster detail but is slower."
+    }
+  ],
+  "seoKeywords": [
+    "fiftyone embeddings visualization",
+    "UMAP t-SNE visualization",
+    "Claude Code skill",
+    "dataset cluster analysis",
+    "image embeddings",
+    "FiftyOne MCP",
+    "outlier detection AI",
+    "visualize CLIP embeddings",
+    "data exploration skill",
+    "AI dataset analysis"
+  ],
+  "sourceUrl": "https://github.com/AdonaiVera/fiftyone-skills/tree/main/embeddings-visualization/skills/fiftyone-embeddings-visualization",
+  "sourceType": "community",
+  "dependencies": []
+}

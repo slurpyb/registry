@@ -1,0 +1,143 @@
+{
+  "name": "persona-testing",
+  "type": "skill",
+  "description": "Test LogiDocs Certify features from customer persona perspectives. Use when the user wants to test features as a customer, get simulated feedback, review UI from user perspective, or mentions \"test as Aftrac\", \"test as Sirius\", \"customer feedback\", \"user testing\", or \"persona review\".",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "customer simulation",
+  "quality": 4,
+  "qualityReason": "Useful user-centered approach",
+  "bundleHints": [
+    "ux-toolkit",
+    "testing-suite"
+  ],
+  "tags": [
+    "customer-feedback",
+    "customer-personas",
+    "feature-testing",
+    "logidocs",
+    "persona-testing",
+    "simulated-feedback",
+    "testing-methodology",
+    "user-perspective",
+    "ux-review"
+  ],
+  "capabilities": [
+    "Test features from two distinct customer personas (Aftrac end user and Sirius consultant)",
+    "Generate simulated customer feedback with realistic expectations and pain points",
+    "Review UI and UX from different user expertise levels and use cases",
+    "Create structured persona testing reports with actionable recommendations",
+    "Evaluate features against specific compliance workflows (CE/UKCA marking and ISO standards)",
+    "Identify friction points before actual customer feedback arrives"
+  ],
+  "author": "Dami-Randle",
+  "icon": "🧪",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure prompt-based skill containing only markdown documentation with persona descriptions, testing scenarios, and report templates. The static findings are false positives: hash identifiers were misidentified as cryptographic code, backtick characters in markdown code blocks were misidentified as shell execution, and URL fields in JSON metadata were misidentified as network calls. No executable code, network calls, or filesystem access beyond reading its own file exists.",
+  "valueStatement": "Teams need to validate software features from real customer viewpoints before release. This skill provides structured persona-based testing using two distinct customer profiles to identify UX issues, friction points, and missing features early.",
+  "userTitle": "Test LogiDocs features from customer perspectives",
+  "limitations": [
+    "Only provides testing methodology and persona context for LogiDocs Certify",
+    "Does not execute actual browser automation or user testing",
+    "Cannot access real customer data or actual user sessions",
+    "Limited to predefined persona scenarios listed in the skill documentation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product managers",
+      "title": "Validate features before release",
+      "description": "Test new features from customer perspectives to catch issues before they reach real users."
+    },
+    {
+      "targetUser": "UX designers",
+      "title": "Review interface from user views",
+      "description": "Evaluate how different customer types navigate features and where confusion occurs."
+    },
+    {
+      "targetUser": "QA teams",
+      "title": "Supplement automated testing",
+      "description": "Add persona-based feedback to testing cycles for comprehensive coverage."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic feature review",
+      "scenario": "Test a single feature",
+      "prompt": "Test the [feature name] page from [Aftrac/Sirius] perspective. What would they notice first? What works well? Where would they struggle?"
+    },
+    {
+      "title": "End-to-end workflow test",
+      "scenario": "Test complete user journey",
+      "prompt": "Review the [workflow name] from [Aftrac/Sirius] perspective. Walk through each step as this persona. Identify where they would get confused or frustrated."
+    },
+    {
+      "title": "Feedback simulation",
+      "scenario": "Generate realistic responses",
+      "prompt": "Generate feedback [Aftrac/Sirius] would give after using [specific feature] for 20 minutes. Include what they like, what confuses them, and what they wish existed."
+    },
+    {
+      "title": "Comparative analysis",
+      "scenario": "Compare both personas",
+      "prompt": "Compare how Aftrac and Sirius would approach [task]. What different expectations and needs does each have? How should the UI accommodate both?"
+    }
+  ],
+  "bestPractices": [
+    "Define clear testing objectives before invoking persona testing",
+    "Use both personas (Aftrac and Sirius) to capture different user needs",
+    "Document friction points with specific page locations and user actions"
+  ],
+  "antiPatterns": [
+    "Using only one persona when both perspectives add value",
+    "Skipping the structured report format after testing",
+    "Testing without a specific feature or workflow in mind"
+  ],
+  "faq": [
+    {
+      "question": "Which persona should I choose first?",
+      "answer": "Start with Aftrac for basic functionality, then Sirius for advanced features."
+    },
+    {
+      "question": "Can this skill automate browser testing?",
+      "answer": "No, this is a methodology skill for structured persona-based review."
+    },
+    {
+      "question": "What makes the two personas different?",
+      "answer": "Aftrac is an end user with limited expertise. Sirius is a consultant with deep ISO knowledge."
+    },
+    {
+      "question": "How detailed are the reports?",
+      "answer": "Reports include first impressions, positives, friction points, and in-character quotes."
+    },
+    {
+      "question": "Can I add custom personas?",
+      "answer": "This skill supports only the defined Aftrac and Sirius personas."
+    },
+    {
+      "question": "How does this compare to real user testing?",
+      "answer": "Persona testing catches obvious issues early. Real user testing is still essential for final validation."
+    }
+  ],
+  "seoKeywords": [
+    "persona testing",
+    "customer feedback simulation",
+    "LogiDocs testing",
+    "user testing methodology",
+    "UX review",
+    "product testing",
+    "customer perspective testing",
+    "Claude Code testing",
+    "Aftrac persona",
+    "Sirius persona"
+  ],
+  "sourceUrl": "https://github.com/Dami-Randle/logidocs-certify/tree/main/.claude/skills/persona-testing",
+  "sourceType": "community",
+  "dependencies": []
+}

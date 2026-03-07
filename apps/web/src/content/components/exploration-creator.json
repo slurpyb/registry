@@ -1,0 +1,141 @@
+{
+  "name": "exploration-creator",
+  "type": "skill",
+  "description": "Create exploration content for SHINOBI WAY game with node-based path navigation. Use when user wants to add new regions, locations, room layouts, intel missions, path networks, or exploration mechanics. Guides through the Region→Location→Room hierarchy with intel-gated path choices. (project)",
+  "domain": "gaming",
+  "subdomain": "game-design",
+  "specialty": "content creation",
+  "quality": 5,
+  "qualityReason": "Specific game content system",
+  "bundleHints": [
+    "game-dev-tools",
+    "shinobi-content"
+  ],
+  "tags": [
+    "content-creation",
+    "exploration-system",
+    "game-development",
+    "node-based",
+    "shinobi-way"
+  ],
+  "capabilities": [
+    "Create region definitions with entry points, boss locations, and loot themes",
+    "Design locations with 10 rooms, danger levels, and terrain effects",
+    "Configure intel missions with elite enemies and path rewards",
+    "Build path networks with forward, branch, loop, and secret paths",
+    "Apply activity weights for combat, events, merchants, and rest rooms",
+    "Validate region designs using provided checklists"
+  ],
+  "author": "CesarAugustusGroB",
+  "icon": "🗺️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains ONLY markdown documentation files with game design templates and TypeScript interface definitions. All 227 static findings are FALSE POSITIVES. The analyzer misinterpreted markdown code fences (backticks) as shell execution, game system documentation as reconnaissance, and data structure type names as cryptographic references. No executable code, network operations, file system access, or command execution capabilities exist in this skill.",
+  "valueStatement": "Game designers need systematic ways to create regions, locations, and rooms for roguelike exploration games. This skill provides complete templates, type definitions, and validation checklists for building the Region→Location→Room hierarchy with intel-gated path choices.",
+  "userTitle": "Create exploration content for SHINOBI WAY game",
+  "limitations": [
+    "Does not generate executable game code - only provides design templates",
+    "Does not integrate with game engine - requires manual implementation",
+    "Does not modify project files - outputs TypeScript definitions for reference",
+    "Focused specifically on SHINOBI WAY game mechanics, not generic solutions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Game Designers",
+      "title": "Design new game regions",
+      "description": "Create themed regions with locations, paths, and elite encounters using the 1→2→4→2→1 room structure."
+    },
+    {
+      "targetUser": "Game Developers",
+      "title": "Implement exploration mechanics",
+      "description": "Use TypeScript interface definitions to build navigation, intel collection, and path selection systems."
+    },
+    {
+      "targetUser": "Content Creators",
+      "title": "Add new locations and paths",
+      "description": "Extend existing regions with secret locations, loop paths, and varied room activities."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create new region",
+      "scenario": "Design a new narrative region",
+      "prompt": "Create a new region for SHINOBI WAY with 10-15 locations. Include entry points, boss location, loot theme, and example locations following the column progression (Entry→Early→Mid→Late→Boss)."
+    },
+    {
+      "title": "Design location",
+      "scenario": "Define a single location",
+      "prompt": "Design a location with 10 rooms, danger level 1-7, terrain effects, and an intel mission. Include enemy pool, activity weights, and path connections."
+    },
+    {
+      "title": "Configure intel mission",
+      "scenario": "Set up Room 10 encounter",
+      "prompt": "Create an intel mission for Room 10 with an elite enemy, flavor text, skip allowed setting, and path rewards including hints for loops and secrets."
+    },
+    {
+      "title": "Build path network",
+      "scenario": "Connect locations with paths",
+      "prompt": "Design the path network for a region including forward paths, branch routes, loop paths back to earlier locations, and secret paths with unlock conditions."
+    }
+  ],
+  "bestPractices": [
+    "Follow the column layout (Entry→Early→Mid→Late→Boss) for consistent difficulty progression",
+    "Include at least 2-3 paths leading to the boss for player choice",
+    "Design secret locations with clear unlock conditions (intel, item, karma, story_flag)",
+    "Balance activity weights so each location has varied encounters"
+  ],
+  "antiPatterns": [
+    "Creating unreachable orphan locations that cannot be accessed from entry",
+    "Setting skipAllowed: true for boss location intel missions",
+    "Exceeding 15 locations per region or having fewer than 10",
+    "Forgetting to reset room activities when players use loop paths"
+  ],
+  "faq": [
+    {
+      "question": "What game engines work with this skill?",
+      "answer": "The skill provides design templates and TypeScript interfaces compatible with React+TypeScript game projects like SHINOBI WAY."
+    },
+    {
+      "question": "How many locations should a region contain?",
+      "answer": "Regions should contain 10-15 locations arranged in 5 columns with difficulty ranging from 1 (entry) to 7 (boss)."
+    },
+    {
+      "question": "Can I integrate this with existing game code?",
+      "answer": "Yes. The TypeScript interface definitions in references/types.md can be copied directly into your game project."
+    },
+    {
+      "question": "Is user data accessed during skill execution?",
+      "answer": "No. This skill only reads its own documentation files and generates text output. No file writes or data collection occurs."
+    },
+    {
+      "question": "Why does Room 10 always contain an intel mission?",
+      "answer": "The intel mission is the climax of each location. Players choose to fight for path information or skip to a random destination, creating strategic depth."
+    },
+    {
+      "question": "How does this differ from generic game design tools?",
+      "answer": "This skill is specifically designed for SHINOBI WAY's roguelike exploration system with its unique Region→Location→Room hierarchy and intel-gated navigation."
+    }
+  ],
+  "seoKeywords": [
+    "exploration system creator",
+    "SHINOBI WAY game",
+    "roguelike content creation",
+    "Claude skill",
+    "game development",
+    "region location room",
+    "node-based navigation",
+    "intel missions",
+    "game design documentation",
+    "content creator"
+  ],
+  "sourceUrl": "https://github.com/CesarAugustusGroB/SHINOBI-WAY-the-inifinite-tower/tree/main/.claude/skills/exploration-creator",
+  "sourceType": "community",
+  "dependencies": []
+}

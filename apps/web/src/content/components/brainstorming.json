@@ -1,0 +1,144 @@
+{
+  "name": "brainstorming",
+  "type": "skill",
+  "description": "Use when creating or developing anything, before writing code or implementation plans - refines rough ideas into fully-formed designs through structured Socratic questioning, alternative exploration, and incremental validation",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "structured ideation",
+  "quality": 5,
+  "qualityReason": "Clear trigger and structured process",
+  "bundleHints": [
+    "design-process",
+    "product-planning"
+  ],
+  "tags": [
+    "architecture",
+    "creativity",
+    "design",
+    "design-thinking",
+    "ideation",
+    "requirements",
+    "requirements-gathering",
+    "socratic-method",
+    "structured-thinking"
+  ],
+  "capabilities": [
+    "Guides three-phase brainstorming process (Understanding, Exploration, Design)",
+    "Uses structured questioning to clarify vague requirements",
+    "Presents architectural alternatives with explicit trade-offs",
+    "Validates design incrementally in 200-300 word sections",
+    "Provides templates for decision matrices and design documents"
+  ],
+  "author": "ArieGoldkin",
+  "icon": "💡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown templates and examples. No executable code, scripts, network operations, or file access capabilities. All 132 static findings are false positives triggered by documentation patterns - the scanner detected terminology in markdown files (e.g., 'md5', 'backticks', 'network', 'cookies') without any actual vulnerable code. The skill provides prompting guidance only.",
+  "valueStatement": "Ideas often start vague and incomplete. This skill guides you through a three-phase process to clarify requirements, explore alternatives, and validate designs incrementally before any code is written. Use this skill when creating or developing anything, before writing implementation plans.",
+  "userTitle": "Refine ideas into designs through structured brainstorming",
+  "limitations": [
+    "Does not write code or implementation plans",
+    "Does not access or modify project files",
+    "Does not execute commands or scripts",
+    "Requires user engagement for effective brainstorming"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product managers",
+      "title": "Clarify product requirements",
+      "description": "Transform high-level feature ideas into clear, validated requirements before development begins"
+    },
+    {
+      "targetUser": "Software architects",
+      "title": "Explore architectural approaches",
+      "description": "Evaluate technology choices with explicit trade-off analysis and decision documentation"
+    },
+    {
+      "targetUser": "Development teams",
+      "title": "Prevent costly rework",
+      "description": "Catch design gaps early by validating assumptions before implementation starts"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Initial idea",
+      "scenario": "Starting a new feature discussion",
+      "prompt": "I have an idea for [feature/product]. Help me explore and design it."
+    },
+    {
+      "title": "Architecture selection",
+      "scenario": "Choosing between approaches",
+      "prompt": "I need to build [system]. What are the best approaches and their trade-offs?"
+    },
+    {
+      "title": "Requirements clarification",
+      "scenario": "Vague or unclear requirements",
+      "prompt": "Help me understand what I actually need for [project]. Ask me questions to clarify."
+    },
+    {
+      "title": "Design validation",
+      "scenario": "Reviewing a proposed design",
+      "prompt": "Here is my initial design for [feature]. Validate it section by section and identify gaps."
+    }
+  ],
+  "bestPractices": [
+    "Announce skill usage at the start of brainstorming sessions",
+    "Ask one question at a time and wait for responses before proceeding",
+    "Always propose 2-3 approaches with explicit trade-off comparisons",
+    "Validate each design section before moving to the next"
+  ],
+  "antiPatterns": [
+    "Jumping to solutions before understanding the problem",
+    "Presenting only one approach without alternatives",
+    "Skipping incremental validation and presenting full designs at once",
+    "Forcing linear progression when new information requires revisiting earlier phases"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It uses the AskUserQuestion tool for structured choices."
+    },
+    {
+      "question": "What types of projects benefit most?",
+      "answer": "Complex features, new systems, or any project where requirements are vague or multiple approaches could work."
+    },
+    {
+      "question": "How does this integrate with existing workflows?",
+      "answer": "Use this before writing code or implementation plans. Document results using the included templates."
+    },
+    {
+      "question": "Is any data stored or transmitted?",
+      "answer": "No. This is a prompt-based skill with no code execution, file access, or network operations."
+    },
+    {
+      "question": "What if requirements change mid-session?",
+      "answer": "The skill supports non-linear progression. Return to earlier phases to incorporate new constraints."
+    },
+    {
+      "question": "How is this different from general prompting?",
+      "answer": "It provides a structured three-phase framework with explicit tool usage guidelines and templates."
+    }
+  ],
+  "seoKeywords": [
+    "brainstorming",
+    "design thinking",
+    "structured ideation",
+    "requirements gathering",
+    "architecture planning",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "system design",
+    "Socratic questioning"
+  ],
+  "sourceUrl": "https://github.com/ArieGoldkin/ai-agent-hub/tree/main/skills/brainstorming",
+  "sourceType": "community",
+  "dependencies": []
+}

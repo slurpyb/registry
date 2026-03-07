@@ -1,0 +1,143 @@
+{
+  "name": "advanced-evaluation",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"implement LLM-as-judge\", \"compare model outputs\", \"create evaluation rubrics\", \"mitigate evaluation bias\", or mentions direct scoring, pairwise comparison, position bias, evaluation pipelines, or automated quality assessment.",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "model assessment",
+  "quality": 5,
+  "qualityReason": "Highly specific evaluation techniques",
+  "bundleHints": [
+    "llm-evaluation",
+    "quality-assurance"
+  ],
+  "tags": [
+    "bias-mitigation",
+    "evaluation",
+    "llm-as-judge",
+    "llm-evaluation",
+    "model-comparison",
+    "pairwise",
+    "quality-assessment",
+    "rubrics",
+    "scoring"
+  ],
+  "capabilities": [
+    "Implement direct scoring with weighted criteria and evidence-based justification",
+    "Perform pairwise comparison with position swap to mitigate bias",
+    "Generate domain-specific evaluation rubrics with clear level definitions",
+    "Detect and mitigate evaluation biases including position, length, and authority bias",
+    "Calibrate confidence scores based on position consistency and evidence strength",
+    "Design multi-model evaluation panels for high-stakes decisions"
+  ],
+  "author": "muratcankoylan",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing evaluation methodologies, prompt templates, and pseudocode examples. All static findings are false positives: markdown code fences are misidentified as shell backticks, statistical formulas are misidentified as weak crypto, and academic reference URLs are not network calls. No executable code, file I/O, or data exfiltration patterns exist.",
+  "valueStatement": "Manual evaluation of LLM outputs is slow and inconsistent across reviewers. This skill provides production-grade techniques for automated evaluation using LLMs as judges. It includes direct scoring rubrics, pairwise comparison with position bias mitigation, and confidence calibration.",
+  "userTitle": "Evaluate LLM outputs with reliable scoring",
+  "limitations": [
+    "Requires an LLM API for actual scoring - prompts alone do not evaluate",
+    "Cannot access external files or databases - works with provided text only",
+    "Does not perform human evaluation - augments but does not replace human judgment",
+    "Bias mitigation reduces but does not eliminate all systematic biases"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Machine learning engineers",
+      "title": "Automate model comparison",
+      "description": "Compare multiple model outputs to select the best response for production prompts"
+    },
+    {
+      "targetUser": "AI researchers",
+      "title": "Evaluate new techniques",
+      "description": "Systematically assess whether prompting strategies improve output quality"
+    },
+    {
+      "targetUser": "Data science teams",
+      "title": "Monitor output quality",
+      "description": "Track quality metrics across production deployments over time"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Direct scoring",
+      "scenario": "Rate response against criteria",
+      "prompt": "Evaluate this response on a 1-5 scale for accuracy, clarity, and completeness. Provide scores with specific evidence and improvement suggestions. Response: {response}"
+    },
+    {
+      "title": "Pairwise comparison",
+      "scenario": "Compare two responses fairly",
+      "prompt": "Compare Response A and Response B for the given prompt. Ignore length. State which is better and explain why with specific criteria. A: {response_a}, B: {response_b}"
+    },
+    {
+      "title": "Rubric generation",
+      "scenario": "Create scoring criteria",
+      "prompt": "Create a 1-5 rubric for evaluating {criterion} in {domain}. Include level descriptions and specific observable characteristics for each score."
+    },
+    {
+      "title": "Bias assessment",
+      "scenario": "Detect evaluation bias",
+      "prompt": "Analyze this evaluation result for position bias, length bias, or authority bias. Check if criteria were applied consistently. Evaluation: {evaluation_result}"
+    }
+  ],
+  "bestPractices": [
+    "Always require justification before scores - chain-of-thought improves reliability by 15-25%",
+    "Use position swapping in pairwise comparison to mitigate position bias",
+    "Separate objective criteria (use direct scoring) from subjective preferences (use pairwise comparison)"
+  ],
+  "antiPatterns": [
+    "Single-pass pairwise comparison without position swap introduces systematic position bias",
+    "Scoring without requiring evidence makes evaluations undebuggable and unreliable",
+    "Using the same model for generation and evaluation causes self-enhancement bias"
+  ],
+  "faq": [
+    {
+      "question": "Which models work best for LLM-as-Judge?",
+      "answer": "GPT-4 and Claude 3 show highest agreement with human judges. Smaller models work for initial screening."
+    },
+    {
+      "question": "How many criteria should rubrics have?",
+      "answer": "Limit to 5-7 criteria per rubric. More criteria reduce reliability and increase cognitive load."
+    },
+    {
+      "question": "Can I use this with my own LLM API?",
+      "answer": "Yes. This skill provides prompts and patterns. Integrate with your LLM API for actual scoring."
+    },
+    {
+      "question": "Does this send data externally?",
+      "answer": "No. This skill generates evaluation prompts only. No network calls or data transmission occur."
+    },
+    {
+      "question": "Why do comparisons result in ties?",
+      "answer": "Ties indicate position bias was detected or responses are genuinely equivalent. Return tie with reduced confidence."
+    },
+    {
+      "question": "How does this compare to human evaluation?",
+      "answer": "LLM evaluation correlates well with humans for many tasks but cannot replace human judgment for subjective decisions."
+    }
+  ],
+  "seoKeywords": [
+    "llm evaluation",
+    "llm-as-judge",
+    "automated quality assessment",
+    "pairwise comparison",
+    "direct scoring",
+    "bias mitigation",
+    "Claude evaluation",
+    "AI model comparison",
+    "evaluation rubric",
+    "machine learning evaluation"
+  ],
+  "sourceUrl": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/advanced-evaluation",
+  "sourceType": "community",
+  "dependencies": []
+}

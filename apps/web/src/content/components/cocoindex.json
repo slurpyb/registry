@@ -1,0 +1,142 @@
+{
+  "name": "cocoindex",
+  "type": "skill",
+  "description": "Comprehensive toolkit for developing with the CocoIndex library. Use",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "vector data pipelines",
+  "quality": 4,
+  "qualityReason": "Clear data pipeline use",
+  "bundleHints": [
+    "ai-data-pipeline",
+    "vector-search"
+  ],
+  "tags": [
+    "ai-data-pipeline",
+    "ai-pipeline",
+    "api",
+    "cli",
+    "data-processing",
+    "data-transformation",
+    "etl",
+    "vector-search"
+  ],
+  "capabilities": [
+    "Create indexing flows for extracting data from files, S3, databases",
+    "Apply transformations including text chunking and embeddings",
+    "Export results to Postgres, Qdrant, LanceDB, or Neo4j",
+    "Build custom transformation functions for specialized logic",
+    "Run live updates that continuously sync source changes",
+    "Operate flows via CLI or Python API"
+  ],
+  "author": "Joseph OBrien",
+  "icon": "🔄",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing markdown files. All 445 static findings are false positives: the scanner misidentified markdown code formatting as shell commands, CocoIndex API methods as dangerous eval(), and documentation examples as credential access. No executable code, scripts, or runtime components exist.",
+  "valueStatement": "Creating data transformation pipelines for AI applications requires understanding complex ETL patterns, embedding models, and vector databases. CocoIndex provides a unified framework for building real-time indexing flows that extract from multiple sources, transform with chunking and embeddings, and export to vector databases and knowledge graphs.",
+  "userTitle": "Build AI data pipelines with CocoIndex",
+  "limitations": [
+    "Requires CocoIndex library installation and database setup",
+    "Does not include runtime execution environment",
+    "LLM API keys must be provided by the user",
+    "Reference documentation only - users implement flows in their own projects"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data engineers building RAG systems",
+      "title": "Build vector search indexes",
+      "description": "Create pipelines that embed documents and store in vector databases for semantic search."
+    },
+    {
+      "targetUser": "ML engineers creating AI pipelines",
+      "title": "Process data for AI applications",
+      "description": "Transform raw data through chunking, embedding, and extraction for AI model consumption."
+    },
+    {
+      "targetUser": "Developers building knowledge systems",
+      "title": "Construct knowledge graphs",
+      "description": "Extract structured entities using LLMs and build graph databases for relationship-based queries."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create vector index",
+      "scenario": "Build embedding pipeline for documents",
+      "prompt": "Help me create a CocoIndex flow that reads markdown files from a local directory, splits them into chunks of 2000 characters with 500 overlap, generates embeddings using OpenAI text-embedding-3-small, and exports to Postgres with pgvector for semantic search."
+    },
+    {
+      "title": "Build knowledge graph",
+      "scenario": "Extract entities and relationships",
+      "prompt": "Show me how to use CocoIndex to read JSON product files, extract structured information using GPT-4, and export the results as nodes and relationships in a Neo4j knowledge graph."
+    },
+    {
+      "title": "Implement live updates",
+      "scenario": "Set up continuous sync",
+      "prompt": "I want to create a CocoIndex flow with live updates. Help me configure a local file source with a refresh interval and set up automatic processing when files change."
+    },
+    {
+      "title": "Write custom function",
+      "scenario": "Create specialized transformation",
+      "prompt": "I need to create a custom CocoIndex function that calls an external API to enrich my data. Show me how to use the spec+executor pattern with caching and API authentication."
+    }
+  ],
+  "bestPractices": [
+    "Use evaluate command to test flows before running update",
+    "Always assign transformed data to row fields, not local variables",
+    "Increment behavior_version when modifying cached functions"
+  ],
+  "antiPatterns": [
+    "Using local variables instead of row fields for transformation results",
+    "Creating unnecessary dataclasses to mirror flow field schemas",
+    "Omitting type annotations on custom function return values"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools is CocoIndex compatible with?",
+      "answer": "CocoIndex works with OpenAI, Anthropic, Gemini, Voyage, and Ollama for embeddings and LLM extraction."
+    },
+    {
+      "question": "What are the size limits for data processing?",
+      "answer": "CocoIndex supports configurable concurrency limits. Set max_inflight_rows and max_inflight_bytes."
+    },
+    {
+      "question": "How do I integrate with my existing codebase?",
+      "answer": "Install cocoindex package, define flows with @cocoindex.flow_def decorator, use CLI or API."
+    },
+    {
+      "question": "Is my data safe when using CocoIndex?",
+      "answer": "CocoIndex runs locally. API keys are from environment variables. Source data stays on your machine."
+    },
+    {
+      "question": "Why does my flow fail with database connection error?",
+      "answer": "Ensure COCOINDEX_DATABASE_URL is set. Default is postgres://cocoindex:cocoindex@localhost/cocoindex."
+    },
+    {
+      "question": "How does CocoIndex compare to LangChain or LlamaIndex?",
+      "answer": "CocoIndex focuses on real-time ETL pipelines with incremental processing for indexing and data transformation."
+    }
+  ],
+  "seoKeywords": [
+    "CocoIndex",
+    "vector search index",
+    "data transformation pipeline",
+    "AI data processing",
+    "document embedding",
+    "knowledge graph",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "incremental ETL"
+  ],
+  "sourceUrl": "https://github.com/89jobrien/steve/tree/main/steve/skills/cocoindex",
+  "sourceType": "community",
+  "dependencies": []
+}

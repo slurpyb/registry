@@ -1,0 +1,145 @@
+{
+  "name": "senior-fullstack",
+  "type": "skill",
+  "description": "Comprehensive fullstack development skill for building complete web applications with React, Next.js, Node.js, GraphQL, and PostgreSQL. Includes project scaffolding, code quality analysis, architecture patterns, and complete tech stack guidance. Use when building new projects, analyzing code quality, implementing design patterns, or setting up development workflows.",
+  "domain": "web-development",
+  "subdomain": "fullstack",
+  "specialty": "React-Node architecture",
+  "quality": 5,
+  "qualityReason": "Well-defined fullstack scope",
+  "bundleHints": [
+    "fullstack-javascript",
+    "web-app-stack"
+  ],
+  "tags": [
+    "architecture",
+    "code-quality",
+    "fullstack",
+    "graphql",
+    "nextjs",
+    "node.js",
+    "nodejs",
+    "postgresql",
+    "react",
+    "scaffolding",
+    "web development"
+  ],
+  "capabilities": [
+    "Scaffold new fullstack projects with React, Next.js, Node.js, GraphQL, and PostgreSQL",
+    "Analyze code quality and generate detailed reports",
+    "Apply architecture patterns for scalable web applications",
+    "Set up development workflows following best practices",
+    "Configure Docker, Kubernetes, and CI/CD pipelines",
+    "Implement security best practices for web applications"
+  ],
+  "author": "davila7",
+  "icon": "fullstack",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains documentation and utility Python scripts for project scaffolding and code quality analysis. All scripts operate locally, read user-specified paths, and generate reports. No network calls, no external command execution, and no credential access. The static scanner flagged 72 false positives, primarily from documentation examples and hash identifiers in JSON metadata.",
+  "valueStatement": "Building fullstack web applications requires deep knowledge of many technologies and patterns. This skill provides scaffolding tools, code quality analysis, and architecture guidance for React, Next.js, Node.js, GraphQL, and PostgreSQL projects.",
+  "userTitle": "Build complete web applications",
+  "limitations": [
+    "Does not execute code or make network requests to external services",
+    "Does not modify files outside the user-specified project directory",
+    "Scripts are templates that require custom implementation for full functionality",
+    "Does not provide runtime debugging or live application monitoring"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Fullstack developers",
+      "title": "Start new projects",
+      "description": "Quickly scaffold new fullstack applications with best practice structure and configurations"
+    },
+    {
+      "targetUser": "Tech leads",
+      "title": "Enforce standards",
+      "description": "Analyze existing codebases and apply architecture patterns for consistent quality"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Configure deployments",
+      "description": "Set up containerized deployments with Docker, Kubernetes, and CI/CD pipelines"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Scaffold project",
+      "scenario": "Start a new fullstack application",
+      "prompt": "Use the senior-fullstack skill to scaffold a new project at /path/to/project with React frontend, Node.js/Express backend, PostgreSQL database, and GraphQL API. Include Docker configuration."
+    },
+    {
+      "title": "Analyze codebase",
+      "scenario": "Review code quality",
+      "prompt": "Run the code quality analyzer on my project at /path/to/project. Show me findings and recommendations for improvement."
+    },
+    {
+      "title": "Apply patterns",
+      "scenario": "Implement architecture",
+      "prompt": "Help me implement the repository pattern in my Node.js backend. Show example code structure from the architecture patterns."
+    },
+    {
+      "title": "Setup CI/CD",
+      "scenario": "Configure deployment",
+      "prompt": "Set up GitHub Actions workflow for my fullstack project. Include testing, building, and Docker image deployment to container registry."
+    }
+  ],
+  "bestPractices": [
+    "Use the scaffolder tools to establish consistent project structure across your team",
+    "Run code quality analysis before major releases to catch issues early",
+    "Follow the architecture patterns documentation for scalable, maintainable code"
+  ],
+  "antiPatterns": [
+    "Do not skip the architecture review phase when scaling applications",
+    "Avoid mixing architectural patterns inconsistently within the same project",
+    "Do not rely solely on automated tools without understanding the underlying principles"
+  ],
+  "faq": [
+    {
+      "question": "Which frameworks and databases are supported?",
+      "answer": "Supports React, Next.js, Node.js, Express, GraphQL, REST APIs, PostgreSQL, Prisma, NeonDB, and Supabase."
+    },
+    {
+      "question": "What are the resource limits for generated projects?",
+      "answer": "The skill does not impose limits. Generated code follows best practices for scalability."
+    },
+    {
+      "question": "Can I integrate with existing codebases?",
+      "answer": "Yes. The analyzer works on any directory. The scaffolder can add new components to existing projects."
+    },
+    {
+      "question": "Is my code data safe?",
+      "answer": "Yes. Scripts run locally and only access paths you specify. No code is sent to external services."
+    },
+    {
+      "question": "Why does nothing happen when I run the scripts?",
+      "answer": "The scripts are scaffold templates with placeholder logic. Use the skill for guidance and implement custom logic as needed."
+    },
+    {
+      "question": "How does this compare to other scaffolding tools?",
+      "answer": "This skill provides Claude Code integration with comprehensive fullstack patterns. Use alongside create-next-app or similar tools for best results."
+    }
+  ],
+  "seoKeywords": [
+    "Claude skill",
+    "fullstack development",
+    "React development",
+    "Next.js tutorial",
+    "Node.js backend",
+    "GraphQL API",
+    "web development",
+    "software architecture",
+    "project scaffolding",
+    "code quality"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/senior-fullstack",
+  "sourceType": "community",
+  "dependencies": []
+}

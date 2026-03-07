@@ -1,0 +1,143 @@
+{
+  "name": "port-adapter-designer",
+  "type": "skill",
+  "description": "Helps design port traits and adapter implementations for external dependencies. Activates when users need to abstract away databases, APIs, or other external systems.",
+  "domain": "languages",
+  "subdomain": "rust",
+  "specialty": "hexagonal architecture",
+  "quality": 5,
+  "qualityReason": "Architecturally sound pattern",
+  "bundleHints": [
+    "rust-stack",
+    "clean-architecture"
+  ],
+  "tags": [
+    "clean-architecture",
+    "dependency-inversion",
+    "external-systems",
+    "hexagonal-architecture",
+    "ports-and-adapters",
+    "rust",
+    "rust-architecture",
+    "trait-design"
+  ],
+  "capabilities": [
+    "Identifies when external dependencies (databases, HTTP clients, file systems) are being used directly",
+    "Designs port traits with domain types that abstract away infrastructure concerns",
+    "Creates adapter implementations that conform to port interfaces",
+    "Suggests in-memory test adapters for unit testing without real dependencies",
+    "Proactively recommends port/adapter patterns when coupling is detected"
+  ],
+  "author": "EmilLindfors",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill contains documentation and code examples for hexagonal architecture patterns. The 'external_commands' detections are Rust syntax (not shell backticks), 'network' and 'env_access' patterns are example code (not actual execution), and all 'blocker' and 'obfuscation' alerts are scanner misinterpretations of legitimate Rust code constructs.",
+  "valueStatement": "Writing code that directly couples to databases, HTTP clients, or file systems creates testing challenges and limits flexibility. This skill helps design port abstractions and adapter implementations for hexagonal architecture, enabling clean separation between business logic and external dependencies.",
+  "userTitle": "Design Port and Adapter Patterns",
+  "limitations": [
+    "Does not generate production-ready adapter code with full error handling",
+    "Does not integrate with specific frameworks or ORMs automatically",
+    "Does not verify that adapters compile or follow all Rust best practices",
+    "Does not execute any code or modify project files directly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Rust developers working on legacy codebases",
+      "title": "Refactor database-coupled code",
+      "description": "A developer has direct sqlx or diesel queries scattered throughout their application and wants to make the code testable. The skill helps design repository ports and create mock implementations for unit testing."
+    },
+    {
+      "targetUser": "Backend engineers building integrations",
+      "title": "Design external service integrations",
+      "description": "A team needs to integrate with payment gateways, email services, or third-party APIs. The skill designs service ports that hide implementation details behind clean async interfaces."
+    },
+    {
+      "targetUser": "Rust developers learning clean architecture",
+      "title": "Learn hexagonal architecture patterns",
+      "description": "A developer is new to port/adapter architecture and wants to understand how to structure Rust code for clean separation between domain logic and infrastructure."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic port design request",
+      "prompt": "I need a port trait for a UserRepository that supports find_by_id, find_by_email, save, delete, and list operations. The domain types are User, UserId, Email, and RepositoryError.",
+      "scenario": "When a user explicitly requests help designing a port interface"
+    },
+    {
+      "title": "Adapter implementation request",
+      "prompt": "Show me how to implement the UserRepository port using sqlx with a PostgreSQL pool. Include proper error conversion from sqlx errors to domain RepositoryError.",
+      "scenario": "When a user needs an adapter implementation example"
+    },
+    {
+      "title": "Testing adapter request",
+      "prompt": "Create an in-memory implementation of UserRepository for testing. Use Arc<Mutex<HashMap>> for thread-safe storage.",
+      "scenario": "When a user needs a test double or mock implementation"
+    },
+    {
+      "title": "Proactive refactoring suggestion",
+      "prompt": "[The skill activates proactively] I noticed you're using sqlx::query directly in your handlers. Would you like me to design a port abstraction for your repository pattern and show you how to implement it with an adapter? This would make your code testable with mock implementations.",
+      "scenario": "When the skill detects direct database usage and suggests architectural improvements"
+    }
+  ],
+  "bestPractices": [
+    "Define ports using domain types, not infrastructure types. Pass domain objects in and out of port methods.",
+    "Convert infrastructure errors to domain errors at the adapter boundary. Never leak sqlx, reqwest, or other library errors into domain code.",
+    "Make ports Send + Sync for compatibility with async runtimes like Tokio. Use Arc<Mutex<T>> or RwLock when interior mutability is needed."
+  ],
+  "antiPatterns": [
+    "Passing repository structs directly to use cases instead of defining port traits that can be mocked.",
+    "Returning infrastructure errors (sqlx::Error, reqwest::Error) directly from application services instead of converting to domain errors.",
+    "Designing ports that mirror database schemas rather than representing domain concepts and operations."
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between a port and an adapter?",
+      "answer": "A port is a trait (interface) that defines what operations the domain needs. An adapter is a concrete implementation that handles the technical details of talking to external systems like databases or APIs."
+    },
+    {
+      "question": "How do ports make testing easier?",
+      "answer": "Since ports are traits, you can create in-memory test adapters that implement the same interface. Your unit tests use the test adapter instead of real databases, making tests fast and isolated."
+    },
+    {
+      "question": "When should I create a port?",
+      "answer": "Create a port whenever your code needs to interact with something external: databases, file systems, HTTP APIs, email services, or any system that could vary independently from your business logic."
+    },
+    {
+      "question": "Can one port have multiple adapters?",
+      "answer": "Yes. A UserRepository port could have a PostgresAdapter, a MongoAdapter, and an InMemoryAdapter for testing. The domain code depends only on the port, so adapters can be swapped without changes."
+    },
+    {
+      "question": "Does this skill modify my code?",
+      "answer": "No. This skill provides guidance, code examples, and architectural suggestions. It does not write files or execute code. You copy the patterns into your project manually."
+    },
+    {
+      "question": "What Rust crates work well with this pattern?",
+      "answer": "async-trait for defining async trait methods, sqlx for database access, reqwest for HTTP clients, and tokio for async runtime. These integrate well with port/adapter architecture."
+    }
+  ],
+  "seoKeywords": [
+    "hexagonal architecture",
+    "ports and adapters",
+    "Rust architecture",
+    "dependency injection Rust",
+    "clean architecture",
+    "domain driven design",
+    "adapter pattern",
+    "trait abstraction",
+    "mock testing",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/EmilLindfors/claude-marketplace/tree/main/plugins/rust-hexagonal/skills/port-adapter-designer",
+  "sourceType": "community",
+  "dependencies": []
+}

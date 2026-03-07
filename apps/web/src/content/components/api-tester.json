@@ -1,0 +1,142 @@
+{
+  "name": "api-tester",
+  "type": "skill",
+  "description": "Quick API endpoint testing with comprehensive request/response validation.",
+  "domain": "testing",
+  "subdomain": "e2e",
+  "specialty": "quick validation",
+  "quality": 4,
+  "qualityReason": "Useful but overlaps with other testing skills",
+  "bundleHints": [
+    "api-testing",
+    "e2e",
+    "qa"
+  ],
+  "tags": [
+    "api",
+    "automation",
+    "graphql",
+    "request",
+    "response",
+    "rest",
+    "testing"
+  ],
+  "capabilities": [
+    "Generate curl commands for any HTTP method",
+    "Create Postman collections with test scripts",
+    "Write Jest and pytest test suites",
+    "Validate API responses against schemas",
+    "Test authentication methods (JWT, OAuth, API keys)",
+    "Generate load testing scripts with Artillery"
+  ],
+  "author": "CuriousLearner",
+  "icon": "🔬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only educational API testing examples. The skill contains no executable code, no network calls, no file system access, and no environment variable access. All 144 detected patterns are false positives: network patterns are placeholder URLs in documentation examples, external_command patterns are backtick syntax in example code blocks, and credential patterns are placeholder tokens like 'YOUR_TOKEN'. The critical 'DANGEROUS COMBINATION' heuristic is a false positive because this skill generates guidance, not code execution.",
+  "valueStatement": "Manual API testing is time-consuming and error-prone. This skill provides complete API testing methodologies including security checks, performance testing, and automated test generation.",
+  "userTitle": "Test APIs with comprehensive validation",
+  "limitations": [
+    "Does not execute actual API calls",
+    "Requires manual implementation of generated tests",
+    "No built-in test result reporting",
+    "Cannot monitor API performance continuously"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "API endpoint validation",
+      "description": "Generate comprehensive test suites for new API endpoints including edge cases and error scenarios."
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Automated testing setup",
+      "description": "Create automated test scripts for regression testing and CI/CD integration."
+    },
+    {
+      "targetUser": "DevOps teams",
+      "title": "Performance benchmarking",
+      "description": "Generate load testing configurations to validate API performance under stress."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic API testing",
+      "scenario": "Test a simple REST endpoint",
+      "prompt": "Generate curl commands and test cases for GET /api/users endpoint with pagination parameters"
+    },
+    {
+      "title": "Authentication testing",
+      "scenario": "Test JWT authentication flow",
+      "prompt": "Create test scripts for login endpoint that returns JWT token and subsequent authenticated requests"
+    },
+    {
+      "title": "GraphQL validation",
+      "scenario": "Test GraphQL queries and mutations",
+      "prompt": "Generate GraphQL test cases for user queries and createUser mutation with proper error handling"
+    },
+    {
+      "title": "Load testing",
+      "scenario": "Performance test under load",
+      "prompt": "Create Artillery configuration to test POST /api/orders with 100 concurrent users over 5 minutes"
+    }
+  ],
+  "bestPractices": [
+    "Always test both success and error scenarios for complete coverage",
+    "Use environment variables for API URLs and authentication tokens",
+    "Implement proper test data cleanup after test execution"
+  ],
+  "antiPatterns": [
+    "Never commit API keys or tokens to version control",
+    "Avoid testing only happy path scenarios without error cases",
+    "Do not skip authentication testing in public endpoints"
+  ],
+  "faq": [
+    {
+      "question": "Which authentication methods are supported?",
+      "answer": "Bearer tokens, API keys, Basic auth, and OAuth 2.0 with examples for each method."
+    },
+    {
+      "question": "Can I test GraphQL APIs?",
+      "answer": "Yes, includes GraphQL query and mutation examples with variables and error handling."
+    },
+    {
+      "question": "How do I integrate with CI/CD?",
+      "answer": "Generates Jest and pytest test suites that can run in any CI/CD pipeline automatically."
+    },
+    {
+      "question": "Is my API data safe?",
+      "answer": "This skill only generates test code. It does not execute tests or access your actual APIs."
+    },
+    {
+      "question": "What about rate limiting?",
+      "answer": "Includes rate limit testing strategies and proper delay configurations for load tests."
+    },
+    {
+      "question": "How does this compare to Postman?",
+      "answer": "Generates Postman collections while also providing code-based tests for automation."
+    }
+  ],
+  "seoKeywords": [
+    "API testing",
+    "REST API",
+    "GraphQL testing",
+    "automated testing",
+    "Claude Code",
+    "API validation",
+    "Postman",
+    "curl",
+    "security testing",
+    "performance testing"
+  ],
+  "sourceUrl": "https://github.com/CuriousLearner/devkit/tree/main/skills/api-tester",
+  "sourceType": "community",
+  "dependencies": []
+}

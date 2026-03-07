@@ -1,0 +1,140 @@
+{
+  "name": "truth-layer",
+  "type": "skill",
+  "description": "When you discover a blocker:",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "claim validation",
+  "quality": 5,
+  "qualityReason": "Ensures factual accuracy",
+  "bundleHints": [
+    "agent-safety",
+    "quality-gate"
+  ],
+  "tags": [
+    "blocking",
+    "build-automation",
+    "quality-assurance",
+    "radical-honesty",
+    "testing",
+    "validation",
+    "verification"
+  ],
+  "capabilities": [
+    "Validates claims against actual codebase state before reporting completion",
+    "Detects false positive reports such as successful builds with hidden errors",
+    "Identifies blockers that would prevent features from working in production",
+    "Provides structured verification reports with confidence levels and root causes",
+    "Integrates with build systems and test runners to verify actual outcomes"
+  ],
+  "author": "CleanExpo",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "The skill is documentation-only with no executable code. All static findings are false positives from pattern detection in the JSON report itself and example code snippets within the documentation. The skill describes verification workflows but does not implement any network calls, filesystem operations, or command execution.",
+  "valueStatement": "Development teams often struggle with false positive reports and undetected blockers that surface at deployment. This skill validates all claims against actual codebase state and blocks progress until issues are genuinely resolved.",
+  "userTitle": "Validate Claims with Radical Honesty",
+  "limitations": [
+    "Requires manual integration with existing CI/CD pipelines and build systems",
+    "Does not automatically fix detected issues, only reports and blocks progress",
+    "Verification confidence depends on quality of available tooling and logs",
+    "May require custom configuration for non-standard project structures"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Prevent False Build Success Reports",
+      "description": "Verify that build processes genuinely succeed by running actual build commands and checking for hidden errors in logs rather than trusting status codes alone."
+    },
+    {
+      "targetUser": "QA Engineers",
+      "title": "Validate Test Coverage Claims",
+      "description": "Check that test files contain real test cases rather than empty stubs by analyzing file size and parsing test structure before accepting coverage reports."
+    },
+    {
+      "targetUser": "Software Developers",
+      "title": "Block Deployment with Unresolved Issues",
+      "description": "Stop feature deployment when type errors, failing tests, or unresolved dependencies exist even if the build appears to succeed."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Claim Verification",
+      "prompt": "Verify that the build completes successfully with no hidden errors or warnings",
+      "scenario": "Before marking a feature complete, ensure the build system reports genuine success"
+    },
+    {
+      "title": "Test Coverage Validation",
+      "prompt": "Check if test coverage report is backed by actual test cases and not empty stub files",
+      "scenario": "After running tests, validate that coverage percentages reflect real test implementation"
+    },
+    {
+      "title": "Blocker Identification",
+      "prompt": "Identify all blockers preventing deployment and list dependent features that cannot proceed",
+      "scenario": "Before attempting deployment, surface all unresolved issues that would cause failures"
+    },
+    {
+      "title": "End-to-End Feature Validation",
+      "prompt": "Validate that the user authentication feature works end-to-end including database, API, and UI layers",
+      "scenario": "Advanced validation requiring cross-system verification before feature release"
+    }
+  ],
+  "bestPractices": [
+    "Run actual build and test commands rather than checking cached status to ensure current state accuracy",
+    "Set confidence thresholds based on verification method used, with manual inspection having higher confidence than automated checks",
+    "Create blocker reports immediately when issues are detected rather than waiting for task completion"
+  ],
+  "antiPatterns": [
+    "Assuming build success from exit codes alone without inspecting logs for hidden errors or warnings",
+    "Accepting test coverage percentages without validating that test files contain real assertions and logic",
+    "Reporting features as complete before running end-to-end verification across all dependent systems"
+  ],
+  "faq": [
+    {
+      "question": "What makes this different from standard CI/CD checks?",
+      "answer": "This skill focuses on detecting false positives where automated checks pass but real issues exist, such as builds with hidden Turbopack errors or test coverage from empty stub files."
+    },
+    {
+      "question": "How does the skill determine confidence levels?",
+      "answer": "Confidence is based on verification method. Direct command execution and log parsing has higher confidence than status code checks or file existence tests."
+    },
+    {
+      "question": "Will this skill automatically fix detected blockers?",
+      "answer": "No. The skill identifies and reports blockers with root cause analysis but does not attempt fixes. It routes issues to appropriate specialist agents."
+    },
+    {
+      "question": "What happens when a blocker is found?",
+      "answer": "Progress is immediately halted on dependent features. A structured report is generated with the specific issue, impact, root cause, and recommended next steps."
+    },
+    {
+      "question": "Can this skill work with custom build systems?",
+      "answer": "Yes, but it requires configuration to specify which commands to run and which log patterns indicate success or failure for your specific setup."
+    },
+    {
+      "question": "How does this integrate with the Orchestrator agent?",
+      "answer": "The skill sits before every agent task, validating preconditions and blocking task execution if issues exist. Valid tasks route to specialist agents while blocked tasks route to diagnostics."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "verification",
+    "testing",
+    "validation",
+    "quality assurance",
+    "build automation",
+    "honesty-first development",
+    "blocker detection"
+  ],
+  "sourceUrl": "https://github.com/CleanExpo/Unite-Hub/tree/main/.claude/skills/truth-layer",
+  "sourceType": "community",
+  "dependencies": []
+}

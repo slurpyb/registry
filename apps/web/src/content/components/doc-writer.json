@@ -1,0 +1,145 @@
+{
+  "name": "doc-writer",
+  "type": "skill",
+  "description": "Create or update numbered task docs using repo context, DOC_TEMPLATE.md, and naming conventions.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "task documentation",
+  "quality": 5,
+  "qualityReason": "Actionable and structured",
+  "bundleHints": [
+    "documentation",
+    "task-tracking",
+    "workflow"
+  ],
+  "tags": [
+    "documentation",
+    "markdown",
+    "naming conventions",
+    "repo context",
+    "task docs",
+    "task-tracking",
+    "template",
+    "templates"
+  ],
+  "capabilities": [
+    "Reads DOC_TEMPLATE.md to understand required document structure",
+    "Gathers context from PLAN.md and AGENTS.md files",
+    "Creates numbered task docs in docs/planned/ and docs/completed/ directories",
+    "Follows naming convention NN-task-name.md with unique two-digit prefixes",
+    "Links to existing code instead of duplicating content",
+    "Validates document structure against markdown lint rules"
+  ],
+  "author": "0xhiroki",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill with no executable code. The static analyzer flagged 20 false positives due to pattern matching on file paths and URL strings in markdown and JSON. No network calls, file system operations, external commands, or cryptographic operations exist in these files. Only plain text documentation and metadata.",
+  "valueStatement": "Manual documentation takes time and often becomes outdated. This skill automates creation of numbered task docs using templates and repository context, ensuring consistent structure and accurate references.",
+  "userTitle": "Generate task documentation from templates",
+  "limitations": [
+    "Requires DOC_TEMPLATE.md to exist in docs/ directory",
+    "Cannot create documentation without existing repository context files",
+    "Does not execute validators or tests automatically",
+    "Only generates markdown files, not other documentation formats"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project maintainers",
+      "title": "Maintain consistent task tracking",
+      "description": "Generate standardized task documents that track planned and completed work across your project."
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Enforce documentation standards",
+      "description": "Ensure all tasks follow the same structure with proper metadata, objectives, and completion criteria."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Document implementation details",
+      "description": "Create implementation step documentation with validation criteria and reference links to existing code."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create new task doc",
+      "scenario": "Start a planned task",
+      "prompt": "Create a new task document for [task name] in docs/planned/ using DOC_TEMPLATE.md. Number it sequentially after existing tasks and include context from PLAN.md."
+    },
+    {
+      "title": "Mark task complete",
+      "scenario": "Move task to completed",
+      "prompt": "Move task [task-name] from docs/planned/ to docs/completed/ and update the document to reflect what was actually implemented."
+    },
+    {
+      "title": "Refresh stale doc",
+      "scenario": "Update outdated documentation",
+      "prompt": "Review and update the task document at [path] to reflect current repository state, tests, and tooling requirements."
+    },
+    {
+      "title": "Generate from context",
+      "scenario": "Full documentation draft",
+      "prompt": "Generate a complete task document for [feature] using DOC_TEMPLATE.md. Gather context from PLAN.md, AGENTS.md, and relevant source files. Link to existing code rather than duplicating."
+    }
+  ],
+  "bestPractices": [
+    "Always read DOC_TEMPLATE.md first to ensure proper structure",
+    "Link to existing code files instead of copying large excerpts",
+    "Verify acceptance criteria match current repository state",
+    "Use unique two-digit prefixes to avoid naming conflicts"
+  ],
+  "antiPatterns": [
+    "Creating docs without checking existing numbering sequence",
+    "Duplicating large code blocks instead of linking to source",
+    "Skipping the metadata block or required template sections",
+    "Failing to validate against DOC_TEMPLATE.md structure"
+  ],
+  "faq": [
+    {
+      "question": "What templates are required for this skill to work?",
+      "answer": "DOC_TEMPLATE.md must exist in the docs/ directory with the expected structure including metadata, sections, and formatting."
+    },
+    {
+      "question": "What file naming format is enforced?",
+      "answer": "Files must use the format NN-task-name.md where NN is a unique two-digit number and the name is lowercase with hyphens."
+    },
+    {
+      "question": "Can I integrate this with my CI/CD pipeline?",
+      "answer": "This skill runs within your AI assistant. You can add validation steps to your pipeline that check docs/ structure."
+    },
+    {
+      "question": "Does this skill modify existing files?",
+      "answer": "Yes, it can update existing task documents when moving from planned to completed or refreshing stale documentation."
+    },
+    {
+      "question": "What happens if numbering conflicts occur?",
+      "answer": "The skill attempts to find the next available unique number, but you should verify numbering consistency manually."
+    },
+    {
+      "question": "How is this different from a documentation generator?",
+      "answer": "This skill follows a specific template and naming convention for task tracking rather than generating general API docs."
+    }
+  ],
+  "seoKeywords": [
+    "documentation generator",
+    "markdown templates",
+    "task documentation",
+    "Claude Code documentation",
+    "Codex documentation",
+    "Claude documentation",
+    "auto documentation",
+    "docs template",
+    "task tracking docs",
+    "project documentation"
+  ],
+  "sourceUrl": "https://github.com/0xhiroki/tassp/tree/main/.factory/skills/doc-writer",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "wordpress-dev",
+  "type": "skill",
+  "description": "WordPress development best practices - coding standards, custom post types, security, performance, hooks/filters, and template hierarchy. Use for any WordPress theme or plugin development guidance.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "development standards",
+  "quality": 5,
+  "qualityReason": "Comprehensive dev best practices",
+  "bundleHints": [
+    "php-backend",
+    "wordpress-dev"
+  ],
+  "tags": [
+    "hooks",
+    "php",
+    "plugin-development",
+    "security",
+    "theme-development",
+    "web-development",
+    "wordpress"
+  ],
+  "capabilities": [
+    "Generate custom post type registration code with proper labels and capabilities",
+    "Create custom taxonomy registration with hierarchical and non-hierarchical options",
+    "Build secure admin meta boxes with nonce verification and output escaping",
+    "Develop REST API endpoints with permission callbacks and argument validation",
+    "Apply WordPress coding standards for PHP, JavaScript, and CSS",
+    "Implement security best practices including sanitization, escaping, and capability checks"
+  ],
+  "author": "CrazySwami",
+  "icon": "wp",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a benign WordPress development documentation skill. The static analyzer flagged 570 potential issues, but ALL are FALSE POSITIVES. The findings are code examples in markdown documentation files (docs/*.md) that the scanner misidentified as executable code. The skill contains legitimate PHP templates using WordPress security best practices including nonce verification, output escaping, and capability checks. No malicious patterns, credential theft, or code execution vulnerabilities exist.",
+  "valueStatement": "Get comprehensive WordPress development guidance including coding standards, security best practices, performance optimization, and ready-to-use code templates. Generate custom post types, taxonomies, and REST API endpoints quickly.",
+  "userTitle": "Build WordPress Themes and Plugins",
+  "limitations": [
+    "Does not execute WordPress code directly, only generates templates",
+    "Does not interact with live WordPress databases or sites",
+    "Does not install, configure, or manage WordPress installations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "WordPress developers",
+      "title": "Generate CPT boilerplate",
+      "description": "Create production-ready custom post type registration code with labels, capabilities, and REST support."
+    },
+    {
+      "targetUser": "Theme developers",
+      "title": "Build secure meta boxes",
+      "description": "Develop admin meta boxes with proper sanitization, nonce verification, and accessibility support."
+    },
+    {
+      "targetUser": "Plugin developers",
+      "title": "Create REST endpoints",
+      "description": "Register custom REST API endpoints with permission callbacks and argument validation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Custom Post Type",
+      "scenario": "Generate CPT for real estate listings",
+      "prompt": "Create a 'Property' custom post type with fields for price, address, and bedrooms. Include proper labels, menu icon, and REST API support."
+    },
+    {
+      "title": "Add Security Review",
+      "scenario": "Check code for vulnerabilities",
+      "prompt": "Review this WordPress plugin code for security issues. Check for proper sanitization, escaping, nonce verification, and capability checks."
+    },
+    {
+      "title": "Optimize Performance",
+      "scenario": "Improve slow database queries",
+      "prompt": "Optimize this WP_Query for better performance. Add caching with transients and explain the improvements made."
+    },
+    {
+      "title": "Create Taxonomy",
+      "scenario": "Register property categories",
+      "prompt": "Create a 'Property Type' custom taxonomy (hierarchical) for the Property custom post type. Include proper labels and REST support."
+    }
+  ],
+  "bestPractices": [
+    "Always use WordPress sanitization functions like sanitize_text_field() and esc_attr() for user input",
+    "Verify nonces with check_ajax_referer() or wp_verify_nonce() before processing form data",
+    "Use $wpdb->prepare() with placeholders for all database queries to prevent SQL injection"
+  ],
+  "antiPatterns": [
+    "Do not use query_posts() for secondary loops - use WP_Query or get_posts() instead",
+    "Do not suppress errors with @ operator - use proper error handling instead",
+    "Do not hardcode URLs - use WordPress functions like admin_url() and home_url()"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill interact with my WordPress site?",
+      "answer": "No. This skill generates code templates and provides documentation. It does not execute code or modify databases."
+    },
+    {
+      "question": "What PHP version is required?",
+      "answer": "Templates follow WordPress minimum requirements. Use PHP 7.4 or higher for best compatibility."
+    },
+    {
+      "question": "Are the generated templates secure?",
+      "answer": "Yes. All templates include proper sanitization, escaping, and nonce verification where applicable."
+    },
+    {
+      "question": "Can I use these templates in plugins?",
+      "answer": "Yes. Templates work for both themes and plugins. Adjust namespace and prefix naming as needed."
+    },
+    {
+      "question": "Does this support block themes?",
+      "answer": "Yes. Documentation includes theme.json guidance and block template structure for WordPress 6.x."
+    },
+    {
+      "question": "How do I customize the templates?",
+      "answer": "Replace placeholder tags like {{POST_TYPE}} and {{TEXT_DOMAIN}} with your actual values before use."
+    }
+  ],
+  "seoKeywords": [
+    "wordpress development",
+    "wordpress theme development",
+    "wordpress plugin development",
+    "custom post types wordpress",
+    "wordpress security best practices",
+    "php wordpress",
+    "claude code wordpress",
+    "claude wordpress development",
+    "codex wordpress",
+    "wordpress rest api"
+  ],
+  "sourceUrl": "https://github.com/CrazySwami/wordpress-dev-skills/tree/main/skills/wordpress-dev",
+  "sourceType": "community",
+  "dependencies": []
+}

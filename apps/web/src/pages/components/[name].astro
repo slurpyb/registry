@@ -1,0 +1,69 @@
+---
+import type { InferGetStaticPropsType } from "astro"
+import { getCollection } from "astro:content"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import Wrapper from "@/components/foundations/containers/Wrapper.astro"
+import { ComponentDetail } from "@/components/react/ComponentDetail"
+
+// Get all components for static paths
+export async function getStaticPaths() {
+  const components = await getCollection("components")
+  return components.map((comp) => ({
+    params: { name: comp.data.name },
+    props: { component: comp },
+  }))
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+const { component } = Astro.props as Props
+const data = component.data
+
+// SEO
+const seo = {
+  title: `${data.userTitle || data.name} — OCX Registry`,
+  description: data.valueStatement || data.description,
+  ogImage: undefined,
+}
+
+// Serialize component data for the React component
+const componentData = {
+  name: data.name,
+  type: data.type,
+  description: data.description,
+  domain: data.domain,
+  subdomain: data.subdomain,
+  specialty: data.specialty,
+  quality: data.quality,
+  riskLevel: data.riskLevel,
+  tags: data.tags ?? [],
+  icon: data.icon,
+  author: data.author,
+  version: data.version,
+  license: data.license,
+  capabilities: data.capabilities ?? [],
+  limitations: data.limitations ?? [],
+  useCases: data.useCases ?? [],
+  promptTemplates: data.promptTemplates ?? [],
+  bestPractices: data.bestPractices ?? [],
+  antiPatterns: data.antiPatterns ?? [],
+  faq: data.faq ?? [],
+  supportedTools: data.supportedTools ?? [],
+  bundleHints: data.bundleHints ?? [],
+  securitySummary: data.securitySummary,
+  valueStatement: data.valueStatement,
+  userTitle: data.userTitle,
+  sourceUrl: data.sourceUrl,
+  sourceType: data.sourceType,
+  dependencies: data.dependencies ?? [],
+  safeToPublish: data.safeToPublish,
+}
+---
+
+<BaseLayout seo={seo}>
+  <Wrapper class="py-8">
+    <ComponentDetail
+      client:only="react"
+      component={componentData}
+    />
+  </Wrapper>
+</BaseLayout>

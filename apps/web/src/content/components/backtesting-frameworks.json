@@ -1,0 +1,140 @@
+{
+  "name": "backtesting-frameworks",
+  "type": "skill",
+  "description": "Build robust backtesting systems for trading strategies with proper handling of look-ahead bias, survivorship bias, and transaction costs. Use when developing trading algorithms, validating strategies, or building backtesting infrastructure.",
+  "domain": "business",
+  "subdomain": "finance",
+  "specialty": "Trading Validation",
+  "quality": 5,
+  "qualityReason": "Sophisticated finance modeling",
+  "bundleHints": [
+    "trading-stack",
+    "quant-finance"
+  ],
+  "tags": [
+    "algorithmic-trading",
+    "backtesting",
+    "bias-handling",
+    "financial-analysis",
+    "quantitative-finance",
+    "trading"
+  ],
+  "capabilities": [
+    "Implement event-driven and vectorized backtesting architectures",
+    "Apply walk-forward analysis with anchored or rolling windows",
+    "Calculate comprehensive performance metrics including Sharpe ratio, Sortino ratio, and maximum drawdown",
+    "Perform Monte Carlo simulations for strategy robustness testing",
+    "Build point-in-time data pipelines to avoid look-ahead bias",
+    "Model realistic transaction costs including slippage and commission"
+  ],
+  "author": "sickn33",
+  "icon": "📊",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 33 static analysis findings are false positives. The skill contains documentation and Python code examples in markdown format only. No executable code, network calls, or security risks detected. Markdown code block delimiters were incorrectly flagged as shell execution. Type annotations and common financial terms triggered false pattern matches.",
+  "valueStatement": "Developing trading strategies requires rigorous backtesting to avoid costly biases. This skill provides production-grade patterns for reliable strategy validation with proper handling of look-ahead bias, survivorship bias, and transaction costs.",
+  "userTitle": "Build robust backtesting systems for trading strategies",
+  "limitations": [
+    "Does not provide live trading execution or real-time market data access",
+    "Does not offer financial or investment advice",
+    "Requires historical data to be provided by the user",
+    "Strategy performance estimates depend on data quality and market regime stability"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Quantitative analysts and financial engineers",
+      "title": "Quantitative researcher validating new trading signals",
+      "description": "A quant researcher developing a momentum-based trading strategy needs to validate performance across multiple market regimes while avoiding overfitting and ensuring realistic cost assumptions."
+    },
+    {
+      "targetUser": "Algorithmic traders and hedge fund developers",
+      "title": "Algorithmic trader building systematic strategies",
+      "description": "An algorithmic trader implementing systematic strategies requires robust backtesting infrastructure with proper train/validation/test splits and walk-forward optimization to ensure strategy robustness."
+    },
+    {
+      "targetUser": "Data scientists and ML engineers in finance",
+      "title": "Data scientist exploring financial applications",
+      "description": "A data scientist applying machine learning to financial data needs guidance on proper backtesting methodology to avoid common pitfalls like look-ahead bias and survivorship bias."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic backtesting setup",
+      "prompt": "Help me set up a basic backtesting framework for a simple moving average crossover strategy. I have daily OHLCV data in a pandas DataFrame. Include transaction costs and calculate key performance metrics.",
+      "scenario": "Beginner user with basic strategy idea"
+    },
+    {
+      "title": "Walk-forward optimization",
+      "prompt": "I need to implement walk-forward analysis for my mean reversion strategy. Use a 252-day training window and 63-day test window with anchored training. Optimize the lookback parameter and show the equity curve from combined test periods.",
+      "scenario": "Intermediate user validating parameter stability"
+    },
+    {
+      "title": "Monte Carlo robustness testing",
+      "prompt": "Run a Monte Carlo simulation on my strategy returns to assess robustness. I want bootstrap analysis of maximum drawdown distribution and probability of loss over 21, 63, and 252 day holding periods with 1000 simulations.",
+      "scenario": "Advanced user stress-testing strategy"
+    },
+    {
+      "title": "Event-driven backtester with custom execution",
+      "prompt": "Build an event-driven backtester with custom execution logic for limit orders. Include realistic fill modeling based on order book dynamics, position tracking, and real-time PnL calculation. Support multiple assets with portfolio-level risk management.",
+      "scenario": "Expert user building production system"
+    }
+  ],
+  "bestPractices": [
+    "Always use point-in-time data to avoid look-ahead bias - ensure signals are generated using only information available at decision time",
+    "Reserve out-of-sample data for final evaluation - never optimize parameters on your test set",
+    "Include realistic transaction costs - model both explicit costs (commission) and implicit costs (slippage, market impact)"
+  ],
+  "antiPatterns": [
+    "Using adjusted close prices without understanding the adjustments - can introduce look-ahead bias from future dividend or split information",
+    "Optimizing too many parameters relative to available data - leads to overfitting and poor out-of-sample performance",
+    "Ignoring survivorship bias by testing only on current constituents - must include delisted securities for accurate results"
+  ],
+  "faq": [
+    {
+      "question": "What is look-ahead bias and how do I avoid it?",
+      "answer": "Look-ahead bias occurs when your backtest uses information that was not available at the time of trading decisions. Avoid it by using point-in-time data, shifting signals by one period, and ensuring all data reflects what was known at each timestamp."
+    },
+    {
+      "question": "How much historical data do I need for reliable backtesting?",
+      "answer": "Minimum 5-10 years of data is recommended to capture multiple market regimes. For walk-forward analysis, ensure you have enough data for at least 4-8 complete train/test cycles with your chosen window sizes."
+    },
+    {
+      "question": "What is a good Sharpe ratio for a trading strategy?",
+      "answer": "A Sharpe ratio above 1.0 is generally considered acceptable, above 1.5 is good, and above 2.0 is excellent. However, context matters - consider the strategy type, market conditions, and whether returns are normally distributed."
+    },
+    {
+      "question": "Should I use vectorized or event-driven backtesting?",
+      "answer": "Use vectorized backtesting for simple strategies and rapid prototyping - it is faster and simpler. Use event-driven backtesting for complex order types, realistic execution modeling, or strategies with path-dependent logic."
+    },
+    {
+      "question": "How do I account for transaction costs in my backtest?",
+      "answer": "Model both explicit costs (commission per trade or per share) and implicit costs (slippage as a percentage of spread or price impact). Apply costs at execution time, not signal generation time, for accuracy."
+    },
+    {
+      "question": "What is walk-forward analysis and why is it important?",
+      "answer": "Walk-forward analysis repeatedly optimizes parameters on a training window and tests on a subsequent out-of-sample window, moving forward through time. It validates that your strategy adapts to changing market conditions and is not overfit to a single historical period."
+    }
+  ],
+  "seoKeywords": [
+    "Claude backtesting",
+    "Codex trading strategies",
+    "Claude Code quantitative finance",
+    "algorithmic trading backtest",
+    "walk-forward analysis",
+    "trading strategy validation",
+    "financial machine learning",
+    "portfolio backtesting",
+    "Python trading frameworks",
+    "market data analysis"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/backtesting-frameworks",
+  "sourceType": "community",
+  "dependencies": []
+}

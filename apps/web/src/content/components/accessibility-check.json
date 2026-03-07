@@ -1,0 +1,143 @@
+{
+  "name": "accessibility-check",
+  "type": "skill",
+  "description": "Evaluate accessibility and WCAG compliance of UI components and pages. Use when the user asks to \"check accessibility\", \"audit a11y\", \"WCAG review\", \"screen reader test\", or needs to verify inclusive design practices.",
+  "domain": "design",
+  "subdomain": "accessibility",
+  "specialty": "a11y validation",
+  "quality": 4,
+  "qualityReason": "Slightly overlaps with auditor skill",
+  "bundleHints": [
+    "accessibility-suite",
+    "ui-compliance"
+  ],
+  "tags": [
+    "a11y",
+    "accessibility",
+    "audit",
+    "barrier-identification",
+    "compliance",
+    "inclusive-design",
+    "ui-review",
+    "ui-testing",
+    "wcag",
+    "wcag-review"
+  ],
+  "capabilities": [
+    "Evaluate UI components against WCAG 2.1 Level A and AA criteria",
+    "Identify missing alt text, labels, and semantic HTML issues",
+    "Check color contrast ratios for readability",
+    "Review keyboard navigation and focus indicators",
+    "Provide code examples for common accessibility fixes",
+    "Generate structured accessibility audit reports"
+  ],
+  "author": "Dami-Randle",
+  "icon": "♿",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing WCAG 2.1 guidelines and accessibility audit templates. No executable code, network calls, filesystem access, or external commands are present. The skill operates solely through prompt-based content delivery. All 42 static findings are false positives from the scanner misinterpreting markdown formatting and documentation content as security threats.",
+  "valueStatement": "This skill evaluates UI components and pages against WCAG 2.1 guidelines. It identifies accessibility issues and provides specific fixes. Use it to ensure your interfaces are usable by people with disabilities.",
+  "userTitle": "Check accessibility compliance",
+  "limitations": [
+    "Cannot run automated testing tools like axe-core or pa11y",
+    "Cannot test actual screen reader output or keyboard navigation",
+    "Requires manual verification of automated audit results",
+    "Does not perform visual testing across zoom levels"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Code review accessibility",
+      "description": "Review React components for WCAG compliance before merging pull requests"
+    },
+    {
+      "targetUser": "UX designers",
+      "title": "Design system audit",
+      "description": "Audit component libraries for accessibility gaps and inclusive design issues"
+    },
+    {
+      "targetUser": "QA testers",
+      "title": "Compliance verification",
+      "description": "Verify products meet accessibility requirements for legal compliance"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick component check",
+      "scenario": "Check a single UI component",
+      "prompt": "Check accessibility of this button component. Is it keyboard accessible? Does it have proper focus states?"
+    },
+    {
+      "title": "Form validation",
+      "scenario": "Audit form accessibility",
+      "prompt": "Audit this form for accessibility issues. Check labels, error messages, and keyboard navigation."
+    },
+    {
+      "title": "Full page review",
+      "scenario": "Comprehensive page audit",
+      "prompt": "Perform a WCAG 2.1 AA accessibility audit of this page. Check perceivable, operable, understandable, and robust criteria."
+    },
+    {
+      "title": "Integration check",
+      "scenario": "Combined with UX audit",
+      "prompt": "Run both the accessibility check and UX audit on this dashboard. Focus on contrast, navigation, and ARIA usage."
+    }
+  ],
+  "bestPractices": [
+    "Run accessibility checks before every feature release",
+    "Combine automated testing tools with manual keyboard testing",
+    "Include people with disabilities in user testing when possible"
+  ],
+  "antiPatterns": [
+    "Using placeholder text instead of proper form labels",
+    "Relying solely on color to convey information",
+    "Skipping accessibility testing until the end of development"
+  ],
+  "faq": [
+    {
+      "question": "What WCAG levels does this skill check?",
+      "answer": "This skill covers WCAG 2.1 Level A and Level AA criteria, the standard targets for most compliance requirements."
+    },
+    {
+      "question": "Does this replace automated testing tools?",
+      "answer": "No. This skill provides guidelines and code reviews. Use axe-core or pa11y for automated testing in your CI pipeline."
+    },
+    {
+      "question": "Can I use this with Playwright tests?",
+      "answer": "Yes. The skill references Playwright integration for automated accessibility testing alongside manual review."
+    },
+    {
+      "question": "Is my code data safe?",
+      "answer": "Yes. This skill only reviews code you provide. No data is stored or transmitted to external services."
+    },
+    {
+      "question": "Why did my accessibility audit fail?",
+      "answer": "Common causes include missing alt text, low color contrast, missing form labels, and missing focus indicators. Review the specific issues listed."
+    },
+    {
+      "question": "How does this compare to manual testing?",
+      "answer": "This skill identifies code-level issues. Manual keyboard and screen reader testing catches runtime behavior that code review cannot."
+    }
+  ],
+  "seoKeywords": [
+    "accessibility audit",
+    "WCAG compliance",
+    "Claude Code accessibility",
+    "a11y checker",
+    "screen reader test",
+    "keyboard navigation",
+    "color contrast",
+    "ARIA labels",
+    "inclusive design"
+  ],
+  "sourceUrl": "https://github.com/Dami-Randle/logidocs-certify/tree/main/.claude/skills/accessibility-check",
+  "sourceType": "community",
+  "dependencies": []
+}

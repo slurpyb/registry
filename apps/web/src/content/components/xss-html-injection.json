@@ -1,0 +1,142 @@
+{
+  "name": "xss-html-injection",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \\\"test for XSS vulnerabilities\\\", \\\"perform cross-site scripting attacks\\\", \\\"identify HTML injection flaws\\\", \\\"exploit client-side injection...",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "XSS testing",
+  "quality": 5,
+  "qualityReason": "Precise security focus",
+  "bundleHints": [
+    "pentesting-suite",
+    "appsec-toolkit",
+    "security-audit"
+  ],
+  "tags": [
+    "client-side",
+    "exploitation",
+    "penetration-testing",
+    "security-testing",
+    "vulnerability-assessment",
+    "web-security",
+    "xss"
+  ],
+  "capabilities": [
+    "Identify stored, reflected, and DOM-based XSS vulnerability locations",
+    "Test input fields for HTML injection and script injection points",
+    "Exploit XSS to demonstrate session hijacking and credential theft",
+    "Bypass common XSS filters using encoding and obfuscation techniques",
+    "Validate input sanitization and output encoding effectiveness",
+    "Generate proof-of-concept payloads for vulnerability reports"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate security testing skill for XSS and HTML injection vulnerability assessment. All 121 static findings are FALSE POSITIVES - they represent educational examples of vulnerable code patterns (eval, innerHTML, document.write) and demonstration payloads using example URLs (attacker.com). The skill teaches security professionals how to identify and test for client-side injection vulnerabilities in authorized penetration tests.",
+  "valueStatement": "Web applications often contain cross-site scripting and HTML injection flaws that attackers exploit to steal sessions and credentials. This skill provides systematic methodology for detecting, exploiting, and validating client-side injection vulnerabilities in authorized security assessments.",
+  "userTitle": "Test for XSS and HTML injection vulnerabilities",
+  "limitations": [
+    "Requires explicit written authorization before testing",
+    "Cannot test applications behind authentication without test accounts",
+    "Content Security Policy may block inline script testing",
+    "HttpOnly cookies prevent JavaScript-based session theft"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Professional penetration testers",
+      "title": "Security Consultant Testing Web Applications",
+      "description": "Conduct authorized penetration tests to identify XSS vulnerabilities in client web applications and provide remediation recommendations."
+    },
+    {
+      "targetUser": "Web application developers",
+      "title": "Developer Validating Input Handling",
+      "description": "Test custom web applications during development to verify proper input sanitization and output encoding are implemented."
+    },
+    {
+      "targetUser": "Quality assurance engineers",
+      "title": "QA Engineer Performing Security Regression",
+      "description": "Include XSS and HTML injection testing in security regression test suites to catch vulnerabilities before production deployment."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic XSS Detection",
+      "prompt": "Use the XSS HTML injection skill to test the login form at https://example.com for reflected XSS vulnerabilities. Identify all input fields and test for basic XSS payloads.",
+      "scenario": "Testing a specific page for reflected XSS"
+    },
+    {
+      "title": "Stored XSS Assessment",
+      "prompt": "Use the XSS HTML injection skill to test the comment section for stored XSS. Create test payloads that persist and execute when other users view the content.",
+      "scenario": "Testing stored XSS in user-generated content"
+    },
+    {
+      "title": "DOM-Based XSS Discovery",
+      "prompt": "Use the XSS HTML injection skill to analyze the JavaScript on https://example.com/dashboard for DOM-based XSS. Check location.hash and location.search handling.",
+      "scenario": "Finding client-side XSS in JavaScript code"
+    },
+    {
+      "title": "Filter Bypass Validation",
+      "prompt": "Use the XSS HTML injection skill to test if the WAF at https://example.com blocks common XSS payloads. Try HTML encoding, Unicode encoding, and tag variation bypass techniques.",
+      "scenario": "Testing WAF effectiveness against encoded payloads"
+    }
+  ],
+  "bestPractices": [
+    "Always obtain written authorization before testing any target application",
+    "Use controlled demonstration payloads that do not persist or spread to unintended users",
+    "Report critical vulnerabilities immediately through proper incident response channels"
+  ],
+  "antiPatterns": [
+    "Testing production systems without explicit written authorization",
+    "Using discovered vulnerabilities for unauthorized access or data exfiltration",
+    "Deploying payloads that could cause denial of service or system damage"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill perform actual attacks on target websites?",
+      "answer": "No. This skill provides methodology and payloads for authorized security testing. Users must have explicit written permission before testing any system."
+    },
+    {
+      "question": "Can this skill test for all types of XSS?",
+      "answer": "The skill covers stored, reflected, and DOM-based XSS. However, some advanced variants like mutation XSS may require additional specialized techniques."
+    },
+    {
+      "question": "What authorization is required before using this skill?",
+      "answer": "Written authorization from the system owner is required. This should include defined scope, permitted testing methods, and handling procedures for any captured data."
+    },
+    {
+      "question": "Does this skill work against applications with CSP?",
+      "answer": "CSP can block many XSS payloads. The skill includes techniques for CSP bypass testing, but some well-configured CSP policies may prevent successful exploitation."
+    },
+    {
+      "question": "Can session cookies always be stolen via XSS?",
+      "answer": "No. Cookies marked with HttpOnly cannot be accessed via JavaScript. Modern applications should use this protection for session cookies."
+    },
+    {
+      "question": "What should I do if I find a critical XSS vulnerability?",
+      "answer": "Report immediately through proper channels per your authorization agreement. Document the finding with proof-of-concept and provide remediation recommendations to the owner."
+    }
+  ],
+  "seoKeywords": [
+    "XSS testing",
+    "cross-site scripting",
+    "HTML injection",
+    "web vulnerability",
+    "penetration testing",
+    "security assessment",
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "session hijacking"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/xss-html-injection",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,146 @@
+{
+  "name": "azure-servicebus-ts",
+  "type": "skill",
+  "description": "Build messaging applications using Azure Service Bus SDK for JavaScript (@azure/service-bus). Use when implementing queues, topics/subscriptions, message sessions, dead-letter handling, or enterprise messaging patterns.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "messaging",
+  "quality": 5,
+  "qualityReason": "Comprehensive JS Service Bus use",
+  "bundleHints": [
+    "messaging",
+    "enterprise-integration"
+  ],
+  "tags": [
+    "azure",
+    "dead-letter",
+    "enterprise",
+    "javascript",
+    "messaging",
+    "queues",
+    "service-bus",
+    "sessions",
+    "topics"
+  ],
+  "capabilities": [
+    "Send and receive messages using Azure Service Bus SDK",
+    "Implement queues and topics/subscriptions for pub-sub patterns",
+    "Handle message sessions for ordered processing",
+    "Manage dead-letter queues for failed messages",
+    "Schedule messages for future delivery",
+    "Use peek-lock and receive-and-delete modes"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 46 static findings are false positives. The skill is legitimate Azure Service Bus documentation containing code examples in markdown. The backtick patterns are from markdown code fences, not shell execution. Environment variable access is for Azure configuration (standard practice). No cryptographic algorithms or malicious patterns present.",
+  "valueStatement": "This skill provides code examples and patterns for implementing Azure Service Bus messaging in JavaScript and TypeScript applications. It helps developers quickly implement queues, topics, and message handling.",
+  "userTitle": "Build Azure Service Bus Messaging Apps",
+  "limitations": [
+    "Does not provision Azure resources - requires pre-configured namespace",
+    "Does not handle application-level business logic",
+    "Does not provide monitoring or metrics",
+    "Requires valid Azure credentials (Entra ID or connection string)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building distributed systems",
+      "title": "Backend Developer Building Event-Driven Systems",
+      "description": "Implement async communication between microservices using Azure Service Bus queues and topics."
+    },
+    {
+      "targetUser": "Cloud architects and solution designers",
+      "title": "Cloud Architect Designing Messaging Patterns",
+      "description": "Create scalable pub-sub architectures with topics, subscriptions, and message sessions."
+    },
+    {
+      "targetUser": "DevOps and integration engineers",
+      "title": "DevOps Engineer Setting Up Integration",
+      "description": "Connect Azure services and external systems using Service Bus message routing."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Send a message to a queue",
+      "prompt": "Use the Azure Service Bus skill to show me how to send a JSON message to a queue named 'orders'.",
+      "scenario": "Basic message sending"
+    },
+    {
+      "title": "Receive messages with subscription",
+      "prompt": "Show me how to set up a message subscription receiver that processes messages from a topic subscription.",
+      "scenario": "Message receiving"
+    },
+    {
+      "title": "Handle dead-letter messages",
+      "prompt": "How do I process messages from a dead-letter queue to handle failed messages?",
+      "scenario": "Error handling"
+    },
+    {
+      "title": "Implement message sessions",
+      "prompt": "Show me how to use message sessions to ensure ordered processing of related messages.",
+      "scenario": "Advanced messaging"
+    }
+  ],
+  "bestPractices": [
+    "Use Entra ID (Azure AD) authentication instead of connection strings in production",
+    "Reuse ServiceBusClient instances across your application for connection pooling",
+    "Always close senders and receivers when done to free resources",
+    "Implement proper error handling with processError callbacks",
+    "Use message sessions when order matters within a group of messages"
+  ],
+  "antiPatterns": [
+    "Creating a new ServiceBusClient for each message (causes connection overhead)",
+    "Hardcoding connection strings in source code (use environment variables)",
+    "Not handling dead-letter messages (leads to lost data)",
+    "Not closing senders/receivers (causes resource leaks)"
+  ],
+  "faq": [
+    {
+      "question": "What authentication methods does this skill support?",
+      "answer": "The skill shows both Entra ID (DefaultAzureCredential) and connection string authentication. Entra ID is recommended for production."
+    },
+    {
+      "question": "Can I use this skill with Azure Event Hubs?",
+      "answer": "No, this skill is specifically for Azure Service Bus. Event Hubs uses a different SDK (@azure/event-hubs)."
+    },
+    {
+      "question": "How do I handle messages that fail processing?",
+      "answer": "Use the deadLetterMessage method to move failed messages to the dead-letter queue, then process them separately."
+    },
+    {
+      "question": "What is the difference between peekLock and receiveAndDelete?",
+      "answer": "peekLock keeps messages hidden until completed or abandoned. receiveAndDelete removes messages immediately. Use peekLock for reliable processing."
+    },
+    {
+      "question": "Can I send messages to multiple queues in one batch?",
+      "answer": "Yes, use createMessageBatch() to add multiple messages, then send them together with sendMessages(batch) for better performance."
+    },
+    {
+      "question": "Do I need to install the Azure Identity package?",
+      "answer": "Yes, @azure/identity is required for Entra ID authentication. Install it alongside @azure/service-bus."
+    }
+  ],
+  "seoKeywords": [
+    "Azure Service Bus",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "message queue",
+    "topics subscriptions",
+    "Azure messaging",
+    "Node.js",
+    "TypeScript",
+    "cloud messaging"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-servicebus-ts",
+  "sourceType": "community",
+  "dependencies": []
+}

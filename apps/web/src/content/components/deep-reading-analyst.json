@@ -1,0 +1,143 @@
+{
+  "name": "deep-reading-analyst",
+  "type": "skill",
+  "description": "Comprehensive framework for deep analysis of articles, papers, and long-form content using 10+ thinking models (SCQA, 5W2H, critical thinking, inversion, mental models, first principles, systems thinking, six thinking hats). Use when users want to: (1) deeply understand complex articles/content, (2) analyze arguments and identify logical flaws, (3) extract actionable insights from reading materials, (4) create study notes or learning summaries, (5) compare multiple sources, (6) transform knowledge into practical applications, or (7) apply specific thinking frameworks. Triggered by phrases like 'analyze this article,' 'help me understand,' 'deep dive into,' 'extract insights from,' 'use [framework name],' or when users provide URLs/long-form content for analysis.",
+  "domain": "science",
+  "subdomain": "research",
+  "specialty": "thinking models",
+  "quality": 5,
+  "qualityReason": "Multi-model analysis framework",
+  "bundleHints": [
+    "research-methodology",
+    "learning-framework",
+    "critical-thinking"
+  ],
+  "tags": [
+    "analysis",
+    "critical thinking",
+    "first principles",
+    "learning frameworks",
+    "mental models",
+    "reading comprehension"
+  ],
+  "capabilities": [
+    "Applies 10+ thinking frameworks including SCQA, 5W2H, Critical Thinking, Inversion, Mental Models, First Principles, Systems Thinking, and Six Thinking Hats",
+    "Creates structured analysis outputs with templates for learning notes, argument analysis, and decision frameworks",
+    "Evaluates argument quality and identifies logical flaws using evidence evaluation matrices",
+    "Synthesizes insights from multiple sources through cross-comparison matrices",
+    "Maps causal relationships and feedback loops using systems thinking techniques",
+    "Generates actionable takeaways and application plans from reading materials"
+  ],
+  "author": "YYH211",
+  "icon": "📚",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown framework files. No executable code, no file system access, no network calls, no command execution. All 284 static findings are false positives triggered by markdown syntax and legitimate prose examples. Scanner incorrectly flagged markdown backticks as shell commands and common words like 'cipher' and 'network' as security threats.",
+  "valueStatement": "Transform surface-level reading into deep understanding. Apply proven thinking models to extract insights, evaluate arguments, and turn reading into actionable knowledge.",
+  "userTitle": "Analyze articles with 10+ thinking frameworks",
+  "limitations": [
+    "Does not access external URLs or fetch content from the web directly",
+    "Relies on user-provided content or text obtained via web_fetch for analysis",
+    "Quality of output depends on clarity and completeness of input material",
+    "Does not provide domain-specific expertise beyond framework application"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Students and researchers",
+      "title": "Academic paper analysis",
+      "description": "Analyze research papers to extract core claims, evaluate evidence quality, and identify logical gaps."
+    },
+    {
+      "targetUser": "Professionals",
+      "title": "Business document review",
+      "description": "Evaluate business articles, reports, and strategy documents using SCQA and inversion thinking."
+    },
+    {
+      "targetUser": "Lifelong learners",
+      "title": "Self-directed learning",
+      "description": "Transform blog posts, articles, and books into structured learning notes with actionable insights."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick analysis",
+      "scenario": "Understanding main points",
+      "prompt": "Analyze this article using SCQA framework. Extract the Situation, Complication, Question, and Answer. Identify the top 3 key insights."
+    },
+    {
+      "title": "Critical evaluation",
+      "scenario": "Evaluating claims",
+      "prompt": "Apply critical thinking framework to this content. Assess argument strength, identify logical fallacies, and evaluate evidence quality."
+    },
+    {
+      "title": "Deep dive",
+      "scenario": "Comprehensive analysis",
+      "prompt": "Perform a deep analysis using First Principles, Mental Models, and Systems Thinking. Rebuild from fundamentals and map feedback loops."
+    },
+    {
+      "title": "Cross-source",
+      "scenario": "Comparing sources",
+      "prompt": "Compare these three articles on the same topic using the comparison matrix. Identify consensus, divergence, and synthesize an integrated view."
+    }
+  ],
+  "bestPractices": [
+    "Start with quick frameworks like SCQA and 5W2H before moving to deeper analysis methods",
+    "Apply inversion thinking to identify hidden risks and challenge underlying assumptions",
+    "Always generate concrete action items with specific timeframes tied to insights",
+    "Use multiple mental models from different disciplines for robust conclusions"
+  ],
+  "antiPatterns": [
+    "Applying all frameworks at once without considering the appropriate depth level",
+    "Using frameworks superficially without genuine insight extraction and reflection",
+    "Copying text verbatim from sources instead of rephrasing for personal understanding",
+    "Skipping the action planning phase after completing analysis"
+  ],
+  "faq": [
+    {
+      "question": "Which frameworks work best for business articles?",
+      "answer": "SCQA combined with Mental Models using the economics lens and Inversion Thinking works well for strategy and business content."
+    },
+    {
+      "question": "How long does each analysis level take?",
+      "answer": "Quick analysis takes 15 minutes, Standard takes 30 minutes, Deep takes 60 minutes, and Research takes 120+ minutes with web search."
+    },
+    {
+      "question": "Can this analyze content from URLs?",
+      "answer": "The skill provides frameworks. Use web_fetch to get URL content or paste the text directly to analyze."
+    },
+    {
+      "question": "Is my data stored or shared?",
+      "answer": "No data storage or sharing occurs. All analysis happens in-session based on the content you provide."
+    },
+    {
+      "question": "What if the content lacks sufficient information?",
+      "answer": "The 5W2H framework explicitly identifies information gaps and missing pieces for follow-up investigation."
+    },
+    {
+      "question": "How is this different from general summarization?",
+      "answer": "Uses structured thinking frameworks for deeper analysis beyond summarization. Evaluates argument quality, identifies logical flaws, and generates practical application plans."
+    }
+  ],
+  "seoKeywords": [
+    "deep reading analysis",
+    "critical thinking frameworks",
+    "Claude skill",
+    "article analysis",
+    "SCQA framework",
+    "mental models",
+    "learning from reading",
+    "content comprehension",
+    "research analysis",
+    "thinking tools"
+  ],
+  "sourceUrl": "https://github.com/YYH211/Claude-meta-skill/tree/main/deep-reading-analyst",
+  "sourceType": "community",
+  "dependencies": []
+}

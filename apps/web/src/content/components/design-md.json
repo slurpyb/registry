@@ -1,0 +1,139 @@
+{
+  "name": "design-md",
+  "type": "skill",
+  "description": "Analyze Stitch projects and synthesize a semantic design system into DESIGN.md files",
+  "domain": "design",
+  "subdomain": "design-systems",
+  "specialty": "semantic design docs",
+  "quality": 4,
+  "qualityReason": "Specific format and tool integration",
+  "bundleHints": [
+    "design-system",
+    "documentation-suite"
+  ],
+  "tags": [
+    "design-systems",
+    "design.md",
+    "documentation",
+    "semantic-design",
+    "stitch",
+    "tailwind"
+  ],
+  "capabilities": [
+    "Extracts color palettes from screen assets and assigns semantic names",
+    "Translates CSS/Tailwind values into descriptive design language",
+    "Documents typography hierarchy with natural language descriptions",
+    "Generates DESIGN.md files following semantic design system format",
+    "Maps component patterns to design tokens with functional descriptions"
+  ],
+  "author": "google-labs-code",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The scanner incorrectly flagged hex color codes as weak cryptographic algorithms, markdown backticks as shell execution, and Stitch MCP tool names as C2 keywords. This is documentation-only content that generates design system files using authorized API calls.",
+  "valueStatement": "Design systems are often trapped in technical CSS values that are hard to translate into prompts. This skill analyzes visual assets and translates them into natural language design documentation that ensures consistent UI generation.",
+  "userTitle": "Create semantic design documentation",
+  "limitations": [
+    "Requires access to Stitch MCP Server for project and screen data",
+    "Cannot create new design systems from scratch without existing reference screens",
+    "Limited to web-based design documentation (HTML/CSS/Tailwind)",
+    "Output quality depends on completeness of source screen metadata"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Designers working with Stitch to build UI components",
+      "title": "Create consistent design language for a new Stitch project",
+      "description": "Generate a comprehensive DESIGN.md that serves as the source of truth for prompting Stitch to create new screens that match your existing design language."
+    },
+    {
+      "targetUser": "Design system engineers and frontend developers",
+      "title": "Document existing design patterns for team collaboration",
+      "description": "Analyze completed screens and produce human-readable design documentation that helps team members understand and extend the design system."
+    },
+    {
+      "targetUser": "Product managers and design leads",
+      "title": "Create reference documentation for AI-assisted design iteration",
+      "description": "Build a semantic design guide that enables precise prompts for incremental improvements to existing screens while maintaining design consistency."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Design Documentation",
+      "prompt": "Analyze the [Project Name] project and generate a DESIGN.md file documenting the design system from the Home screen.",
+      "scenario": "Quick start for documenting a project's visual design"
+    },
+    {
+      "title": "Specific Screen Analysis",
+      "prompt": "Retrieve the [Screen Name] screen from the [Project Name] project. Analyze the visual design and create a comprehensive DESIGN.md that covers color palette, typography, component styles, and layout principles.",
+      "scenario": "Documenting a specific screen's design language"
+    },
+    {
+      "title": "Design Token Extraction",
+      "prompt": "Extract all design tokens from the [Project Name] project including colors, spacing values, border-radius patterns, and shadow styles. Generate semantic descriptions for each token with functional roles.",
+      "scenario": "Creating a complete token inventory for a design system"
+    },
+    {
+      "title": "Multi-Screen Design Synthesis",
+      "prompt": "Analyze multiple screens from the [Project Name] project to identify consistent design patterns. Synthesize a unified DESIGN.md that captures the core design language while documenting component-specific variations.",
+      "scenario": "Building comprehensive design documentation from multiple screens"
+    }
+  ],
+  "bestPractices": [
+    "Use semantic color names that convey character and purpose (e.g., 'Deep Muted Teal-Navy' rather than just 'Dark Blue')",
+    "Always include both descriptive names and hex codes for colors to enable precise AI prompting",
+    "Document functional roles for each design element to guide consistent usage across screens"
+  ],
+  "antiPatterns": [
+    "Using technical CSS class names without translation (e.g., 'rounded-xl' instead of 'generously rounded corners')",
+    "Omitting color codes and relying only on descriptive names",
+    "Failing to explain the functional purpose of design elements"
+  ],
+  "faq": [
+    {
+      "question": "What is DESIGN.md and why do I need it?",
+      "answer": "DESIGN.md serves as the source of truth for prompting Stitch to generate new screens. It translates technical design values into natural language that Stitch interprets for consistent UI creation."
+    },
+    {
+      "question": "What access do I need to use this skill?",
+      "answer": "You need access to the Stitch MCP Server and a Stitch project with at least one designed screen to analyze."
+    },
+    {
+      "question": "What formats does this skill support?",
+      "answer": "This skill works with HTML, CSS, and Tailwind-based designs. It extracts Tailwind classes and custom CSS to create design tokens."
+    },
+    {
+      "question": "How long does documentation take?",
+      "answer": "The skill typically completes analysis and documentation in under 2 minutes depending on screen complexity."
+    },
+    {
+      "question": "Can I update DESIGN.md as my project evolves?",
+      "answer": "Yes. Re-run the skill on updated screens to generate revised documentation that reflects design changes."
+    },
+    {
+      "question": "What makes good semantic design documentation?",
+      "answer": "Good documentation uses evocative, human-readable descriptions for all design elements and always includes functional context for each component."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "design system documentation",
+    "semantic design",
+    "visual design tokens",
+    "tailwind design system",
+    "UI generation",
+    "Stitch",
+    "design guidelines"
+  ],
+  "sourceUrl": "https://github.com/google-labs-code/stitch-skills/tree/main/skills/design-md/",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "project-development",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"start an LLM project\", \"design batch pipeline\", \"evaluate task-model fit\", \"structure agent project\", or mentions pipeline architecture, agent-assisted development, cost estimation, or choosing between LLM and traditional approaches.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "LLM project design",
+  "quality": 5,
+  "qualityReason": "Clear AI project scaffolding",
+  "bundleHints": [
+    "ai-pipeline",
+    "agent-development"
+  ],
+  "tags": [
+    "agent-development",
+    "batch-processing",
+    "cost-estimation",
+    "llm-pipelines",
+    "pipeline",
+    "project-architecture",
+    "task-model-fit"
+  ],
+  "capabilities": [
+    "Evaluate whether a task is suited for LLM processing versus traditional code",
+    "Design staged pipelines with acquire, prepare, process, parse, and render stages",
+    "Implement file-system-based state management for idempotent processing",
+    "Estimate token costs and processing time before execution",
+    "Structure prompts for reliable parsing of LLM outputs",
+    "Choose between single-agent and multi-agent architectures"
+  ],
+  "author": "ChakshuGautam",
+  "icon": "🏗️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation and educational skill teaching LLM pipeline development methodology. All 184 static findings are false positives: 'weak cryptographic algorithm' detections are words like 'MD' (markdown) in documentation, 'external_commands' detections are markdown code blocks with backticks, and filesystem operations are legitimate pipeline state management patterns. No malicious behavior, network exfiltration, or credential access present.",
+  "valueStatement": "Building LLM applications without a clear methodology leads to wasted time and budget overruns. This skill provides a proven framework for evaluating task fit, architecting pipelines, and iterating efficiently.",
+  "userTitle": "Design and Build LLM Batch Processing Pipelines",
+  "limitations": [
+    "Does not provide ready-to-use API integrations for specific LLM providers",
+    "Cost estimates are approximations that vary by model and usage",
+    "Multi-agent patterns require additional specialized skills for full implementation",
+    "Template code requires customization for specific use cases"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developer",
+      "title": "Build a Content Analysis Pipeline",
+      "description": "Create a batch processing system that analyzes hundreds of documents with structured LLM outputs and reliable parsing."
+    },
+    {
+      "targetUser": "Technical Lead",
+      "title": "Evaluate LLM Project Feasibility",
+      "description": "Assess whether a proposed feature is suited for LLM processing and estimate development costs before committing resources."
+    },
+    {
+      "targetUser": "Data Engineer",
+      "title": "Design Scalable Processing Architecture",
+      "description": "Structure a parallel processing pipeline with checkpointing, error handling, and cost-effective token management."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Task Fit Evaluation",
+      "scenario": "Starting a new project that might use LLMs",
+      "prompt": "Evaluate whether this task is suited for LLM processing: [describe the task, inputs, and expected outputs]. Consider synthesis requirements, error tolerance, and accuracy needs."
+    },
+    {
+      "title": "Pipeline Architecture Design",
+      "scenario": "Planning batch processing system",
+      "prompt": "Design a pipeline architecture for processing [number] items of [type]. Include stage breakdown, file structure, and parallelization strategy."
+    },
+    {
+      "title": "Cost Estimation",
+      "scenario": "Budgeting for LLM processing",
+      "prompt": "Estimate the cost to process [number] items with [model name]. Each item has approximately [X] words of input and requires [Y] words of output."
+    },
+    {
+      "title": "Prompt Structure Design",
+      "scenario": "Need reliable structured outputs",
+      "prompt": "Design a prompt template that produces parseable output with these fields: [list fields]. Include format specification and parsing strategy for handling variations."
+    }
+  ],
+  "bestPractices": [
+    "Always validate task-model fit with a manual prototype before building automation",
+    "Use the file system for state management to enable easy debugging and idempotent processing",
+    "Start with minimal architecture and add complexity only when proven necessary"
+  ],
+  "antiPatterns": [
+    "Building automation before testing if the model can perform the task manually",
+    "Combining all pipeline stages into one script without intermediate outputs",
+    "Adding excessive guardrails that constrain model capabilities unnecessarily"
+  ],
+  "faq": [
+    {
+      "question": "When should I use a single-agent versus multi-agent architecture?",
+      "answer": "Use multi-agent when tasks exceed single context window limits or require parallel exploration. Single-agent works better for independent batch items."
+    },
+    {
+      "question": "How do I estimate costs before running a pipeline?",
+      "answer": "Count input tokens per item, estimate output tokens, multiply by item count, then add 20-30% buffer for retries. Use the cost estimation patterns provided."
+    },
+    {
+      "question": "What makes a task unsuited for LLM processing?",
+      "answer": "Tasks requiring precise computation, real-time responses, perfect accuracy, or deterministic outputs are poor fits. Test manually first to verify."
+    },
+    {
+      "question": "How do I handle LLM output parsing failures?",
+      "answer": "Build flexible regex parsers that handle format variations. Log failures for review rather than crashing. Provide sensible defaults for missing sections."
+    },
+    {
+      "question": "Should I use specialized tools or simple primitives?",
+      "answer": "Start with minimal tools like bash and file system access. Add specialized tools only when they demonstrably improve results. More tools often means worse performance."
+    },
+    {
+      "question": "How do I structure prompts for reliable parsing?",
+      "answer": "Include explicit format specifications with examples, use section markers like headers, and tell the model you will parse programmatically."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "LLM pipeline",
+    "batch processing",
+    "agent development",
+    "project architecture",
+    "cost estimation",
+    "task-model fit",
+    "pipeline patterns"
+  ],
+  "sourceUrl": "https://github.com/ChakshuGautam/games/tree/main/.claude/skills/project-development",
+  "sourceType": "community",
+  "dependencies": []
+}

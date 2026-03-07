@@ -1,0 +1,143 @@
+{
+  "name": "linkedin-automation",
+  "type": "skill",
+  "description": "Automate LinkedIn tasks via Rube MCP (Composio): create posts, manage profile, company info, comments, and image uploads. Always search tools first for current schemas.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "LinkedIn tasks",
+  "quality": 5,
+  "qualityReason": "Comprehensive automation",
+  "bundleHints": [
+    "mcp-automation",
+    "social-tools"
+  ],
+  "tags": [
+    "automation",
+    "composio",
+    "linkedin",
+    "mcp",
+    "rube-mcp",
+    "social-media"
+  ],
+  "capabilities": [
+    "Create and publish LinkedIn text posts with visibility controls",
+    "Retrieve authenticated user profile information and company details",
+    "Upload and attach images to LinkedIn posts",
+    "Comment on existing LinkedIn posts",
+    "Delete previously published LinkedIn posts",
+    "Manage LinkedIn OAuth connections and authentication"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 44 static analysis findings are false positives from markdown documentation. The external_commands flags are backtick characters in code blocks, network finding is legitimate documentation of MCP endpoint, weak_crypto flags are false matches on tool names, and system_reconnaissance flags are documentation of LinkedIn API URN formats. No executable code present. This is safe documentation for LinkedIn API workflows.",
+  "valueStatement": "Save time by automating LinkedIn post creation, profile management, and engagement tasks through Composio's LinkedIn toolkit. Streamline social media workflows without leaving your development environment.",
+  "userTitle": "Automate LinkedIn Posts and Profile Management",
+  "limitations": [
+    "Requires Rube MCP server connection and active LinkedIn OAuth authentication",
+    "Can only manage posts and profile for the authenticated user, not other users",
+    "Subject to LinkedIn API rate limits and daily posting quotas",
+    "Image uploads require two-step process: register upload then upload binary",
+    "Cannot create polls or documents without additional LinkedIn API features"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Marketing professionals and content creators",
+      "title": "Scheduled Content Publishing",
+      "description": "Marketing professionals automate LinkedIn post creation and publishing as part of content workflows, maintaining consistent social media presence without manual intervention."
+    },
+    {
+      "targetUser": "Social media managers",
+      "title": "Company Profile Management",
+      "description": "Social media managers retrieve and update company page information, post updates on behalf of organization pages, and manage engagement from within Claude Code."
+    },
+    {
+      "targetUser": "Developers building automation workflows",
+      "title": "Developer Integration",
+      "description": "Developers integrate LinkedIn posting capabilities into custom automation pipelines, triggering social media updates based on events or deployments."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a simple LinkedIn post",
+      "prompt": "Create a LinkedIn post with the text: 'Excited to share our latest product update! Check out our new features.' Make it visible to my connections.",
+      "scenario": "Beginner user wants to post a simple text update to LinkedIn"
+    },
+    {
+      "title": "Post with image attachment",
+      "prompt": "Help me post to LinkedIn with an image. The text should be 'Behind the scenes at our team meetup!' and the image is at /path/to/team-photo.jpg. Make it public.",
+      "scenario": "User wants to create a LinkedIn post with an attached image from their local filesystem"
+    },
+    {
+      "title": "Retrieve profile and company information",
+      "prompt": "Get my LinkedIn profile information and also fetch details for company ID 12345678. Show me the key details from both.",
+      "scenario": "User needs to retrieve their personal profile and specific company page information"
+    },
+    {
+      "title": "Comment on a post by ID",
+      "prompt": "Add a comment 'Great insights! Thanks for sharing.' to LinkedIn post with ID 'urn:li:activity:1234567890'. My URN is 'urn:li:person:ABC123'.",
+      "scenario": "Advanced user wants to programmatically comment on a specific LinkedIn post using URN identifiers"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to retrieve the current tool schemas before using any LinkedIn operations",
+    "Verify LinkedIn connection status is ACTIVE before attempting any operations by calling RUBE_MANAGE_CONNECTIONS",
+    "Use explicit visibility settings ('PUBLIC' or 'CONNECTIONS') rather than relying on defaults to ensure posts reach intended audience",
+    "Implement backoff strategies when creating multiple posts or comments to respect LinkedIn API rate limits and avoid 429 errors"
+  ],
+  "antiPatterns": [
+    "Do not skip the RUBE_SEARCH_TOOLS step as tool schemas may change and using outdated parameters will cause operations to fail",
+    "Do not use partial IDs or vanity URLs instead of full URN formats when referencing posts, users, or organizations",
+    "Do not create posts or comments in rapid succession without delays as this will trigger LinkedIn rate limits and may result in temporary throttling",
+    "Do not assume OAuth tokens are valid indefinitely; re-authenticate if API calls return 401 errors indicating expired credentials"
+  ],
+  "faq": [
+    {
+      "question": "Do I need a LinkedIn API key?",
+      "answer": "No. This skill uses Rube MCP which handles LinkedIn OAuth authentication. You just need to authenticate via the RUBE_MANAGE_CONNECTIONS workflow."
+    },
+    {
+      "question": "Can I post on behalf of other users?",
+      "answer": "No. This skill can only post and manage content for the authenticated user account or company pages where you are an admin."
+    },
+    {
+      "question": "Why did my post creation fail with a URN error?",
+      "answer": "You must call LINKEDIN_GET_MY_INFO first to retrieve your profile URN, then use that URN as the actor parameter when creating posts or comments."
+    },
+    {
+      "question": "What image formats are supported?",
+      "answer": "LinkedIn typically supports JPG, PNG, and GIF formats. Images must be uploaded via the two-step process: register upload, then upload binary data."
+    },
+    {
+      "question": "How do I avoid rate limiting issues?",
+      "answer": "Implement delays between posts, monitor for 429 status codes, and respect the Retry-After header. LinkedIn has strict daily limits on posts and comments."
+    },
+    {
+      "question": "Can I schedule posts for future publication?",
+      "answer": "No. The LinkedIn API does not support scheduled posting. Posts are published immediately upon creation. Use external scheduling tools if needed."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "LinkedIn automation",
+    "social media posting",
+    "Composio",
+    "Rube MCP",
+    "LinkedIn API",
+    "social media management",
+    "content scheduling"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/linkedin-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

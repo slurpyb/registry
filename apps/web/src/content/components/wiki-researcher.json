@@ -1,0 +1,143 @@
+{
+  "name": "wiki-researcher",
+  "type": "skill",
+  "description": "Conducts multi-turn iterative deep research on specific topics within a codebase with zero tolerance for shallow analysis. Use when the user wants an in-depth investigation, needs to understand how something works across multiple files, or asks for comprehensive analysis of a specific system or pattern.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "iterative research",
+  "quality": 5,
+  "qualityReason": "Highly specific multi-turn analysis",
+  "bundleHints": [
+    "research-pipeline",
+    "code-intelligence"
+  ],
+  "tags": [
+    "architecture",
+    "code-analysis",
+    "code-exploration",
+    "debugging",
+    "deep-dive",
+    "documentation",
+    "research"
+  ],
+  "capabilities": [
+    "Traces actual code paths and function calls across multiple files",
+    "Distinguishes verified facts from inferences with confidence ratings",
+    "Maps architectural components and data flow through read-only tools",
+    "Identifies design patterns, technical debt, and coupling issues",
+    "Creates Mermaid diagrams grounded in real code implementations",
+    "Follows 5-iteration research process for comprehensive analysis"
+  ],
+  "author": "sickn33",
+  "icon": "🔍",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 5 high-risk patterns and 1 medium-risk pattern. All findings are false positives caused by markdown syntax misinterpretation (table pipes, list dashes). The skill is a legitimate codebase research tool with no network requests, file writes, or credential access. It provides structured methodology for deep code analysis using standard read-only tools (Glob, Grep, Read).",
+  "valueStatement": "Shallow code reviews lead to misunderstandings and bugs. This skill enforces rigorous, evidence-based investigation of codebases through structured multi-turn analysis.",
+  "userTitle": "Conduct Deep Codebase Research with Evidence-Based Analysis",
+  "limitations": [
+    "Only works with accessible source code files in the workspace",
+    "Cannot execute code or test runtime behavior",
+    "Requires manual invocation for each research topic",
+    "Analysis quality depends on codebase complexity and documentation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers joining existing projects",
+      "title": "Understand Legacy Codebases",
+      "description": "New team members rapidly learn complex systems by tracing actual code paths rather than relying on outdated documentation."
+    },
+    {
+      "targetUser": "Software architects and tech leads",
+      "title": "Architectural Decision Analysis",
+      "description": "Evaluate design patterns, coupling, and technical debt before refactoring or adding new features."
+    },
+    {
+      "targetUser": "Developers debugging production issues",
+      "title": "Bug Investigation",
+      "description": "Trace data flow and function calls to identify root causes of complex bugs spanning multiple modules."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Code Exploration",
+      "prompt": "How does authentication work in this codebase?",
+      "scenario": "New developer needs to understand auth flow"
+    },
+    {
+      "title": "Architecture Mapping",
+      "prompt": "Map the data flow from API entry point to database storage for user creation.",
+      "scenario": "Planning a refactor of user registration"
+    },
+    {
+      "title": "Pattern Investigation",
+      "prompt": "What design patterns are used in the payment processing module? Identify trade-offs and risks.",
+      "scenario": "Evaluating technical debt in critical systems"
+    },
+    {
+      "title": "Deep System Analysis",
+      "prompt": "Trace the complete request lifecycle from ingress through middleware, services, and data layers. Include all transformations, error handling, and external integrations.",
+      "scenario": "Comprehensive documentation of complex systems"
+    }
+  ],
+  "bestPractices": [
+    "Provide specific topics or questions rather than generic 'analyze everything' requests",
+    "Use when you need depth rather than quick answers - this skill prioritizes thoroughness over speed",
+    "Combine with file navigation tools to jump to specific code locations mentioned in findings",
+    "Request Mermaid diagrams when visualizing complex architectures or data flows"
+  ],
+  "antiPatterns": [
+    "Avoid using for simple grep searches - use basic file search instead",
+    "Do not expect runtime behavior analysis - this skill traces static code paths only",
+    "Avoid asking about files outside the accessible workspace directory",
+    "Do not use for time-sensitive tasks - the 5-iteration process requires multiple tool calls"
+  ],
+  "faq": [
+    {
+      "question": "How is this different from normal code analysis?",
+      "answer": "This skill enforces rigorous evidence standards. Every claim must cite file paths and line numbers. It uses 5 research iterations and explicitly distinguishes facts from inferences with confidence ratings."
+    },
+    {
+      "question": "Can it execute code or test functionality?",
+      "answer": "No. This skill only reads and analyzes source code. It cannot execute code, run tests, or observe runtime behavior."
+    },
+    {
+      "question": "How long does analysis take?",
+      "answer": "The skill performs 5 iterative passes over the codebase. Complex topics may require multiple tool calls across dozens of files. Expect thorough analysis to take longer than casual exploration."
+    },
+    {
+      "question": "What tools does it use?",
+      "answer": "Only read-only tools: Glob for file discovery, Grep for content search, and Read for file reading. It never writes files or executes commands."
+    },
+    {
+      "question": "Will it work on any programming language?",
+      "answer": "Yes. The skill traces code paths and structure, not specific language syntax. It works with any codebase where files can be read as text."
+    },
+    {
+      "question": "Can it find bugs or security issues?",
+      "answer": "It can identify suspicious patterns and logic flaws by tracing code paths. However, it is not a replacement for dedicated security scanners or dynamic analysis tools."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "code analysis",
+    "codebase research",
+    "architecture documentation",
+    "debugging assistant",
+    "code exploration",
+    "software analysis",
+    "code review"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/wiki-researcher",
+  "sourceType": "community",
+  "dependencies": []
+}

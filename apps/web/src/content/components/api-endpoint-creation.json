@@ -1,0 +1,144 @@
+{
+  "name": "api-endpoint-creation",
+  "type": "skill",
+  "description": "Next.js 15+ API endpoint creation patterns with Supabase and workspace validation",
+  "domain": "web-development",
+  "subdomain": "fullstack",
+  "specialty": "Next.js API routes",
+  "quality": 5,
+  "qualityReason": "Specific and modern fullstack pattern",
+  "bundleHints": [
+    "nextjs-stack",
+    "fullstack-dev",
+    "supabase"
+  ],
+  "tags": [
+    "api",
+    "api routes",
+    "isolation",
+    "next.js",
+    "nextjs",
+    "supabase",
+    "typescript",
+    "validation",
+    "workspace",
+    "workspace isolation"
+  ],
+  "capabilities": [
+    "Generate GET and POST API endpoint patterns for Next.js 15+",
+    "Implement Supabase server-side authentication and database access",
+    "Add workspace validation to ensure multi-tenant data isolation",
+    "Use standardized response helpers for consistent API output",
+    "Wrap endpoints with error boundary handlers for graceful error management"
+  ],
+  "author": "CleanExpo",
+  "icon": "🔌",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill contains standard Next.js API patterns with Supabase integration. HTTP methods (GET/POST), TypeScript code blocks, and standard workspace validation logic were incorrectly flagged by the static scanner. No malicious patterns present.",
+  "valueStatement": "Building multi-tenant API endpoints requires careful workspace isolation and authentication. This skill provides ready-to-use patterns for Next.js 15+ API routes with Supabase integration and proper workspace validation.",
+  "userTitle": "Create Secure Next.js API Endpoints",
+  "limitations": [
+    "Requires existing Supabase setup and configured helper utilities",
+    "Does not generate authentication logic from scratch",
+    "Assumes workspace_id is passed via query parameters",
+    "Focused on REST patterns, does not cover GraphQL or WebSocket endpoints"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building SaaS applications",
+      "title": "Build Multi-Tenant REST APIs",
+      "description": "Create API endpoints that automatically filter data by workspace_id, ensuring each organization only accesses their own data in a shared database."
+    },
+    {
+      "targetUser": "Full-stack developers maintaining API consistency",
+      "title": "Standardize API Response Formats",
+      "description": "Apply consistent successResponse and errorResponse patterns across all endpoints to create a uniform API interface for frontend consumers."
+    },
+    {
+      "targetUser": "Security-conscious developers",
+      "title": "Secure API Routes with Error Handling",
+      "description": "Wrap API handlers with error boundaries to catch exceptions, log errors, and return appropriate HTTP status codes instead of exposing stack traces."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic GET Endpoint",
+      "prompt": "Create a Next.js 15 GET API endpoint in src/app/api/items/route.ts that retrieves items from Supabase filtered by workspace_id from query params.",
+      "scenario": "When you need a simple read-only endpoint to fetch data"
+    },
+    {
+      "title": "POST Endpoint with Validation",
+      "prompt": "Create a POST endpoint that validates input fields, creates a new record in Supabase with workspace_id and user ID, and returns the created record with 201 status.",
+      "scenario": "When you need to create new resources through the API"
+    },
+    {
+      "title": "Full CRUD Pattern",
+      "prompt": "Generate a complete API route with GET, POST, PUT, and DELETE handlers that all validate workspace access before performing database operations.",
+      "scenario": "When building a full resource management API"
+    },
+    {
+      "title": "Custom Error Handling",
+      "prompt": "Create an API endpoint that handles specific error cases with custom error messages, logs errors for monitoring, and returns appropriate client-friendly error responses.",
+      "scenario": "When you need detailed error reporting and logging"
+    }
+  ],
+  "bestPractices": [
+    "Always validate workspace_id before any database operations to prevent cross-tenant data access.",
+    "Use the withErrorBoundary wrapper on every endpoint to ensure uncaught errors return proper HTTP responses.",
+    "Filter ALL Supabase queries by workspace_id without exception to maintain multi-tenant security."
+  ],
+  "antiPatterns": [
+    "Skipping workspace validation for internal endpoints - all endpoints need validation.",
+    "Hardcoding table names - use dynamic table names from configuration when possible.",
+    "Returning raw database errors - always catch errors and return sanitized messages."
+  ],
+  "faq": [
+    {
+      "question": "What workspace_id validation library should I use?",
+      "answer": "This skill uses the validateUserAndWorkspace helper which should be imported from your project's lib/api-helpers module."
+    },
+    {
+      "question": "Can I use this for DELETE or PUT endpoints?",
+      "answer": "Yes, the same patterns apply. Create handlers for DELETE, PUT, or PATCH using the same workspace validation and error handling approach."
+    },
+    {
+      "question": "Do I need to install any dependencies?",
+      "answer": "This skill assumes you already have @supabase/supabase-js installed and have configured getSupabaseServer in your lib/supabase module."
+    },
+    {
+      "question": "How do I handle pagination?",
+      "answer": "Add pagination parameters to the query and use Supabase's .range() method. The workspace_id filter must still be applied first."
+    },
+    {
+      "question": "Can this work with Edge runtime?",
+      "answer": "The current pattern uses Node.js runtime features. For Edge runtime, you would need to use @supabase/ssr and adjust the authentication approach."
+    },
+    {
+      "question": "How do I test these endpoints?",
+      "answer": "Ensure your test environment includes mock workspace validation and Supabase responses. Use the workspace_id from test fixtures to verify isolation."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Next.js API routes",
+    "Supabase API",
+    "workspace isolation",
+    "TypeScript API endpoints",
+    "multi-tenant API",
+    "API route patterns",
+    "Next.js 15"
+  ],
+  "sourceUrl": "https://github.com/CleanExpo/Unite-Hub/tree/main/.claude/skills/api-endpoint-creation",
+  "sourceType": "community",
+  "dependencies": []
+}

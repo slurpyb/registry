@@ -1,0 +1,140 @@
+{
+  "name": "isms-audit-expert",
+  "type": "skill",
+  "description": "Senior ISMS Audit Expert for internal and external information security management system auditing. Provides ISO 27001 audit expertise, security audit program management, security control assessment, and compliance verification. Use for ISMS internal auditing, external audit preparation, security control testing, and ISO 27001 certification support.",
+  "domain": "security",
+  "subdomain": "compliance",
+  "specialty": "ISO 27001 audits",
+  "quality": 5,
+  "qualityReason": "Expert compliance focus",
+  "bundleHints": [
+    "compliance-suite",
+    "security-audits"
+  ],
+  "tags": [
+    "audit-program",
+    "compliance",
+    "control-assessment",
+    "isms",
+    "iso27001",
+    "security-audit"
+  ],
+  "capabilities": [
+    "Design and manage risk-based ISMS audit programs following ISO 27001 requirements",
+    "Conduct security control assessments across organizational, technical, physical, and operational domains",
+    "Prepare organizations for ISO 27001 certification audits including Stage 1 and Stage 2 assessments",
+    "Evaluate cloud security implementations against compliance frameworks",
+    "Perform technical security testing integration including vulnerability assessments and penetration testing coordination",
+    "Generate compliance reporting and security finding documentation"
+  ],
+  "author": "alirezarezvani",
+  "icon": "🛡️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 69 static findings are FALSE POSITIVES. This is a documentation-only ISMS audit skill with no executable code. The scanner misidentified: (1) Unicode box-drawing characters (├, │, └) as shell backticks, (2) benign security terminology as malicious patterns, (3) documentation text mentioning cryptography as weak crypto implementations. The skill provides ISO 27001 audit methodology guidance through markdown documentation and placeholder scripts.",
+  "valueStatement": "Organizations need systematic security assessments but lack specialized audit expertise. This skill provides comprehensive ISMS auditing capabilities for ISO 27001 compliance, security control testing, and certification preparation.",
+  "userTitle": "Conduct ISO 27001 ISMS Audits",
+  "limitations": [
+    "Does not execute actual security tests or access external systems",
+    "Cannot perform real penetration testing or vulnerability scanning",
+    "Does not replace certified external auditors for formal ISO 27001 certification",
+    "Provides guidance and templates rather than automated compliance enforcement"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Internal Security Auditors",
+      "title": "Internal ISMS Audit Program",
+      "description": "Plan and execute internal ISMS audits, document findings, and track remediation progress."
+    },
+    {
+      "targetUser": "Compliance Managers",
+      "title": "ISO 27001 Certification Prep",
+      "description": "Prepare for external certification audits with gap assessments, mock audits, and documentation review."
+    },
+    {
+      "targetUser": "Security Engineers",
+      "title": "Security Control Verification",
+      "description": "Verify implementation of technical security controls and assess control effectiveness."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Audit Planning",
+      "scenario": "Start ISMS audit program",
+      "prompt": "Help me design a risk-based ISMS audit program for our organization. We need to cover the full ISO 27001 scope with quarterly assessments for high-risk areas."
+    },
+    {
+      "title": "Control Assessment",
+      "scenario": "Test security controls",
+      "prompt": "Create a security control assessment checklist for ISO 27001 Annex A controls covering access control, cryptography, and operations security."
+    },
+    {
+      "title": "Certification Prep",
+      "scenario": "Prepare for external audit",
+      "prompt": "Prepare our organization for a Stage 1 ISO 27001 certification audit. What documentation and evidence do we need?"
+    },
+    {
+      "title": "Cloud Security Audit",
+      "scenario": "Assess cloud implementation",
+      "prompt": "Conduct a cloud security audit for our AWS environment. What controls should we verify for shared responsibility model compliance?"
+    }
+  ],
+  "bestPractices": [
+    "Align ISMS audit scope with organizational risk appetite and regulatory requirements before planning assessments",
+    "Maintain auditor independence by separating audit planning from remediation execution responsibilities",
+    "Document all findings with specific evidence references to support remediation tracking and certification evidence requirements"
+  ],
+  "antiPatterns": [
+    "Avoid conducting audits without documented criteria aligned to specific ISO 27001 control requirements",
+    "Do not rely solely on automated scanning without manual verification of control implementation effectiveness",
+    "Avoid audit programs that focus only on technical controls while neglecting administrative and physical security aspects"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between ISMS and traditional security audits?",
+      "answer": "ISMS audits evaluate the entire information security management system including policies, processes, and their effectiveness, not just technical controls."
+    },
+    {
+      "question": "How often should internal ISMS audits be conducted?",
+      "answer": "Audit frequency depends on risk levels. High-risk areas benefit from quarterly assessments while standard processes typically need annual review."
+    },
+    {
+      "question": "Can this skill replace external auditors for ISO 27001 certification?",
+      "answer": "No. External certification requires accredited auditors. This skill supports preparation but cannot issue formal certification opinions."
+    },
+    {
+      "question": "What documentation is required for ISO 27001 audits?",
+      "answer": "Core documents include information security policy, risk assessment methodology, control procedures, evidence of implementation, and management review records."
+    },
+    {
+      "question": "How are audit findings prioritized for remediation?",
+      "answer": "Findings are ranked by risk impact and likelihood. Critical gaps affecting core security principles require immediate attention within defined timeframes."
+    },
+    {
+      "question": "Does this skill work with cloud security assessments?",
+      "answer": "Yes. The skill includes cloud security audit frameworks for AWS, Azure, and GCP covering shared responsibility model compliance verification."
+    }
+  ],
+  "seoKeywords": [
+    "ISO 27001 audit",
+    "ISMS auditing",
+    "security control assessment",
+    "information security management",
+    "compliance verification",
+    "security audit program",
+    "Claude",
+    "Claude Code",
+    "ISO 27001 certification",
+    "security audit methodology"
+  ],
+  "sourceUrl": "https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/isms-audit-expert",
+  "sourceType": "community",
+  "dependencies": []
+}

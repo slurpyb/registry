@@ -1,0 +1,139 @@
+{
+  "name": "implementing-code",
+  "type": "skill",
+  "description": "Implements code changes and creates commits. Triggered when: implementation tasks, code changes, feature additions, bug fixes.\n",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "Code changes",
+  "quality": 4,
+  "qualityReason": "Generic but useful workflow",
+  "bundleHints": [
+    "dev-workflow",
+    "coding"
+  ],
+  "tags": [
+    "bug-fixes",
+    "code implementation",
+    "commits",
+    "development",
+    "development workflow",
+    "features",
+    "git commits",
+    "tasks"
+  ],
+  "capabilities": [
+    "Investigate related code using Glob and Grep",
+    "Implement changes following existing patterns",
+    "Create commits using Conventional Commits format",
+    "Handle parallel execution safely",
+    "Report implementation completion with details"
+  ],
+  "author": "1gy",
+  "icon": "💻",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a prompt-based definition file with no executable code. All static findings are false positives: the 'Hardcoded URL' and 'Hidden file access' findings refer to a source_url metadata field; 'C2 keywords' and 'Weak cryptographic algorithm' findings incorrectly flag hexadecimal hashes and plain text commit messages; 'Ruby/shell backtick execution' findings document standard git commit commands. The skill uses only Read, Write, Edit, Glob, Grep, and git commands for safe local development operations.",
+  "valueStatement": "Need to implement features or fix bugs. This skill provides a structured workflow for investigating code, making changes, and creating conventional git commits.",
+  "userTitle": "Implement code changes and commit",
+  "limitations": [
+    "Does not push commits to remote repositories",
+    "Does not create branches or pull requests",
+    "Requires git to be initialized in the project"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Feature implementation",
+      "description": "Add new features following project conventions and create properly formatted commits"
+    },
+    {
+      "targetUser": "Bug fixers",
+      "title": "Bug fixes",
+      "description": "Investigate existing code and implement bug fixes with clear commit messages"
+    },
+    {
+      "targetUser": "Refactoring teams",
+      "title": "Code refactoring",
+      "description": "Refactor code while maintaining consistency and creating descriptive commits"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic implementation",
+      "scenario": "Simple feature add",
+      "prompt": "Use the implementing-code skill to add user authentication with email and password. Deliverable: Login form and validation."
+    },
+    {
+      "title": "Bug fix",
+      "scenario": "Fix a reported bug",
+      "prompt": "Use implementing-code to fix the memory leak in the data processing module. Deliverable: Pass all existing tests."
+    },
+    {
+      "title": "Refactoring",
+      "scenario": "Improve code structure",
+      "prompt": "Use implementing-code to refactor the utils module to use TypeScript types. Deliverable: Type-safe functions."
+    },
+    {
+      "title": "Complex feature",
+      "scenario": "Multi-file feature",
+      "prompt": "Use implementing-code to implement the dashboard with charts and data tables. Deliverable: Complete dashboard view with mock data."
+    }
+  ],
+  "bestPractices": [
+    "Provide clear deliverables with specific acceptance criteria",
+    "Review existing code patterns before implementing",
+    "Use conventional commit format for clear changelog history"
+  ],
+  "antiPatterns": [
+    "Providing vague deliverables without clear scope",
+    "Making changes without investigating existing patterns",
+    "Creating commits without descriptive messages"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill push commits to remote?",
+      "answer": "No, this skill only creates local commits. Use a separate skill or command to push."
+    },
+    {
+      "question": "What commit formats are supported?",
+      "answer": "Uses Conventional Commits format: feat, fix, docs, refactor, test, chore."
+    },
+    {
+      "question": "Can I use this with any git provider?",
+      "answer": "Yes, works with GitHub, GitLab, Bitbucket, and any git hosting service."
+    },
+    {
+      "question": "Is my code safe when using this skill?",
+      "answer": "Yes, changes are made locally. No data is sent to external services."
+    },
+    {
+      "question": "What if multiple changes conflict?",
+      "answer": "The skill detects parallel execution and reports conflicts to the manager."
+    },
+    {
+      "question": "How is this different from manual git commands?",
+      "answer": "Provides structured workflow with investigation, implementation, and proper commit messages."
+    }
+  ],
+  "seoKeywords": [
+    "Claude skill",
+    "code implementation",
+    "git commit",
+    "software development",
+    "feature development",
+    "bug fix",
+    "code change",
+    "Claude Code",
+    "development workflow"
+  ],
+  "sourceUrl": "https://github.com/1gy/jpp/tree/main/.claude/skills/implementing-code",
+  "sourceType": "community",
+  "dependencies": []
+}

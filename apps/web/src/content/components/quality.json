@@ -1,0 +1,141 @@
+{
+  "name": "quality",
+  "type": "skill",
+  "description": "Code quality validation, formatting, linting, and pre-commit checks.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "code validation",
+  "quality": 4,
+  "qualityReason": "Good but overlaps with other quality skills",
+  "bundleHints": [
+    "ci-cd-pipeline",
+    "code-quality"
+  ],
+  "tags": [
+    "code quality",
+    "code-quality",
+    "formatting",
+    "linting",
+    "pre-commit",
+    "python",
+    "validation"
+  ],
+  "capabilities": [
+    "Format Python code with Black and Ruff",
+    "Run linting checks with Ruff PyStrict rules",
+    "Validate naming conventions",
+    "Execute pre-commit hook validation",
+    "Perform type checking with BasedPyright strict mode",
+    "Apply blind except and error message best practices"
+  ],
+  "author": "ByronWilliamsCPA",
+  "icon": "🛡️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 14 static findings are FALSE POSITIVES. This is a documentation-only skill containing SKILL.md (documentation) and skill-report.json (metadata). No executable code, scripts, or commands exist. Static patterns triggered on common English words (validation, check, mode, apply) without cryptographic meaning. The source URL, model name, and directory paths are legitimate metadata, not security threats.",
+  "valueStatement": "Ensure consistent code quality across Python projects. This skill automates formatting with Black, linting with Ruff, and type checking with BasedPyright to maintain professional code standards.",
+  "userTitle": "Validate and format code quality",
+  "limitations": [
+    "Requires Python project with uv package manager",
+    "Does not fix issues automatically without user approval",
+    "Limited to Python language support",
+    "Assumes pre-commit configuration is already set up"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Python Developers",
+      "title": "Enforce Code Standards",
+      "description": "Maintain consistent formatting and linting across team Python projects with automated quality checks"
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Pre-commit Validation",
+      "description": "Run comprehensive pre-commit hooks to catch issues before code is committed to version control"
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Automated Quality Gates",
+      "description": "Verify code meets quality standards using BasedPyright type checking and Ruff linting rules"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Format",
+      "scenario": "Format Python files",
+      "prompt": "Format this Python code with Black and Ruff"
+    },
+    {
+      "title": "Full Lint",
+      "scenario": "Run comprehensive linting",
+      "prompt": "Run ruff check with all rules and fix any issues found"
+    },
+    {
+      "title": "Type Check",
+      "scenario": "Validate type annotations",
+      "prompt": "Run basedpyright on the src directory and report any type errors"
+    },
+    {
+      "title": "Pre-commit Run",
+      "scenario": "Validate all files",
+      "prompt": "Run pre-commit hooks on all files to ensure they pass quality checks"
+    }
+  ],
+  "bestPractices": [
+    "Run quality checks before committing code to catch issues early",
+    "Use BasedPyright strict mode to catch type errors at development time",
+    "Configure pre-commit hooks to automate quality checks on every commit"
+  ],
+  "antiPatterns": [
+    "Skipping linting checks because they seem overly strict",
+    "Ignoring type checker warnings without understanding them",
+    "Running pre-commit hooks only after noticing a CI failure"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill support languages other than Python?",
+      "answer": "No, this skill is specifically designed for Python projects using Black, Ruff, and BasedPyright."
+    },
+    {
+      "question": "What happens if pre-commit hooks fail?",
+      "answer": "The skill reports which hooks failed and why. You must fix the issues before committing."
+    },
+    {
+      "question": "Can I customize the linting rules?",
+      "answer": "Yes, modify your pyproject.toml to adjust Ruff rules. This skill uses PyStrict defaults."
+    },
+    {
+      "question": "Is my code sent to external servers?",
+      "answer": "No. All tools run locally on your machine. No code leaves your development environment."
+    },
+    {
+      "question": "Why are some type errors ignored in tests?",
+      "answer": "Tests may have relaxed rules for pragmatic development. Adjust per-file ignores in pyproject.toml."
+    },
+    {
+      "question": "How is this different from running tools manually?",
+      "answer": "This skill provides a unified interface and guides you through the complete quality workflow."
+    }
+  ],
+  "seoKeywords": [
+    "Claude code quality",
+    "Python linting",
+    "code formatting",
+    "Ruff linter",
+    "Black formatter",
+    "BasedPyright",
+    "pre-commit hooks",
+    "code standards",
+    "Claude Code",
+    "static analysis"
+  ],
+  "sourceUrl": "https://github.com/ByronWilliamsCPA/fragrance-rater/tree/main/.claude/skills/quality",
+  "sourceType": "community",
+  "dependencies": []
+}

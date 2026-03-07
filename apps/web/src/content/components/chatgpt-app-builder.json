@@ -1,0 +1,141 @@
+{
+  "name": "chatgpt-app-builder",
+  "type": "skill",
+  "description": "Build ChatGPT Apps using the Apps SDK and MCP. Use when users want to:\n(1) Evaluate if their product should become a ChatGPT App\n(2) Design and implement MCP servers with widgets\n(3) Test apps locally and in ChatGPT\n(4) Prepare for App Store submission\nTriggers: \"ChatGPT app\", \"Apps SDK\", \"build for ChatGPT\",\n\"ChatGPT integration\", \"MCP server for ChatGPT\", \"submit to ChatGPT\"\n",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "chatbot integration",
+  "quality": 5,
+  "qualityReason": "End-to-end production guidance",
+  "bundleHints": [
+    "chatbot-stack",
+    "ai-integration"
+  ],
+  "tags": [
+    "apps-sdk",
+    "chatbot",
+    "chatgpt",
+    "chatgpt-apps",
+    "fastapi",
+    "mcp",
+    "nextjs",
+    "openai",
+    "real-time"
+  ],
+  "capabilities": [
+    "Evaluates product fit for ChatGPT Apps using Know/Do/Show framework",
+    "Generates complete project templates with MCP server code",
+    "Creates React widget components with Apps SDK patterns",
+    "Implements authentication flows with OAuth integration"
+  ],
+  "author": "BayramAnnakov",
+  "icon": "🚀",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a legitimate documentation and template builder for ChatGPT Apps. The static analyzer flagged 1322 potential issues, but all findings are false positives or benign patterns. The code uses secure crypto (crypto.randomUUID), properly blocks SSRF targets (AWS metadata), and contains only standard development patterns (env vars, fetch calls) documented in reference markdown files.",
+  "valueStatement": "This skill guides developers through creating ChatGPT Apps from concept to App Store submission. It provides templates, implementation patterns, and testing workflows for Apps using the MCP protocol.",
+  "userTitle": "Build ChatGPT Apps with Apps SDK",
+  "limitations": [
+    "Does not execute code or deploy apps automatically",
+    "Requires users to configure their own API credentials",
+    "Does not provide hosting or infrastructure",
+    "Template code requires customization for production use"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product Developers",
+      "title": "Build new ChatGPT Apps",
+      "description": "Create production-ready ChatGPT Apps with widgets and MCP servers for the App Store"
+    },
+    {
+      "targetUser": "Integration Engineers",
+      "title": "Add MCP Integration",
+      "description": "Connect existing APIs to ChatGPT Apps using MCP protocol and OAuth authentication"
+    },
+    {
+      "targetUser": "QA Engineers",
+      "title": "Test App Implementations",
+      "description": "Validate ChatGPT Apps locally using MCP Inspector and golden prompt testing"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create new ChatGPT App",
+      "scenario": "Starting a new project",
+      "prompt": "Create a new ChatGPT App called [AppName] that connects to [API] and displays [data type] with actions to [actions]"
+    },
+    {
+      "title": "Add OAuth Authentication",
+      "scenario": "Implementing user auth",
+      "prompt": "Add OAuth authentication to my ChatGPT App with [AuthProvider] for user-specific data access"
+    },
+    {
+      "title": "Build Widget UI",
+      "scenario": "Creating custom interface",
+      "prompt": "Create a widget that displays [content type] with filtering by [fields] and action buttons for [operations]"
+    },
+    {
+      "title": "Deploy to Production",
+      "scenario": "Preparing for submission",
+      "prompt": "Help me prepare my ChatGPT App for App Store submission with proper health endpoints, CORS, and security headers"
+    }
+  ],
+  "bestPractices": [
+    "Follow the Know/Do/Show framework to ensure your app provides unique value beyond text responses",
+    "Use one job per tool principle and annotate tools with readOnlyHint, destructiveHint, and openWorldHint",
+    "Implement rate limiting and SSRF protection for production deployments"
+  ],
+  "antiPatterns": [
+    "Do not use separate paths for GET and POST MCP endpoints",
+    "Avoid hardcoding credentials in source files",
+    "Do not skip validation of image URLs in image proxy"
+  ],
+  "faq": [
+    {
+      "question": "What is the Know/Do/Show framework?",
+      "answer": "A fit evaluation model where Know provides unique data, Do takes real actions, and Show displays rich UI beyond text."
+    },
+    {
+      "question": "Does this skill deploy my app?",
+      "answer": "No, this skill generates templates and guides. You deploy using your chosen hosting provider like Fly.io or Vercel."
+    },
+    {
+      "question": "What authentication does it support?",
+      "answer": "OAuth 2.0 with examples for Auth0, Stytch, and custom providers using the well-known endpoints pattern."
+    },
+    {
+      "question": "Can I test locally before deploying?",
+      "answer": "Yes, use ngrok to create an HTTPS tunnel and MCP Inspector for local testing before connecting to ChatGPT."
+    },
+    {
+      "question": "What UI patterns are supported?",
+      "answer": "List views, action buttons, loading states, dark mode, and responsive layouts using Apps SDK UI design tokens."
+    },
+    {
+      "question": "How do I submit to the App Store?",
+      "answer": "Complete the pre-submission checklist including organization verification, tool annotations, and test credentials documentation."
+    }
+  ],
+  "seoKeywords": [
+    "ChatGPT App Builder",
+    "Apps SDK",
+    "MCP server",
+    "ChatGPT integration",
+    "Claude Code",
+    "OpenAI Apps",
+    "ChatGPT plugin development",
+    "Claude",
+    "Codex",
+    "chatgpt-app-builder"
+  ],
+  "sourceUrl": "https://github.com/BayramAnnakov/chatgpt-app-skill/tree/main/chatgpt-app-builder/",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "remove-git-worktree",
+  "type": "skill",
+  "description": "git worktreeを削除します。間違えて作成した場合や、作業完了後のクリーンアップに使用します。",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "worktree cleanup",
+  "quality": 4,
+  "qualityReason": "Niche but valuable utility",
+  "bundleHints": [
+    "git-tools",
+    "dev-workflow"
+  ],
+  "tags": [
+    "branch-management",
+    "cleanup",
+    "dev-workflow",
+    "devops",
+    "git",
+    "git-cleanup",
+    "git-tools",
+    "repository-maintenance",
+    "worktree",
+    "worktree-removal"
+  ],
+  "capabilities": [
+    "Removes Git worktrees by branch name with automatic path resolution",
+    "Deletes associated local branches after worktree removal",
+    "Validates worktree existence before attempting removal",
+    "Constructs worktree paths following standard naming conventions",
+    "Provides clear error messages when worktrees are not found"
+  ],
+  "author": "AKABANAKK",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill executes git commands and filesystem operations to remove worktrees. All detected patterns are false positives - the shell commands are legitimate git operations, path traversal is intentional for worktree directory structure, and detected URLs are metadata only. The script properly validates input and checks for worktree existence before removal.",
+  "valueStatement": "Managing multiple Git worktrees can clutter your workspace. This skill automates the removal of worktrees and their associated branches with proper validation.",
+  "userTitle": "Remove Git Worktrees and Branches Safely",
+  "limitations": [
+    "Only works with worktrees created in the standard location pattern",
+    "Cannot recover deleted branches that were not pushed to remote",
+    "Requires manual execution for each worktree to be removed",
+    "Does not handle worktrees with uncommitted changes differently"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers working on feature branches",
+      "title": "Post-Feature Development Cleanup",
+      "description": "After merging a feature branch, developers can quickly remove the worktree and branch to keep their workspace clean."
+    },
+    {
+      "targetUser": "Developers learning Git worktree workflows",
+      "title": "Correcting Worktree Creation Mistakes",
+      "description": "When a worktree is created with incorrect parameters or in the wrong location, this skill removes it cleanly without manual directory deletion."
+    },
+    {
+      "targetUser": "Development teams maintaining shared repositories",
+      "title": "Batch Workspace Maintenance",
+      "description": "During regular workspace maintenance, teams can systematically remove obsolete worktrees for completed or abandoned features."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Worktree Removal",
+      "prompt": "Remove the worktree for branch feature/user-auth",
+      "scenario": "Simple cleanup of a single completed feature branch"
+    },
+    {
+      "title": "Remove Multiple Worktrees",
+      "prompt": "Remove worktrees for branches feature/login, feature/signup, and bugfix/header",
+      "scenario": "Cleaning up multiple completed work items at once"
+    },
+    {
+      "title": "Remove Worktree After Merge",
+      "prompt": "I just merged the feature/payment-integration branch. Remove its worktree and local branch.",
+      "scenario": "Post-merge cleanup workflow"
+    },
+    {
+      "title": "Check and Remove Stale Worktrees",
+      "prompt": "List all my worktrees, identify any that are no longer needed, and remove them",
+      "scenario": "Comprehensive workspace audit and cleanup"
+    }
+  ],
+  "bestPractices": [
+    "Always verify the branch has been merged or pushed to remote before removing the worktree to avoid losing work",
+    "Use this skill as part of your regular workspace cleanup routine after completing features or bug fixes",
+    "Ensure you are in the main repository when executing the removal to avoid path resolution errors"
+  ],
+  "antiPatterns": [
+    "Removing worktrees with uncommitted changes without first saving or committing the work",
+    "Deleting worktrees for active development branches that are still in progress",
+    "Using this skill without understanding the worktree path conventions used in your project"
+  ],
+  "faq": [
+    {
+      "question": "What happens to uncommitted changes in the worktree?",
+      "answer": "Git will prevent removal if there are uncommitted changes. You must commit, stash, or discard changes before removal."
+    },
+    {
+      "question": "Can I recover a branch after using this skill?",
+      "answer": "Local branches deleted by this skill can only be recovered from remote if they were pushed. Use git reflog for recent deletions."
+    },
+    {
+      "question": "Where does this skill look for worktrees?",
+      "answer": "It follows the pattern repository-worktrees/branch-name in a sibling directory to your main repository."
+    },
+    {
+      "question": "Will this remove worktrees created manually in different locations?",
+      "answer": "No, this skill only works with worktrees following the standard naming convention in the expected location."
+    },
+    {
+      "question": "Does this skill affect the remote repository?",
+      "answer": "No, it only removes local worktrees and local branches. Remote branches remain unchanged."
+    },
+    {
+      "question": "Can I use this with Claude Code to automate cleanup?",
+      "answer": "Yes, Claude Code can execute this skill to remove worktrees as part of your development workflow automation."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "git worktree",
+    "git cleanup",
+    "branch management",
+    "git automation",
+    "repository cleanup",
+    "development workflow",
+    "git tools"
+  ],
+  "sourceUrl": "https://github.com/AKABANAKK/claude-code-marketplace/tree/main/akb7/skills/remove-git-worktree",
+  "sourceType": "community",
+  "dependencies": []
+}

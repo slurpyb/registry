@@ -1,0 +1,145 @@
+{
+  "name": "intercom-automation",
+  "type": "skill",
+  "description": "Automate Intercom tasks via Rube MCP (Composio): conversations, contacts, companies, segments, admins. Always search tools first for current schemas.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "Intercom integration",
+  "quality": 4,
+  "qualityReason": "Clear MCP use case",
+  "bundleHints": [
+    "mcp-integrations",
+    "support-automation"
+  ],
+  "tags": [
+    "automation",
+    "composio",
+    "customer-support",
+    "intercom",
+    "mcp",
+    "schemas"
+  ],
+  "capabilities": [
+    "Create, search, and manage Intercom conversations through structured API calls",
+    "Reply to conversations, assign to admins, and close or reopen conversations",
+    "Search and manage contacts (users and leads) with advanced query filters",
+    "List and identify admins and teams for conversation assignment",
+    "View segments and get aggregate counts for conversations and contacts",
+    "Manage companies and their relationships with contacts"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 110 potential issues across documentation markdown, all confirmed as false positives. The skill is a safe documentation file for Intercom automation via Rube MCP. Detected patterns are markdown code formatting (backticks for tool names), legitimate API endpoint documentation, and standard customer support operations. No executable code, no security risks.",
+  "valueStatement": "Streamline Intercom customer support operations with automated conversation management, contact workflows, and admin tasks. Eliminate manual repetition in your support workflow through intelligent Rube MCP integration.",
+  "userTitle": "Automate Intercom Support Workflows",
+  "limitations": [
+    "Requires Rube MCP server connection and active Intercom OAuth authentication",
+    "Admin ID must be resolved before performing replies, assignments, or state changes",
+    "Search uses structured filter objects rather than free-text search queries",
+    "Pagination is required for listing large datasets with cursor-based navigation",
+    "Rate limits apply (approximately 1000 requests per minute depending on plan)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Customer support managers",
+      "title": "Customer Support Team Automation",
+      "description": "Support teams can automatically create conversations from triggers, assign to appropriate admins, and manage conversation states without manual intervention."
+    },
+    {
+      "targetUser": "Operations specialists",
+      "title": "Contact Database Management",
+      "description": "Operations teams can search contacts by custom filters, view segment memberships, and manage company-contact relationships through structured queries."
+    },
+    {
+      "targetUser": "Team leads and supervisors",
+      "title": "Admin Workflow Optimization",
+      "description": "Team leads can list all admins, identify specific admin details, and automate conversation routing to the right team members based on rules."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a Support Conversation",
+      "prompt": "Create a new Intercom conversation for user {email} with the message: {message}",
+      "scenario": "When you need to create a new support ticket from a customer inquiry"
+    },
+    {
+      "title": "Search and Reply to Conversations",
+      "prompt": "Search for conversations from {email} in the last 24 hours, then reply to the most recent one with: {response}",
+      "scenario": "When responding to recent customer follow-ups"
+    },
+    {
+      "title": "Assign Conversation to Admin",
+      "prompt": "Get conversation {conversation_id}, find admin named {admin_name}, then assign the conversation to them",
+      "scenario": "When routing conversations to specific team members"
+    },
+    {
+      "title": "Find Contact by External ID",
+      "prompt": "Look up contact with external ID {external_id} and show me their segments and tags",
+      "scenario": "When investigating customer context from another system"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before using any Intercom functions",
+    "Resolve admin IDs using LIST_ALL_ADMINS before performing replies, assignments, or state changes",
+    "Use structured query filters for searches instead of free-text to get precise results",
+    "Implement pagination with starting_after cursors when listing large datasets",
+    "Track message IDs to prevent duplicate sends on retry or timeout scenarios"
+  ],
+  "antiPatterns": [
+    "Attempting to create conversations without first resolving a valid contact ID as the from field",
+    "Using free-text search instead of structured filter objects when searching contacts or conversations",
+    "Replying to or closing conversations without providing the required admin_id parameter",
+    "Assuming conversation IDs are integers when they are actually numeric strings",
+    "Forgetting to check connection status is ACTIVE before running workflows after OAuth setup"
+  ],
+  "faq": [
+    {
+      "question": "What is Rube MCP and why do I need it?",
+      "answer": "Rube MCP is a Model Context Protocol server that provides access to Composio toolkits including Intercom. You must add the MCP server endpoint and complete OAuth authentication to use this skill."
+    },
+    {
+      "question": "How do I authenticate with Intercom?",
+      "answer": "Call RUBE_MANAGE_CONNECTIONS with toolkit 'intercom'. If not active, follow the auth link returned to complete OAuth. Verify status shows ACTIVE before proceeding."
+    },
+    {
+      "question": "Why do I get errors when replying to conversations?",
+      "answer": "Admin replies require admin_id parameter. Always call INTERCOM_LIST_ALL_ADMINS first to get admin IDs, then use the ID when replying, assigning, or closing conversations."
+    },
+    {
+      "question": "How do I search for specific contacts?",
+      "answer": "Use INTERCOM_SEARCH_CONTACTS with a structured query object containing field, operator, and value. Example: {field: 'email', operator: '=', value: 'user@example.com'}"
+    },
+    {
+      "question": "Can I create conversations from admin perspective?",
+      "answer": "No, conversations must be created with a contact (user or lead) as the from field. Admins can reply to existing conversations but cannot initiate them."
+    },
+    {
+      "question": "What are the rate limits for Intercom API?",
+      "answer": "The default rate limit is approximately 1000 requests per minute, varying by plan. Implement exponential backoff when receiving 429 responses."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Intercom automation",
+    "customer support",
+    "MCP server",
+    "Composio",
+    "conversation management",
+    "contact automation",
+    "admin workflows"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/intercom-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

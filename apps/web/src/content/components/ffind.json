@@ -1,0 +1,144 @@
+{
+  "name": "ffind",
+  "type": "skill",
+  "description": "Advanced file finder with type detection and filesystem extraction for analyzing firmware and extracting embedded filesystems. Use when you need to analyze firmware files, identify file types, or extract ext2/3/4 or F2FS filesystems.",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "web fuzzing",
+  "quality": 5,
+  "qualityReason": "Specific security testing tool",
+  "bundleHints": [
+    "pentesting-suite",
+    "security-toolkit"
+  ],
+  "tags": [
+    "binary analysis",
+    "bruteforce",
+    "ffuf",
+    "filesystem extraction",
+    "firmware analysis",
+    "iot security",
+    "reconnaissance",
+    "scanner",
+    "security-testing",
+    "web-fuzzing"
+  ],
+  "capabilities": [
+    "Identify file types within firmware and binary images",
+    "Extract ext2, ext3, and ext4 filesystems from firmware",
+    "Extract F2FS filesystems from firmware images",
+    "Analyze multiple files in a single command",
+    "Output results in text, JSON, or quiet formats",
+    "Customize extraction output directory location"
+  ],
+  "author": "BrownFineSecurity",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing markdown instructions for the external ffind CLI tool. No executable code, network calls, or file system operations exist within the skill itself. All 41 static findings are false positives triggered by documentation patterns: sudo mentions document tool requirements, backticks are markdown code formatting, filesystem type identifiers (ext2/3/4) were misidentified as cryptographic algorithms, and temp directory references are documentation of tool behavior.",
+  "valueStatement": "Security researchers need to identify file types and extract embedded filesystems from firmware images. This skill provides commands and guidance for using ffind to analyze binary files, detect file types, and extract ext2/3/4 or F2FS filesystems.",
+  "userTitle": "Analyze firmware and extract filesystems",
+  "limitations": [
+    "Requires ffind binary from iothackbot repository",
+    "Requires sudo privileges for filesystem extraction",
+    "Requires external tools: e2fsprogs, f2fs-tools, util-linux",
+    "Cannot extract encrypted or corrupted filesystems"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security researchers",
+      "title": "Extract filesystems from IoT firmware",
+      "description": "Pull embedded filesystems from IoT device firmware for vulnerability research and reverse engineering"
+    },
+    {
+      "targetUser": "Embedded systems engineers",
+      "title": "Analyze firmware composition",
+      "description": "Identify file types and structure within firmware binaries before extraction or modification"
+    },
+    {
+      "targetUser": "Incident responders",
+      "title": "Investigate compromised devices",
+      "description": "Examine firmware images from compromised devices to understand attack surface and malware presence"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic firmware analysis",
+      "scenario": "Analyze a firmware file for file types",
+      "prompt": "Use ffind to analyze the firmware image at /path/to/firmware.bin. Show me what file types are embedded and summarize the findings."
+    },
+    {
+      "title": "Extract all filesystems",
+      "scenario": "Extract embedded filesystems from firmware",
+      "prompt": "Run ffind with extraction enabled to pull all embedded filesystems from /path/to/firmware.bin. Use sudo and output to /tmp/analysis."
+    },
+    {
+      "title": "Multi-file analysis",
+      "scenario": "Analyze multiple binary files",
+      "prompt": "Analyze multiple firmware files (file1.bin, file2.bin, file3.bin) and show all file types found in each. Output in JSON format for easy parsing."
+    },
+    {
+      "title": "Verbose analysis with extraction",
+      "scenario": "Detailed extraction with logging",
+      "prompt": "Perform a verbose analysis of the firmware at /firmware/device.bin, extract all filesystems, and save to /results/extracted. Show all detected file types including common formats."
+    }
+  ],
+  "bestPractices": [
+    "Always use a dedicated analysis directory to prevent accidental overwriting of system files",
+    "Run extraction with sudo only when necessary and in non-production environments",
+    "Document the firmware version and source device before analysis begins"
+  ],
+  "antiPatterns": [
+    "Running extraction without first analyzing the file structure",
+    "Extracting to system directories like /home or /var without specifying a custom output path",
+    "Assuming all file types will be detected without using the -a flag for comprehensive scanning"
+  ],
+  "faq": [
+    {
+      "question": "What file systems can ffind extract?",
+      "answer": "ffind supports ext2, ext3, ext4, and F2FS filesystems. Other formats require different tools."
+    },
+    {
+      "question": "Do I need special permissions for extraction?",
+      "answer": "Yes, filesystem extraction requires sudo privileges to mount and read the extracted images."
+    },
+    {
+      "question": "Can this skill analyze encrypted firmware?",
+      "answer": "ffind identifies file types but cannot extract encrypted filesystems without decryption keys."
+    },
+    {
+      "question": "What output formats are available?",
+      "answer": "Three formats are supported: text (default, human-readable with colors), JSON (machine-readable), and quiet (minimal output)."
+    },
+    {
+      "question": "Is my data safe during analysis?",
+      "answer": "The skill only provides instructions. The ffind tool reads files but does not modify source firmware images."
+    },
+    {
+      "question": "How is ffind different from binwalk?",
+      "answer": "ffind focuses on filesystem extraction with simpler syntax, while binwalk offers broader entropy analysis and signature scanning."
+    }
+  ],
+  "seoKeywords": [
+    "ffind firmware analysis",
+    "firmware security research",
+    "filesystem extraction tool",
+    "IoT security analysis",
+    "binary file type detection",
+    "ext2 ext3 ext4 extraction",
+    "F2FS filesystem extraction",
+    "firmware binary analysis",
+    "Claude Code firmware tools",
+    "firmware reverse engineering"
+  ],
+  "sourceUrl": "https://github.com/BrownFineSecurity/iothackbot/tree/master/skills/ffind",
+  "sourceType": "community",
+  "dependencies": []
+}

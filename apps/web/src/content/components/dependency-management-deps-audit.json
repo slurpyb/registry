@@ -1,0 +1,140 @@
+{
+  "name": "dependency-management-deps-audit",
+  "type": "skill",
+  "description": "You are a dependency security expert specializing in vulnerability scanning, license compliance, and supply chain security. Analyze project dependencies for known vulnerabilities, licensing issues, outdated packages, and provide actionable remediation strategies.",
+  "domain": "security",
+  "subdomain": "devsecops",
+  "specialty": "SBOM analysis",
+  "quality": 5,
+  "qualityReason": "Critical supply chain focus",
+  "bundleHints": [
+    "devsecops-pipeline",
+    "security-toolkit",
+    "sbom-generation"
+  ],
+  "tags": [
+    "dependency",
+    "license",
+    "sbom",
+    "security",
+    "supply-chain",
+    "vulnerability"
+  ],
+  "capabilities": [
+    "Scan dependencies across multiple package managers (npm, pip, gem, maven, go, cargo, composer)",
+    "Check dependencies against vulnerability databases (CVE, NVD, npm advisory)",
+    "Analyze license compatibility and identify compliance issues",
+    "Identify outdated packages and prioritize updates by security risk",
+    "Detect supply chain risks including typosquatting and maintainer changes",
+    "Generate automated remediation scripts and pull request templates"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The detected patterns exist in markdown documentation files containing code examples, not executable code. The implementation-playbook.md (767 lines) and SKILL.md (47 lines) are instructional documents showing users how to implement security scanning tools. No actual shell execution, network calls, or filesystem operations occur in the skill itself.",
+  "valueStatement": "Managing dependencies securely is challenging with constant new vulnerabilities and complex license requirements. This skill automates vulnerability scanning, license compliance checks, and provides prioritized remediation strategies.",
+  "userTitle": "Audit dependencies for vulnerabilities and license issues",
+  "limitations": [
+    "Requires access to dependency manifest files (package.json, requirements.txt, etc.)",
+    "Cannot execute package managers or install tools without user environment access",
+    "Vulnerability database checks depend on external API availability",
+    "Does not automatically apply fixes without user confirmation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineer preparing production deployment",
+      "title": "Pre-release security audit",
+      "description": "Before shipping production code, scan all dependencies to identify and fix critical vulnerabilities. Generate compliance reports for security reviews."
+    },
+    {
+      "targetUser": "Open source maintainer ensuring license compliance",
+      "title": "License compliance verification",
+      "description": "Review all dependency licenses to ensure compatibility with your project license. Identify GPL or proprietary licenses that may create legal risks."
+    },
+    {
+      "targetUser": "Development team lead maintaining code health",
+      "title": "Dependency maintenance workflow",
+      "description": "Set up automated scanning to identify outdated packages. Receive prioritized lists of updates based on security fixes and age."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic vulnerability scan",
+      "prompt": "Scan my project dependencies for known vulnerabilities. Identify the package name, current version, vulnerability severity, and recommended fix version.",
+      "scenario": "Quick security check on a Node.js project"
+    },
+    {
+      "title": "License compliance report",
+      "prompt": "Analyze all dependency licenses in this project. My project uses MIT license. Identify any incompatible licenses and explain the legal risks for each.",
+      "scenario": "Verifying license compliance before open sourcing"
+    },
+    {
+      "title": "Prioritized update plan",
+      "prompt": "Review my dependencies and create a prioritized update plan. Rank by security risk first, then by how outdated each package is. Include estimated effort for each update.",
+      "scenario": "Planning quarterly dependency maintenance"
+    },
+    {
+      "title": "Supply chain security audit",
+      "prompt": "Perform a comprehensive supply chain security audit. Check for typosquatting risks, unusual maintainer changes, and packages with suspicious behavior patterns. Flag any packages that need manual review.",
+      "scenario": "Deep security review after supply chain attack concerns"
+    }
+  ],
+  "bestPractices": [
+    "Run vulnerability scans in CI/CD before merging pull requests",
+    "Keep a curated list of approved licenses for your organization",
+    "Pin exact dependency versions and update through automated PRs"
+  ],
+  "antiPatterns": [
+    "Ignoring critical vulnerabilities because tests pass locally",
+    "Using version ranges like '*' that allow unexpected updates",
+    "Adding dependencies without reviewing their license terms"
+  ],
+  "faq": [
+    {
+      "question": "How does this skill detect vulnerabilities?",
+      "answer": "The skill checks your dependencies against public vulnerability databases including npm advisory, PyPI security, and OSS Index. It matches package names and versions to known CVEs."
+    },
+    {
+      "question": "Can this skill automatically fix vulnerabilities?",
+      "answer": "The skill generates remediation scripts and update commands, but requires your confirmation before making changes. It can create pull request templates for review."
+    },
+    {
+      "question": "What package managers are supported?",
+      "answer": "Supports npm/yarn (JavaScript), pip/poetry (Python), gem (Ruby), maven/gradle (Java), go mod, cargo (Rust), composer (PHP), and nuget (.NET)."
+    },
+    {
+      "question": "How often should I run dependency audits?",
+      "answer": "Run scans on every pull request for critical projects. For maintenance, weekly or monthly scans catch new vulnerabilities. Set up alerts for critical CVEs affecting your dependencies."
+    },
+    {
+      "question": "What should I do about GPL dependencies in my MIT project?",
+      "answer": "GPL licenses are incompatible with MIT distribution. Options include: replacing with MIT/Apache alternatives, isolating GPL code in separate processes, or changing your project license to GPL."
+    },
+    {
+      "question": "How do I verify a suspicious package name?",
+      "answer": "Check the package repository, review download counts, verify maintainer identity, and compare against known legitimate packages. Typosquats often have low downloads and recent creation dates."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code dependency audit",
+    "Codex security scanning",
+    "Claude vulnerability detection",
+    "dependency management",
+    "CVE scanning",
+    "license compliance",
+    "supply chain security",
+    "npm audit",
+    "pip security"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dependency-management-deps-audit",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,144 @@
+{
+  "name": "dask",
+  "type": "skill",
+  "description": "Parallel/distributed computing. Scale pandas/NumPy beyond memory, parallel DataFrames/Arrays, multi-file processing, task graphs, for larger-than-RAM datasets and parallel workflows.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "parallel computing",
+  "quality": 5,
+  "qualityReason": "Highly specific and scalable data processing",
+  "bundleHints": [
+    "data-science-stack",
+    "python-data"
+  ],
+  "tags": [
+    "dask",
+    "data science",
+    "dataframe",
+    "distributed",
+    "distributed computing",
+    "numpy",
+    "pandas",
+    "parallel computing",
+    "task-graph"
+  ],
+  "capabilities": [
+    "Scale pandas operations to datasets larger than RAM using parallel DataFrames",
+    "Process NumPy arrays beyond memory limits with chunked parallel computations",
+    "Handle multi-file datasets (CSV, Parquet, JSON) with glob patterns",
+    "Build custom parallel workflows with task graphs and lazy evaluation",
+    "Process unstructured data (logs, JSON) with Bags before converting to structured formats",
+    "Execute fine-grained parallel tasks immediately with Futures API"
+  ],
+  "author": "davila7",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown files with example Python code in code blocks. No executable code, network calls, file system access, or external commands detected. The static analyzer produced 449 false positives by flagging markdown code block backticks as shell commands, cryptographic mentions in documentation as weak algorithms, and technical terms like 'process', 'command', 'control' as security keywords. All flagged content is benign documentation about Dask parallel computing library usage.",
+  "valueStatement": "Processing large datasets that exceed available RAM causes memory errors and slow performance. Dask provides parallel computing abstractions that scale pandas and NumPy operations to handle terabyte-scale data on laptops or clusters.",
+  "userTitle": "Scale pandas and NumPy beyond memory with Dask",
+  "limitations": [
+    "Not all pandas and NumPy functions are implemented in Dask equivalents",
+    "Chunk size selection requires understanding to avoid memory or performance issues",
+    "Debugging parallel code is more complex than single-threaded code",
+    "Performance depends on proper chunking and scheduler selection"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data scientists",
+      "title": "Large dataset analysis",
+      "description": "Analyze datasets too large for pandas memory limits on a single machine"
+    },
+    {
+      "targetUser": "ML engineers",
+      "title": "Distributed preprocessing",
+      "description": "Preprocess training data across multiple cores or cluster nodes"
+    },
+    {
+      "targetUser": "Researchers",
+      "title": "Scientific computing at scale",
+      "description": "Run numerical simulations and process large scientific datasets"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic DataFrame scaling",
+      "scenario": "Load large CSV files",
+      "prompt": "Use Dask to read all CSV files matching 'data/year=2024/month=*/day=*.csv' into a single DataFrame, filter for records where status='valid', and compute the mean and sum of the 'amount' column grouped by category."
+    },
+    {
+      "title": "Array operations",
+      "scenario": "Process large arrays",
+      "prompt": "Create a Dask array from a Zarr file containing 100GB of image data, normalize each chunk by subtracting the mean and dividing by standard deviation, then save the normalized result back to Zarr format."
+    },
+    {
+      "title": "Custom parallel tasks",
+      "scenario": "Build dynamic workflows",
+      "prompt": "Set up a local Dask distributed client and submit 100 independent parameter sweep tasks where each task runs a simulation function with different parameters, then gather results as they complete."
+    },
+    {
+      "title": "Log analysis pipeline",
+      "scenario": "Process unstructured logs",
+      "prompt": "Read all JSON log files from 'logs/*.json', filter for error entries, extract the 'message' and 'timestamp' fields, convert to a DataFrame, and save aggregated error counts by message pattern to Parquet."
+    }
+  ],
+  "bestPractices": [
+    "Let Dask load data directly rather than loading into pandas first and then converting",
+    "Use a single compute() call for multiple operations to enable parallel execution",
+    "Target chunk sizes around 100MB per partition to balance parallelism and overhead"
+  ],
+  "antiPatterns": [
+    "Loading entire dataset into pandas before converting to Dask DataFrame",
+    "Calling compute() inside loops instead of batching operations",
+    "Creating millions of tiny tasks by not using map_partitions for batch operations"
+  ],
+  "faq": [
+    {
+      "question": "What Dask collection should I use for my data type?",
+      "answer": "Use DataFrames for tabular data, Arrays for numeric matrices, Bags for unstructured text or JSON, and Futures for dynamic custom workflows."
+    },
+    {
+      "question": "How large of a dataset can Dask handle?",
+      "answer": "Dask scales from laptops (~100GB) to clusters (~100TB). Actual limits depend on available storage and cluster resources."
+    },
+    {
+      "question": "Can Dask read from cloud storage like S3?",
+      "answer": "Yes, Dask natively supports S3, GCS, and Azure Blob Storage using the same read functions with s3://, gcs://, or azure:// prefixes."
+    },
+    {
+      "question": "Which scheduler should I choose?",
+      "answer": "Use threads for pandas/NumPy operations, processes for pure Python code, synchronous for debugging, and distributed for dashboard access and clusters."
+    },
+    {
+      "question": "Is my existing pandas code compatible with Dask?",
+      "answer": "Dask implements most of the pandas API. Most pandas code works with minor changes like adding .compute() and adjusting chunk-sensitive operations."
+    },
+    {
+      "question": "How does Dask compare to Spark for big data?",
+      "answer": "Dask is lighter weight and integrates better with Python scientific stack. Spark has richer ecosystem but higher overhead and requires JVM infrastructure."
+    }
+  ],
+  "seoKeywords": [
+    "dask",
+    "parallel computing",
+    "distributed computing",
+    "pandas",
+    "numpy",
+    "claude code",
+    "claude",
+    "codex",
+    "dataframes",
+    "dask arrays",
+    "big data processing"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/dask",
+  "sourceType": "community",
+  "dependencies": []
+}

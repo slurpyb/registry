@@ -1,0 +1,147 @@
+{
+  "name": "find-bugs",
+  "type": "skill",
+  "description": "Find bugs, security vulnerabilities, and code quality issues in local branch changes. Use when asked to review changes, find bugs, security review, or audit code on the current branch.",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "batch replacement",
+  "quality": 5,
+  "qualityReason": "Efficient text replacement",
+  "bundleHints": [
+    "cli-suite",
+    "productivity-tools"
+  ],
+  "tags": [
+    "batch",
+    "bug-detection",
+    "code-review",
+    "find-replace",
+    "quality-assurance",
+    "regex",
+    "sd",
+    "security",
+    "static-analysis",
+    "string-replacement",
+    "text-manipulation"
+  ],
+  "capabilities": [
+    "Get complete git diff of branch changes against default branch",
+    "Identify attack surfaces including inputs, queries, auth checks, and external calls",
+    "Run comprehensive security checklist covering OWASP top 10 issues",
+    "Verify findings against existing tests and code context",
+    "Prioritize issues by severity with evidence and fix suggestions",
+    "Report security vulnerabilities, bugs, and code quality issues"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings evaluated as false positives. External commands (git/gh CLI) are legitimate code review tooling. Network URL is documentation only. Cryptographic warnings are keyword false positives. Skill is safe for publication.",
+  "valueStatement": "This skill reviews code changes for bugs, security vulnerabilities, and quality issues using a systematic multi-phase approach. It maps attack surfaces, runs security checklists, and provides prioritized findings with evidence and fix suggestions.",
+  "userTitle": "Find Bugs and Security Vulnerabilities",
+  "limitations": [
+    "Does not execute or test code - only static analysis of diffs",
+    "Cannot detect issues in dependencies or external services",
+    "Limited to changes on current branch vs default branch",
+    "May miss context-only issues without full repository understanding"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers wanting to improve code quality before review",
+      "title": "Pre-commit Code Review",
+      "description": "Run before submitting pull requests to catch bugs and security issues early"
+    },
+    {
+      "targetUser": "Security engineers and code reviewers",
+      "title": "Pull Request Security Audit",
+      "description": "Systematically review incoming changes for security vulnerabilities and OWASP issues"
+    },
+    {
+      "targetUser": "DevOps teams implementing security gates",
+      "title": "Automated Quality Gate",
+      "description": "Integrate into CI/CD pipelines to block commits with critical security issues"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Bug Review",
+      "prompt": "Find bugs in the current branch changes",
+      "scenario": "Simple request to review code for bugs"
+    },
+    {
+      "title": "Security Focused Review",
+      "prompt": "Review the changes on this branch for security vulnerabilities. Check for injection risks, authentication issues, and data exposure.",
+      "scenario": "Dedicated security review request"
+    },
+    {
+      "title": "Comprehensive Code Audit",
+      "prompt": "Perform a full security and quality audit of the changes on this branch. Map attack surfaces, run the security checklist, and provide prioritized findings with evidence and fixes.",
+      "scenario": "Complete security audit with full methodology"
+    },
+    {
+      "title": "Quick Quality Check",
+      "prompt": "Quickly scan the branch changes for critical bugs and high-severity security issues. Skip stylistic issues.",
+      "scenario": "Fast scan for critical issues only"
+    }
+  ],
+  "bestPractices": [
+    "Run before every pull request to catch issues early",
+    "Address critical and high severity findings before merging",
+    "Use findings to educate team about security patterns",
+    "Integrate into CI to prevent security regressions"
+  ],
+  "antiPatterns": [
+    "Ignoring findings without investigation because they seem false",
+    "Only running when explicitly asked instead of proactively",
+    "Treating all findings as equally urgent instead of prioritizing",
+    "Making changes directly instead of letting user decide"
+  ],
+  "faq": [
+    {
+      "question": "What does this skill actually check?",
+      "answer": "It checks for bugs, security vulnerabilities like injection and XSS, authentication issues, authorization flaws, and general code quality problems using a systematic security checklist."
+    },
+    {
+      "question": "Does it modify my code?",
+      "answer": "No. This skill only analyzes and reports findings. It never makes changes - you decide what to fix."
+    },
+    {
+      "question": "What branch does it compare against?",
+      "answer": "It compares the current branch HEAD against the repository default branch (usually main or master)."
+    },
+    {
+      "question": "Can it find all security issues?",
+      "answer": "No. It performs static analysis of diffs and cannot detect runtime issues, dependency vulnerabilities, or complex logic flaws that require execution."
+    },
+    {
+      "question": "Does it work with any language?",
+      "answer": "Yes. The security checklist is language-agnostic and applies general security principles to any code being reviewed."
+    },
+    {
+      "question": "How long does a review take?",
+      "answer": "Time varies with change size. Small PRs take seconds. Large changes with many files may take several minutes for thorough analysis."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Codex",
+    "bug finder",
+    "security audit",
+    "code review",
+    "vulnerability detection",
+    "static analysis",
+    "code quality",
+    "PR review",
+    "security scanning"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/web-app/public/skills/find-bugs",
+  "sourceType": "community",
+  "dependencies": []
+}

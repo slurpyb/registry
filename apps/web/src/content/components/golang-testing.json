@@ -1,0 +1,145 @@
+{
+  "name": "golang-testing",
+  "type": "skill",
+  "description": "Comprehensive Go testing patterns including table-driven tests, mocking,",
+  "domain": "testing",
+  "subdomain": "unit",
+  "specialty": "Go testing patterns",
+  "quality": 5,
+  "qualityReason": "Comprehensive testing coverage",
+  "bundleHints": [
+    "go-testing",
+    "quality-assurance"
+  ],
+  "tags": [
+    "benchmarks",
+    "go",
+    "integration-testing",
+    "mocking",
+    "table-driven",
+    "tdd",
+    "test-organization",
+    "test-patterns",
+    "testing",
+    "unit-testing"
+  ],
+  "capabilities": [
+    "Create table-driven tests with test cases and error scenarios",
+    "Implement interface-based mocking for dependency isolation",
+    "Write integration tests using test containers",
+    "Set up test fixtures with setup and teardown patterns",
+    "Write performance benchmarks with sub-benchmarks",
+    "Test HTTP handlers with httptest recorder"
+  ],
+  "author": "Joseph OBrien",
+  "icon": "🧪",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a markdown-only documentation skill containing informational guidance about Go testing patterns. No executable code, scripts, or file system operations exist. All 55 static findings are false positives caused by the static analyzer misidentifying markdown documentation and Go code examples as executable security threats.",
+  "valueStatement": "Writing tests in Go can be challenging without guidance on patterns and best practices. This skill provides comprehensive examples for table-driven tests, mocking, integration testing with containers, and performance benchmarks.",
+  "userTitle": "Write Effective Go Tests",
+  "limitations": [
+    "Does not execute actual Go tests or compile code",
+    "Does not generate test files in your project",
+    "Does not run tests or collect coverage reports",
+    "Does not integrate with CI/CD pipelines"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Go Developers",
+      "title": "Learn Test Patterns",
+      "description": "Master table-driven tests, mocking, and test organization for production Go code."
+    },
+    {
+      "targetUser": "QA Engineers",
+      "title": "Integration Testing",
+      "description": "Set up integration tests with test containers for databases and external services."
+    },
+    {
+      "targetUser": "Performance Engineers",
+      "title": "Benchmark Code",
+      "description": "Write and run benchmarks to measure and optimize performance-critical code sections."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Table Test",
+      "scenario": "Create unit tests for a math function",
+      "prompt": "Show me how to write a table-driven test in Go for a function called Divide that takes two integers and returns the quotient and an error."
+    },
+    {
+      "title": "Mock Dependencies",
+      "scenario": "Test code with external service calls",
+      "prompt": "How do I create a mock for a UserRepository interface to test my UserService without a real database?"
+    },
+    {
+      "title": "Integration Tests",
+      "scenario": "Test with PostgreSQL database",
+      "prompt": "Write an integration test using testcontainers to test my repository against a real PostgreSQL database."
+    },
+    {
+      "title": "Performance Benchmarks",
+      "scenario": "Measure function performance",
+      "prompt": "Show me how to write a Go benchmark for a sorting function with different input sizes."
+    }
+  ],
+  "bestPractices": [
+    "Test behavior, not implementation. Focus on inputs and outputs rather than internal details.",
+    "Use t.Helper() to mark helper functions for clearer error reporting in test output.",
+    "Run independent tests in parallel with t.Parallel() to speed up test suite execution."
+  ],
+  "antiPatterns": [
+    "Avoid one test with many assertions. Split into focused test cases for better debugging.",
+    "Do not skip t.Cleanup() for resource management. Always defer cleanup in tests.",
+    "Avoid hardcoding test data. Use test fixtures or factories instead for maintainability."
+  ],
+  "faq": [
+    {
+      "question": "What Go versions are supported?",
+      "answer": "Works with Go 1.14 and later. Examples use standard library testing package."
+    },
+    {
+      "question": "What is the maximum test complexity supported?",
+      "answer": "No limits. Patterns scale from simple unit tests to complex integration test suites."
+    },
+    {
+      "question": "How do I integrate with existing test frameworks?",
+      "answer": "Compatible with testify, ginkgo, gocheck, and other testing libraries."
+    },
+    {
+      "question": "Does this skill modify my project files?",
+      "answer": "No. This skill provides guidance and examples only. It does not read or write project files."
+    },
+    {
+      "question": "Why are my tests failing?",
+      "answer": "Check that your test file ends with _test.go and is in the same package as your code."
+    },
+    {
+      "question": "How is this different from Go built-in testing?",
+      "answer": "This skill enhances Go built-in testing with patterns and best practices."
+    }
+  ],
+  "seoKeywords": [
+    "Go testing",
+    "Golang testing patterns",
+    "table-driven tests Go",
+    "unit testing Go",
+    "integration testing Go",
+    "Go mocks",
+    "Go benchmarks",
+    "Testify assertions",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/89jobrien/steve/tree/main/steve/skills/golang-testing",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "skill-creator",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to create a new skill, build a skill, make a custom skill, develop a CLI skill, or wants to extend the CLI with new capabilities. Automates the entire skill creation workflow from brainstorming to installation.",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "automated scaffolding",
+  "quality": 5,
+  "qualityReason": "End-to-end automation",
+  "bundleHints": [
+    "skill-toolkit",
+    "agent-config",
+    "automation-stack"
+  ],
+  "tags": [
+    "automation",
+    "cli",
+    "scaffolding",
+    "skill-creation",
+    "templates"
+  ],
+  "capabilities": [
+    "Interactive brainstorming session to define skill purpose and scope",
+    "Automatic file generation from standardized templates",
+    "YAML frontmatter validation against Anthropic standards",
+    "Local or global skill installation with symlinks",
+    "Progress tracking with visual status indicators",
+    "Optional prompt enhancement integration"
+  ],
+  "author": "Eric Andrade",
+  "icon": "📦",
+  "version": "1.3.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static scanner flagged 274 patterns but evaluation reveals these are false positives. Markdown code blocks trigger 'shell execution' alerts, 'MD' substrings trigger 'weak crypto' alerts, and documentation URLs trigger 'network' alerts. Actual Python scripts are legitimate scaffolding tools with no credential access or command injection vulnerabilities.",
+  "valueStatement": "This skill automates the entire workflow of creating new CLI skills for Claude Code and GitHub Copilot. It handles brainstorming, template generation, validation, and installation so you can build reusable skills without manual configuration.",
+  "userTitle": "Create CLI Skills Automatically",
+  "limitations": [
+    "Does not execute user-provided code - only generates skill templates",
+    "Requires manual editing of generated templates for actual skill content",
+    "Validation is structural only - does not verify skill effectiveness",
+    "Installation requires appropriate filesystem permissions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers who want to create reusable CLI automation",
+      "title": "Developer Creating Reusable CLI Skills",
+      "description": "A developer wants to package their command-line expertise into a reusable skill for their team. They use this skill to scaffold a new skill with proper structure, then fill in the details."
+    },
+    {
+      "targetUser": "Team leads and technical writers",
+      "title": "Team Lead Standardizing Skill Format",
+      "description": "A team lead wants to ensure all team members create skills following Anthropic best practices. This skill provides templates that enforce consistency."
+    },
+    {
+      "targetUser": "Power users and DevOps engineers",
+      "title": "Power User Automating Workflows",
+      "description": "A power user frequently performs complex CLI tasks. They create custom skills to automate these workflows and make them available through natural language commands."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a Basic Skill",
+      "prompt": "Create a new skill called [skill-name] that helps with [use-case]. Follow the skill-creator workflow.",
+      "scenario": "Basic skill creation with minimal input"
+    },
+    {
+      "title": "Create Skill with Details",
+      "prompt": "Create a skill for [specific task]. The skill should include capabilities for [feature 1], [feature 2], and [feature 3]. Install it globally.",
+      "scenario": "Detailed skill creation with specific features"
+    },
+    {
+      "title": "Create Skill from Workflow",
+      "prompt": "I need a skill that handles [multi-step workflow]. Walk me through creating it using the skill-creator, starting with brainstorming.",
+      "scenario": "Creating a skill for complex multi-step workflows"
+    },
+    {
+      "title": "Validate Existing Skill",
+      "prompt": "Use the skill-creator to validate my existing skill at [path] and suggest improvements.",
+      "scenario": "Validating and improving an existing skill"
+    }
+  ],
+  "bestPractices": [
+    "Start with clear brainstorming to define skill scope before generating templates",
+    "Use the validation step to ensure frontmatter follows Anthropic standards",
+    "Choose global installation for skills you want available in any directory",
+    "Test the skill with realistic prompts before publishing"
+  ],
+  "antiPatterns": [
+    "Creating overly complex skills that try to do too many things",
+    "Skipping the brainstorming phase and jumping straight to templates",
+    "Not validating generated skills before installation",
+    "Installing skills globally without testing locally first"
+  ],
+  "faq": [
+    {
+      "question": "What is skill-creator?",
+      "answer": "Skill-creator is a meta-skill that automates the creation of new CLI skills for Claude Code and GitHub Copilot. It generates properly structured skill files from templates."
+    },
+    {
+      "question": "Do I need programming knowledge to use it?",
+      "answer": "No, skill-creator handles the technical structure. You provide the domain knowledge and the skill guides you through the process."
+    },
+    {
+      "question": "Where are skills installed?",
+      "answer": "Skills can be installed locally within a repository or globally using symlinks to ~/.claude/skills/ or ~/.copilot/skills/."
+    },
+    {
+      "question": "What validation does it perform?",
+      "answer": "It validates YAML frontmatter structure, checks naming conventions (hyphen-case), and ensures required fields are present."
+    },
+    {
+      "question": "Can I edit generated skills after creation?",
+      "answer": "Yes, the generated skill is a starting point. You should edit SKILL.md to add your actual skill content and instructions."
+    },
+    {
+      "question": "Does this work with both Claude Code and Copilot?",
+      "answer": "Yes, skill-creator supports creating skills for GitHub Copilot CLI, Claude Code, and Codex platforms."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code skill creator",
+    "Copilot CLI skill builder",
+    "skill creation automation",
+    "Claude Code templates",
+    "Copilot skill development",
+    "CLI skill scaffolding",
+    "Anthropic skill format",
+    "skill creation tool",
+    "Codex skill creation",
+    "Claude skill development"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/skill-creator",
+  "sourceType": "community",
+  "dependencies": []
+}

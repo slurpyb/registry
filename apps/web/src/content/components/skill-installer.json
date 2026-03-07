@@ -1,0 +1,139 @@
+{
+  "name": "skill-installer",
+  "type": "skill",
+  "description": "Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path. Use when a user asks to list installable skills, install a curated skill, or install a skill from another repo (including private repos).",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "skill installation",
+  "quality": 5,
+  "qualityReason": "Critical distribution tool",
+  "bundleHints": [
+    "skill-toolkit",
+    "agent-config",
+    "cli-tools"
+  ],
+  "tags": [
+    "cli",
+    "curated skills",
+    "github",
+    "installation",
+    "skill management"
+  ],
+  "capabilities": [
+    "List available curated skills from the OpenAI skills repository",
+    "Install skills from curated list by name",
+    "Install skills from any GitHub repository by owner/repo/path",
+    "Support private repositories using GitHub token authentication",
+    "Fallback to git sparse checkout when direct download fails",
+    "Validate skill structure and prevent overwriting existing installations"
+  ],
+  "author": "openai",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill installs Codex skills from GitHub repositories with path traversal protection, safe zip extraction, and proper subprocess argument handling. No dangerous patterns detected. Network, filesystem, and git operations are intentional and controlled.",
+  "valueStatement": "Finding and installing new skills for Codex requires navigating GitHub manually. This skill automates installation from curated lists or any GitHub repository, supporting both public and private repos with proper authentication.",
+  "userTitle": "Install skills from GitHub repositories",
+  "limitations": [
+    "Only supports GitHub as the skill source repository",
+    "Cannot install skills from local files or other version control systems",
+    "System skills are preinstalled and cannot be re-installed",
+    "GitHub API rate limits may affect listing performance"
+  ],
+  "useCases": [
+    {
+      "targetUser": "New Codex users",
+      "title": "Explore available skills",
+      "description": "Browse the curated skill library to discover new capabilities for your Codex installation."
+    },
+    {
+      "targetUser": "Team administrators",
+      "title": "Install team skills",
+      "description": "Deploy custom skills from private team repositories across your organization."
+    },
+    {
+      "targetUser": "Advanced developers",
+      "title": "Add custom skills",
+      "description": "Install specialized skills from any public GitHub repository to extend Codex functionality."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List available skills",
+      "scenario": "User wants to see what skills are available",
+      "prompt": "What curated skills are available to install?"
+    },
+    {
+      "title": "Install by name",
+      "scenario": "User wants to install a specific skill",
+      "prompt": "Install the skill-1 skill from the curated list."
+    },
+    {
+      "title": "Install from GitHub",
+      "scenario": "User wants to install from a specific repo",
+      "prompt": "Install the python-helper skill from the github.com/myorg/skills repository."
+    },
+    {
+      "title": "Private repo install",
+      "scenario": "User wants to install from a private repo",
+      "prompt": "Install the enterprise-skill from github.com/company/private-skills using my GITHUB_TOKEN."
+    }
+  ],
+  "bestPractices": [
+    "Restart Codex after installing new skills to ensure they are loaded properly",
+    "Use GITHUB_TOKEN or GH_TOKEN environment variables for private repository access",
+    "Install multiple skills at once by specifying multiple --path arguments"
+  ],
+  "antiPatterns": [
+    "Do not attempt to overwrite system skills as they are preinstalled",
+    "Do not skip the restart step after installation completes",
+    "Do not use absolute paths or path traversal sequences in skill names"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with private GitHub repositories?",
+      "answer": "Yes. Set the GITHUB_TOKEN or GH_TOKEN environment variable to authenticate with private repos."
+    },
+    {
+      "question": "Where are skills installed on my system?",
+      "answer": "Skills are installed to $CODEX_HOME/skills, which defaults to ~/.codex/skills."
+    },
+    {
+      "question": "Can I integrate this skill with other automation tools?",
+      "answer": "Yes. Use the --format json flag for machine-readable output suitable for scripts and pipelines."
+    },
+    {
+      "question": "Is my code safe when installing skills from GitHub?",
+      "answer": "Yes. The skill validates paths and extracts archives safely to prevent directory traversal attacks."
+    },
+    {
+      "question": "What should I do if installation fails?",
+      "answer": "Check that the repository exists, the path is correct, and you have proper authentication for private repos."
+    },
+    {
+      "question": "How is this different from manual skill installation?",
+      "answer": "This skill automates the entire process including authentication handling, git fallback, and installation validation."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Codex",
+    "skill installer",
+    "GitHub skills",
+    "install skills",
+    "curated skills",
+    "skill management",
+    "private repos",
+    "skill marketplace"
+  ],
+  "sourceUrl": "https://github.com/openai/codex/tree/main/codex-rs/core/src/skills/assets/samples/skill-installer",
+  "sourceType": "official",
+  "dependencies": []
+}

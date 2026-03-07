@@ -1,0 +1,144 @@
+{
+  "name": "autonomous-agent-patterns",
+  "type": "skill",
+  "description": "Design patterns for building autonomous coding agents. Covers tool integration, permission systems, browser automation, and human-in-the-loop workflows. Use when building AI agents, designing tool APIs, implementing permission systems, or creating autonomous coding assistants.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "Design Patterns",
+  "quality": 5,
+  "qualityReason": "Rich pattern coverage for agents",
+  "bundleHints": [
+    "ai-agent-stack",
+    "autonomous-systems",
+    "agent-framework"
+  ],
+  "tags": [
+    "agent-safety",
+    "ai-agents",
+    "autonomous-agents",
+    "browser-automation",
+    "claude-code",
+    "coding-agents",
+    "human-in-loop",
+    "permission-systems",
+    "tool-integration"
+  ],
+  "capabilities": [
+    "Design agent loop architecture with think-decide-act-observe cycles",
+    "Implement tool schemas and essential agent tools (read, write, edit files)",
+    "Build permission and approval systems with risk-based levels",
+    "Create sandboxed execution environments for command safety",
+    "Implement browser automation with visual element detection",
+    "Manage context injection and checkpoint/resume patterns"
+  ],
+  "author": "sickn33",
+  "icon": "🤖",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a reference documentation resource containing code examples for building autonomous agents. All detected patterns (external_commands, network, filesystem, env_access) are documentation examples demonstrating legitimate agent patterns, not actual executable malicious code. The skill does not contain prompt injection attempts or malicious intent. All findings are false positives - the skill is educational content about agent architecture.",
+  "valueStatement": "Learn proven design patterns for creating autonomous coding agents with proper tool integration, permission systems, and safety controls. Essential for developers building AI-powered development tools.",
+  "userTitle": "Build Autonomous AI Agents",
+  "limitations": [
+    "This is a reference documentation skill, not a functional tool",
+    "Requires implementation in your own codebase - no runtime provided",
+    "Does not include actual AI model integration - only patterns",
+    "Browser automation examples require Playwright/Puppeteer setup"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developer building AI-powered developer tools",
+      "title": "Build a Claude Code extension",
+      "description": "Create a VS Code extension or CLI tool that uses Claude for autonomous code editing with proper permission controls."
+    },
+    {
+      "targetUser": "Framework developers creating AI agent platforms",
+      "title": "Design secure agent APIs",
+      "description": "Implement tool calling APIs with permission levels, approval dialogs, and sandboxing for AI agent frameworks."
+    },
+    {
+      "targetUser": "Engineers building web automation tools",
+      "title": "Add browser automation to agents",
+      "description": "Enable your AI agent to interact with web applications through visual element detection and automation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Agent Loop",
+      "prompt": "Show me how to implement a basic agent loop in Python that uses an LLM to decide when to use tools versus return a final answer.",
+      "scenario": "Learning the fundamentals of agent architecture"
+    },
+    {
+      "title": "Permission System",
+      "prompt": "Create a permission system for an AI agent with different levels: auto-approve for safe operations, ask-once for moderate risk, ask-each-time for dangerous commands, and never-allow for blocked operations.",
+      "scenario": "Implementing safety controls in agent tools"
+    },
+    {
+      "title": "Sandboxed Execution",
+      "prompt": "Write a Python class that safely executes shell commands in a sandboxed environment, restricting which commands can run and limiting filesystem access to a workspace directory.",
+      "scenario": "Building secure command execution for agents"
+    },
+    {
+      "title": "MCP Tool Discovery",
+      "prompt": "Show how to implement dynamic MCP server connection that discovers available tools and allows creating new tools at runtime based on user descriptions.",
+      "scenario": "Building extensible agent systems"
+    }
+  ],
+  "bestPractices": [
+    "Always implement permission levels - auto-approve safe read operations but require approval for file writes and command execution",
+    "Use sandboxed execution environments to restrict which commands and filesystem paths are accessible",
+    "Design tools with clear JSON schemas so the LLM understands what each tool does and its parameters"
+  ],
+  "antiPatterns": [
+    "Allowing unrestricted command execution without permission checks or sandboxing",
+    "Giving agents unlimited context without proper context management and size limits",
+    "Implementing tools with vague descriptions that make it unclear what the tool does"
+  ],
+  "faq": [
+    {
+      "question": "Is this skill ready to use or do I need to implement it?",
+      "answer": "This is a reference documentation skill with code examples. You need to implement the patterns in your own codebase. It teaches you how to build autonomous agents, it is not a functioning agent itself."
+    },
+    {
+      "question": "Which AI models work with these patterns?",
+      "answer": "These patterns work with any LLM that supports tool calling, including Claude, GPT-4, and other models. The patterns are model-agnostic."
+    },
+    {
+      "question": "Do I need special permissions to run these agent patterns?",
+      "answer": "The patterns include their own permission systems. You do not need special permissions to study or implement them. The skill itself does not execute any code."
+    },
+    {
+      "question": "Can these patterns damage my system?",
+      "answer": "The patterns include safety features like sandboxing and permission levels. However, when implementing them, you are responsible for proper security configuration. Always restrict dangerous commands and limit filesystem access."
+    },
+    {
+      "question": "How do I get started with building an agent?",
+      "answer": "Start with the Core Agent Architecture section to understand the think-decide-act-observe loop. Then implement basic tools from section 2. Add permission controls from section 3 before enabling any dangerous operations."
+    },
+    {
+      "question": "What is MCP and how does it relate to these patterns?",
+      "answer": "MCP (Model Context Protocol) is a standard for connecting AI agents to external tools and data sources. Section 6 shows how to implement dynamic tool discovery using MCP, allowing agents to find and use tools automatically."
+    }
+  ],
+  "seoKeywords": [
+    "autonomous AI agents",
+    "Claude Code",
+    "Claude Codex",
+    "agent patterns",
+    "tool integration",
+    "AI agent safety",
+    "permission systems",
+    "human-in-the-loop",
+    "agent architecture",
+    "MCP integration"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/autonomous-agent-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

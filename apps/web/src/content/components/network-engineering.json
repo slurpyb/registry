@@ -1,0 +1,141 @@
+{
+  "name": "network-engineering",
+  "type": "skill",
+  "description": "Network architecture, troubleshooting, and infrastructure patterns. Use",
+  "domain": "devops",
+  "subdomain": "cloud",
+  "specialty": "infrastructure design",
+  "quality": 5,
+  "qualityReason": "Broad infrastructure expertise",
+  "bundleHints": [
+    "network-ops",
+    "cloud-infrastructure"
+  ],
+  "tags": [
+    "dns",
+    "infrastructure",
+    "load-balancers",
+    "network",
+    "network-architecture",
+    "security",
+    "troubleshooting",
+    "vpc"
+  ],
+  "capabilities": [
+    "Reference guides for OSI model layers and protocols",
+    "VPC and subnet design patterns with CIDR examples",
+    "Load balancer type comparison and health check configuration",
+    "DNS record types and debugging commands",
+    "SSL/TLS certificate types and configuration best practices",
+    "Network troubleshooting checklist and diagnostic commands"
+  ],
+  "author": "Joseph OBrien",
+  "icon": "🌐",
+  "version": "1.0.1",
+  "license": "UNLICENSED",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown reference material. No executable code, scripts, network calls, or filesystem modifications. The skill provides educational content for network engineering topics including OSI model, VPC design, load balancing, DNS, and SSL/TLS. All static findings from the pre-computed analysis are false positives - the patterns detected are standard network documentation (private IP examples, command references, protocol explanations) that appear in legitimate technical documentation.",
+  "valueStatement": "Network issues cause downtime and security vulnerabilities. This skill provides comprehensive reference guides for network architecture, load balancing, DNS configuration, and SSL/TLS debugging.",
+  "userTitle": "Design and troubleshoot network infrastructure",
+  "limitations": [
+    "Provides reference information only, does not execute network commands",
+    "Does not configure or modify actual network infrastructure",
+    "No integration with cloud provider APIs or network devices"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Cloud Architects",
+      "title": "Design VPC Architecture",
+      "description": "Plan VPC CIDR blocks, public and private subnets across availability zones for cloud deployments."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Debug Connectivity Issues",
+      "description": "Diagnose network connectivity problems using systematic troubleshooting checklists and command references."
+    },
+    {
+      "targetUser": "System Administrators",
+      "title": "Configure Load Balancers",
+      "description": "Set up application and network load balancers with proper health checks and routing strategies."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "OSI Model Lookup",
+      "scenario": "Layer reference needed",
+      "prompt": "What protocols and troubleshooting tools are used at OSI Layer [number]?"
+    },
+    {
+      "title": "Design VPC",
+      "scenario": "Planning network architecture",
+      "prompt": "Design a VPC with public subnets for load balancers, private subnets for application servers, and isolated subnets for databases. Include CIDR ranges."
+    },
+    {
+      "title": "Debug DNS",
+      "scenario": "DNS resolution problems",
+      "prompt": "How do I troubleshoot DNS resolution issues? Show commands to query specific record types and check propagation."
+    },
+    {
+      "title": "SSL Certificate Help",
+      "scenario": "Certificate configuration",
+      "prompt": "Explain the difference between DV, OV, and EV SSL certificates. Show commands to check certificate expiration and chain."
+    }
+  ],
+  "bestPractices": [
+    "Use separate security groups for each tier (web, app, database)",
+    "Apply least privilege principles to security group rules",
+    "Set appropriate TTL values based on record change frequency"
+  ],
+  "antiPatterns": [
+    "Using overlapping CIDR ranges across VPCs",
+    "Putting databases in public subnets",
+    "Disabling health checks on load balancers"
+  ],
+  "faq": [
+    {
+      "question": "Which load balancer type should I choose?",
+      "answer": "Use ALB for HTTP/HTTPS with path routing, NLB for TCP/UDP with static IP, and Gateway for third-party appliances."
+    },
+    {
+      "question": "What is the recommended TTL for DNS records?",
+      "answer": "Static content: 86400 seconds (1 day). Dynamic content: 300 seconds (5 minutes). Failover records: 60 seconds."
+    },
+    {
+      "question": "Does this skill connect to network devices?",
+      "answer": "No. This skill provides reference guides only. It does not execute commands or connect to any network infrastructure."
+    },
+    {
+      "question": "Is my network data safe?",
+      "answer": "Yes. This skill only reads its own documentation. No network requests are made and no data leaves your system."
+    },
+    {
+      "question": "Why is my application not responding?",
+      "answer": "Check physical layer, security groups, NACLs, route tables, DNS resolution, and application listening status in that order."
+    },
+    {
+      "question": "How does this compare to cloud provider documentation?",
+      "answer": "This skill provides general patterns and commands. Use AWS, Azure, or GCP documentation for cloud-specific configurations."
+    }
+  ],
+  "seoKeywords": [
+    "network engineering",
+    "network troubleshooting",
+    "load balancing",
+    "DNS configuration",
+    "SSL TLS setup",
+    "VPC design",
+    "network security",
+    "Claude",
+    "Claude Code",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/89jobrien/steve/tree/main/steve/skills/network-engineering",
+  "sourceType": "community",
+  "dependencies": []
+}

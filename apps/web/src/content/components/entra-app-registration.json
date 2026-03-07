@@ -1,0 +1,145 @@
+{
+  "name": "entra-app-registration",
+  "type": "skill",
+  "description": "Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration.",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "OAuth integration",
+  "quality": 5,
+  "qualityReason": "Critical for secure auth setup",
+  "bundleHints": [
+    "cloud-security",
+    "identity-management"
+  ],
+  "tags": [
+    "app-registration",
+    "authentication",
+    "authentication-flow",
+    "azure",
+    "azure-ad",
+    "entra id",
+    "entra-id",
+    "msal",
+    "oauth"
+  ],
+  "capabilities": [
+    "Guide users through Microsoft Entra ID app registration process",
+    "Explain OAuth 2.0 authorization code, implicit, and client credentials flows",
+    "Provide Azure CLI commands for app registration and management",
+    "Show MSAL integration examples for .NET, Python, JavaScript, and Java",
+    "Configure API permissions and scopes for Microsoft Graph",
+    "Troubleshoot common authentication errors and token issues"
+  ],
+  "author": "microsoft",
+  "icon": "🔐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 529 static findings are false positives. The skill is official Microsoft documentation for Entra ID app registration, OAuth 2.0 flows, and MSAL integration. Detected patterns (external_commands, network, filesystem, env_access) are legitimate documentation showing Azure CLI commands and Microsoft endpoint URLs.",
+  "valueStatement": "This skill provides step-by-step guidance for registering applications in Microsoft Entra ID, configuring OAuth 2.0 authentication flows, and integrating MSAL libraries across multiple programming languages.",
+  "userTitle": "Register Microsoft Entra ID Applications",
+  "limitations": [
+    "Does not cover Azure RBAC role assignments (use azure-rbac skill)",
+    "Does not handle Key Vault secret management (use azure-keyvault skill)",
+    "Does not provide Azure resource security configuration",
+    "Does not include Bicep/ARM template deployment for non-Entra resources"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers new to Azure authentication",
+      "title": "First-time app registration",
+      "description": "Walk developers through registering their first application in Microsoft Entra ID, including choosing app type, configuring redirect URIs, and setting up authentication."
+    },
+    {
+      "targetUser": ".NET, Python, or Node.js developers building CLI tools",
+      "title": "Console app authentication",
+      "description": "Help developers add user authentication to console applications using MSAL libraries with interactive login flows."
+    },
+    {
+      "targetUser": "Backend developers building Azure-hosted services",
+      "title": "Service-to-service authentication",
+      "description": "Guide implementation of daemon or service authentication using client credentials flow for background jobs and APIs."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create new app registration",
+      "prompt": "Help me create a new app registration in Microsoft Entra ID for a web application. I need to configure OAuth 2.0 authentication.",
+      "scenario": "Starting a new web app that needs Azure AD authentication"
+    },
+    {
+      "title": "Add API permissions",
+      "prompt": "How do I add Microsoft Graph API permissions to my Entra ID app registration? I need User.Read and Mail.Send permissions.",
+      "scenario": "Configuring app permissions for Microsoft Graph access"
+    },
+    {
+      "title": "Set up client credentials flow",
+      "prompt": "Show me how to implement client credentials flow for a daemon service that needs to call Microsoft Graph API without user interaction.",
+      "scenario": "Building a background service with non-interactive authentication"
+    },
+    {
+      "title": "Troubleshoot token errors",
+      "prompt": "My MSAL authentication is failing with error AADSTS50011. How do I fix the redirect URI mismatch?",
+      "scenario": "Debugging authentication errors in production"
+    }
+  ],
+  "bestPractices": [
+    "Use certificates instead of client secrets for production web apps",
+    "Request only the minimum API permissions needed (least privilege)",
+    "Use managed identities for Azure-hosted apps to avoid storing secrets",
+    "Configure token lifetime policies to balance security and user experience"
+  ],
+  "antiPatterns": [
+    "Hardcoding client secrets in source code or configuration files",
+    "Using implicit flow for confidential clients (use authorization code flow instead)",
+    "Requesting excessive permissions that the app does not need",
+    "Skipping token validation in production applications"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between app registration and enterprise application?",
+      "answer": "App registration creates the app definition in your tenant. Enterprise application is the service principal instance that represents the app in each tenant where it is used."
+    },
+    {
+      "question": "When should I use client secrets vs certificates?",
+      "answer": "Use certificates for production environments as they are more secure. Client secrets are simpler for development but should be rotated frequently."
+    },
+    {
+      "question": "What is the purpose of the tenant ID?",
+      "answer": "The tenant ID identifies the Azure AD organization (directory) where the app is registered. It is required for authentication requests."
+    },
+    {
+      "question": "How do I implement single sign-on (SSO)?",
+      "answer": "Register your app in Microsoft Entra ID and configure it to use the same authentication endpoint. Users who are already signed in to Entra will authenticate automatically."
+    },
+    {
+      "question": "What is MSAL and why should I use it?",
+      "answer": "MSAL (Microsoft Authentication Library) is the recommended library for integrating with Microsoft identity platform. It handles token caching, refresh, and renewal automatically."
+    },
+    {
+      "question": "How do I get the application ID after registration?",
+      "answer": "The application ID (client ID) is returned when you create the app with Azure CLI or can be found in the Azure Portal under App registrations."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Microsoft Entra ID",
+    "Azure AD",
+    "OAuth 2.0",
+    "app registration",
+    "MSAL",
+    "authentication",
+    "Azure"
+  ],
+  "sourceUrl": "https://github.com/microsoft/github-copilot-for-azure/tree/main/plugin/skills/entra-app-registration/",
+  "sourceType": "community",
+  "dependencies": []
+}

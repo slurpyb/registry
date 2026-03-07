@@ -1,0 +1,144 @@
+{
+  "name": "verification-quality-assurance",
+  "type": "skill",
+  "description": "Comprehensive truth scoring, code quality verification, and automatic rollback system with 0.95 accuracy threshold for ensuring high-quality agent outputs and codebase reliability.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "truth scoring",
+  "quality": 5,
+  "qualityReason": "High-precision system",
+  "bundleHints": [
+    "ai-safety",
+    "quality-gate"
+  ],
+  "tags": [
+    "accuracy-threshold",
+    "auto-fix",
+    "ci-cd",
+    "code-reliability",
+    "metrics",
+    "quality",
+    "quality-gate",
+    "rollback",
+    "truth-scoring",
+    "verification"
+  ],
+  "capabilities": [
+    "Calculate real-time truth scores (0.0-1.0 scale) for code, agents, and tasks",
+    "Run automated verification checks for code correctness, security, and best practices",
+    "Automatically rollback changes that fall below configurable accuracy thresholds",
+    "Generate verification reports in JSON, HTML, CSV, and markdown formats",
+    "Integrate with CI/CD pipelines through exit codes and structured output",
+    "Monitor quality trends over time with statistical analysis and confidence intervals"
+  ],
+  "author": "DNYoussef",
+  "icon": "📦",
+  "version": "2.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static scanner detected 115 pattern matches including high-severity cryptographic and command execution flags. Manual evaluation confirms all findings are FALSE POSITIVES. The SKILL.md file is pure documentation with bash command examples, not executable code. All 'weak crypto' detections are documentation text, 'shell backtick' matches are markdown code fences, and 'credential access' is template variable placeholders in example commands. No malicious intent or exploitable code paths exist. Risk level set to low due to documentation-only nature with no runtime execution capabilities.",
+  "valueStatement": "Agents and automated systems can produce low-quality or unreliable outputs that slip through review. The verification quality assurance skill provides real-time truth scoring, automated code verification checks, and automatic rollback for failed verifications to ensure only high-quality code enters your codebase.",
+  "userTitle": "Verify Code Quality with Truth Scoring",
+  "limitations": [
+    "Requires claude-flow CLI tool to be installed separately",
+    "Rollback features depend on Git integration for version control",
+    "Dashboard and real-time monitoring require Node.js 18+",
+    "Does not perform actual code execution or testing, only static analysis"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI Development Teams",
+      "title": "Ensure High-Quality Agent Outputs",
+      "description": "Set truth score thresholds to automatically reject agent-generated code that falls below quality standards. Configure auto-rollback to revert failed verifications and maintain codebase integrity."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "CI/CD Quality Gate",
+      "description": "Integrate verification checks into GitHub Actions or GitLab CI pipelines. Use JSON output and exit codes to pass or fail builds based on configurable quality thresholds."
+    },
+    {
+      "targetUser": "QA Engineers",
+      "title": "Track Code Quality Trends",
+      "description": "Monitor truth scores over time to identify quality regressions. Export metrics to monitoring systems like DataDog or Prometheus for long-term trend analysis."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Verification Check",
+      "prompt": "Run a verification check on my current code. Use the default threshold of 0.95. Show me the overall truth score and which checks passed or failed.",
+      "scenario": "Quick quality check during development"
+    },
+    {
+      "title": "Custom Threshold Verification",
+      "prompt": "Verify the code in src/ with a stricter threshold of 0.99. Include verbose output explaining any failures. Enable auto-fix for minor issues.",
+      "scenario": "High-stakes code review requiring strict quality"
+    },
+    {
+      "title": "CI/CD Integration",
+      "prompt": "Run verification check in JSON format and output to verification.json. Check if the overall score meets the 0.95 threshold. Exit with code 0 if passing, 1 if failing.",
+      "scenario": "Automated CI/CD pipeline quality gate"
+    },
+    {
+      "title": "Quality Trend Analysis",
+      "prompt": "Show me the truth scores for the past 7 days. Include trends, standard deviation, and confidence intervals. Identify any agents or tasks with declining quality.",
+      "scenario": "Long-term quality monitoring and analysis"
+    }
+  ],
+  "bestPractices": [
+    "Set appropriate thresholds per environment: 0.99 for production, 0.95 for staging, 0.90 for development",
+    "Integrate verification into pre-commit hooks to catch quality issues before they enter version control",
+    "Review rollback history regularly to understand which changes fail verification and why"
+  ],
+  "antiPatterns": [
+    "Using the same threshold for all code regardless of criticality",
+    "Ignoring declining truth score trends until they cause verification failures",
+    "Disabling auto-rollback without having manual review processes in place"
+  ],
+  "faq": [
+    {
+      "question": "What truth score threshold should I use?",
+      "answer": "Use 0.99 for production code and critical systems. Use 0.95 for standard development work. Use 0.90 for experimental features or prototypes. Adjust based on your quality requirements."
+    },
+    {
+      "question": "Does verification run actual tests?",
+      "answer": "No. Verification performs static analysis including syntax validation, security scanning, best practices checks, and complexity analysis. It does not execute code or run test suites."
+    },
+    {
+      "question": "How does auto-rollback work?",
+      "answer": "When verification fails, auto-rollback uses Git to revert changes to the last known good state. It creates a backup first, then resets to the specified commit. Works with both full and selective rollbacks."
+    },
+    {
+      "question": "Can I verify multiple files at once?",
+      "answer": "Yes. Use the batch verification command with pattern matching like npx claude-flow@alpha verify batch --pattern 'src/**/*.ts'. Supports parallel processing for faster verification."
+    },
+    {
+      "question": "What CI/CD systems are supported?",
+      "answer": "Any CI/CD system that can run Node.js commands. The skill includes examples for GitHub Actions and GitLab CI. Works with Jenkins, CircleCI, and others through standard command execution."
+    },
+    {
+      "question": "How are truth scores calculated?",
+      "answer": "Truth scores combine multiple factors: code correctness, security posture, adherence to best practices, performance characteristics, and documentation quality. Each factor is weighted and scored independently."
+    }
+  ],
+  "seoKeywords": [
+    "verification",
+    "truth scoring",
+    "code quality",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "quality assurance",
+    "automated testing",
+    "CI/CD integration",
+    "rollback"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/verification-quality",
+  "sourceType": "community",
+  "dependencies": []
+}

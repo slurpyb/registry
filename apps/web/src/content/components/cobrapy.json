@@ -1,0 +1,139 @@
+{
+  "name": "cobrapy",
+  "type": "skill",
+  "description": "Constraint-based metabolic modeling (COBRA). FBA, FVA, gene knockouts, flux sampling, SBML models, for systems biology and metabolic engineering analysis.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "metabolic modeling",
+  "quality": 5,
+  "qualityReason": "Precise scientific application",
+  "bundleHints": [
+    "bioinformatics",
+    "metabolic-engineering"
+  ],
+  "tags": [
+    "computational-biology",
+    "fba",
+    "flux-analysis",
+    "gene-knockout",
+    "metabolic-modeling",
+    "sbml",
+    "systems-biology"
+  ],
+  "capabilities": [
+    "Load and save genome-scale metabolic models from SBML, JSON, YAML, and MATLAB formats",
+    "Perform Flux Balance Analysis (FBA) to predict growth rates and metabolic fluxes",
+    "Run Flux Variability Analysis (FVA) to determine feasible flux ranges for all reactions",
+    "Conduct single and double gene knockout analyses to identify essential genes",
+    "Calculate production envelopes and perform flux sampling for phenotypic analysis",
+    "Build new metabolic models from scratch with reactions, metabolites, and gene-reaction rules"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "GPL-2.0 license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 160 static findings are FALSE POSITIVES. The skill consists only of markdown documentation files containing Python code examples for the COBRApy metabolic modeling library. The scanner misidentified Python parenthesized imports as dynamic import() expressions, markdown backticks as shell command execution, metabolic modeling terminology (blocked reactions, essential genes) as system reconnaissance, and .get_by_id() method calls as credential access patterns. No executable code, network requests, credential handling, or malicious behavior present.",
+  "valueStatement": "Metabolic modeling requires specialized knowledge of constraint-based reconstruction and analysis methods. COBRApy provides a comprehensive Python interface for flux balance analysis, gene knockout studies, and production envelope calculations for systems biology research.",
+  "userTitle": "Analyze metabolic models with COBRApy",
+  "limitations": [
+    "Requires external LP/MILP solver (GLPK, CPLEX, or Gurobi) installed separately",
+    "Does not include pre-built metabolic models - requires users to provide or download models",
+    "Limited to constraint-based methods - does not support kinetic modeling approaches"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Systems Biologists",
+      "title": "Predict gene essentiality",
+      "description": "Identify essential genes in E. coli using single and double gene knockout simulations"
+    },
+    {
+      "targetUser": "Metabolic Engineers",
+      "title": "Design production strains",
+      "description": "Calculate production envelopes and identify gene targets for biochemical production optimization"
+    },
+    {
+      "targetUser": "Computational Biologists",
+      "title": "Analyze model feasibility",
+      "description": "Validate metabolic models, find blocked reactions, and perform comprehensive flux space exploration"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Model Loading",
+      "scenario": "Load built-in model and run FBA",
+      "prompt": "Load the E. coli metabolic model using cobrapy, run flux balance analysis, and report the maximum growth rate and key metabolic fluxes"
+    },
+    {
+      "title": "Gene Knockout Study",
+      "scenario": "Identify essential genes",
+      "prompt": "Perform single gene deletion analysis on the E. coli model, identify all essential genes (growth < 0.01), and export results to a CSV file"
+    },
+    {
+      "title": "Media Optimization",
+      "scenario": "Calculate minimal medium",
+      "prompt": "Calculate the minimal growth medium for the E. coli model that achieves 90% of maximum growth. Show which nutrients are required and their uptake rates"
+    },
+    {
+      "title": "Production Envelope",
+      "scenario": "Analyze metabolite production",
+      "prompt": "Calculate the production envelope for acetate production in E. coli. Vary glucose uptake from 0 to 20 mmol/gDW/h and determine maximum and minimum acetate yields"
+    }
+  ],
+  "bestPractices": [
+    "Always check solution status after optimization - 'optimal' indicates successful solve, 'infeasible' indicates model issues",
+    "Use context managers (with model:) for temporary modifications to automatically revert changes",
+    "Validate flux samples using sampler.validate() to ensure numerical stability before analysis"
+  ],
+  "antiPatterns": [
+    "Do not skip checking model feasibility with slim_optimize() before running full analyses",
+    "Avoid modifying bounds directly on reactions - use the context manager pattern instead",
+    "Do not assume all reactions will carry flux - use FVA to identify reactions with variable flux ranges"
+  ],
+  "faq": [
+    {
+      "question": "What solvers does COBRApy support?",
+      "answer": "COBRApy supports GLPK (open source), CPLEX, and Gurobi commercial solvers via the optlang interface."
+    },
+    {
+      "question": "How do I install metabolic models?",
+      "answer": "Use model = load_model('ecoli') for built-in test models, or read_sbml_model() to load SBML files from databases like BiGG."
+    },
+    {
+      "question": "What is the difference between FBA and FVA?",
+      "answer": "FBA finds one optimal flux distribution, while FVA calculates the range of possible fluxes for each reaction at optimal growth."
+    },
+    {
+      "question": "How do I identify essential genes?",
+      "answer": "Use single_gene_deletion(model) which returns growth rates for all gene knockouts. Genes with growth < 0.01 are typically essential."
+    },
+    {
+      "question": "Can COBRApy handle large genome-scale models?",
+      "answer": "Yes, COBRApy handles models with thousands of reactions. For large models, use slim_optimize() for quick checks."
+    },
+    {
+      "question": "How do I save my analysis results?",
+      "answer": "Use solution.fluxes.to_csv() for flux results, or save_json_model() / write_sbml_model() to save modified models."
+    }
+  ],
+  "seoKeywords": [
+    "cobrapy",
+    "metabolic modeling",
+    "flux balance analysis",
+    "FBA",
+    "systems biology",
+    "metabolic engineering",
+    "Claude",
+    "Claude Code",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/cobrapy",
+  "sourceType": "community",
+  "dependencies": []
+}

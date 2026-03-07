@@ -1,0 +1,146 @@
+{
+  "name": "cc-skill-backend-patterns",
+  "type": "skill",
+  "description": "Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "analytical databases",
+  "quality": 5,
+  "qualityReason": "Specialized high-performance database skill",
+  "bundleHints": [
+    "analytics-stack",
+    "data-engineering"
+  ],
+  "tags": [
+    "analytics",
+    "api-design",
+    "backend",
+    "clickhouse",
+    "database",
+    "database-optimization",
+    "express",
+    "nodejs",
+    "olap",
+    "query-optimization",
+    "server-side"
+  ],
+  "capabilities": [
+    "Design RESTful API structures with proper resource naming and HTTP methods",
+    "Implement repository and service layer patterns for clean code architecture",
+    "Optimize database queries to prevent N+1 problems and improve performance",
+    "Implement caching strategies using Redis and cache-aside patterns",
+    "Build secure authentication systems with JWT and role-based access control",
+    "Handle errors gracefully with centralized error handlers and retry logic"
+  ],
+  "author": "affaan-m",
+  "icon": "📦",
+  "version": "1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Educational backend development patterns skill. Static analyzer flagged numerous false positives due to misidentification of code comments as shell commands, environment variable access as sensitive data exposure, and URL paths as reconnaissance. True positive finding: JWT secret accessed via process.env - standard secure practice. No malicious behavior detected.",
+  "valueStatement": "Backend applications often suffer from poor architecture, scalability issues, and security vulnerabilities. This skill provides proven patterns for API design, database optimization, caching, authentication, and error handling.",
+  "userTitle": "Build Scalable Backend Systems",
+  "limitations": [
+    "Skill focuses on Node.js, Express, and Next.js API routes only",
+    "Does not cover frontend or client-side development",
+    "Database examples are specific to PostgreSQL/Supabase",
+    "Caching examples assume Redis as the cache store"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building new APIs",
+      "title": "Design New API Endpoints",
+      "description": "Architects and developers building new REST APIs can apply the resource-based URL patterns and middleware approaches for consistent, maintainable API design."
+    },
+    {
+      "targetUser": "Developers optimizing database performance",
+      "title": "Optimize Slow Database Queries",
+      "description": "Developers experiencing performance issues can identify and fix N+1 query problems using batch fetching and query optimization patterns."
+    },
+    {
+      "targetUser": "Full-stack developers adding auth",
+      "title": "Implement Secure Authentication",
+      "description": "Developers adding authentication to their applications can implement JWT validation and role-based access control following security best practices."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Design API Structure",
+      "prompt": "Design a RESTful API structure for a [resource] resource. Include endpoints for listing, getting by ID, creating, updating, and deleting. Show query parameter examples for filtering and pagination.",
+      "scenario": "Creating new API endpoints"
+    },
+    {
+      "title": "Optimize Database Query",
+      "description": "I have a function that fetches a list of orders and then loops through each to get customer details. This is causing slow performance.",
+      "prompt": "I have a function that fetches a list of orders and then loops through each to get customer details. This is causing slow performance. Show me how to refactor this using the batch fetch pattern to avoid N+1 queries.",
+      "scenario": "Fixing N+1 query problems"
+    },
+    {
+      "title": "Add JWT Authentication",
+      "prompt": "Show me how to implement JWT token validation and a requireAuth middleware for protecting API routes. Include error handling for invalid tokens.",
+      "scenario": "Adding authentication to routes"
+    },
+    {
+      "title": "Implement Caching Layer",
+      "prompt": "Create a cache-aside pattern implementation using Redis for a getUser function. Include cache hit/miss logic and cache invalidation.",
+      "scenario": "Adding caching to improve performance"
+    }
+  ],
+  "bestPractices": [
+    "Separate concerns using repository, service, and controller layers for maintainable code",
+    "Always validate input using schema validation libraries like Zod before processing",
+    "Implement caching strategically - cache expensive operations but invalidate properly"
+  ],
+  "antiPatterns": [
+    "Do not select all columns with SELECT * - specify only needed fields for better performance",
+    "Avoid nesting database calls in loops - use batch fetches instead",
+    "Do not expose raw database errors to clients - use centralized error handling"
+  ],
+  "faq": [
+    {
+      "question": "What languages and frameworks does this skill cover?",
+      "answer": "This skill covers TypeScript patterns for Node.js, Express, and Next.js API routes. The concepts apply to other frameworks but code examples are specific to these technologies."
+    },
+    {
+      "question": "How do I choose between PUT and PATCH?",
+      "answer": "Use PUT for complete resource replacement - the client sends all fields. Use PATCH for partial updates - the client sends only the fields to change."
+    },
+    {
+      "question": "When should I use Redis vs in-memory caching?",
+      "answer": "Use Redis for distributed caching across multiple servers. Use in-memory caching for single-server applications or when sharing cache is not required."
+    },
+    {
+      "question": "How do I handle authentication in serverless functions?",
+      "answer": "Validate JWT tokens at the function entry point using middleware. Extract user information from the token and attach to the request context."
+    },
+    {
+      "question": "What is the recommended way to structure a backend project?",
+      "answer": "Organize by feature or layer. Common approach: routes/controllers handle HTTP, services contain business logic, repositories handle data access. Keep related code together."
+    },
+    {
+      "question": "How do I implement rate limiting properly?",
+      "answer": "Use a distributed rate limiter like Redis for production. Track requests by IP or user ID. Set appropriate limits based on your API requirements and monitor for abuse."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "backend patterns",
+    "api design",
+    "nodejs patterns",
+    "express best practices",
+    "database optimization",
+    "caching strategies",
+    "jwt authentication"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cc-skill-backend-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

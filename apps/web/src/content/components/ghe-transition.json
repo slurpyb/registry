@@ -1,0 +1,140 @@
+{
+  "name": "ghe-transition",
+  "type": "skill",
+  "description": "Change phases in the GitHub Elements workflow by closing current thread and opening the next. Use for DEV→TEST, TEST→REVIEW, REVIEW→merge transitions, or demotions. Do not use for saving progress.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "phase change",
+  "quality": 5,
+  "qualityReason": "Critical phase transition operation",
+  "bundleHints": [
+    "workflow-lifecycle",
+    "ghe-tools",
+    "phase-management"
+  ],
+  "tags": [
+    "github-elements",
+    "lifecycle",
+    "phase-management",
+    "thread-management",
+    "workflow"
+  ],
+  "capabilities": [
+    "Validate phase transition prerequisites using the phase-gate agent",
+    "Close current thread and open next phase thread in GitHub",
+    "Manage demotions between phases (TEST to DEV, REVIEW to DEV)",
+    "Handle final merge after REVIEW passes",
+    "Sync memory bank state during phase transitions",
+    "Respect enforcement level settings from configuration"
+  ],
+  "author": "Emasoft",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is pure documentation with no executable code. All 15 static findings are false positives caused by pattern-matching on markdown documentation text. The skill describes a legitimate workflow management system for GitHub Elements phase transitions.",
+  "valueStatement": "Managing multi-phase development workflows requires manually tracking and closing threads. This skill automates phase transitions in GitHub Elements, closing the current thread and opening the next phase thread with proper validation.",
+  "userTitle": "Transition GitHub Elements phases",
+  "limitations": [
+    "Requires GitHub Elements workflow to be set up in the project",
+    "Cannot execute transitions without proper permissions on the GitHub repository",
+    "Does not create new issues from scratch, only transitions existing workflow threads",
+    "Does not provide status reports (use ghe-status for that)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers who finished coding and need to move work to testing",
+      "title": "Advance from DEV to TEST phase",
+      "description": "Complete development work and transition the issue thread to the TEST phase for quality validation."
+    },
+    {
+      "targetUser": "QA engineers or developers verifying test completion",
+      "title": "Move from TEST to REVIEW phase",
+      "description": "After tests pass, transition the thread to REVIEW phase for final code review and merge approval."
+    },
+    {
+      "targetUser": "QA engineers or reviewers who find blocking issues",
+      "title": "Demote issues back to DEV",
+      "description": "When structural issues are found during TEST or REVIEW, demote the issue back to DEV for rework."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic phase transition",
+      "prompt": "I'm done with DEV, transition this issue to TEST phase.",
+      "scenario": "Standard transition from development to testing"
+    },
+    {
+      "title": "Demotion request",
+      "prompt": "We found structural issues that need rework. Please demote this back to DEV.",
+      "scenario": "Moving an issue backwards due to blocking problems"
+    },
+    {
+      "title": "Final merge transition",
+      "prompt": "Review passed. This is ready to merge. Please complete the transition.",
+      "scenario": "Final step after successful review"
+    },
+    {
+      "title": "Complete workflow transition",
+      "prompt": "All tests are passing and this is ready for review. Move it to REVIEW phase.",
+      "scenario": "Transition from testing to review phase"
+    }
+  ],
+  "bestPractices": [
+    "Use ghe-checkpoint to save progress if you want to continue working in the same phase",
+    "Ensure completion comments exist before attempting transitions",
+    "Verify tests are passing before transitioning to REVIEW phase"
+  ],
+  "antiPatterns": [
+    "Using ghe-transition just to check status (use ghe-status instead)",
+    "Transitioning without ensuring prerequisites are met",
+    "Using this skill to create new issues from scratch (use ghe-claim instead)"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between ghe-transition and ghe-checkpoint?",
+      "answer": "ghe-transition closes the current phase thread and opens the next phase thread. ghe-checkpoint saves progress but keeps you in the same phase."
+    },
+    {
+      "question": "Can I transition from DEV directly to REVIEW?",
+      "answer": "No. Transitions must follow the workflow: DEV to TEST, then TEST to REVIEW. Direct transitions are blocked."
+    },
+    {
+      "question": "What happens if phase-gate validation fails?",
+      "answer": "The transition is blocked. The skill reports why validation failed and you must address the issues before retrying."
+    },
+    {
+      "question": "Does this skill work with any GitHub issue?",
+      "answer": "No. The issue must be part of the GitHub Elements workflow system with proper labels and thread structure."
+    },
+    {
+      "question": "Can I transition from REVIEW back to TEST?",
+      "answer": "No. If REVIEW fails, you must demote to DEV, not TEST. This prevents skipping validation steps."
+    },
+    {
+      "question": "How does memory sync work during transition?",
+      "answer": "The memory-sync agent updates the SERENA memory bank, moving the issue from activeContext.md to progress.md and preparing for the new thread."
+    }
+  ],
+  "seoKeywords": [
+    "GitHub Elements",
+    "phase transition",
+    "workflow automation",
+    "thread management",
+    "CLAUDE.md",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "development workflow",
+    "phase gate"
+  ],
+  "sourceUrl": "https://github.com/Emasoft/ghe-marketplace/tree/main/plugins/ghe/skills/ghe-transition",
+  "sourceType": "community",
+  "dependencies": []
+}

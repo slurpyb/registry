@@ -1,0 +1,140 @@
+{
+  "name": "web-auth",
+  "type": "skill",
+  "description": "Authentication patterns for React web applications. Use when implementing login flows, OAuth, JWT handling, session management, or protected routes in React web apps.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "React auth",
+  "quality": 5,
+  "qualityReason": "Critical, well-scoped feature",
+  "bundleHints": [
+    "auth-stack",
+    "frontend",
+    "security"
+  ],
+  "tags": [
+    "authentication",
+    "jwt",
+    "oauth",
+    "protected-routes",
+    "react",
+    "session"
+  ],
+  "capabilities": [
+    "Implement cookie-based authentication with httpOnly cookies",
+    "Build OAuth login flows with Google Identity Services",
+    "Create protected routes in React Router and Next.js",
+    "Handle automatic token refresh and session management",
+    "Add CSRF protection and security headers",
+    "Set up NextAuth.js with credentials and OAuth providers"
+  ],
+  "author": "CJHarmath",
+  "icon": "🔐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing legitimate authentication patterns. All 69 static findings are FALSE POSITIVES. The scanner misidentified documentation text (httpOnly cookie attributes, localStorage references, fetch API examples, environment variable patterns) as security issues. No executable code, scripts, or malicious operations exist in this skill.",
+  "valueStatement": "Building secure login flows and session management in React requires understanding multiple authentication patterns. This skill provides production-ready code examples for JWT, OAuth, cookies, and protected routes.",
+  "userTitle": "Implement secure web authentication",
+  "limitations": [
+    "Backend server code is not provided (FastAPI examples are reference only)",
+    "No database integration or user storage patterns",
+    "Does not cover multi-factor authentication"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Build login pages",
+      "description": "Create secure login forms with validation, error handling, and redirect logic after authentication."
+    },
+    {
+      "targetUser": "Full-stack engineers",
+      "title": "Connect React to auth backends",
+      "description": "Integrate frontend authentication with backend session management using cookies and JWT tokens."
+    },
+    {
+      "targetUser": "Security-focused developers",
+      "title": "Harden authentication flows",
+      "description": "Add CSRF protection, security headers, and proper token storage patterns to prevent common vulnerabilities."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic login setup",
+      "scenario": "Adding authentication to React app",
+      "prompt": "Show me how to implement a login page with email and password authentication in React using the Auth Context pattern from the web-auth skill."
+    },
+    {
+      "title": "Google OAuth",
+      "scenario": "Adding social login",
+      "prompt": "How do I implement Google OAuth login in a React application using Google Identity Services? Include the button setup and token handling."
+    },
+    {
+      "title": "Protected routes",
+      "scenario": "Securing app pages",
+      "prompt": "Create a protected route component that redirects unauthenticated users to login while preserving the intended destination URL."
+    },
+    {
+      "title": "Token refresh",
+      "scenario": "Handling expired sessions",
+      "prompt": "Show me the token refresh pattern for automatically renewing expired JWT tokens without forcing users to log in again."
+    }
+  ],
+  "bestPractices": [
+    "Use httpOnly, secure cookies instead of localStorage for tokens to prevent XSS theft",
+    "Implement automatic token refresh to handle expired sessions gracefully",
+    "Add CSRF protection when using cookies with credentials: 'include'"
+  ],
+  "antiPatterns": [
+    "Storing JWT tokens in localStorage - vulnerable to XSS attacks",
+    "Storing sensitive data in browser storage without encryption",
+    "Not validating tokens on the server before trusting authenticated requests"
+  ],
+  "faq": [
+    {
+      "question": "What is the most secure way to store auth tokens in React?",
+      "answer": "httpOnly cookies are the most secure. They cannot be accessed by JavaScript, protecting against XSS attacks."
+    },
+    {
+      "question": "Can this skill help with Next.js authentication?",
+      "answer": "Yes. The skill includes NextAuth.js configuration examples and middleware patterns for protecting routes in the Next.js App Router."
+    },
+    {
+      "question": "Does this skill include backend authentication code?",
+      "answer": "Backend code is reference only. The FastAPI examples show how to set cookies and validate tokens but are not complete implementations."
+    },
+    {
+      "question": "Is the authentication code safe to use as-is?",
+      "answer": "The patterns follow security best practices. Always audit and test in your specific environment before production use."
+    },
+    {
+      "question": "What OAuth providers are covered?",
+      "answer": "The skill includes Google OAuth examples and NextAuth.js configuration that supports Google, GitHub, and credentials-based login."
+    },
+    {
+      "question": "How does this compare to other authentication libraries?",
+      "answer": "This skill teaches core patterns. For production apps, consider NextAuth.js or Auth0 which handle edge cases and security updates automatically."
+    }
+  ],
+  "seoKeywords": [
+    "web authentication",
+    "React authentication",
+    "JWT token storage",
+    "OAuth implementation",
+    "session management",
+    "protected routes React",
+    "NextAuth.js",
+    "Claude Code auth",
+    "React security patterns",
+    "auth token handling"
+  ],
+  "sourceUrl": "https://github.com/CJHarmath/claude-agents-skills/tree/main/skills/web-auth",
+  "sourceType": "community",
+  "dependencies": []
+}

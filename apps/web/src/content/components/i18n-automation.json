@@ -1,0 +1,141 @@
+{
+  "name": "i18n-automation",
+  "type": "skill",
+  "description": "Automate internationalization and localization workflows for web applications with translation, key generation, and library setup",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "i18n workflows",
+  "quality": 5,
+  "qualityReason": "Automated i18n workflows",
+  "bundleHints": [
+    "internationalization",
+    "frontend"
+  ],
+  "tags": [
+    "automation",
+    "i18n",
+    "key-generation",
+    "library-setup",
+    "localization",
+    "nextjs",
+    "react",
+    "translation"
+  ],
+  "capabilities": [
+    "Automatically detects framework and selects appropriate i18n library",
+    "Generates hierarchical translation keys with namespace organization",
+    "Creates locale files for multiple languages with AI or professional translation",
+    "Implements RTL support for Arabic, Hebrew, and Persian languages",
+    "Configures SEO metadata and hreflang tags for multilingual sites",
+    "Builds language switcher components with routing integration"
+  ],
+  "author": "DNYoussef",
+  "icon": "🌐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill with 3 non-executable files. SKILL.md contains code examples, skill-report.json has metadata, and i18n-automation-process.dot is a Graphviz flowchart. All static findings are false positives triggered by documentation patterns: backticks in JS template literals (not shell execution), placeholder URLs in examples (not actual endpoints), and standard JSON field names flagged as C2. No executable code, network requests, or file operations exist.",
+  "valueStatement": "Building multilingual web apps requires complex setup of translation libraries, key management, and locale routing. This skill automates the entire i18n workflow from library installation to translation generation and SEO optimization.",
+  "userTitle": "Automate web app internationalization with complete i18n workflows",
+  "limitations": [
+    "Requires manual review for cultural nuances and context-specific translations",
+    "Framework detection limited to Next.js, React, and Vue applications",
+    "AI translations may need professional review for production quality"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Startup founder",
+      "title": "Launch multilingual MVP quickly",
+      "description": "Translate your landing page to 5 languages using AI translation for rapid international market testing"
+    },
+    {
+      "targetUser": "Enterprise developer",
+      "title": "Scale existing app globally",
+      "description": "Add professional translation workflow to established React app with 50 plus components"
+    },
+    {
+      "targetUser": "E-commerce team",
+      "title": "Localize shopping experience",
+      "description": "Implement complete i18n for product catalogs, checkout, and customer support in 12 markets"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic i18n setup",
+      "scenario": "New Next.js app needs 3 languages",
+      "prompt": "Set up internationalization for my Next.js app. Support English, Japanese, and Spanish. Use next-intl library. Create language switcher in header. Include SEO metadata translation."
+    },
+    {
+      "title": "Add new language",
+      "scenario": "Existing app needs German support",
+      "prompt": "Add German (de) language support to my existing React app with react-i18next. Use AI translation for all strings. Maintain consistent key structure with existing translations."
+    },
+    {
+      "title": "RTL language support",
+      "scenario": "App expanding to Middle East",
+      "prompt": "Add Arabic language support to my Vue app with full RTL implementation. Mirror layouts, update CSS, and test rendering. Include proper text alignment and icon mirroring."
+    },
+    {
+      "title": "Professional translation workflow",
+      "scenario": "Enterprise-quality localization",
+      "prompt": "Set up professional translation workflow for my Next.js app. Export XLIFF files for translator, import completed translations, and validate quality. Support 8 languages with cultural adaptation."
+    }
+  ],
+  "bestPractices": [
+    "Use hierarchical key naming like landing.hero.title for better organization and maintainability",
+    "Implement lazy loading for translation files to improve initial page load performance",
+    "Test RTL languages early in development to catch layout issues before they compound"
+  ],
+  "antiPatterns": [
+    "Avoid hardcoding language codes throughout your app - use configuration objects instead",
+    "Never concatenate translated strings - use interpolation with variables for dynamic content",
+    "Do not skip fallback locale configuration - prevents blank pages if translations are missing"
+  ],
+  "faq": [
+    {
+      "question": "Which i18n library should I choose for my framework?",
+      "answer": "Next.js: next-intl (best app router support). React: react-i18next (most mature). Vue: vue-i18n (official). Each is optimized for its ecosystem."
+    },
+    {
+      "question": "How many languages can I add at once?",
+      "answer": "No technical limit, but recommend 3-5 for initial launch. Adding more later is straightforward with the skill architecture."
+    },
+    {
+      "question": "Can this integrate with my existing translation service?",
+      "answer": "Yes. The skill supports XLIFF and JSON export for professional services like Locize, Crowdin, or Phrase, then imports completed translations."
+    },
+    {
+      "question": "Is my content safe during AI translation?",
+      "answer": "The skill processes translations locally. No data is sent to external services unless you explicitly configure professional translation APIs."
+    },
+    {
+      "question": "What if translations break my layout?",
+      "answer": "The skill includes RTL support and responsive design considerations. Test with longest expected translations and use CSS logical properties."
+    },
+    {
+      "question": "How does this compare to Google Translate widget?",
+      "answer": "Native i18n provides better SEO, performance, and user experience. Google Translate often breaks layouts and cannot access dynamic content."
+    }
+  ],
+  "seoKeywords": [
+    "i18n automation",
+    "internationalization",
+    "localization",
+    "translation workflow",
+    "React i18n",
+    "Next.js next-intl",
+    "Vue i18n",
+    "Claude Code",
+    "multilingual web app",
+    "AI translation"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/i18n-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

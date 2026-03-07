@@ -1,0 +1,143 @@
+{
+  "name": "ghe-thread-manager",
+  "type": "skill",
+  "description": "Use this skill when the user expresses ANY intent related to issue/thread management:\n\n- Switching issues: \"let's work on X\", \"switch to #Y\", \"go to the auth issue\"\n- Checking status: \"what are we working on?\", \"current issue?\", \"status?\"\n- Background work: \"what's in background?\", \"any features ready?\", \"check progress\"\n- Starting development: \"implement X\", \"add feature\", \"fix bug Y\", \"build a...\"\n- Joining reviews: \"let me see the review\", \"check that feature\", \"join #X\"\n- Pausing/resuming: \"pause this\", \"come back later\", \"resume #X\"\n- Stopping transcription: \"stop tracking\", \"don't record this\", \"private mode\"\n- Resuming last session: \"what were we working on?\", \"resume last issue\", \"continue where we left off\"\n- Any natural expression of wanting to change focus or check work status\n\nThis skill interprets natural language - users should NOT memorize commands.\nFor the full GHE workflow protocol, see skill: github-elements-tracking\n",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "thread switching",
+  "quality": 5,
+  "qualityReason": "Core workflow navigation skill",
+  "bundleHints": [
+    "workflow-navigation",
+    "ghe-tools",
+    "task-switching"
+  ],
+  "tags": [
+    "context-switch",
+    "ghe",
+    "github",
+    "issue-tracking",
+    "thread-management",
+    "workflow"
+  ],
+  "capabilities": [
+    "Detect natural language intent for issue switching and status checking",
+    "Manage GitHub issue transcription state (ON/OFF) with user notifications",
+    "Switch between issues while maintaining transcription context",
+    "Create and track background development threads",
+    "Resume previous sessions by finding last active issue",
+    "Handle edge cases like session resume and fallback issue discovery"
+  ],
+  "author": "Emasoft",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static scanner flagged 109 patterns as potential security issues. After manual review, all findings are FALSE POSITIVES. The skill is documentation that teaches Claude to manage GitHub issue transcription by calling legitimate GHE Python scripts with hardcoded paths and no user input injection vectors. No cryptographic operations, no command injection risks, and no prompt injection attempts detected.",
+  "valueStatement": "Managing GitHub issue threads manually is error-prone and lacks continuity across sessions. The ghe-thread-manager skill enables Claude to track, switch, and resume issue-based conversations with automatic transcription to GitHub for persistent memory across sessions.",
+  "userTitle": "Manage GitHub Issue Threads",
+  "limitations": [
+    "Requires GHE (GitHub-Elements) plugin installation to function",
+    "Cannot operate without GitHub CLI (gh) authentication",
+    "Limited to GitHub issue-based workflows only",
+    "Depends on GHE Python scripts (auto_transcribe.py, create_feature_thread.py)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers managing complex projects with multiple concurrent issues",
+      "title": "Multi-Issue Development Projects",
+      "description": "Switch between different GitHub issues for features, bugs, and reviews without losing context. Claude maintains separate conversation threads for each issue with proper transcription."
+    },
+    {
+      "targetUser": "Developers who work on long-running projects across multiple sessions",
+      "title": "Session Continuity and Resumption",
+      "description": "Resume previous work sessions by automatically finding the last active issue. Claude remembers where you left off even across different Claude sessions."
+    },
+    {
+      "targetUser": "Developers using async development workflows with multiple agents",
+      "title": "Background Development with Maintained Context",
+      "description": "Start background feature development while keeping the main conversation on a parent issue. Background threads don't interfere with main issue context."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Issue Switching",
+      "prompt": "I want to work on issue #42 about the login bug. Switch our conversation to that issue.",
+      "scenario": "User wants to switch to a specific GitHub issue"
+    },
+    {
+      "title": "Status Check",
+      "prompt": "What issue are we currently working on? What was the last thing we discussed?",
+      "scenario": "User wants to know current transcription state and previous context"
+    },
+    {
+      "title": "Background Thread Creation",
+      "prompt": "Implement a dark mode feature for the settings page. Start the background thread but keep our conversation private.",
+      "scenario": "User wants to start feature development without changing main issue context"
+    },
+    {
+      "title": "Session Resume",
+      "prompt": "Resume where we left off. What were we working on last time?",
+      "scenario": "User wants to continue a previous session by finding the last active issue"
+    }
+  ],
+  "bestPractices": [
+    "Always inform users before turning transcription ON - their words become public on GitHub",
+    "Use natural language patterns instead of memorizing specific commands",
+    "Maintain separate transcription context when creating background threads",
+    "Save previous issue state before switching to enable 'go back' functionality"
+  ],
+  "antiPatterns": [
+    "Silently changing transcription state without user notification",
+    "Assuming the user knows whether transcription is active",
+    "Mixing background thread context with main issue context",
+    "Forgetting to check current state before performing issue operations"
+  ],
+  "faq": [
+    {
+      "question": "How does transcription work in GHE?",
+      "answer": "Transcription means posting conversation exchanges to a GitHub issue. When transcription is OFF, the conversation is private. When ON, every exchange between you and Claude is posted to the selected issue, creating a permanent record."
+    },
+    {
+      "question": "Can I work on multiple issues at once?",
+      "answer": "Yes. You can have one main transcription context (main issue) while creating background threads for other work. Background threads don't affect the main transcription state."
+    },
+    {
+      "question": "What happens when I say 'implement feature'?",
+      "answer": "Claude creates a background feature thread using the GHE agent workflow (Athena writes requirements, Hephaestus implements, etc.). This does NOT change your current issue context - main conversation stays as it was."
+    },
+    {
+      "question": "How do I find what I was working on previously?",
+      "answer": "The auto_transcribe.py script automatically tracks the last active issue in .claude/last_active_issue.json. Say 'what were we working on?' or 'resume last issue' to find and optionally resume it."
+    },
+    {
+      "question": "What if the last issue file doesn't exist?",
+      "answer": "The skill includes a fallback that searches GitHub for your avatar in recent issue comments to find your last active conversation."
+    },
+    {
+      "question": "How do I switch back to a previous issue?",
+      "answer": "Say 'go back' or 'return to previous issue'. The skill saves the previous issue number before each switch, allowing easy navigation between issues."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "GitHub",
+    "issue tracking",
+    "thread management",
+    "workflow automation",
+    "session continuity",
+    "transcription",
+    "ghe"
+  ],
+  "sourceUrl": "https://github.com/Emasoft/ghe-marketplace/tree/main/plugins/ghe/skills/ghe-thread-manager",
+  "sourceType": "community",
+  "dependencies": []
+}

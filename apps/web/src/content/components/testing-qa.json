@@ -1,0 +1,144 @@
+{
+  "name": "testing-qa",
+  "type": "skill",
+  "description": "Comprehensive testing and QA workflow covering unit testing, integration testing, E2E testing, browser automation, and quality assurance.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "QA workflow",
+  "quality": 5,
+  "qualityReason": "Complete, actionable QA workflow",
+  "bundleHints": [
+    "test-automation-suite",
+    "quality-assurance",
+    "web-development"
+  ],
+  "tags": [
+    "browser-automation",
+    "comprehensive-testing",
+    "e2e-testing",
+    "qa-workflow",
+    "quality-assurance",
+    "test-automation",
+    "testing",
+    "unit-integration-e2e",
+    "web-apps"
+  ],
+  "capabilities": [
+    "Design comprehensive testing strategies across multiple testing phases",
+    "Guide implementation of unit, integration, and E2E tests",
+    "Provide skill recommendations for different testing needs",
+    "Set up browser automation and visual regression testing",
+    "Define quality gates and code review processes",
+    "Configure performance testing and load testing workflows"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation-only markdown file describing a testing and QA workflow bundle. The static analyzer flagged backtick syntax in markdown as potential shell commands, but this is a false positive. The file contains no executable code, no network requests, and no system access. All 67 detected patterns are false positives from markdown documentation.",
+  "valueStatement": "This skill provides a structured testing and QA workflow covering unit tests, integration tests, E2E testing, browser automation, and quality gates for production-ready software.",
+  "userTitle": "Set Up Comprehensive Testing QA Workflow",
+  "limitations": [
+    "This skill is a documentation bundle, not an executable tool",
+    "Does not directly run tests - provides guidance only",
+    "Requires other skills to execute specific testing tasks",
+    "Does not include test frameworks or libraries"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers and QA engineers",
+      "title": "Set Up Testing Infrastructure",
+      "description": "Use this workflow to establish a comprehensive testing strategy for a new project, including unit tests, integration tests, and E2E tests."
+    },
+    {
+      "targetUser": "Frontend developers and test engineers",
+      "title": "Automate Browser Testing",
+      "description": "Implement browser automation and visual regression testing for web applications using Playwright and screenshot tools."
+    },
+    {
+      "targetUser": "DevOps engineers and team leads",
+      "title": "Establish Quality Gates",
+      "description": "Define quality gates with linting, code review, security scanning, and verification steps before production deployment."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Design Testing Strategy",
+      "prompt": "Use @testing-qa to design a comprehensive testing strategy for my project. I need to cover unit tests, integration tests, and E2E tests.",
+      "scenario": "When starting a new project and need to establish testing infrastructure"
+    },
+    {
+      "title": "Implement Unit Tests",
+      "prompt": "Use @testing-qa to help me write unit tests. I want to cover JavaScript with Jest and Python with pytest.",
+      "scenario": "When writing unit tests for application code"
+    },
+    {
+      "title": "Create E2E Tests",
+      "prompt": "Use @testing-qa to create end-to-end tests using Playwright. I need to test critical user paths.",
+      "scenario": "When implementing browser-based E2E testing"
+    },
+    {
+      "title": "Set Up Quality Gates",
+      "prompt": "Use @testing-qa to define quality gates for my project. Include linting, code review, security scanning, and test coverage requirements.",
+      "scenario": "When establishing CI/CD quality gates"
+    }
+  ],
+  "bestPractices": [
+    "Follow the testing pyramid: prioritize unit tests (70%) over integration (20%) and E2E (10%)",
+    "Use quality gates to enforce test coverage thresholds before deployment",
+    "Automate visual regression testing to catch UI changes automatically"
+  ],
+  "antiPatterns": [
+    "Skipping unit tests in favor of only E2E tests (slow and brittle)",
+    "Setting unrealistic test coverage targets without considering test maintenance",
+    "Ignoring security scanning in the quality gates"
+  ],
+  "faq": [
+    {
+      "question": "What is the testing pyramid?",
+      "answer": "The testing pyramid is a concept that guides test distribution: 70% unit tests (fast, focused), 20% integration tests (service interactions), and 10% E2E tests (critical user paths)."
+    },
+    {
+      "question": "Does this skill run tests?",
+      "answer": "No, this is a workflow documentation skill that provides guidance and references to other skills that can execute tests."
+    },
+    {
+      "question": "What testing frameworks are supported?",
+      "answer": "The workflow references JavaScript (Jest/Vitest), Python (pytest), Playwright for E2E, and various other testing tools."
+    },
+    {
+      "question": "How do I integrate with CI/CD?",
+      "answer": "Use the quality gates phase to configure linting, test execution, security scanning, and verification steps in your CI pipeline."
+    },
+    {
+      "question": "What are quality gates?",
+      "answer": "Quality gates are checkpoints that must pass before code proceeds, including test coverage, linting, security scans, and code review approval."
+    },
+    {
+      "question": "Can I use this for performance testing?",
+      "answer": "Yes, Phase 6 covers performance testing with references to performance engineering and profiling skills."
+    }
+  ],
+  "seoKeywords": [
+    "testing qa skill",
+    "claude code testing",
+    "unit testing workflow",
+    "e2e testing automation",
+    "integration testing guide",
+    "browser automation testing",
+    "quality assurance workflow",
+    "test automation skill",
+    "claude codex testing",
+    "qa best practices"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/testing-qa",
+  "sourceType": "community",
+  "dependencies": []
+}

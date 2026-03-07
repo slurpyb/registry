@@ -1,0 +1,144 @@
+{
+  "name": "firefox-browser",
+  "type": "skill",
+  "description": "Control the user's Firefox browser with their logins and cookies intact. Use when you need to browse websites as the user, interact with authenticated pages, fill forms, click buttons, take screenshots, or get page content. (user)",
+  "domain": "tools",
+  "subdomain": "browser",
+  "specialty": "browser automation",
+  "quality": 5,
+  "qualityReason": "Precise and powerful",
+  "bundleHints": [
+    "browser-automation",
+    "workflow-tools"
+  ],
+  "tags": [
+    "authenticated",
+    "automation",
+    "browser",
+    "firefox",
+    "forms",
+    "selenium",
+    "ui-interaction",
+    "web"
+  ],
+  "capabilities": [
+    "List open tabs and navigate between them",
+    "Get page content in text, HTML, or annotated format",
+    "Click buttons, links, and interactive elements",
+    "Fill forms with text inputs, textareas, and select dropdowns",
+    "Take screenshots of visible page areas",
+    "Handle authentication using existing browser sessions"
+  ],
+  "author": "1jehuang",
+  "icon": "🦊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a SKILL.md documentation file for Firefox Browser Agent Bridge. The skill uses local WebSocket architecture to communicate with a Firefox extension for browser automation. Static findings are false positives: detected URLs are example/demo URLs in documentation, screenshot is local capture functionality, and backticks are bash syntax in command examples. No executable malicious code, obfuscation, or data exfiltration patterns exist.",
+  "valueStatement": "Users need to automate browser tasks while keeping their logged-in sessions. This skill bridges AI agents to real Firefox browsers via WebSocket, preserving cookies and authentication.",
+  "userTitle": "Control Firefox Browser with AI",
+  "limitations": [
+    "Requires Firefox browser and the agent bridge extension installed",
+    "WebSocket connection must be running to communicate with Firefox",
+    "Cannot access browser profiles other than the default profile",
+    "Limited to single browser instance control"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Web developers",
+      "title": "Automated testing with login",
+      "description": "Test web applications through authenticated flows using real browser sessions"
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Form submission testing",
+      "description": "Automate form filling and validation on staging environments with real credentials"
+    },
+    {
+      "targetUser": "Productivity users",
+      "title": "Natural language browsing",
+      "description": "Control your browser using plain language commands without manual navigation"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List open tabs",
+      "scenario": "Check what browser tabs are open",
+      "prompt": "browser listTabs '{}'"
+    },
+    {
+      "title": "Navigate and read",
+      "scenario": "Visit a URL and get page content",
+      "prompt": "browser newSession '{\"url\": \"https://example.com\"}' then browser getContent '{\"format\": \"annotated\"}'"
+    },
+    {
+      "title": "Fill a form",
+      "scenario": "Fill out a contact form",
+      "prompt": "browser fillForm '{\"fields\": [{\"selector\": \"#name\", \"value\": \"John Doe\"}, {\"selector\": \"#email\", \"value\": \"john@example.com\"}]}'"
+    },
+    {
+      "title": "Parallel comparison",
+      "scenario": "Compare content across multiple sites",
+      "prompt": "browser parallel '{\"branches\": [{\"url\": \"https://site1.com\", \"commands\": [{\"action\": \"getContent\", \"params\": {\"format\": \"text\"}}]}, {\"url\": \"https://site2.com\", \"commands\": [{\"action\": \"getContent\", \"params\": {\"format\": \"text\"}}]}]}'"
+    }
+  ],
+  "bestPractices": [
+    "Start fresh with newSession for isolated automation tasks",
+    "Use annotated format for getContent to see clickable elements in context",
+    "Specify tabId explicitly when running parallel tasks",
+    "Verify page content with getContent after navigation before interacting"
+  ],
+  "antiPatterns": [
+    "Running parallel tasks without isolating to separate tabs",
+    "Assuming page elements exist without first checking getContent output",
+    "Automating sensitive actions without user verification",
+    "Leaving the browser bridge running unattended for extended periods"
+  ],
+  "faq": [
+    {
+      "question": "What browsers are supported?",
+      "answer": "Only Firefox is supported. The skill requires the Firefox agent bridge extension to be installed."
+    },
+    {
+      "question": "What are the rate limits?",
+      "answer": "No strict limits exist but commands execute at human speed. Rapid commands may be throttled by the browser."
+    },
+    {
+      "question": "How do I integrate with other tools?",
+      "answer": "The skill works with Bash, Read, and Write tools. Chain commands for complex workflows. Use tabId for isolation."
+    },
+    {
+      "question": "Is my browsing data safe?",
+      "answer": "The bridge connects to your local Firefox instance. Data stays on your machine. Review extension permissions before installing."
+    },
+    {
+      "question": "Connection refused errors?",
+      "answer": "Check Firefox is running and the extension is loaded. Reload the extension in about:debugging if needed."
+    },
+    {
+      "question": "How is this different from Playwright or Puppeteer?",
+      "answer": "This uses your real Firefox profile with existing logins and cookies. No separate browser launch or profile setup required."
+    }
+  ],
+  "seoKeywords": [
+    "Firefox browser automation",
+    "Claude browser control",
+    "AI browser agent",
+    "WebSocket browser bridge",
+    "Firefox automation skill",
+    "browser form filling",
+    "authenticated browser sessions",
+    "browser screenshot capture",
+    "Claude Code browser automation",
+    "browser tabs automation"
+  ],
+  "sourceUrl": "https://github.com/1jehuang/firefox-agent-bridge/tree/main/skill/",
+  "sourceType": "community",
+  "dependencies": []
+}

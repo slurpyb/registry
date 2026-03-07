@@ -1,0 +1,141 @@
+{
+  "name": "x-collect",
+  "type": "skill",
+  "description": "Collect and research materials for X (Twitter) content creation using multi-round web search strategy. Use when user wants to gather trending topics, research subjects for X posts, or mentions \"collect materials\", \"research topic\", \"find content for X\", \"x-collect\". Performs 4-round deep research mimicking human research workflow.",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "content research",
+  "quality": 5,
+  "qualityReason": "Clear multi-step process",
+  "bundleHints": [
+    "content-creation-suite",
+    "marketing-research",
+    "social-media-tools"
+  ],
+  "tags": [
+    "content-creation",
+    "research",
+    "social-media",
+    "trending-topics",
+    "twitter",
+    "web-search"
+  ],
+  "capabilities": [
+    "Performs 4-round deep web research mimicking human research workflow",
+    "Collects official sources, technical documentation, and comparisons",
+    "Identifies information gaps and fills them with supplementary searches",
+    "Generates structured material reports with source citations",
+    "Supports Chinese and English output for international topics",
+    "Analyzes topic热度 (popularity) and trends for content timing"
+  ],
+  "author": "kangarooking",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "No security issues confirmed. Static scanner produced false positives: 13 external_commands flags were documentation examples (Search: patterns), not actual shell commands. 2 weak_crypto flags were YAML frontmatter and documentation text, not cryptographic code. This skill performs web searches only via the WebSearch tool.",
+  "valueStatement": "Creating engaging X (Twitter) content requires thorough research across multiple sources. This skill automates a 4-round web search strategy to collect authoritative, technical, comparative, and verified materials for your posts.",
+  "userTitle": "Research X content materials",
+  "limitations": [
+    "Requires WebSearch tool to be available in the environment",
+    "Does not create content directly; only collects and structures research materials",
+    "Output quality depends on search results availability and freshness",
+    "Does not verify URL accessibility or content accuracy beyond search summaries"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Tech bloggers and developer advocates",
+      "title": "Research technical topics for X posts",
+      "description": "Tech bloggers and developer advocates use this skill to gather comprehensive information about new frameworks, tools, or announcements before creating educational content."
+    },
+    {
+      "targetUser": "Social media managers and content creators",
+      "title": "Find trending topics and angles",
+      "description": "Social media managers and content creators use this skill to identify hot topics, collect multiple perspectives, and find unique angles for engagement."
+    },
+    {
+      "targetUser": "Journalists and thought leaders",
+      "title": "Fact-check and gather sources",
+      "description": "Journalists and thought leaders use this skill to quickly gather authoritative sources and verify claims before posting on current events."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic topic research",
+      "prompt": "Use /x-collect to research {topic} for X content. Focus on official announcements and technical details.",
+      "scenario": "Quick research for a single topic"
+    },
+    {
+      "title": "Comparison research",
+      "prompt": "Use /x-collect to research {topic}. Include competitor comparisons and pros/cons analysis.",
+      "scenario": "When comparing multiple options or alternatives"
+    },
+    {
+      "title": "Trending topic research",
+      "prompt": "Use /x-collect to research {topic}. Prioritize 2024-2025 sources and current discussions.",
+      "scenario": "Researching hot topics for timely engagement"
+    },
+    {
+      "title": "Multi-topic campaign research",
+      "prompt": "Use /x-collect for {topic1} then for {topic2}. Generate separate material reports for each.",
+      "scenario": "Researching multiple topics for a content campaign"
+    }
+  ],
+  "bestPractices": [
+    "Use specific topic terms for better search results (e.g., \"Claude MCP\" instead of \"MCP\")",
+    "Follow up with /x-filter to score and prioritize collected materials before creating content",
+    "Combine multiple related topics in separate runs for comprehensive research"
+  ],
+  "antiPatterns": [
+    "Using overly broad topics like \"AI\" will return unfocused results",
+    "Skipping the x-filter step may lead to low-quality content选题",
+    "Not noting source URLs breaks credibility for technical claims"
+  ],
+  "faq": [
+    {
+      "question": "What languages does x-collect support?",
+      "answer": "x-collect supports Chinese (zh-CN) output by default and English. You can specify any language in the input."
+    },
+    {
+      "question": "How is x-collect different from regular web search?",
+      "answer": "It uses a structured 4-round research strategy that mimics human research: official sources, technical analysis, comparisons, and gap-filling searches."
+    },
+    {
+      "question": "Does x-collect create the X post for me?",
+      "answer": "No, x-collect only collects and structures research materials. Use x-filter for scoring and x-compose for actual content creation."
+    },
+    {
+      "question": "Can I use x-collect for non-Twitter content?",
+      "answer": "Yes, the research methodology works for any content creation that requires source gathering, including blogs, newsletters, and articles."
+    },
+    {
+      "question": "How long does a research cycle take?",
+      "answer": "A full 4-round research typically takes 2-5 minutes depending on topic complexity and search result availability."
+    },
+    {
+      "question": "What happens to the collected materials?",
+      "answer": "Materials are saved to a temp file and can be passed to x-filter for scoring or used directly in your content workflow."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Twitter content research",
+    "X content creation",
+    "social media research tool",
+    "web search automation",
+    "content素材 collection",
+    "Twitter posting tool",
+    "trending topics research"
+  ],
+  "sourceUrl": "https://github.com/kangarooking/x-skills/tree/main/x-collect",
+  "sourceType": "community",
+  "dependencies": []
+}

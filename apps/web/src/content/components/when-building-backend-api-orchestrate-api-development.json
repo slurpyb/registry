@@ -1,0 +1,140 @@
+{
+  "name": "when-building-backend-api-orchestrate-api-development",
+  "type": "skill",
+  "description": "Use when building a production-ready REST API from requirements through deployment.\nOrchestrates 8-12 specialist agents across 5 phases using Test-Driven Development methodology.\nCovers planning, architecture, TDD implementation, comprehensive testing, documentation, and\nblue-green deployment over a 2-week timeline with emphasis on quality and reliability.\n",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "API orchestration",
+  "quality": 5,
+  "qualityReason": "End-to-end API workflow",
+  "bundleHints": [
+    "backend-stack",
+    "api-orchestration"
+  ],
+  "tags": [
+    "api-development",
+    "devops",
+    "multi-agent",
+    "phased",
+    "production-ready",
+    "rest-api",
+    "test-driven-development"
+  ],
+  "capabilities": [
+    "Orchestrates 12 specialist agents (product-manager, system-architect, backend-developer, security-specialist, and more) across 5 development phases",
+    "Implements complete Test-Driven Development workflow with Red-Green-Refactor cycles for each endpoint",
+    "Creates comprehensive test suite with greater than 90% code coverage targets",
+    "Executes blue-green deployment strategy with validation gates and automatic rollback",
+    "Generates complete API documentation including OpenAPI specs, developer guides, and operations runbooks"
+  ],
+  "author": "DNYoussef",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All static findings evaluated as false positives. The skill contains standard API development documentation with shell scripting examples that are legitimate DevOps practices. Environment variable references and example URLs are standard configuration patterns for production API workflows.",
+  "valueStatement": "Building APIs requires systematic planning, implementation, testing, and deployment. This skill orchestrates 12 specialist agents across 5 phases to deliver production-ready REST APIs using Test-Driven Development methodology.",
+  "userTitle": "Build production-ready REST APIs with TDD",
+  "limitations": [
+    "Does not generate mobile or frontend client code",
+    "Does not provision actual cloud infrastructure or cloud accounts",
+    "Does not perform legal or compliance audits beyond security testing",
+    "Requires existing Claude Flow tooling for multi-agent coordination"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development teams building production APIs requiring security, performance, and reliability validation",
+      "title": "Enterprise API Development Team",
+      "description": "Systematic API development with quality gates, comprehensive testing, and production deployment for teams building mission-critical backend services."
+    },
+    {
+      "targetUser": "Startups and small teams needing rapid, quality-focused API development",
+      "title": "Startup MVP Development",
+      "description": "Rapid API scaffolding with TDD practices, CI/CD setup, and deployment automation for startups needing production-ready APIs in 2 weeks."
+    },
+    {
+      "targetUser": "Teams migrating or modernizing existing API architectures",
+      "title": "Microservices Migration",
+      "description": "Modernizing legacy APIs with comprehensive testing, documentation, and blue-green deployment strategies for safe production rollout."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic API Development",
+      "prompt": "Build a production-ready REST API for [API_NAME] with [NUMBER] endpoints covering [ENDPOINT_TYPES]. Use this skill to orchestrate the full development workflow from requirements through deployment with TDD methodology.",
+      "scenario": "Starting a new API project from scratch with standard requirements"
+    },
+    {
+      "title": "API with Security Requirements",
+      "prompt": "Build a secure REST API for [DOMAIN] with PCI-DSS compliance requirements. Use this skill with enhanced security-specialist involvement, OWASP validation, and penetration testing in Phase 4.",
+      "scenario": "Building APIs with strict security and compliance requirements"
+    },
+    {
+      "title": "Legacy API Migration",
+      "prompt": "Migrate the existing [LEGACY_API_NAME] to a modern REST architecture. Use this skill to create comprehensive tests, documentation, and deploy with blue-green strategy for zero-downtime transition.",
+      "scenario": "Migrating or modernizing existing API implementations"
+    },
+    {
+      "title": "Microservices with Event-Driven Architecture",
+      "prompt": "Build an event-driven microservices API for [DOMAIN] with message queue integration. Use this skill to coordinate synchronous REST endpoints and asynchronous event handlers with pub/sub patterns.",
+      "scenario": "Building APIs with asynchronous event processing and message queues"
+    }
+  ],
+  "bestPractices": [
+    "Follow the TDD Red-Green-Refactor cycle strictly for every endpoint to maintain test coverage",
+    "Validate production readiness with all quality gates before deployment",
+    "Use blue-green deployment strategy to minimize risk and enable instant rollback"
+  ],
+  "antiPatterns": [
+    "Skipping test creation or reducing coverage targets below 90%",
+    "Bypassing security review for endpoints handling sensitive data",
+    "Ignoring Phase 4 validation results to meet deadline"
+  ],
+  "faq": [
+    {
+      "question": "What programming languages and frameworks does this skill support?",
+      "answer": "The skill is framework-agnostic. Example implementations use Node.js/Express, but the methodology applies to FastAPI (Python), Spring Boot (Java), or any REST framework."
+    },
+    {
+      "question": "How long does a complete API development cycle take?",
+      "answer": "The default timeline is 14 days across 5 phases. Simple APIs can complete in 7-10 days, while complex APIs with security requirements may take 3-4 weeks."
+    },
+    {
+      "question": "Does this skill work for GraphQL APIs?",
+      "answer": "The core TDD and multi-agent methodology applies to GraphQL. You would adapt the endpoint testing patterns to GraphQL queries and mutations."
+    },
+    {
+      "question": "What test coverage targets should I set?",
+      "answer": "The skill targets greater than 90% coverage for new code. Higher coverage may be required for security-critical or financial APIs."
+    },
+    {
+      "question": "Can I customize the number of agents or phases?",
+      "answer": "Yes, the swarm initialization supports adjusting agent count and topology. Phase structure can be simplified for smaller projects."
+    },
+    {
+      "question": "What deployment environments are supported?",
+      "answer": "The skill supports Kubernetes/Docker deployments, traditional servers, and serverless platforms. Blue-green strategy works best with container orchestration."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "API development",
+    "REST API",
+    "Test-Driven Development",
+    "multi-agent orchestration",
+    "CI/CD deployment",
+    "blue-green deployment",
+    "API testing"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/when-building-backend-api-orchestrate-api-development",
+  "sourceType": "community",
+  "dependencies": []
+}

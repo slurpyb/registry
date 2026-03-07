@@ -1,0 +1,143 @@
+{
+  "name": "ralph-tui-create-beads",
+  "type": "skill",
+  "description": "Convert PRDs to beads for ralph-tui execution. Creates an epic with child beads for each user story. Use when you have a PRD and want to use ralph-tui with beads as the task source. Triggers on: create beads, convert prd to beads, beads for ralph, ralph beads.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "task conversion",
+  "quality": 4,
+  "qualityReason": "Specific CLI workflow for task creation",
+  "bundleHints": [
+    "task-automation",
+    "project-planning",
+    "cli-tools"
+  ],
+  "tags": [
+    "automation",
+    "beads",
+    "cli",
+    "prd",
+    "project-planning",
+    "ralph-tui",
+    "task-management"
+  ],
+  "capabilities": [
+    "Extract Quality Gates from PRD sections for automatic test inclusion",
+    "Create an epic bead for the feature with PRD reference",
+    "Generate child beads for each user story with acceptance criteria",
+    "Set up dependencies between beads (schema first, then backend, then UI)",
+    "Apply quality gates to all stories and browser verification to UI stories"
+  ],
+  "author": "subsy",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 54 static findings are false positives. The file is pure markdown documentation for a CLI task management tool. Shell syntax in code examples (heredocs, command substitution) are documentation demonstrating proper CLI usage, not executable code. No user input is processed, no external commands are executed, and no injection vectors exist.",
+  "valueStatement": "Transform Product Requirement Documents into executable task breakdowns for ralph-tui. Creates an epic with child beads following dependency order so you can track progress systematically.",
+  "userTitle": "Convert PRDs to task beads for ralph-tui",
+  "limitations": [
+    "Only works with markdown PRDs following standard format",
+    "Cannot execute commands - creates beads that ralph-tui then executes",
+    "Does not integrate with Linear, GitHub Issues, or other trackers (beads tracker only)",
+    "Quality Gates must be explicitly defined in the PRD"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product managers and developers planning feature work",
+      "title": "Breaking down complex features",
+      "description": "Take a large PRD with multiple user stories and convert it into a structured set of beads that can be executed one iteration at a time by ralph-tui."
+    },
+    {
+      "targetUser": "Technical leads and architects",
+      "title": "Establishing task dependencies",
+      "description": "Convert a PRD into beads ordered by dependency (schema changes first, then backend, then UI) so ralph-tui always works on unblocked tasks."
+    },
+    {
+      "targetUser": "Engineering managers enforcing code quality",
+      "title": "Quality gate enforcement",
+      "description": "Automatically append quality gates from the PRD to each story's acceptance criteria so every task includes required typechecks and lints."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic PRD conversion",
+      "prompt": "Use the ralph-tui-create-beads skill to convert this PRD into beads. The PRD is in ./tasks/feature-name-prd.md. Extract the Quality Gates section and create child beads for each user story.",
+      "scenario": "Converting a simple PRD with clear user stories"
+    },
+    {
+      "title": "Large feature with dependencies",
+      "prompt": "Use ralph-tui-create-beads to break down this large PRD. Make sure each story is small enough to complete in one iteration. Order stories by dependency: schema changes, then backend, then UI components.",
+      "scenario": "Breaking down a complex feature into manageable pieces"
+    },
+    {
+      "title": "UI-heavy feature",
+      "prompt": "Convert this PRD to beads. Since it has many UI stories, ensure all UI stories include browser verification in their acceptance criteria from the Quality Gates section.",
+      "scenario": "Feature with significant frontend work"
+    },
+    {
+      "title": "Multi-feature PRD",
+      "prompt": "This PRD covers multiple features. Use ralph-tui-create-beads to create separate epics for each feature, then break each into child beads with proper dependencies.",
+      "scenario": "Large PRD covering multiple distinct features"
+    }
+  ],
+  "bestPractices": [
+    "Keep each story small enough to complete in one ralph-tui iteration (2-3 sentences max)",
+    "Order stories by dependency so later stories build on earlier ones",
+    "Include specific acceptance criteria in PRDs so beads have verifiable goals",
+    "Define Quality Gates upfront to automate test requirements"
+  ],
+  "antiPatterns": [
+    "Creating stories that span multiple iterations or require too much context",
+    "Putting UI stories before backend/schema stories they depend on",
+    "Using vague acceptance criteria like 'works correctly' or 'good UX'",
+    "Skipping Quality Gates section and not verifying stories complete correctly"
+  ],
+  "faq": [
+    {
+      "question": "What is ralph-tui?",
+      "answer": "Ralph-tui is a terminal-based autonomous coding agent. It reads beads from a tracker and executes them one at a time, outputting COMPLETE when finished."
+    },
+    {
+      "question": "What is a bead?",
+      "answer": "A bead is a task unit in ralph-tui. An epic groups related tasks. Child beads are individual stories with acceptance criteria and quality gates."
+    },
+    {
+      "question": "What format does the PRD need?",
+      "answer": "PRDs should have a 'Quality Gates' section and user stories with clear acceptance criteria. The skill extracts these automatically."
+    },
+    {
+      "question": "Can I use this with other issue trackers?",
+      "answer": "This skill creates beads for the beads tracker. Other trackers (Linear, GitHub Issues) bundle their own skills for task creation."
+    },
+    {
+      "question": "What if my PRD has no Quality Gates?",
+      "answer": "The skill asks the user what commands should pass, or suggests a default like 'npm run typecheck'."
+    },
+    {
+      "question": "How does dependency ordering work?",
+      "answer": "Schema changes get priority 1 (no dependencies), backend gets priority 2 (depends on schema), UI gets priority 3+ (depends on backend)."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "ralph-tui",
+    "task management",
+    "PRD conversion",
+    "agile planning",
+    "epic breakdown",
+    "user stories",
+    "CLI tools"
+  ],
+  "sourceUrl": "https://github.com/subsy/ralph-tui/tree/main/skills/ralph-tui-create-beads/",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "orchestrating-parallel-agents",
+  "type": "skill",
+  "description": "Spawns multiple AI coding agents to work on related GitHub issues concurrently using git worktrees. Use when breaking down a large feature into multiple issues, running parallel agents with --print flag, or managing wave-based execution of related tasks.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "parallel GitHub agents",
+  "quality": 5,
+  "qualityReason": "Specific use case, actionable",
+  "bundleHints": [
+    "multi-agent-framework",
+    "parallel-dev"
+  ],
+  "tags": [
+    "concurrent-issues",
+    "git",
+    "git-worktrees",
+    "github-workflows",
+    "multi-agent",
+    "parallel-development",
+    "productivity",
+    "workflow-automation"
+  ],
+  "capabilities": [
+    "Spawns multiple AI agents on separate git worktrees for concurrent work on related issues",
+    "Organizes issues into waves based on file dependencies to minimize merge conflicts",
+    "Provides issue templates with context for autonomous agent execution",
+    "Includes monitoring commands to track parallel agent progress and identify stragglers",
+    "Documents manual completion steps for git operations that require user permissions"
+  ],
+  "author": "4eyedengineer",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown instructions for git worktree-based parallel agent orchestration. No executable code, file system modifications, network calls, or external command execution by the skill itself. All 36 static findings are false positives from the scanner misinterpreting documentation patterns.",
+  "valueStatement": "Managing multiple related GitHub issues sequentially wastes time and delays delivery. This skill enables running several AI coding agents simultaneously using git worktrees, breaking large features into parallel waves of independent work for faster feature completion.",
+  "userTitle": "Run Multiple AI Agents in Parallel",
+  "limitations": [
+    "Requires pre-approved git permissions in settings.local.json for non-interactive use",
+    "Agents cannot push or create PRs without explicit git permissions in configuration",
+    "Same-file changes across issues require sequential merging or single-agent handling",
+    "Users must manually resolve merge conflicts between waves of work"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Engineering Leads",
+      "title": "Scale Team Velocity",
+      "description": "Break large features into parallel workstreams and accelerate delivery by running multiple AI agents concurrently on independent changes."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Parallel Infrastructure Work",
+      "description": "Implement backend, database, and API changes simultaneously while keeping frontend work in separate dependency-aware waves."
+    },
+    {
+      "targetUser": "Full-Stack Developers",
+      "title": "Feature Branch Isolation",
+      "description": "Run independent agents on different file changes without merge conflicts by organizing work into dependency-aware waves."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Parallel Spawn",
+      "scenario": "Start parallel agents",
+      "prompt": "Use the parallel agents workflow to spawn agents for issues 101, 102, and 103 in parallel waves."
+    },
+    {
+      "title": "Wave-Based Planning",
+      "scenario": "Organize feature work",
+      "prompt": "Break down the new authentication feature into 3 waves of independent issues using the parallel agents workflow."
+    },
+    {
+      "title": "Monitor Progress",
+      "scenario": "Track agent execution",
+      "prompt": "Check the status of running parallel agents and identify any worktrees that need manual completion."
+    },
+    {
+      "title": "Complete and Merge",
+      "scenario": "Finish and integrate",
+      "prompt": "Complete the remaining git commits for stalled agents and merge the wave 1 PRs sequentially."
+    }
+  ],
+  "bestPractices": [
+    "Keep each issue scoped to 1-3 files for higher agent success rates",
+    "Organize waves so independent changes run first to maximize parallelism",
+    "Include specific file paths and code snippets in each issue for faster agent context"
+  ],
+  "antiPatterns": [
+    "Spawning too many agents that exceed system resources and cause failures",
+    "Putting same-file changes in different waves without coordination",
+    "Skipping manual review of agent-generated changes before merging PRs"
+  ],
+  "faq": [
+    {
+      "question": "What tools does this skill work with?",
+      "answer": "This skill works with Claude Code and Claude. It uses the Task tool to spawn parallel agents on git worktrees."
+    },
+    {
+      "question": "How many agents can run in parallel?",
+      "answer": "The limit depends on system resources. Start with 2-3 agents and increase gradually while monitoring performance."
+    },
+    {
+      "question": "Can I integrate this with GitHub Actions?",
+      "answer": "Yes, run the parallel agents workflow locally and use GitHub Actions for CI/CD validation of completed PRs."
+    },
+    {
+      "question": "Is my code safe when using this skill?",
+      "answer": "Yes, the skill only provides workflow guidance. All code changes are reviewed by you before commits."
+    },
+    {
+      "question": "Why did my agent fail on git operations?",
+      "answer": "Agents need pre-approved git permissions. Add permissions to settings.local.json or complete git steps manually."
+    },
+    {
+      "question": "How is this different from multiple Claude sessions?",
+      "answer": "Git worktrees isolate changes to prevent conflicts, allow parallel work on the same repo, and simplify cleanup."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code parallel agents",
+    "git worktree",
+    "multi-agent development",
+    "parallel AI coding",
+    "GitHub issue automation",
+    "claude-code workflow",
+    "concurrent agent execution",
+    "AI development workflow",
+    "claude parallel execution"
+  ],
+  "sourceUrl": "https://github.com/4eyedengineer/4eyed_development/tree/main/.claude/skills/orchestrating-parallel-agents",
+  "sourceType": "community",
+  "dependencies": []
+}

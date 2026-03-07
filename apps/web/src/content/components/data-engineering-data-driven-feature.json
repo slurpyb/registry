@@ -1,0 +1,145 @@
+{
+  "name": "data-engineering-data-driven-feature",
+  "type": "skill",
+  "description": "Build features guided by data insights, A/B testing, and continuous measurement using specialized agents for analysis, implementation, and experimentation.",
+  "domain": "data",
+  "subdomain": "analytics",
+  "specialty": "feature experimentation",
+  "quality": 4,
+  "qualityReason": "Good specificity in data-guided development",
+  "bundleHints": [
+    "product-analytics",
+    "data-driven-dev"
+  ],
+  "tags": [
+    "a-b-testing",
+    "a/b-testing",
+    "analytics",
+    "data-driven",
+    "data-engineering",
+    "experimentation",
+    "feature-flags",
+    "implementation",
+    "measurement"
+  ],
+  "capabilities": [
+    "Orchestrate specialized agents for exploratory data analysis and hypothesis development",
+    "Design statistical experiments with proper sample size calculation and power analysis",
+    "Create analytics instrumentation plans using Segment, Amplitude, or Mixpanel",
+    "Implement feature flags with gradual rollout strategies using LaunchDarkly or Split.io",
+    "Perform statistical analysis of A/B test results with confidence intervals",
+    "Configure real-time monitoring dashboards for experiment metrics"
+  ],
+  "author": "sickn33",
+  "icon": "📊",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 16 static findings are false positives. The skill is a legitimate data engineering workflow orchestrating specialized agents for data analysis, hypothesis development, A/B testing, and statistical analysis. No external commands, cryptographic algorithms, or malicious code patterns are present.",
+  "valueStatement": "This skill provides a comprehensive workflow for building features guided by data insights, A/B testing, and continuous measurement using specialized AI agents for analysis, implementation, and experimentation.",
+  "userTitle": "Build Data-Driven Features with A/B Testing",
+  "limitations": [
+    "Does not execute actual data analysis or build code - provides guidance and prompts only",
+    "Requires external analytics platforms (Amplitude, Mixpanel, Segment) to be configured separately",
+    "Does not have access to your actual data or metrics - generates plans and prompts",
+    "Statistical recommendations are starting points that require domain expert validation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product managers, growth engineers, and data-informed decision makers",
+      "title": "Product Manager Planning Experiments",
+      "description": "Product managers use this workflow to plan data-driven feature launches with proper experiment design, success metrics definition, and statistical rigor."
+    },
+    {
+      "targetUser": "Data scientists and ML engineers",
+      "title": "Data Scientist Structuring Analysis",
+      "description": "Data scientists follow this workflow to structure A/B tests, define hypotheses with ICE or RICE scoring, and perform proper statistical analysis."
+    },
+    {
+      "targetUser": "Backend and full-stack engineers",
+      "title": "Engineer Implementing Feature Flags",
+      "description": "Backend engineers use this workflow to implement feature flags, configure gradual rollouts, and set up proper analytics instrumentation from the start."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start Data-Driven Feature",
+      "prompt": "Use the data-engineering-data-driven-feature skill to help me plan a new feature. The feature is: [describe your feature idea]. I want to validate it with A/B testing and measure its impact on [key business metric].",
+      "scenario": "Initial planning phase for a new feature"
+    },
+    {
+      "title": "Design Experiment",
+      "prompt": "I need to design an A/B test for [feature name]. Help me create a statistical experiment design including sample size calculation, success metrics, and guardrail metrics. Target metric is [metric], expected improvement is [percentage].",
+      "scenario": "Designing statistical experiment"
+    },
+    {
+      "title": "Plan Analytics Instrumentation",
+      "prompt": "Help me design comprehensive analytics instrumentation for [feature]. I need to track user interactions including [list events]. Recommend event schemas and properties for segmentation in [Amplitude/Mixpanel/Segment].",
+      "scenario": "Planning analytics and tracking"
+    },
+    {
+      "title": "Analyze Test Results",
+      "prompt": "Our A/B test for [feature] has completed with [sample size] users over [time period]. Treatment showed [results]. Help me perform statistical analysis, calculate significance, and assess business impact.",
+      "scenario": "Analyzing experiment results"
+    }
+  ],
+  "bestPractices": [
+    "Define success metrics and guardrail metrics before starting development to avoid p-hacking",
+    "Start gradual rollouts at 5-10% traffic and monitor error rates before increasing",
+    "Run experiments for full weekly cycles to account for day-of-week effects",
+    "Document all decisions and learnings for future feature development cycles"
+  ],
+  "antiPatterns": [
+    "Running experiments without predefined success criteria and making decisions ad-hoc",
+    "Starting with full traffic rollout instead of gradual rollout risking widespread issues",
+    "Ignoring guardrail metrics and deploying changes that hurt user experience",
+    "Ending experiments early when results look promising without proper statistical power"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It provides prompts and workflows that these AI tools execute to help with data-driven development."
+    },
+    {
+      "question": "Do I need external analytics platforms?",
+      "answer": "Yes, this skill recommends platforms like Amplitude, Mixpanel, Segment, LaunchDarkly, or Split.io. These must be configured separately in your infrastructure."
+    },
+    {
+      "question": "Can this skill analyze my actual data?",
+      "answer": "No, this skill generates guidance, prompts, and plans. It does not have access to your data systems. You will need to execute the generated plans with your data team."
+    },
+    {
+      "question": "How long should I run an A/B test?",
+      "answer": "Tests should run for at least one full weekly cycle (7 days) to account for day-of-week variation. Most experiments run 1-4 weeks depending on required sample size."
+    },
+    {
+      "question": "What statistical methods are used?",
+      "answer": "The skill supports both frequentist (t-tests, chi-square) and Bayesian approaches. Bayesian methods can provide faster decision-making with probabilistic interpretations."
+    },
+    {
+      "question": "Is this suitable for ML model A/B testing?",
+      "answer": "Yes, Phase 9 covers ML model integration including online inference, A/B testing between model versions, performance tracking, and drift detection."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Codex",
+    "data-driven development",
+    "A/B testing",
+    "feature flags",
+    "analytics instrumentation",
+    "statistical analysis",
+    "data engineering",
+    "experiment design",
+    "growth experimentation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome_skills/tree/main/skills/data-engineering-data-driven-feature",
+  "sourceType": "community",
+  "dependencies": []
+}

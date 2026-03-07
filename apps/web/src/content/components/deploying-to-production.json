@@ -1,0 +1,140 @@
+{
+  "name": "deploying-to-production",
+  "type": "skill",
+  "description": "Automate creating a GitHub repository and deploying a web project to Vercel. Use when the user asks to deploy a website/app to production, publish a project, or set up GitHub + Vercel deployment.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "GitHub + Vercel",
+  "quality": 5,
+  "qualityReason": "Clear workflow, specific platforms",
+  "bundleHints": [
+    "frontend-deployment",
+    "jamstack"
+  ],
+  "tags": [
+    "automation",
+    "ci-cd",
+    "deployment",
+    "github",
+    "vercel",
+    "web-project"
+  ],
+  "capabilities": [
+    "Run npm build and verify the build completes without errors",
+    "Create a new GitHub repository for the project",
+    "Initialize git, add remote, and push code to GitHub",
+    "Deploy the GitHub repository to Vercel automatically",
+    "Verify the live deployment is accessible and working",
+    "Handle deployment failures by diagnosing and retrying"
+  ],
+  "author": "ZhanlinCui",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Both static findings are false positives. The 'external_commands' detection refers to a standard 'npm run build' command which is a legitimate build step in web deployment workflows. The 'weak cryptographic algorithm' flag was triggered by YAML frontmatter text that contains no cryptographic code. This skill provides safe, read-only deployment guidance.",
+  "valueStatement": "This skill automates the entire deployment process by guiding users through creating a GitHub repository and deploying to Vercel, eliminating manual deployment steps and reducing errors.",
+  "userTitle": "Deploy Web Project to Vercel",
+  "limitations": [
+    "Only supports Vercel as the deployment target",
+    "Does not configure custom domains or SSL certificates",
+    "Does not set up environment variables or secrets",
+    "Requires user to have Vercel and GitHub accounts already set up"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers who want to quickly share their web projects online",
+      "title": "Quick Project Deployment",
+      "description": "Deploy a new web project to production in minutes without manually configuring git or deployment settings."
+    },
+    {
+      "targetUser": "DevOps engineers establishing deployment automation",
+      "title": "CI/CD Workflow Setup",
+      "description": "Set up automated deployment pipelines for continuous integration and delivery."
+    },
+    {
+      "targetUser": "Freelance developers delivering completed projects",
+      "title": "Client Project Handover",
+      "description": "Deploy client projects to production with proper version control and live URLs."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Deployment Request",
+      "prompt": "Deploy this website to production using the deploying-to-production skill.",
+      "scenario": "User wants to deploy their web project to Vercel"
+    },
+    {
+      "title": "New Project Deployment",
+      "prompt": "I have a new Next.js/React project in the current directory. Please deploy it to production using GitHub and Vercel.",
+      "scenario": "User has a new web project needing deployment"
+    },
+    {
+      "title": "Existing Project Deployment",
+      "prompt": "This project already has a GitHub repository. Please deploy it to Vercel and verify the deployment is working.",
+      "scenario": "User wants to connect an existing repo to Vercel"
+    },
+    {
+      "title": "Full Setup with Verification",
+      "prompt": "Set up GitHub and Vercel deployment for this project. Create the repository, push the code, deploy to Vercel, and verify the live site is working.",
+      "scenario": "User wants complete deployment with verification"
+    }
+  ],
+  "bestPractices": [
+    "Always run the build locally first to catch any compilation errors before deployment",
+    "Verify the deployment URL after completion to ensure the site is actually working",
+    "Check the Vercel dashboard for deployment logs if issues occur"
+  ],
+  "antiPatterns": [
+    "Skipping the build verification step can lead to deploying broken code",
+    "Not verifying the deployment may miss runtime errors that only appear in production",
+    "Attempting to deploy without proper git configuration can cause version control issues"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with all web frameworks?",
+      "answer": "Yes, this skill works with any web project that uses npm run build, including Next.js, React, Vue, Svelte, and other modern frameworks."
+    },
+    {
+      "question": "Do I need a Vercel account?",
+      "answer": "Yes, you must have a Vercel account linked to your GitHub account before using this skill."
+    },
+    {
+      "question": "Can I deploy to a custom domain?",
+      "answer": "This skill focuses on initial deployment. Custom domain configuration must be done manually in the Vercel dashboard."
+    },
+    {
+      "question": "What happens if the build fails?",
+      "answer": "The skill will stop and report the build errors. You need to fix the errors locally before attempting deployment again."
+    },
+    {
+      "question": "Can I redeploy after the initial deployment?",
+      "answer": "Yes, you can run this skill again to redeploy. It will push updated code to the existing GitHub repository."
+    },
+    {
+      "question": "Is this skill secure?",
+      "answer": "Yes, this skill only runs npm build and interacts with GitHub and Vercel APIs. It does not execute arbitrary code or access sensitive systems."
+    }
+  ],
+  "seoKeywords": [
+    "deploy to production",
+    "vercel deployment",
+    "github deployment",
+    "ci cd pipeline",
+    "automate deployment",
+    "web app deployment",
+    "claude code deployment",
+    "codex deployment",
+    "vercel github integration",
+    "production deployment"
+  ],
+  "sourceUrl": "https://github.com/ZhanlinCui/Ultimate-Agent-Skills-Collection/tree/main/deploying-to-production",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,144 @@
+{
+  "name": "ngx-funnel-criteria",
+  "type": "skill",
+  "description": "Criterios de evaluación para auditorías de funnel NGX, incluyendo checklist visual, UX, copy y conversión",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "funnel audit",
+  "quality": 5,
+  "qualityReason": "Comprehensive audit framework",
+  "bundleHints": [
+    "conversion-optimization",
+    "marketing-audit"
+  ],
+  "tags": [
+    "checklist",
+    "conversion",
+    "conversion-optimization",
+    "copy",
+    "funnel-audit",
+    "landing-page",
+    "marketing",
+    "ux",
+    "ux-review"
+  ],
+  "capabilities": [
+    "Audit landing pages against NGX visual identity standards",
+    "Evaluate copy using CONFRONTA→FUNDAMENTA→RESUELVE formula",
+    "Score UX elements including mobile responsiveness and CTAs",
+    "Assess conversion elements like proof social and guarantees",
+    "Generate structured audit reports with 100-point scoring",
+    "Identify red flags that block conversion rates"
+  ],
+  "author": "270aldo",
+  "icon": "🎯",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown evaluation criteria. No executable code, network calls, or filesystem access. All 18 static findings are false positives: hex color codes were misidentified as cryptographic algorithms, SHA-256 hashes were flagged as C2 keywords, and documentation URLs were marked as network issues.",
+  "valueStatement": "Marketing teams struggle to consistently evaluate landing pages and checkout flows. This skill provides a standardized 100-point audit framework with visual identity, copy, UX, and conversion checklists for NGX funnels.",
+  "userTitle": "Audit NGX funnels with scoring criteria",
+  "limitations": [
+    "Does not access live websites or perform automated testing",
+    "Requires manual input of page URL and content for evaluation",
+    "Does not generate code or implement design changes",
+    "Criteria optimized specifically for NGX brand standards"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Marketing managers",
+      "title": "Landing page audits",
+      "description": "Systematically audit new landing pages before launch using standardized 100-point criteria"
+    },
+    {
+      "targetUser": "Copywriters",
+      "title": "Copy compliance review",
+      "description": "Verify marketing copy follows brand voice guidelines and avoids prohibited terms"
+    },
+    {
+      "targetUser": "Conversion optimizers",
+      "title": "Conversion gap analysis",
+      "description": "Identify friction points in checkout flows and optimize conversion rates"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick audit",
+      "scenario": "Basic landing page check",
+      "prompt": "Audit this landing page URL [URL] using the NGX Funnel Criteria skill. Provide a score and identify top 3 issues."
+    },
+    {
+      "title": "Visual review",
+      "scenario": "Visual identity assessment",
+      "prompt": "Evaluate the visual identity of [URL] against NGX standards. Check colors, shadows, cards, and borders."
+    },
+    {
+      "title": "Copy analysis",
+      "scenario": "Messaging compliance",
+      "prompt": "Review the copy on [URL] using the CONFRONTA→FUNDAMENTA→RESUELVE framework. Flag any prohibited terms."
+    },
+    {
+      "title": "Full audit report",
+      "scenario": "Complete funnel evaluation",
+      "prompt": "Perform a complete audit of [URL] including visual identity, clarity of value, copy, UX, and conversion elements."
+    }
+  ],
+  "bestPractices": [
+    "Use the complete 100-point framework for thorough audits",
+    "Prioritize red flags like invisible CTA, slow load, or too many form fields",
+    "Score each category separately to identify specific improvement areas"
+  ],
+  "antiPatterns": [
+    "Skipping visual identity checks entirely",
+    "Ignoring mobile responsiveness issues",
+    "Using generic audit criteria instead of NGX-specific standards",
+    "Focusing only on copy without checking UX elements"
+  ],
+  "faq": [
+    {
+      "question": "What platforms does this skill work with?",
+      "answer": "Works with Claude, Codex, and Claude Code. Use it for any landing page audit regardless of platform."
+    },
+    {
+      "question": "What is the scoring range?",
+      "answer": "Scores range from 0-100. 90+ is excellent, 70-89 is good, 50-69 needs work, below 50 is critical."
+    },
+    {
+      "question": "Does this access my website automatically?",
+      "answer": "No. You provide the URL and content manually. The skill evaluates based on your input only."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes. No data leaves your session. This is a prompt-based skill with no external connections."
+    },
+    {
+      "question": "Can I use this for non-NGX pages?",
+      "answer": "Yes, but criteria are optimized for NGX brand standards. Adapt scoring weights for other brands."
+    },
+    {
+      "question": "How is this different from other audit tools?",
+      "answer": "Provides NGX-specific criteria including agent mentions, brand voice formula, and marketing flow checks."
+    }
+  ],
+  "seoKeywords": [
+    "NGX funnel audit",
+    "landing page evaluation",
+    "conversion rate optimization",
+    "funnel criteria checklist",
+    "UX audit framework",
+    "marketing funnel review",
+    "Claude Code skill",
+    "Claude skill",
+    "AI marketing assistant",
+    "conversion optimization"
+  ],
+  "sourceUrl": "https://github.com/270aldo/ngx_workspace/tree/main/ngx-marketing/skills/ngx-funnel-criteria",
+  "sourceType": "community",
+  "dependencies": []
+}

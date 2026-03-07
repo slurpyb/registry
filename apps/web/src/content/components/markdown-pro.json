@@ -1,0 +1,139 @@
+{
+  "name": "markdown-pro",
+  "type": "skill",
+  "description": "Professional Markdown documentation skill for creating polished README files, changelogs, contribution guides, and technical documentation. Use for: (1) README generation with badges and sections, (2) Automated changelog from git history, (3) Table of contents generation, (4) Contribution guidelines, (5) Technical documentation formatting, (6) Code documentation with syntax highlighting",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "professional docs",
+  "quality": 5,
+  "qualityReason": "Polished, production-ready focus",
+  "bundleHints": [
+    "docs-toolkit",
+    "open-source"
+  ],
+  "tags": [
+    "badges",
+    "changelog",
+    "contribution-guides",
+    "documentation",
+    "markdown",
+    "readme",
+    "technical-writing"
+  ],
+  "capabilities": [
+    "Generate professional README files with badges, tables of contents, and code examples",
+    "Automatically create changelogs from git commit history using conventional commits format",
+    "Format technical documentation with syntax highlighting, collapsible sections, and alert boxes",
+    "Validate markdown links and generate table of contents from headers",
+    "Create contribution guidelines following open source best practices"
+  ],
+  "author": "AutumnsGrove",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate documentation skill with no malicious intent. All static scanner findings are false positives triggered by documentation patterns (code examples in markdown, placeholder API keys, shield badge URLs). The single Python script uses subprocess to run git log for changelog generation with hardcoded arguments, which is legitimate and documented behavior.",
+  "valueStatement": "Generate polished README files, changelogs, and technical documentation with proven templates and formatting patterns. Automate documentation workflows with built-in helper scripts.",
+  "userTitle": "Create Professional Markdown Documentation",
+  "limitations": [
+    "Does not execute shell commands or modify external systems",
+    "Does not access or store credentials or API keys",
+    "Requires git repository for changelog generation feature",
+    "Helper scripts require Python 3.7+ for advanced automation features"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Open Source Maintainers",
+      "title": "Professional Project Documentation",
+      "description": "Create polished README files and contribution guides that attract contributors and improve project accessibility."
+    },
+    {
+      "targetUser": "Development Teams",
+      "title": "Automated Changelog Generation",
+      "description": "Generate maintainer-friendly changelogs automatically from git history using semantic versioning standards."
+    },
+    {
+      "targetUser": "Technical Writers",
+      "title": "API Documentation Templates",
+      "description": "Build consistent API reference documentation with code examples, parameter tables, and return value formats."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Generate README",
+      "scenario": "Create a project README",
+      "prompt": "Use markdown-pro to create a professional README for my project that includes badges, installation instructions, usage examples, and API documentation section."
+    },
+    {
+      "title": "Create Changelog",
+      "scenario": "Generate changelog from git",
+      "prompt": "Generate a changelog in Keep a Changelog format from our git history since version 1.0.0. Include sections for Added, Changed, Fixed, and Breaking Changes."
+    },
+    {
+      "title": "Write Contribution Guide",
+      "scenario": "Add contributor guidelines",
+      "prompt": "Create a CONTRIBUTING.md file with code of conduct, development setup instructions, commit message conventions, and pull request process."
+    },
+    {
+      "title": "Format API Docs",
+      "scenario": "Document API endpoints",
+      "prompt": "Format our API documentation using markdown-pro patterns with syntax highlighting, parameter tables, response examples, and error handling documentation."
+    }
+  ],
+  "bestPractices": [
+    "Use clear, descriptive headers with consistent hierarchy (H1 for title, H2 for sections, H3 for subsections)",
+    "Include code examples with syntax highlighting for every major feature",
+    "Add badges for quick project status overview (license, version, build, coverage)"
+  ],
+  "antiPatterns": [
+    "Avoid bare URLs without descriptive link text",
+    "Do not mix heading styles or skip heading levels",
+    "Avoid generic project titles like 'My Project' without clear description"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill execute code on my system?",
+      "answer": "No. This is a documentation template skill. The helper scripts only generate markdown content and do not execute arbitrary commands."
+    },
+    {
+      "question": "Can I use this with any git hosting platform?",
+      "answer": "Yes. Templates follow standard markdown patterns compatible with GitHub, GitLab, Bitbucket, and other platforms."
+    },
+    {
+      "question": "What programming languages are supported?",
+      "answer": "All languages with markdown code block syntax highlighting. Templates include examples for Python, JavaScript, Bash, and YAML."
+    },
+    {
+      "question": "Does the changelog feature work without git?",
+      "answer": "Changelog generation requires a git repository. Other documentation features work without git."
+    },
+    {
+      "question": "Can I customize the templates?",
+      "answer": "Yes. All templates in the examples folder are starting points. Modify sections to match your project needs."
+    },
+    {
+      "question": "Is this skill safe to use in production environments?",
+      "answer": "Yes. The skill only reads files and generates text output. It does not modify source code or access sensitive data."
+    }
+  ],
+  "seoKeywords": [
+    "markdown documentation",
+    "readme generator",
+    "changelog automation",
+    "technical writing",
+    "Claude Code documentation",
+    "Markdown formatting",
+    "documentation templates",
+    "API documentation",
+    "CONTRIBUTING guide"
+  ],
+  "sourceUrl": "https://github.com/AutumnsGrove/ClaudeSkills/tree/master/markdown-pro",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "context-resume",
+  "type": "skill",
+  "description": "恢复之前保存的会话上下文。列出所有待处理的 session，读取选定 session 的任务信息，更新进度，任务全部完成后删除文件。",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "session recovery",
+  "quality": 5,
+  "qualityReason": "Seamless workflow resumption",
+  "bundleHints": [
+    "workflow-continuity",
+    "productivity-stack",
+    "session-management"
+  ],
+  "tags": [
+    "claude-code",
+    "context",
+    "continuity",
+    "productivity",
+    "resume",
+    "session",
+    "task-progress"
+  ],
+  "capabilities": [
+    "Lists all saved sessions from docs/context-sessions directory",
+    "Displays session contents with pending task details",
+    "Provides workflow for resuming and continuing work",
+    "Updates session progress after completing each task",
+    "Removes session files when all tasks are finished",
+    "Includes command shortcuts for quick actions"
+  ],
+  "author": "Claudate",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation (SKILL.md) describing a session resume workflow. No executable code exists. The static analyzer generated false positives by misidentifying plain text as cryptographic algorithms and markdown syntax as shell commands. All 30 findings are dismissed as false positives.",
+  "valueStatement": "Lose track of your work when switching Claude Code windows? This skill helps you resume saved sessions and continue unfinished tasks seamlessly. List pending sessions, load task context, and track progress until completion.",
+  "userTitle": "Resume saved Claude Code sessions",
+  "limitations": [
+    "Requires context-save skill to create initial sessions",
+    "Only works with markdown session files in specified directory",
+    "Manual workflow execution - no automation of file operations",
+    "Documentation is in Chinese with Chinese output"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers",
+      "title": "Continue interrupted coding sessions",
+      "description": "Pick up where you left off when switching between Claude Code windows or after interruptions."
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Track multi-task workflows",
+      "description": "Manage multiple concurrent tasks and switch between them without losing context or progress."
+    },
+    {
+      "targetUser": "Teams",
+      "title": "Share session state",
+      "description": "Collaborate on complex tasks by saving and resuming sessions across different team members."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List sessions",
+      "scenario": "See all pending sessions",
+      "prompt": "Use context-resume to list all my saved sessions and show which tasks are pending"
+    },
+    {
+      "title": "Resume specific session",
+      "scenario": "Continue a specific task",
+      "prompt": "Load session 20251128-1430-实现用户登录功能.md and show me what needs to be done"
+    },
+    {
+      "title": "Check remaining tasks",
+      "scenario": "View incomplete work",
+      "prompt": "After loading a session, show me the remaining tasks and their priorities"
+    },
+    {
+      "title": "Complete and cleanup",
+      "scenario": "Finish all tasks",
+      "prompt": "All tasks are done, update the session and delete the file"
+    }
+  ],
+  "bestPractices": [
+    "Update session files immediately after completing each task",
+    "Use descriptive session names with dates for easy identification",
+    "Delete sessions only after confirming all tasks are complete"
+  ],
+  "antiPatterns": [
+    "Do not leave sessions open indefinitely without progress updates",
+    "Avoid creating too many parallel sessions to prevent confusion",
+    "Do not modify session files manually outside the workflow"
+  ],
+  "faq": [
+    {
+      "question": "What does this skill do?",
+      "answer": "It helps you resume saved Claude Code sessions by listing pending work, loading task context, and tracking progress."
+    },
+    {
+      "question": "How do I create sessions?",
+      "answer": "Use the context-save skill first to save your current session before switching contexts."
+    },
+    {
+      "question": "Where are sessions stored?",
+      "answer": "Sessions are stored as markdown files in the docs/context-sessions/ directory of your project."
+    },
+    {
+      "question": "Can I share sessions with teammates?",
+      "answer": "Yes, sessions are markdown files that can be shared and resumed by any team member."
+    },
+    {
+      "question": "When are session files deleted?",
+      "answer": "Session files are automatically deleted only when all listed tasks have been marked complete."
+    },
+    {
+      "question": "Is this compatible with all Claude Code versions?",
+      "answer": "Yes, this skill works with any Claude Code installation as it provides documentation-based workflow guidance."
+    }
+  ],
+  "seoKeywords": [
+    "claude code session",
+    "resume context",
+    "claude code workflow",
+    "session management",
+    "context restore",
+    "claude code productivity",
+    "task continuation",
+    "claude code skills",
+    "claude code"
+  ],
+  "sourceUrl": "https://github.com/Claudate/claude-code-context-sync/tree/main/skills/context-resume",
+  "sourceType": "community",
+  "dependencies": []
+}

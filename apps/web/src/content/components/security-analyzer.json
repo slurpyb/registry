@@ -1,0 +1,146 @@
+{
+  "name": "security-analyzer",
+  "type": "skill",
+  "description": "Comprehensive security vulnerability analysis for codebases and infrastructure. Scans dependencies (npm, pip, gem, go, cargo), containers (Docker, Kubernetes), cloud IaC (Terraform, CloudFormation), and detects secrets exposure. Fetches live CVE data from OSV.dev, calculates risk scores, and generates phased remediation plans with TDD validation tests. Use when users mention security scan, vulnerability, CVE, exploit, security audit, penetration test, OWASP, hardening, dependency audit, container security, or want to improve security posture.",
+  "domain": "security",
+  "subdomain": "devsecops",
+  "specialty": "Comprehensive scanning",
+  "quality": 5,
+  "qualityReason": "Broad coverage with specific targets",
+  "bundleHints": [
+    "security-scanning-suite",
+    "devsecops"
+  ],
+  "tags": [
+    "cloud-security",
+    "container security",
+    "container-security",
+    "cve detection",
+    "cve-detection",
+    "dependency audit",
+    "dependency-audit",
+    "iac-scanning",
+    "infrastructure as code",
+    "vulnerability scanning"
+  ],
+  "capabilities": [
+    "Scan dependencies across npm, pip, gem, Go, and Cargo ecosystems",
+    "Detect exposed .env files and secrets exposure risks without reading values",
+    "Find Docker, Kubernetes, Terraform, and CloudFormation configurations",
+    "Query OSV.dev API for real-time CVE vulnerability data",
+    "Calculate risk scores using CVSS, exploitability, and exposure factors",
+    "Generate remediation plans with fix commands and TDD validation tests"
+  ],
+  "author": "Cornjebus",
+  "icon": "🔒",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate defensive security tool. The static scanner flagged 103 patterns, but all are false positives. Network access is limited to the OSV.dev public API for CVE data. Filesystem access scans for dependency files and detects exposed .env files but NEVER reads their contents (SKILL.md:29 explicitly prohibits logging secrets). External commands are hardcoded version detection commands (pip show) for generating TDD tests, not arbitrary code execution. The critical heuristic flags are false positives - template documentation contains example code and 'SAM' appears in CloudFormation detection logic, not SAM database access.",
+  "valueStatement": "Developers need to identify security risks in their codebases before deployment. This skill scans dependencies, containers, and cloud infrastructure for vulnerabilities, fetches live CVE data, and generates fix commands with validation tests.",
+  "userTitle": "Scan projects for security vulnerabilities",
+  "limitations": [
+    "Does not perform dynamic analysis or runtime security testing",
+    "Requires network access to fetch CVE data from OSV.dev",
+    "Risk scoring uses default assumptions that may need manual adjustment",
+    "Does not access private vulnerability databases or enterprise security tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Container security audits",
+      "description": "Scan Dockerfiles and Kubernetes manifests for misconfigurations and known vulnerabilities in base images."
+    },
+    {
+      "targetUser": "Security Teams",
+      "title": "Vulnerability assessments",
+      "description": "Run comprehensive dependency audits with CVE data, risk scores, and prioritized remediation plans."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Pre-commit security checks",
+      "description": "Identify secrets exposure and dependency vulnerabilities before pushing code to version control."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick security scan",
+      "scenario": "Basic vulnerability check",
+      "prompt": "Run a security scan on this project using the security-analyzer skill. Show me the critical and high severity vulnerabilities."
+    },
+    {
+      "title": "Container audit",
+      "scenario": "Docker and K8s review",
+      "prompt": "Check this project for container security issues. Focus on Dockerfile base images and Kubernetes configuration risks."
+    },
+    {
+      "title": "Secrets scan",
+      "scenario": "Credential exposure check",
+      "prompt": "Look for potentially exposed secrets in this codebase. Check .env files and suggest remediation steps."
+    },
+    {
+      "title": "Full assessment",
+      "scenario": "Complete security report",
+      "prompt": "Perform a complete security analysis including dependency vulnerabilities, container configs, cloud IaC, and secrets exposure. Generate both technical and executive reports."
+    }
+  ],
+  "bestPractices": [
+    "Run security scans early in development and before each release",
+    "Address critical and high severity vulnerabilities within your SLA",
+    "Review and rotate any secrets that may have been exposed in version control",
+    "Integrate the security analyzer into CI/CD pipelines for automated scanning"
+  ],
+  "antiPatterns": [
+    "Ignoring low severity findings without review",
+    "Running scans only after production deployment",
+    "Not validating fixes with the generated test cases",
+    "Skipping secrets exposure checks after finding .env files"
+  ],
+  "faq": [
+    {
+      "question": "Which package ecosystems are supported?",
+      "answer": "npm, pip, RubyGems, Go modules, and Cargo crates are fully supported. Maven and NuGet can be queried through OSV.dev."
+    },
+    {
+      "question": "What severity levels are used?",
+      "answer": "Critical (CVSS 9.0+), High (CVSS 7.0-8.9), Medium (CVSS 4.0-6.9), and Low (CVSS below 4.0). Scores are combined with exploitability factors."
+    },
+    {
+      "question": "How does it integrate with my workflow?",
+      "answer": "The skill uses standard Claude tools (Bash, Read, Write) to scan your project. It outputs JSON reports that you can save or convert to markdown documentation."
+    },
+    {
+      "question": "Is my code and data safe?",
+      "answer": "Yes. The skill only reads project files and never logs secrets or credentials. Network access is limited to the OSV.dev public API. No data is sent to third parties."
+    },
+    {
+      "question": "Why did the scan find no vulnerabilities?",
+      "answer": "Either all dependencies are up to date, the OSV.dev API was unreachable, or the ecosystem is not yet fully mapped. Try WebSearch for CISA KEV data for actively exploited vulns."
+    },
+    {
+      "question": "How is this different from npm audit?",
+      "answer": "This skill provides unified scanning across all ecosystems, adds risk scoring, generates fix commands with tests, and creates executive summaries for leadership reporting."
+    }
+  ],
+  "seoKeywords": [
+    "security scanner",
+    "vulnerability scan",
+    "CVE detection",
+    "dependency audit",
+    "OWASP",
+    "security audit",
+    "Claude Code",
+    "container security",
+    "IaC security",
+    "secret detection"
+  ],
+  "sourceUrl": "https://github.com/Cornjebus/security-analyzer/tree/main/.claude/skills/security-analyzer",
+  "sourceType": "community",
+  "dependencies": []
+}

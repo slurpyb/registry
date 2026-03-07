@@ -1,0 +1,144 @@
+{
+  "name": "repo-metadata",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"generate repository metadata\", \"create catalog-info.yaml\", \"add repo metadata\", \"document repository structure\", or mentions generating structured metadata for service catalog or architecture documentation.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "structured metadata",
+  "quality": 4,
+  "qualityReason": "Useful for large repos",
+  "bundleHints": [
+    "metadata-system",
+    "catalog"
+  ],
+  "tags": [
+    "architecture",
+    "catalog",
+    "catalog-info",
+    "data-catalog",
+    "documentation",
+    "metadata",
+    "metadata-management",
+    "repository-structure",
+    "service",
+    "service-metadata"
+  ],
+  "capabilities": [
+    "Analyze repository structure to detect language, framework, and integrations",
+    "Generate catalog-info.yaml following Backstage conventions",
+    "Identify service types (gateway, service, worker, library, frontend, database)",
+    "Detect dependencies from code patterns and import statements",
+    "Scan for Kafka producers and consumers",
+    "Extract description from README.md"
+  ],
+  "author": "AstraBit-CPT",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 212 static findings are false positives. The static analyzer misidentifies YAML schema type values (like 'service', 'gateway', 'kafka') as weak cryptographic algorithms and misinterprets markdown backtick formatting as shell command execution. This skill is a legitimate documentation generator that reads local repository files and outputs YAML metadata without network access, credential handling, or code execution beyond Python subprocess calls for git status.",
+  "valueStatement": "Service catalogs require standardized metadata to enable cross-repository architecture analysis and dependency mapping. This skill automatically generates catalog-info.yaml files by analyzing repository structure and code patterns.",
+  "userTitle": "Generate Service Catalog Metadata",
+  "limitations": [
+    "Requires access to repository files for analysis",
+    "Cannot auto-detect domain and owner - requires user input",
+    "May miss undocumented dependencies not present in code imports",
+    "Service type detection is heuristic-based and may need manual review"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Platform Engineers",
+      "title": "Service Catalog Setup",
+      "description": "Generate catalog-info.yaml files for all microservices in your organization"
+    },
+    {
+      "targetUser": "DevOps Teams",
+      "title": "Architecture Documentation",
+      "description": "Create standardized metadata for dependency graphs and architecture views"
+    },
+    {
+      "targetUser": "Documentation Specialists",
+      "title": "Repository Onboarding",
+      "description": "Automatically generate metadata for new repositories joining the service catalog"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Generation",
+      "scenario": "Generate metadata for current repo",
+      "prompt": "Generate repository metadata and create a catalog-info.yaml file for this repository"
+    },
+    {
+      "title": "Specific Path",
+      "scenario": "Analyze external repository",
+      "prompt": "Generate catalog-info.yaml metadata for the repository at /path/to/repo"
+    },
+    {
+      "title": "With Format",
+      "scenario": "JSON output for inspection",
+      "prompt": "Analyze this repository and output the catalog metadata in JSON format for review before writing the YAML file"
+    },
+    {
+      "title": "Full Analysis",
+      "scenario": "Complete architecture scan",
+      "prompt": "Perform a full repository analysis including detecting all integration points, dependencies, event producers and consumers, then generate a complete catalog-info.yaml with all detected values"
+    }
+  ],
+  "bestPractices": [
+    "Review auto-detected values for accuracy before committing",
+    "Fill in domain and owner fields to enable proper team ownership",
+    "Keep catalog-info.yaml in sync with actual service architecture"
+  ],
+  "antiPatterns": [
+    "Using auto-detection without reviewing detected dependencies",
+    "Leaving domain and owner as unknown values",
+    "Generating once and never updating as architecture evolves"
+  ],
+  "faq": [
+    {
+      "question": "What languages does this skill support?",
+      "answer": "Node.js, Python, Go, Java, Rust, and Ruby. Detection is based on common package and build files."
+    },
+    {
+      "question": "Can I use this with GitHub Actions workflows?",
+      "answer": "Yes. The skill can generate metadata that syncs with GitHub Actions for consistent repository information."
+    },
+    {
+      "question": "What service types can it detect?",
+      "answer": "gateway, service, worker, library, frontend, and database. Detection is based on code patterns like routes, consumers, and API definitions."
+    },
+    {
+      "question": "Is my repository data safe?",
+      "answer": "Yes. The skill only reads files within the repository and outputs metadata. No data is sent anywhere."
+    },
+    {
+      "question": "Why are domain and owner unknown?",
+      "answer": "These require organizational knowledge that cannot be auto-detected. The skill marks them for manual input."
+    },
+    {
+      "question": "How accurate is dependency detection?",
+      "answer": "Detection finds dependencies through code imports and patterns. Undocumented or dynamically loaded dependencies may be missed."
+    }
+  ],
+  "seoKeywords": [
+    "repo metadata",
+    "catalog-info",
+    "service catalog",
+    "Backstage",
+    "architecture documentation",
+    "component metadata",
+    "repository documentation",
+    "Claude Code",
+    "Codex",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/AstraBit-CPT/astrabit-docs/tree/master/.claude/skills/repo-metadata",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,145 @@
+{
+  "name": "book-scaffolding",
+  "type": "skill",
+  "description": "Plan, structure, and scaffold large educational books using cognitive load management,\njust-in-time specification, and pedagogical best practices. Use this skill when planning\nmulti-part, multi-chapter educational works that require narrative continuity, progressive\ncomplexity, and hands-on exercises. This skill helps create cohesive learning journeys\nthat balance foundational scaffolding with advanced independence. Activate when tasks\ninvolve structuring books, managing cognitive load across chapters, defining part-level\nnarratives, or coordinating multi-phase content development workflows.\n",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "educational structure",
+  "quality": 5,
+  "qualityReason": "Strong educational framework",
+  "bundleHints": [
+    "content-creation",
+    "educational-design"
+  ],
+  "tags": [
+    "book-planning",
+    "chapters",
+    "cognitive-load",
+    "curriculum",
+    "curriculum-design",
+    "educational-content",
+    "pedagogy",
+    "planning",
+    "scaffold"
+  ],
+  "capabilities": [
+    "Generate book outline templates with parts, chapters, and learning objectives",
+    "Validate chapter dependencies and detect circular references",
+    "Analyze cognitive load progression across chapters",
+    "Apply pedagogical patterns (IBS, MCA, Cookbook, EEE)",
+    "Map reading paths and prerequisite chains",
+    "Create chapter structure templates with exercises and examples"
+  ],
+  "author": "92Bilal26",
+  "icon": "📚",
+  "version": "2.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation and template skill for educational book planning. The Python scripts only perform local file parsing using standard library imports (json, yaml, pathlib). No external commands, network calls, or file writes outside the skill directory. All static findings are false positives: arrow characters in markdown diagrams were misidentified as shell backticks, algorithm names in documentation were flagged as weak crypto, and Python brackets were misidentified as obfuscation.",
+  "valueStatement": "Planning large educational books is challenging without structure. This skill provides templates, patterns, and validation tools to scaffold multi-chapter learning journeys that manage cognitive load and ensure narrative continuity.",
+  "userTitle": "Plan educational books with scaffolding patterns",
+  "limitations": [
+    "Does not write content to external files or repositories",
+    "Does not execute code or run tests on user projects",
+    "Does not access network resources or APIs",
+    "Does not generate AI content without user prompting"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Technical educators",
+      "title": "Structure curriculum",
+      "description": "Plan multi-part educational books with progressive complexity and clear learning paths."
+    },
+    {
+      "targetUser": "Technical writers",
+      "title": "Design documentation",
+      "description": "Create comprehensive technical documentation with consistent chapter structure and cross-references."
+    },
+    {
+      "targetUser": "Course designers",
+      "title": "Build learning journeys",
+      "description": "Design course materials that balance theory with practice using proven pedagogical patterns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create book outline",
+      "scenario": "Starting a new educational book project",
+      "prompt": "Use the book-scaffolding skill to create a comprehensive book outline template for [topic]. Include parts, chapters with learning objectives, dependencies, and reading paths."
+    },
+    {
+      "title": "Validate structure",
+      "scenario": "Checking chapter dependencies",
+      "prompt": "Use book-scaffolding to validate the chapter structure of my book outline. Check for circular dependencies and ensure cognitive load progression is appropriate."
+    },
+    {
+      "title": "Apply patterns",
+      "scenario": "Designing chapter flow",
+      "prompt": "Help me choose the right chapter flow pattern for my [beginner/intermediate/advanced] book on [topic]. Apply the appropriate structure and create chapter templates."
+    },
+    {
+      "title": "Map prerequisites",
+      "scenario": "Designing learning paths",
+      "prompt": "Create a chapter dependency map for my book on [topic]. Define prerequisite chains, optional chapters, and multiple reading paths for different learner types."
+    }
+  ],
+  "bestPractices": [
+    "Start with a clear narrative arc that unifies all chapters in a part",
+    "Use just-in-time specification - defer part-specific details until needed",
+    "Manage cognitive load by introducing concepts progressively from simple to complex",
+    "Apply show-then-explain pedagogy with examples before principles"
+  ],
+  "antiPatterns": [
+    "Creating all part specs upfront before starting implementation",
+    "Treating chapters as isolated units without connection mapping",
+    "Front-loading complex concepts without scaffolding",
+    "Using gatekeeping language like simply or obviously"
+  ],
+  "faq": [
+    {
+      "question": "What tools is this skill compatible with?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It provides structured guidance through prompts rather than automated actions."
+    },
+    {
+      "question": "How detailed are the templates?",
+      "answer": "Templates include full YAML structures with parts, chapters, sections, learning objectives, dependencies, exercises, and cross-references."
+    },
+    {
+      "question": "Can I integrate this with my existing project?",
+      "answer": "The skill provides guidance and templates. You apply the patterns to your own documents and workflows manually."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "This skill only reads its own templates and documentation. It never accesses your files, network, or external systems."
+    },
+    {
+      "question": "Why are my validation scripts not running?",
+      "answer": "The Python scripts are examples. To use them, run them directly on your own YAML outline files with Python installed."
+    },
+    {
+      "question": "How is this different from AI writing tools?",
+      "answer": "This skill plans structure, not writes content. It helps design learning experiences using pedagogical best practices without generating the actual book content."
+    }
+  ],
+  "seoKeywords": [
+    "book scaffolding",
+    "educational content planning",
+    "cognitive load management",
+    "chapter structure templates",
+    "curriculum design",
+    "learning journey",
+    "pedagogical patterns",
+    "Claude Code skill",
+    "book planning templates",
+    "educational design"
+  ],
+  "sourceUrl": "https://github.com/92Bilal26/TaskPilotAI/tree/main/.claude/skills/book-scaffolding",
+  "sourceType": "community",
+  "dependencies": []
+}

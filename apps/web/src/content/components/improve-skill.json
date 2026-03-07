@@ -1,0 +1,142 @@
+{
+  "name": "improve-skill",
+  "type": "skill",
+  "description": "Analyze coding agent session transcripts to improve existing skills or create new ones. Use when asked to improve a skill based on a session, or extract a new skill from session history.",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "Skill analysis",
+  "quality": 5,
+  "qualityReason": "Improves agent capabilities",
+  "bundleHints": [
+    "agent-improvement",
+    "learning"
+  ],
+  "tags": [
+    "analysis",
+    "documentation",
+    "extraction",
+    "improvement",
+    "optimization",
+    "session",
+    "session-history",
+    "transcripts",
+    "workflow"
+  ],
+  "capabilities": [
+    "Extract session transcripts from Claude Code, Pi, and Codex agents",
+    "Parse and format JSONL session files into readable text",
+    "Auto-detect the current agent based on working directory",
+    "Generate structured prompts for improving existing skills",
+    "Generate structured prompts for creating new skills from sessions",
+    "Locate skill files across different agent directories"
+  ],
+  "author": "Dwsy",
+  "icon": "📈",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a legitimate utility that reads agent session files to extract and format transcripts. After evaluating all 97 static findings, all are FALSE_POSITIVES: the C2 keyword alerts flag innocent strings (community, git hashes); cryptographic algorithm alerts flag legitimate function names and JSON content; external command alerts flag documentation examples, not actual backtick execution; filesystem access is necessary and documented functionality for reading session files. No network calls or malicious patterns exist.",
+  "valueStatement": "Users struggle to capture and reuse successful patterns from coding sessions. This skill extracts session transcripts from Claude Code, Pi, and Codex to help you create or improve reusable skills from your actual workflow.",
+  "userTitle": "Improve Skills from Session Transcripts",
+  "limitations": [
+    "Only reads session files; does not modify or create skills directly",
+    "Requires agent session files to exist on the filesystem",
+    "Cannot analyze sessions from agents other than Claude Code, Pi, or Codex"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Power users",
+      "title": "Refine Your Workflows",
+      "description": "Extract sessions where you struggled and create improvement prompts to make future sessions smoother."
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Capture Team Knowledge",
+      "description": "Document successful patterns from expert sessions and turn them into reusable team skills."
+    },
+    {
+      "targetUser": "New developers",
+      "title": "Learn Best Practices",
+      "description": "Create onboarding skills from expert sessions that demonstrate proper tool usage and workflows."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Extract Current Session",
+      "scenario": "Quick transcript extraction",
+      "prompt": "Run ./scripts/extract-session.js to extract the current session transcript."
+    },
+    {
+      "title": "Specify Agent Type",
+      "scenario": "Target specific platform",
+      "prompt": "Run ./scripts/extract-session.js --agent claude to extract from Claude Code specifically."
+    },
+    {
+      "title": "Improve Existing Skill",
+      "scenario": "Enhance a skill",
+      "prompt": "Use the improve-skill to analyze this session and generate a prompt for improving the existing skill at ~/.claude/skills/my-skill/SKILL.md."
+    },
+    {
+      "title": "Create New Skill",
+      "scenario": "Extract reusable pattern",
+      "prompt": "Use the improve-skill to analyze this session and generate a prompt for creating a new skill called pattern-name based on what was accomplished."
+    }
+  ],
+  "bestPractices": [
+    "Extract sessions soon after completing work while context is fresh",
+    "Focus on specific struggles or discoveries rather than general improvements",
+    "Keep skill improvements concise with practical examples"
+  ],
+  "antiPatterns": [
+    "Analyzing sessions without identifying clear improvement points",
+    "Creating skills from single sessions without validating the pattern",
+    "Making skills too broad instead of focused on specific use cases"
+  ],
+  "faq": [
+    {
+      "question": "What agents does this skill support?",
+      "answer": "Claude Code, Pi, and Codex. The script auto-detects based on your working directory."
+    },
+    {
+      "question": "Where are session files stored?",
+      "answer": "Claude Code: ~/.claude/projects/, Pi: ~/.pi/agent/sessions/, Codex: ~/.codex/sessions/."
+    },
+    {
+      "question": "Can I use this without the extract script?",
+      "answer": "Yes, but manual transcript extraction is required. The skill works with any session text."
+    },
+    {
+      "question": "Is my session data sent anywhere?",
+      "answer": "No. The script runs locally and only reads files on your machine. No network calls are made."
+    },
+    {
+      "question": "Why does the improvement happen in a new session?",
+      "answer": "Starting fresh reduces token usage and prevents context contamination from the current task."
+    },
+    {
+      "question": "How is this different from regular prompting?",
+      "answer": "This skill provides structured workflows and templates specifically designed for skill development."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code skills",
+    "skill improvement",
+    "session transcript extraction",
+    "AI workflow optimization",
+    "Codex skill management",
+    "Pi agent skills",
+    "prompt engineering",
+    "workflow automation",
+    "skill development",
+    "Claude Code workflow"
+  ],
+  "sourceUrl": "https://github.com/Dwsy/agent/tree/main/skills/improve-skill",
+  "sourceType": "community",
+  "dependencies": []
+}

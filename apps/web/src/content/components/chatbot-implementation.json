@@ -1,0 +1,143 @@
+{
+  "name": "chatbot-implementation",
+  "type": "skill",
+  "description": "Details of the RAG Chatbot, including UI and backend logic.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "ChatGPT Apps",
+  "quality": 5,
+  "qualityReason": "Clear integration path with MCP",
+  "bundleHints": [
+    "mcp-tools",
+    "chatgpt-ecosystem"
+  ],
+  "tags": [
+    "apps-sdk",
+    "chatbot",
+    "chatgpt",
+    "gemini",
+    "mcp",
+    "openai",
+    "qdrant",
+    "rag",
+    "vector-search",
+    "widget-integration"
+  ],
+  "capabilities": [
+    "Provides architectural overview of RAG chatbot systems with vector search",
+    "Documents API route structure for chat endpoints with query and history handling",
+    "Explains Qdrant vector database integration for textbook chunk storage and retrieval",
+    "Describes UI component architecture for responsive chat interfaces with markdown rendering",
+    "Details context construction workflow from embeddings to AI response generation"
+  ],
+  "author": "AbdulSamad94",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation without executable code. All 23 static findings are false positives from markdown formatting and metadata references. The skill provides architectural guidance for building RAG chatbots and poses no security risk.",
+  "valueStatement": "Building conversational AI chatbots requires understanding vector databases and retrieval systems. This skill provides architectural documentation and implementation patterns for creating RAG chatbots using Qdrant vector search and Gemini AI models.",
+  "userTitle": "Build RAG Chatbots with Vector Search and AI",
+  "limitations": [
+    "Contains documentation only without executable code or working examples",
+    "Does not include actual implementation files or code samples",
+    "Requires separate implementation of described architecture patterns",
+    "Limited to specific tech stack without alternatives or variations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "EdTech developers",
+      "title": "Educational Platform Chatbot Development",
+      "description": "Developers building learning platforms can reference this architecture to implement textbook-aware chatbots that retrieve relevant content chunks and provide contextual answers to student queries."
+    },
+    {
+      "targetUser": "Solution architects",
+      "title": "RAG System Architecture Planning",
+      "description": "Technical architects designing retrieval augmented generation systems can use this as a reference implementation pattern for vector search integration with conversational AI models."
+    },
+    {
+      "targetUser": "Backend engineers",
+      "title": "Vector Database Integration Guide",
+      "description": "Backend engineers implementing Qdrant can follow this documentation to understand embedding storage patterns and similarity search workflows for chat applications."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Explain Chatbot Architecture",
+      "prompt": "Explain the RAG chatbot architecture from this documentation",
+      "scenario": "Understanding the overall system design"
+    },
+    {
+      "title": "Vector Search Implementation",
+      "prompt": "How does the vector search work in this chatbot implementation using Qdrant?",
+      "scenario": "Learning about embedding retrieval patterns"
+    },
+    {
+      "title": "UI Component Features",
+      "prompt": "What are the key features of the chatbot UI component described in this skill?",
+      "scenario": "Planning frontend chat interface development"
+    },
+    {
+      "title": "API Route Design Pattern",
+      "prompt": "Walk me through the API route logic for handling chat queries with context and history",
+      "scenario": "Implementing backend chat endpoints"
+    }
+  ],
+  "bestPractices": [
+    "Review the complete architecture workflow from query embedding through vector search to response generation before implementation",
+    "Understand the separation between backend API routes and frontend UI components for proper system design",
+    "Use this documentation as a reference pattern when designing similar RAG systems with vector databases"
+  ],
+  "antiPatterns": [
+    "Treating this as executable code rather than architectural documentation",
+    "Implementing without adapting the patterns to your specific use case and requirements",
+    "Skipping understanding of the vector search workflow before building chat features"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill provide working code for a chatbot?",
+      "answer": "No, this skill contains only architectural documentation and implementation patterns. You will need to implement the described system using the technologies mentioned."
+    },
+    {
+      "question": "What technologies does this chatbot architecture use?",
+      "answer": "The architecture uses Qdrant for vector database storage, Gemini or OpenAI for embeddings, Gemini Flash or Pro for response generation, and React components for the UI."
+    },
+    {
+      "question": "Can I use this with Claude Code to build a chatbot?",
+      "answer": "Yes, you can use Claude Code to implement the architecture described in this documentation by referencing the patterns for API routes, vector search, and UI components."
+    },
+    {
+      "question": "What is RAG and why is it used here?",
+      "answer": "RAG stands for Retrieval Augmented Generation. It combines vector search to retrieve relevant information with AI generation to produce contextual responses, enabling chatbots to answer questions based on specific knowledge sources."
+    },
+    {
+      "question": "Does this work with other vector databases besides Qdrant?",
+      "answer": "The documentation is specific to Qdrant, but the general RAG pattern can be adapted to other vector databases like Pinecone, Weaviate, or Milvus with similar functionality."
+    },
+    {
+      "question": "What are the main components I need to implement?",
+      "answer": "You need to implement the API route for chat requests, vector embedding generation, Qdrant database integration for chunk storage and retrieval, context construction logic, and the frontend chat UI component."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "RAG chatbot",
+    "vector search",
+    "Qdrant",
+    "Gemini AI",
+    "conversational AI",
+    "retrieval augmented generation",
+    "chatbot implementation"
+  ],
+  "sourceUrl": "https://github.com/AbdulSamad94/Hackhaton-SpecsKitPlus/tree/master/.claude/skills/chatbot",
+  "sourceType": "community",
+  "dependencies": []
+}

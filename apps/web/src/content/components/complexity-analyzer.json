@@ -1,0 +1,140 @@
+{
+  "name": "complexity-analyzer",
+  "type": "skill",
+  "description": "Measure and report code complexity metrics with actionable recommendations.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "code metrics",
+  "quality": 5,
+  "qualityReason": "Actionable metrics with recommendations",
+  "bundleHints": [
+    "code-quality-suite",
+    "refactoring-tools"
+  ],
+  "tags": [
+    "analysis",
+    "code-quality",
+    "cyclomatic",
+    "maintainability",
+    "metrics",
+    "refactoring"
+  ],
+  "capabilities": [
+    "Calculate cyclomatic complexity for code paths",
+    "Measure cognitive complexity and mental effort",
+    "Analyze Halstead metrics and program vocabulary",
+    "Generate maintainability index scores",
+    "Provide refactoring recommendations",
+    "Identify overly complex functions and files"
+  ],
+  "author": "CuriousLearner",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure prompt-based skill containing only instructional content for AI-assisted code complexity analysis. The static scanner produced false positives: the 'hardcoded URL' is legitimate source metadata, 'C2 keywords' are SHA256 content hashes, 'weak cryptographic algorithms' are nonexistent in this metadata file, 'backtick execution' are documentation code block delimiters, and 'system reconnaissance' is legitimate code quality advice. No executable code, network calls, file system access, or external command execution exists. All 14 static findings are false positives.",
+  "valueStatement": "Complex code is hard to maintain and prone to bugs. This skill measures cyclomatic complexity, cognitive complexity, and maintainability to identify refactoring opportunities.",
+  "userTitle": "Analyze code complexity metrics",
+  "limitations": [
+    "Does not execute or modify source code",
+    "Analysis is performed through AI tools, not dedicated CLI tools",
+    "Complexity metrics are estimates based on code structure",
+    "Requires AI context window access to read code"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Engineers",
+      "title": "Identify refactoring targets",
+      "description": "Find complex functions that need refactoring before adding new features or fixing bugs."
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Review code complexity",
+      "description": "Evaluate pull requests for acceptable complexity levels before merging to main branch."
+    },
+    {
+      "targetUser": "Technical Leads",
+      "title": "Track code quality trends",
+      "description": "Monitor project-wide complexity metrics to identify quality degradation over time."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic analysis",
+      "scenario": "Quick complexity check",
+      "prompt": "Use complexity-analyzer to analyze the code in my current context. Report the top 5 most complex functions with their scores and recommendations."
+    },
+    {
+      "title": "Detailed file analysis",
+      "scenario": "In-depth file review",
+      "prompt": "Use complexity-analyzer with --detailed mode on the following files. Show cyclomatic complexity, nesting depth, and parameter counts for each function."
+    },
+    {
+      "title": "Threshold-based report",
+      "scenario": "High-complexity detection",
+      "prompt": "Use complexity-analyzer with --threshold 20 to find all functions exceeding this complexity level. Provide refactoring suggestions for each."
+    },
+    {
+      "title": "Export for CI/CD",
+      "scenario": "Generate exportable report",
+      "prompt": "Use complexity-analyzer with --export-json on the entire src directory. Generate a maintainability index and highlight functions needing immediate attention."
+    }
+  ],
+  "bestPractices": [
+    "Keep cyclomatic complexity below 10 for most functions",
+    "Use early returns and guard clauses to reduce nesting",
+    "Extract complex conditional logic into named functions"
+  ],
+  "antiPatterns": [
+    "Ignoring high complexity warnings and leaving functions unchanged",
+    "Writing functions with more than 5 levels of nesting",
+    "Combining multiple responsibilities in a single function"
+  ],
+  "faq": [
+    {
+      "question": "Which programming languages are supported?",
+      "answer": "JavaScript, TypeScript, Python, Java, Go, and Ruby. Each language uses appropriate linting and analysis tools."
+    },
+    {
+      "question": "What complexity thresholds should I use?",
+      "answer": "Target below 10 for cyclomatic complexity. Functions above 20 need review, and above 50 require immediate refactoring."
+    },
+    {
+      "question": "How does this integrate with my CI pipeline?",
+      "answer": "Use the --export-json flag to generate machine-readable output that can be parsed and used in build systems."
+    },
+    {
+      "question": "Is my code data safe?",
+      "answer": "Yes. This skill runs entirely within your AI context. No code is sent to external services or stored externally."
+    },
+    {
+      "question": "Why is my maintainability score low?",
+      "answer": "Low scores typically result from high complexity, long functions, deep nesting, or excessive parameters."
+    },
+    {
+      "question": "How is this different from ESLint or other linters?",
+      "answer": "This skill provides AI-guided analysis with context-aware recommendations. Linters enforce rules but do not explain refactoring approaches."
+    }
+  ],
+  "seoKeywords": [
+    "code complexity analyzer",
+    "cyclomatic complexity",
+    "cognitive complexity",
+    "code quality metrics",
+    "software maintainability",
+    "code refactoring",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "static analysis"
+  ],
+  "sourceUrl": "https://github.com/CuriousLearner/devkit/tree/main/skills/complexity-analyzer",
+  "sourceType": "community",
+  "dependencies": []
+}

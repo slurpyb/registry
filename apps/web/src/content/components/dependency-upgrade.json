@@ -1,0 +1,140 @@
+{
+  "name": "dependency-upgrade",
+  "type": "skill",
+  "description": "Manage major dependency version upgrades with compatibility analysis, staged rollout, and comprehensive testing. Use when upgrading framework versions, updating major dependencies, or managing breaking changes in libraries.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "major version upgrades",
+  "quality": 4,
+  "qualityReason": "Clear scope, focused on major upgrades",
+  "bundleHints": [
+    "devops-toolkit",
+    "javascript-stack"
+  ],
+  "tags": [
+    "compatibility",
+    "dependency",
+    "nodejs",
+    "npm",
+    "testing",
+    "upgrade"
+  ],
+  "capabilities": [
+    "Analyze dependency trees to identify outdated packages",
+    "Plan staged upgrade strategies for major version bumps",
+    "Generate compatibility matrices for framework upgrades",
+    "Identify breaking changes from changelogs",
+    "Configure automated dependency updates with Renovate or Dependabot",
+    "Execute rollback plans if upgrades fail"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill provides documentation and guidance for dependency upgrades. The static scanner flagged external commands, network access, and filesystem operations, but these are all FALSE POSITIVES: the 'external commands' are example snippets in markdown code blocks, the single network call (line 176) is a legitimate curl to fetch public GitHub documentation, and filesystem operations are example code in documentation. No executable code is present - this is a pure guidance/metadata skill.",
+  "valueStatement": "Managing major dependency upgrades is complex and error-prone. This skill provides structured guidance for compatibility analysis, staged rollouts, and comprehensive testing to minimize breaking changes.",
+  "userTitle": "Upgrade Dependencies Safely",
+  "limitations": [
+    "Does not execute actual package manager commands - only provides guidance",
+    "Cannot automatically fix code that depends on deprecated APIs",
+    "Requires human verification of test results",
+    "Compatibility matrices are examples and may need customization"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers upgrading React applications",
+      "title": "Upgrade React from v16 to v18",
+      "description": "Plan and execute a safe React 16 to 18 upgrade with staged testing and compatibility checks"
+    },
+    {
+      "targetUser": "Full-stack developers dealing with dependency hell",
+      "title": "Resolve npm dependency conflicts",
+      "description": "Audit project dependencies and resolve peer dependency conflicts using npm 7+ overrides"
+    },
+    {
+      "targetUser": "DevOps engineers and team leads",
+      "title": "Set up automated dependency updates",
+      "description": "Configure Renovate or Dependabot to automatically manage minor and patch updates"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic dependency audit",
+      "prompt": "Use the dependency-upgrade skill to audit my project's dependencies. I want to know which packages are outdated and which have security vulnerabilities.",
+      "scenario": "A developer wants a quick overview of their project's dependency status"
+    },
+    {
+      "title": "Plan major version upgrade",
+      "prompt": "I need to upgrade React from version 16 to version 18 in my project. Use the dependency-upgrade skill to create a staged upgrade plan with testing checkpoints.",
+      "scenario": "A frontend developer needs guidance for a major framework upgrade"
+    },
+    {
+      "title": "Resolve peer dependency conflicts",
+      "prompt": "My npm install is failing due to peer dependency conflicts. Help me identify the conflicts and provide solutions using npm overrides or legacy-peer-deps.",
+      "scenario": "A developer troubleshooting npm install failures"
+    },
+    {
+      "title": "Set up automated updates",
+      "prompt": "Configure automated dependency updates for my Node.js project using Renovate or Dependabot. I want minor and patch updates to auto-merge but major updates to require review.",
+      "scenario": "A team lead wanting to automate dependency maintenance"
+    }
+  ],
+  "bestPractices": [
+    "Always read changelogs before upgrading major versions to understand breaking changes",
+    "Upgrade one major version at a time (e.g., 16->17->18, not 16->18)",
+    "Run the full test suite after each individual package upgrade"
+  ],
+  "antiPatterns": [
+    "Upgrading all dependencies at once instead of incrementally",
+    "Skipping peer dependency warnings without resolving them",
+    "Not having a rollback plan before starting major upgrades"
+  ],
+  "faq": [
+    {
+      "question": "Can this skill automatically upgrade my dependencies?",
+      "answer": "No. This skill provides guidance, planning, and best practices. It does not execute package manager commands. You must run the suggested commands yourself and verify results."
+    },
+    {
+      "question": "How do I handle peer dependency conflicts?",
+      "answer": "Use npm 8+ overrides in package.json, or try npm install --legacy-peer-deps for npm 7. For long-term solutions, update conflicting packages to compatible versions."
+    },
+    {
+      "question": "What is the safest way to upgrade a major version?",
+      "answer": "Create a backup branch, upgrade one major version at a time, run tests after each upgrade, and fix issues before proceeding to the next version."
+    },
+    {
+      "question": "Should I use yarn or npm for dependency upgrades?",
+      "answer": "Both work well. npm has better peer dependency handling in v7+. yarn has better deduplication. Choose based on your team's preference and lock file consistency."
+    },
+    {
+      "question": "How do I automate dependency updates?",
+      "answer": "Configure Renovate or Dependabot in your repository. Set automerge for minor/patch updates and require reviews for major updates."
+    },
+    {
+      "question": "What if an upgrade breaks my application?",
+      "answer": "Have a rollback plan: commit current state, create feature branch, test incrementally. If tests fail, checkout the previous branch and restore from lock file."
+    }
+  ],
+  "seoKeywords": [
+    "dependency upgrade",
+    "npm upgrade",
+    "nodejs dependencies",
+    "breaking changes",
+    "semver",
+    "compatibility matrix",
+    "dependency management",
+    "Claude Code",
+    "Codex",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dependency-upgrade",
+  "sourceType": "community",
+  "dependencies": []
+}

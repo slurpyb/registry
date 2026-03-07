@@ -1,0 +1,142 @@
+{
+  "name": "performance-profiling",
+  "type": "skill",
+  "description": "Performance profiling principles. Measurement, analysis, and optimization techniques.",
+  "domain": "performance",
+  "subdomain": "analysis",
+  "specialty": "profiling principles",
+  "quality": 3,
+  "qualityReason": "Generic description",
+  "bundleHints": [
+    "performance-stack"
+  ],
+  "tags": [
+    "analysis",
+    "lighthouse",
+    "measurement",
+    "optimization",
+    "optimization-techniques",
+    "performance",
+    "performance-metrics",
+    "profiling",
+    "web-vitals"
+  ],
+  "capabilities": [
+    "Run Lighthouse performance audits via CLI script",
+    "Analyze Core Web Vitals metrics (LCP, INP, CLS)",
+    "Identify bundle size issues and optimization opportunities",
+    "Apply runtime profiling techniques using DevTools",
+    "Follow a structured 4-step profiling workflow",
+    "Prioritize performance fixes for maximum impact"
+  ],
+  "author": "sickn33",
+  "icon": "📊",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Evaluated 11 static security findings. All patterns detected are false positives. The subprocess.run call uses list arguments (not shell=True), preventing command injection. Temp file operations use the safe tempfile module. Documentation examples in SKILL.md are not executable code. The 'cryptographic algorithm' alerts were misidentified keywords. This is a legitimate performance profiling skill with no security concerns.",
+  "valueStatement": "This skill helps developers measure and optimize web application performance using Lighthouse audits and browser developer tools. It provides a structured workflow for identifying bottlenecks and improving Core Web Vitals scores.",
+  "userTitle": "Profile Web Performance with Lighthouse",
+  "limitations": [
+    "Requires Lighthouse CLI to be installed separately",
+    "Cannot profile local development servers without running them",
+    "Performance results vary based on network conditions",
+    "Does not provide real-time monitoring in production"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Frontend Developer Optimizing Load Speed",
+      "description": "A frontend developer wants to improve their web app's loading performance. They use the skill to run Lighthouse audits, identify the biggest performance bottlenecks, and apply targeted optimizations."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "DevOps Engineer Setting Up CI Performance Checks",
+      "description": "A DevOps engineer wants to add automated performance testing to their CI/CD pipeline. They use the skill's Lighthouse script to run audits on each deployment and fail builds that fall below performance thresholds."
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Full-Stack Developer Troubleshooting Runtime Issues",
+      "description": "A full-stack developer notices slow interactions on their web app. They use the skill to profile runtime performance, identify long tasks, and find memory leaks using DevTools Memory tab."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Lighthouse Audit",
+      "prompt": "Run a Lighthouse performance audit on https://example.com using the performance-profiling skill. Show me the performance score and main recommendations.",
+      "scenario": "Quick performance check on a live website"
+    },
+    {
+      "title": "Analyze Core Web Vitals",
+      "prompt": "Using the performance-profiling skill, explain what Core Web Vitals (LCP, INP, CLS) measure and provide tips for improving each metric.",
+      "scenario": "Learning about web performance metrics"
+    },
+    {
+      "title": "Bundle Optimization Analysis",
+      "prompt": "Apply the performance-profiling skill to analyze a large JavaScript bundle. What common issues should I look for and what are the recommended optimization actions?",
+      "scenario": "Reducing bundle size"
+    },
+    {
+      "title": "Performance Workflow Implementation",
+      "prompt": "Using the 4-step profiling workflow from the performance-profiling skill (BASELINE, IDENTIFY, FIX, VALIDATE), help me optimize a slow web application. Start with establishing a baseline.",
+      "scenario": "Systematic performance optimization"
+    }
+  ],
+  "bestPractices": [
+    "Always establish a performance baseline before making changes",
+    "Focus on the biggest bottleneck first rather than micro-optimizations",
+    "Validate improvements with repeated measurements to account for variance"
+  ],
+  "antiPatterns": [
+    "Guessing at performance problems without profiling first",
+    "Optimizing code before identifying the actual bottleneck",
+    "Ignoring real user data in favor of synthetic testing only"
+  ],
+  "faq": [
+    {
+      "question": "What tools does this skill use?",
+      "answer": "This skill uses Lighthouse for performance auditing and browser DevTools for runtime profiling. Lighthouse CLI must be installed separately."
+    },
+    {
+      "question": "Do I need to install any dependencies?",
+      "answer": "Yes, you need to install Lighthouse CLI globally with: npm install -g lighthouse"
+    },
+    {
+      "question": "Can this skill profile local websites?",
+      "answer": "Yes, you can run Lighthouse against localhost or any locally running development server."
+    },
+    {
+      "question": "What are Core Web Vitals?",
+      "answer": "Core Web Vitals are Google's standardized metrics: Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS)."
+    },
+    {
+      "question": "How often should I run performance audits?",
+      "answer": "Run audits during development, before deployments, and regularly in production using Real User Monitoring (RUM)."
+    },
+    {
+      "question": "What if my performance score is poor?",
+      "answer": "Use the 4-step workflow: establish a baseline, identify the biggest bottleneck, make one targeted fix, then validate the improvement before moving to the next issue."
+    }
+  ],
+  "seoKeywords": [
+    "performance profiling",
+    "Lighthouse audit",
+    "Core Web Vitals",
+    "web optimization",
+    "LCP INP CLS",
+    "Claude Code",
+    "Codex",
+    "performance testing",
+    "bundle analysis",
+    "runtime profiling"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/performance-profiling",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,136 @@
+{
+  "name": "baoyu-post-to-wechat",
+  "type": "skill",
+  "description": "Post content to WeChat Official Account (微信公众号). Supports both article posting (文章) and image-text posting (图文).",
+  "domain": "tools",
+  "subdomain": "browser",
+  "specialty": "WeChat Automation",
+  "quality": 5,
+  "qualityReason": "Specific platform posting",
+  "bundleHints": [
+    "social-automation",
+    "china-marketing"
+  ],
+  "tags": [
+    "automation",
+    "chrome",
+    "official-account",
+    "posting",
+    "wechat"
+  ],
+  "capabilities": [
+    "Post full articles with title, author, and content from Markdown files",
+    "Create image-text posts with multiple images and descriptions",
+    "Convert Markdown to WeChat-compatible HTML with themes",
+    "Automate Chrome browser via CDP for authenticated posting"
+  ],
+  "author": "JimLiu",
+  "icon": "📱",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate WeChat Official Account automation skill using Chrome CDP. Static findings are false positives triggered by standard browser automation patterns (clipboard commands, MD5 for caching, local debug ports). No credential exfiltration or malicious behavior detected.",
+  "valueStatement": "Automate posting articles and image-text content to WeChat Official Account. Convert Markdown to WeChat HTML and automate browser interactions for seamless publishing.",
+  "userTitle": "Post to WeChat Official Account",
+  "limitations": [
+    "Requires Google Chrome installation and manual login on first run",
+    "Cross-platform support depends on clipboard tools (osascript, xdotool, PowerShell)",
+    "Image processing limited to local files and standard formats (PNG, JPG, GIF, WebP)",
+    "No scheduling or batch posting capabilities"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content creators",
+      "title": "Publish articles to WeChat",
+      "description": "Convert Markdown articles and post directly to WeChat Official Account with one command"
+    },
+    {
+      "targetUser": "Marketing teams",
+      "title": "Create image campaigns",
+      "description": "Prepare multi-image posts with titles and descriptions for WeChat publication"
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Automate content workflows",
+      "description": "Integrate WeChat posting into content pipelines using CLI tools"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic article posting",
+      "scenario": "Post a Markdown article",
+      "prompt": "Post the article at /path/to/article.md to WeChat Official Account using the baoyu-post-to-wechat skill with the grace theme"
+    },
+    {
+      "title": "Image-text creation",
+      "scenario": "Create multi-image post",
+      "prompt": "Create an image-text post with title 'Article Title' and content from article.md, including images from /path/to/images/ directory"
+    },
+    {
+      "title": "Direct HTML posting",
+      "scenario": "Post existing HTML",
+      "prompt": "Post the HTML file at /path/to/article.html to WeChat, using the default author name and saving as draft"
+    },
+    {
+      "title": "Full automation",
+      "scenario": "Automated content pipeline",
+      "prompt": "Convert the Markdown file to WeChat HTML format first, then post it to WeChat Official Account with images inserted, submitting automatically when complete"
+    }
+  ],
+  "bestPractices": [
+    "Prepare Markdown with front matter including title, author, and summary for best results",
+    "Use --submit flag to automatically save drafts after content insertion",
+    "Set WECHAT_BROWSER_CHROME_PATH environment variable if Chrome is in a non-standard location",
+    "Test with --dry-run pattern if available before running automated posting sessions"
+  ],
+  "antiPatterns": [
+    "Avoid posting without reviewing the generated HTML preview first",
+    "Do not use sensitive credentials in command line arguments (use environment variables instead)",
+    "Avoid interrupting the browser automation mid-operation as it may leave Chrome in inconsistent state"
+  ],
+  "faq": [
+    {
+      "question": "How do I authenticate for the first time?",
+      "answer": "The first run opens Chrome browser to WeChat. Scan the QR code to log in. Session is preserved in the profile directory."
+    },
+    {
+      "question": "What image formats are supported?",
+      "answer": "The skill supports PNG, JPG, GIF, and WebP formats for both content images and cover images."
+    },
+    {
+      "question": "Can I post to multiple accounts?",
+      "answer": "Yes, use the --profile flag to specify different Chrome profile directories for different accounts."
+    },
+    {
+      "question": "How do I choose a theme?",
+      "answer": "Use --theme flag with options: default, grace, or simple. Grace provides a clean, modern design."
+    },
+    {
+      "question": "Does this work on Linux?",
+      "answer": "Yes, but requires xdotool (X11) or ydotool (Wayland) for clipboard automation commands."
+    },
+    {
+      "question": "What happens if posting fails?",
+      "answer": "The script reports errors with details and exits. Chrome browser remains open for manual review. Retry after addressing the issue."
+    }
+  ],
+  "seoKeywords": [
+    "WeChat Official Account",
+    "微信公众号",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "content posting",
+    "browser automation",
+    "Markdown conversion"
+  ],
+  "sourceUrl": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-post-to-wechat",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,144 @@
+{
+  "name": "copilot-sdk",
+  "type": "skill",
+  "description": "Build applications powered by GitHub Copilot using the Copilot SDK. Use when creating programmatic integrations with Copilot across Node.js/TypeScript, Python, Go, or .NET. Covers session management, custom tools, streaming, hooks, MCP servers, BYOK providers, session persistence, and custom agents. Requires GitHub Copilot CLI installed and a GitHub Copilot subscription (unless using BYOK).",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "Copilot SDK integration",
+  "quality": 5,
+  "qualityReason": "Comprehensive SDK capabilities",
+  "bundleHints": [
+    "copilot-sdk",
+    "mcp-integrations",
+    "ai-apps"
+  ],
+  "tags": [
+    "ai integration",
+    "ai-integration",
+    "custom-tools",
+    "github copilot",
+    "github-copilot",
+    "mcp",
+    "multi-language",
+    "sdk",
+    "session-management"
+  ],
+  "capabilities": [
+    "Create and manage Copilot sessions with custom models and configurations",
+    "Define custom tools that Copilot can call during conversations",
+    "Implement hooks for tool permission control and lifecycle events",
+    "Connect to MCP servers for extended tool capabilities",
+    "Enable streaming responses for real-time output",
+    "Support BYOK (Bring Your Own Key) for custom AI providers"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 192 static analysis findings are false positives. The scanner misinterpreted markdown code block delimiters (```) as shell backtick execution. The file contains documentation examples only, not executable code. URLs are reference links, environment variable mentions document authentication patterns. No actual security risks detected.",
+  "valueStatement": "Developers need programmatic access to GitHub Copilot for custom AI workflows. This SDK provides session management, custom tools, hooks, and MCP integration across Node.js, Python, Go, and .NET.",
+  "userTitle": "Build AI Apps with GitHub Copilot SDK",
+  "limitations": [
+    "Requires GitHub Copilot CLI installation and authentication",
+    "Only supports Node.js 18+, Python 3.8+, Go 1.21+, and .NET 8.0+",
+    "Custom agents and skills require local file system access",
+    "Session persistence requires manual session ID management"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developer tooling engineers",
+      "title": "AI-Powered Development Tools",
+      "description": "Build IDE extensions or CLI tools that leverage Copilot for code generation, review, and refactoring with custom tool integrations."
+    },
+    {
+      "targetUser": "DevOps and platform teams",
+      "title": "Automated Code Review Systems",
+      "description": "Create custom agents for pull request analysis, security scanning, and best practices validation with automated feedback."
+    },
+    {
+      "targetUser": "AI application developers",
+      "title": "Multi-Agent Workflows",
+      "description": "Orchestrate specialized AI agents for different tasks like documentation, testing, and deployment using MCP server integration."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Session Creation",
+      "prompt": "Create a CopilotClient, start a session with the gpt-4.1 model, and send a message asking for code explanation.",
+      "scenario": "Getting started with basic Copilot SDK usage"
+    },
+    {
+      "title": "Custom Tool Integration",
+      "prompt": "Define a custom tool that retrieves file contents from the filesystem, then create a session that can use this tool to answer questions about project files.",
+      "scenario": "Extending Copilot with domain-specific capabilities"
+    },
+    {
+      "title": "Streaming with Event Handlers",
+      "prompt": "Set up a streaming session that displays real-time responses, handles assistant message deltas, and logs session idle events.",
+      "scenario": "Building interactive chat interfaces"
+    },
+    {
+      "title": "MCP Server and Hooks",
+      "prompt": "Configure a session with an MCP server for GitHub API access, add hooks to control shell command permissions, and implement custom error handling.",
+      "scenario": "Production-ready AI application with security controls"
+    }
+  ],
+  "bestPractices": [
+    "Use hooks to implement permission controls for sensitive operations like shell commands and file access",
+    "Enable debug logging during development to troubleshoot connection and authentication issues",
+    "Use session persistence with custom IDs for long-running workflows that may exceed context limits"
+  ],
+  "antiPatterns": [
+    "Hardcoding GitHub tokens in source code instead of using environment variables",
+    "Creating new sessions for every request instead of reusing sessions for related tasks",
+    "Ignoring permission requests and auto-approving all tool calls without validation"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between Copilot SDK and Copilot CLI?",
+      "answer": "The CLI is a command-line interface for direct user interaction. The SDK wraps the CLI to enable programmatic access for building applications that integrate Copilot capabilities."
+    },
+    {
+      "question": "Do I need a GitHub Copilot subscription to use the SDK?",
+      "answer": "A subscription is required for standard GitHub Copilot models. However, you can use BYOK (Bring Your Own Key) to connect to alternative providers like Azure OpenAI or Anthropic without a Copilot subscription."
+    },
+    {
+      "question": "How do I handle authentication for the SDK?",
+      "answer": "Authentication priority: 1) Explicit githubToken in constructor, 2) COPILOT_GITHUB_TOKEN environment variable, 3) GH_TOKEN or GITHUB_TOKEN, 4) Stored OAuth from copilot auth login, 5) GitHub CLI credentials."
+    },
+    {
+      "question": "Can I use the SDK with local AI models?",
+      "answer": "Yes. Use the BYOK provider configuration with Ollama or other local model servers. Set provider type to 'openai' and specify your local endpoint URL."
+    },
+    {
+      "question": "What are MCP servers and how do I use them?",
+      "answer": "MCP (Model Context Protocol) servers provide pre-built tools via standardized interfaces. Configure mcpServers in session config with either HTTP URLs for remote servers or local command configurations for stdio servers."
+    },
+    {
+      "question": "How do I prevent unauthorized tool execution?",
+      "answer": "Use the onPreToolUse hook to intercept tool calls. Return permissionDecision: 'deny' with a reason for blocked operations. Auto-approve only trusted tools like git commands."
+    }
+  ],
+  "seoKeywords": [
+    "GitHub Copilot SDK",
+    "Claude Code integration",
+    "Copilot CLI",
+    "AI application development",
+    "MCP servers",
+    "custom AI tools",
+    "Claude Codex",
+    "programmatic Copilot",
+    "AI SDK",
+    "Copilot streaming"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/copilot-sdk",
+  "sourceType": "community",
+  "dependencies": []
+}

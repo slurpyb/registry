@@ -1,0 +1,139 @@
+{
+  "name": "logo-generator",
+  "type": "skill",
+  "description": "Generate logos using Replicate AI and make them transparent with background removal.",
+  "domain": "design",
+  "subdomain": "branding",
+  "specialty": "AI logo design",
+  "quality": 4,
+  "qualityReason": "Useful creative tool",
+  "bundleHints": [
+    "branding-tools",
+    "ai-design"
+  ],
+  "tags": [
+    "ai",
+    "brand-identity",
+    "design",
+    "image",
+    "logo",
+    "replicate",
+    "transparent"
+  ],
+  "capabilities": [
+    "Generate logos from text descriptions using Replicate AI",
+    "Remove backgrounds automatically for transparent logos",
+    "Save logos to public/assets/logo.png",
+    "Customize logo prompts with company names and styles",
+    "Process images with Sharp for optimal quality"
+  ],
+  "author": "AayushBaniya2006",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a legitimate logo generation tool using Replicate AI. All 109 static findings are FALSE POSITIVES: the scanner confused TypeScript template literals and markdown code formatting with shell command execution; flagged standard API token environment access as 'sensitive file access'; and misidentified 'K_EULER' (a diffusion model scheduler name) as a weak cryptographic algorithm. The script makes legitimate network calls to Replicate API and writes output to a specific local path only.",
+  "valueStatement": "Creating logos requires design skills and expensive software. This skill uses AI to generate custom logos from text prompts and removes backgrounds automatically for transparent, professional results.",
+  "userTitle": "Generate professional logos with AI",
+  "limitations": [
+    "Requires REPLICATE_API_TOKEN environment variable to be set",
+    "Limited to the specific logoai model on Replicate",
+    "Output is fixed to PNG format at public/assets/logo.png"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Startup founders",
+      "title": "Quick brand identity",
+      "description": "Generate a professional logo for your startup without hiring a designer"
+    },
+    {
+      "targetUser": "Content creators",
+      "title": "Channel branding",
+      "description": "Create logos for YouTube channels, podcasts, or social media profiles"
+    },
+    {
+      "targetUser": "Developers",
+      "title": "App icons",
+      "description": "Generate icons and logos for web or mobile applications"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple logo",
+      "scenario": "Basic logo request",
+      "prompt": "Generate a logo for my company. Prompt: 'Minimalistic tech logo for [company name]'"
+    },
+    {
+      "title": "Styled logo",
+      "scenario": "Logo with specific style",
+      "prompt": "Create a modern logo with prompt: 'Modern geometric logo for [brand] with blue and white colors'"
+    },
+    {
+      "title": "Detailed design",
+      "scenario": "Detailed logo specification",
+      "prompt": "Design a professional logo. Prompt: 'Elegant minimalist logo for [business] featuring a mountain icon in navy blue'"
+    },
+    {
+      "title": "Custom style",
+      "scenario": "Custom artistic direction",
+      "prompt": "Generate a unique logo. Prompt: 'Vintage style badge logo for [company] with retro typography and gold accents'"
+    }
+  ],
+  "bestPractices": [
+    "Include the company or brand name in your prompt for accurate results",
+    "Specify the style (minimalist, modern, vintage) for better outcomes",
+    "Set REPLICATE_API_TOKEN in .env.local before generating logos"
+  ],
+  "antiPatterns": [
+    "Using vague prompts like 'make a cool logo' without details",
+    "Forgetting to set the REPLICATE_API_TOKEN environment variable",
+    "Generating logos without specifying brand context or style preferences"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code through the skill system."
+    },
+    {
+      "question": "What image formats does it output?",
+      "answer": "The skill outputs PNG format with full transparency for professional use."
+    },
+    {
+      "question": "How do I connect to Replicate?",
+      "answer": "Set REPLICATE_API_TOKEN in your .env, .env.local, or .env.production file."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "The skill only sends prompts to Replicate API. Generated images stay in your project."
+    },
+    {
+      "question": "What if the logo generation fails?",
+      "answer": "Check that REPLICATE_API_TOKEN is valid and has sufficient API credits available."
+    },
+    {
+      "question": "How is this different from other logo tools?",
+      "answer": "This skill combines logo generation and background removal in one automated workflow."
+    }
+  ],
+  "seoKeywords": [
+    "logo generator",
+    "AI logo design",
+    "Replicate AI",
+    "Claude Code",
+    "logo maker",
+    "transparent logo",
+    "brand design",
+    "Claude",
+    "Codex",
+    "logo creator"
+  ],
+  "sourceUrl": "https://github.com/AayushBaniya2006/blinkfund/tree/main/.claude/skills/logo-generator",
+  "sourceType": "community",
+  "dependencies": []
+}

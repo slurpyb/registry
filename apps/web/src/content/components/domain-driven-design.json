@@ -1,0 +1,137 @@
+{
+  "name": "domain-driven-design",
+  "type": "skill",
+  "description": "Plan and route Domain-Driven Design work from strategic modeling to tactical implementation and evented architecture patterns.",
+  "domain": "web-development",
+  "subdomain": "fullstack",
+  "specialty": "DDD architecture",
+  "quality": 5,
+  "qualityReason": "Comprehensive DDD coverage",
+  "bundleHints": [
+    "enterprise-architecture",
+    "ddd-stack"
+  ],
+  "tags": [
+    "architecture",
+    "bounded-context",
+    "ddd",
+    "domain",
+    "evented",
+    "strategic-design"
+  ],
+  "capabilities": [
+    "Assess if a project warrants full DDD adoption using a viability check",
+    "Produce strategic DDD artifacts: subdomains, bounded contexts, language glossary",
+    "Route tasks to specialized skills for tactical and evented implementation",
+    "Guide decision-making for CQRS, event sourcing, and saga patterns",
+    "Provide a deliverables checklist for measurable DDD adoption"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 19 potential issues including external_commands and weak cryptographic algorithms. Manual review confirms these are false positives: the @ mentions in skill references were mistaken for backtick execution, and the word 'design' was incorrectly flagged as cryptographic. This is a documentation-only skill containing no executable code, network requests, or file system operations. All findings dismissed as false positives.",
+  "valueStatement": "Complex software projects need structured domain modeling, but knowing when and how to apply DDD is challenging. This skill helps you assess DDD viability, plan strategic architecture, and route to specialized implementation skills.",
+  "userTitle": "Apply Domain-Driven Design with AI Guidance",
+  "limitations": [
+    "Cannot replace direct workshops with actual domain experts",
+    "Does not generate framework-specific code",
+    "Does not provide real-time architectural review of existing codebases",
+    "Cannot access external documentation or repositories without explicit user request"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software architects and technical leads planning new systems",
+      "title": "Architectural Planning Session",
+      "description": "Use at the start of a new project to determine if DDD is appropriate and plan the bounded context boundaries."
+    },
+    {
+      "targetUser": "Engineering teams considering modernization of legacy systems",
+      "title": "Refactoring Decision Guide",
+      "description": "Evaluate an existing monolith to identify subdomain boundaries and plan incremental DDD adoption."
+    },
+    {
+      "targetUser": "Engineering managers and DDD practitioners coordinating team work",
+      "title": "Team Coordination Tool",
+      "description": "Establish shared ubiquitous language and clear ownership boundaries across multiple teams."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Initial DDD Viability Check",
+      "prompt": "Use @domain-driven-design to assess if we should adopt full DDD for our [project description]. Run the viability check and explain which criteria are met."
+    },
+    {
+      "title": "Strategic Modeling Request",
+      "prompt": "Apply @domain-driven-design to help us identify subdomains and bounded contexts for our [business domain]. List the strategic artifacts we should produce first."
+    },
+    {
+      "title": "Routing to Implementation Skills",
+      "prompt": "We have decided to adopt DDD for [specific bounded context]. Use @domain-driven-design to route us to the next skills we need and list the tactical deliverables for this week."
+    },
+    {
+      "title": "Event-Sourcing Decision Support",
+      "prompt": "Our domain requires auditability and event history. Use @domain-driven-design to help us decide if event sourcing is appropriate and which skills to use for implementation."
+    }
+  ],
+  "bestPractices": [
+    "Start with strategic DDD before diving into tactical implementation details",
+    "Use the viability check to avoid over-engineering simple systems",
+    "Produce explicit artifacts at each stage to ensure measurable progress",
+    "Route to specialized skills rather than trying to handle everything with one prompt"
+  ],
+  "antiPatterns": [
+    "Applying full DDD to simple CRUD applications without complex business rules",
+    "Skipping strategic modeling and jumping straight to entity design",
+    "Creating bounded contexts based on technical layers instead of business capabilities",
+    "Using DDD as a justification for over-engineering without clear domain complexity"
+  ],
+  "faq": [
+    {
+      "question": "When should I use this skill?",
+      "answer": "Use this skill when modeling complex business domains, deciding whether full DDD is worth the added complexity, or planning CQRS, event sourcing, or saga implementations."
+    },
+    {
+      "question": "Does this skill generate code?",
+      "answer": "No, this is a planning and routing skill. It helps you assess viability, plan strategic artifacts, and route to specialized skills for implementation."
+    },
+    {
+      "question": "What is the viability check?",
+      "answer": "A simple assessment with four criteria: complex business rules, multiple teams with model collisions, unstable integration contracts, and auditability needs. Use full DDD when at least two are true."
+    },
+    {
+      "question": "What specialized skills does this route to?",
+      "answer": "The skill references specialized skills for strategic design, context mapping, tactical patterns, CQRS, event sourcing, saga orchestration, and projection patterns."
+    },
+    {
+      "question": "Can this replace domain expert workshops?",
+      "answer": "No, this skill cannot replace direct interaction with domain experts. It is designed to guide and structure DDD work, not to discover domain knowledge."
+    },
+    {
+      "question": "How is this skill different from architecture consultation?",
+      "answer": "This skill provides structured methodology and routing to other skills. It does not analyze your specific codebase or provide real-time architectural recommendations."
+    }
+  ],
+  "seoKeywords": [
+    "domain driven design",
+    "DDD",
+    "bounded context",
+    "strategic design",
+    "tactical patterns",
+    "CQRS",
+    "event sourcing",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/domain-driven-design",
+  "sourceType": "community",
+  "dependencies": []
+}

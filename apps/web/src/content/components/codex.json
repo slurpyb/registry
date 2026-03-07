@@ -1,0 +1,143 @@
+{
+  "name": "codex",
+  "type": "skill",
+  "description": "Use when the user asks to run Codex CLI (codex exec, codex resume) or references OpenAI Codex for code analysis, refactoring, or automated editing. Uses GPT-5.2 by default for state-of-the-art software engineering.",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "code analysis",
+  "quality": 5,
+  "qualityReason": "Powerful integration with clear use",
+  "bundleHints": [
+    "ai-coding-assistant",
+    "codex-suite"
+  ],
+  "tags": [
+    "automation",
+    "claude-code",
+    "cli",
+    "code-analysis",
+    "codex",
+    "gpt-5",
+    "openai",
+    "refactoring",
+    "software-engineering"
+  ],
+  "capabilities": [
+    "Invokes OpenAI Codex CLI (codex exec) for code analysis and refactoring tasks",
+    "Supports multiple GPT-5.2 model variants including gpt-5.2-max, gpt-5.2, and gpt-5.2-mini",
+    "Configures sandbox modes (read-only, workspace-write, danger-full-access) for controlled execution",
+    "Manages reasoning effort levels (xhigh, high, medium, low) for different task complexities",
+    "Enables session resumption with context preservation across Codex invocations",
+    "Filters thinking tokens to manage context window usage during long-running tasks"
+  ],
+  "author": "softaworks",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill (README.md + SKILL.md). Static analyzer flagged patterns in documentation examples as potential security issues, but all findings are false positives. No executable scripts exist. The skill is a prompt wrapper that provides Claude with context for invoking the OpenAI Codex CLI tool.",
+  "valueStatement": "Complex code analysis and refactoring tasks require specialized AI models with advanced reasoning capabilities. This skill enables Claude Code to invoke OpenAI Codex CLI, providing access to GPT-5.2 with 76.3% SWE-bench performance for deep code understanding, automated refactoring, and comprehensive software engineering workflows.",
+  "userTitle": "Run Codex CLI for Code Analysis and Refactoring",
+  "limitations": [
+    "Requires Codex CLI v0.57.0 or later installed and configured on the system",
+    "Does not include Codex CLI; users must install and configure credentials separately",
+    "Cannot execute code directly; Claude invokes the external codex CLI based on skill guidelines",
+    "Network access depends on sandbox mode configuration; read-only is the default"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Senior developers and engineering leads reviewing legacy codebases",
+      "title": "Comprehensive Codebase Analysis",
+      "description": "Analyze entire repositories to identify architectural issues, code smells, security vulnerabilities, and optimization opportunities using Codex advanced reasoning capabilities."
+    },
+    {
+      "targetUser": "Developers modernizing codebases or addressing technical debt",
+      "title": "Automated Refactoring Campaigns",
+      "description": "Execute multi-file refactoring tasks with appropriate sandbox permissions, from simple function extractions to complex architectural patterns."
+    },
+    {
+      "targetUser": "AI-assisted development teams building complex features",
+      "title": "Session-Based Iterative Development",
+      "description": "Start a Codex session, make incremental changes, and resume with preserved context for complex multi-step software engineering tasks."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Code Analysis",
+      "prompt": "Use codex to analyze this codebase and identify areas for improvement. Use high reasoning effort and read-only sandbox mode.",
+      "scenario": "Starting a comprehensive code review"
+    },
+    {
+      "title": "Targeted Refactoring",
+      "prompt": "Use codex to refactor the authentication module. Use workspace-write sandbox and medium reasoning effort. Make the code more maintainable while preserving functionality.",
+      "scenario": "Refactoring a specific module with file modifications"
+    },
+    {
+      "title": "Session-Based Development",
+      "prompt": "Start a Codex session to build a new REST API endpoint. Use full-auto mode with danger-full-access sandbox. After completion, tell me how to resume this session for follow-up tasks.",
+      "scenario": "Creating new functionality with session continuity"
+    },
+    {
+      "title": "Iterative Improvement",
+      "prompt": "Resume the Codex session and continue improving the API implementation. Add input validation and error handling. Use the same settings as before.",
+      "scenario": "Continuing a previous Codex session"
+    }
+  ],
+  "bestPractices": [
+    "Start with read-only analysis before requesting file modifications to understand the codebase structure first",
+    "Use appropriate reasoning effort levels—high for architectural changes, low for simple fixes",
+    "Explicitly request session resumption when planning multi-step tasks to preserve context"
+  ],
+  "antiPatterns": [
+    "Asking Codex to make changes across the codebase without specifying a focused scope",
+    "Using danger-full-access sandbox for read-only analysis tasks",
+    "Starting a new session instead of resuming when continuing previous work"
+  ],
+  "faq": [
+    {
+      "question": "How do I install and configure the Codex CLI?",
+      "answer": "Install the Codex CLI following OpenAI's documentation. Verify installation with 'codex --version' and configure credentials. The skill will invoke codex exec commands based on your prompts."
+    },
+    {
+      "question": "What is the difference between sandbox modes?",
+      "answer": "Read-only limits access to viewing files. Workspace-write permits creating and modifying files in a sandbox. Danger-full-access allows broad system access. Use read-only for analysis by default."
+    },
+    {
+      "question": "How do I resume a Codex session?",
+      "answer": "Simply say 'codex resume' or ask to continue with the previous session. Claude will use 'codex exec resume --last' with the same model and settings from the original session."
+    },
+    {
+      "question": "What reasoning effort should I use?",
+      "answer": "Xhigh for ultra-complex problems requiring deep analysis. High for refactoring, security reviews, and performance optimization. Medium for standard coding tasks. Low for quick fixes and formatting."
+    },
+    {
+      "question": "How does the skill handle thinking tokens?",
+      "answer": "By default, thinking tokens (stderr) are suppressed to save context window space. Ask to see thinking tokens if you need visibility into Codex's internal reasoning process."
+    },
+    {
+      "question": "Can I switch models mid-session?",
+      "answer": "Within a Codex session, use the /model slash command to switch models. Between sessions, specify the model in your prompt. The skill defaults to gpt-5.2."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "OpenAI Codex",
+    "code analysis",
+    "code refactoring",
+    "software engineering",
+    "AI code assistant",
+    "GPT-5.2",
+    "automated code review"
+  ],
+  "sourceUrl": "https://github.com/softaworks/agent-toolkit/tree/main/skills/codex/",
+  "sourceType": "community",
+  "dependencies": []
+}

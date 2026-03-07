@@ -1,0 +1,142 @@
+{
+  "name": "managing-relationships",
+  "type": "skill",
+  "description": "Expert at managing GitHub issue relationships including parent/sub-issues, blocking dependencies, and tracking links using the GraphQL API. Auto-invokes when creating issue hierarchies, setting parent-child relationships, managing dependencies, or linking related issues.",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "issue dependencies",
+  "quality": 5,
+  "qualityReason": "Highly specific GitHub use",
+  "bundleHints": [
+    "project-management",
+    "github-tools"
+  ],
+  "tags": [
+    "blocking",
+    "github",
+    "graphql",
+    "hierarchies",
+    "issues",
+    "parent-sub-issues",
+    "relationships",
+    "tracking"
+  ],
+  "capabilities": [
+    "Add and remove parent-child (sub-issue) relationships using GraphQL",
+    "List all sub-issues with progress tracking (completed/total)",
+    "Query blocking and blocked-by dependencies between issues",
+    "Get parent issue for any issue in a hierarchy",
+    "Show all relationships (parent, sub-issues, blocking, tracked) for an issue",
+    "Convert issue numbers to node IDs for GraphQL operations"
+  ],
+  "author": "C0ntr0lledCha0s",
+  "icon": "🔗",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate GitHub automation skill that manages issue relationships using the official GitHub GraphQL API. The Python script is a straightforward CLI wrapper around `gh` CLI commands. All static findings are false positives triggered by false pattern matching on GraphQL API field names and documentation code blocks. No malicious code, data exfiltration, or harmful patterns exist.",
+  "valueStatement": "Creating issue hierarchies and tracking dependencies is complex with the standard GitHub CLI. This skill provides direct access to GitHub GraphQL API for managing parent-child relationships, blocking dependencies, and tracking links between issues.",
+  "userTitle": "Manage GitHub issue hierarchies",
+  "limitations": [
+    "Requires authenticated gh CLI with repository permissions",
+    "Each issue can only have one parent (no multiple inheritance)",
+    "Cannot create blocking relationships via API (read-only)",
+    "GitHub API rate limits apply to batch operations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project managers",
+      "title": "Track epic progress",
+      "description": "Create parent issues as epics and link child tasks to see overall completion percentage."
+    },
+    {
+      "targetUser": "Developer leads",
+      "title": "Manage feature branches",
+      "description": "Link related issues for a feature to understand dependencies and track development progress."
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Track blocking bugs",
+      "description": "Identify which issues are blocked by others and understand test dependency chains."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create hierarchy",
+      "scenario": "Link child issues to parent",
+      "prompt": "Create a parent issue #67 and add issues #68, #69, and #70 as sub-issues."
+    },
+    {
+      "title": "List relationships",
+      "scenario": "View issue connections",
+      "prompt": "Show all relationships for issue #45 including parent, sub-issues, and blocking dependencies."
+    },
+    {
+      "title": "Find dependencies",
+      "scenario": "Identify blockers",
+      "prompt": "What issues is #78 blocked by? What issues is #78 blocking?"
+    },
+    {
+      "title": "Build complex tree",
+      "scenario": "Create nested structure",
+      "prompt": "Create a hierarchy where #1 is epic, #2 and #3 are features under it, and #5, #6 are tasks under #2."
+    }
+  ],
+  "bestPractices": [
+    "Create all issues first, then establish relationships to avoid orphaning issues.",
+    "Verify relationships after creation to confirm the GraphQL mutation succeeded.",
+    "Keep hierarchies shallow (2-3 levels) for easier navigation and management."
+  ],
+  "antiPatterns": [
+    "Using task lists (- [ ] #68) instead of sub-issues API, which only creates tracking links.",
+    "Attempting to add an issue to a new parent without checking if it already has one.",
+    "Creating circular references in hierarchies, which GitHub will reject."
+  ],
+  "faq": [
+    {
+      "question": "Which GitHub plans support sub-issues?",
+      "answer": "Sub-issues are available on GitHub Pro, Team, and Enterprise plans."
+    },
+    {
+      "question": "What is the maximum hierarchy depth?",
+      "answer": "GitHub does not enforce a hard limit, but best practice recommends 3 levels maximum."
+    },
+    {
+      "question": "Can I use this with private repositories?",
+      "answer": "Yes, if your gh CLI is authenticated with appropriate repository permissions."
+    },
+    {
+      "question": "Does this store my data anywhere?",
+      "answer": "No, this skill only reads and writes through the GitHub API. No data is stored locally."
+    },
+    {
+      "question": "Why do I need node IDs instead of issue numbers?",
+      "answer": "GitHub GraphQL API uses node IDs for all operations. The script handles the conversion automatically."
+    },
+    {
+      "question": "How is this different from task lists?",
+      "answer": "Sub-issues create true parent-child hierarchy with progress tracking. Task lists only create tracked-by links visible in the sidebar."
+    }
+  ],
+  "seoKeywords": [
+    "GitHub issue relationships",
+    "GitHub sub-issues",
+    "GitHub parent child issues",
+    "issue hierarchy",
+    "blocking dependencies",
+    "GraphQL API",
+    "GitHub automation",
+    "Claude Code",
+    "Codex",
+    "issue tracking"
+  ],
+  "sourceUrl": "https://github.com/C0ntr0lledCha0s/claude-code-plugin-automations/tree/main/github-workflows/skills/managing-relationships",
+  "sourceType": "community",
+  "dependencies": []
+}

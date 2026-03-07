@@ -1,0 +1,146 @@
+{
+  "name": "hig-components-menus",
+  "type": "skill",
+  "description": "Comprehensive guidance for menu and button components following Apple's Human Interface Guidelines. Covers menus, context menus, dock menus, edit menus, the menu bar, toolbars, action buttons, pop-up buttons, pull-down buttons, disclosure controls, and standard buttons.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "menu systems",
+  "quality": 5,
+  "qualityReason": "Complete menu guidance",
+  "bundleHints": [
+    "apple-design",
+    "ui-components"
+  ],
+  "tags": [
+    "apple-hig",
+    "buttons",
+    "context-menus",
+    "design-system",
+    "dock-menus",
+    "edit-menus",
+    "human-interface-guidelines",
+    "ios",
+    "macos",
+    "menus",
+    "toolbars",
+    "ui-design"
+  ],
+  "capabilities": [
+    "Recommend appropriate menu types (context menus, dock menus, edit menus, menu bar) based on use case",
+    "Specify correct button styles and roles for different platforms (iOS, iPadOS, macOS, visionOS)",
+    "Design toolbar layouts with proper action prioritization and overflow behavior",
+    "Apply Apple's standard keyboard shortcuts and menu ordering conventions",
+    "Choose between pop-up buttons, pull-down buttons, and disclosure controls for specific scenarios",
+    "Implement platform-specific menu behaviors and accessibility requirements"
+  ],
+  "author": "sickn33",
+  "icon": "🍎",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 893 potential security issues across 11 files (1527 lines). All findings are false positives from a pure documentation skill containing Apple Human Interface Guidelines. Hardcoded URLs are legitimate documentation image references to developer.apple.com. 'Weak cryptographic algorithm' and 'C2 keyword' detections are triggered by common UI/UX terminology (button, control, push, etc.). 'Ruby/shell backtick execution' patterns are from markdown code blocks and inline code formatting. No executable code, no network operations, no external commands - read-only reference documentation.",
+  "valueStatement": "Ensure your macOS and iOS interfaces follow Apple's design standards. This skill provides authoritative guidance on menu structure, button styles, and toolbar placement from Apple's Human Interface Guidelines.",
+  "userTitle": "Design Apple-Style Menus and Buttons",
+  "limitations": [
+    "Focuses exclusively on Apple platforms (iOS, iPadOS, macOS, visionOS, tvOS)",
+    "Provides design guidance only, not implementation code or API references",
+    "Content sourced from Apple's documentation may not cover latest beta features",
+    "Does not cover custom component designs that deviate from HIG standards"
+  ],
+  "useCases": [
+    {
+      "targetUser": "macOS application developer",
+      "title": "Design macOS Menu Structure",
+      "description": "A developer building a macOS application needs to organize menu items, define keyboard shortcuts, and implement standard Edit menus. They use this skill to ensure their menu bar follows Apple's conventions and includes all expected standard items."
+    },
+    {
+      "targetUser": "iOS/UI designer",
+      "title": "Choose Button Styles for iOS App",
+      "description": "An iOS designer is creating a form with multiple action buttons and needs to determine which button styles to use. This skill helps them select appropriate button roles (primary, cancel, destructive) and ensure proper visual hierarchy."
+    },
+    {
+      "targetUser": "Cross-platform app developer",
+      "title": "Implement Context Menus",
+      "description": "A cross-platform developer wants to add right-click context menus to their iPad and macOS app. They consult this skill to understand what actions belong in context menus versus primary UI, and how to ensure accessibility."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Menu Recommendation",
+      "prompt": "What type of menu should I use for [specific action/use case] on [platform]?",
+      "scenario": "User needs quick guidance on choosing the right menu component"
+    },
+    {
+      "title": "Button Style Selection",
+      "prompt": "I need buttons for [describe scenario - primary action, destructive action, etc.] on [platform]. Which button styles and roles should I use?",
+      "scenario": "User designing a view with multiple action buttons needs styling guidance"
+    },
+    {
+      "title": "Toolbar Design Review",
+      "prompt": "Review my toolbar design for [platform]. I have these actions: [list actions]. Are these the right choices for the toolbar versus menus?",
+      "scenario": "User validating toolbar layout and action placement"
+    },
+    {
+      "title": "Platform-Specific Behavior",
+      "prompt": "How should [menu/button component] behave differently on [platform 1] versus [platform 2]? What are the keyboard shortcuts and accessibility requirements?",
+      "scenario": "User building cross-platform app needs to account for platform differences"
+    }
+  ],
+  "bestPractices": [
+    "Every command must be reachable from the menu bar on macOS — toolbars and context menus supplement, not replace, menu items",
+    "Use system-defined button styles and roles rather than custom designs to maintain platform consistency and accessibility",
+    "Limit prominent buttons to one or two per view to reduce cognitive load and guide users to primary actions"
+  ],
+  "antiPatterns": [
+    "Putting commands only in context menus without also providing them in the menu bar or primary interface",
+    "Using multiple prominent button styles in the same view, which creates visual confusion about which action is preferred",
+    "Crowding toolbars with too many items — prioritize frequently used commands and move less common actions to overflow menus"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between a pop-up button and a pull-down button?",
+      "answer": "Pop-up buttons are for selecting one option from a mutually exclusive set (like choosing a font size). They always display the current selection. Pull-down buttons are for action lists where no selection is currently active (like a 'New' button that offers different creation options)."
+    },
+    {
+      "question": "Should I use a primary button for a destructive action?",
+      "answer": "No. Never assign the primary role to a button that performs a destructive action, even if it is the most likely choice. The visual prominence of primary buttons can cause people to tap without reading. Use the destructive role instead, which uses system red to warn users."
+    },
+    {
+      "question": "What is the minimum hit region size for buttons?",
+      "answer": "Buttons need a hit region of at least 44x44 points on iOS, iPadOS, and macOS. On visionOS, the minimum is 60x60 points. This ensures people can easily select buttons whether they use a fingertip, pointer, their eyes, or a remote."
+    },
+    {
+      "question": "When should I use a context menu versus a toolbar?",
+      "answer": "Use toolbars for frequently used commands that act on the current view or selection. Use context menus for secondary or item-specific actions accessed via right-click or long-press. Never put a command only in a context menu — always provide a primary access path."
+    },
+    {
+      "question": "What keyboard shortcuts should I use for standard Edit menu items?",
+      "answer": "Use Command+Z for Undo, Command+Shift+Z for Redo, Command+X for Cut, Command+C for Copy, Command+V for Paste, Command+A for Select All, and Command+F for Find. These are platform-standard shortcuts that users expect on macOS."
+    },
+    {
+      "question": "Can I customize the appearance of system buttons?",
+      "answer": "System buttons offer built-in styles with customization options for color and size. You can tint buttons and choose from styles like borderless, bordered, or bordered prominent. However, avoid creating completely custom button appearances that deviate from system styles, as this reduces accessibility and platform consistency."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Apple HIG",
+    "Human Interface Guidelines",
+    "menu design",
+    "button styles",
+    "macOS UI",
+    "iOS design system",
+    "toolbar design"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hig-components-menus",
+  "sourceType": "community",
+  "dependencies": []
+}

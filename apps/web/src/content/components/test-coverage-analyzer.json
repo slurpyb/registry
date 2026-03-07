@@ -1,0 +1,144 @@
+{
+  "name": "test-coverage-analyzer",
+  "type": "skill",
+  "description": "Analyzes test coverage gaps and suggests test cases for untested code paths. Use when user requests test improvements, coverage analysis, or wants to increase test coverage.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "coverage gap analysis",
+  "quality": 4,
+  "qualityReason": "Clear purpose, overlaps slightly with advisor",
+  "bundleHints": [
+    "test-optimization",
+    "quality-assurance",
+    "ci-cd"
+  ],
+  "tags": [
+    "code-insight",
+    "code-quality",
+    "coverage",
+    "coverage-report",
+    "static-analysis",
+    "test-automation",
+    "test-improvement",
+    "testing",
+    "untested-paths"
+  ],
+  "capabilities": [
+    "Detects testing frameworks (Jest, pytest, Go test, JUnit, Mocha, Vitest)",
+    "Parses coverage reports in JSON, lcov.info, .coverage, and coverage.out formats",
+    "Identifies files and functions with low coverage",
+    "Suggests specific test cases for uncovered code paths",
+    "Generates test file stubs for JavaScript, Python, and Go",
+    "Calculates coverage metrics and prioritizes critical gaps"
+  ],
+  "author": "CrazyDubya",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a legitimate test coverage analyzer with no malicious behavior. The bash script parses standard coverage file formats using common CLI tools. All static findings are false positives: external commands (jq, grep, awk) are standard development tools, filesystem access is read-only, and the critical heuristic finding misinterprets benign coverage parsing as dangerous behavior. No network calls, no credential access, no data exfiltration.",
+  "valueStatement": "Identifying untested code paths manually is time consuming. This skill parses coverage reports to find gaps and suggests specific test cases to improve code quality.",
+  "userTitle": "Analyze test coverage gaps",
+  "limitations": [
+    "Does not execute tests or modify source code directly",
+    "Requires existing coverage reports to analyze",
+    "Cannot generate tests for complex dependencies without user guidance",
+    "Limited to supported coverage formats (JSON, lcov, Python, Go)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Quality engineers",
+      "title": "Improve coverage metrics",
+      "description": "Identify low-coverage files and prioritize test writing efforts based on business impact"
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Write missing tests",
+      "description": "Get specific suggestions for untested code paths with example test cases and assertions"
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Verify test adequacy",
+      "description": "Review coverage gaps before merging code to ensure critical paths are tested"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic coverage check",
+      "scenario": "Analyze project coverage",
+      "prompt": "Analyze test coverage for this project. Find coverage reports and identify files with the lowest coverage. List the top 5 priorities for adding tests."
+    },
+    {
+      "title": "Generate test cases",
+      "scenario": "Create tests for specific file",
+      "prompt": "Find coverage gaps in src/utils/validator.js. What lines are untested? Suggest 3 specific test cases to cover the missing paths."
+    },
+    {
+      "title": "Framework detection",
+      "scenario": "Check testing setup",
+      "prompt": "What testing framework does this project use? Do they have coverage configured? Show me the current coverage summary."
+    },
+    {
+      "title": "Full coverage plan",
+      "scenario": "Comprehensive coverage improvement",
+      "prompt": "Run a complete coverage analysis. List all files under 60% coverage with specific line numbers and suggested test cases for each gap. Generate test file stubs where helpful."
+    }
+  ],
+  "bestPractices": [
+    "Focus on critical paths first: authentication, payments, and data validation",
+    "Test behavior over implementation details for maintainable tests",
+    "Set minimum coverage thresholds (e.g., 80%) and track progress over time"
+  ],
+  "antiPatterns": [
+    "Writing tests only to increase coverage numbers without validating behavior",
+    "Ignoring edge cases and error handling paths in tests",
+    "Testing private methods or implementation details instead of public APIs"
+  ],
+  "faq": [
+    {
+      "question": "What coverage formats are supported?",
+      "answer": "Jest coverage-summary.json, lcov.info, Python .coverage, and Go coverage.out formats are supported."
+    },
+    {
+      "question": "What is a good coverage target?",
+      "answer": "80% is a common target, but prioritize business-critical code over achieving 100% coverage."
+    },
+    {
+      "question": "Does this modify my code?",
+      "answer": "No. This skill only reads coverage data and suggests tests. It does not modify source or test files."
+    },
+    {
+      "question": "Is my code data safe?",
+      "answer": "Yes. All analysis happens locally. Code is only read to identify gaps, never transmitted externally."
+    },
+    {
+      "question": "Why no coverage report found?",
+      "answer": "Run your test suite with coverage: npm test -- --coverage, pytest --cov, or go test -cover."
+    },
+    {
+      "question": "How is this different from coverage tools?",
+      "answer": "Coverage tools show what is covered. This skill explains what is NOT covered and suggests specific tests."
+    }
+  ],
+  "seoKeywords": [
+    "test coverage analyzer",
+    "code coverage",
+    "test gap analysis",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "unit test suggestions",
+    "test automation",
+    "code quality",
+    "coverage report"
+  ],
+  "sourceUrl": "https://github.com/CrazyDubya/claude-skills/tree/main/test-coverage-analyzer",
+  "sourceType": "community",
+  "dependencies": []
+}

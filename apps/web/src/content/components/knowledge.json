@@ -1,0 +1,142 @@
+{
+  "name": "knowledge",
+  "type": "skill",
+  "description": "Display knowledge base status and recent learnings",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "knowledge base",
+  "quality": 4,
+  "qualityReason": "Internal knowledge tracking",
+  "bundleHints": [
+    "knowledge-management",
+    "project-context",
+    "team-collab"
+  ],
+  "tags": [
+    "context",
+    "documentation",
+    "knowledge-base",
+    "learnings",
+    "project",
+    "project-context",
+    "status",
+    "tracking"
+  ],
+  "capabilities": [
+    "Display learning mode status (enabled/disabled with timestamp)",
+    "Show knowledge base statistics by category (patterns, quirks, decisions, classifications)",
+    "Extract and display the 5 most recent learnings from knowledge files",
+    "Present cache statistics and extraction session metrics",
+    "Handle empty knowledge base states with helpful onboarding instructions"
+  ],
+  "author": "0xrdan",
+  "icon": "📚",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 23 static findings are false positives. The skill only reads local knowledge files using the Read tool. Patterns flagged as network, external_commands, and cryptographic issues are markdown formatting and string patterns in documentation/metadata, not actual security risks. The skill has read-only access to project-local knowledge files with no network calls or external command execution.",
+  "valueStatement": "Projects accumulate valuable insights during development. This skill displays the current state of your project's knowledge base, showing learning mode status, entry counts per category, and recent learnings extracted from your work sessions.",
+  "userTitle": "View Project Knowledge Base",
+  "limitations": [
+    "Read-only tool that cannot modify or add knowledge entries",
+    "Requires knowledge files to exist in the local project directory",
+    "Cannot extract knowledge from codebases without an existing knowledge base",
+    "Limited to displaying predefined knowledge categories only"
+  ],
+  "useCases": [
+    {
+      "targetUser": "New developers joining a project",
+      "title": "Onboard to a New Codebase",
+      "description": "Quickly understand a project's patterns, quirks, and architectural decisions by viewing the accumulated knowledge base before diving into code."
+    },
+    {
+      "targetUser": "Developers using Claude Code for learning",
+      "title": "Review Learning Progress",
+      "description": "Check how much knowledge has been extracted during your session and verify that learning mode is capturing insights correctly."
+    },
+    {
+      "targetUser": "Developers working on multiple projects",
+      "title": "Prepare for Context Switching",
+      "description": "Get a summary of recent decisions and patterns before stepping away from a project, helping to maintain continuity across work sessions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Status Check",
+      "prompt": "Show me the current knowledge base status",
+      "scenario": "Get a fast overview of the knowledge base state"
+    },
+    {
+      "title": "Recent Learnings Review",
+      "prompt": "What are the 5 most recent learnings in this project?",
+      "scenario": "Review the latest captured insights"
+    },
+    {
+      "title": "Category Statistics",
+      "prompt": "How many entries are in each knowledge category?",
+      "scenario": "Get detailed breakdown of knowledge base contents"
+    },
+    {
+      "title": "Full Knowledge Summary",
+      "prompt": "Display the complete knowledge base summary including status, statistics, and recent learnings",
+      "scenario": "Get comprehensive overview of project knowledge"
+    }
+  ],
+  "bestPractices": [
+    "Enable learning mode with /learn-on to continuously capture insights as you work",
+    "Use /learn to extract knowledge from your current session when learning mode is off",
+    "Review the knowledge base periodically to verify captured insights are accurate"
+  ],
+  "antiPatterns": [
+    "Expecting the knowledge base to automatically update without using /learn or enabling learning mode",
+    "Relying solely on the knowledge base without verifying critical information in the actual code",
+    "Adding sensitive credentials or secrets to knowledge entries, as they may be displayed in output"
+  ],
+  "faq": [
+    {
+      "question": "How does the knowledge base capture new insights?",
+      "answer": "When learning mode is enabled (/learn-on), Claude Code automatically extracts insights during your work. You can also manually trigger extraction with the /learn command in any session."
+    },
+    {
+      "question": "What types of knowledge are captured?",
+      "answer": "The knowledge base captures patterns (effective approaches), quirks (gotchas and edge cases), decisions (architectural choices with rationale), and classifications (code categorization)."
+    },
+    {
+      "question": "Can I edit or delete knowledge entries?",
+      "answer": "This skill is read-only and only displays the knowledge base. To edit entries, you would need to modify the knowledge files directly in the project directory."
+    },
+    {
+      "question": "Where are the knowledge files stored?",
+      "answer": "Knowledge files are stored in the local project directory under knowledge/state.json, knowledge/cache/, and knowledge/learnings/ subdirectories."
+    },
+    {
+      "question": "What does the confidence level mean?",
+      "answer": "Confidence levels indicate how certain the system is about the captured insight. High confidence means the pattern or decision was clearly established during the session."
+    },
+    {
+      "question": "How do I reset the knowledge base?",
+      "answer": "This skill cannot modify the knowledge base. To reset, you would need to delete or clear the knowledge files in the project directory manually."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "knowledge base",
+    "project knowledge",
+    "learnings",
+    "code patterns",
+    "development context",
+    "documentation",
+    "team knowledge"
+  ],
+  "sourceUrl": "https://github.com/0xrdan/claude-router/tree/main/.claude-plugin/skills/knowledge",
+  "sourceType": "community",
+  "dependencies": []
+}

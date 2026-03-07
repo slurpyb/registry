@@ -1,0 +1,138 @@
+{
+  "name": "explore-codebase",
+  "type": "skill",
+  "description": "Pattern for efficiently exploring codebases using parallel subagents. Use when you need to understand code structure, find patterns, or gather context.",
+  "domain": "tools",
+  "subdomain": "search",
+  "specialty": "parallel exploration",
+  "quality": 5,
+  "qualityReason": "Efficient parallel code analysis",
+  "bundleHints": [
+    "codebase-navigation",
+    "agent-exploration"
+  ],
+  "tags": [
+    "architecture",
+    "context",
+    "exploration",
+    "patterns",
+    "subagents"
+  ],
+  "capabilities": [
+    "Spawn parallel explorer subagents for broad searches",
+    "Use Glob to find files by pattern",
+    "Use Grep to search file contents",
+    "Read specific files for detailed inspection",
+    "Synthesize findings into structured YAML summaries",
+    "Identify architecture patterns and integration points"
+  ],
+  "author": "Clouder0",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill providing patterns for using Claude Code exploration tools. No executable code, network calls, or credential access. Static findings are false positives caused by the analyzer misinterpreting documentation syntax as code patterns.",
+  "valueStatement": "Understanding large codebases takes too long when done sequentially. This skill provides patterns for spawning parallel explorer subagents to gather context quickly and produce structured summaries.",
+  "userTitle": "Explore codebases with parallel agents",
+  "limitations": [
+    "Only provides patterns, does not execute exploration itself",
+    "Depends on user to specify search scope and hints",
+    "Does not analyze binary or compiled files",
+    "Cannot access external APIs or network resources"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software architects",
+      "title": "Understand project structure",
+      "description": "Map out architecture and identify patterns before making design decisions."
+    },
+    {
+      "targetUser": "New team members",
+      "title": "Learn codebase conventions",
+      "description": "Quickly understand coding standards, directory structure, and existing implementations."
+    },
+    {
+      "targetUser": "Debugging specialists",
+      "title": "Trace code flow",
+      "description": "Find related code paths and integration points to understand how features connect."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick file search",
+      "scenario": "Finding specific files",
+      "prompt": "Glob(pattern=\"**/*{keyword}*\")"
+    },
+    {
+      "title": "Pattern search",
+      "scenario": "Finding code patterns",
+      "prompt": "Grep(pattern=\"functionName\", type=\"ts\")"
+    },
+    {
+      "title": "Spawn explorer",
+      "scenario": "Broad exploration",
+      "prompt": "Task(subagent_type=\"explorer\", model=\"haiku\", prompt=\"Query: {question}\")"
+    },
+    {
+      "title": "Parallel exploration",
+      "scenario": "Multi-area exploration",
+      "prompt": "Spawn multiple explorers for different areas, then synthesize findings into YAML"
+    }
+  ],
+  "bestPractices": [
+    "Start with broad exploration before diving deep into specific areas",
+    "Spawn multiple explorers in parallel to cover different areas simultaneously",
+    "Always produce structured YAML summaries to consolidate findings"
+  ],
+  "antiPatterns": [
+    "Sequential exploration when parallel would be faster",
+    "Vague search queries without hints or scope",
+    "Skipping the synthesis step and missing patterns"
+  ],
+  "faq": [
+    {
+      "question": "What tools does this skill require?",
+      "answer": "Task, Read, Glob, and Grep tools are required. These are standard Claude Code tools."
+    },
+    {
+      "question": "How many explorers can I spawn?",
+      "answer": "Spawn as many as needed to cover different areas. Parallel is faster than sequential."
+    },
+    {
+      "question": "Is my code data safe?",
+      "answer": "Yes. This skill only reads files and produces summaries. No external data transmission."
+    },
+    {
+      "question": "Can this skill modify my code?",
+      "answer": "No. The skill only uses read-only tools. It cannot write files or execute arbitrary code."
+    },
+    {
+      "question": "How is this different from grep?",
+      "answer": "Grep finds patterns. This skill uses subagents to understand context and synthesize findings."
+    },
+    {
+      "question": "What is the explorer subagent?",
+      "answer": "A custom dotagent agent with structured YAML output for exploration tasks."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code exploration",
+    "codebase analysis",
+    "parallel agents",
+    "context gathering",
+    "code patterns",
+    "explore subagent",
+    "Claude",
+    "Codex",
+    "claude-code"
+  ],
+  "sourceUrl": "https://github.com/Clouder0/dotagent/tree/main/.claude/skills/explore-codebase",
+  "sourceType": "community",
+  "dependencies": []
+}

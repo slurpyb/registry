@@ -1,0 +1,142 @@
+{
+  "name": "seo-fundamentals",
+  "type": "skill",
+  "description": "Auto-invoke when reviewing HTML head, meta tags, or Next.js page components. Enforces semantic HTML and search optimization.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "semantic HTML",
+  "quality": 5,
+  "qualityReason": "Core web fundamentals",
+  "bundleHints": [
+    "frontend-seo",
+    "web-standards"
+  ],
+  "tags": [
+    "accessibility",
+    "head",
+    "html",
+    "meta-tags",
+    "nextjs",
+    "search-optimization",
+    "semantic",
+    "seo"
+  ],
+  "capabilities": [
+    "Reviews HTML head sections for missing title and meta description tags",
+    "Checks heading hierarchy (H1 to H6) for proper structure",
+    "Validates semantic HTML elements (header, main, nav, article, footer)",
+    "Verifies image alt text for accessibility and SEO",
+    "Reviews Open Graph and Twitter Card meta tags",
+    "Examines canonical URLs and structured data (JSON-LD)"
+  ],
+  "author": "DanielPodolsky",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 64 static findings are FALSE POSITIVEs. This is a pure documentation skill containing only SEO guidelines, checklists, and HTML code examples. The static analyzer misidentified HTML heading tags (H1, H2, H3) as weak cryptographic algorithms and markdown backticks as shell execution. No code execution, file access, network calls, or command execution exists.",
+  "valueStatement": "Developers often miss critical SEO elements or use incorrect HTML semantics. This skill systematically reviews web pages for title tags, meta descriptions, heading hierarchy, and semantic HTML to improve search visibility.",
+  "userTitle": "Review and Improve Website SEO",
+  "limitations": [
+    "Does not modify code automatically - provides recommendations only",
+    "Does not crawl live websites or fetch live pages",
+    "Does not perform Core Web Vitals measurements",
+    "Does not integrate with external SEO tools or APIs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend Developers",
+      "title": "Review Page SEO",
+      "description": "Review component code for proper meta tags, semantic HTML, and accessibility attributes before deployment."
+    },
+    {
+      "targetUser": "Full Stack Engineers",
+      "title": "Next.js SEO Audit",
+      "description": "Audit Next.js pages for metadata exports, Open Graph tags, and proper heading structure."
+    },
+    {
+      "targetUser": "Content Strategists",
+      "title": "Verify Index Readiness",
+      "description": "Ensure landing pages include all required SEO elements for search engine indexing."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic SEO Check",
+      "scenario": "Review a single page",
+      "prompt": "Review this page code for SEO issues. Check title tag, meta description, heading hierarchy, and image alt text."
+    },
+    {
+      "title": "Semantic HTML Review",
+      "scenario": "Validate HTML structure",
+      "prompt": "Does this HTML use semantic elements correctly? Identify any div soup or missing semantic tags."
+    },
+    {
+      "title": "Social Media Tags",
+      "scenario": "Check Open Graph",
+      "prompt": "Review the Open Graph and Twitter Card implementation. Are all required tags present?"
+    },
+    {
+      "title": "Complete SEO Audit",
+      "scenario": "Full review with Next.js",
+      "prompt": "Perform a complete SEO audit of this Next.js page component. Include metadata, semantic HTML, and accessibility checks."
+    }
+  ],
+  "bestPractices": [
+    "Include unique title tag (50-60 chars) and meta description (150-160 chars) on every page",
+    "Use one H1 per page with logical heading hierarchy (H1 → H2 → H3, no skipping)",
+    "Replace div containers with semantic HTML elements (nav, main, article, aside, footer)"
+  ],
+  "antiPatterns": [
+    "Multiple H1 tags on a single page - confuses search engines about page hierarchy",
+    "Empty or generic alt text like 'image1.jpg' - loses accessibility and SEO value",
+    "Using div elements instead of semantic HTML - prevents screen reader navigation"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "Works with Claude, Codex, and Claude Code for automated SEO review during development."
+    },
+    {
+      "question": "What character limits should I follow?",
+      "answer": "Title tags: 50-60 characters. Meta descriptions: 150-160 characters. Both prevent truncation in search results."
+    },
+    {
+      "question": "Does this integrate with SEO tools?",
+      "answer": "No. This skill reviews code during development. Use dedicated SEO tools like Google Search Console for production monitoring."
+    },
+    {
+      "question": "Is user data collected?",
+      "answer": "No. This skill only reviews code locally. No data is transmitted externally or stored."
+    },
+    {
+      "question": "Why is semantic HTML important for SEO?",
+      "answer": "Search engines and screen readers use semantic elements to understand page structure. Proper HTML improves accessibility and rankings."
+    },
+    {
+      "question": "How is this different from linters?",
+      "answer": "Linters catch syntax errors. This skill reviews SEO strategy, content quality, and semantic structure choices that require human judgment."
+    }
+  ],
+  "seoKeywords": [
+    "SEO review",
+    "semantic HTML",
+    "meta tags",
+    "Open Graph",
+    "Next.js SEO",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "heading hierarchy",
+    "image alt text"
+  ],
+  "sourceUrl": "https://github.com/DanielPodolsky/mentor-spec/tree/main/.claude/skills/fundamentals/seo",
+  "sourceType": "community",
+  "dependencies": []
+}

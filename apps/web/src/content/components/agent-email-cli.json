@@ -1,0 +1,147 @@
+{
+  "name": "agent-email-cli",
+  "type": "skill",
+  "description": "Operate the agent-email CLI to create disposable inboxes, poll for new mail, retrieve full message details, and manage local mailbox profiles. Use when the user needs terminal-based email inbox access for LLM or agent automation workflows.",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "email automation",
+  "quality": 5,
+  "qualityReason": "Specific CLI email functionality",
+  "bundleHints": [
+    "cli-tools",
+    "email-automation"
+  ],
+  "tags": [
+    "agent",
+    "automation",
+    "cli",
+    "disposable-inbox",
+    "email",
+    "inbox",
+    "message-retrieval",
+    "polling",
+    "profiles",
+    "terminal"
+  ],
+  "capabilities": [
+    "Create disposable email inboxes via agent-email CLI",
+    "Poll inboxes for new messages with configurable intervals",
+    "Retrieve full message content including body and source",
+    "List and manage local mailbox profiles",
+    "Extract message IDs and metadata for automation",
+    "Handle authentication errors and rate limits"
+  ],
+  "author": "zaddy6",
+  "icon": "📧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static scanner detected 80 patterns primarily from markdown code blocks showing example bash commands. All findings are false positives: the 'external_commands' are documentation examples in markdown backticks, not executable code. The 'filesystem' reference is documentation about PATH configuration. No executable code, prompt injection, or malicious intent detected. This is legitimate documentation for operating a third-party CLI tool.",
+  "valueStatement": "Agents need temporary email addresses for verification workflows and testing. This skill provides safe, documented access to the agent-email CLI for creating disposable inboxes, polling for messages, and extracting verification codes.",
+  "userTitle": "Manage Disposable Email Inboxes from Terminal",
+  "limitations": [
+    "Requires agent-email npm package to be installed globally",
+    "Depends on external email service availability",
+    "Cannot send emails, only receive and manage",
+    "Rate limits may affect polling frequency",
+    "No native Claude Code tool integration - uses Bash tool"
+  ],
+  "useCases": [
+    {
+      "targetUser": "QA engineers testing signup flows",
+      "title": "Automated Account Verification",
+      "description": "Create disposable inboxes to receive verification codes during automated account creation workflows. Poll for messages and extract OTP codes for form submission."
+    },
+    {
+      "targetUser": "Developers running automated tests",
+      "title": "Email Testing Pipeline",
+      "description": "Generate temporary email addresses for testing email delivery, format validation, and spam filtering in continuous integration pipelines."
+    },
+    {
+      "targetUser": "AI researchers building agent workflows",
+      "title": "Agent Workflow Integration",
+      "description": "Provide LLM agents with temporary inbox access for tasks requiring email verification, password resets, or communication monitoring."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Temporary Inbox",
+      "prompt": "Create a new disposable email inbox using the agent-email CLI. Return the email address and account ID, but do not display any passwords or tokens.",
+      "scenario": "User needs a temporary email address for signup verification"
+    },
+    {
+      "title": "Poll for Verification Code",
+      "prompt": "Use the default mailbox to poll for new messages every 2 seconds for up to 30 seconds. When a new message arrives, extract the verification code or confirmation link from the message body.",
+      "scenario": "Waiting for OTP or confirmation email during automated testing"
+    },
+    {
+      "title": "Retrieve Message Details",
+      "prompt": "Get the full message content for message ID {messageId} from the default inbox. Extract and summarize the key fields: subject, sender, date, and body content.",
+      "scenario": "User needs complete message content for analysis"
+    },
+    {
+      "title": "List and Manage Accounts",
+      "prompt": "List all local mailbox profiles managed by agent-email. Show email addresses, account IDs, and indicate which is currently active. Help me switch to a different account if needed.",
+      "scenario": "User managing multiple temporary email accounts"
+    }
+  ],
+  "bestPractices": [
+    "Always verify agent-email CLI is installed before running commands by checking `command -v agent-email`",
+    "Use the `default` alias when working with a single active inbox instead of specifying email addresses",
+    "Prefer JSON output parsing with jq for reliable field extraction in automation scripts",
+    "Never display or log sensitive fields like passwords or tokens from command output"
+  ],
+  "antiPatterns": [
+    "Do not hardcode email addresses or account IDs in prompts - use CLI to list available accounts",
+    "Avoid polling intervals shorter than 2 seconds to prevent rate limiting",
+    "Do not retry failed commands indefinitely without checking error codes and hints",
+    "Never include secret values (passwords, tokens) in your summaries or responses"
+  ],
+  "faq": [
+    {
+      "question": "Do I need to install anything before using this skill?",
+      "answer": "Yes, you must install the agent-email CLI globally using `npm install -g @zaddy6/agentemail` or `bun install -g @zaddy6/agentemail`. The skill will verify installation before running commands."
+    },
+    {
+      "question": "Can I send emails with this skill?",
+      "answer": "No, this skill only operates the receive-side functionality of agent-email. It can create inboxes, read messages, and manage accounts, but cannot send outgoing emails."
+    },
+    {
+      "question": "How long do disposable email addresses remain active?",
+      "answer": "Mailbox persistence depends on the agent-email service. Use `agent-email accounts list` to see your active accounts. The skill does not control mailbox lifetime - this is managed by the external service."
+    },
+    {
+      "question": "What happens if the CLI command fails?",
+      "answer": "All commands return structured JSON output. Check the `ok` field and read the `error.code` and `error.hint` fields for troubleshooting. Common errors include AUTH_REQUIRED, ACCOUNT_NOT_FOUND, and RATE_LIMITED."
+    },
+    {
+      "question": "Is it safe to use Claude Code with this skill?",
+      "answer": "Yes, the skill uses the Bash tool to execute commands. The skill explicitly warns against exposing secrets and recommends avoiding commands that require entering credentials on the command line in agent logs."
+    },
+    {
+      "question": "Can I use this for production email workflows?",
+      "answer": "This skill is designed for testing, verification, and automation workflows. Disposable email services typically have limitations and should not be relied upon for critical production email handling."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "disposable email",
+    "temp mail",
+    "email CLI",
+    "inbox automation",
+    "verification email",
+    "agent email",
+    "email testing"
+  ],
+  "sourceUrl": "https://github.com/zaddy6/agent-email-skill/tree/main/skills/agent-email-cli/",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "woocommerce-dev-cycle",
+  "type": "skill",
+  "description": "Run tests, linting, and quality checks for WooCommerce development. Use when running tests, fixing code style, or following the development workflow.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "dev workflow",
+  "quality": 5,
+  "qualityReason": "Comprehensive dev cycle support",
+  "bundleHints": [
+    "php-dev-cycle",
+    "woocommerce-ops"
+  ],
+  "tags": [
+    "linting",
+    "php",
+    "quality",
+    "quality-checks",
+    "testing",
+    "woocommerce",
+    "workflow"
+  ],
+  "capabilities": [
+    "Run PHP unit tests with PHPUnit via Docker environment",
+    "Run JavaScript and Jest tests for the admin client",
+    "Check and fix PHP code style with WordPress Coding Standards",
+    "Lint JavaScript and TypeScript files for code quality",
+    "Fix markdown files with markdownlint for documentation",
+    "Troubleshoot common test and linting failures"
+  ],
+  "author": "woocommerce",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "GPL-3.0-or-later",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only markdown documentation files. All 197 static findings are FALSE POSITIVES - the analyzer detected bash command examples in code blocks and markdownlint rule codes, but there is no executable code, scripts, network calls, or external command execution. The skill is purely informational guidance for WooCommerce development workflows.",
+  "valueStatement": "WooCommerce developers need to run tests and linting to ensure code quality. This skill provides the exact commands and workflows for PHP unit tests, JavaScript tests, and code style checks in the WooCommerce monorepo.",
+  "userTitle": "Run WooCommerce tests and linting",
+  "limitations": [
+    "Does not execute tests or linting automatically",
+    "Requires Docker and wp-env for PHP test environment",
+    "Commands are for the WooCommerce monorepo only",
+    "Does not configure or install dependencies"
+  ],
+  "useCases": [
+    {
+      "targetUser": "WooCommerce plugin developers",
+      "title": "Run test suite",
+      "description": "Run PHP and JavaScript tests to verify code changes before committing"
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Check code quality",
+      "description": "Run linting commands to verify code follows WordPress coding standards"
+    },
+    {
+      "targetUser": "Documentation writers",
+      "title": "Lint documentation",
+      "description": "Check markdown files pass markdownlint validation before creating PRs"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Run PHP tests",
+      "scenario": "Run a specific test class",
+      "prompt": "Run the PHP tests for the PaymentsExtensionSuggestionsTest class using the WooCommerce dev cycle skill"
+    },
+    {
+      "title": "Fix linting issues",
+      "scenario": "Fix PHP code style",
+      "prompt": "Help me fix PHP linting issues in my changed files using the WooCommerce dev cycle skill"
+    },
+    {
+      "title": "Check JS linting",
+      "scenario": "Run JavaScript linting",
+      "prompt": "Run JavaScript linting on the files I changed in my current branch"
+    },
+    {
+      "title": "Full workflow",
+      "scenario": "Complete development cycle",
+      "prompt": "Guide me through the full WooCommerce development cycle: run tests, check linting, and fix any issues"
+    }
+  ],
+  "bestPractices": [
+    "Run specific tests for changed code during development to save time",
+    "Always run linting before committing to catch style issues early",
+    "Review automatic fixes with git diff before committing"
+  ],
+  "antiPatterns": [
+    "Running linting on the entire codebase instead of only changed files",
+    "Skipping linting checks before committing code changes",
+    "Ignoring test failures without investigating the root cause"
+  ],
+  "faq": [
+    {
+      "question": "What PHP version is used for tests?",
+      "answer": "Tests run in Docker with PHP 8.1 and PHPUnit 9.6.24 via wp-env."
+    },
+    {
+      "question": "How do I run tests for a single method?",
+      "answer": "Use the filter syntax: pnpm run test:php:env -- --filter ClassName::methodName"
+    },
+    {
+      "question": "Can I integrate this with CI pipelines?",
+      "answer": "Commands work in CI. Use full test runs without --filter for CI environments."
+    },
+    {
+      "question": "Is my data safe when running these commands?",
+      "answer": "Commands run locally in Docker. No data is sent to external servers."
+    },
+    {
+      "question": "Why do I get class not found errors?",
+      "answer": "Run pnpm install to install dependencies. Restart wp-env if issues persist."
+    },
+    {
+      "question": "How is this different from other PHP linting skills?",
+      "answer": "This skill is specific to WooCommerce monorepo with WordPress coding standards configured."
+    }
+  ],
+  "seoKeywords": [
+    "woocommerce development",
+    "woocommerce testing",
+    "woocommerce linting",
+    "php unit tests",
+    "claude code",
+    "claude",
+    "codex",
+    "wordpress plugin",
+    "e-commerce development",
+    "code quality"
+  ],
+  "sourceUrl": "https://github.com/woocommerce/woocommerce/tree/trunk/.ai/skills/woocommerce-dev-cycle",
+  "sourceType": "community",
+  "dependencies": []
+}

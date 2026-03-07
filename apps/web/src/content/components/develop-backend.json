@@ -1,0 +1,140 @@
+{
+  "name": "develop-backend",
+  "type": "skill",
+  "description": "Spring Boot/MyBatisによるバックエンド実装スキル - RESTful API設計、データベース設計（Flywayマイグレーション）、Controller/Service/Mapper層の実装、単体テスト作成を行います。DRY原則を徹底し、product.utilパッケージの既存実装やAOPによる自動ログ出力を活用します。未使用コード削除をIDE警告で確認し、./gradlew checkでLint/テスト/カバレッジ80%以上を保証します。サーバー起動による動作確認も必須です。",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "Spring Boot/MyBatis",
+  "quality": 5,
+  "qualityReason": "Specific, full-stack backend focus",
+  "bundleHints": [
+    "java-stack",
+    "backend-stack"
+  ],
+  "tags": [
+    "aop",
+    "database design",
+    "flyway",
+    "junit",
+    "mybatis",
+    "restful api",
+    "spring boot"
+  ],
+  "capabilities": [
+    "Design and implement RESTful APIs with Spring Boot",
+    "Create Flyway database migration files",
+    "Implement Controller, Service, and Mapper layers",
+    "Write JUnit 5 unit tests with Mockito",
+    "Run `./gradlew check` for lint and coverage validation",
+    "Verify server startup and API functionality"
+  ],
+  "author": "Crearize",
+  "icon": "⚙️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "The static analyzer flagged 72 potential issues but all are FALSE POSITIVES. This is a documentation/metadata file describing a Spring Boot development workflow. The 'external_commands' detections are markdown code blocks showing legitimate Gradle/git commands, not executable code. The 'weak cryptographic algorithm' and 'obfuscation' findings are references to JwtUtil class names and technical documentation. The skill-report.json in the same directory already correctly classified this as low risk with no blocking issues. All detected patterns are standard development documentation patterns, not security threats.",
+  "valueStatement": "Creating backend APIs with Spring Boot requires following proper patterns, database migrations, and passing quality gates. This skill provides a complete development workflow with test coverage requirements and lint validation.",
+  "userTitle": "Build Spring Boot backends with tests and quality checks",
+  "limitations": [
+    "Focuses on Spring Boot/MyBatis stack only",
+    "Requires existing project structure with Gradle",
+    "Does not generate frontend code or deployment configurations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Implement new REST endpoints",
+      "description": "Add new API endpoints following project conventions with proper layer separation and tests"
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Create database schemas",
+      "description": "Design database tables with Flyway migrations and update related entity/DTO classes"
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Verify code quality",
+      "description": "Run lint checks and ensure test coverage meets 80% threshold before merge"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create simple CRUD API",
+      "scenario": "Add a new resource endpoint",
+      "prompt": "Create a new REST API endpoint for [resource-name] with standard CRUD operations following the project patterns. Include Flyway migration, entity, DTO, mapper, service, and controller. Ensure 80% test coverage."
+    },
+    {
+      "title": "Add validation rules",
+      "scenario": "Enhance existing endpoint",
+      "prompt": "Add input validation to the [existing-endpoint] API. Use Bean Validation annotations and return proper error responses. Update unit tests to cover validation scenarios."
+    },
+    {
+      "title": "Write integration tests",
+      "scenario": "Test API endpoints",
+      "prompt": "Create integration tests for the [api-name] endpoint. Test success cases, validation errors, and edge cases. Verify coverage meets the 80% threshold."
+    },
+    {
+      "title": "Optimize database queries",
+      "scenario": "Improve query performance",
+      "prompt": "Review the [mapper-name] mapper for N+1 query issues or missing indexes. Optimize the SQL queries and add appropriate result maps. Verify changes with `./gradlew check`."
+    }
+  ],
+  "bestPractices": [
+    "Follow existing patterns from similar implementations in the codebase",
+    "Use product.util package utilities instead of creating duplicates",
+    "Run `./gradlew check` and fix all issues before committing"
+  ],
+  "antiPatterns": [
+    "Skipping test coverage validation before merge",
+    "Writing try-catch blocks instead of using ExceptionHandler",
+    "Manually logging when AOP handles logging automatically"
+  ],
+  "faq": [
+    {
+      "question": "Which Java frameworks does this skill support?",
+      "answer": "This skill is optimized for Spring Boot with MyBatis. Other frameworks require manual adaptation of patterns."
+    },
+    {
+      "question": "What test coverage threshold is enforced?",
+      "answer": "Minimum 80% line coverage is required. Business logic should achieve 90% coverage."
+    },
+    {
+      "question": "Can this skill work with Maven instead of Gradle?",
+      "answer": "The skill references Gradle commands. Maven users need to translate `./gradlew check` and bootRun to equivalent Maven goals."
+    },
+    {
+      "question": "Is my code safe when using this skill?",
+      "answer": "Yes. This skill only reads and writes within your project directory. No data is sent to external services."
+    },
+    {
+      "question": "Why does the skill reference specific utility classes?",
+      "answer": "The skill references project-specific utilities like SecurityUtils and JwtUtil to encourage reuse and avoid duplicating existing functionality."
+    },
+    {
+      "question": "How does this differ from generic code generation?",
+      "answer": "This skill follows your project specific conventions, coding rules, and existing utilities. It enforces quality gates and documentation updates."
+    }
+  ],
+  "seoKeywords": [
+    "Spring Boot development",
+    "MyBatis",
+    "RESTful API",
+    "Claude Code",
+    "Claude",
+    "backend development",
+    "Flyway migrations",
+    "JUnit testing",
+    "Java backend",
+    "code quality"
+  ],
+  "sourceUrl": "https://github.com/Crearize/ProjectTemplate/tree/main/.claude/skills/develop-backend",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,146 @@
+{
+  "name": "langgraph",
+  "type": "skill",
+  "description": "Expert in LangGraph - the production-grade framework for building stateful, multi-actor AI applications. Covers graph construction, state management, cycles and branches, persistence with checkpointers, human-in-the-loop patterns, and the ReAct agent pattern. Used in production at LinkedIn, Uber, and 400+ companies. This is LangChain's recommended approach for building agents. Use when: langgraph, langchain agent, stateful agent, agent graph, react agent.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "stateful applications",
+  "quality": 5,
+  "qualityReason": "Advanced agent framework",
+  "bundleHints": [
+    "ai-agents",
+    "langgraph-tools",
+    "production-ai"
+  ],
+  "tags": [
+    "agent-framework",
+    "ai-agents",
+    "branches",
+    "checkpointing",
+    "cycles",
+    "graph architecture",
+    "graph-architecture",
+    "langgraph",
+    "multi-actor",
+    "persistence",
+    "state-management"
+  ],
+  "capabilities": [
+    "Create LangGraph agent architectures using StateGraph with nodes and edges",
+    "Implement state management with TypedDict and custom reducers for accumulation",
+    "Build conditional routing logic to direct agent flow based on state",
+    "Add checkpointing and persistence for resumable conversations",
+    "Integrate tools and tool calling into agent workflows",
+    "Implement human-in-the-loop patterns for agent oversight"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "medium",
+  "safeToPublish": true,
+  "securitySummary": "The skill is a legitimate LangGraph documentation and assistance skill. One true positive was found: an eval() call in example code (line 67) that accepts user input without sanitization. This is documented example code showing tool implementation, but poses a risk if users copy this pattern. Multiple false positives were dismissed: Ruby/shell backtick execution (markdown code fences misinterpreted) and weak cryptographic algorithms (keyword matches on 'hash' in framework terminology).",
+  "valueStatement": "LangGraph is a production-grade framework for building stateful, multi-actor AI applications. This skill helps you design agent architectures with visible graph structures, manage complex state, implement cycles and branches, and add persistence for resumable conversations.",
+  "userTitle": "Build AI Agents with LangGraph",
+  "limitations": [
+    "Python-only (TypeScript SDK is in early development)",
+    "Requires understanding of graph concepts and state management",
+    "Does not provide LLM access - requires separate API keys for OpenAI, Anthropic, etc.",
+    "Debugging complex graphs can be challenging in production"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI developers building production AI agents",
+      "title": "Build Multi-Step Agent Workflows",
+      "description": "Create agents that can reason, use tools, and maintain conversation context across multiple interactions."
+    },
+    {
+      "targetUser": "Developers creating research and analysis automation",
+      "title": "Implement Research Agent Systems",
+      "description": "Design agents that can gather information from multiple sources, merge findings, and produce synthesized reports."
+    },
+    {
+      "targetUser": "Engineers building persistent conversational AI apps",
+      "title": "Create Stateful Chat Applications",
+      "description": "Build chat applications that remember conversation history and can resume from previous states."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Agent Setup",
+      "prompt": "Create a simple ReAct-style agent using LangGraph that can call tools. Show me how to define state, create nodes, set up edges, and compile the graph.",
+      "scenario": "Getting started with LangGraph"
+    },
+    {
+      "title": "State Management",
+      "prompt": "Show me how to manage complex state in LangGraph using TypedDict and custom reducers. I want to accumulate messages, merge findings from multiple nodes, and track conversation history.",
+      "scenario": "Building stateful agents"
+    },
+    {
+      "title": "Conditional Routing",
+      "prompt": "Help me implement conditional branching in LangGraph. I need to route queries to different agents based on their type (coding, search, chat) and handle the responses appropriately.",
+      "scenario": "Multi-path agent workflows"
+    },
+    {
+      "title": "Persistence Setup",
+      "prompt": "Add checkpointing to my LangGraph agent so conversations can be resumed. Show me how to configure a checkpointer and persist state between sessions.",
+      "scenario": "Adding conversation persistence"
+    }
+  ],
+  "bestPractices": [
+    "Always define clear exit conditions in your routing functions to prevent infinite loops",
+    "Use reducers appropriately - add_messages for accumulation, custom functions for complex merging",
+    "Design input/output schemas to keep state minimal and focused on what's needed"
+  ],
+  "antiPatterns": [
+    "Using eval() on user input in tools - always validate and sanitize any user-provided expressions",
+    "Creating stateless nodes that don't return state updates - defeats the purpose of LangGraph",
+    "Using giant monolithic state with unnecessary fields - causes serialization overhead and context bloat"
+  ],
+  "faq": [
+    {
+      "question": "What is LangGraph?",
+      "answer": "LangGraph is a framework for building stateful, multi-actor AI applications using graph structures. It extends LangChain with support for cycles and persistence."
+    },
+    {
+      "question": "Do I need an LLM API key?",
+      "answer": "Yes, LangGraph requires access to an LLM API (OpenAI, Anthropic, etc.) for the agent to function. The skill provides the architecture; you provide the API credentials."
+    },
+    {
+      "question": "Can LangGraph save conversation history?",
+      "answer": "Yes, LangGraph supports checkpointing with various backends (Memory, SQLite, Postgres). This allows agents to resume from previous states."
+    },
+    {
+      "question": "Is LangGraph Python-only?",
+      "answer": "The primary SDK is Python. A TypeScript/JavaScript SDK exists but is in early development stages."
+    },
+    {
+      "question": "How do I add tools to my agent?",
+      "answer": "Define tools using the @tool decorator from langchain_core.tools. Bind them to your LLM with bind_tools(), then create a ToolNode to handle execution."
+    },
+    {
+      "question": "What's the difference between edges and conditional edges?",
+      "answer": "Regular edges connect nodes in a fixed path. Conditional edges use a function to determine which node to go to next based on the current state."
+    }
+  ],
+  "seoKeywords": [
+    "langgraph",
+    "ai agent builder",
+    "claude code",
+    "codex",
+    "agent framework",
+    "graph-based ai",
+    "stateful agents",
+    "multi-agent systems",
+    "agent persistence",
+    "llm orchestration"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/langgraph",
+  "sourceType": "community",
+  "dependencies": []
+}

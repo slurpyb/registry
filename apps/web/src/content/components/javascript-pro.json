@@ -1,0 +1,142 @@
+{
+  "name": "javascript-pro",
+  "type": "skill",
+  "description": "Master modern JavaScript with ES6+, async patterns, and Node.js",
+  "domain": "languages",
+  "subdomain": "javascript",
+  "specialty": "modern javascript",
+  "quality": 5,
+  "qualityReason": "Highly specific with clear scope",
+  "bundleHints": [
+    "javascript-stack",
+    "nodejs-backend",
+    "frontend-dev"
+  ],
+  "tags": [
+    "async",
+    "browser-compatibility",
+    "es6",
+    "event-loop",
+    "javascript",
+    "nodejs",
+    "promises"
+  ],
+  "capabilities": [
+    "Write modern JavaScript using ES6+ features like destructuring, modules, and classes",
+    "Implement robust async patterns with promises, async/await, and generators",
+    "Debug complex async issues including race conditions and event loop behavior",
+    "Optimize JavaScript performance for both Node.js and browser environments",
+    "Handle cross-browser compatibility with polyfill strategies",
+    "Create clean module structures with proper exports and error handling"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Prompt-only skill with no executable code. Static analysis scanned 0 files (0 lines) and detected 0 security issues. No suspicious patterns, risk factors, or malicious intent found. The skill provides legitimate JavaScript development guidance with no security concerns.",
+  "valueStatement": "Struggle with async patterns or modern JS syntax? This skill provides expert guidance on ES6+, promises, async/await, event loops, and cross-runtime compatibility for Node.js and browser development.",
+  "userTitle": "Master Modern JavaScript Development",
+  "limitations": [
+    "Provides JavaScript guidance but does not execute code directly",
+    "Focuses on JavaScript runtime, not TypeScript architecture design",
+    "Does not handle backend architecture decisions beyond JavaScript implementation",
+    "Cannot run tests or profile performance without user execution"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developer maintaining legacy codebases",
+      "title": "Modern JavaScript Migration",
+      "description": "A developer needs to migrate legacy JavaScript code to modern ES6+ standards with improved patterns and better error handling."
+    },
+    {
+      "targetUser": "Backend developer working with Node.js APIs",
+      "title": "Async Debugging",
+      "description": "A engineer faces race conditions or promise rejection issues in their Node.js application and needs expert debugging strategies."
+    },
+    {
+      "targetUser": "Frontend developer targeting multiple browsers",
+      "title": "Cross-Platform Compatibility",
+      "description": "A team building browser applications needs guidance on polyfills, bundle optimization, and cross-browser compatibility."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Convert to Modern JavaScript",
+      "prompt": "Convert this legacy JavaScript code to modern ES6+ syntax. Use destructuring, arrow functions, and const/let appropriately.",
+      "scenario": "Modernizing old codebases"
+    },
+    {
+      "title": "Fix Async Issue",
+      "prompt": "Help debug this async code. It has a race condition where the promise resolves before the event handler completes.",
+      "scenario": "Debugging promise chains and async flows"
+    },
+    {
+      "title": "Optimize Performance",
+      "prompt": "Profile this JavaScript code for performance bottlenecks. Focus on event loop blocking and memory usage in Node.js.",
+      "scenario": "Improving runtime performance"
+    },
+    {
+      "title": "Cross-Browser Strategy",
+      "prompt": "Design a polyfill strategy for this ES6+ code. Target browsers: Chrome 90+, Safari 14+, Firefox 88+.",
+      "scenario": "Ensuring browser compatibility"
+    }
+  ],
+  "bestPractices": [
+    "Always use async/await instead of promise chains for better readability and error handling",
+    "Handle errors at appropriate boundaries with try/catch blocks rather than per-operation",
+    "Consider bundle size impact when using modern features in browser environments"
+  ],
+  "antiPatterns": [
+    "Avoid mixing callbacks with promises in the same code path as it creates error handling complexity",
+    "Do not use Promise.all() when operations must complete sequentially, use for...of with await instead",
+    "Never ignore promise rejections by omitting catch handlers or .catch() blocks"
+  ],
+  "faq": [
+    {
+      "question": "When should I use this skill?",
+      "answer": "Use this skill proactively when working with JavaScript for Node.js or browsers, especially when dealing with async code, ES6+ features, or performance optimization."
+    },
+    {
+      "question": "Does this skill write TypeScript code?",
+      "answer": "No, this skill focuses on JavaScript. For TypeScript architecture and type system guidance, use a dedicated TypeScript skill."
+    },
+    {
+      "question": "Can this skill debug my existing JavaScript code?",
+      "answer": "Yes, it excels at debugging async behavior, event loop issues, race conditions, and performance problems in JavaScript code."
+    },
+    {
+      "question": "What JavaScript versions does this skill support?",
+      "answer": "This skill specializes in modern ES6+ JavaScript but can also help migrate legacy code to modern standards."
+    },
+    {
+      "question": "Does this skill handle framework-specific code?",
+      "answer": "This skill focuses on core JavaScript, async patterns, and runtime APIs. It does not specialize in React, Vue, or other framework specifics."
+    },
+    {
+      "question": "Can this skill help with browser compatibility?",
+      "answer": "Yes, it provides polyfill strategies and cross-browser compatibility guidance for modern JavaScript features."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "JavaScript expert",
+    "ES6+ guidance",
+    "async programming",
+    "Node.js APIs",
+    "promise patterns",
+    "event loop",
+    "cross-browser compatibility"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/javascript-pro",
+  "sourceType": "community",
+  "dependencies": []
+}

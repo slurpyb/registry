@@ -1,0 +1,144 @@
+{
+  "name": "mobile-testing",
+  "type": "skill",
+  "description": "Write and run tests for React Native apps using Jest and React Native Testing Library. Use when creating tests, debugging failures, or setting up test infrastructure.",
+  "domain": "testing",
+  "subdomain": "unit",
+  "specialty": "React Native tests",
+  "quality": 5,
+  "qualityReason": "Clear tools and use cases",
+  "bundleHints": [
+    "mobile-testing",
+    "react-native-tools"
+  ],
+  "tags": [
+    "debugging",
+    "jest",
+    "mobile",
+    "mobile-development",
+    "quality-assurance",
+    "react native testing library",
+    "react-native",
+    "test infrastructure",
+    "testing",
+    "unit testing"
+  ],
+  "capabilities": [
+    "Provides component test templates using React Native Testing Library",
+    "Provides hook test templates with renderHook and act utilities",
+    "Provides utility test templates for pure functions",
+    "Shows mocking patterns for external modules, databases, and navigation",
+    "Includes async testing patterns and form testing examples",
+    "Lists troubleshooting tips for common testing issues"
+  ],
+  "author": "BabakBar",
+  "icon": "🧪",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown templates and guidance for React Native testing. No executable code, network operations, or file system operations beyond reading its own content. Static findings are false positives from the scanner misinterpreting documentation code blocks and metadata as executable security risks.",
+  "valueStatement": "Writing tests for React Native applications is time-consuming without proper templates and patterns. This skill provides ready-to-use testing templates for components, hooks, and utilities along with mocking patterns and best practices.",
+  "userTitle": "Test React Native apps with Jest",
+  "limitations": [
+    "Does not execute tests or verify test results",
+    "Does not configure Jest or testing infrastructure automatically",
+    "Does not generate test coverage reports",
+    "Does not integrate with CI/CD pipelines"
+  ],
+  "useCases": [
+    {
+      "targetUser": "React Native developers",
+      "title": "Writing unit tests",
+      "description": "Get templates for testing components, hooks, and utility functions in React Native apps"
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Creating integration tests",
+      "description": "Set up integration tests for features with proper mocking of external dependencies"
+    },
+    {
+      "targetUser": "Mobile teams",
+      "title": "Improving test coverage",
+      "description": "Follow best practices to increase test coverage with isolated, maintainable tests"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Component test",
+      "scenario": "Testing a button component",
+      "prompt": "Write a Jest test for MyButton component that renders correctly and calls onPress when pressed"
+    },
+    {
+      "title": "Hook test",
+      "scenario": "Testing a custom hook",
+      "prompt": "Write a test for useCounter hook that increments and decrements the count value"
+    },
+    {
+      "title": "Mock external",
+      "scenario": "Mocking database calls",
+      "prompt": "Show me how to mock the database module in Jest tests for a React Native app"
+    },
+    {
+      "title": "Async test",
+      "scenario": "Testing async data loading",
+      "prompt": "Write an async test that waits for data to load and verifies the rendered content"
+    }
+  ],
+  "bestPractices": [
+    "Test user-facing behavior instead of internal implementation details",
+    "Use testID props for element selection instead of fragile text queries",
+    "Mock external dependencies to keep tests fast and isolated"
+  ],
+  "antiPatterns": [
+    "Testing implementation details instead of user behavior",
+    "Using text queries that break with UI changes",
+    "Skipping mocking of external services causing flaky tests"
+  ],
+  "faq": [
+    {
+      "question": "Which React Native versions are supported?",
+      "answer": "Works with React Native 0.70+ and Expo SDK 50+. Compatible with Jest 28+ and React Native Testing Library."
+    },
+    {
+      "question": "What is the maximum test file size?",
+      "answer": "No enforced limit. Keep tests focused with one concern per file. Large components may need multiple test files."
+    },
+    {
+      "question": "Can this skill integrate with CI/CD pipelines?",
+      "answer": "The skill provides guidance for running Jest in CI. Add npm test to your CI pipeline configuration."
+    },
+    {
+      "question": "Is test data stored securely?",
+      "answer": "Tests run locally. No test data leaves your machine. Jest stores coverage reports locally by default."
+    },
+    {
+      "question": "Why are my tests timing out?",
+      "answer": "Increase Jest timeout, check for unresolved promises, use waitFor or findBy queries for async content."
+    },
+    {
+      "question": "How is this different from Detox for E2E testing?",
+      "answer": "Jest with RNTL tests units and components in isolation. Detox tests full app flow on simulator. Use both together."
+    }
+  ],
+  "seoKeywords": [
+    "React Native testing",
+    "Jest testing",
+    "React Native Testing Library",
+    "mobile app testing",
+    "unit testing React Native",
+    "integration testing mobile",
+    "Jest templates",
+    "testing best practices",
+    "Claude Code",
+    "claude"
+  ],
+  "sourceUrl": "https://github.com/BabakBar/VibeKeeper/tree/main/.claude/skills/testing",
+  "sourceType": "community",
+  "dependencies": []
+}

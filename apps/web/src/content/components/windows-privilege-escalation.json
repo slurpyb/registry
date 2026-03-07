@@ -1,0 +1,144 @@
+{
+  "name": "windows-privilege-escalation",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"escalate privileges on Windows,\" \"find Windows privesc vectors,\" \"enumerate Windows for privilege escalation,\" \"exploit Windows misconfigurations,\" or \"perform post-exploitation privilege escalation.\" It provides comprehensive guidance for discovering and exploiting privilege escalation vulnerabilities in Windows environments.",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "privilege escalation",
+  "quality": 5,
+  "qualityReason": "Specific offensive security focus",
+  "bundleHints": [
+    "pentest-toolkit",
+    "windows-security"
+  ],
+  "tags": [
+    "authorized-testing",
+    "exploitation",
+    "pentesting",
+    "privilege-escalation",
+    "red-team",
+    "security",
+    "windows"
+  ],
+  "capabilities": [
+    "Enumerate Windows system configurations and identify privilege escalation vectors",
+    "Extract credentials from SAM database, registry, and stored credential locations",
+    "Exploit misconfigured services including unquoted paths and weak permissions",
+    "Perform token impersonation attacks using JuicyPotato and PrintSpoofer techniques",
+    "Identify and leverage kernel vulnerabilities for privilege escalation",
+    "Document findings and generate remediation recommendations"
+  ],
+  "author": "sickn33",
+  "icon": "🛡️",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "high",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains Windows privilege escalation techniques for authorized penetration testing. Static analysis detected 114 external command patterns (PowerShell, cmd.exe), 9 network references (standard pentest example IPs), and 5 filesystem operations. All findings are contextually appropriate for a defensive security tool. The skill includes proper legal disclaimers and is designed for authorized security testing only.",
+  "valueStatement": "Discover and exploit Windows privilege escalation vulnerabilities during authorized penetration testing. Provides systematic methodologies for credential harvesting, service exploitation, and token impersonation.",
+  "userTitle": "Escalate Privileges on Windows Systems",
+  "limitations": [
+    "Requires authorized access to target Windows systems only",
+    "Kernel exploits may cause system instability and should be tested carefully",
+    "Some techniques require specific Windows versions or configurations",
+    "Antivirus and EDR solutions may detect and block common exploitation tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Penetration testers and security consultants",
+      "title": "Penetration Testing Engagement",
+      "description": "Security consultants performing authorized assessments use this skill to identify privilege escalation paths and demonstrate business impact to clients."
+    },
+    {
+      "targetUser": "Red team operators and offensive security teams",
+      "title": "Red Team Operations",
+      "description": "Red team members leverage these techniques to simulate adversary tactics and test organizational detection and response capabilities."
+    },
+    {
+      "targetUser": "Security trainees and CTF participants",
+      "title": "Security Training and CTF",
+      "description": "Security professionals and students use this skill to learn Windows exploitation techniques in controlled lab environments and capture the flag competitions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic System Enumeration",
+      "prompt": "Enumerate the current Windows system for privilege escalation vectors. Check user privileges, group memberships, installed software, and running services. Present findings in a prioritized list.",
+      "scenario": "Starting a penetration test with initial user access"
+    },
+    {
+      "title": "Credential Discovery",
+      "prompt": "Search for stored credentials on this Windows system. Check the registry, configuration files, Windows Credential Manager, and browser storage. Document any discovered credentials and their potential use.",
+      "scenario": "Looking for credential-based escalation paths"
+    },
+    {
+      "title": "Service Exploitation Analysis",
+      "prompt": "Analyze Windows services for exploitation opportunities. Check for unquoted service paths, weak service permissions, and vulnerable service configurations. Provide specific exploitation steps for each finding.",
+      "scenario": "Identifying service-based privilege escalation vectors"
+    },
+    {
+      "title": "Comprehensive Privilege Escalation Assessment",
+      "prompt": "Perform a complete Windows privilege escalation assessment. Run systematic enumeration across all vectors: system info, credentials, services, scheduled tasks, registry, and kernel vulnerabilities. Generate a prioritized exploitation roadmap with specific commands for each path.",
+      "scenario": "Full-scope penetration testing engagement"
+    }
+  ],
+  "bestPractices": [
+    "Always obtain written authorization before testing any system you do not own",
+    "Test exploitation techniques in a lab environment before production use",
+    "Document all findings with timestamps and evidence for client reporting",
+    "Avoid kernel exploits on production systems due to crash risk",
+    "Clean up any tools or files created during the engagement"
+  ],
+  "antiPatterns": [
+    "Running kernel exploits on production systems without backup and recovery plan",
+    "Using loud enumeration techniques that trigger security alerts before objectives are met",
+    "Leaving exploitation tools or backdoors on client systems after engagement ends",
+    "Testing without proper scope definition and rules of engagement documentation"
+  ],
+  "faq": [
+    {
+      "question": "Is this skill legal to use?",
+      "answer": "This skill is designed for authorized penetration testing only. You must have written permission from system owners before using these techniques. Unauthorized access to computer systems is illegal in most jurisdictions."
+    },
+    {
+      "question": "Will these techniques work on all Windows versions?",
+      "answer": "No. Techniques are version-dependent. Kernel exploits target specific Windows versions. Always verify OS version and patch level before attempting exploitation. The skill includes version compatibility information for each technique."
+    },
+    {
+      "question": "Why do some exploits fail even when the vulnerability exists?",
+      "answer": "Antivirus and EDR solutions commonly block known exploitation tools. Try living-off-the-land techniques, custom compiled binaries, or obfuscated payloads. Some exploits also require specific system configurations."
+    },
+    {
+      "question": "What is the safest privilege escalation technique?",
+      "answer": "Service misconfigurations (unquoted paths, weak permissions) are generally safest as they do not involve kernel code execution. Credential-based escalation using saved passwords is also low-risk compared to kernel exploits."
+    },
+    {
+      "question": "Can I use this skill for defensive security work?",
+      "answer": "Yes. Understanding offensive techniques is essential for defensive security. Use this skill to audit your own systems, identify vulnerabilities before attackers do, and improve security posture."
+    },
+    {
+      "question": "What tools do I need to transfer to the target system?",
+      "answer": "Many techniques use built-in Windows commands. For advanced exploitation, common tools include WinPEAS, PowerUp, JuicyPotato, PrintSpoofer, and Mimikatz. Always verify tool hashes and test in lab environments first."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code Windows security",
+    "Codex privilege escalation",
+    "Claude penetration testing",
+    "Windows privesc techniques",
+    "authorized security testing",
+    "Windows credential dumping",
+    "token impersonation",
+    "Windows exploitation",
+    "red team operations",
+    "security assessment tools"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/windows-privilege-escalation",
+  "sourceType": "community",
+  "dependencies": []
+}

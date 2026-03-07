@@ -1,0 +1,140 @@
+{
+  "name": "when-reviewing-github-pr-use-github-code-review",
+  "type": "skill",
+  "description": "Comprehensive GitHub pull request code review using multi-agent swarm with specialized reviewers for security, performance, style, tests, and documentation. Coordinates security-auditor, perf-analyzer, code-analyzer, tester, and reviewer agents through mesh topology for parallel analysis. Provides detailed feedback with auto-fix suggestions and merge readiness assessment. Use when reviewing PRs, conducting code audits, or ensuring code quality standards before merge.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "PR review",
+  "quality": 5,
+  "qualityReason": "Targeted PR analysis",
+  "bundleHints": [
+    "github-tools",
+    "code-review"
+  ],
+  "tags": [
+    "automation",
+    "code-review",
+    "github",
+    "multi-agent",
+    "security",
+    "specialized reviewers"
+  ],
+  "capabilities": [
+    "Orchestrates 5 specialized agents for parallel PR analysis",
+    "Performs security vulnerability scanning and OWASP compliance checks",
+    "Analyzes performance implications and optimization opportunities",
+    "Evaluates code quality, maintainability, and style adherence",
+    "Reviews test coverage and generates automated fix suggestions",
+    "Posts comprehensive review reports directly to GitHub"
+  ],
+  "author": "DNYoussef",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate documentation-only skill for GitHub PR code review automation. All static findings are false positives: C2 keywords (generic terms like 'agent' and 'shell'), weak cryptographic algorithm (mentions of hashing for password storage examples), and backtick execution (markdown code block syntax for documentation). The skill contains no executable code.",
+  "valueStatement": "Manual code reviews are time-consuming and inconsistent across teams. This skill orchestrates five specialized AI agents to perform comprehensive security, performance, quality, testing, and documentation analysis on pull requests in parallel, delivering standardized review reports with actionable feedback.",
+  "userTitle": "Automate GitHub PR Reviews with Multi-Agent AI",
+  "limitations": [
+    "Requires GitHub API access and appropriate repository permissions",
+    "External script dependencies for specialized analysis tools",
+    "Limited to repositories accessible via GitHub API",
+    "Review quality depends on PR size and complexity"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development Teams",
+      "title": "Standardize PR Review Process",
+      "description": "Ensure consistent, thorough code reviews across all team members with automated security and quality checks before merge approval."
+    },
+    {
+      "targetUser": "Open Source Maintainers",
+      "title": "Scale Contributor Reviews",
+      "description": "Handle high volumes of external contributions with comprehensive automated analysis, freeing maintainer time for strategic decisions."
+    },
+    {
+      "targetUser": "Security Teams",
+      "title": "Automated Security Audits",
+      "description": "Automatically scan all code changes for security vulnerabilities, secrets exposure, and compliance violations before they reach production."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic PR Review",
+      "scenario": "Review a simple feature PR",
+      "prompt": "Review this pull request for security issues, performance problems, and code quality. Focus on the main changes and provide actionable feedback."
+    },
+    {
+      "title": "Security-Focused",
+      "scenario": "Review PR with security implications",
+      "prompt": "Perform a comprehensive security audit of this PR. Check for OWASP Top 10 violations, authentication flaws, and potential vulnerabilities. Flag any critical issues."
+    },
+    {
+      "title": "Performance Review",
+      "scenario": "Review performance-critical changes",
+      "prompt": "Analyze the performance implications of this PR. Identify algorithmic complexity issues, database query problems, caching opportunities, and resource usage concerns."
+    },
+    {
+      "title": "Enterprise Review",
+      "scenario": "Review for enterprise standards",
+      "prompt": "Conduct a full enterprise-grade review covering security, performance, code quality, test coverage, and documentation. Apply strict standards and generate a detailed compliance report."
+    }
+  ],
+  "bestPractices": [
+    "Configure appropriate GitHub API token scopes - limit to repository access only",
+    "Review generated feedback before posting - ensure suggestions are accurate and helpful",
+    "Customize review criteria for your teams specific standards and requirements"
+  ],
+  "antiPatterns": [
+    "Do not rely solely on automated reviews - combine with human judgment for critical decisions",
+    "Avoid posting raw agent outputs without synthesis - aggregate findings into coherent feedback",
+    "Do not ignore false positives - tune review criteria to reduce noise over time"
+  ],
+  "faq": [
+    {
+      "question": "Which GitHub permissions are required?",
+      "answer": "The skill needs repository read access to fetch PR data and write access to post review comments. Use fine-grained personal access tokens with minimal required scopes."
+    },
+    {
+      "question": "Can this review private repositories?",
+      "answer": "Yes, with appropriate API token permissions. The skill works with any repository your GitHub account can access, including private and internal repos."
+    },
+    {
+      "question": "How does it integrate with existing CI/CD?",
+      "answer": "Trigger reviews via GitHub Actions webhooks on PR events. The skill can post status checks and block merges until review criteria are met."
+    },
+    {
+      "question": "Is my code data secure during review?",
+      "answer": "Code is analyzed locally through your Claude Code installation. No code content is sent to external services beyond GitHub API calls for posting results."
+    },
+    {
+      "question": "What if the review finds false positives?",
+      "answer": "Customize review criteria in the configuration files and provide feedback to improve future reviews. You can dismiss individual findings when posting to GitHub."
+    },
+    {
+      "question": "How does this compare to GitHubs built-in reviews?",
+      "answer": "This provides deeper technical analysis across multiple dimensions (security, performance, quality) with automated fix suggestions, complementing human reviewer expertise."
+    }
+  ],
+  "seoKeywords": [
+    "github code review",
+    "pull request automation",
+    "claude code review",
+    "multi-agent review",
+    "security audit",
+    "performance analysis",
+    "codex github",
+    "ai code review",
+    "automated pr review",
+    "claude github integration"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/github-integration/when-reviewing-github-pr-use-github-code-review",
+  "sourceType": "community",
+  "dependencies": []
+}

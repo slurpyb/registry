@@ -1,0 +1,143 @@
+{
+  "name": "frontend-component",
+  "type": "skill",
+  "description": "Next.js 16+ uses App Router with Server Components by default. Client Components are only used when interactivity is needed (hooks, event handlers, browser APIs).",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "component model",
+  "quality": 5,
+  "qualityReason": "Precise framework versioning",
+  "bundleHints": [
+    "nextjs-stack",
+    "react-components"
+  ],
+  "tags": [
+    "app-router",
+    "client-components",
+    "components",
+    "frontend",
+    "next.js",
+    "nextjs-16",
+    "react",
+    "react-19",
+    "server-components",
+    "typescript"
+  ],
+  "capabilities": [
+    "Distinguish when to use Server Components versus Client Components",
+    "Implement protected route patterns with authentication checks",
+    "Create accessible form handling with validation and error states",
+    "Apply Tailwind CSS patterns with conditional class utilities",
+    "Build accessibility patterns following WCAG 2.1 AA guidelines",
+    "Implement advanced patterns like drag-and-drop, undo/redo, and real-time polling"
+  ],
+  "author": "Asmayaseen",
+  "icon": "🧩",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown guidance and TypeScript code examples. No executable code, scripts, network calls, file system access, or environment variable reading. The 142 static findings are all false positives from markdown documentation patterns being misidentified as security issues.",
+  "valueStatement": "Building Next.js components with the wrong pattern leads to performance issues, hydration errors, and poor user experience. This skill provides patterns for server and client components, accessibility compliance, and React best practices to build efficient, accessible frontend components.",
+  "userTitle": "Create Next.js Components with Server/Client Patterns",
+  "limitations": [
+    "Does not provide working code files - only documentation and examples",
+    "Requires existing Next.js 16+ project setup to apply patterns",
+    "Does not install dependencies or configure build tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Build compliant Next.js components",
+      "description": "Create components that follow server/client patterns and meet accessibility standards"
+    },
+    {
+      "targetUser": "React developers",
+      "title": "Modernize legacy React code",
+      "description": "Refactor class components and client-only code to use server components where appropriate"
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Standardize component architecture",
+      "description": "Establish consistent patterns across team for protected routes, forms, and state management"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic component structure",
+      "scenario": "Create a simple Next.js page component",
+      "prompt": "Show me how to create a basic Next.js 16 Server Component for a page with static content and metadata"
+    },
+    {
+      "title": "Interactive client component",
+      "scenario": "Build an interactive form component",
+      "prompt": "How do I create a Client Component form with React hooks, validation, and proper state management in Next.js"
+    },
+    {
+      "title": "Protected route pattern",
+      "scenario": "Implement authentication guard",
+      "prompt": "Create a ProtectedRoute component that checks authentication, shows loading state, and redirects to signin if needed"
+    },
+    {
+      "title": "Advanced accessibility",
+      "scenario": "Build fully accessible UI",
+      "prompt": "Show me WCAG 2.1 AA compliant patterns including ARIA labels, keyboard navigation, focus management, and screen reader support"
+    }
+  ],
+  "bestPractices": [
+    "Default to Server Components for static content, SEO, and data fetching",
+    "Add use client directive only when interactivity, hooks, or browser APIs are required",
+    "Always include accessibility attributes like aria-label, role, and keyboard navigation support"
+  ],
+  "antiPatterns": [
+    "Using use client on every component just to be safe",
+    "Skipping accessibility attributes for simple components",
+    "Using inline styles instead of Tailwind utility classes"
+  ],
+  "faq": [
+    {
+      "question": "When should I use Server Components versus Client Components?",
+      "answer": "Use Server Components by default for static content, layouts, and data fetching. Use Client Components only when interactivity, React hooks, browser APIs, or event handlers are needed."
+    },
+    {
+      "question": "Does this skill work with Next.js 14 or 15?",
+      "answer": "Yes, patterns work with Next.js 14+ using App Router. Minor adjustments may be needed for version-specific features."
+    },
+    {
+      "question": "Can I use these patterns with JavaScript instead of TypeScript?",
+      "answer": "Yes, concepts apply to JavaScript. Remove type annotations and interface definitions for plain JS implementation."
+    },
+    {
+      "question": "Is my data safe when using these patterns?",
+      "answer": "Yes, this skill only provides documentation. No data is collected, transmitted, or stored by the skill itself."
+    },
+    {
+      "question": "How do I integrate with existing component libraries?",
+      "answer": "Patterns are library-agnostic. Apply server/client separation and accessibility patterns to components from Material UI, Chakra UI, or custom libraries."
+    },
+    {
+      "question": "How is this skill different from official Next.js documentation?",
+      "answer": "This skill provides practical implementation patterns, templates, and real-world examples from a project context, complementing official docs with ready-to-use code."
+    }
+  ],
+  "seoKeywords": [
+    "Next.js components",
+    "React server components",
+    "Client components",
+    "Next.js 16",
+    "TypeScript components",
+    "WCAG accessibility",
+    "Tailwind CSS",
+    "Claude Code",
+    "Claude",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/Asmayaseen/hackathon-2/tree/main/.claude/skills/frontend-component",
+  "sourceType": "community",
+  "dependencies": []
+}

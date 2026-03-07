@@ -1,0 +1,143 @@
+{
+  "name": "multi-agent-orchestration",
+  "type": "skill",
+  "description": "Orchestrate tasks across multiple AI providers (Claude, OpenAI, Gemini, Cursor, OpenCode, Ollama). Use when delegating tasks to specialized providers, routing based on capabilities, or implementing fallback strategies.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "task routing",
+  "quality": 5,
+  "qualityReason": "Actionable orchestration logic",
+  "bundleHints": [
+    "agent-orchestration",
+    "multi-model"
+  ],
+  "tags": [
+    "ai providers",
+    "capability routing",
+    "fault tolerance",
+    "multi-model",
+    "multi-provider",
+    "orchestration",
+    "routing",
+    "task delegation"
+  ],
+  "capabilities": [
+    "Route tasks to optimal AI provider based on task characteristics like context length, multimodal needs, sandboxing, or privacy requirements",
+    "Provide decision trees for common routing scenarios with clear guidance on when to use each provider",
+    "Delegate tasks to Claude, OpenAI Codex, Gemini, Cursor, OpenCode, or local Ollama models",
+    "Implement fallback strategies when primary providers are unavailable or rate-limited",
+    "Reference provider comparison matrix covering context windows, multimodal support, execution environments, and cost",
+    "Include cookbook examples for each provider with authentication setup and delegation patterns"
+  ],
+  "author": "Consiliency",
+  "icon": "🎯",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill providing routing guidance for AI provider delegation. All 326 static findings are FALSE POSITIVES - they are markdown documentation examples showing CLI commands and environment variables, not executable code. No security risks identified.",
+  "valueStatement": "Managing multiple AI providers is complex with different capabilities and costs. This skill provides a decision framework and routing logic to automatically delegate tasks to the optimal provider based on requirements like context length, multimodal needs, sandboxed execution, or privacy constraints.",
+  "userTitle": "Intelligently Route Tasks to the Best AI Provider",
+  "limitations": [
+    "Documentation-only skill that provides routing guidance but does not execute provider delegation itself",
+    "Requires users to manually install provider CLI tools and configure API keys before use",
+    "Does not manage conversation history or context transfer between different AI providers",
+    "Model names and capabilities may change over time and should be verified using the model-discovery skill"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Senior software engineers and architects",
+      "title": "Large codebase analysis and refactoring",
+      "description": "Route multi-file refactoring or architecture analysis to Gemini when the codebase exceeds 100k tokens, or keep in Claude for complex reasoning tasks that need deep understanding of patterns."
+    },
+    {
+      "targetUser": "Security-conscious developers and compliance teams",
+      "title": "Privacy-sensitive data processing",
+      "description": "Delegate confidential document analysis or internal code review to local Ollama models to ensure data never leaves your infrastructure while still getting AI assistance."
+    },
+    {
+      "targetUser": "DevOps engineers and security researchers",
+      "title": "Untrusted code execution and testing",
+      "description": "Route experimental code or user-submitted scripts to OpenAI Codex for execution in an isolated sandbox environment that prevents security risks to your local system."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic provider routing",
+      "prompt": "I need to analyze a 150,000 token codebase for refactoring opportunities. Which AI provider should I use and why?",
+      "scenario": "Use when you need guidance on selecting the optimal provider for a specific task based on its characteristics"
+    },
+    {
+      "title": "Resilient multi-provider fallback",
+      "prompt": "Delegate this task to Gemini for its large context window. If Gemini is unavailable or rate-limited, try Claude as fallback. Show me the commands for both options.",
+      "scenario": "Use when you need a robust delegation strategy with automatic fallback options for high-availability workflows"
+    },
+    {
+      "title": "Privacy-constrained delegation",
+      "prompt": "I need to process confidential company documents. Route this to a local provider only and explain the privacy benefits.",
+      "scenario": "Use when handling sensitive data that must not be sent to external cloud providers due to compliance or security requirements"
+    },
+    {
+      "title": "Advanced multi-criteria routing",
+      "prompt": "I have 20 code review tasks. Route them optimally considering: task complexity, required context length, current provider costs, and availability. Provide a delegation plan.",
+      "scenario": "Use for batch processing where you need to optimize across multiple criteria like cost, performance, and provider availability"
+    }
+  ],
+  "bestPractices": [
+    "Always verify provider availability and authentication status before delegating high-volume or time-sensitive tasks to avoid mid-task failures",
+    "Use the model-discovery skill to fetch current model names and capabilities instead of relying on hardcoded version numbers that become stale",
+    "Explicitly document user consent and data handling policies before routing sensitive information to external cloud providers for compliance and privacy protection"
+  ],
+  "antiPatterns": [
+    "Delegating tasks that depend on prior conversation history to external providers that lack access to Claude's context, resulting in loss of important information",
+    "Hardcoding specific model version numbers in scripts or configurations that quickly become outdated when providers release new versions",
+    "Bypassing the routing decision tree and arbitrarily selecting a provider without considering task requirements, potentially wasting costs or missing capabilities"
+  ],
+  "faq": [
+    {
+      "question": "What is the default provider when the routing decision is unclear?",
+      "answer": "Claude is configured as the default fallback provider via the DEFAULT_PROVIDER variable. Claude excels at general reasoning, complex coding tasks, and maintaining conversation context."
+    },
+    {
+      "question": "How do I configure API authentication for different providers?",
+      "answer": "Set environment variables for cloud providers: OPENAI_API_KEY for OpenAI Codex, GEMINI_API_KEY for Gemini. Local providers like Ollama do not require API keys and run entirely on your machine."
+    },
+    {
+      "question": "Can this skill be used completely offline without internet access?",
+      "answer": "Yes, Ollama and OpenCode providers can run entirely offline on your local machine. Cloud providers (Claude, OpenAI Codex, Gemini, Cursor) require active internet connectivity for API access."
+    },
+    {
+      "question": "How should I handle tasks that depend on previous conversation context?",
+      "answer": "Keep context-dependent tasks within Claude rather than delegating them. External providers do not have access to your current Claude conversation history, which would result in loss of important context."
+    },
+    {
+      "question": "Which provider should I use for multimodal tasks like video or audio analysis?",
+      "answer": "Route multimodal tasks to Gemini, which has native support for video, audio, and image understanding. Other providers in this skill have limited or no multimodal capabilities."
+    },
+    {
+      "question": "How can I estimate costs before delegating high-volume tasks?",
+      "answer": "Enable CHECK_COST_STATUS in the skill configuration. Refer to the provider matrix documentation for current pricing information and use the model-discovery skill to check rate limits and quotas before batch operations."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "AI provider routing",
+    "multi-agent orchestration",
+    "task delegation",
+    "AI model selection",
+    "provider comparison",
+    "Gemini",
+    "Ollama",
+    "AI workflow automation"
+  ],
+  "sourceUrl": "https://github.com/Consiliency/treesitter-chunker/tree/main/.ai-dev-kit/skills/multi-agent-orchestration",
+  "sourceType": "community",
+  "dependencies": []
+}

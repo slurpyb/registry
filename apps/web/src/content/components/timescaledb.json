@@ -1,0 +1,196 @@
+{
+  "name": "timescaledb",
+  "type": "skill",
+  "description": "TimescaleDB - PostgreSQL extension for high-performance time-series and event data analytics, hypertables, continuous aggregates, compression, and real-time analytics",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "time-series",
+  "quality": 5,
+  "qualityReason": "Powerful PostgreSQL extension for time-series",
+  "bundleHints": [
+    "time-series",
+    "postgresql",
+    "data-analytics"
+  ],
+  "tags": [
+    "analytics",
+    "compression",
+    "continuous-aggregates",
+    "database",
+    "events",
+    "finance",
+    "hypertables",
+    "iot",
+    "metrics",
+    "observability",
+    "postgresql",
+    "sql",
+    "time-series",
+    "timescaledb"
+  ],
+  "capabilities": [
+    "Comprehensive TimescaleDB reference documentation including API functions, installation guides, and feature documentation",
+    "Hypertables creation, management, and optimization for time-series data",
+    "Continuous aggregates implementation with real-time querying and hierarchical structures",
+    "Data compression strategies and policies for storage optimization",
+    "Hyperfunctions for advanced analytics including statistical aggregates, time-weighted averages, and gapfilling",
+    "Time bucket functions for temporal data grouping and analysis",
+    "Data retention policies and lifecycle management",
+    "Performance tuning guidance for query optimization",
+    "Data ingestion patterns from various sources (CSV, Kafka, Telegraf, MySQL)",
+    "Complete API reference with code examples and usage patterns"
+  ],
+  "author": "2025Emma",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing TimescaleDB reference materials. All detected patterns are code examples within markdown documentation files, not executable code. No security risks present.",
+  "valueStatement": "Master TimescaleDB development with comprehensive documentation covering hypertables, continuous aggregates, compression, hyperfunctions, and real-time analytics for time-series and event data workloads.",
+  "userTitle": "TimescaleDB Expert - Time-Series PostgreSQL Extension",
+  "limitations": [
+    "Documentation-based skill - does not execute database commands or connect to TimescaleDB instances",
+    "Covers self-hosted TimescaleDB and Timescale Cloud documentation - actual deployment requires separate infrastructure",
+    "Code examples are for reference only and may require adaptation to specific use cases",
+    "Does not provide real-time monitoring or database administration capabilities",
+    "Performance recommendations are general guidelines and may need tuning for specific workloads"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building IoT platforms",
+      "title": "IoT Sensor Data Management",
+      "description": "Design and implement time-series data pipelines for IoT devices using hypertables, compression policies, and continuous aggregates for real-time monitoring dashboards."
+    },
+    {
+      "targetUser": "FinTech engineers and quant developers",
+      "title": "Financial Market Data Analytics",
+      "description": "Build high-performance analytics systems for trading data using hyperfunctions, time buckets, and columnar compression for fast historical queries."
+    },
+    {
+      "targetUser": "DevOps engineers and SRE teams",
+      "title": "Application Observability & Metrics",
+      "description": "Implement observability systems storing logs, traces, and metrics with efficient retention policies and real-time aggregation for monitoring dashboards."
+    },
+    {
+      "targetUser": "Full-stack developers building SaaS products",
+      "title": "SaaS Application Analytics",
+      "description": "Track user events, activity feeds, and business metrics with UUIDv7 support for distributed systems and efficient time-based queries."
+    },
+    {
+      "targetUser": "Industrial software engineers",
+      "title": "Energy & Utilities Monitoring",
+      "description": "Store and analyze smart grid data, power consumption metrics, and environmental sensors with automated compression and data tiering."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Hypertable with Compression",
+      "prompt": "Show me how to create a TimescaleDB hypertable for sensor readings with automatic compression after 7 days",
+      "scenario": "Setting up a new time-series table with automated compression policy"
+    },
+    {
+      "title": "Build Continuous Aggregate",
+      "prompt": "Create a continuous aggregate for hourly averages on my metrics table with automatic refresh policy",
+      "scenario": "Implementing materialized views for pre-computed aggregations"
+    },
+    {
+      "title": "Optimize Query Performance",
+      "prompt": "How can I improve query performance for time-range queries on my hypertable with 100M rows?",
+      "scenario": "Troubleshooting slow queries on large time-series datasets"
+    },
+    {
+      "title": "Implement Data Retention",
+      "prompt": "Set up a retention policy to automatically drop data older than 90 days from my events table",
+      "scenario": "Managing storage costs with automated data lifecycle"
+    },
+    {
+      "title": "Use Hyperfunctions for Analytics",
+      "prompt": "Calculate time-weighted averages and percentiles for my stock price data using TimescaleDB hyperfunctions",
+      "scenario": "Advanced statistical analysis on financial time-series data"
+    },
+    {
+      "title": "Migrate from Standard PostgreSQL",
+      "prompt": "Guide me through converting my existing PostgreSQL table to a TimescaleDB hypertable without downtime",
+      "scenario": "Migrating existing time-series workload to TimescaleDB"
+    }
+  ],
+  "bestPractices": [
+    "Use hypertables for all time-series data workloads - they provide automatic partitioning and query optimization",
+    "Implement compression policies early to reduce storage costs (typical 90%+ compression ratios)",
+    "Design continuous aggregates for frequently queried time-based aggregations instead of computing on the fly",
+    "Use appropriate chunk intervals based on data retention and query patterns (default 7 days works for most cases)",
+    "Set up data retention policies to automatically drop old data and manage storage growth",
+    "Use segmentby columns in compression for frequently filtered dimensions to maintain query performance",
+    "Index hypertables carefully - unique indexes require including partition key (time column)",
+    "Consider Hypercore (columnar storage) for real-time analytics workloads with large scans",
+    "Use time_bucket() function for all time-based grouping operations instead of date_trunc()",
+    "Leverage hyperfunctions for advanced analytics - they're optimized for time-series patterns"
+  ],
+  "antiPatterns": [
+    "Don't create indexes on every column of hypertables - this slows down inserts and wastes storage",
+    "Avoid using SELECT * on large hypertables - specify needed columns, especially with compression enabled",
+    "Don't disable continuous aggregate real-time mode unless you have specific reasons - it enables querying beyond materialization window",
+    "Avoid modifying compressed chunks frequently - decompress first if you need to update or delete data",
+    "Don't set chunk intervals too small (< 1 day) unless you have specific high-cardinality requirements",
+    "Avoid using regular PostgreSQL materialized views instead of continuous aggregates for time-series data",
+    "Don't forget to set appropriate compression segmentby columns - poor choices hurt query performance",
+    "Avoid running ALTER TABLE operations on large hypertables during peak hours without testing",
+    "Don't rely solely on timestamp for uniqueness - use UUIDv7 or composite keys for distributed systems",
+    "Avoid mixing OLTP and OLAP workloads without considering separate hypertables or Hypercore"
+  ],
+  "faq": [
+    {
+      "question": "What's the difference between a hypertable and a regular PostgreSQL table?",
+      "answer": "A hypertable is an abstraction layer over multiple PostgreSQL tables (chunks) that automatically partitions data by time. It provides transparent query optimization, automatic chunk management, and time-series specific features like compression and continuous aggregates while maintaining full SQL compatibility."
+    },
+    {
+      "question": "How much storage can I save with TimescaleDB compression?",
+      "answer": "Typical compression ratios range from 90-97% depending on data patterns. Time-series data with repeated values and dimensions compress extremely well. The skill includes detailed compression design guidance in references/compression.md to optimize compression for your workload."
+    },
+    {
+      "question": "Can I use TimescaleDB with my existing PostgreSQL application?",
+      "answer": "Yes, TimescaleDB is a PostgreSQL extension and maintains full SQL compatibility. You can use existing PostgreSQL tools, libraries, and ORMs. Migration typically involves converting tables to hypertables and enabling time-series optimizations."
+    },
+    {
+      "question": "What are continuous aggregates and when should I use them?",
+      "answer": "Continuous aggregates are materialized views optimized for time-series data that automatically refresh and support real-time queries. Use them for frequently queried aggregations (hourly/daily rollups) to dramatically improve query performance on large datasets."
+    },
+    {
+      "question": "How do I choose the right chunk interval for my hypertable?",
+      "answer": "The default 7-day interval works for most use cases. Consider your data retention period, query patterns, and insert rate. Smaller intervals (1 day) for high-cardinality data, larger intervals (30 days) for low-volume data. See references/hypertables.md for detailed guidance."
+    },
+    {
+      "question": "Can TimescaleDB handle both transactional and analytical workloads?",
+      "answer": "Yes, TimescaleDB supports hybrid workloads. Use regular hypertables for transactional time-series workloads, and Hypercore (columnar storage) for analytical workloads requiring fast aggregations and scans on large datasets."
+    },
+    {
+      "question": "What's UUIDv7 and why should I use it for time-series data?",
+      "answer": "UUIDv7 embeds timestamps in UUIDs, enabling time-based filtering and pagination using just the ID field. It's ideal for distributed systems, provides natural sorting, and eliminates the need for separate created_at columns while maintaining global uniqueness."
+    },
+    {
+      "question": "How does data retention work with continuous aggregates?",
+      "answer": "You can set independent retention policies for raw data and aggregates. Common pattern: keep raw data for 30 days, hourly aggregates for 1 year, daily aggregates forever. This balances storage costs with analytical capabilities."
+    }
+  ],
+  "seoKeywords": [
+    "timescaledb tutorial",
+    "postgresql time series",
+    "hypertables guide",
+    "continuous aggregates",
+    "time series database",
+    "postgresql compression",
+    "iot database",
+    "metrics database",
+    "timescaledb best practices",
+    "real-time analytics"
+  ],
+  "sourceUrl": "https://github.com/2025Emma/vibe-coding-cn/tree/main/i18n/zh/skills/timescaledb",
+  "sourceType": "community",
+  "dependencies": []
+}

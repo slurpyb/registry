@@ -1,0 +1,139 @@
+{
+  "name": "claude-settings-audit",
+  "type": "skill",
+  "description": "Analyze a repository to generate recommended Claude Code settings.json permissions. Use when setting up a new project, auditing existing settings, or determining which read-only bash commands to allow. Detects tech stack, build tools, and monorepo structure.",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "permissions analysis",
+  "quality": 5,
+  "qualityReason": "Critical for secure setup",
+  "bundleHints": [
+    "claude-code-tools",
+    "security-audit"
+  ],
+  "tags": [
+    "claude-code",
+    "configuration",
+    "permissions",
+    "read-only",
+    "repository-analysis",
+    "security"
+  ],
+  "capabilities": [
+    "Detects programming languages (Python, Node.js, Go, Rust, Java, Ruby)",
+    "Identifies package managers (poetry, pnpm, npm, yarn, cargo, bundler)",
+    "Recognizes frameworks (Django, React, FastAPI, Rails, Express)",
+    "Discovers integrations (Sentry, Linear)",
+    "Generates read-only bash command permissions",
+    "Creates MCP server configuration suggestions"
+  ],
+  "author": "getsentry",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only markdown documentation and prompt guidance - no executable code, scripts, or network operations. The static analyzer flagged 176 patterns, but ALL are false positives from documentation references. The skill provides instructions for generating Claude Code permission recommendations and does not perform any actions itself.",
+  "valueStatement": "Setting up Claude Code permissions requires understanding your project tech stack and which commands are safe. This skill analyzes your repository to recommend the exact permissions you need. It detects programming languages, package managers, frameworks, and integrations to generate a tailored settings.json configuration.",
+  "userTitle": "Generate Optimal Claude Code Permissions",
+  "limitations": [
+    "Does not execute commands or modify files directly",
+    "Does not perform security audits of existing permissions",
+    "Only suggests permissions based on detected stack",
+    "Requires manual verification before applying settings"
+  ],
+  "useCases": [
+    {
+      "targetUser": "New team members",
+      "title": "Quick Claude Code Setup",
+      "description": "Get properly configured permissions when joining a new project without researching each command manually."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Audit Existing Configurations",
+      "description": "Review and validate current .claude/settings.json files against detected project dependencies."
+    },
+    {
+      "targetUser": "Multi-project developers",
+      "title": "Cross-Repository Standardization",
+      "description": "Generate consistent permission sets across different repositories with varying technology stacks."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Repository Audit",
+      "scenario": "Standard project setup",
+      "prompt": "Run the Claude Settings Audit skill to analyze this repository and recommend appropriate .claude/settings.json permissions."
+    },
+    {
+      "title": "Security-Focused Review",
+      "scenario": "Permission validation",
+      "prompt": "Audit our current Claude Code settings. Check .claude/settings.json against our detected tech stack and flag any unnecessary or missing permissions."
+    },
+    {
+      "title": "Monorepo Configuration",
+      "scenario": "Complex project structure",
+      "prompt": "Analyze this monorepo structure and generate settings that work across multiple packages with different tech stacks."
+    },
+    {
+      "title": "Integration Setup",
+      "scenario": "Service connection",
+      "prompt": "Detect Sentry and Linear usage in this repository and suggest appropriate MCP server configurations for .mcp.json."
+    }
+  ],
+  "bestPractices": [
+    "Start with minimal permissions and add as needed rather than starting permissive",
+    "Review generated settings against your security policies before applying",
+    "Update permissions when the tech stack changes or new tools are adopted"
+  ],
+  "antiPatterns": [
+    "Including all possible commands without checking if they are actually used",
+    "Applying recommendations blindly without understanding what each permission allows",
+    "Using absolute paths or user-specific script references in allow lists"
+  ],
+  "faq": [
+    {
+      "question": "Are the suggested bash commands safe to allow?",
+      "answer": "Yes. The skill only suggests read-only commands like ls, cat, find, git status, and package manager query commands that do not modify files or state."
+    },
+    {
+      "question": "Does this skill work with monorepos?",
+      "answer": "Yes. The skill detects monorepo indicators like lerna.json, nx.json, and pnpm-workspace.yaml and generates permissions that work across the entire repository."
+    },
+    {
+      "question": "Can I use this for non-Sentry projects?",
+      "answer": "Absolutely. While Sentry-specific skills and MCP servers are suggested when detected, the skill works for any codebase and only suggests relevant integrations."
+    },
+    {
+      "question": "How are package manager recommendations determined?",
+      "answer": "The skill checks for lock files (poetry.lock, pnpm-lock.yaml, package-lock.json, yarn.lock, go.sum, Cargo.lock) and suggests only the commands for detected managers."
+    },
+    {
+      "question": "Does this skill modify my settings.json file?",
+      "answer": "No. The skill generates recommendations and presents them for you to review. You must manually copy the configuration to your .claude/settings.json file."
+    },
+    {
+      "question": "What is the difference between settings.json and .mcp.json?",
+      "answer": "settings.json controls Claude Code built-in tool permissions. .mcp.json configures MCP (Model Context Protocol) servers that provide additional capabilities through external processes."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code permissions",
+    "settings.json configuration",
+    "repository analysis",
+    "read-only bash commands",
+    "tech stack detection",
+    "Claude Code setup",
+    "Claude",
+    "Claude Code",
+    "permission audit",
+    "AI configuration"
+  ],
+  "sourceUrl": "https://github.com/getsentry/skills/tree/main/plugins/sentry-skills/skills/claude-settings-audit",
+  "sourceType": "community",
+  "dependencies": []
+}

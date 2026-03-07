@@ -1,0 +1,141 @@
+{
+  "name": "wp-orchestrator",
+  "type": "skill",
+  "description": "Master WordPress project orchestrator - coordinates all WordPress skills for complete site setup, audit, and optimization. Use for new project setup, site audits, or comprehensive reviews. Runs interview phases and manages todo lists.",
+  "domain": "web-development",
+  "subdomain": "cms",
+  "specialty": "project coordination",
+  "quality": 5,
+  "qualityReason": "Master orchestrator role",
+  "bundleHints": [
+    "wordpress-suite",
+    "cms-orchestration"
+  ],
+  "tags": [
+    "audit",
+    "automation",
+    "cms",
+    "orchestration",
+    "setup",
+    "wordpress",
+    "workflow"
+  ],
+  "capabilities": [
+    "Run discovery interviews to gather project requirements and brand guidelines",
+    "Generate comprehensive todo lists for WordPress project phases",
+    "Coordinate parallel audits across SEO, visual, performance, and security skills",
+    "Create Docker environments with WordPress, plugins, and theme scaffolding",
+    "Package themes for distribution with demo content export",
+    "Generate client handoff documentation and training materials"
+  ],
+  "author": "CrazySwami",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation/prompt-based skill containing only markdown files with workflow guides, interview templates, and best practices. No executable code, scripts, network calls, or file system modifications are present. The skill serves as a coordination layer that references other skills for actual execution.",
+  "valueStatement": "Managing WordPress projects requires coordinating multiple skills and workflows. This orchestrator guides you through discovery interviews, site setup, comprehensive audits, and client handoff. It coordinates SEO, visual QA, performance, and security checks into a unified workflow.",
+  "userTitle": "Orchestrate WordPress projects from setup to launch",
+  "limitations": [
+    "Does not execute code directly - orchestrates other skills for actions",
+    "Requires other WordPress skills installed for full functionality",
+    "Cannot modify production sites without explicit user approval",
+    "Documentation-based - actual WordPress operations handled by coordinated skills"
+  ],
+  "useCases": [
+    {
+      "targetUser": "WordPress developers",
+      "title": "New site setup",
+      "description": "Start new WordPress projects with structured discovery, Docker environment, and theme scaffolding."
+    },
+    {
+      "targetUser": "Agency owners",
+      "title": "Site audits",
+      "description": "Run comprehensive audits across SEO, performance, visual QA, and security for client sites."
+    },
+    {
+      "targetUser": "Freelance developers",
+      "title": "Client handoff",
+      "description": "Prepare white-labeled admin areas and documentation for client site delivery."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New project",
+      "scenario": "Starting fresh WordPress build",
+      "prompt": "I want to set up a new WordPress site for a client. Use /wp-setup to run the discovery interview, then create a Docker environment and generate a todo list."
+    },
+    {
+      "title": "Site audit",
+      "scenario": "Auditing existing WordPress",
+      "prompt": "Audit this WordPress site at [URL]. Run /wp-audit to check SEO, performance, visual QA, and security. Generate an action plan."
+    },
+    {
+      "title": "Performance boost",
+      "scenario": "Optimizing site speed",
+      "prompt": "Optimize performance for this WordPress site. Check Core Web Vitals, configure caching, and optimize images. Target PageSpeed score of 80+."
+    },
+    {
+      "title": "Pre-launch",
+      "scenario": "Preparing for go-live",
+      "prompt": "Prepare this WordPress site for launch. Run /wp-launch checklist, verify all pages have content, test forms, and generate client documentation."
+    }
+  ],
+  "bestPractices": [
+    "Always run discovery interviews before starting new WordPress projects to capture client requirements",
+    "Use parallel agents for multi-page audits to speed up comprehensive site reviews",
+    "Generate todo lists in phases to make complex projects manageable and trackable"
+  ],
+  "antiPatterns": [
+    "Skipping discovery phase and assuming project requirements without client input",
+    "Making changes to production sites without testing in staging first",
+    "Neglecting to export demo content before packaging themes for distribution"
+  ],
+  "faq": [
+    {
+      "question": "What other skills does wp-orchestrator coordinate?",
+      "answer": "It coordinates wordpress-dev, wordpress-admin, seo-optimizer, visual-qa, brand-guide, white-label, gsap-animations, wp-performance, wp-docker, and wp-playground skills."
+    },
+    {
+      "question": "What are the system requirements for WordPress projects?",
+      "answer": "Requires Python 3.8+, Node.js 18+, Docker and Docker Compose, Git, and optional GitHub CLI. Python packages: playwright, requests, beautifulsoup4."
+    },
+    {
+      "question": "Can this skill modify my production WordPress site?",
+      "answer": "No. The orchestrator coordinates other skills but requires explicit user approval for any production modifications."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This is a documentation-based skill with no network calls or file modifications. It generates guidance and coordinates other skills."
+    },
+    {
+      "question": "Why are audit results different from expected?",
+      "answer": "Ensure the site URL is accessible, required Python packages are installed, and Docker containers are running."
+    },
+    {
+      "question": "How does wp-orchestrator compare to manual setup?",
+      "answer": "It provides standardized workflows, automated parallel audits, and comprehensive checklists. Reduces manual coordination."
+    }
+  ],
+  "seoKeywords": [
+    "wordpress orchestrator",
+    "WordPress project management",
+    "Claude Code WordPress",
+    "site setup automation",
+    "WordPress audit workflow",
+    "CMS development",
+    "theme deployment",
+    "client handoff",
+    "Docker WordPress",
+    "WordPress skills"
+  ],
+  "sourceUrl": "https://github.com/CrazySwami/wordpress-dev-skills/tree/main/skills/wp-orchestrator",
+  "sourceType": "community",
+  "dependencies": []
+}

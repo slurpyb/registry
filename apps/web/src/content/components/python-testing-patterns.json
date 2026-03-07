@@ -1,0 +1,142 @@
+{
+  "name": "python-testing-patterns",
+  "type": "skill",
+  "description": "Implement comprehensive testing strategies with pytest, fixtures, mocking, and test-driven development. Use when writing Python tests, setting up test suites, or implementing testing best practices.",
+  "domain": "testing",
+  "subdomain": "unit",
+  "specialty": "comprehensive testing",
+  "quality": 5,
+  "qualityReason": "Actionable and well-scoped",
+  "bundleHints": [
+    "testing-suite",
+    "python-stack"
+  ],
+  "tags": [
+    "best-practices",
+    "fixtures",
+    "mocking",
+    "pytest",
+    "python",
+    "tdd",
+    "test-suites",
+    "testing"
+  ],
+  "capabilities": [
+    "Create pytest test files with proper structure using AAA pattern (Arrange, Act, Assert)",
+    "Write fixtures with different scopes (function, class, session, module) for setup and teardown",
+    "Mock external dependencies using unittest.mock patch decorators and context managers",
+    "Use pytest.mark.parametrize for testing multiple input combinations efficiently",
+    "Implement test-driven development workflows with red-green-refactor cycles",
+    "Set up integration tests for APIs and databases with proper isolation"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 87 static findings are false positives. The detected patterns (external_commands, network, env_access) are documentation examples of pytest commands, HTTP mocking patterns, and test fixture configurations - all legitimate testing education content. No actual security threats present.",
+  "valueStatement": "Writing maintainable tests is challenging. This skill provides comprehensive pytest patterns including fixtures, mocking, parameterization, and TDD workflows to help you build reliable test suites.",
+  "userTitle": "Write Better Python Tests",
+  "limitations": [
+    "Does not cover specific framework testing (Django, Flask, FastAPI specific test tools)",
+    "No coverage of performance testing or load testing tools",
+    "Does not include security testing or penetration testing guidance",
+    "Limited coverage of GUI testing or web automation (selenium/playwright)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers starting new Python projects who need testing infrastructure",
+      "title": "New Python Project Testing Setup",
+      "description": "Set up a complete test suite for a new Python project with fixtures, conftest.py configuration, and CI/CD integration"
+    },
+    {
+      "targetUser": "Engineers maintaining legacy Python codebases without tests",
+      "title": "Legacy Code Test Coverage",
+      "description": "Add tests to existing untested code using mocking to isolate units and parameterization to cover edge cases"
+    },
+    {
+      "targetUser": "Backend developers testing API integrations and service interactions",
+      "title": "API Integration Testing",
+      "description": "Write integration tests for REST APIs using fixtures for test data and mocking for external service calls"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Test Creation",
+      "prompt": "Create pytest tests for a function called [FUNCTION_NAME] that [DESCRIPTION]. Use the AAA pattern.",
+      "scenario": "When you need to write unit tests for a simple function"
+    },
+    {
+      "title": "Fixture Setup",
+      "prompt": "Create pytest fixtures with [SCOPE] scope to provide [RESOURCE] for tests. Include proper setup and teardown.",
+      "scenario": "When tests need shared resources like database connections or API clients"
+    },
+    {
+      "title": "Mocking External Calls",
+      "prompt": "Write tests that mock [EXTERNAL_SERVICE] calls using unittest.mock. Show both patch decorator and context manager approaches.",
+      "scenario": "When testing code that makes HTTP requests or calls external APIs"
+    },
+    {
+      "title": "Parameterized Testing",
+      "prompt": "Create parameterized tests for [FUNCTION] using pytest.mark.parametrize to test [EDGE_CASES].",
+      "scenario": "When testing a function with multiple input combinations or edge cases"
+    }
+  ],
+  "bestPractices": [
+    "Use descriptive test names that explain what is being tested and expected behavior",
+    "Keep tests independent with proper setup/teardown - no shared state between tests",
+    "Follow AAA pattern: Arrange (setup), Act (execute), Assert (verify) clearly separated"
+  ],
+  "antiPatterns": [
+    "Avoid test names like test_1 or test_function that do not describe the test purpose",
+    "Do not mix multiple assertions in one test when they could be separate tests",
+    "Avoid testing implementation details instead of behavior - test what the code does, not how"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between unit tests and integration tests?",
+      "answer": "Unit tests test individual functions or classes in isolation. Integration tests test how multiple components work together, such as testing API endpoints with a real database."
+    },
+    {
+      "question": "How do I mock a function that does not use requests library?",
+      "answer": "Use unittest.mock.patch decorator or context manager to replace any function or class with a Mock object. Import the function path as a string: @patch('module.function_name')."
+    },
+    {
+      "question": "What is fixture scope and when should I use each?",
+      "answer": "Function scope (default) creates fixture for each test. Class scope once per test class. Module scope once per module. Session scope once per entire test session. Use session/module for expensive resources."
+    },
+    {
+      "question": "How do I test exceptions with pytest?",
+      "answer": "Use pytest.raises() as a context manager: with pytest.raises(ExpectedException): your_function(). Optionally pass match parameter to check exception message."
+    },
+    {
+      "question": "What is test-driven development (TDD)?",
+      "answer": "TDD is a development approach where you write tests before code. Cycle: Write failing test (red), write minimal code to pass (green), refactor code (refactor). Helps ensure testable design."
+    },
+    {
+      "question": "How do I run only tests matching a keyword?",
+      "answer": "Use pytest -k flag: pytest -k 'test_name_pattern' runs only tests with names matching the pattern. Use pytest -m marker to run tests with specific markers."
+    }
+  ],
+  "seoKeywords": [
+    "Python testing",
+    "pytest patterns",
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "test fixtures",
+    "mocking Python",
+    "TDD Python",
+    "unit testing",
+    "pytest tutorial"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/python-testing-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

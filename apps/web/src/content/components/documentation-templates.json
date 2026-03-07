@@ -1,0 +1,143 @@
+{
+  "name": "documentation-templates",
+  "type": "skill",
+  "description": "Documentation templates and structure guidelines. README, API docs, code comments, and AI-friendly documentation.",
+  "domain": "design",
+  "subdomain": "design-systems",
+  "specialty": "doc structure",
+  "quality": 4,
+  "qualityReason": "Useful but overlaps with others",
+  "bundleHints": [
+    "docs-templates",
+    "design-systems"
+  ],
+  "tags": [
+    "ai-documentation",
+    "api-docs",
+    "documentation",
+    "patterns",
+    "readme",
+    "reusability",
+    "templates"
+  ],
+  "capabilities": [
+    "Generate README.md files with essential sections in priority order",
+    "Create API documentation with endpoint, parameters, and response templates",
+    "Write JSDoc/TSDoc code comments with @param, @returns, @throws, @example",
+    "Format changelogs following Keep a Changelog standard",
+    "Create Architecture Decision Records (ADRs)",
+    "Build AI-friendly documentation (llms.txt, MCP-ready formats)"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 23 static findings are false positives. The skill contains only markdown documentation templates with no executable code. The detected patterns (external_commands, weak cryptographic algorithms, system reconnaissance) are markdown code fences, plain English text, and API documentation placeholders - not actual security risks.",
+  "valueStatement": "This skill provides ready-to-use templates for README files, API documentation, code comments, changelogs, and AI-friendly documentation formats.",
+  "userTitle": "Create Professional Documentation Fast",
+  "limitations": [
+    "This skill provides templates only, not executable code generation",
+    "Templates require manual adaptation to specific project needs",
+    "Does not validate or generate actual code, only documentation structure",
+    "No integration with external documentation tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers starting new projects",
+      "title": "New Project Setup",
+      "description": "Quickly scaffold documentation for a new project with README, API docs, and changelog templates."
+    },
+    {
+      "targetUser": "Development teams and technical writers",
+      "title": "Documentation Standards",
+      "description": "Maintain consistent documentation style across team projects using standardized templates."
+    },
+    {
+      "targetUser": "Engineers building AI-powered applications",
+      "title": "AI Agent Integration",
+      "description": "Create documentation that AI agents like Claude and Codex can understand and use effectively."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Basic README",
+      "prompt": "Use the documentation-templates skill to create a README.md for my [project type] project. Include Quick Start, Features, and Configuration sections.",
+      "scenario": "When you need a quick README for a new project"
+    },
+    {
+      "title": "Document API Endpoints",
+      "prompt": "Use the documentation-templates skill to create API documentation for my REST API with endpoints for [list endpoints].",
+      "scenario": "When documenting a new API"
+    },
+    {
+      "title": "Write Code Comments",
+      "prompt": "Use the documentation-templates skill to add JSDoc comments to my function that [describe function purpose].",
+      "scenario": "When adding documentation to code"
+    },
+    {
+      "title": "Create Architecture Decision Record",
+      "prompt": "Use the documentation-templates skill to create an ADR for [decision title]. Include Context, Decision, and Consequences sections.",
+      "scenario": "When documenting architectural decisions"
+    }
+  ],
+  "bestPractices": [
+    "Start with essential sections first (title, quick start, features) before adding detailed documentation",
+    "Use templates as starting points and adapt the structure to your project needs",
+    "Keep documentation up to date - outdated docs are worse than no documentation",
+    "Include examples in your documentation to help users understand quickly"
+  ],
+  "antiPatterns": [
+    "Do not copy templates verbatim without customizing to your project context",
+    "Avoid documenting implementation details in user-facing README files",
+    "Do not skip the Quick Start section - users want to get started fast",
+    "Avoid using outdated documentation formats that AI agents cannot parse"
+  ],
+  "faq": [
+    {
+      "question": "What tools is this skill compatible with?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. Use it with the Read, Glob, and Grep tools."
+    },
+    {
+      "question": "Do I need to modify the templates?",
+      "answer": "Yes, templates are starting points. Adapt the placeholders and structure to fit your specific project needs."
+    },
+    {
+      "question": "Can I use this for commercial projects?",
+      "answer": "Yes, the skill is licensed under MIT, allowing commercial use with attribution."
+    },
+    {
+      "question": "What is llms.txt?",
+      "answer": "llms.txt is a documentation format designed for AI crawlers and agents. It provides a structured overview that AI models can easily parse and understand."
+    },
+    {
+      "question": "How is this different from auto-generated docs?",
+      "answer": "This skill provides human-written templates that prioritize clarity and scannability. Auto-generated docs often lack proper structure and context."
+    },
+    {
+      "question": "Can this skill generate actual code?",
+      "answer": "No, this skill only generates documentation structures and templates. It does not produce executable code."
+    }
+  ],
+  "seoKeywords": [
+    "documentation templates",
+    "README template",
+    "API documentation template",
+    "Claude Code documentation",
+    "Claude documentation templates",
+    "Codex documentation",
+    "changelog template",
+    "AI-friendly documentation",
+    "ADR template",
+    "code comments template"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/documentation-templates",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "pr-template-generator",
+  "type": "skill",
+  "description": "Generate comprehensive pull request descriptions that help reviewers understand changes quickly a...",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "PR template generation",
+  "quality": 4,
+  "qualityReason": "Useful for team standardization",
+  "bundleHints": [
+    "documentation-tools",
+    "team-collab"
+  ],
+  "tags": [
+    "clarity",
+    "code-review",
+    "collaboration",
+    "documentation",
+    "pull-requests",
+    "template"
+  ],
+  "capabilities": [
+    "Generate feature PR descriptions with structured templates",
+    "Create bug fix documentation with root cause analysis",
+    "Build refactoring PRs with before/after comparisons",
+    "Add comprehensive checklists for reviewers",
+    "Include breaking changes and migration guides",
+    "Suggest related issues and reviewer assignments"
+  ],
+  "author": "CuriousLearner",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based skill providing PR documentation guidelines. Contains no executable code, file access, network operations, or credential handling. All static findings are false positives from documentation examples being misinterpreted as code.",
+  "valueStatement": "Create comprehensive pull request descriptions that help reviewers understand changes quickly and improve code review quality. Generate structured templates for features, bug fixes, and refactors with checklists and context.",
+  "userTitle": "Generate Professional PR Descriptions",
+  "limitations": [
+    "Does not access git repositories directly",
+    "Does not execute git commands or analyze code",
+    "User must provide change context manually",
+    "Does not integrate with GitHub or GitLab APIs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Document feature additions",
+      "description": "Create detailed PR descriptions for new features with motivation, implementation details, and testing strategy."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Track bug fix details",
+      "description": "Document bug fixes with root cause analysis, impact assessment, and deployment considerations."
+    },
+    {
+      "targetUser": "Engineering leads",
+      "title": "Review code refactors",
+      "description": "Generate comprehensive refactor documentation with architecture changes and migration guides."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple PR",
+      "scenario": "Quick feature PR",
+      "prompt": "@pr-template-generator Generate a pull request description for a feature that adds user authentication with OAuth support."
+    },
+    {
+      "title": "Bug Fix",
+      "scenario": "Document bug resolution",
+      "prompt": "@pr-template-generator --type bugfix Create a PR description for fixing a memory leak in the websocket handler."
+    },
+    {
+      "title": "Refactor",
+      "scenario": "Code restructuring",
+      "prompt": "@pr-template-generator --type refactor Generate documentation for refactoring the payment processing module."
+    },
+    {
+      "title": "Complete PR",
+      "scenario": "Full documentation",
+      "prompt": "@pr-template-generator --include-screenshots Create a comprehensive PR description for a UI overhaul."
+    }
+  ],
+  "bestPractices": [
+    "Include the problem statement and solution approach in every description",
+    "Add screenshots or diagrams for visual changes to the codebase",
+    "Link related issues and explain breaking changes clearly to reviewers"
+  ],
+  "antiPatterns": [
+    "Using vague titles like Update code or Fix stuff in PR descriptions",
+    "Skipping testing information and checklist items for reviewers",
+    "Assuming reviewers have full context of the changes without explanation"
+  ],
+  "faq": [
+    {
+      "question": "Which platforms support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. Use @pr-template-generator to invoke it."
+    },
+    {
+      "question": "What types of PRs can this generate?",
+      "answer": "It generates templates for features, bug fixes, refactoring, documentation updates, and performance improvements."
+    },
+    {
+      "question": "Does it connect to GitHub or GitLab?",
+      "answer": "No, this skill generates descriptions based on your input. It does not access repositories or APIs directly."
+    },
+    {
+      "question": "Is my code or data shared anywhere?",
+      "answer": "No. This skill runs entirely in your AI session. No data is transmitted to external servers."
+    },
+    {
+      "question": "Can I customize the templates?",
+      "answer": "Yes, you can extend the prompts with flags like --type, --include-screenshots, or --minimal to customize output."
+    },
+    {
+      "question": "How is this different from GitHub PR templates?",
+      "answer": "GitHub templates provide static forms. This skill generates dynamic, context-aware descriptions based on your specific changes."
+    }
+  ],
+  "seoKeywords": [
+    "pull request templates",
+    "PR description generator",
+    "code review documentation",
+    "git commit messages",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "developer documentation",
+    "team collaboration",
+    "software development"
+  ],
+  "sourceUrl": "https://github.com/CuriousLearner/devkit/tree/main/skills/pr-template-generator",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "cloudformation-best-practices",
+  "type": "skill",
+  "description": "CloudFormation template optimization, nested stacks, drift detection, and production-ready patterns. Use when writing or reviewing CF templates.",
+  "domain": "devops",
+  "subdomain": "iac",
+  "specialty": "CF template design",
+  "quality": 5,
+  "qualityReason": "Specific AWS IaC focus",
+  "bundleHints": [
+    "aws-stack",
+    "iac-pipeline"
+  ],
+  "tags": [
+    "aws",
+    "cloudformation",
+    "devops",
+    "drift-detection",
+    "infrastructure as code",
+    "infrastructure-as-code",
+    "nested-stacks",
+    "production-ready",
+    "template optimization"
+  ],
+  "capabilities": [
+    "Review and optimize existing CloudFormation templates for readability and maintainability",
+    "Design nested stack architectures for modular infrastructure",
+    "Implement drift detection and troubleshooting for stack issues",
+    "Apply production-ready patterns including DeletionPolicy and Conditions",
+    "Validate templates using AWS CLI and cfn-lint tools",
+    "Create cross-stack references using Outputs and Import values"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 22 static analysis findings are false positives. The flagged 'external_commands' are CloudFormation best practice instructions, 'network' is a VPC CIDR block parameter, 'C2 keywords' is a resource type name (VPC), and 'weak cryptographic algorithm' references are common English words. This is a legitimate infrastructure-as-code skill with no security concerns.",
+  "valueStatement": "CloudFormation templates can become complex and hard to maintain. This skill provides expert guidance on writing optimized, production-ready templates using nested stacks, drift detection, and proven patterns.",
+  "userTitle": "Optimize CloudFormation Templates",
+  "limitations": [
+    "Does not generate complete infrastructure from scratch - provides guidance and best practices",
+    "Cannot execute CloudFormation operations or deploy stacks",
+    "Focuses on CloudFormation only, not CDK or Terraform",
+    "Does not provide real-time AWS resource status or pricing information"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineers and infrastructure teams",
+      "title": "Template Code Review",
+      "description": "Get expert feedback on your CloudFormation templates with recommendations for improvements, security hardening, and cost optimization."
+    },
+    {
+      "targetUser": "Solutions architects and technical leads",
+      "title": "Architecture Design",
+      "description": "Design modular, scalable infrastructure using nested stacks, cross-stack references, and proven AWS patterns."
+    },
+    {
+      "targetUser": "Support engineers and incident responders",
+      "title": "Troubleshooting Support",
+      "description": "Resolve stack deployment failures, drift detection issues, and update rollback problems with step-by-step guidance."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Template Review",
+      "prompt": "Review this CloudFormation template for best practices and suggest improvements:\n\n```yaml\n# Your template here\n```",
+      "scenario": "When user shares a template for review"
+    },
+    {
+      "title": "Nested Stack Design",
+      "prompt": "Help me design a nested stack architecture for a three-tier application with VPC, ECS clusters, and RDS databases.",
+      "scenario": "When user needs to organize complex infrastructure"
+    },
+    {
+      "title": "Drift Detection",
+      "prompt": "My CloudFormation stack shows drift. How do I identify the drifted resources and bring them back to the desired state?",
+      "scenario": "When stack drift is detected"
+    },
+    {
+      "title": "Production Optimization",
+      "prompt": "What best practices should I apply to make this CloudFormation template production-ready? Include DeletionPolicy, Conditions, and cost optimization tips.",
+      "scenario": "When preparing templates for production deployment"
+    }
+  ],
+  "bestPractices": [
+    "Use YAML over JSON for better readability and commenting support",
+    "Always set DeletionPolicy: Retain on stateful resources like RDS, S3, and DynamoDB to prevent data loss",
+    "Parameterize environment-specific values and use Mappings for static regional lookups"
+  ],
+  "antiPatterns": [
+    "Do not hardcode ARNs, account IDs, or region-specific values - use Fn::Sub with AWS pseudo parameters",
+    "Avoid monolithic single templates - decompose into nested stacks for better maintainability",
+    "Do not skip template validation - always run cfn-lint and aws cloudformation validate-template before deployment"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between CloudFormation and CDK?",
+      "answer": "CloudFormation uses YAML or JSON templates to define infrastructure declaratively. CDK (Cloud Development Kit) uses programming languages like TypeScript or Python to generate CloudFormation templates. Choose CloudFormation for transparency and CDK for productivity."
+    },
+    {
+      "question": "How do I handle secrets in CloudFormation?",
+      "answer": "Never hardcode secrets in templates. Use AWS Secrets Manager or Systems Manager Parameter Store with dynamic references. Example: {{resolve:secretsmanager:secret-id:SecretString:password}}"
+    },
+    {
+      "question": "What is drift detection in CloudFormation?",
+      "answer": "Drift detection compares the current stack resource configuration with the expected CloudFormation template. It identifies resources that were modified outside of CloudFormation, helping you maintain infrastructure consistency."
+    },
+    {
+      "question": "When should I use nested stacks?",
+      "answer": "Use nested stacks when you have reusable infrastructure components like VPC configurations, common networking patterns, or shared application stacks. Nested stacks promote reusability and reduce template duplication."
+    },
+    {
+      "question": "How do I update a stack without causing downtime?",
+      "answer": "Use change sets to preview updates before applying. Implement proper rollback mechanisms. Use UpdateReplacePolicy for resources that must be replaced. Test changes in a staging environment first."
+    },
+    {
+      "question": "What tools integrate with CloudFormation for validation?",
+      "answer": "Use cfn-lint for syntax validation, cfn-nag for security scanning, and aws cloudformation validate-template for basic validation. Integrate these tools into your CI/CD pipeline for automated checks."
+    }
+  ],
+  "seoKeywords": [
+    "AWS CloudFormation",
+    "CloudFormation Best Practices",
+    "CloudFormation Template Optimization",
+    "Nested Stacks AWS",
+    "Infrastructure as Code",
+    "Claude Code CloudFormation",
+    "Codex CloudFormation",
+    "AWS DevOps Tools",
+    "CloudFormation Tutorial",
+    "IaC AWS"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cloudformation-best-practices",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "quant-analyst",
+  "type": "skill",
+  "description": "Build financial models, backtest trading strategies, and analyze",
+  "domain": "business",
+  "subdomain": "finance",
+  "specialty": "quantitative modeling",
+  "quality": 5,
+  "qualityReason": "Specific financial expertise",
+  "bundleHints": [
+    "fintech",
+    "data-science"
+  ],
+  "tags": [
+    "backtesting",
+    "portfolio optimization",
+    "portfolio-optimization",
+    "quantitative finance",
+    "risk analysis",
+    "risk-metrics",
+    "statistical-arbitrage",
+    "trading strategies",
+    "trading-strategies"
+  ],
+  "capabilities": [
+    "Develop and backtest trading strategies with transaction costs and slippage modeling",
+    "Calculate risk metrics including VaR, Sharpe ratio, and maximum drawdown",
+    "Perform portfolio optimization using Markowitz and Black-Litterman models",
+    "Execute time series analysis and forecasting for market data",
+    "Implement options pricing and Greeks calculation",
+    "Build statistical arbitrage and pairs trading strategies"
+  ],
+  "author": "sickn33",
+  "icon": "📈",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only skill with no executable code. The static analyzer found 0 files scanned and 0 potential security issues. The skill provides guidance for quantitative finance tasks using pandas, numpy, and scipy without making any system-level operations. No dangerous patterns detected.",
+  "valueStatement": "Develop and backtest algorithmic trading strategies with risk metrics and portfolio optimization. Get actionable insights for quantitative finance without requiring deep expertise in financial modeling.",
+  "userTitle": "Build Trading Strategies and Financial Models",
+  "limitations": [
+    "Does not execute live trades or connect to brokerage APIs",
+    "Does not provide real-time market data or price feeds",
+    "Does not guarantee profitability or accurate predictions",
+    "Requires user to validate all models before production use"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Traders and quantitative researchers",
+      "title": "Strategy Development",
+      "description": "Create and backtest new trading strategies with realistic market simulation"
+    },
+    {
+      "targetUser": "Portfolio managers and risk analysts",
+      "title": "Risk Assessment",
+      "description": "Evaluate portfolio risk exposure and calculate key risk metrics"
+    },
+    {
+      "targetUser": "Investment professionals and financial advisors",
+      "title": "Portfolio Optimization",
+      "description": "Optimize asset allocation using modern portfolio theory"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Strategy Backtest",
+      "prompt": "Help me backtest a trading strategy. I want to test a [moving average crossover strategy] on [AAPL] stock with data from [2020-2024]. Include transaction costs of [0.1%] and slippage of [0.05%]. Calculate Sharpe ratio, maximum drawdown, and total return.",
+      "scenario": "Quick backtest of a simple strategy"
+    },
+    {
+      "title": "Risk Metrics Analysis",
+      "prompt": "Calculate the following risk metrics for my portfolio [SPY 60%, AGG 40%]: Value at Risk (VaR) at 95% confidence, Expected Shortfall, Sharpe ratio, and maximum drawdown over the last 3 years. Use historical simulation method.",
+      "scenario": "Portfolio risk evaluation"
+    },
+    {
+      "title": "Portfolio Optimization",
+      "prompt": "Perform Markowitz mean-variance optimization for my portfolio with these assets: [AAPL, MSFT, GOOGL, AMZN, JNJ, XOM]. Use 5 years of historical data. Maximize Sharpe ratio with a target return of [8%]. Include the efficient frontier in your analysis.",
+      "scenario": "Optimal portfolio allocation"
+    },
+    {
+      "title": "Pairs Trading Strategy",
+      "prompt": "Build a statistical arbitrage pairs trading strategy between [KO and PEP] using the last 2 years of daily data. Include cointegration testing, hedge ratio calculation, entry/exit signals with z-score thresholds, and backtest results with performance metrics.",
+      "scenario": "Advanced statistical arbitrage"
+    }
+  ],
+  "bestPractices": [
+    "Always use out-of-sample testing to validate strategies before production deployment",
+    "Include realistic transaction costs, slippage, and market impact in all backtests",
+    "Focus on risk-adjusted returns (Sharpe ratio) rather than absolute returns"
+  ],
+  "antiPatterns": [
+    "Do not overfit strategies to historical data without proper cross-validation",
+    "Avoid using future information (look-ahead bias) in backtesting",
+    "Never skip the separation between research and production code environments"
+  ],
+  "faq": [
+    {
+      "question": "Can this skill execute live trades?",
+      "answer": "No, this skill only provides strategy development and analysis. It does not connect to brokerages or execute trades."
+    },
+    {
+      "question": "What data sources does it use?",
+      "answer": "The skill works with data you provide. You can use Yahoo Finance, FRED, or any data source you have access to."
+    },
+    {
+      "question": "Is the backtesting realistic?",
+      "answer": "Yes, the skill includes transaction costs, slippage, and market microstructure assumptions. You can customize these parameters."
+    },
+    {
+      "question": "Can it handle options strategies?",
+      "answer": "Yes, it supports options pricing, Greeks calculation, and options-based strategy analysis."
+    },
+    {
+      "question": "Does it support machine learning models?",
+      "answer": "The skill can help you implement and backtest ML-based strategies using sklearn and other libraries."
+    },
+    {
+      "question": "How do I validate a strategy before using it?",
+      "answer": "Use out-of-sample testing, walk-forward analysis, and paper trading. Never deploy a strategy without thorough validation."
+    }
+  ],
+  "seoKeywords": [
+    "quantitative finance",
+    "algorithmic trading",
+    "trading strategy",
+    "backtesting",
+    "risk metrics",
+    "portfolio optimization",
+    "VaR",
+    "Sharpe ratio",
+    "Claude Code",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/quant-analyst",
+  "sourceType": "community",
+  "dependencies": []
+}

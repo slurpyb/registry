@@ -1,0 +1,147 @@
+{
+  "name": "remote-system-maintenance",
+  "type": "skill",
+  "description": "This skill should be used when performing maintenance or diagnostics on remote Linux systems. Triggers on \"remote server\", \"Linux maintenance\", \"Ubuntu cleanup\", \"Debian\", \"disk space\", \"apt cleanup\", \"journal vacuum\", \"snap cleanup\", \"system diagnostics\". Provides structured three-phase checklists with quantification.",
+  "domain": "devops",
+  "subdomain": "cloud",
+  "specialty": "Linux maintenance",
+  "quality": 4,
+  "qualityReason": "Practical sysadmin use case",
+  "bundleHints": [
+    "sysadmin-tools",
+    "linux-ops"
+  ],
+  "tags": [
+    "apt-cleanup",
+    "debian",
+    "disk-space",
+    "linux",
+    "remote-diagnostics",
+    "server-administration",
+    "system-cleanup",
+    "system-maintenance",
+    "ubuntu"
+  ],
+  "capabilities": [
+    "Execute three-phase system diagnostics for remote Linux servers",
+    "Guide apt-based cleanup operations (update, upgrade, autoremove, clean)",
+    "Perform journalctl log vacuuming to reclaim disk space",
+    "Clean up disabled snap revisions to free additional space",
+    "Document maintenance sessions with quantified resource recovery metrics"
+  ],
+  "author": "2389-research",
+  "icon": "🛠️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static scanner flagged 20 potential issues, all evaluated as false positives. The skill is documentation-only containing standard Linux system administration commands. No actual code execution, network calls, or cryptographic operations exist. All documented commands (apt, journalctl, snap) are legitimate sysadmin tools for remote server maintenance.",
+  "valueStatement": "Managing remote Linux servers requires systematic diagnostics and cleanup procedures. This skill provides structured three-phase checklists and quantified cleanup sequences for Ubuntu and Debian systems.",
+  "userTitle": "Maintain remote Linux servers",
+  "limitations": [
+    "Designed for Ubuntu and Debian-based distributions only",
+    "Requires SSH access and appropriate sudo privileges on target systems",
+    "Does not execute commands automatically - provides structured guidance for manual execution",
+    "Cannot perform remote operations without existing SSH connectivity"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineers and system administrators",
+      "title": "Recover disk space on production servers",
+      "description": "System administrators use this skill when servers report low disk space. The skill guides through cleanup operations that typically recover 2+ GB including journal logs, snap revisions, and package caches."
+    },
+    {
+      "targetUser": "IT operations teams",
+      "title": "Perform scheduled maintenance diagnostics",
+      "description": "Routine server maintenance sessions follow the three-phase approach: initial diagnostics, system log review, and package assessment. Each phase generates documented metrics for compliance tracking."
+    },
+    {
+      "targetUser": "Site reliability engineers",
+      "title": "Troubleshoot remote server issues",
+      "description": "When investigating server problems, the skill provides structured checklists for capturing baseline system state, examining health indicators, and identifying maintenance opportunities."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick disk cleanup",
+      "prompt": "Help me clean up disk space on my Ubuntu server. Run the standard cleanup sequence including apt cache, journal logs, and snap revisions. Document how much space we recover.",
+      "scenario": "Basic cleanup request"
+    },
+    {
+      "title": "Full system diagnostics",
+      "description": "Perform comprehensive diagnostics on this remote Linux server. Capture baseline metrics, review system logs, and identify any issues that need attention.",
+      "prompt": "Perform a full three-phase diagnostic on this remote Linux server. Start with Phase 1 diagnostics to capture system state, then move to Phase 2 log review, and finish with Phase 3 package assessment.",
+      "scenario": "Comprehensive system health check"
+    },
+    {
+      "title": "Maintenance documentation",
+      "description": "Generate a structured maintenance log for compliance and tracking purposes.",
+      "prompt": "Document this maintenance session following the documentation requirements. Include system identification, initial and final resource states, all actions taken with quantified results, and follow-up recommendations.",
+      "scenario": "Documentation for compliance"
+    },
+    {
+      "title": "Targeted cleanup operation",
+      "description": "Focus on a specific cleanup area based on identified issues.",
+      "prompt": "The journal logs are consuming too much space on this server. Help me vacuum journal logs older than 7 days and calculate how much space we freed.",
+      "scenario": "Specific cleanup focus"
+    }
+  ],
+  "bestPractices": [
+    "Always capture baseline metrics before performing cleanup operations to quantify improvements",
+    "Follow the three-phase approach: diagnostics first, then log review, then package assessment",
+    "Document all actions with specific commands executed and space recovered for compliance records"
+  ],
+  "antiPatterns": [
+    "Running cleanup commands without first checking disk usage and available space",
+    "Skipping documentation requirements - maintenance without records loses audit trail value",
+    "Using snap cleanup on non-Ubuntu systems where snap is not available"
+  ],
+  "faq": [
+    {
+      "question": "Which Linux distributions are supported?",
+      "answer": "This skill is designed for Ubuntu and Debian-based distributions. The cleanup commands (apt, journalctl) are specific to Debian-derived systems."
+    },
+    {
+      "question": "Does this skill execute commands automatically?",
+      "answer": "No. This skill provides structured guidance and documentation templates. Users execute commands manually based on the skill's recommendations."
+    },
+    {
+      "question": "How much disk space can I typically recover?",
+      "answer": "A comprehensive cleanup session typically recovers 2GB or more. Journal vacuuming recovers 300-600MB, snap cleanup recovers 500MB-2GB, and apt cache cleaning recovers 100-500MB."
+    },
+    {
+      "question": "What permissions are required?",
+      "answer": "Most cleanup operations require sudo privileges. Ensure SSH access with sudo access before beginning maintenance sessions."
+    },
+    {
+      "question": "Can this skill damage my system?",
+      "answer": "The documented commands are standard system maintenance operations. However, always review commands before execution and ensure you have backups for production systems."
+    },
+    {
+      "question": "How often should I perform maintenance?",
+      "answer": "Monthly maintenance is recommended for active servers. High-traffic systems may benefit from bi-weekly checks, especially for log management."
+    }
+  ],
+  "seoKeywords": [
+    "Linux server maintenance",
+    "Ubuntu cleanup",
+    "Debian system administration",
+    "disk space recovery",
+    "remote server management",
+    "system diagnostics",
+    "apt cleanup",
+    "journalctl vacuum",
+    "snap cleanup",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/2389-research/claude-plugins/tree/main/remote-system-maintenance/skills",
+  "sourceType": "community",
+  "dependencies": []
+}

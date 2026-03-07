@@ -1,0 +1,142 @@
+{
+  "name": "seo-handler",
+  "type": "skill",
+  "description": "Manage SEO, sitemaps, and metadata for optimal search engine visibility",
+  "domain": "web-development",
+  "subdomain": "cms",
+  "specialty": "metadata management",
+  "quality": 4,
+  "qualityReason": "CMS-level SEO control",
+  "bundleHints": [
+    "nextjs-seo",
+    "cms-optimization"
+  ],
+  "tags": [
+    "metadata",
+    "nextjs",
+    "optimization",
+    "seo",
+    "sitemap",
+    "sitemaps",
+    "structured-data",
+    "visibility"
+  ],
+  "capabilities": [
+    "Generate and manage Next.js sitemaps including split sitemaps for large sites",
+    "Configure metadata and OpenGraph tags at layout and page levels",
+    "Implement JSON-LD structured data using next-seo components or raw script tags",
+    "Set up Incremental Static Regeneration for SEO-optimized content pages",
+    "Configure robots.txt to control crawler access and save crawl budget",
+    "Provide code examples for article, product, and FAQ schemas"
+  ],
+  "author": "AayushBaniya2006",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation reference for Next.js SEO best practices. All 90 static findings are false positives from pattern detection in markdown code examples. The skill contains no executable code, only TypeScript/JavaScript examples showing developers how to implement SEO features. No security risks identified.",
+  "valueStatement": "Search engine visibility is critical for web applications but implementing proper SEO requires knowledge of sitemaps, metadata, and structured data. This skill provides comprehensive Next.js SEO patterns for sitemaps, OpenGraph tags, JSON-LD schemas, and robots.txt configuration.",
+  "userTitle": "Optimize Next.js SEO with Sitemaps and Metadata",
+  "limitations": [
+    "Documentation only - does not automatically implement SEO features in your codebase",
+    "Focused specifically on Next.js App Router patterns, not Pages Router",
+    "Requires manual adaptation of code examples to your specific application structure",
+    "Does not include performance optimization or Core Web Vitals guidance"
+  ],
+  "useCases": [
+    {
+      "targetUser": "E-commerce developers",
+      "title": "E-commerce Product SEO",
+      "description": "Implement product sitemaps with 50,000+ URLs using split sitemap generation, add product schema markup with JSON-LD, and configure ISR for product pages to balance freshness with performance."
+    },
+    {
+      "targetUser": "Content platform engineers",
+      "title": "Content Site Optimization",
+      "description": "Set up article schema for blog posts, configure metadata inheritance across layouts, implement dynamic OpenGraph images per post, and manage sitemap updates as new content is published."
+    },
+    {
+      "targetUser": "SaaS developers",
+      "title": "SaaS Marketing Pages",
+      "description": "Configure robots.txt to exclude admin and API routes, set up metadata templates for consistent branding, add FAQ schema to landing pages, and implement ISR for marketing content that updates periodically."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Add New Page to Sitemap",
+      "prompt": "Add the /pricing page to my Next.js sitemap with weekly change frequency",
+      "scenario": "After creating a new public route that should be indexed"
+    },
+    {
+      "title": "Configure Page Metadata",
+      "prompt": "Set up OpenGraph metadata for my blog post page that pulls title and image from the post data",
+      "scenario": "Implementing dynamic metadata for content pages"
+    },
+    {
+      "title": "Add Structured Data Schema",
+      "prompt": "Add article JSON-LD schema to my blog post component using next-seo",
+      "scenario": "Improving search engine understanding of content type"
+    },
+    {
+      "title": "Implement Product Sitemap Splitting",
+      "prompt": "Create a split sitemap for 100,000 product URLs with batches of 50,000 each",
+      "scenario": "Optimizing sitemap generation for large e-commerce catalogs"
+    }
+  ],
+  "bestPractices": [
+    "Always add new public routes to sitemap.ts immediately after creating them to ensure search engine discoverability",
+    "Use metadata templates in layout.tsx for consistent branding and override specific fields in page.tsx for dynamic content",
+    "Implement ISR with appropriate revalidate intervals for content pages to balance SEO freshness with performance and caching efficiency"
+  ],
+  "antiPatterns": [
+    "Forgetting to update sitemaps when adding new routes, leading to pages that are never discovered by search engines",
+    "Hardcoding metadata values in page components instead of using generateMetadata for dynamic content",
+    "Using client-side rendering for SEO-critical content instead of server-side rendering or ISR, which prevents proper indexing"
+  ],
+  "faq": [
+    {
+      "question": "When should I use split sitemaps versus a single sitemap?",
+      "answer": "Use split sitemaps when you have more than 50,000 URLs or your sitemap file exceeds 50MB. Next.js generateSitemaps function allows you to split large catalogs into batches for better crawler performance."
+    },
+    {
+      "question": "What is the difference between next-seo components and raw JSON-LD script tags?",
+      "answer": "Next-seo components provide type-safe interfaces for common schemas like Article, Product, and FAQ. Use raw script tags only when you need a schema type that next-seo does not support."
+    },
+    {
+      "question": "How does ISR help with SEO compared to static generation?",
+      "answer": "ISR allows pages to be regenerated on a schedule, keeping content fresh for search engines while maintaining the performance benefits of static generation. Set revalidate to control how often pages are regenerated."
+    },
+    {
+      "question": "Should I use metadata in layout.tsx or page.tsx?",
+      "answer": "Use layout.tsx for default metadata that applies site-wide or to a section. Override specific fields in page.tsx for dynamic content like blog posts where title and description vary per page."
+    },
+    {
+      "question": "What routes should I disallow in robots.txt?",
+      "answer": "Disallow private routes like /api/, /admin/, /app/, and any routes containing sensitive data or infinite pagination. This saves crawl budget and prevents indexing of non-public content."
+    },
+    {
+      "question": "Can this skill automatically generate sitemaps for my existing application?",
+      "answer": "No, this is a documentation skill that provides code examples and patterns. You must manually implement the sitemap generation code in your Next.js application following the examples provided."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "Next.js SEO",
+    "sitemap generation",
+    "OpenGraph metadata",
+    "structured data",
+    "JSON-LD schema",
+    "search engine optimization",
+    "ISR Next.js"
+  ],
+  "sourceUrl": "https://github.com/AayushBaniya2006/blinkfund/tree/main/.claude/skills/seo-handler",
+  "sourceType": "community",
+  "dependencies": []
+}

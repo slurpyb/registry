@@ -1,0 +1,138 @@
+{
+  "name": "code-conventions",
+  "type": "skill",
+  "description": "Guide for code conventions and formatting",
+  "domain": "languages",
+  "subdomain": "typescript",
+  "specialty": "Deno formatting",
+  "quality": 4,
+  "qualityReason": "Specific framework focus",
+  "bundleHints": [
+    "deno-stack",
+    "code-quality"
+  ],
+  "tags": [
+    "code-quality",
+    "deno",
+    "documentation",
+    "documentation-standards",
+    "formatting",
+    "style-guide"
+  ],
+  "capabilities": [
+    "Provides formatting rules using standard tools like mise run fmt",
+    "Establishes JSDoc and TSDoc documentation requirements for all symbols",
+    "Promotes consistent English documentation comments across code",
+    "Helps maintain readable and maintainable codebases"
+  ],
+  "author": "5t111111",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill with no executable code. All static findings are false positives triggered by metadata fields and markdown syntax. The skill contains only guidelines for code formatting and documentation standards.",
+  "valueStatement": "Inconsistent code formatting makes projects harder to maintain and review. This skill provides clear guidelines for code conventions and formatting, helping teams maintain readable and consistent codebases across Deno projects.",
+  "userTitle": "Enforce Code Conventions and Formatting Standards",
+  "limitations": [
+    "Does not execute or modify code automatically",
+    "Focused primarily on Deno projects and conventions",
+    "Does not enforce conventions through CI/CD pipelines",
+    "Relies on manual application of formatting tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Engineering managers and team leads",
+      "title": "Onboard New Team Members",
+      "description": "New developers can quickly learn project coding standards by following the conventions guide, reducing onboarding time and ensuring consistent contributions from day one."
+    },
+    {
+      "targetUser": "Senior developers and code reviewers",
+      "title": "Maintain Code Review Consistency",
+      "description": "Reviewers can reference established conventions during code reviews, reducing subjective feedback and speeding up the review process."
+    },
+    {
+      "targetUser": "Deno developers",
+      "title": "Set Up New Deno Projects",
+      "description": "Developers starting new Deno projects can use this skill to establish coding standards early, ensuring consistency from project inception."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Formatting Check",
+      "prompt": "What are the code conventions I should follow for this project?",
+      "scenario": "When starting work on a codebase and needing to understand formatting requirements"
+    },
+    {
+      "title": "Documentation Standards",
+      "prompt": "What documentation standards should I use when writing JSDoc comments for functions and classes?",
+      "scenario": "When writing documentation for code symbols and APIs"
+    },
+    {
+      "title": "Formatting Tool Usage",
+      "prompt": "How do I run the code formatter for this project before committing?",
+      "scenario": "When preparing code for commit and ensuring proper formatting"
+    },
+    {
+      "title": "Complete Conventions Reference",
+      "prompt": "Give me a complete overview of the code conventions including formatting rules, documentation standards, and naming conventions for this project.",
+      "scenario": "When needing a comprehensive reference for project conventions"
+    }
+  ],
+  "bestPractices": [
+    "Run formatting tools before every commit to catch style issues early",
+    "Document all public APIs with complete JSDoc or TSDoc comments",
+    "Write documentation in consistent English throughout the codebase"
+  ],
+  "antiPatterns": [
+    "Skipping formatting checks before committing",
+    "Leaving functions undocumented or with incomplete JSDoc comments",
+    "Mixing documentation languages within the same project"
+  ],
+  "faq": [
+    {
+      "question": "What formatting tool does this skill recommend?",
+      "answer": "This skill recommends using `mise run fmt` for code formatting, which is the standard formatter for Deno projects."
+    },
+    {
+      "question": "Does this skill automatically format my code?",
+      "answer": "No, this skill provides guidelines and recommendations. You need to run formatting tools manually or through your editor."
+    },
+    {
+      "question": "What comment style should I use for documentation?",
+      "answer": "Use JSDoc or TSDoc comments for documenting functions, classes, and properties. Include descriptions, parameter types, and return values."
+    },
+    {
+      "question": "Can I use this skill for non-Deno projects?",
+      "answer": "The conventions are designed for Deno projects. Other projects may have different tooling and conventions."
+    },
+    {
+      "question": "How detailed should my documentation comments be?",
+      "answer": "Include descriptions of what the symbol does, parameter meanings, return values, and any edge cases or important notes."
+    },
+    {
+      "question": "What if my team has custom conventions?",
+      "answer": "This skill provides a baseline. Teams can extend or customize these conventions to fit their specific needs."
+    }
+  ],
+  "seoKeywords": [
+    "code conventions",
+    "code formatting",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Deno",
+    "style guide",
+    "code quality",
+    "JSDoc",
+    "code standards"
+  ],
+  "sourceUrl": "https://github.com/5t111111/tailwind-theme-figma-variables/tree/main/.github/skills/code-conventions",
+  "sourceType": "community",
+  "dependencies": []
+}

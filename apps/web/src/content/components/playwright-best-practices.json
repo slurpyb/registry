@@ -1,0 +1,143 @@
+{
+  "name": "playwright-best-practices",
+  "type": "skill",
+  "description": "Review code for Playwright Guidelines compliance. Use when asked to \"review my playwright tests\", \"check accessibility\", or \"check my tests against best practices\".",
+  "domain": "testing",
+  "subdomain": "e2e",
+  "specialty": "test quality review",
+  "quality": 5,
+  "qualityReason": "Actionable and high-value",
+  "bundleHints": [
+    "testing-suite",
+    "quality-gate"
+  ],
+  "tags": [
+    "accessibility-checks",
+    "best-practices",
+    "code-review",
+    "playwright",
+    "test-automation",
+    "test-patterns",
+    "testing",
+    "typescript"
+  ],
+  "capabilities": [
+    "Reviews Playwright TypeScript tests against 40+ best practice rules",
+    "Checks for test stability issues like missing auto-waiting and manual timeouts",
+    "Identifies performance problems including slow selectors and missing parallel execution",
+    "Validates proper use of web-first assertions over generic expect statements",
+    "Evaluates locator strategies preferring role-based over CSS/XPath selectors",
+    "Provides specific code examples showing incorrect patterns and correct implementations"
+  ],
+  "author": "vitalics",
+  "icon": "📦",
+  "version": "1.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing markdown files with code examples. All static findings are false positives - patterns detected in documentation code blocks, not executable code. The skill provides guidelines for Playwright test best practices and does not execute arbitrary code, make network requests to external services, or access sensitive files.",
+  "valueStatement": "Playwright tests often suffer from flakiness, slow execution, and poor maintainability. This skill reviews TypeScript test code against 40+ proven best practices organized into 8 categories, providing specific improvement suggestions with clear examples.",
+  "userTitle": "Review Playwright Tests for Best Practices",
+  "limitations": [
+    "Does not execute test code or run Playwright tests directly",
+    "Does not modify files - only provides review feedback and suggestions",
+    "Does not generate new test code from scratch",
+    "Limited to patterns documented in the skill's rule set"
+  ],
+  "useCases": [
+    {
+      "targetUser": "QA engineers and test automation developers",
+      "title": "QA Engineer Reviewing Existing Tests",
+      "description": "A QA engineer wants to audit their Playwright test suite for stability and maintainability issues before deploying to production."
+    },
+    {
+      "targetUser": "Frontend developers and SDETs",
+      "title": "Developer Refactoring Legacy Tests",
+      "description": "A developer is refactoring legacy Selenium tests to Playwright and wants guidance on proper patterns and anti-patterns to avoid."
+    },
+    {
+      "targetUser": "DevOps teams and engineering managers",
+      "title": "CI/CD Pipeline Quality Check",
+      "description": "A team wants to automatically validate that new test contributions follow established best practices before merging."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Test Review",
+      "prompt": "Review my Playwright tests in {file_path} for best practices compliance. Check for issues like missing auto-waiting, proper assertion usage, and locator strategies.",
+      "scenario": "When a user wants a quick review of specific test files"
+    },
+    {
+      "title": "Comprehensive Suite Audit",
+      "prompt": "Audit all Playwright tests in the {directory} directory against the best practices guidelines. For each issue found, explain what is wrong, why it matters, and provide a corrected example.",
+      "scenario": "When a user wants a thorough review of an entire test suite"
+    },
+    {
+      "title": "Specific Pattern Check",
+      "prompt": "Check if my tests use web-first assertions correctly. Look for cases where generic expect() is used instead of web-first assertions like toBeVisible(), toHaveText(), and toHaveCount().",
+      "scenario": "When a user wants to check for a specific pattern violation"
+    },
+    {
+      "title": "Performance Optimization Review",
+      "description": "Focus on test execution speed and parallelization opportunities",
+      "prompt": "Review my Playwright tests for performance issues. Check for slow selectors, missing page object model patterns, lack of parallel execution configuration, and unnecessary waits. Suggest specific improvements with code examples.",
+      "scenario": "When a user wants to optimize test execution time"
+    }
+  ],
+  "bestPractices": [
+    "Always use web-first assertions (toBeVisible, toHaveText, toHaveCount) instead of generic expect with extracted values - they auto-wait and retry",
+    "Prefer role-based locators (getByRole, getByText, getByLabel) over CSS/XPath selectors - they are more resilient to UI changes",
+    "Never use manual waits like waitForTimeout - rely on Playwright's auto-waiting or explicit waits for network events"
+  ],
+  "antiPatterns": [
+    "Using generic expect() with manually extracted DOM values instead of web-first assertions",
+    "Using position-based CSS selectors or fragile XPath expressions instead of semantic role-based locators",
+    "Adding arbitrary sleep delays instead of proper auto-waiting or explicit condition waits"
+  ],
+  "faq": [
+    {
+      "question": "What makes this skill different from other code review tools?",
+      "answer": "This skill is specifically designed for Playwright TypeScript testing with 40+ curated rules. It provides contextual explanations, impact levels for each issue, and specific code examples showing both incorrect and correct patterns."
+    },
+    {
+      "question": "Does this skill modify my test files?",
+      "answer": "No. The skill only reviews and provides feedback. It does not execute any code or make changes to your files. All suggestions are informational."
+    },
+    {
+      "question": "What categories of best practices does it check?",
+      "answer": "The skill covers 8 categories: Test Stability & Reliability, Test Execution Speed, Locator Best Practices, Assertions & Waiting, Parallel Execution, Fixtures & Test Organization, Debugging & Maintenance, and Advanced Patterns."
+    },
+    {
+      "question": "Can I use this for non-Playwright tests?",
+      "answer": "The rules are specifically designed for Playwright TypeScript tests. While some general testing principles apply, the skill will not provide relevant feedback for other testing frameworks like Cypress, Selenium, or Jest."
+    },
+    {
+      "question": "How does the skill handle different Playwright versions?",
+      "answer": "The best practices rules are based on current Playwright APIs and patterns. The skill reviews code against established guidelines that work with modern Playwright versions."
+    },
+    {
+      "question": "Can I add custom rules to this skill?",
+      "answer": "The skill uses a fixed rule set defined in the AGENTS.md file. Custom rules would require modifying the skill's source files. For team-specific guidelines, consider documenting them separately."
+    }
+  ],
+  "seoKeywords": [
+    "Playwright testing best practices",
+    "Claude Code",
+    "Playwright test review",
+    "TypeScript testing guidelines",
+    "Test automation patterns",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Playwright test stability",
+    "Test maintainability"
+  ],
+  "sourceUrl": "https://github.com/vitalics/playwright-labs/tree/main/packages/playwright-best-practices/",
+  "sourceType": "community",
+  "dependencies": []
+}

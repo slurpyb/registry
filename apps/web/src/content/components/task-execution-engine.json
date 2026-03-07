@@ -1,0 +1,144 @@
+{
+  "name": "task-execution-engine",
+  "type": "skill",
+  "description": "Execute implementation tasks from design documents using markdown checkboxes. Use when (1) implementing features from feature-design-assistant output, (2) resuming interrupted work, (3) batch executing tasks. Triggers on 'start implementation', 'run tasks', 'resume'.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "Markdown task execution",
+  "quality": 5,
+  "qualityReason": "Actionable with clear triggers",
+  "bundleHints": [
+    "workflow-automation",
+    "project-execution",
+    "agile-tools"
+  ],
+  "tags": [
+    "automation",
+    "batch-processing",
+    "feature-implementation",
+    "implementation",
+    "markdown",
+    "resumption",
+    "task-execution",
+    "task-management",
+    "workflow"
+  ],
+  "capabilities": [
+    "Read task lists from markdown design documents",
+    "Execute tasks in priority order with dependency checking",
+    "Mark tasks as completed or failed with reasons",
+    "Show progress status and next task to execute",
+    "Resume interrupted work from any point",
+    "Support nested task criteria with checkboxes"
+  ],
+  "author": "notedit",
+  "icon": "⚙️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "The static analyzer produced severe false positives due to misinterpreting markdown documentation as executable Ruby code. The actual Python script (task_manager.py) only performs file I/O operations on explicitly specified files. No network access, no external command execution, no code execution capabilities. Behavior matches stated purpose as a markdown-based task manager.",
+  "valueStatement": "Managing feature implementation across scattered todo lists and design documents wastes time and causes missed tasks. Task execution engine reads structured task lists directly from markdown design files and executes them one by one with automatic checkbox updates.",
+  "userTitle": "Execute implementation tasks from design documents",
+  "limitations": [
+    "Only works with markdown files in the specified task format",
+    "Does not execute the actual implementation code itself",
+    "Requires design document to be written first",
+    "No built-in code review or testing integration"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Individual developers",
+      "title": "Implement features from designs",
+      "description": "Turn feature designs into working code using structured task checklists that track progress automatically"
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Coordinate team implementations",
+      "description": "Create shared design documents with task breakdowns that multiple developers can execute independently"
+    },
+    {
+      "targetUser": "AI coding assistants",
+      "title": "Run automated implementation pipelines",
+      "description": "Enable AI agents to work through feature implementations step by step with verifiable completion criteria"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start implementation",
+      "scenario": "Begin executing from design file",
+      "prompt": "Start implementation from docs/designs/[feature-name].md"
+    },
+    {
+      "title": "Check progress",
+      "scenario": "View current task status",
+      "prompt": "Show status of docs/designs/[feature-name].md"
+    },
+    {
+      "title": "Resume work",
+      "scenario": "Continue interrupted implementation",
+      "prompt": "Resume implementation from docs/designs/[feature-name].md"
+    },
+    {
+      "title": "Batch execute",
+      "scenario": "Run multiple tasks automatically",
+      "prompt": "Run all pending tasks from docs/designs/[feature-name].md until completion"
+    }
+  ],
+  "bestPractices": [
+    "Break down each task into specific, verifiable acceptance criteria before implementation",
+    "Review the full task list and dependencies before starting to understand the architecture",
+    "Use the fail command with clear reasons when blocked to help with recovery later"
+  ],
+  "antiPatterns": [
+    "Skipping the task list and jumping directly into coding without a plan",
+    "Using design files that do not follow the markdown checkbox format",
+    "Implementing tasks without checking the acceptance criteria for each one"
+  ],
+  "faq": [
+    {
+      "question": "Which AI coding tools support this skill?",
+      "answer": "This skill works with Claude, OpenAI Codex, and any Claude Code compatible interface. No special configuration required."
+    },
+    {
+      "question": "How many tasks can this manage at once?",
+      "answer": "The skill can handle any number of tasks. Performance depends on file size and reading speed of the markdown file."
+    },
+    {
+      "question": "How does this integrate with other skills?",
+      "answer": "This skill reads output from feature-design-assistant. Provide the design file path and it will execute all listed tasks automatically."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. This skill only reads and writes files you explicitly specify. No data is sent to external servers or third parties."
+    },
+    {
+      "question": "What if implementation gets interrupted?",
+      "answer": "Simply run the command again with the same design file. The skill automatically finds the first incomplete task and continues from there."
+    },
+    {
+      "question": "How is this different from regular todo apps?",
+      "answer": "This skill integrates directly with design documents. Tasks stay with the design specifications, enabling Git-friendly diffs and single source of truth."
+    }
+  ],
+  "seoKeywords": [
+    "task execution engine",
+    "feature implementation",
+    "markdown task management",
+    "Claude Code skill",
+    "automated coding workflow",
+    "task tracking",
+    "design to code",
+    "implementation automation",
+    "feature pipeline",
+    "structured development"
+  ],
+  "sourceUrl": "https://github.com/notedit/happy-coding-agent/tree/main/skills/task-execution-engine",
+  "sourceType": "community",
+  "dependencies": []
+}

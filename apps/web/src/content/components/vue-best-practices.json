@@ -1,0 +1,140 @@
+{
+  "name": "vue-best-practices",
+  "type": "skill",
+  "description": "MUST be used for Vue.js tasks. Strongly recommends Composition API with `<script setup>` and TypeScript as the standard approach. Covers Vue 3, SSR, Volar, vue-tsc. Load for any Vue, .vue files, Vue Router, Pinia, or Vite with Vue work. ALWAYS use Composition API unless the project explicitly requires Options API.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Vue 3 patterns",
+  "quality": 5,
+  "qualityReason": "Specific, modern, actionable",
+  "bundleHints": [
+    "vue-stack",
+    "frontend",
+    "fullstack"
+  ],
+  "tags": [
+    "best-practices",
+    "composition-api",
+    "script-setup",
+    "ssr",
+    "typescript",
+    "vue3"
+  ],
+  "capabilities": [
+    "Recommends Composition API patterns for refs, computed, and watchers in Vue 3.",
+    "Guides template structure decisions such as v-for keys and v-if separation.",
+    "Explains SSR-safe usage patterns for platform-specific APIs.",
+    "Provides render function guidance when templates are insufficient.",
+    "Outlines TypeScript prop, emit, and slot typing practices for Vue SFCs."
+  ],
+  "author": "vuejs-ai",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static findings point to code snippets in Markdown reference files, not executable logic. No prompt injection attempts were found in reviewed documentation, and no evidence of malicious behavior was identified.",
+  "valueStatement": "Vue projects often suffer from reactivity bugs and inconsistent patterns. This skill provides Vue 3 Composition API, SSR, and TypeScript guidance with concrete do and do not examples.",
+  "userTitle": "Apply Vue 3 Best Practices",
+  "limitations": [
+    "Does not execute code or run project builds.",
+    "Does not replace project-specific style guides or lint rules.",
+    "Does not cover Vue 2 Options API unless explicitly requested.",
+    "Does not install dependencies or configure tooling automatically."
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developer",
+      "title": "Refactor a Vue 3 component",
+      "description": "Identify Composition API and template issues before a refactor."
+    },
+    {
+      "targetUser": "Tech lead",
+      "title": "Review team code for consistency",
+      "description": "Check for common Vue 3 anti patterns and enforce best practices."
+    },
+    {
+      "targetUser": "Documentation writer",
+      "title": "Create internal Vue guidance",
+      "description": "Draft concise best practice notes for onboarding materials."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Fix common Composition API issues",
+      "prompt": "Review this Vue 3 component for Composition API issues and list fixes with brief reasoning.",
+      "scenario": "Beginner"
+    },
+    {
+      "title": "Improve template performance",
+      "prompt": "Analyze the template for v-for and v-if misuse, and suggest a corrected structure.",
+      "scenario": "Intermediate"
+    },
+    {
+      "title": "SSR safety review",
+      "prompt": "Check this component for SSR unsafe APIs and propose SSR safe alternatives.",
+      "scenario": "Advanced"
+    },
+    {
+      "title": "TypeScript props and emits audit",
+      "prompt": "Validate props and emits typing for a Vue 3 <script setup> component and propose improvements.",
+      "scenario": "Advanced"
+    }
+  ],
+  "bestPractices": [
+    "Prefer computed for derived state and keep it side effect free.",
+    "Use unique keys for list rendering and avoid v-if with v-for on the same element.",
+    "Type props and emits explicitly in <script setup> for clarity."
+  ],
+  "antiPatterns": [
+    "Mutating props directly inside child components.",
+    "Calling async side effects inside computed or template expressions.",
+    "Mixing Options API patterns into Composition API components without need."
+  ],
+  "faq": [
+    {
+      "question": "Does this skill cover Vue 2 Options API?",
+      "answer": "It focuses on Vue 3 Composition API and covers Options API only when required."
+    },
+    {
+      "question": "Does it generate full components?",
+      "answer": "It provides guidance and examples but does not scaffold entire projects."
+    },
+    {
+      "question": "Can it validate SSR safety?",
+      "answer": "It can flag common SSR unsafe patterns and suggest safer alternatives."
+    },
+    {
+      "question": "Will it run tests or build the app?",
+      "answer": "No, it does not execute code or run build commands."
+    },
+    {
+      "question": "Is it limited to <script setup>?",
+      "answer": "It prefers <script setup> but can discuss alternatives when needed."
+    },
+    {
+      "question": "Does it enforce a style guide?",
+      "answer": "It offers best practices but does not replace team specific guidelines."
+    }
+  ],
+  "seoKeywords": [
+    "Vue 3 best practices",
+    "Composition API",
+    "script setup",
+    "TypeScript Vue",
+    "Vue SSR",
+    "Volar",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Vue performance"
+  ],
+  "sourceUrl": "https://github.com/vuejs-ai/skills/tree/main/skills/vue-best-practices/",
+  "sourceType": "community",
+  "dependencies": []
+}

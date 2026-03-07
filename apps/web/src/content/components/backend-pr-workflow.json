@@ -1,0 +1,140 @@
+{
+  "name": "backend-pr-workflow",
+  "type": "skill",
+  "description": "Pedantic Diversio backend dev workflow Skill that enforces ClickUp-linked branch/PR naming, PR hygiene, safe Django migrations, and downtime-safe schema changes for Django4Lyfe-style backends.\n",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "PR Hygiene Enforcement",
+  "quality": 5,
+  "qualityReason": "Detailed workflow control",
+  "bundleHints": [
+    "django-workflow",
+    "pr-process"
+  ],
+  "tags": [
+    "backend",
+    "branching",
+    "django",
+    "migration",
+    "pull-request",
+    "workflow"
+  ],
+  "capabilities": [
+    "Enforces ClickUp-linked branch naming convention clickup_<ticket_id>",
+    "Validates PR titles include ticket ID and follow project format",
+    "Reviews Django migrations for cleanup and proper structure",
+    "Checks downtime-safe schema change patterns for large tables",
+    "Validates release and hotfix branch workflows",
+    "Reviews PR descriptions for completeness and manual deployment steps"
+  ],
+  "author": "DiversioTeam",
+  "icon": "🔧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based skill containing only SKILL.md documentation. No executable code, scripts, or network calls. All 134 static findings are false positives caused by the scanner misinterpreting documentation patterns (ticket IDs, dates, code formatting, branch names) as security-relevant code patterns. Uses only standard Read, Bash, Glob, and Grep tools as permitted by the AI environment.",
+  "valueStatement": "Backend pull requests often miss critical workflow steps like proper ClickUp ticket linkage, migration safety checks, or downtime-safe schema changes. This skill provides a pedantic checklist to catch these issues before merge and deployment.",
+  "userTitle": "Enforce backend PR workflow standards",
+  "limitations": [
+    "Only provides recommendations; does not modify code or branch settings",
+    "Relies on user input for branch names, PR titles, and migration details",
+    "Does not integrate directly with ClickUp API or GitHub API",
+    "Assumes Django-based backend; may not fit non-Django projects"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Review Django PRs",
+      "description": "Ensure PRs follow naming conventions, migration best practices, and downtime-safe deployment patterns."
+    },
+    {
+      "targetUser": "Tech leads",
+      "title": "Standardize PR workflow",
+      "description": "Enforce consistent branch naming, ticket linkage, and release processes across the backend team."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Prevent bad migrations",
+      "description": "Catch dangerous schema changes before they reach production and cause downtime."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick PR review",
+      "scenario": "Review a PR before merge",
+      "prompt": "Use the backend-pr-workflow skill to review this PR. Branch: clickup_GH-1234_feature-name. Base: release. Title: [GH-1234] Add new feature."
+    },
+    {
+      "title": "Pre-merge check",
+      "scenario": "Check PR before opening",
+      "prompt": "Run backend-pr-workflow on my planned PR. Title: [GH-785] Fix login bug. Description: Fixes timeout issue. Migration: added is_active field with default True on large User table."
+    },
+    {
+      "title": "Migration safety",
+      "scenario": "Verify migration safety",
+      "prompt": "Use backend-pr-workflow to check if my Django migration plan is downtime-safe. I am adding a nullable UUID field to a table with 10 million rows, then backfilling in migration."
+    },
+    {
+      "title": "Hotfix validation",
+      "scenario": "Validate hotfix PR",
+      "prompt": "Use backend-pr-workflow to validate my hotfix. Target branch: master. Title: Hotfix release: 2025-08-19. This is an emergency fix for production bug."
+    }
+  ],
+  "bestPractices": [
+    "Always include the ClickUp ticket ID in branch name and PR title for traceability.",
+    "Use two-step migrations for adding columns to large tables: nullable first, then backfill.",
+    "Split code removal from schema removal into separate PRs to avoid deployment errors."
+  ],
+  "antiPatterns": [
+    "Merging code that removes a field with the migration that drops it in the same PR.",
+    "Using volatile defaults like UUID or current_timestamp inside atomic migrations on large tables.",
+    "Reusing the same ClickUp ticket ID across multiple repositories for a single feature."
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "Claude Code, OpenAI Codex, and standard Claude models. Use the installation method for your platform."
+    },
+    {
+      "question": "What are the blocking issues this skill flags?",
+      "answer": "Missing ClickUp ticket ID in branch, wrong base branch, and schema changes that risk production downtime."
+    },
+    {
+      "question": "Does this skill modify my code?",
+      "answer": "No. It only analyzes and provides recommendations. You must apply changes manually."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. It only reads PR information you provide. No data is stored or transmitted externally."
+    },
+    {
+      "question": "Why are my migrations flagged as blocking?",
+      "answer": "Migrations adding non-nullable fields with defaults on large tables cause table locks. Use the two-step pattern recommended."
+    },
+    {
+      "question": "How does this differ from standard PR reviews?",
+      "answer": "Focuses on workflow compliance, migration safety, and deployment patterns rather than code logic or style."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Django",
+    "pull request",
+    "PR review",
+    "workflow automation",
+    "ClickUp",
+    "migration safety",
+    "backend development"
+  ],
+  "sourceUrl": "https://github.com/DiversioTeam/agent-skills-marketplace/tree/main/plugins/backend-pr-workflow/skills/backend-pr-workflow",
+  "sourceType": "community",
+  "dependencies": []
+}

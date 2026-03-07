@@ -1,0 +1,139 @@
+{
+  "name": "stripe-handler",
+  "type": "skill",
+  "description": "Handle Stripe payments, custom checkouts, and webhook fulfillment outside of standard plans/credits.",
+  "domain": "business",
+  "subdomain": "sales",
+  "specialty": "Payment handling",
+  "quality": 4,
+  "qualityReason": "Niche payment handling",
+  "bundleHints": [
+    "payment-integrations",
+    "sales-automation"
+  ],
+  "tags": [
+    "checkout",
+    "custom",
+    "ecommerce",
+    "fulfillment",
+    "payments",
+    "stripe",
+    "webhooks"
+  ],
+  "capabilities": [
+    "Outline a custom checkout session flow for one time products",
+    "Describe webhook routing using metadata types",
+    "Explain how to offload fulfillment to Inngest background jobs",
+    "List required Stripe environment variables for keys and webhook secrets",
+    "Provide local webhook testing steps with Stripe CLI"
+  ],
+  "author": "AayushBaniya2006",
+  "icon": "💳",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged command execution and environment access patterns in documentation. Review shows Stripe CLI examples and standard environment variable guidance with no executable code. No evidence of data exfiltration or malicious intent was found.",
+  "valueStatement": "Custom payment flows for one time products are complex to implement safely. This skill provides patterns for Stripe checkout sessions, webhook handling, and background processing with Inngest.",
+  "userTitle": "Implement Custom Stripe Payments",
+  "limitations": [
+    "Does not generate UI components or client side Stripe elements",
+    "Requires a Stripe account and valid API keys",
+    "Does not replace official Stripe API documentation",
+    "Assumes a Next.js style backend and may need adaptation for other stacks"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Startup developers selling digital goods",
+      "title": "Launch a one time product checkout",
+      "description": "Create a server side checkout flow for a digital product with metadata driven fulfillment."
+    },
+    {
+      "targetUser": "Backend engineers maintaining payment services",
+      "title": "Route custom webhook events",
+      "description": "Add metadata based routing to separate custom purchases from plan or credit flows."
+    },
+    {
+      "targetUser": "Platform teams handling high volume payments",
+      "title": "Scale fulfillment with background jobs",
+      "description": "Move slow fulfillment to Inngest to avoid webhook timeouts and ensure idempotent processing."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic checkout session",
+      "prompt": "Draft a server side Stripe checkout session for a one time $49 product. Include metadata type and productId.",
+      "scenario": "Beginner: create a basic checkout"
+    },
+    {
+      "title": "Webhook routing logic",
+      "prompt": "Explain how to route checkout.session.completed events using metadata.type and where to place the logic.",
+      "scenario": "Intermediate: webhook routing"
+    },
+    {
+      "title": "Background processing plan",
+      "prompt": "Design an Inngest workflow for payment fulfillment with idempotency checks and a confirmation email step.",
+      "scenario": "Advanced: background jobs"
+    },
+    {
+      "title": "Environment setup checklist",
+      "prompt": "List the Stripe environment variables needed for server, client, and webhook verification, and describe where they are used.",
+      "scenario": "Setup: configuration review"
+    }
+  ],
+  "bestPractices": [
+    "Use metadata.type to separate custom products from plan and credit flows.",
+    "Respond to webhooks quickly and offload slow work to Inngest.",
+    "Add idempotency checks before creating orders or granting access."
+  ],
+  "antiPatterns": [
+    "Relying only on product IDs for routing when metadata is available.",
+    "Running long database updates directly inside the webhook handler.",
+    "Skipping webhook signature verification with STRIPE_WEBHOOK_SECRET."
+  ],
+  "faq": [
+    {
+      "question": "When should I use stripe-handler?",
+      "answer": "Use it for one time products or custom services that are not standard plans or credit packages."
+    },
+    {
+      "question": "Does this skill create Stripe products for me?",
+      "answer": "No. It focuses on checkout, webhooks, and fulfillment logic, not product management in Stripe."
+    },
+    {
+      "question": "How do I prevent duplicate fulfillment?",
+      "answer": "Store the Stripe session ID and check for an existing order before fulfilling."
+    },
+    {
+      "question": "What environment variables are required?",
+      "answer": "You need STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, and NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY."
+    },
+    {
+      "question": "Can I use it with subscriptions?",
+      "answer": "Yes, but it is optimized for custom flows. Use plans-handler for standard subscription plans."
+    },
+    {
+      "question": "Is Inngest required?",
+      "answer": "No. It is recommended for long running fulfillment and high volume events."
+    }
+  ],
+  "seoKeywords": [
+    "Stripe custom checkout",
+    "Stripe webhook handling",
+    "one time payments",
+    "payment fulfillment",
+    "Inngest workflow",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Stripe CLI"
+  ],
+  "sourceUrl": "https://github.com/AayushBaniya2006/blinkfund/tree/main/.claude/skills/stripe-handler",
+  "sourceType": "community",
+  "dependencies": []
+}

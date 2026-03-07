@@ -1,0 +1,141 @@
+{
+  "name": "summary-generator",
+  "type": "skill",
+  "description": "This skill should be used when generating lesson summaries for educational content. It extracts key concepts, mental models, patterns, and common mistakes from lesson markdown files using a Socratic extraction process. Use this skill when a lesson file needs a `.summary.md` companion file, or when reviewing/refreshing existing summaries.",
+  "domain": "ai-ml",
+  "subdomain": "nlp",
+  "specialty": "educational summarization",
+  "quality": 5,
+  "qualityReason": "Specific educational application",
+  "bundleHints": [
+    "edtech-tools",
+    "learning-ai"
+  ],
+  "tags": [
+    "content-synthesis",
+    "education",
+    "knowledge-extraction",
+    "lesson-planning",
+    "socratic",
+    "socratic-method",
+    "summaries"
+  ],
+  "capabilities": [
+    "Extract single core concept from any lesson using targeted questioning",
+    "Identify 2-3 reusable mental models and thinking frameworks",
+    "Map 2-4 actionable patterns and techniques from lesson content",
+    "Document 2-3 common mistakes students make with corrections",
+    "Build connection maps showing prerequisite and follow-up topics",
+    "Validate summaries against anti-patterns checklist"
+  ],
+  "author": "92Bilal26",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation and prompt instructions. No executable code, network calls, file system access, or environment variable reading. Pure prompt-based skill with zero risk factors. All 32 static findings are false positives triggered by markdown syntax (triple backticks for code blocks) and legitimate documentation text.",
+  "valueStatement": "Creating lesson summaries manually takes time and risks missing key insights. This skill uses a proven Socratic questioning framework to consistently extract core concepts, mental models, and practical patterns from any lesson file.",
+  "userTitle": "Generate lesson summaries with Socratic extraction",
+  "limitations": [
+    "Only generates summaries for markdown lesson files",
+    "Requires the AI to read lesson content first before summarizing",
+    "Does not modify or edit existing summaries automatically",
+    "No support for non-educational content types"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Course developers",
+      "title": "Create companion summaries",
+      "description": "Generate .summary.md files for new lessons to provide quick reference guides for students."
+    },
+    {
+      "targetUser": "Content reviewers",
+      "title": "Audit existing summaries",
+      "description": "Review and refresh outdated lesson summaries using the Socratic framework for quality."
+    },
+    {
+      "targetUser": "Educators",
+      "title": "Extract key takeaways",
+      "description": "Pull essential concepts and patterns from lessons to share in study guides or quick references."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic summary request",
+      "scenario": "Generate a new summary",
+      "prompt": "Use the summary-generator skill to create a .summary.md file for this lesson. Read the lesson first, then apply the Socratic extraction process."
+    },
+    {
+      "title": "Review existing summary",
+      "scenario": "Audit lesson quality",
+      "prompt": "Use summary-generator to review this lesson and identify if any key concepts, mental models, or patterns are missing from the current summary."
+    },
+    {
+      "title": "Level-based summary",
+      "scenario": "Adjust for proficiency",
+      "prompt": "Generate a summary for this A2/B1/C1 level lesson using the summary-generator skill. Target the word count appropriate for the proficiency level."
+    },
+    {
+      "title": "Quick extraction",
+      "scenario": "Extract core elements",
+      "prompt": "Use the Socratic questions from summary-generator: What is the one thing students must remember? What mental models does this install? What patterns can they apply? What mistakes do they make?"
+    }
+  ],
+  "bestPractices": [
+    "Always read the full lesson file before applying the Socratic extraction questions",
+    "Validate each summary against the anti-patterns checklist before finalizing",
+    "Match summary length to the proficiency level specified in lesson frontmatter"
+  ],
+  "antiPatterns": [
+    "Including full explanations instead of pointing to concepts",
+    "Copying code examples instead of describing patterns",
+    "Using framework terminology that students should not see"
+  ],
+  "faq": [
+    {
+      "question": "What file formats does this skill support?",
+      "answer": "Only markdown lesson files with frontmatter. The skill reads content and outputs .summary.md files."
+    },
+    {
+      "question": "What proficiency levels can it handle?",
+      "answer": "All levels from A1-A2 (beginner) through C1-C2 (advanced) with appropriate word count targets."
+    },
+    {
+      "question": "Does it work with nested lesson structures?",
+      "answer": "Yes. The skill reads any markdown file and generates summaries regardless of directory structure."
+    },
+    {
+      "question": "Is lesson content stored or transmitted?",
+      "answer": "No. The AI processes lesson content in context only during the summary generation session."
+    },
+    {
+      "question": "What if the summary misses important concepts?",
+      "answer": "Run the skill again or use the Socratic questions directly to identify gaps in the generated summary."
+    },
+    {
+      "question": "How is this different from generic summarization tools?",
+      "answer": "Uses pedagogical Socratic questioning designed specifically for educational content with mental models and patterns."
+    }
+  ],
+  "seoKeywords": [
+    "lesson summary generator",
+    "educational content summarization",
+    "Socratic questioning for learning",
+    "Claude Code skill",
+    "knowledge extraction framework",
+    "teaching documentation",
+    "lesson review tool",
+    "skill extraction AI",
+    "Claude Codex skill",
+    "educational AI assistant"
+  ],
+  "sourceUrl": "https://github.com/92Bilal26/TaskPilotAI/tree/main/.claude/skills/summary-generator",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "chronicle-context-retriever",
+  "type": "skill",
+  "description": "Search and retrieve context from past development sessions using Chronicle data. Works with MCP (fast, structured) or CLI commands (portable). Use when user asks about previous work, wants to recall past decisions, needs to understand codebase history, or wants to avoid repeating past approaches.",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "context recall",
+  "quality": 5,
+  "qualityReason": "Critical for memory and continuity",
+  "bundleHints": [
+    "chronicle-suite",
+    "context-management"
+  ],
+  "tags": [
+    "chronicle",
+    "cli",
+    "context",
+    "history",
+    "mcp",
+    "search",
+    "session-data",
+    "sessions"
+  ],
+  "capabilities": [
+    "Search Chronicle database for past development sessions",
+    "Retrieve session summaries and key decisions",
+    "Find implementation approaches from previous work",
+    "Identify blockers and solutions from past sessions",
+    "Search by keywords, time periods, or repositories",
+    "Access both MCP tools and CLI commands"
+  ],
+  "author": "ChandlerHardy",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a pure documentation file (SKILL.md) with no executable code, network calls, or file system access. It only provides instructions for using existing Chronicle MCP tools and CLI commands. All 77 static findings are false positives triggered by the static analyzer misinterpreting documentation elements (markdown code backticks, example paths, and documentation terminology) as security threats.",
+  "valueStatement": "Stop repeating past mistakes and rediscover solutions you have already implemented. This skill searches your Chronicle database to find relevant context from previous development sessions. Build on past work instead of starting from scratch.",
+  "userTitle": "Search Your Development History with Chronicle",
+  "limitations": [
+    "Requires Chronicle to be installed and configured",
+    "Cannot access sessions from other users",
+    "Search results depend on Chronicle summarization quality",
+    "MCP tools must be configured for fastest performance"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers working on recurring features",
+      "title": "Recall Past Implementations",
+      "description": "Quickly find how you solved similar problems before, including decisions made and issues encountered."
+    },
+    {
+      "targetUser": "Team members returning to projects",
+      "title": "Get Project Context",
+      "description": "Understand what work was done while you were away, including recent decisions and current blockers."
+    },
+    {
+      "targetUser": "Developers avoiding repeated mistakes",
+      "title": "Learn from Past Blockers",
+      "description": "Identify what blocked progress previously and how it was resolved to avoid hitting the same issues again."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Session Search",
+      "scenario": "Find recent work on a topic",
+      "prompt": "Search my Chronicle sessions for work on authentication implementation in the last 2 weeks"
+    },
+    {
+      "title": "Problem-Solution Lookup",
+      "scenario": "Find how a blocker was solved",
+      "prompt": "What was the blocker we hit with the database migration and how did we solve it?"
+    },
+    {
+      "title": "Implementation Recall",
+      "scenario": "Remember how something was built",
+      "prompt": "How did I implement the user-dashboard feature? Show me the approach and key decisions"
+    },
+    {
+      "title": "Pattern Discovery",
+      "scenario": "Find recurring themes across sessions",
+      "prompt": "Search for all sessions about API performance issues and summarize the common patterns"
+    }
+  ],
+  "bestPractices": [
+    "Start with broad searches to find relevant areas, then narrow down with specific terms",
+    "Use both MCP tools for structured JSON output and CLI commands for portable access",
+    "Review failed sessions too - they often contain valuable lessons about what to avoid"
+  ],
+  "antiPatterns": [
+    "Do not rely solely on memory - search Chronicle first before reinventing solutions",
+    "Avoid searching only for successful sessions - failed attempts often contain valuable lessons",
+    "Do not skip the deep-dive phase after initial broad searches"
+  ],
+  "faq": [
+    {
+      "question": "Do I need Chronicle installed to use this skill?",
+      "answer": "Yes, this skill searches your Chronicle database. Install Chronicle first and ensure it is tracking your sessions."
+    },
+    {
+      "question": "What is the difference between MCP and CLI approaches?",
+      "answer": "MCP provides structured JSON responses and is faster, while CLI works everywhere as a reliable fallback option."
+    },
+    {
+      "question": "How far back can I search?",
+      "answer": "You can search all sessions in your Chronicle database from any time period since you started tracking."
+    },
+    {
+      "question": "Is my session data safe?",
+      "answer": "Yes, Chronicle stores data locally on your machine. This skill only accesses your own local database."
+    },
+    {
+      "question": "What if MCP tools are not working?",
+      "answer": "Use the CLI commands as a fallback. The skill provides both approaches for maximum compatibility."
+    },
+    {
+      "question": "Can I search other people is sessions?",
+      "answer": "No, you can only search sessions from your own Chronicle database on your local machine."
+    }
+  ],
+  "seoKeywords": [
+    "chronicle",
+    "development history",
+    "context search",
+    "claude code",
+    "session tracking",
+    "code recall",
+    "development sessions",
+    "ai assistant memory",
+    "chronicle database",
+    "past work retrieval"
+  ],
+  "sourceUrl": "https://github.com/ChandlerHardy/chronicle/tree/main/chronicle-skills/chronicle-context-retriever",
+  "sourceType": "community",
+  "dependencies": []
+}

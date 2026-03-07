@@ -1,0 +1,144 @@
+{
+  "name": "react-native-best-practices",
+  "type": "skill",
+  "description": "Provides React Native performance optimization guidelines for FPS, TTI, bundle size, memory leaks, re-renders, and animations. Applies to tasks involving Hermes optimization, JS thread blocking, bridge overhead, FlashList, native modules, or debugging jank and frame drops.",
+  "domain": "mobile",
+  "subdomain": "cross-platform",
+  "specialty": "Performance",
+  "quality": 5,
+  "qualityReason": "Specific performance optimization for mobile",
+  "bundleHints": [
+    "react-native-stack",
+    "mobile-performance",
+    "optimization-suite"
+  ],
+  "tags": [
+    "fps",
+    "hermes",
+    "memory",
+    "optimization",
+    "performance",
+    "profiling",
+    "react-native",
+    "react-native-performance"
+  ],
+  "capabilities": [
+    "Provide React Native performance optimization guidelines for FPS and re-renders",
+    "Guide bundle size reduction through tree shaking, barrel export removal, and code splitting",
+    "Recommend memory leak detection and prevention patterns for JS and native code",
+    "Suggest animation optimizations using Reanimated worklets for 60fps performance",
+    "Guide TTI (Time to Interactive) optimization and Hermes configuration",
+    "Help choose between native modules and JavaScript implementations"
+  ],
+  "author": "callstackincubator",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing React Native optimization guidelines. Static analyzer flagged shell command examples in markdown code blocks as 'external_commands', but these are documentation patterns, not executable code. All 1101 detections are false positives - the skill only provides guidance and reference materials without executing any code.",
+  "valueStatement": "React Native apps often suffer from performance issues like slow animations, memory leaks, and large bundle sizes. This skill provides battle-tested optimization guidelines from Callstack experts to improve FPS, reduce startup time, and eliminate memory leaks.",
+  "userTitle": "Optimize React Native Performance",
+  "limitations": [
+    "Cannot execute profiling tools or measure performance directly",
+    "Cannot modify application code - only provides guidance",
+    "Cannot install dependencies or configure build tools",
+    "AI cannot process visual flamegraph screenshots - manual review required"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Mobile developers debugging performance issues",
+      "title": "Debugging Slow React Native Apps",
+      "description": "A mobile developer notices their React Native app has choppy scrolling and slow animations. Use this skill to identify whether the issue is in JS thread blocking, render cycles, or native rendering, then apply targeted fixes."
+    },
+    {
+      "targetUser": "DevOps and performance engineers",
+      "title": "Reducing App Startup Time",
+      "description": "A team wants to reduce their app's time-to-interactive from 3 seconds to under 1 second. The skill guides through bundle analysis, Hermes configuration, and native navigation setup for faster cold starts."
+    },
+    {
+      "targetUser": "Frontend developers working on list views",
+      "title": "Optimizing List Performance",
+      "description": "A social feed with hundreds of items causes scrolling jank. The skill recommends switching from ScrollView to FlashList, implementing proper key extraction, and avoiding re-renders with proper memoization."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Performance Check",
+      "prompt": "My React Native app has [specific symptom: slow scrolling/laggy animations/high memory usage/slow startup]. What are the top 3 things I should check first and how do I fix them?",
+      "scenario": "Initial performance investigation"
+    },
+    {
+      "title": "Bundle Size Analysis",
+      "prompt": "My React Native app bundle is [X] MB. Help me use source-map-explorer or Expo Atlas to identify what's taking up space, then suggest specific optimizations for the largest components.",
+      "scenario": "Analyzing and reducing bundle size"
+    },
+    {
+      "title": "Memory Leak Investigation",
+      "prompt": "My app's memory grows over time and eventually crashes. Walk me through the process of identifying whether this is a JS memory leak or native memory leak, and what tools and patterns to use for each case.",
+      "scenario": "Tracking down memory leaks"
+    },
+    {
+      "title": "Animation Optimization",
+      "prompt": "I'm using React Native's Animated API for [specific animation] but it's dropping frames on older devices. What's causing this and how can I use Reanimated worklets to achieve smooth 60fps animations?",
+      "scenario": "Optimizing animations for performance"
+    }
+  ],
+  "bestPractices": [
+    "Profile before optimizing - use React DevTools, source-map-explorer, and platform profilers to identify actual bottlenecks rather than guessing",
+    "Use FlashList instead of FlatList for lists over 100 items, and always provide a unique keyExtractor using stable IDs, not list index",
+    "Enable React Compiler (Expo SDK 52+, React Native 0.76+) for automatic memoization that eliminates unnecessary re-renders without manual useMemo/useCallback"
+  ],
+  "antiPatterns": [
+    "Using ScrollView for large lists - this renders all items upfront causing memory bloat and slow scroll; always use FlatList or FlashList",
+    "Barrel exports (importing from index files) - this prevents tree shaking and includes unused code; import directly from source files",
+    "Blocking the JS thread with expensive computations during animations - use Reanimated worklets to run animations on the UI thread"
+  ],
+  "faq": [
+    {
+      "question": "What is the fastest way to improve React Native performance?",
+      "answer": "The biggest impact comes from: (1) Replace ScrollView with FlashList for lists, (2) Enable React Compiler for automatic memoization, (3) Use atomic state (Jotai/Zustand) instead of Context for frequently changing values, (4) Use useDeferredValue for expensive derived data."
+    },
+    {
+      "question": "How do I measure React Native FPS accurately?",
+      "answer": "Use React Native Performance Monitor (add `perf` prop to root view) for real-time FPS. For deeper analysis, use Xcode Instruments on iOS or Android Studio CPU Profiler. The react-native-performance library provides programmatic markers for automated testing."
+    },
+    {
+      "question": "Should I use native modules or JavaScript libraries?",
+      "answer": "Prefer native modules (Turbo Modules) for: CPU-intensive tasks, file system operations, native UI components. Use JavaScript libraries for: UI logic, data transformation, state management. The skill provides a detailed comparison in native-sdks-over-polyfills.md."
+    },
+    {
+      "question": "How do I reduce my React Native bundle size?",
+      "answer": "Key strategies: (1) Avoid barrel exports - import directly from source, (2) Remove unused Intl polyfills (Hermes includes native Intl), (3) Enable tree shaking in Expo SDK 52+ or Re.Pack, (4) Use R8 code shrinking on Android, (5) Audit dependencies with bundle-analyze-js.md."
+    },
+    {
+      "question": "What causes memory leaks in React Native?",
+      "answer": "JS leaks: Closures holding references, stale closures in useEffect, unreleased timers/listeners. Native leaks: C++/Swift/Kotlin objects not properly deallocated, circular references in Turbo Modules. Use heap snapshots in Chrome DevTools for JS and platform profilers for native."
+    },
+    {
+      "question": "How do I optimize animations for 60fps?",
+      "answer": "Use Reanimated worklets instead of Animated API for complex animations - worklets run on the UI thread. For simple animations, use useSharedValue and useAnimatedStyle. Avoid useAnimatedProps for properties that change every frame. Always test on low-end devices."
+    }
+  ],
+  "seoKeywords": [
+    "React Native performance",
+    "React Native optimization",
+    "React Native FPS",
+    "React Native bundle size",
+    "React Native memory leaks",
+    "Hermes optimization",
+    "FlashList React Native",
+    "React Native profiling",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/callstackincubator/agent-skills/tree/main/skills/react-native-best-practices/",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "when-profiling-performance-use-performance-profiler",
+  "type": "skill",
+  "description": "Comprehensive performance profiling, bottleneck detection, and optimization system",
+  "domain": "testing",
+  "subdomain": "performance",
+  "specialty": "profiling",
+  "quality": 5,
+  "qualityReason": "Deep performance insights",
+  "bundleHints": [
+    "performance-toolkit",
+    "optimization"
+  ],
+  "tags": [
+    "benchmarking",
+    "bottleneck",
+    "comprehensive",
+    "mece",
+    "optimization",
+    "performance",
+    "profiling"
+  ],
+  "capabilities": [
+    "Profile CPU usage and identify hot paths with flame graphs",
+    "Detect memory leaks through heap snapshot comparison",
+    "Analyze database queries for N+1 patterns and missing indexes",
+    "Measure network request latency and connection pooling efficiency",
+    "Generate actionable optimization recommendations with code examples",
+    "Compare before and after benchmarks to validate improvements"
+  ],
+  "author": "Claude Code",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 269 static findings are false positives. The scanner flagged documentation examples, YAML frontmatter, and GraphViz diagram syntax as security issues. No actual malicious code present. This is a legitimate performance profiling skill for Claude Code.",
+  "valueStatement": "Application performance issues are hard to identify without proper tooling. This skill measures CPU usage, memory allocation, I/O latency, and network requests to pinpoint bottlenecks and generate optimization recommendations.",
+  "userTitle": "Profile performance and find bottlenecks",
+  "limitations": [
+    "Requires user to run application under load for accurate results",
+    "Cannot profile applications that do not have debugging symbols available",
+    "Some profiling modes may introduce performance overhead during analysis"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Debug slow applications",
+      "description": "Identify which functions consume the most CPU time and memory so you know where to focus optimization efforts."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Pre-deployment checks",
+      "description": "Establish performance baselines before deployments and detect regressions in CI/CD pipelines."
+    },
+    {
+      "targetUser": "Backend teams",
+      "title": "Database optimization",
+      "description": "Find slow queries, missing indexes, and N+1 patterns that slow down application response times."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick scan",
+      "scenario": "Quick performance check",
+      "prompt": "Run a quick 30-second CPU and memory profile on my application at ./src to identify the top bottlenecks."
+    },
+    {
+      "title": "Deep analysis",
+      "scenario": "Comprehensive profiling",
+      "prompt": "Run a deep 5-minute analysis targeting all performance dimensions. Generate flame graphs and find memory leaks."
+    },
+    {
+      "title": "Database focus",
+      "scenario": "Query optimization",
+      "prompt": "Profile the database queries in my application. Find slow queries, missing indexes, and N+1 patterns. Suggest fixes."
+    },
+    {
+      "title": "Compare builds",
+      "scenario": "Regression detection",
+      "prompt": "Profile my application in standard mode, save as baseline. Then profile after my changes and compare to show any regressions."
+    }
+  ],
+  "bestPractices": [
+    "Profile under realistic production-like load for accurate results",
+    "Use deep mode for complex applications with multiple bottlenecks",
+    "Always benchmark before and after applying optimizations to verify improvement"
+  ],
+  "antiPatterns": [
+    "Do not optimize based on guesses; always profile first to confirm bottlenecks",
+    "Avoid profiling in production without proper sampling to minimize overhead",
+    "Do not ignore p95/p99 latency metrics; averages can hide performance issues"
+  ],
+  "faq": [
+    {
+      "question": "What profiling modes are available?",
+      "answer": "Quick (30 seconds), Standard (5 minutes), Deep (30 minutes), and Continuous for long-running monitoring."
+    },
+    {
+      "question": "Does profiling slow down my application?",
+      "answer": "Sampling-based profiling adds minimal overhead. Deep instrumentation profiling has higher overhead but more accurate results."
+    },
+    {
+      "question": "What languages and frameworks are supported?",
+      "answer": "Node.js, Python, Java, Go, and Ruby. Supports Express, Django, Spring, and other major frameworks."
+    },
+    {
+      "question": "Can this skill fix performance issues automatically?",
+      "answer": "It generates optimization recommendations with code examples. You review and apply changes manually for safety."
+    },
+    {
+      "question": "How are memory leaks detected?",
+      "answer": "By taking multiple heap snapshots over time and comparing them to identify objects that grow and are not garbage collected."
+    },
+    {
+      "question": "What output formats are generated?",
+      "answer": "JSON reports, CPU flame graphs (SVG), heap snapshots, and optimization patch files that can be applied manually."
+    }
+  ],
+  "seoKeywords": [
+    "claude performance profiler",
+    "codex performance analysis",
+    "claude-code bottleneck detection",
+    "cpu profiling tool",
+    "memory leak detection",
+    "performance optimization",
+    "flame graph generator",
+    "database query optimization",
+    "claude skills",
+    "ai coding assistant"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/performance/when-profiling-performance-use-performance-profiler",
+  "sourceType": "community",
+  "dependencies": []
+}

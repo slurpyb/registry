@@ -1,0 +1,139 @@
+{
+  "name": "backend-architect",
+  "type": "skill",
+  "description": "Expert senior en architecture backend pour accompagner le développement (conception, implémentation, review, refactoring). Architecture hexagonale, DDD, SOLID, clean code, tests. Utiliser pour concevoir de nouvelles features, développer du code, reviewer, refactorer, ou résoudre des problèmes architecturaux.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "System Architecture",
+  "quality": 5,
+  "qualityReason": "Senior-level design focus",
+  "bundleHints": [
+    "backend-architecture",
+    "enterprise-backend"
+  ],
+  "tags": [
+    "architecture",
+    "backend",
+    "clean-code",
+    "ddd",
+    "solid"
+  ],
+  "capabilities": [
+    "Guide implementation of hexagonal and clean architecture patterns",
+    "Analyze code for SOLID principle violations",
+    "Detect and refactor common code smells",
+    "Provide DDD patterns and bounded context guidance",
+    "Review test coverage and quality",
+    "Checklist-based performance analysis"
+  ],
+  "author": "Bikach",
+  "icon": "🏗️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing markdown files with architectural guidance. All 410 static findings are FALSE POSITIVES. The static analyzer incorrectly identifies markdown code block delimiters (triple backticks) as Ruby shell execution, and documentation text patterns as security issues. No executable code, network calls, or filesystem operations exist in this skill.",
+  "valueStatement": "Complex backend systems need strong architectural foundations. This skill provides expert guidance on hexagonal architecture, domain-driven design, SOLID principles, and code quality to help you build maintainable and scalable applications.",
+  "userTitle": "Design and review backend architecture",
+  "limitations": [
+    "Does not generate code directly - provides architectural guidance",
+    "Does not execute or test user code",
+    "Does not access external systems or APIs",
+    "Limited to text-based architectural advice"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Architects",
+      "title": "Design New Systems",
+      "description": "Plan hexagonal architecture and bounded contexts for new backend projects"
+    },
+    {
+      "targetUser": "Lead Developers",
+      "title": "Code Review Guide",
+      "description": "Review team code for architecture violations and code smells"
+    },
+    {
+      "targetUser": "Backend Developers",
+      "title": "Refactoring Support",
+      "description": "Identify and fix SOLID violations, God Classes, and other architectural issues"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Analyze Architecture",
+      "scenario": "Review existing code",
+      "prompt": "Analyze this codebase for architecture violations. Check if the code follows hexagonal architecture principles and identify any SOLID principle violations."
+    },
+    {
+      "title": "Refactor Guidance",
+      "scenario": "Fix code smells",
+      "prompt": "Help me refactor this God Class. What responsibilities should be extracted and how should I structure the new classes?"
+    },
+    {
+      "title": "Design Pattern",
+      "scenario": "New feature design",
+      "prompt": "Design the bounded contexts and ports/adapters for a new user management feature using DDD and hexagonal architecture."
+    },
+    {
+      "title": "Checklist Review",
+      "scenario": "Quality assessment",
+      "prompt": "Use the clean code and testing checklists to review this code. List all issues found with file locations and severity levels."
+    }
+  ],
+  "bestPractices": [
+    "Start with bounded context definitions before implementing features",
+    "Keep domain logic independent of infrastructure concerns",
+    "Use ports and adapters to decouple business rules from frameworks"
+  ],
+  "antiPatterns": [
+    "Putting business logic in controllers or adapters",
+    "Using concrete database classes directly in use cases",
+    "Creating large classes with multiple unrelated responsibilities"
+  ],
+  "faq": [
+    {
+      "question": "Which programming languages support hexagonal architecture?",
+      "answer": "Hexagonal architecture is language-agnostic. It works with Java, TypeScript, Python, Go, and any OO or FP language that supports interfaces and dependency injection."
+    },
+    {
+      "question": "How large should a bounded context be?",
+      "answer": "A bounded context should align with a single business capability. It can range from a few files to many modules depending on the subdomain complexity."
+    },
+    {
+      "question": "Can this skill integrate with my existing code review tools?",
+      "answer": "This skill provides guidance that you can apply manually or through CI/CD pipelines. It does not directly integrate with external tools."
+    },
+    {
+      "question": "Is my code data sent to external servers?",
+      "answer": "No. This skill operates entirely within your AI conversation. No code or data is transmitted externally."
+    },
+    {
+      "question": "What if my codebase does not use DDD patterns?",
+      "answer": "The skill adapts to your context. It can provide guidance using simpler layered architecture or help you migrate toward DDD incrementally."
+    },
+    {
+      "question": "How does this compare to static analysis tools?",
+      "answer": "This skill provides human-readable architectural guidance and context-aware suggestions. Static analysis tools find syntax issues and can complement this skill for comprehensive reviews."
+    }
+  ],
+  "seoKeywords": [
+    "backend architecture",
+    "hexagonal architecture",
+    "domain driven design",
+    "DDD",
+    "SOLID principles",
+    "clean code",
+    "code review",
+    "refactoring",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/Bikach/skills-claude-code/tree/main/backend-architect",
+  "sourceType": "community",
+  "dependencies": []
+}

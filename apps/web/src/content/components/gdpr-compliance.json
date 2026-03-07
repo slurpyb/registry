@@ -1,0 +1,139 @@
+{
+  "name": "gdpr-compliance",
+  "type": "skill",
+  "description": "This skill provides comprehensive guidance for implementing and reviewing GDPR-compliant features in Empathy Ledger.",
+  "domain": "security",
+  "subdomain": "compliance",
+  "specialty": "GDPR implementation",
+  "quality": 5,
+  "qualityReason": "Specific legal framework",
+  "bundleHints": [
+    "compliance-suite",
+    "privacy-tools"
+  ],
+  "tags": [
+    "compliance",
+    "data-protection",
+    "empathy-ledger",
+    "eu-law",
+    "gdpr",
+    "legal",
+    "privacy"
+  ],
+  "capabilities": [
+    "Documents GDPR Article 15-20 data subject rights with implementation patterns",
+    "Provides TypeScript interfaces for consent records and data export",
+    "Includes SQL schemas for deletion requests and anonymization tracking",
+    "Offers code review checklist for GDPR compliance verification",
+    "Details API endpoints for data export, deletion requests, and consent withdrawal"
+  ],
+  "author": "Acurioustractor",
+  "icon": "🔒",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 57 static findings are FALSE POSITIVES. This skill contains only documentation with TypeScript and SQL code examples. No executable code, scripts, network calls, filesystem access, environment variables, or command execution paths exist. The static scanner misinterpreted documentation patterns including markdown code blocks and TypeScript interface definitions as security issues. The skill-report.json file already correctly assessed this as safe documentation.",
+  "valueStatement": "Developers need clear guidance on implementing data subject rights and consent management. This skill provides ready-to-use TypeScript interfaces, SQL schemas, and code review checklists for GDPR compliance in web applications.",
+  "userTitle": "Implement GDPR data compliance",
+  "limitations": [
+    "Skill is documentation-only and does not execute compliance operations",
+    "Does not provide legal advice or certification",
+    "Requires developer implementation following provided patterns"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developers",
+      "title": "Build data rights APIs",
+      "description": "Implement user data export, deletion workflows, and consent management endpoints using TypeScript patterns"
+    },
+    {
+      "targetUser": "Data Engineers",
+      "title": "Design compliance schemas",
+      "description": "Create database tables for deletion requests, audit logs, and anonymization tracking"
+    },
+    {
+      "targetUser": "Security Auditors",
+      "title": "Verify GDPR coverage",
+      "description": "Review code against compliance checklist covering all GDPR data subject rights"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Export User Data",
+      "scenario": "Implement data portability",
+      "prompt": "How do I implement Article 20 data portability to let users export their personal data in JSON format?"
+    },
+    {
+      "title": "Delete User Account",
+      "scenario": "Handle deletion requests",
+      "prompt": "Show me the complete workflow for handling GDPR Article 17 right to erasure including 30-day processing window"
+    },
+    {
+      "title": "Track Consent",
+      "scenario": "Manage user consent",
+      "prompt": "How should I implement consent capture, verification, and withdrawal tracking for story sharing?"
+    },
+    {
+      "title": "Review Compliance",
+      "scenario": "Audit code changes",
+      "prompt": "Create a code review checklist to verify new features meet GDPR requirements for data collection, consent, and audit logging"
+    }
+  ],
+  "bestPractices": [
+    "Capture consent before any data processing with method and timestamp recorded",
+    "Implement 30-day deletion window for Article 17 compliance",
+    "Anonymize audit trails rather than deleting them to maintain security logs"
+  ],
+  "antiPatterns": [
+    "Deleting user data without proper audit trail preservation",
+    "Processing personal data without documented lawful basis",
+    "Failing to provide machine-readable format for data portability"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "Works with Claude, Codex, and Claude Code. All tools can read the documentation and apply patterns."
+    },
+    {
+      "question": "What GDPR articles are covered?",
+      "answer": "Articles 15-20 including right of access, rectification, erasure, and data portability."
+    },
+    {
+      "question": "Does this skill execute compliance operations?",
+      "answer": "No. This is documentation-only. You must implement the patterns yourself in your codebase."
+    },
+    {
+      "question": "Is the data handled securely?",
+      "answer": "The skill itself touches no data. It only provides patterns. Your implementation must secure data."
+    },
+    {
+      "question": "Can I use this for legal compliance certification?",
+      "answer": "No. This provides technical patterns only. Consult legal counsel for actual compliance certification."
+    },
+    {
+      "question": "How does this compare to privacy-by-design frameworks?",
+      "answer": "This skill implements GDPR-specific requirements. Privacy-by-design is a broader architectural approach."
+    }
+  ],
+  "seoKeywords": [
+    "gdpr compliance",
+    "data privacy",
+    "article 15 right of access",
+    "data subject rights",
+    "consent management",
+    "data portability",
+    "claude code skill",
+    "claude ai skill",
+    "codex ai skill",
+    "legal compliance"
+  ],
+  "sourceUrl": "https://github.com/Acurioustractor/empathy-ledger-v2/tree/main/.claude/skills/local/gdpr-compliance",
+  "sourceType": "community",
+  "dependencies": []
+}

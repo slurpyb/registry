@@ -1,0 +1,144 @@
+{
+  "name": "goal-tracker",
+  "type": "skill",
+  "description": "Track goal progress, derive state from execution, identify gaps, trigger actions. Use for goal status checks, progress reviews, and operational goal management.",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "progress tracking",
+  "quality": 5,
+  "qualityReason": "Operational goal focus",
+  "bundleHints": [
+    "project-tracking",
+    "productivity"
+  ],
+  "tags": [
+    "execution",
+    "gap-analysis",
+    "goal management",
+    "monitoring",
+    "planning",
+    "productivity",
+    "progress tracking",
+    "state-derivation",
+    "task automation",
+    "task-automation"
+  ],
+  "capabilities": [
+    "Derive goal state from execution threads and success criteria",
+    "Calculate progress metrics against targets with gap analysis",
+    "Project trajectory and assess on-track or at-risk status",
+    "Generate recommendations or auto-create threads to close gaps",
+    "Update goal files with metrics, trajectory, and execution logs",
+    "Integrate with goal-setter and reasoning threads for workflow"
+  ],
+  "author": "BellaBe",
+  "icon": "🎯",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure markdown documentation file describing a goal tracking methodology. No executable code present. The skill operates as a behavioral guide for AI assistants, defining how to read goal files and thread states to compute progress metrics. All described operations are benign file read/write actions within a structured documentation system.",
+  "valueStatement": "Manual goal tracking is time-consuming and prone to outdated information. This skill derives goal state from execution threads and calculates progress metrics automatically. It identifies gaps, projects trajectory, and recommends actions to keep goals on track.",
+  "userTitle": "Track Goal Progress Automatically",
+  "limitations": [
+    "Operates only on goals structured as markdown files in strategy/goals/",
+    "Requires threads to be linked to subgoals for state derivation",
+    "No external tool integrations or real-time notifications",
+    "Does not modify goal objectives or success criteria"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project Managers",
+      "title": "Weekly Progress Reviews",
+      "description": "Get automated status reports on all active goals with gap analysis and recommended actions for the week ahead."
+    },
+    {
+      "targetUser": "Entrepreneurs",
+      "title": "Business Objective Tracking",
+      "description": "Track MRR, customer acquisition, and pipeline goals with trajectory projections and early risk alerts."
+    },
+    {
+      "targetUser": "Personal Users",
+      "title": "Learning Progress Monitoring",
+      "description": "Monitor skill development goals by deriving completion metrics from study threads and content consumption."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Status Check",
+      "scenario": "Get goal status",
+      "prompt": "How am I doing on my goal to {goal-name}?"
+    },
+    {
+      "title": "Full Progress Report",
+      "scenario": "Generate detailed report",
+      "prompt": "Generate a complete progress report for my {goal-name} goal including metrics, trajectory, and recommended actions."
+    },
+    {
+      "title": "Gap Analysis",
+      "scenario": "Identify missing progress",
+      "prompt": "What gaps exist in my {goal-name} goal and what actions would close them?"
+    },
+    {
+      "title": "Goal Completion Review",
+      "scenario": "Check completion status",
+      "prompt": "Is my {goal-name} goal complete? Verify all success criteria and update the goal state."
+    }
+  ],
+  "bestPractices": [
+    "Structure goals with clear success criteria and linked threads before using the tracker",
+    "Run weekly progress reviews to catch trajectory issues early",
+    "Use autonomy mode settings to control when actions are auto-created versus user-approved"
+  ],
+  "antiPatterns": [
+    "Creating goals without defined success criteria or linked threads",
+    "Ignoring trajectory warnings until deadline approaches",
+    "Using goal-tracker without goal-setter to establish proper goal structure"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It is designed for AI assistants that can read and write markdown files."
+    },
+    {
+      "question": "How often should I update goal state?",
+      "answer": "Run state derivation on-demand for instant reports. Calculate trajectory weekly minimum. Do full reviews before planning sessions."
+    },
+    {
+      "question": "Can it integrate with external tools?",
+      "answer": "No. This skill operates only on local markdown files. It does not connect to external APIs, project management tools, or databases."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. The skill only reads and writes files you specify. No data is sent externally. All processing happens locally through the AI assistant."
+    },
+    {
+      "question": "Why is my goal showing no progress?",
+      "answer": "Check that threads are linked to subgoals via meta.json. The tracker derives state from thread completion, not manual updates. Goals without linked threads show as pending."
+    },
+    {
+      "question": "How is this different from other task managers?",
+      "answer": "This skill derives state automatically from execution rather than requiring manual status updates. It computes progress from actual thread outcomes and learning stages."
+    }
+  ],
+  "seoKeywords": [
+    "goal tracker",
+    "goal progress tracking",
+    "Claude Code skill",
+    "objective tracking",
+    "project milestone tracker",
+    "goal management",
+    "progress automation",
+    "task management",
+    "Claude AI",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/BellaBe/lean-os/tree/main/.claude/skills/goal-tracker",
+  "sourceType": "community",
+  "dependencies": []
+}

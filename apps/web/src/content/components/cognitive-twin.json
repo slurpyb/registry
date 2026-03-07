@@ -1,0 +1,143 @@
+{
+  "name": "cognitive-twin",
+  "type": "skill",
+  "description": "Continuous business health monitoring across 13 business domains. Scores domain health, generates periodic digests, detects anomalies, simulates decisions, and provides early warning signals for problems.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "business monitoring",
+  "quality": 5,
+  "qualityReason": "Sophisticated multi-domain analysis",
+  "bundleHints": [
+    "business-intelligence",
+    "ai-monitoring"
+  ],
+  "tags": [
+    "analytics",
+    "anomaly-detection",
+    "business-intelligence",
+    "decision-simulation",
+    "digests",
+    "health-score",
+    "health-scoring",
+    "monitoring",
+    "strategy"
+  ],
+  "capabilities": [
+    "Monitor 13 business domains with composite health scores (0-100)",
+    "Generate daily, weekly, and monthly health digests with red flags and green flags",
+    "Detect anomalies across financial, customer, product, team, and market domains",
+    "Simulate strategic decisions with impact analysis on all domains",
+    "Identify trends and provide 90-day projections with inflection point warnings",
+    "Configure custom alert thresholds for any metric across any domain"
+  ],
+  "author": "CleanExpo",
+  "icon": "🧠",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown files with business health monitoring frameworks. No executable code, filesystem access, network calls, or external command execution. Static findings are false positives from scanner misinterpreting markdown code blocks and JSON metadata as security patterns.",
+  "valueStatement": "Business health monitoring is fragmented across multiple systems and dashboards. The Cognitive Twin provides a unified framework to track, score, and alert on all business domains in one place, with decision simulation and early warning signals.",
+  "userTitle": "Monitor Business Health Across 13 Domains",
+  "limitations": [
+    "Requires manual data input for metrics not connected to integrated systems",
+    "No real-time API integrations with Stripe, Slack, or other platforms (V1)",
+    "No machine learning for predictive anomaly detection (Post-V1)",
+    "No automated decision recommendations, only simulation frameworks"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Startup Founders",
+      "title": "Weekly Health Check",
+      "description": "Get a comprehensive weekly digest covering all business domains, identifying what is working and what needs attention."
+    },
+    {
+      "targetUser": "Business Consultants",
+      "title": "Client Health Assessment",
+      "description": "Run structured health assessments across 13 domains with scored metrics, anomaly detection, and improvement recommendations."
+    },
+    {
+      "targetUser": "Investors",
+      "title": "Portfolio Company Monitoring",
+      "description": "Simulate strategic decisions and understand potential impacts before advising portfolio companies on hiring or investments."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Daily Health Check",
+      "scenario": "Quick daily status update",
+      "prompt": "Give me a quick daily health check. Show red flags, green flags, and recommended actions for today."
+    },
+    {
+      "title": "Weekly Digest",
+      "scenario": "Weekly business review",
+      "prompt": "Generate a weekly health digest. Break down each domain with scores, anomalies detected, and focus areas for next week."
+    },
+    {
+      "title": "Decision Simulation",
+      "scenario": "Strategic decision analysis",
+      "prompt": "Simulate the decision to [specific decision]. Model the impact on all 13 domains and give me a recommendation based on current health scores."
+    },
+    {
+      "title": "Trend Analysis",
+      "scenario": "Strategic forecasting",
+      "prompt": "Run a 90-day trend analysis for [specific domain or metric]. Identify inflection points and warning thresholds."
+    }
+  ],
+  "bestPractices": [
+    "Run daily health checks each morning to catch anomalies early before they compound",
+    "Use decision simulation before major hires, investments, or pivots to understand trade-offs",
+    "Review monthly strategic reports with the 90-day forecast to anticipate inflection points"
+  ],
+  "antiPatterns": [
+    "Waiting until crisis mode to check health scores instead of monitoring continuously",
+    "Ignoring early warning anomalies because they seem minor in isolation",
+    "Making major decisions without simulating the impact on all 13 business domains"
+  ],
+  "faq": [
+    {
+      "question": "What tools and platforms does this skill support?",
+      "answer": "Works with Claude, Codex, and Claude Code. Integrates with Founder OS, CRM systems, financial platforms, and analytics systems for data."
+    },
+    {
+      "question": "How many business domains are tracked?",
+      "answer": "Thirteen domains: Financial, Customer, Product, Team, Market, Operations, Sales, Marketing, Partnership, Investor, Strategic, Leadership, Culture."
+    },
+    {
+      "question": "How do I connect my data sources?",
+      "answer": "Data integration requires external connections to systems like Stripe, QuickBooks, or CRM platforms. These are planned for Post-V1 releases."
+    },
+    {
+      "question": "Is my business data safe with this skill?",
+      "answer": "Yes. This is a prompt framework skill with no code execution. Data stays within your Claude conversation and is not stored externally."
+    },
+    {
+      "question": "Why are my scores different from industry benchmarks?",
+      "answer": "Health scores are calculated from your specific metrics. Benchmarks are provided for context but targets should match your business stage and goals."
+    },
+    {
+      "question": "How does this compare to traditional business intelligence tools?",
+      "answer": "Unlike BI tools that just display metrics, this skill interprets scores, detects anomalies, simulates decisions, and provides recommendations proactively."
+    }
+  ],
+  "seoKeywords": [
+    "cognitive twin",
+    "business health monitoring",
+    "business metrics dashboard",
+    "anomaly detection",
+    "decision simulation",
+    "health score",
+    "strategic planning",
+    "business intelligence",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/CleanExpo/Unite-Hub/tree/main/.claude/skills/cognitive-twin",
+  "sourceType": "community",
+  "dependencies": []
+}

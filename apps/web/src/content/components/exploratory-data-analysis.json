@@ -1,0 +1,140 @@
+{
+  "name": "exploratory-data-analysis",
+  "type": "skill",
+  "description": "Perform comprehensive exploratory data analysis on scientific data files across 200+ file formats. This skill should be used when analyzing any scientific data file to understand its structure, content, quality, and characteristics. Automatically detects file type and generates detailed markdown reports with format-specific analysis, quality metrics, and downstream analysis recommendations. Covers chemistry, bioinformatics, microscopy, spectroscopy, proteomics, metabolomics, and general scientific data formats.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "scientific data",
+  "quality": 5,
+  "qualityReason": "Broad scientific format support",
+  "bundleHints": [
+    "bioinformatics-suite",
+    "data-analysis"
+  ],
+  "tags": [
+    "200-formats",
+    "bioinformatics",
+    "data-quality",
+    "file-analysis",
+    "research",
+    "scientific-data"
+  ],
+  "capabilities": [
+    "Automatically detects 200+ scientific file formats across 6 categories",
+    "Extracts format-specific metadata and structure information",
+    "Generates comprehensive markdown reports with statistics and quality metrics",
+    "Provides downstream analysis recommendations based on file type",
+    "Supports chemistry, bioinformatics, microscopy, spectroscopy, and general scientific formats",
+    "Creates analysis reports suitable for documentation and planning"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "After thorough evaluation of 1077 static findings, all are false positives. The scanner misinterpreted Markdown code formatting (backticks) as shell commands, bioinformatics format names (SAM) as Windows credentials, and documentation references to file format specifications as weak cryptography. The skill is a legitimate scientific data analysis tool that only reads data files and writes markdown reports. No network access, no command execution, and no sensitive data handling were found.",
+  "valueStatement": "Scientific data files come in hundreds of formats. This skill automatically detects file type, extracts metadata, assesses data quality, and generates comprehensive markdown reports with format-specific analysis recommendations.",
+  "userTitle": "Analyze Scientific Data Files Automatically",
+  "limitations": [
+    "Does not perform advanced statistical modeling or machine learning",
+    "Does not modify or transform the original data files",
+    "Requires specific Python libraries for certain file formats",
+    "Analyzes file structure but does not interpret biological or chemical meaning"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Bioinformaticians",
+      "title": "Explore genomic sequencing data",
+      "description": "Analyze FASTQ, BAM, and VCF files to understand sequence quality, mapping rates, and variant distributions."
+    },
+    {
+      "targetUser": "Chemists and materials scientists",
+      "title": "Examine molecular structure files",
+      "description": "Parse PDB, SDF, and CIF files to assess molecular structures, atomic coordinates, and bond information."
+    },
+    {
+      "targetUser": "Microscopy and imaging researchers",
+      "title": "Inspect microscopy image metadata",
+      "description": "Extract dimensions, channels, timestamps, and spatial calibration from TIFF, ND2, and CZI imaging files."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic analysis",
+      "scenario": "Analyze a data file",
+      "prompt": "Analyze this scientific data file at path: <filepath>"
+    },
+    {
+      "title": "With report",
+      "scenario": "Generate markdown report",
+      "prompt": "Generate a comprehensive EDA report for this file and save it to <filepath>"
+    },
+    {
+      "title": "Quality focus",
+      "scenario": "Assess data quality",
+      "prompt": "Perform a data quality assessment on this file and identify any issues or anomalies."
+    },
+    {
+      "title": "Multi-file",
+      "scenario": "Compare multiple files",
+      "prompt": "Analyze these multiple related files and create a summary comparison report."
+    }
+  ],
+  "bestPractices": [
+    "Provide the full file path when requesting analysis for precise detection",
+    "Specify output filename to generate a persistent markdown report",
+    "Check required Python libraries for specialized formats before analysis"
+  ],
+  "antiPatterns": [
+    "Do not ask the skill to modify or write back to source data files",
+    "Do not expect the skill to perform advanced statistical modeling",
+    "Do not assume the skill can interpret biological meaning from sequences"
+  ],
+  "faq": [
+    {
+      "question": "What file formats are supported?",
+      "answer": "200+ formats including FASTQ, BAM, VCF, PDB, CIF, TIFF, ND2, CSV, HDF5, and many more."
+    },
+    {
+      "question": "Does this modify my data files?",
+      "answer": "No, the skill only reads files and generates new markdown reports without altering original data."
+    },
+    {
+      "question": "What does the generated report include?",
+      "answer": "File metadata, format details, statistical summaries, quality metrics, and downstream analysis recommendations."
+    },
+    {
+      "question": "Can it analyze large files?",
+      "answer": "Yes, but very large files may be sampled for performance. The report notes when sampling is used."
+    },
+    {
+      "question": "What Python libraries are required?",
+      "answer": "Core libraries: pandas, numpy. Format-specific: Biopython for sequences, h5py for HDF5, Pillow for images."
+    },
+    {
+      "question": "Can it analyze multiple files together?",
+      "answer": "Each file is analyzed separately. You can request comparisons across related files in the same analysis request."
+    }
+  ],
+  "seoKeywords": [
+    "exploratory data analysis",
+    "scientific data files",
+    "bioinformatics analysis",
+    "Claude data analysis",
+    "scientific file formats",
+    "data quality assessment",
+    "Claude Code",
+    "genomics data",
+    "microscopy imaging",
+    "chemistry data"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/exploratory-data-analysis",
+  "sourceType": "community",
+  "dependencies": []
+}

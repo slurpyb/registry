@@ -1,0 +1,140 @@
+{
+  "name": "email-composer",
+  "type": "skill",
+  "description": "Draft professional emails for various contexts including business, technical, and customer communication. Use when the user needs help writing emails or composing professional messages.",
+  "domain": "productivity",
+  "subdomain": "communication",
+  "specialty": "professional email draft",
+  "quality": 5,
+  "qualityReason": "High-value communication skill",
+  "bundleHints": [
+    "communication-stack",
+    "writing-tools"
+  ],
+  "tags": [
+    "business communication",
+    "clarity",
+    "correspondence",
+    "email",
+    "professional writing",
+    "tone"
+  ],
+  "capabilities": [
+    "Draft business emails for various contexts including requests, announcements, and follow-ups",
+    "Create technical update emails with clear maintenance and deployment information",
+    "Compose customer support responses that address issues professionally",
+    "Generate meeting request emails with clear agendas and availability options",
+    "Apply appropriate tone and formality based on recipient relationship",
+    "Write email templates for apology, decline, and good news scenarios"
+  ],
+  "author": "davila7",
+  "icon": "✉️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure prompt-based skill containing only documentation, email templates, and best practice guidelines. All 30 static findings are false positives triggered by documentation content (markdown code blocks, placeholder text, and metadata fields). No executable code, file system access, network calls, environment variables, or command execution capabilities exist.",
+  "valueStatement": "Writing professional emails takes time and skill. This skill provides templates, guidelines, and best practices for composing effective business emails for any context, from requests to follow-ups to customer support.",
+  "userTitle": "Draft professional business emails",
+  "limitations": [
+    "Does not send or deliver emails - only generates email content",
+    "Does not access email clients or calendar systems",
+    "Cannot verify recipient information or email addresses",
+    "Does not integrate with email services like Gmail or Outlook"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Business professionals",
+      "title": "Business correspondence",
+      "description": "Draft professional emails for colleagues, managers, and vendors with proper tone and structure."
+    },
+    {
+      "targetUser": "Support teams",
+      "title": "Customer response templates",
+      "description": "Create consistent, empathetic responses to customer inquiries and issue resolution."
+    },
+    {
+      "targetUser": "Technical teams",
+      "title": "Technical notifications",
+      "description": "Compose maintenance announcements, deployment updates, and technical status communications."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple request",
+      "scenario": "Request information from colleague",
+      "prompt": "Write a professional email requesting information about [topic] from [recipient]. Include these key points: [list points]. Use a [formal/casual] tone."
+    },
+    {
+      "title": "Follow-up",
+      "scenario": "Follow up on previous email",
+      "prompt": "Compose a polite follow-up email regarding [original topic] sent on [date]. The purpose is to [purpose]. Keep it brief and non-pressuring."
+    },
+    {
+      "title": "Announcement",
+      "scenario": "Team announcement",
+      "prompt": "Draft an announcement email about [announcement topic]. Include: [key details]. Target audience is [audience]. Use an [exciting/professional/urgent] tone."
+    },
+    {
+      "title": "Full context",
+      "scenario": "Complex business email",
+      "prompt": "Write a professional email with full context. Purpose: [request/announcement/inquiry]. Recipient: [relationship]. Key points to cover: [list]. Desired tone: [formal/casual/urgent]. Include call to action: [action]."
+    }
+  ],
+  "bestPractices": [
+    "Always include a clear, specific subject line that summarizes the email purpose",
+    "State your purpose in the opening paragraph to respect the reader's time",
+    "Use bullet points to organize multiple items or questions for easy scanning"
+  ],
+  "antiPatterns": [
+    "Using vague subject lines like 'Update' or 'Question' that provide no context",
+    "Starting with long paragraphs of background before stating the main purpose",
+    "Marking every email as urgent, which reduces the impact when a truly urgent message arrives"
+  ],
+  "faq": [
+    {
+      "question": "Can this skill send emails directly?",
+      "answer": "No. The skill generates email content that you can copy and paste into your email client."
+    },
+    {
+      "question": "What email providers are supported?",
+      "answer": "The skill works with any email client. It generates text content only, without integration."
+    },
+    {
+      "question": "Does the skill access my email history?",
+      "answer": "No. The skill does not read emails or access any external data sources."
+    },
+    {
+      "question": "How many email templates are included?",
+      "answer": "The skill includes templates for requests, follow-ups, technical updates, customer support, meetings, declines, apologies, and announcements."
+    },
+    {
+      "question": "Can I customize the templates?",
+      "answer": "Yes. Templates are starting points that you can modify with your specific details, tone, and context."
+    },
+    {
+      "question": "How is this different from using Claude directly?",
+      "answer": "The skill provides structured guidance, proven templates, and best practices specifically designed for professional email communication."
+    }
+  ],
+  "seoKeywords": [
+    "Email Composer skill",
+    "professional email templates",
+    "business writing",
+    "Claude Code skill",
+    "Claude email assistant",
+    "business communication",
+    "professional correspondence",
+    "email drafting",
+    "workplace email",
+    "enterprise communication"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/enterprise-communication/email-composer",
+  "sourceType": "community",
+  "dependencies": []
+}

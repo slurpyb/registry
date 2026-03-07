@@ -1,0 +1,144 @@
+{
+  "name": "implement-design",
+  "type": "skill",
+  "description": "Translates Figma designs into production-ready code with 1:1 visual fidelity. Use when implementing UI from Figma files, when user mentions \"implement design\", \"generate code\", \"implement component\", \"build Figma design\", provides Figma URLs, or asks to build components matching Figma specs. Requires Figma MCP server connection.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "Figma to code",
+  "quality": 5,
+  "qualityReason": "Precise design implementation",
+  "bundleHints": [
+    "design-to-code",
+    "frontend"
+  ],
+  "tags": [
+    "1-1-fidelity",
+    "components",
+    "design-to-code",
+    "figma",
+    "frontend",
+    "mcp",
+    "production-ready",
+    "translation",
+    "ui",
+    "ui-implementation"
+  ],
+  "capabilities": [
+    "Parse Figma URLs to extract file keys and node IDs for targeted component extraction",
+    "Fetch design context including layout, typography, colors, and component structure from Figma",
+    "Capture visual screenshots for reference during implementation",
+    "Download assets (images, icons, SVGs) directly from Figma MCP server",
+    "Map Figma design tokens to project design system tokens automatically",
+    "Validate implemented UI against Figma designs for 1:1 visual parity"
+  ],
+  "author": "figma",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are FALSE POSITIVES. The skill is a legitimate Figma design implementation workflow. External commands flagged are MCP tool call examples in markdown (not shell execution). Network URLs are Figma examples and documentation links. Weak crypto and system reconnaissance flags are spurious pattern matches on placeholder text. No actual security risks identified.",
+  "valueStatement": "Translating Figma designs into production-ready code manually is time-consuming and error-prone. This skill provides a structured workflow for pixel-perfect UI implementation with automated design token mapping.",
+  "userTitle": "Implement Figma Designs into Code",
+  "limitations": [
+    "Requires Figma MCP server to be connected and accessible",
+    "Cannot work without a valid Figma file URL or desktop app selection",
+    "Complex designs may require fetching individual nodes due to response size limits",
+    "Does not generate entire applications - focuses on individual components or pages"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers implementing design system components",
+      "title": "Building UI Components from Figma",
+      "description": "Convert a single Figma component (button, card, input) into production-ready code that matches design specs exactly."
+    },
+    {
+      "targetUser": "Full-stack developers building new application pages",
+      "title": "Creating Page Layouts",
+      "description": "Take a complete Figma page design and build the full responsive layout with all sections, using existing project components."
+    },
+    {
+      "targetUser": "Design system maintainers keeping components in sync",
+      "title": "Design System Updates",
+      "description": "Update existing components when design specs change in Figma, ensuring consistency across the codebase."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Component Implementation",
+      "prompt": "Implement this Figma component: https://figma.com/design/FILE_KEY/PROJECT_NAME?node-id=NODE_ID",
+      "scenario": "User provides a Figma URL and wants the component built"
+    },
+    {
+      "title": "Full Page Implementation",
+      "prompt": "Build this page from Figma: https://figma.com/design/FILE_KEY/PROJECT_NAME?node-id=NODE_ID. Use our existing design system components where possible.",
+      "scenario": "User wants a complete page layout implemented"
+    },
+    {
+      "title": "Component with Variants",
+      "prompt": "Implement the button component at https://figma.com/design/FILE_KEY/PROJECT_NAME?node-id=NODE_ID including all variants (primary, secondary, disabled states).",
+      "scenario": "User needs multiple component states or variants"
+    },
+    {
+      "title": "Asset Extraction",
+      "prompt": "Extract all icons and images from this Figma frame: https://figma.com/design/FILE_KEY/PROJECT_NAME?node-id=NODE_ID and create the necessary component code.",
+      "scenario": "User needs assets downloaded along with component code"
+    }
+  ],
+  "bestPractices": [
+    "Always fetch design context and screenshot before starting implementation to ensure accurate translation",
+    "Check for existing design system components before creating new ones to maintain consistency",
+    "Validate implementation against the Figma screenshot frequently during development, not just at the end"
+  ],
+  "antiPatterns": [
+    "Implementing from assumptions without fetching actual Figma design context first",
+    "Creating duplicate components instead of extending existing design system components",
+    "Using hardcoded values instead of design tokens from Figma, which breaks future updates"
+  ],
+  "faq": [
+    {
+      "question": "What is required to use this skill?",
+      "answer": "You need the Figma MCP server connected and either a Figma URL with a node ID or the Figma desktop app with a selected node."
+    },
+    {
+      "question": "Does this work with any framework?",
+      "answer": "Yes, the skill translates Figma output to your project's specific framework, whether React, Vue, or other frameworks."
+    },
+    {
+      "question": "Can it implement entire applications?",
+      "answer": "This skill focuses on components and pages, not full applications. Complex pages may need to be broken into smaller parts."
+    },
+    {
+      "question": "How does it handle design tokens?",
+      "answer": "The skill maps Figma design values to your project's design tokens for colors, typography, and spacing."
+    },
+    {
+      "question": "What if my design is too complex?",
+      "answer": "Use get_metadata to see the node structure, then fetch specific child nodes individually instead of the whole design."
+    },
+    {
+      "question": "Does it support Figma variables?",
+      "answer": "Yes, the get_design_context tool returns variable values which the skill maps to project tokens."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "Figma implementation",
+    "design to code",
+    "UI implementation",
+    "Figma MCP",
+    "pixel perfect",
+    "front-end development",
+    "component conversion"
+  ],
+  "sourceUrl": "https://github.com/figma/mcp-server-guide/tree/main/skills/implement-design/",
+  "sourceType": "community",
+  "dependencies": []
+}

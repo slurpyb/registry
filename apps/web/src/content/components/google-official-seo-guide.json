@@ -1,0 +1,144 @@
+{
+  "name": "google-official-seo-guide",
+  "type": "skill",
+  "description": "Official Google SEO guide covering search optimization, best practices, Search Console, crawling, indexing, and improving website search visibility based on official Google documentation",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "search optimization",
+  "quality": 5,
+  "qualityReason": "Authoritative source material",
+  "bundleHints": [
+    "seo-guide",
+    "web-visibility"
+  ],
+  "tags": [
+    "crawling",
+    "google-search",
+    "indexing",
+    "search-console",
+    "search-optimization",
+    "seo",
+    "technical-seo",
+    "visibility",
+    "web-development"
+  ],
+  "capabilities": [
+    "Provide SEO recommendations based on official Google documentation",
+    "Help implement structured data (JSON-LD) for rich results",
+    "Explain crawling, indexing, and ranking processes",
+    "Guide on technical SEO including mobile-first indexing",
+    "Assist with Google Search Console usage and debugging",
+    "Recommend best practices for meta tags and content optimization"
+  ],
+  "author": "ZhanlinCui",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill consists entirely of markdown documentation files containing SEO guidance from Google's official documentation. All static scanner findings are false positives: (1) 'Weak cryptographic algorithm' alerts are triggered by JSON-LD schema.org examples in documentation; (2) 'Ruby/shell backtick execution' alerts are triggered by markdown code block formatting; (3) 'Hardcoded URL' alerts are legitimate Google documentation URLs. No executable code or security risks present.",
+  "valueStatement": "Users struggle to optimize their websites for Google Search without authoritative guidance. This skill provides comprehensive SEO assistance based on official Google documentation, covering crawling, indexing, structured data, and technical SEO best practices.",
+  "userTitle": "Google Official SEO Guide",
+  "limitations": [
+    "Does not make actual changes to user websites",
+    "Cannot access real-time Google Search data or rankings",
+    "No guaranteed ranking improvements - only follows Google guidelines",
+    "Does not replace professional SEO audit services for complex issues"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Web developers and content creators",
+      "title": "Implement VideoObject Structured Data",
+      "description": "Add proper JSON-LD schema markup to help videos appear as rich results in Google Search"
+    },
+    {
+      "targetUser": "Website owners and SEO specialists",
+      "title": "Debug Indexing Issues",
+      "description": "Identify why pages are not being indexed and provide solutions based on Google guidelines"
+    },
+    {
+      "targetUser": "Technical SEO professionals",
+      "title": "Optimize for Mobile-First Indexing",
+      "description": "Ensure website meets Google mobile-first requirements for better search visibility"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic SEO Question",
+      "prompt": "How do I improve my website's ranking in Google Search?",
+      "scenario": "User wants general SEO guidance"
+    },
+    {
+      "title": "Structured Data Implementation",
+      "prompt": "Help me add VideoObject structured data to my video page. The video is at https://example.com/video.mp4",
+      "scenario": "User wants to implement schema.org markup"
+    },
+    {
+      "title": "Indexing Debugging",
+      "prompt": "My pages are not appearing in Google Search. How do I troubleshoot indexing issues?",
+      "scenario": "User has indexing problems"
+    },
+    {
+      "title": "Technical SEO Audit",
+      "prompt": "What technical SEO factors should I check for mobile-first indexing compliance?",
+      "scenario": "User wants technical SEO assessment"
+    }
+  ],
+  "bestPractices": [
+    "Always verify recommendations with Google's official documentation",
+    "Use Google Search Console to monitor indexing and search performance",
+    "Focus on user-first content rather than keyword stuffing"
+  ],
+  "antiPatterns": [
+    "Do not guarantee specific ranking positions - Google algorithms change",
+    "Avoid participating in link schemes or buying links",
+    "Do not create duplicate content across multiple URLs without canonical tags"
+  ],
+  "faq": [
+    {
+      "question": "How long does it take for Google to index my pages?",
+      "answer": "Indexing time varies from hours to weeks. Submit a sitemap in Google Search Console and ensure your pages are accessible via links."
+    },
+    {
+      "question": "What is the most important ranking factor?",
+      "answer": "Google uses many factors. Focus on: relevant content, mobile-friendliness, page speed, secure HTTPS, and authoritative backlinks."
+    },
+    {
+      "question": "Do I need to use structured data?",
+      "answer": "Structured data is not a ranking factor but helps Google understand your content and can enable rich results. It is recommended for certain content types."
+    },
+    {
+      "question": "How do I check if my pages are indexed?",
+      "answer": "Use the site:yourdomain.com search operator or check Google Search Console Coverage report."
+    },
+    {
+      "question": "What is mobile-first indexing?",
+      "answer": "Google primarily uses the mobile version of content for indexing and ranking. Ensure your mobile site has the same content as desktop."
+    },
+    {
+      "question": "Should I use www or non-www URLs?",
+      "answer": "Choose one format and set up 301 redirects and canonical tags. Be consistent across your site."
+    }
+  ],
+  "seoKeywords": [
+    "seo guide",
+    "google seo",
+    "search optimization",
+    "google search",
+    "technical seo",
+    "structured data",
+    "schema.org",
+    "search console",
+    "claude",
+    "codex",
+    "claude code"
+  ],
+  "sourceUrl": "https://github.com/ZhanlinCui/Ultimate-Agent-Skills-Collection/tree/main/google-official-seo-guide",
+  "sourceType": "community",
+  "dependencies": []
+}

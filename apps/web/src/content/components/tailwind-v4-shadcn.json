@@ -1,0 +1,142 @@
+{
+  "name": "tailwind-v4-shadcn",
+  "type": "skill",
+  "description": "Set up Tailwind v4 with shadcn/ui using @theme inline pattern and CSS variable architecture. Four-step pattern: CSS variables, Tailwind mapping, base styles, automatic dark mode. Prevents 8 documented errors.\n\nUse when initializing React projects with Tailwind v4, or fixing colors not working, tw-animate-css errors, @theme inline dark mode conflicts, @apply breaking, v3 migration issues.\n",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "shadcn integration",
+  "quality": 5,
+  "qualityReason": "Precise component library setup",
+  "bundleHints": [
+    "shadcn-ui",
+    "react-tailwind"
+  ],
+  "tags": [
+    "css-variables",
+    "react",
+    "react-components",
+    "shadcn",
+    "tailwind-css",
+    "tailwind-v4",
+    "theme",
+    "ui-components"
+  ],
+  "capabilities": [
+    "Initialize Tailwind v4 with @theme inline pattern using CSS variables",
+    "Configure shadcn/ui components with proper CSS variable architecture",
+    "Implement automatic dark mode detection using CSS prefers-color-scheme",
+    "Guide through the four-step setup pattern: CSS variables, Tailwind mapping, base styles, dark mode",
+    "Fix common errors: tw-animate-css issues, @theme conflicts, @apply breaking, v3 migration"
+  ],
+  "author": "jezweb",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill contains only documentation files (markdown, templates) with no executable code. Scanners misinterpreted CSS @theme declarations as cryptographic algorithms and markdown code formatting as shell execution. This is a legitimate Claude Code development skill.",
+  "valueStatement": "Claude often makes errors when setting up Tailwind CSS v4 with shadcn/ui. This skill guides Claude through the correct four-step pattern for CSS variables, Tailwind mapping, base styles, and automatic dark mode, preventing 8 documented errors.",
+  "userTitle": "Set up Tailwind v4 with shadcn/ui",
+  "limitations": [
+    "Does not install dependencies automatically - guides Claude on correct installation order",
+    "Does not modify existing project configuration files - only creates new ones",
+    "Does not handle complex custom Tailwind configurations beyond the standard v4 pattern",
+    "Requires Claude to execute terminal commands to apply the guidance"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers starting new React projects",
+      "title": "Initialize a new React project with Tailwind v4",
+      "description": "Set up a fresh React project with Tailwind CSS v4 using the modern @theme inline pattern and CSS variable architecture for shadcn/ui components."
+    },
+    {
+      "targetUser": "Developers upgrading existing projects",
+      "title": "Migrate from Tailwind v3 to v4",
+      "description": "Follow the correct migration pattern to upgrade existing Tailwind v3 projects to v4 while maintaining shadcn/ui compatibility."
+    },
+    {
+      "targetUser": "Developers troubleshooting existing setups",
+      "title": "Fix broken Tailwind v4 setup",
+      "description": "Diagnose and fix issues with colors not working, animation errors, or dark mode conflicts in existing Tailwind v4 configurations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic project setup",
+      "prompt": "Use the tailwind-v4-shadcn skill to set up Tailwind CSS v4 with shadcn/ui in my React project.",
+      "scenario": "Initializing a new project with Tailwind v4 and shadcn/ui"
+    },
+    {
+      "title": "Migration request",
+      "prompt": "Help me migrate my existing Tailwind v3 project to v4 using the tailwind-v4-shadcn skill. My project uses shadcn/ui components.",
+      "scenario": "Upgrading from Tailwind v3 to v4"
+    },
+    {
+      "title": "Troubleshooting setup",
+      "prompt": "My Tailwind v4 colors are not working and I'm seeing tw-animate-css errors. Use the tailwind-v4-shadcn skill to fix my configuration.",
+      "scenario": "Fixing broken Tailwind v4 setup"
+    },
+    {
+      "title": "Dark mode configuration",
+      "prompt": "Set up automatic dark mode with Tailwind v4 and shadcn/ui. Use the tailwind-v4-shadcn skill to configure CSS variables for light and dark themes.",
+      "scenario": "Implementing dark mode support"
+    }
+  ],
+  "bestPractices": [
+    "Define CSS variables before configuring @theme mapping",
+    "Use the @theme directive to map variables to Tailwind utilities",
+    "Configure dark mode using CSS prefers-color-scheme, not JavaScript",
+    "Install dependencies in the correct order: CSS variables first, then Tailwind utilities"
+  ],
+  "antiPatterns": [
+    "Do not mix Tailwind v3 config files with v4 @theme pattern",
+    "Do not use inline styles for colors when CSS variables are available",
+    "Do not skip the four-step setup pattern - each step builds on the previous",
+    "Do not forget to configure base styles and CSS reset"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between Tailwind v3 and v4 config?",
+      "answer": "Tailwind v4 uses the new @theme directive for inline CSS configuration instead of the traditional tailwind.config.js file. This allows defining CSS variables and mapping them directly in CSS without JavaScript configuration."
+    },
+    {
+      "question": "How does dark mode work with Tailwind v4?",
+      "answer": "Dark mode uses CSS prefers-color-scheme to automatically detect system preferences. The theme-provider component toggles a class on the HTML element, and CSS variables switch between light and dark values."
+    },
+    {
+      "question": "Can I use this with existing shadcn/ui projects?",
+      "answer": "Yes, the skill is designed specifically for shadcn/ui. It follows the shadcn/ui pattern of using CSS variables for all colors, making the setup compatible with their component library."
+    },
+    {
+      "question": "What errors does this skill prevent?",
+      "answer": "The skill prevents 8 documented errors including tw-animate-css loading failures, @theme inline conflicts, @apply breaking on custom properties, and v3 migration issues."
+    },
+    {
+      "question": "Does this skill install packages automatically?",
+      "answer": "No, the skill provides guidance on the correct commands and order but requires Claude to execute terminal commands to install packages and create files."
+    },
+    {
+      "question": "Can I use this with frameworks other than React?",
+      "answer": "The core Tailwind v4 setup works with any framework. The shadcn/ui-specific parts require React, but the CSS variable and @theme patterns are framework-agnostic."
+    }
+  ],
+  "seoKeywords": [
+    "Tailwind CSS v4",
+    "shadcn/ui",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "React",
+    "CSS variables",
+    "@theme",
+    "dark mode"
+  ],
+  "sourceUrl": "https://github.com/jezweb/claude-skills/tree/main/skills/tailwind-v4-shadcn/",
+  "sourceType": "community",
+  "dependencies": []
+}

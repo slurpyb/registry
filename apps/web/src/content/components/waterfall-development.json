@@ -1,0 +1,143 @@
+{
+  "name": "waterfall-development",
+  "type": "skill",
+  "description": "Enforces strict waterfall development workflow with phase gates. Use when (1) features.yml exists in project root, (2) user asks to implement/develop/build a feature, (3) user explicitly requests waterfall workflow. Creates features.yml if missing when invoked.",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "waterfall workflow",
+  "quality": 4,
+  "qualityReason": "Clear process enforcement",
+  "bundleHints": [
+    "project-management",
+    "workflow",
+    "process"
+  ],
+  "tags": [
+    "development",
+    "gates",
+    "phase-gates",
+    "process",
+    "validation",
+    "waterfall",
+    "workflow"
+  ],
+  "capabilities": [
+    "Validates five phase gates before transitions",
+    "Checks requirements have descriptions and proper status",
+    "Verifies test coverage and test passing status",
+    "Blocks work that does not match current phase",
+    "Creates features.yml when missing via feature-file skill",
+    "Supports validation of specific features or all features"
+  ],
+  "author": "Chemiseblanc",
+  "icon": "🏗️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure YAML validation tool with no network access. All 48 static findings are false positives: the scanner misinterprets markdown backticks as shell execution and phase transition arrows as cryptographic patterns. The skill only reads features.yml and validates phase gates.",
+  "valueStatement": "Managing software projects without structured phases leads to missed requirements and incomplete features. This skill enforces five mandatory gates that prevent progress until each phase meets defined criteria, ensuring disciplined waterfall development.",
+  "userTitle": "Enforce waterfall phase gates",
+  "limitations": [
+    "Requires features.yml file to function",
+    "Only supports five fixed phases (Requirements → Design → Implementation → Testing → Complete)",
+    "Does not execute code or modify files beyond validation",
+    "No bypass mechanism for gate failures"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project managers",
+      "title": "Enforce governance",
+      "description": "Prevent teams from advancing phases without completing required artifacts and reviews"
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Validate test coverage",
+      "description": "Ensure every requirement has corresponding tests before allowing Complete phase"
+    },
+    {
+      "targetUser": "Dev leads",
+      "title": "Structure new features",
+      "description": "Guide teams through disciplined waterfall phases with clear entry criteria"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic activation",
+      "scenario": "Start a new feature",
+      "prompt": "Use the waterfall-development skill to help me implement [feature name]"
+    },
+    {
+      "title": "Check status",
+      "scenario": "Verify phase readiness",
+      "prompt": "Run phase gate validation for the [feature name] feature"
+    },
+    {
+      "title": "Advance phase",
+      "scenario": "Move to next phase",
+      "prompt": "Validate that [feature name] can transition to the [Design/Implementation/Testing/Complete] phase"
+    },
+    {
+      "title": "Audit all",
+      "scenario": "Review project state",
+      "prompt": "Validate all phase gates for all features in this project"
+    }
+  ],
+  "bestPractices": [
+    "Define requirements with descriptions before attempting Design phase",
+    "Document architectural decisions before starting Implementation",
+    "Update requirement status to In-Progress when work begins",
+    "Link tests to requirements using tested-by field"
+  ],
+  "antiPatterns": [
+    "Skipping phases without gate validation",
+    "Creating features without requirements",
+    "Advancing to Testing without test coverage",
+    "Setting requirements to Complete without verification"
+  ],
+  "faq": [
+    {
+      "question": "What is the waterfall development model?",
+      "answer": "A linear, sequential approach with distinct phases: Requirements, Design, Implementation, Testing, and Complete."
+    },
+    {
+      "question": "What happens if a gate fails?",
+      "answer": "The skill prints gate failures and stops execution. You must fix all failures before the phase transition is allowed."
+    },
+    {
+      "question": "Can I skip phase gates?",
+      "answer": "No. There is no bypass mechanism. All gate criteria must pass before advancing to the next phase."
+    },
+    {
+      "question": "Does this skill modify my code?",
+      "answer": "No. This skill only validates the features.yml file. It does not execute or modify your source code."
+    },
+    {
+      "question": "What is features.yml?",
+      "answer": "A YAML file that defines features, requirements, decisions, and test cases for tracking waterfall project progress."
+    },
+    {
+      "question": "How is this different from agile?",
+      "answer": "Waterfall requires completing all artifacts for one phase before starting the next. Agile allows iterative work across phases simultaneously."
+    }
+  ],
+  "seoKeywords": [
+    "waterfall development",
+    "phase gates",
+    "software development workflow",
+    "requirements management",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "feature validation",
+    "project governance"
+  ],
+  "sourceUrl": "https://github.com/Chemiseblanc/ai/tree/main/skill/waterfall-development",
+  "sourceType": "community",
+  "dependencies": []
+}

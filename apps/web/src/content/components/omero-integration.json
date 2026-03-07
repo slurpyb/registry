@@ -1,0 +1,142 @@
+{
+  "name": "omero-integration",
+  "type": "skill",
+  "description": "Microscopy data management platform. Access images via Python, retrieve datasets, analyze pixels, manage ROIs/annotations, batch processing, for high-content screening and microscopy workflows.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "Microscopy data",
+  "quality": 5,
+  "qualityReason": "Specialized scientific tool",
+  "bundleHints": [
+    "bioinformatics-tools",
+    "scientific-imaging",
+    "lab-automation"
+  ],
+  "tags": [
+    "batch-processing",
+    "data-management",
+    "image-analysis",
+    "microscopy",
+    "omero",
+    "rois",
+    "scientific-imaging"
+  ],
+  "capabilities": [
+    "Connect to OMERO servers with secure authentication",
+    "Navigate hierarchical data structure (Projects, Datasets, Images)",
+    "Access raw pixel data as NumPy arrays for analysis",
+    "Create and manage regions of interest (ROIs) on images",
+    "Store analysis results in OMERO tables and annotations",
+    "Execute server-side scripts for batch processing workflows"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🔬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill for OMERO scientific imaging platform. All 655 static findings are false positives. Scanner misidentified markdown code block delimiters as shell commands, random number generation as weak crypto, and legitimate API calls as reconnaissance.",
+  "valueStatement": "This skill provides Python API access to OMERO, a scientific image management platform for microscopy and high-content screening. Connect to OMERO servers, retrieve images, analyze pixel data, and manage annotations programmatically.",
+  "userTitle": "Access OMERO microscopy data with Python",
+  "limitations": [
+    "Requires access to a running OMERO server with valid credentials",
+    "Does not include image processing algorithms (relies on external libraries)",
+    "Cannot modify OMERO server configuration or create new users"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Microscopy core facility managers",
+      "title": "Manage large image datasets",
+      "description": "Organize and retrieve thousands of microscopy images from OMERO repositories for analysis and reporting."
+    },
+    {
+      "targetUser": "Cell biology researchers",
+      "title": "Automate image analysis pipelines",
+      "description": "Extract pixel data from time-series images and store measurement results directly in OMERO."
+    },
+    {
+      "targetUser": "Pharmaceutical scientists",
+      "title": "High-content screening workflows",
+      "description": "Process plate-based screening data and track results across experimental conditions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic connection",
+      "scenario": "Connect to OMERO server",
+      "prompt": "Show me how to connect to an OMERO server using BlitzGateway with environment variables for credentials."
+    },
+    {
+      "title": "Image retrieval",
+      "scenario": "Fetch images from dataset",
+      "prompt": "Write Python code to list all images in a specific OMERO dataset and get their pixel dimensions."
+    },
+    {
+      "title": "Pixel analysis",
+      "scenario": "Extract and analyze pixel data",
+      "prompt": "How do I access raw pixel data from an OMERO image as a NumPy array and calculate intensity statistics?"
+    },
+    {
+      "title": "ROI management",
+      "scenario": "Create and analyze ROIs",
+      "prompt": "Show me how to create rectangular ROIs on an image, extract pixel intensities within those regions, and store the results in an OMERO table."
+    }
+  ],
+  "bestPractices": [
+    "Use context managers (with BlitzGateway) for automatic connection cleanup",
+    "Store credentials in environment variables, never hardcode them",
+    "Use secure=True parameter for encrypted production connections",
+    "Close connections when done to free server resources"
+  ],
+  "antiPatterns": [
+    "Hardcoding credentials directly in source code",
+    "Leaving connections open without using context managers or explicit close()",
+    "Processing large datasets without pagination or streaming"
+  ],
+  "faq": [
+    {
+      "question": "What is OMERO?",
+      "answer": "OMERO is an open-source platform for managing, visualizing, and analyzing microscopy images and metadata in scientific research."
+    },
+    {
+      "question": "Do I need an OMERO server?",
+      "answer": "Yes, this skill requires access to a running OMERO server with valid user credentials to connect and perform operations."
+    },
+    {
+      "question": "What programming language is used?",
+      "answer": "The skill provides Python examples using the omero-py library (BlitzGateway API) for all operations."
+    },
+    {
+      "question": "Can I process large image datasets?",
+      "answer": "Yes, use pagination, limit results, and consider server-side scripts to avoid transferring large amounts of data locally."
+    },
+    {
+      "question": "How are credentials handled?",
+      "answer": "Credentials should be loaded from environment variables (os.environ.get) or secure configuration files, never hardcoded."
+    },
+    {
+      "question": "What image formats are supported?",
+      "answer": "OMERO supports many formats including TIFF, PNG, JPEG, and proprietary microscopy formats through Bio-Formats."
+    }
+  ],
+  "seoKeywords": [
+    "OMERO integration",
+    "microscopy image analysis",
+    "scientific imaging",
+    "Python OMERO API",
+    "high-content screening",
+    "image data management",
+    "BlitzGateway",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/omero-integration",
+  "sourceType": "community",
+  "dependencies": []
+}

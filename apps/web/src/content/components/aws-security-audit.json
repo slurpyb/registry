@@ -1,0 +1,143 @@
+{
+  "name": "aws-security-audit",
+  "type": "skill",
+  "description": "Comprehensive AWS security posture assessment using AWS CLI and security best practices",
+  "domain": "security",
+  "subdomain": "compliance",
+  "specialty": "Posture Assessment",
+  "quality": 5,
+  "qualityReason": "Comprehensive and tool-driven",
+  "bundleHints": [
+    "aws-security",
+    "compliance-suite",
+    "audit-tools"
+  ],
+  "tags": [
+    "assessment",
+    "audit",
+    "aws",
+    "aws-cli",
+    "cloud-security",
+    "compliance",
+    "security",
+    "security-best-practices"
+  ],
+  "capabilities": [
+    "Scan IAM users for MFA enforcement and unused credentials",
+    "Detect overly permissive security groups and public S3 buckets",
+    "Identify unencrypted EBS volumes and RDS instances",
+    "Verify CloudTrail, Config, and VPC Flow Logs are enabled",
+    "Calculate security score with prioritized remediation steps",
+    "Map findings to CIS, PCI-DSS, and HIPAA compliance frameworks"
+  ],
+  "author": "sickn33",
+  "icon": "🛡️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 74 patterns but all are false positives. The external_commands are legitimate AWS CLI invocations for security auditing. The '0.0.0.0/0' patterns are CIDR queries detecting open security groups, not hardcoded IPs. URLs reference AWS documentation. No malicious intent detected - this is a legitimate security audit tool.",
+  "valueStatement": "Security teams struggle to identify AWS misconfigurations and compliance gaps manually. This skill automates comprehensive security assessments using official AWS CLI commands and industry best practices.",
+  "userTitle": "Audit AWS Security Posture",
+  "limitations": [
+    "Requires AWS CLI configured with appropriate IAM permissions",
+    "Read-only audit tool - does not automatically remediate issues",
+    "Cannot assess resources in regions not configured in AWS CLI profile",
+    "Some checks may require elevated IAM permissions (SecurityAudit policy or higher)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security Engineers",
+      "title": "Security Engineer Compliance Review",
+      "description": "Run weekly security audits to identify misconfigurations before they become vulnerabilities and maintain compliance evidence for auditors."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "DevOps Pre-Deployment Check",
+      "description": "Validate AWS environment security posture before deploying production applications to ensure no critical gaps exist."
+    },
+    {
+      "targetUser": "Cloud Consultants",
+      "title": "Cloud Consultant Assessment",
+      "description": "Generate comprehensive security reports for client AWS environments with prioritized remediation recommendations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Security Check",
+      "prompt": "Run the aws-security-audit skill to check my AWS account for basic security issues. Focus on IAM users without MFA and any security groups open to the internet.",
+      "scenario": "Quick security health check"
+    },
+    {
+      "title": "Comprehensive Audit",
+      "prompt": "Execute a full AWS security audit using aws-security-audit. Check IAM, network security, data protection, and logging. Calculate my security score and list all issues by priority.",
+      "scenario": "Complete security assessment"
+    },
+    {
+      "title": "Compliance-Focused Review",
+      "prompt": "Use aws-security-audit to assess my AWS environment against CIS Foundations Benchmark requirements. Highlight any findings that would fail a compliance audit.",
+      "scenario": "Compliance preparation"
+    },
+    {
+      "title": "Remediation Planning",
+      "prompt": "Run aws-security-audit and generate a remediation plan. Group findings by critical, high, and medium priority with specific AWS CLI commands to fix each issue.",
+      "scenario": "Post-audit remediation"
+    }
+  ],
+  "bestPractices": [
+    "Run security audits weekly and store reports for trend analysis",
+    "Automate audits using EventBridge triggers with Lambda for continuous monitoring",
+    "Document all exceptions with business justification and compensating controls"
+  ],
+  "antiPatterns": [
+    "Running audits only once and never reviewing trends over time",
+    "Ignoring medium-severity findings that can compound into major risks",
+    "Executing audit commands with overly permissive IAM credentials instead of read-only SecurityAudit policy"
+  ],
+  "faq": [
+    {
+      "question": "What IAM permissions does this skill require?",
+      "answer": "The skill requires read-only permissions. AWS recommends attaching the SecurityAudit managed policy which provides the minimum permissions needed for comprehensive security assessments."
+    },
+    {
+      "question": "Does this skill make any changes to my AWS resources?",
+      "answer": "No. This is a read-only audit skill that only queries your AWS environment. It does not modify, create, or delete any resources. All remediation must be performed manually."
+    },
+    {
+      "question": "How often should I run a security audit?",
+      "answer": "AWS recommends running comprehensive security audits at least weekly. For high-security environments, consider daily audits with automated alerting on new findings."
+    },
+    {
+      "question": "Can this skill audit multiple AWS accounts?",
+      "answer": "Yes. Configure AWS CLI profiles for each account and run the audit against each profile. For organizations with many accounts, consider using AWS Security Hub for centralized visibility."
+    },
+    {
+      "question": "What compliance frameworks does this skill support?",
+      "answer": "The audit maps findings to CIS AWS Foundations Benchmark, PCI-DSS, and HIPAA requirements. Custom mappings can be added for organization-specific compliance needs."
+    },
+    {
+      "question": "How do I fix the issues this skill finds?",
+      "answer": "The skill provides prioritized remediation guidance with specific AWS CLI commands. Critical issues should be addressed immediately, high-severity within 7 days, and medium within 30 days."
+    }
+  ],
+  "seoKeywords": [
+    "AWS security audit",
+    "Claude security skill",
+    "Codex AWS compliance",
+    "Claude Code security",
+    "AWS CLI audit",
+    "cloud security assessment",
+    "IAM security check",
+    "AWS compliance report",
+    "security posture audit",
+    "CIS benchmark AWS"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/security/aws-security-audit",
+  "sourceType": "community",
+  "dependencies": []
+}

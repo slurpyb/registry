@@ -1,0 +1,143 @@
+{
+  "name": "plan",
+  "type": "skill",
+  "description": "Guidelines for iteratively planning tasks and changes before implementation. Use this when the user requests a non-trivial task or when you need to align on a complex implementation strategy.",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "iterative planning",
+  "quality": 4,
+  "qualityReason": "Useful for complex implementations",
+  "bundleHints": [
+    "planning-suite",
+    "workflow-tools"
+  ],
+  "tags": [
+    "alignment",
+    "best-practices",
+    "complex-tasks",
+    "implementation-strategy",
+    "planning",
+    "scaffolding",
+    "task-management",
+    "task-planning",
+    "workflow"
+  ],
+  "capabilities": [
+    "Guide AI to explore codebase before planning",
+    "Structure plans with objective, approach, steps, and verification",
+    "Generate clarifying questions with proposed answers",
+    "Wait for user approval before implementation",
+    "Track progress using TODO lists",
+    "Apply iterative planning principles"
+  ],
+  "author": "0xmsc",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure markdown documentation skill containing only behavioral guidelines. No executable code, network calls, filesystem access, or external command execution. The static scanner flagged false positives: backtick references were markdown tool names, 'DES' was 'Design Up Front', and metadata URLs were configuration. All 21 findings are FALSE_POSITIVEs.",
+  "valueStatement": "Complex AI tasks often fail due to unclear scope or missing requirements. This skill provides a structured workflow for gathering requirements, drafting implementation plans, and getting user approval before writing any code.",
+  "userTitle": "Plan complex tasks before implementation",
+  "limitations": [
+    "Does not execute planning steps automatically",
+    "Does not integrate with project management tools",
+    "Does not generate code or modify files",
+    "Relies on user to provide approval"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developers",
+      "title": "Feature Implementation Planning",
+      "description": "Plan new features with clear scope, dependencies, and verification steps before coding begins."
+    },
+    {
+      "targetUser": "AI Engineers",
+      "title": "Complex Task Decomposition",
+      "description": "Break down large AI tasks into manageable milestones with iterative feedback loops."
+    },
+    {
+      "targetUser": "Technical Leads",
+      "title": "Architecture Review Workflow",
+      "description": "Establish consistent planning process for team code changes and architectural decisions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Planning Request",
+      "scenario": "Start planning a coding task",
+      "prompt": "Plan the implementation of [describe your task]. Follow the planning workflow: gather information, draft a plan with objective, approach, steps, and verification, then ask clarifying questions."
+    },
+    {
+      "title": "Refine Existing Plan",
+      "scenario": "Iterate on a previous plan",
+      "prompt": "Refine the previous plan based on this feedback: [describe changes]. Update the plan and wait for my approval before proceeding."
+    },
+    {
+      "title": "Risk-Aware Planning",
+      "scenario": "Plan high-risk changes",
+      "prompt": "Plan a [describe dangerous operation like bulk refactoring or database migration]. Identify the most risky parts and propose safe verification steps for each."
+    },
+    {
+      "title": "Exploration-First Planning",
+      "scenario": "Understand codebase first",
+      "prompt": "Explore the codebase to understand [specific area]. List dependencies and existing patterns, then draft a plan that aligns with the codebase conventions."
+    }
+  ],
+  "bestPractices": [
+    "Always explore the codebase before planning to understand existing patterns",
+    "Include at least three clarifying questions with proposed answers",
+    "Wait for explicit user approval before starting implementation"
+  ],
+  "antiPatterns": [
+    "Starting implementation without user approval or clarification",
+    "Creating overly detailed plans for massive tasks",
+    "Skipping risk identification for dangerous operations"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It provides planning guidelines for any LLM coding assistant."
+    },
+    {
+      "question": "How detailed should the plan be?",
+      "answer": "Keep plans concise and actionable. Focus on the immediate milestone rather than planning every detail upfront."
+    },
+    {
+      "question": "Can I integrate with Jira or other tools?",
+      "answer": "This skill does not integrate with external tools. It provides verbal planning workflow between you and the AI."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "This skill only contains documentation guidelines. It does not access files, network, or send data anywhere."
+    },
+    {
+      "question": "What if the plan needs changes during implementation?",
+      "answer": "Stop implementation, explain the deviation, and ask for approval on the updated plan before continuing."
+    },
+    {
+      "question": "How is this different from other planning approaches?",
+      "answer": "This skill enforces an iterative approach with explicit approval checkpoints rather than upfront comprehensive planning."
+    }
+  ],
+  "seoKeywords": [
+    "Claude planning",
+    "task breakdown",
+    "implementation strategy",
+    "AI coding workflow",
+    "software planning",
+    "code planning",
+    "project planning",
+    "task management",
+    "Claude Code",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/0xmsc/coding_assistant/tree/master/src/coding_assistant/skills/plan",
+  "sourceType": "community",
+  "dependencies": []
+}

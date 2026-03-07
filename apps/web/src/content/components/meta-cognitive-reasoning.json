@@ -1,0 +1,143 @@
+{
+  "name": "meta-cognitive-reasoning",
+  "type": "skill",
+  "description": "Meta-cognitive reasoning specialist for evidence-based analysis, hypothesis",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "Evidence analysis",
+  "quality": 5,
+  "qualityReason": "Critical thinking enhancement",
+  "bundleHints": [
+    "reasoning",
+    "quality-assurance"
+  ],
+  "tags": [
+    "analysis",
+    "assessment",
+    "cognitive failure prevention",
+    "debugging",
+    "decision-making",
+    "evidence-based reasoning",
+    "meta-cognitive reasoning",
+    "reasoning",
+    "review"
+  ],
+  "capabilities": [
+    "Enforces evidence-based reasoning by requiring tool output before interpretation",
+    "Generates multiple hypotheses to prevent premature conclusions",
+    "Verifies knowledge currency for version and feature claims",
+    "Provides self-correction protocol for transparent error handling",
+    "Applies systematic verification before declaring task completion",
+    "Distinguishes observation from mechanism for accurate assessment"
+  ],
+  "author": "Joseph OBrien",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 127 static findings are false positives. The skill contains only markdown documentation with code examples demonstrating reasoning frameworks. No executable code, network operations, or security vulnerabilities exist. The static scanner misidentified markdown code fences as shell execution, documentation URLs as hardcoded network endpoints, and repository names as C2 keywords.",
+  "valueStatement": "AI assistants often jump to conclusions based on patterns. This skill enforces evidence-based reasoning by requiring tool output before interpretation, generating multiple hypotheses before concluding, and verifying knowledge currency. It prevents costly mistakes from assumption-based analysis.",
+  "userTitle": "Apply Meta-Cognitive Reasoning",
+  "limitations": [
+    "Does not execute code or perform actual system operations",
+    "Does not access external APIs or services for verification",
+    "Requires user to provide tool outputs for reasoning analysis",
+    "Does not replace domain expertise for specialized assessments"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software engineers and code reviewers",
+      "title": "Code Review with Evidence",
+      "description": "Conduct thorough code reviews where every claim is backed by file:line evidence. The skill ensures reviewers show specific code snippets before suggesting changes, preventing false or unsupported recommendations."
+    },
+    {
+      "targetUser": "DevOps engineers and maintainers",
+      "title": "Version Verification",
+      "description": "Verify package versions and dependencies before making upgrade or downgrade recommendations. The skill prevents false claims about version existence based on stale training data."
+    },
+    {
+      "targetUser": "Software developers and system administrators",
+      "title": "Debugging Complex Issues",
+      "description": "Debug issues with multiple possible causes by systematically generating and testing hypotheses. The skill prevents premature commitment to single explanations that may lead to incorrect fixes."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Evidence Request",
+      "prompt": "Review this code and show me the specific evidence for every claim you make. Quote the exact lines and explain what they mean.",
+      "scenario": "When you need a thorough review with documented evidence for each finding"
+    },
+    {
+      "title": "Version Check",
+      "prompt": "Check if package X version Y exists. Show me the evidence from the lockfile or registry before concluding whether the version is valid or needs to be changed.",
+      "scenario": "When verifying package versions before recommending changes"
+    },
+    {
+      "title": "Multiple Hypothesis Analysis",
+      "prompt": "The tests are failing with timeout errors. What are the different mechanisms that could cause this? Generate at least three hypotheses and identify what evidence would prove or disprove each one.",
+      "scenario": "When debugging issues with multiple possible root causes"
+    },
+    {
+      "title": "Systematic Verification",
+      "prompt": "Review the complete task requirements and show me the evidence that each one has been verified. Do not declare success until all requirements are confirmed with tool output.",
+      "scenario": "When ensuring comprehensive task completion with documented verification"
+    }
+  ],
+  "bestPractices": [
+    "Always show tool output before interpretation. Quote specific evidence from files, commands, or test results before drawing conclusions.",
+    "Generate multiple hypotheses for complex issues. Consider different mechanisms that could produce the same observation before committing to an explanation.",
+    "Verify knowledge currency for version and feature claims. Check lockfiles, registries, or run tools instead of relying on training data."
+  ],
+  "antiPatterns": [
+    "Do not claim files do not exist without running 'ls' or similar verification commands first.",
+    "Do not declare 'CRITICAL' or 'BLOCKER' issues without showing specific evidence from the codebase.",
+    "Do not apply blanket solutions without analyzing each case individually."
+  ],
+  "faq": [
+    {
+      "question": "What is meta-cognitive reasoning?",
+      "answer": "Meta-cognitive reasoning is thinking about thinking. It involves recognizing your own cognitive biases, verifying your knowledge, and systematically checking conclusions before acting. This skill provides frameworks for AI assistants to apply these principles."
+    },
+    {
+      "question": "When should I use this skill?",
+      "answer": "Use this skill for any task requiring rigorous analysis: code reviews, debugging, assessments, version verification, or when making recommendations that could impact production systems."
+    },
+    {
+      "question": "How does this prevent mistakes?",
+      "answer": "The skill enforces evidence-based conclusions by requiring tool output before interpretation. It also prevents premature commitment to single hypotheses by forcing consideration of alternative explanations."
+    },
+    {
+      "question": "Does this skill execute code?",
+      "answer": "No. This skill is a reasoning framework that guides how to analyze and report findings. The user must provide tool outputs or the skill prompts the user to run verification commands."
+    },
+    {
+      "question": "How is this different from normal Claude behavior?",
+      "answer": "This skill adds structured discipline to the reasoning process. It explicitly requires showing evidence for claims, generating multiple hypotheses, and verifying knowledge currency before concluding."
+    },
+    {
+      "question": "Can this slow down my workflow?",
+      "answer": "The skill adds verification steps which may seem slower, but this prevents costly errors from assumption-based recommendations. For simple tasks, the discipline can be applied lightly."
+    }
+  ],
+  "seoKeywords": [
+    "meta-cognitive reasoning",
+    "evidence-based analysis",
+    "cognitive failure prevention",
+    "hypothesis testing",
+    "reasoning framework",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "analytical reasoning",
+    "decision-making"
+  ],
+  "sourceUrl": "https://github.com/89jobrien/steve/tree/main/steve/skills/meta-cognitive-reasoning",
+  "sourceType": "community",
+  "dependencies": []
+}

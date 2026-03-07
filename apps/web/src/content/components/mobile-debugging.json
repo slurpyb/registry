@@ -1,0 +1,143 @@
+{
+  "name": "mobile-debugging",
+  "type": "skill",
+  "description": "Debug React Native apps including metro bundler issues, native errors, performance problems, and crash analysis. Use when troubleshooting errors or investigating issues.",
+  "domain": "mobile",
+  "subdomain": "cross-platform",
+  "specialty": "React Native issues",
+  "quality": 5,
+  "qualityReason": "Clear triggers and issues",
+  "bundleHints": [
+    "react-native-tools",
+    "mobile-debug"
+  ],
+  "tags": [
+    "crash analysis",
+    "debugging",
+    "expo",
+    "metro bundler",
+    "mobile",
+    "native errors",
+    "performance",
+    "react-native",
+    "troubleshooting"
+  ],
+  "capabilities": [
+    "Diagnose and fix Metro bundler issues with cache clearing commands",
+    "Resolve native module errors for iOS and Android platforms",
+    "Troubleshoot simulator and emulator problems",
+    "Debug network request failures in React Native apps",
+    "Identify and fix performance problems and memory leaks",
+    "Investigate build failures and dependency conflicts"
+  ],
+  "author": "BabakBar",
+  "icon": "🔧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing debugging guidance for React Native apps. The static analyzer flagged 56 patterns in markdown examples (bash commands, URLs, temp directory paths) that it mistook for executable code. All findings are FALSE POSITIVES. The skill provides no executable code and makes no network requests, file modifications, or system changes. Commands shown are standard React Native/Expo debugging procedures publicly documented in official resources.",
+  "valueStatement": "React Native apps can crash, freeze, or fail to build without clear error messages. This skill provides step-by-step debugging commands and techniques to diagnose and fix metro bundler errors, native module issues, performance problems, and build failures.",
+  "userTitle": "Debug React Native and Expo mobile apps",
+  "limitations": [
+    "Cannot directly access or modify your app source code",
+    "Cannot run commands on physical devices remotely",
+    "Requires developer to execute commands in local environment",
+    "Does not replace platform-specific debuggers like Xcode or Android Studio"
+  ],
+  "useCases": [
+    {
+      "targetUser": "React Native developers",
+      "title": "Fix app crashes",
+      "description": "Diagnose why your React Native app crashes on startup or during navigation using log analysis and common fixes"
+    },
+    {
+      "targetUser": "Mobile engineers",
+      "title": "Resolve build errors",
+      "description": "Troubleshoot iOS and Android build failures caused by native module incompatibilities or corrupted caches"
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Debug performance issues",
+      "description": "Identify slow renders, memory leaks, and network problems affecting app performance and user experience"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Metro bundler wont start",
+      "scenario": "Bundler connection failed",
+      "prompt": "My React Native Metro bundler is not starting. I see Unable to connect errors. Help me diagnose and fix this."
+    },
+    {
+      "title": "iOS build failure",
+      "scenario": "Native module error",
+      "prompt": "My iOS build is failing with a native module error. How do I troubleshoot and resolve this?"
+    },
+    {
+      "title": "App performance slow",
+      "scenario": "Performance optimization",
+      "prompt": "My React Native app is running slowly. How do I identify which components are causing slow renders and fix memory leaks?"
+    },
+    {
+      "title": "Android emulator issues",
+      "scenario": "Emulator not responding",
+      "prompt": "My Android emulator is not responding or showing device offline. How do I reset and reconnect it properly?"
+    }
+  ],
+  "bestPractices": [
+    "Always clear caches first when troubleshooting bundler issues after dependency changes",
+    "Check platform-specific logs (Xcode console for iOS, logcat for Android) when native errors occur",
+    "Reproduce the issue consistently before making changes to understand the root cause"
+  ],
+  "antiPatterns": [
+    "Skipping the error stack trace and guessing at the problem",
+    "Only testing on one platform when the issue might be platform-specific",
+    "Making multiple changes at once without isolating the fix"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with Expo Router and Expo Go?",
+      "answer": "Yes. The debugging commands work with Expo Router projects and Expo Go. Some native fixes require running expo prebuild or building a development build."
+    },
+    {
+      "question": "How far back does this skill support debugging for?",
+      "answer": "Commands work with Expo SDK 50+ and React Native 0.73+. Older versions may have slightly different commands for some operations."
+    },
+    {
+      "question": "Can I use these debugging techniques with CI/CD pipelines?",
+      "answer": "Yes. Most commands work in CI environments. Some simulator commands (xcrun) only work on macOS with Xcode installed."
+    },
+    {
+      "question": "Does this skill store or transmit any data?",
+      "answer": "No. This is a documentation-only skill. It provides guidance without accessing your files, credentials, or sending data anywhere."
+    },
+    {
+      "question": "Why do I keep needing to clear caches?",
+      "answer": "Caches can become stale when dependencies change, files are moved, or watchman state gets corrupted. Regular cache clearing is normal in React Native development."
+    },
+    {
+      "question": "How is this different from using Flipper or React DevTools?",
+      "answer": "This skill provides CLI-based debugging for issues that tools like Flipper cannot fix. Use Flipper for UI inspection and network debugging alongside these commands."
+    }
+  ],
+  "seoKeywords": [
+    "React Native debugging",
+    "Expo troubleshooting",
+    "metro bundler errors",
+    "mobile app debugging",
+    "React Native crash analysis",
+    "iOS Android debugging",
+    "performance profiling",
+    "Claude Code debugging",
+    "mobile development tools",
+    "React Native debugging Claude"
+  ],
+  "sourceUrl": "https://github.com/BabakBar/VibeKeeper/tree/main/.claude/skills/debugging",
+  "sourceType": "community",
+  "dependencies": []
+}

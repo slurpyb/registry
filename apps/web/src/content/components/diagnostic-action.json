@@ -1,0 +1,145 @@
+{
+  "name": "diagnostic-action",
+  "type": "skill",
+  "description": "Use when the user asks why something happened, what’s wrong, root cause analysis, debugging, or incident explanation.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "root cause analysis",
+  "quality": 5,
+  "qualityReason": "Clear trigger and high utility",
+  "bundleHints": [
+    "troubleshooting",
+    "diagnostics",
+    "quality"
+  ],
+  "tags": [
+    "debugging",
+    "diagnosis",
+    "incident investigation",
+    "incident-investigation",
+    "problem solving",
+    "problem-solving",
+    "root cause",
+    "root-cause-analysis"
+  ],
+  "capabilities": [
+    "Restates symptoms and scope of the problem clearly",
+    "Generates multiple plausible hypotheses for the observed issue",
+    "Explains the mechanism behind each hypothesis",
+    "Ranks hypotheses by likelihood and potential impact",
+    "Identifies missing data that would help disambiguate causes",
+    "Provides structured diagnostic output without prescribing fixes"
+  ],
+  "author": "BellaBe",
+  "icon": "📦",
+  "version": "1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. This skill is a documentation-only guidance file for diagnostic reasoning. No executable code, network calls, file operations, or cryptographic functions exist. The static scanner misidentified metadata fields and plain text descriptions as security patterns.",
+  "valueStatement": "Users often struggle to identify why failures or errors occurred. This skill provides a structured framework for generating hypotheses, explaining mechanisms, and ranking causes by likelihood to guide effective debugging.",
+  "userTitle": "Diagnose root causes of problems",
+  "limitations": [
+    "Does not provide recommendations or fixes for identified problems",
+    "Does not create plans or procedures for remediation",
+    "Cannot execute code or run tests to verify hypotheses",
+    "Relies on user-provided information about symptoms and context"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers and engineers troubleshooting code issues",
+      "title": "Software Debugging",
+      "description": "A developer encounters a cryptic error message or unexpected behavior in their application. The skill helps systematically explore potential causes such as race conditions, null pointer exceptions, configuration issues, or dependency conflicts."
+    },
+    {
+      "targetUser": "DevOps engineers, SREs, and incident responders",
+      "title": "Incident Post-Mortem Analysis",
+      "description": "An operations team experiences a system outage or service degradation. The skill guides the investigation through contributing factors, failure cascades, and root causes while distinguishing from proximate triggers."
+    },
+    {
+      "targetUser": "Product managers, business analysts, and data scientists",
+      "title": "Business Problem Investigation",
+      "description": "A product manager notices a drop in user engagement metrics. The skill helps brainstorm hypotheses about user behavior changes, technical issues, or external factors that could explain the observed symptom."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Problem Description",
+      "prompt": "My application is not working as expected. Help me understand what might be causing this issue.",
+      "scenario": "User provides minimal information about a problem"
+    },
+    {
+      "title": "Error Message Analysis",
+      "prompt": "I received this error message: [paste error]. What are the most likely causes of this error and how do they work?",
+      "scenario": "User has a specific error message to analyze"
+    },
+    {
+      "title": "System Behavior Investigation",
+      "prompt": "My system is exhibiting these symptoms: [describe symptoms]. I need to understand what could be happening under the hood.",
+      "scenario": "User observes unusual system behavior"
+    },
+    {
+      "title": "Complex Incident Analysis",
+      "prompt": "We experienced an incident with these characteristics: [describe timeline, scope, and observations]. Help me run a diagnostic analysis to identify the most likely root causes.",
+      "scenario": "User needs thorough incident investigation"
+    }
+  ],
+  "bestPractices": [
+    "Always restate the problem in your own words to confirm understanding before generating hypotheses.",
+    "Generate at least three hypotheses with different root causes to avoid tunnel vision.",
+    "Identify what additional data or tests would help confirm or eliminate each hypothesis.",
+    "Avoid jumping to conclusions - rank hypotheses by evidence strength and impact."
+  ],
+  "antiPatterns": [
+    "Prescribing solutions without first confirming the root cause through systematic analysis.",
+    "Focusing on only one hypothesis without exploring alternative explanations.",
+    "Confusing correlation with causation - just because two events occurred together does not mean one caused the other.",
+    "Skipping the step of identifying missing data that could disambiguate competing hypotheses."
+  ],
+  "faq": [
+    {
+      "question": "When should I use the diagnostic-action skill?",
+      "answer": "Use this skill when users ask questions like why something happened, what is wrong with their system, or request root cause analysis. It is appropriate for debugging scenarios, incident investigation, and failure analysis."
+    },
+    {
+      "question": "What is the difference between diagnostic-action and prescriptive-action?",
+      "answer": "Diagnostic-action focuses on identifying and explaining causes of problems. Prescriptive-action provides recommendations and fixes. Use diagnostic first to understand the problem, then prescriptive if the user wants solutions."
+    },
+    {
+      "question": "Can this skill fix the problems it diagnoses?",
+      "answer": "No. This skill focuses exclusively on identifying and explaining likely causes. It does not prescribe fixes or create remediation plans. Use planning-action or procedural-action for those tasks."
+    },
+    {
+      "question": "Does this skill require access to my code or system?",
+      "answer": "No. This is a guidance skill that helps structure diagnostic reasoning. It works with information you provide about symptoms and context. It does not execute code or access files directly."
+    },
+    {
+      "question": "How many hypotheses should I generate?",
+      "answer": "Generate at least three plausible hypotheses with different root causes. This prevents tunnel vision and helps ensure the actual cause is not missed. Rank them by likelihood and impact."
+    },
+    {
+      "question": "What should I do with the output from this skill?",
+      "answer": "Use the structured output to guide further investigation. The hypotheses provide testable explanations. The identified missing data helps prioritize what information to gather next. Use this to reach a confident diagnosis before attempting fixes."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "diagnostic skill",
+    "root cause analysis",
+    "debugging skill",
+    "problem diagnosis",
+    "incident investigation",
+    "failure analysis",
+    "troubleshooting"
+  ],
+  "sourceUrl": "https://github.com/BellaBe/lean-os/tree/main/.claude/skills/action-diagnostic",
+  "sourceType": "community",
+  "dependencies": []
+}

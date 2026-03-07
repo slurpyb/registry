@@ -1,0 +1,140 @@
+{
+  "name": "wp-abilities-api",
+  "type": "skill",
+  "description": "Use when working with the WordPress Abilities API (wp_register_ability, wp_register_ability_category, /wp-json/wp-abilities/v1/*, @wordpress/abilities) including defining abilities, categories, meta, REST exposure, and permissions checks for clients.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "access control",
+  "quality": 5,
+  "qualityReason": "Specific API implementation",
+  "bundleHints": [
+    "wordpress-security",
+    "backend-api"
+  ],
+  "tags": [
+    "abilities-api",
+    "authorization",
+    "capabilities",
+    "php",
+    "rest-api",
+    "wordpress",
+    "wordpress-plugin"
+  ],
+  "capabilities": [
+    "Register ability categories using wp_register_ability_category() in PHP",
+    "Register abilities with wp_register_ability() including meta and schema definitions",
+    "Expose abilities to REST API clients via wp-abilities/v1 endpoints",
+    "Consume abilities in JavaScript using @wordpress/abilities package",
+    "Debug ability visibility issues in REST and JavaScript contexts",
+    "Implement permission callbacks for capability-based access control"
+  ],
+  "author": "Automattic",
+  "icon": "🔌",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown files that provide guidance on WordPress Abilities API usage. No executable code, scripts, network calls, filesystem modifications, or external command execution exist. All 78 static findings are false positives caused by the scanner misidentifying PHP function syntax in documentation examples as shell commands and cryptographic patterns.",
+  "valueStatement": "WordPress Abilities API enables granular feature control for clients. This skill provides step-by-step guidance for registering abilities in PHP, exposing them via REST endpoints, and consuming them safely in JavaScript applications.",
+  "userTitle": "Work with WordPress Abilities API",
+  "limitations": [
+    "Targets WordPress 6.9+ (PHP 7.2.24+) - older versions need Abilities API plugin",
+    "Requires WP-CLI for some workflows - not all features work without CLI",
+    "Cannot install or configure WordPress environments - only guides existing setups"
+  ],
+  "useCases": [
+    {
+      "targetUser": "WordPress Plugin Developers",
+      "title": "Add Feature Flags",
+      "description": "Register new abilities for plugin features and expose them to the WordPress command palette or UI controls."
+    },
+    {
+      "targetUser": "Theme Developers",
+      "title": "Expose Theme Capabilities",
+      "description": "Make theme-specific functionality available to block editor patterns and client-side JavaScript applications."
+    },
+    {
+      "targetUser": "WP Core Contributors",
+      "title": "Test Abilities API Core",
+      "description": "Implement or debug Abilities API usage in WordPress core, including REST endpoint verification and PHP registration hooks."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Register New Ability",
+      "scenario": "Add ability to plugin",
+      "prompt": "Register a new ability called 'my-plugin/process-data' in PHP. It should appear in the WordPress command palette, accept JSON input with 'data' and 'format' fields, and only be accessible to users who can edit posts."
+    },
+    {
+      "title": "Debug REST Visibility",
+      "scenario": "Ability not showing in REST",
+      "prompt": "My ability is registered but does not appear when querying /wp-json/wp-abilities/v1/abilities. Walk me through the debugging checklist to identify why it is missing."
+    },
+    {
+      "title": "Add Ability Category",
+      "scenario": "Organize related abilities",
+      "prompt": "Create an ability category for my e-commerce plugin with the ID 'my-shop' and proper localization. Then register two abilities within that category for managing products and orders."
+    },
+    {
+      "title": "Consume from JavaScript",
+      "scenario": "Use ability in JS",
+      "prompt": "Show me how to consume an ability from JavaScript using @wordpress/abilities. I need to check if a user has a specific ability and execute it with input data in the block editor context."
+    }
+  ],
+  "bestPractices": [
+    "Namespace ability IDs with your plugin/theme prefix (e.g., 'my-plugin:feature.action') to avoid collisions with other plugins",
+    "Register categories before abilities using the correct hooks (wp_abilities_api_categories_init, then wp_abilities_api_init)",
+    "Include input_schema and output_schema definitions to enable validation and help AI agents understand usage patterns"
+  ],
+  "antiPatterns": [
+    "Registering abilities outside of wp_abilities_api_init hook - this triggers _doing_it_wrong() and registration fails silently",
+    "Changing ability IDs after release - treat them as stable public API that breaking changes would affect downstream consumers",
+    "Skipping permission_callback for abilities that modify data - always verify user capabilities to prevent unauthorized actions"
+  ],
+  "faq": [
+    {
+      "question": "What WordPress versions support the Abilities API?",
+      "answer": "WordPress 6.9+ includes Abilities API in core. Older versions require the separate Abilities API plugin package."
+    },
+    {
+      "question": "What permissions does my ability need?",
+      "answer": "Define a permission_callback function that returns true or false based on current_user_can() checks for your required capability."
+    },
+    {
+      "question": "How do I expose abilities to REST clients?",
+      "answer": "Set 'meta.show_in_rest' to true when registering the ability. The ability will appear at /wp-json/wp-abilities/v1/abilities."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only provides documentation guidance. No code execution, file access, or network calls occur on your system."
+    },
+    {
+      "question": "Why does my ability not appear in REST?",
+      "answer": "Common causes include missing meta.show_in_rest, registration on wrong hook, category not registered first, or caching issues."
+    },
+    {
+      "question": "How is this different from WordPress capabilities?",
+      "answer": "Abilities API provides structured, discoverable feature flags with schemas. Unlike basic capabilities, they support input/output validation and REST exposure."
+    }
+  ],
+  "seoKeywords": [
+    "WordPress Abilities API",
+    "wp_register_ability",
+    "wp-abilities/v1",
+    "WordPress REST API",
+    "WordPress permissions",
+    "WordPress capabilities",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "WordPress plugin development"
+  ],
+  "sourceUrl": "https://github.com/Automattic/agent-skills/tree/trunk/skills/wp-abilities-api",
+  "sourceType": "community",
+  "dependencies": []
+}

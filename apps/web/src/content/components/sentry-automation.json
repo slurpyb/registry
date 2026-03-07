@@ -1,0 +1,144 @@
+{
+  "name": "sentry-automation",
+  "type": "skill",
+  "description": "Automate Sentry tasks via Rube MCP (Composio): manage issues/events, configure alerts, track releases, monitor projects and teams. Always search tools first for current schemas.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "error tracking",
+  "quality": 4,
+  "qualityReason": "Tool-specific automation",
+  "bundleHints": [
+    "devops-monitoring",
+    "sentry-integration"
+  ],
+  "tags": [
+    "alerts",
+    "automation",
+    "composio",
+    "devops",
+    "error-monitoring",
+    "events",
+    "projects",
+    "releases",
+    "rube-mcp",
+    "sentry"
+  ],
+  "capabilities": [
+    "List and investigate Sentry issues across organizations and projects",
+    "Create and manage alert rules for projects and organizations",
+    "Track software releases and deployments with source maps",
+    "Monitor and update cron job monitoring configurations",
+    "Query issues using Sentry search syntax (is:unresolved, assigned:me)",
+    "List and manage organization teams and member visibility"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill provides legitimate automation for Sentry error tracking through Composio Rube MCP. The static findings flagged as external_commands are false positives - they detect MCP tool names in documentation (e.g., SENTRY_LIST_AN_ORGANIZATIONS_ISSUES), not shell execution. The network reference is to a documented MCP server endpoint (rube.app/mcp) that users explicitly configure. No actual security risks identified.",
+  "valueStatement": "This skill enables Claude to manage Sentry error tracking operations including issue investigation, alert configuration, release tracking, and cron monitoring through Composio Rube MCP integration.",
+  "userTitle": "Automate Sentry Tasks with Claude",
+  "limitations": [
+    "Does not fix code bugs directly - only manages monitoring configuration",
+    "Does not access raw application database or runtime data",
+    "Does not manage billing, user permissions, or team access settings",
+    "Requires active Rube MCP connection to Sentry for functionality"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers debugging production issues",
+      "title": "Production Error Investigation",
+      "description": "Developer uses Claude to quickly find and investigate critical errors in production by querying Sentry issues with specific filters."
+    },
+    {
+      "targetUser": "DevOps and platform engineers",
+      "title": "Alert Rule Configuration",
+      "description": "DevOps engineer creates and updates alert rules for new projects or modified thresholds using natural language commands."
+    },
+    {
+      "targetUser": "Site reliability engineers",
+      "title": "Release Monitoring",
+      "description": "SRE monitors new releases and their associated errors by tracking deployment events and issue correlations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List Recent Errors",
+      "prompt": "Use the sentry-automation skill to list the 10 most recent unresolved errors in my production project. Show the issue title, frequency, and last seen timestamp.",
+      "scenario": "Quick error status check"
+    },
+    {
+      "title": "Create Alert Rule",
+      "prompt": "Create a new alert rule for my backend-api project that triggers when error rate exceeds 5% over 10 minutes. Notify the on-call team.",
+      "scenario": "Set up new monitoring"
+    },
+    {
+      "title": "Track New Release",
+      "prompt": "Create a new release version 2.1.0 for my organization, mark it as deployed to production environment, and upload source maps from the dist folder.",
+      "scenario": "Release deployment"
+    },
+    {
+      "title": "Cross-Project Triage",
+      "prompt": "Search all projects in my organization for issues tagged with 'database' that have occurred more than 50 times in the last 24 hours. Group them by project and suggest priority.",
+      "scenario": "Mass error triage"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to verify current tool schemas before workflow execution",
+    "Verify Rube MCP connection status shows ACTIVE before running any Sentry operations",
+    "Use specific query filters (is:unresolved, assigned:me, times-seen:>10) to reduce API calls and improve response time"
+  ],
+  "antiPatterns": [
+    "Do not hardcode organization or project names - always use lookup tools to get current slugs",
+    "Do not skip connection status verification - operations will fail if MCP connection is not active",
+    "Do not ignore rate limit responses - implement backoff to avoid throttling"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with self-hosted Sentry?",
+      "answer": "Yes, if your self-hosted Sentry instance is connected via the Rube MCP sentry toolkit. The skill works with any Sentry API-compatible endpoint."
+    },
+    {
+      "question": "What authentication is needed?",
+      "answer": "OAuth authentication is handled through Rube when you connect your Sentry account. The skill uses the permissions granted during the OAuth flow."
+    },
+    {
+      "question": "Can I manage multiple Sentry organizations?",
+      "answer": "Yes, specify the organization slug in each request. Use SENTRY_GET_ORGANIZATION_DETAILS to list accessible organizations."
+    },
+    {
+      "question": "Can this skill create new Sentry issues?",
+      "answer": "No, this skill only reads and manages existing issues. To create issues from your application, configure Sentry SDK in your code."
+    },
+    {
+      "question": "What notification channels are supported for alerts?",
+      "answer": "Alert actions depend on your Sentry organization configuration. Common channels include Slack, email, PagerDuty, and webhooks."
+    },
+    {
+      "question": "How do I fix connection not active errors?",
+      "answer": "Run RUBE_MANAGE_CONNECTIONS with toolkit sentry. If status is not ACTIVE, follow the returned auth link to complete OAuth, then verify again."
+    }
+  ],
+  "seoKeywords": [
+    "sentry",
+    "claude",
+    "codex",
+    "claude code",
+    "error monitoring",
+    "devops automation",
+    "alert management",
+    "release tracking",
+    "sentry automation",
+    "mcp"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/sentry-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

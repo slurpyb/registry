@@ -1,0 +1,139 @@
+{
+  "name": "dry-refactoring",
+  "type": "skill",
+  "description": "Guides systematic code refactoring following the DRY (Don't Repeat Yourself) principle. Use when user asks to eliminate code duplication, refactor repetitive code, apply DRY principle, or mentions code smells like copy-paste, magic numbers, or repeated logic. Implements a 4-step workflow from identifying repetition to verified refactoring.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "eliminate duplication",
+  "quality": 5,
+  "qualityReason": "Clear principle and action",
+  "bundleHints": [
+    "code-quality",
+    "refactoring-tools"
+  ],
+  "tags": [
+    "clean-code",
+    "code-quality",
+    "dry-principle",
+    "optimization",
+    "refactoring",
+    "repetition"
+  ],
+  "capabilities": [
+    "Identifies code duplication through pattern recognition",
+    "Guides extraction of repeated logic into reusable functions and classes",
+    "Provides systematic 4-step refactoring workflow",
+    "Covers magic numbers, structural duplication, and logical repetition",
+    "Includes verification strategies with unit and integration tests"
+  ],
+  "author": "YYH211",
+  "icon": "♻️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only guidance and code examples for DRY refactoring. No executable code, no network calls, no file access, and no system commands. All 92 static findings are false positives caused by the analyzer misinterpreting markdown documentation patterns as security issues.",
+  "valueStatement": "Code duplication leads to maintenance nightmares and inconsistent behavior. This skill guides you through a systematic 4-step process to identify, abstract, replace, and verify refactoring changes that eliminate repetition and improve code quality.",
+  "userTitle": "Eliminate Code Duplication with DRY Refactoring",
+  "limitations": [
+    "Does not execute refactoring automatically",
+    "Does not modify files in your codebase",
+    "Does not provide IDE integration or tooling",
+    "Requires user to manually apply the guidance"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developers",
+      "title": "Clean Up Copy-Paste Code",
+      "description": "Identify and eliminate duplicate code blocks scattered across your codebase using the systematic 4-step workflow."
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Standardize Refactoring Reviews",
+      "description": "Apply consistent criteria when reviewing refactoring changes for adherence to DRY principles."
+    },
+    {
+      "targetUser": "Technical Leads",
+      "title": "Establish Team Refactoring Standards",
+      "description": "Define clear guidelines for your team to systematically address code duplication in legacy systems."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick DRY Check",
+      "scenario": "Finding obvious duplication",
+      "prompt": "Help me identify duplicate code in my function that calculates prices. Here is my code: [paste code]"
+    },
+    {
+      "title": "Extract Function",
+      "scenario": "Creating reusable abstraction",
+      "prompt": "I have three similar validation functions. Help me extract the common logic into a single reusable function following the DRY workflow."
+    },
+    {
+      "title": "Magic Number Cleanup",
+      "scenario": "Eliminating hardcoded values",
+      "prompt": "My codebase has magic numbers like 0.08 for tax rates appearing in many places. Guide me through replacing them with named constants."
+    },
+    {
+      "title": "Full Refactoring",
+      "scenario": "Complete DRY transformation",
+      "prompt": "Guide me through a complete DRY refactoring of my order calculation module. I want to identify all duplication, abstract it properly, and verify the changes."
+    }
+  ],
+  "bestPractices": [
+    "Apply the Rule of Two: Refactor when you write similar code for the second time.",
+    "Use progressive refactoring: Make small, testable changes rather than large rewrites.",
+    "Always write or update tests before refactoring to ensure behavior is preserved."
+  ],
+  "antiPatterns": [
+    "Over-abstracting: Creating generic solutions before understanding the true pattern.",
+    "Partial replacement: Leaving some duplicate code while cleaning others.",
+    "Ignoring performance: Introducing unnecessary function call overhead through abstraction."
+  ],
+  "faq": [
+    {
+      "question": "What programming languages does this skill support?",
+      "answer": "The skill is language-agnostic. Examples use JavaScript, Python, and TypeScript, but the principles apply to any programming language."
+    },
+    {
+      "question": "How much code duplication justifies refactoring?",
+      "answer": "Use the Rule of Two: when you write similar code the second time, consider extracting it. Small duplications add up over time."
+    },
+    {
+      "question": "Can I use this skill with my existing refactoring tools?",
+      "answer": "Yes. This skill provides guidance that works with any IDE or refactoring tool. Apply the principles while using your preferred tools."
+    },
+    {
+      "question": "Does this skill modify my files?",
+      "answer": "No. This skill provides guidance and examples. You apply the changes manually in your editor or IDE."
+    },
+    {
+      "question": "What if my duplicated code has slight variations?",
+      "answer": "The skill covers edge cases. Use optional parameters, callback functions, or keep variations separate if they have fundamentally different logic."
+    },
+    {
+      "question": "How is this different from automated refactoring tools?",
+      "answer": "Automated tools refactor mechanically. This skill helps you think systematically about when, what, and how to abstract for maximum maintainability."
+    }
+  ],
+  "seoKeywords": [
+    "DRY refactoring",
+    "code duplication elimination",
+    "code refactoring guide",
+    "Don't Repeat Yourself principle",
+    "clean code patterns",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "magic numbers refactoring",
+    "code smell detection"
+  ],
+  "sourceUrl": "https://github.com/YYH211/Claude-meta-skill/tree/main/dry-refactoring",
+  "sourceType": "community",
+  "dependencies": []
+}

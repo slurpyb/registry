@@ -1,0 +1,141 @@
+{
+  "name": "auth-integration",
+  "type": "skill",
+  "description": "Use when implementing authentication - login/signup forms, session management, protected routes, or role-based access control.\nNOT when non-auth UI, plain data fetching, or unrelated backend logic.\nTriggers: \"login page\", \"signup form\", \"auth setup\", \"protected route\", \"role-based access\", \"Better Auth\", \"NextAuth\".\n",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "Auth Flows",
+  "quality": 4,
+  "qualityReason": "Clear use cases, minor overlap",
+  "bundleHints": [
+    "fullstack-auth",
+    "nextjs-stack",
+    "security-toolkit"
+  ],
+  "tags": [
+    "authentication",
+    "better-auth",
+    "login-forms",
+    "nextauth",
+    "protected-routes",
+    "role-based-access",
+    "session-management"
+  ],
+  "capabilities": [
+    "Configure Better Auth v5 with providers (Google, Email/Password)",
+    "Build login and signup forms with React Hook Form and Zod validation",
+    "Implement session management using Zustand store",
+    "Create protected routes with Next.js middleware",
+    "Set up role-based access control (RBAC) with permissions system"
+  ],
+  "author": "Awais68",
+  "icon": "🔐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill providing authentication implementation guidance. All 76 static findings are FALSE POSITIVES. The scanner misidentifies secure code examples as vulnerabilities. For example, the CRITICAL heuristic flagging 'Code execution + Network + Credential access' is actually the skill demonstrating best practice: using process.env for credentials rather than hardcoding them. Environment variable references show proper secure credential handling, not credential exposure. The external command detections are markdown code fences containing TypeScript examples, not actual shell commands. All URLs are legitimate documentation links. No executable code, scripts, or file operations exist.",
+  "valueStatement": "Applications need secure authentication with login forms, session handling, and access control. This skill provides expert guidance for Better Auth/NextAuth v5 implementation including provider setup, validated forms, protected routes, and role-based permissions.",
+  "userTitle": "Implement Secure Authentication with Better Auth",
+  "limitations": [
+    "Does not create database schemas or migrations",
+    "Does not implement email sending services",
+    "Does not configure external rate limiting services",
+    "Does not handle multi-factor authentication setup"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Add auth to Next.js app",
+      "description": "Implement complete authentication flow with login, signup, sessions, and protected routes in Next.js App Router."
+    },
+    {
+      "targetUser": "Startup engineers",
+      "title": "Quick auth integration",
+      "description": "Rapidly set up Google OAuth and email/password auth with secure session handling and validation."
+    },
+    {
+      "targetUser": "Enterprise teams",
+      "title": "Role-based access system",
+      "description": "Build multi-role access control for ERP systems with admin, teacher, student, and parent permissions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Setup auth",
+      "scenario": "Initialize authentication",
+      "prompt": "Set up Better Auth v5 in my Next.js app with Google OAuth and email/password login."
+    },
+    {
+      "title": "Create login form",
+      "scenario": "Build login page",
+      "prompt": "Create a login form with React Hook Form, Zod validation, error handling, and loading states."
+    },
+    {
+      "title": "Protected route",
+      "scenario": "Secure dashboard",
+      "prompt": "Add middleware protection to /dashboard routes that redirects unauthenticated users to login."
+    },
+    {
+      "title": "Role permissions",
+      "scenario": "RBAC implementation",
+      "prompt": "Implement role-based access control with admin, teacher, and student roles with permission checks."
+    }
+  ],
+  "bestPractices": [
+    "Store all secrets in environment variables, never hardcode credentials",
+    "Use Zod for validation to prevent malformed input attacks",
+    "Configure secure cookie settings (httpOnly, secure, sameSite)"
+  ],
+  "antiPatterns": [
+    "Hardcoding API keys or secrets in source files",
+    "Skipping input validation on authentication endpoints",
+    "Storing sessions in localStorage instead of httpOnly cookies"
+  ],
+  "faq": [
+    {
+      "question": "Which frameworks does this skill support?",
+      "answer": "Better Auth v5 and NextAuth v5 with Next.js App Router and React."
+    },
+    {
+      "question": "What authentication providers are covered?",
+      "answer": "Email/password and Google OAuth are fully documented. Other providers can be configured similarly."
+    },
+    {
+      "question": "How long does implementation take?",
+      "answer": "Basic auth setup takes 1-2 hours. Full RBAC with protected routes adds 2-3 more hours."
+    },
+    {
+      "question": "Is this skill secure for production?",
+      "answer": "Yes, it follows OWASP guidelines including CSRF protection, secure cookies, and password hashing."
+    },
+    {
+      "question": "What databases work with this skill?",
+      "answer": "Any database supported by Prisma adapter including PostgreSQL, MySQL, and MongoDB."
+    },
+    {
+      "question": "How does this compare to implementing auth manually?",
+      "answer": "Provides ready-to-use patterns and code examples. Reduces implementation time and ensures security best practices."
+    }
+  ],
+  "seoKeywords": [
+    "authentication",
+    "Better Auth",
+    "NextAuth",
+    "login",
+    "session management",
+    "role-based access",
+    "protected routes",
+    "middleware",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/Awais68/hackathon-2-phase-ii-full-stack-web-app/tree/main/.claude/skills/auth-integration",
+  "sourceType": "community",
+  "dependencies": []
+}

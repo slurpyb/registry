@@ -1,0 +1,141 @@
+{
+  "name": "suggesting-improvements",
+  "type": "skill",
+  "description": "Expert at suggesting specific, actionable improvements to Claude's responses and work. Use when Claude's output needs enhancement, when quality issues are identified, or when iterating on solutions.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "response refinement",
+  "quality": 4,
+  "qualityReason": "Useful for iterative enhancement",
+  "bundleHints": [
+    "quality-toolkit",
+    "code-excellence"
+  ],
+  "tags": [
+    "best-practices",
+    "code-review",
+    "improvements",
+    "iterative-design",
+    "quality",
+    "quality-assurance",
+    "refactoring"
+  ],
+  "capabilities": [
+    "Identifies specific issues in code, responses, and solutions",
+    "Provides structured frameworks for categorizing improvements",
+    "Shows before and after examples for common patterns",
+    "Prioritizes improvements by impact level",
+    "Suggests alternative approaches with trade-off analysis",
+    "Creates verification steps to confirm improvements work"
+  ],
+  "author": "C0ntr0lledCha0s",
+  "icon": "💡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure prompt-based skill containing only instructional markdown documentation. All 68 static findings are false positives triggered by code examples in the documentation that teach improvement patterns. The skill has read-only tool access (Read, Grep, Glob) and contains no executable code.",
+  "valueStatement": "Claude sometimes produces outputs that need refinement. This skill provides structured frameworks for identifying issues and suggesting concrete improvements with before and after examples.",
+  "userTitle": "Suggest specific improvements for code and responses",
+  "limitations": [
+    "Only suggests improvements and does not implement changes automatically",
+    "Requires Claude to invoke the skill with appropriate context",
+    "Cannot access runtime environments or execute tests",
+    "Limited to read-only file access tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Code quality enhancement",
+      "description": "Get specific suggestions for improving code structure, performance, security, and maintainability with clear examples."
+    },
+    {
+      "targetUser": "Technical writers",
+      "title": "Documentation improvement",
+      "description": "Receive guidance on making explanations clearer, adding examples, and organizing documentation better."
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Structured review feedback",
+      "description": "Apply consistent frameworks for providing actionable, prioritized improvement suggestions in reviews."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick code review",
+      "scenario": "Get improvement suggestions for code",
+      "prompt": "Review this code and suggest specific improvements with before and after examples."
+    },
+    {
+      "title": "Response refinement",
+      "scenario": "Enhance a previous response",
+      "prompt": "My previous response about [topic] could be better. Suggest specific improvements to make it clearer."
+    },
+    {
+      "title": "Pattern application",
+      "scenario": "Apply improvement patterns",
+      "prompt": "This code has [issue type]. Apply the appropriate improvement pattern and show how to refactor it."
+    },
+    {
+      "title": "Priority ranking",
+      "scenario": "Rank improvements by impact",
+      "prompt": "Analyze these changes and prioritize the improvements by impact level. Explain the rationale for each priority."
+    }
+  ],
+  "bestPractices": [
+    "Be specific about what to change. Show exact code or text that needs improvement.",
+    "Always provide before and after examples to demonstrate the suggested improvement.",
+    "Prioritize suggestions by impact to help focus on what matters most."
+  ],
+  "antiPatterns": [
+    "Making vague suggestions like 'make it better' without specific changes",
+    "Suggesting improvements without explaining why they are beneficial",
+    "Presenting only one approach without discussing trade-offs or alternatives"
+  ],
+  "faq": [
+    {
+      "question": "How does this skill differ from a code review tool?",
+      "answer": "This skill provides frameworks for Claude to suggest improvements. It does not automatically analyze or modify code."
+    },
+    {
+      "question": "What tools can Claude use with this skill?",
+      "answer": "The skill has read-only tools (Read, Grep, Glob) for examining code without making changes."
+    },
+    {
+      "question": "Can this skill implement the improvements it suggests?",
+      "answer": "No, this skill only suggests improvements. You need to use additional tools to implement changes."
+    },
+    {
+      "question": "Does this skill work with any programming language?",
+      "answer": "Yes, the improvement frameworks are language-agnostic and apply to any code or text."
+    },
+    {
+      "question": "Why are only read tools allowed?",
+      "answer": "The skill focuses on analysis and suggestion. Write tools are not needed for identifying improvements."
+    },
+    {
+      "question": "How do I apply the prioritization framework?",
+      "answer": "The skill classifies improvements as Critical, Important, Minor, or Future. Focus on Critical items first."
+    }
+  ],
+  "seoKeywords": [
+    "code improvement suggestions",
+    "Claude code review",
+    "refactoring guidance",
+    "code quality enhancement",
+    "Claude Code skill",
+    "actionable feedback",
+    "code review patterns",
+    "Codex productivity",
+    "solution optimization",
+    "improvement frameworks"
+  ],
+  "sourceUrl": "https://github.com/C0ntr0lledCha0s/claude-code-plugin-automations/tree/main/self-improvement/skills/suggesting-improvements",
+  "sourceType": "community",
+  "dependencies": []
+}

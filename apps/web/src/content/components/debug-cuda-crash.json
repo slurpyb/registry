@@ -1,0 +1,141 @@
+{
+  "name": "debug-cuda-crash",
+  "type": "skill",
+  "description": "Tutorial for debugging CUDA crashes using API logging",
+  "domain": "science",
+  "subdomain": "research",
+  "specialty": "cuda debugging",
+  "quality": 4,
+  "qualityReason": "Niche technical tutorial",
+  "bundleHints": [
+    "gpu-computing",
+    "ml-infrastructure",
+    "cuda-debug"
+  ],
+  "tags": [
+    "crash-analysis",
+    "cuda",
+    "debugging",
+    "flashinfer",
+    "gpu",
+    "tutorial"
+  ],
+  "capabilities": [
+    "Debug CUDA crashes by capturing input tensors before failure",
+    "Detect NaN and Inf values using tensor statistics logging",
+    "Identify shape and dtype mismatches in kernel inputs",
+    "Use compute-sanitizer for memory access validation",
+    "Debug multi-GPU processes with separate log files",
+    "Apply cuda-gdb for kernel-level debugging"
+  ],
+  "author": "flashinfer-ai",
+  "icon": "🔧",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 160 static findings are FALSE POSITIVES. This skill contains ONLY markdown documentation with zero executable code. The 'backtick execution' findings flag markdown code block formatting, not shell commands. 'Weak cryptographic algorithm' findings flag hash identifiers in metadata. 'System reconnaissance' findings flag environment variable documentation. Pure educational content for CUDA debugging.",
+  "valueStatement": "CUDA crashes often leave no debugging information. This tutorial teaches you to use FlashInfer's API logging to capture tensor metadata before crashes. Learn to identify shape mismatches, dtype errors, and numerical issues quickly.",
+  "userTitle": "Debug CUDA Crashes in FlashInfer",
+  "limitations": [
+    "Requires FlashInfer library installed with @flashinfer_api decorator support",
+    "Logging must be enabled before running the code that crashes",
+    "Statistics logging (level 5) is skipped during CUDA graph capture",
+    "Does not fix crashes automatically, only aids diagnosis"
+  ],
+  "useCases": [
+    {
+      "targetUser": "ML Engineers",
+      "title": "Debug production ML crashes",
+      "description": "Diagnose CUDA errors in production LLM serving workloads using API logging to capture failing inputs"
+    },
+    {
+      "targetUser": "GPU Kernel Developers",
+      "title": "Debug kernel memory errors",
+      "description": "Use compute-sanitizer combined with API logging to find illegal memory access and out-of-bounds errors"
+    },
+    {
+      "targetUser": "Research Scientists",
+      "title": "Fix numerical instability",
+      "description": "Detect NaN/Inf values in attention computations by examining tensor statistics from logged outputs"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic crash debugging",
+      "scenario": "FlashInfer kernel crashed",
+      "prompt": "My FlashInfer code crashed with 'illegal memory access'. Help me set up API logging to debug this."
+    },
+    {
+      "title": "Numerical issues",
+      "scenario": "NaN values in output",
+      "prompt": "My attention kernel is producing NaN values. How do I use level 5 logging to find the source?"
+    },
+    {
+      "title": "Multi-GPU debugging",
+      "scenario": "Distributed training crash",
+      "prompt": "My multi-GPU training job crashed. Show me how to log each rank separately for debugging."
+    },
+    {
+      "title": "Memory errors",
+      "scenario": "Using compute-sanitizer",
+      "prompt": "Combine FlashInfer API logging with compute-sanitizer to debug memory access errors. Give me the exact command."
+    }
+  ],
+  "bestPractices": [
+    "Always start with level 3 logging for tensor metadata without overwhelming output",
+    "Log to a file instead of stdout to preserve logs after crashes",
+    "Compare the last successful API call (inputs and outputs logged) with the first failed call (only inputs logged)"
+  ],
+  "antiPatterns": [
+    "Using level 5 logging by default (adds statistics overhead for every call)",
+    "Logging to stdout when program crashes (output may be lost)",
+    "Forgetting to disable logging in production (adds overhead even at level 1)"
+  ],
+  "faq": [
+    {
+      "question": "What CUDA versions support API logging?",
+      "answer": "API logging works with any CUDA version supported by FlashInfer (CUDA 11.8+). The logging is implemented in Python."
+    },
+    {
+      "question": "Does logging slow down my code?",
+      "answer": "Level 0 (disabled) has zero overhead. Level 1-3 add minimal overhead for metadata extraction."
+    },
+    {
+      "question": "Can I use this with PyTorch torch.compile()?",
+      "answer": "Yes. API logging works with compiled PyTorch code. Statistics (level 5) are skipped during graph capture."
+    },
+    {
+      "question": "Is my data safe in the log files?",
+      "answer": "Log files contain tensor shapes, dtypes, and statistics. They do NOT contain actual tensor values."
+    },
+    {
+      "question": "What if no logs appear even with FLASHINFER_LOGLEVEL=3?",
+      "answer": "Verify the environment variable is set. Check that the API has the @flashinfer_api decorator."
+    },
+    {
+      "question": "How is this different from CUDA's built-in tools?",
+      "answer": "API logging shows WHAT data caused the crash. Tools like compute-sanitizer show WHERE it occurred. Use both together."
+    }
+  ],
+  "seoKeywords": [
+    "debug cuda crash",
+    "flashinfer debugging",
+    "cuda illegal memory access",
+    "api logging",
+    "cuda debugging tutorial",
+    "gpu kernel debugging",
+    "compute-sanitizer",
+    "cuda-gdb",
+    "claude code",
+    "codex"
+  ],
+  "sourceUrl": "https://github.com/flashinfer-ai/flashinfer/tree/main/.claude/skills/debug-cuda-crash",
+  "sourceType": "community",
+  "dependencies": []
+}

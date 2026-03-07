@@ -1,0 +1,144 @@
+{
+  "name": "database-migrations-sql-migrations",
+  "type": "skill",
+  "description": "SQL database migrations with zero-downtime strategies for",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "zero-downtime",
+  "quality": 5,
+  "qualityReason": "Focused on critical SQL migration safety",
+  "bundleHints": [
+    "database-migrations",
+    "production-db"
+  ],
+  "tags": [
+    "database",
+    "integrity",
+    "migrations",
+    "mysql",
+    "postgresql",
+    "rollback",
+    "server",
+    "sql"
+  ],
+  "capabilities": [
+    "Generate expand-contract migration patterns for zero-downtime schema changes",
+    "Create blue-green deployment strategies with dual-write synchronization",
+    "Write validation scripts for pre and post-migration data integrity checks",
+    "Build automated rollback procedures with database snapshots",
+    "Optimize large table migrations using batch processing and parallel execution",
+    "Manage indexes during bulk operations with concurrent index creation"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 63 static findings are false positives. The skill provides legitimate SQL migration examples including PostgreSQL functions (gen_random_uuid, pg_sleep), database introspection queries (pg_indexes), and configuration references. No actual command injection, weak cryptography, or data exfiltration present. This is a benign database migration guidance skill.",
+  "valueStatement": "This skill helps developers implement zero-downtime database migrations for PostgreSQL, MySQL, and SQL Server with built-in rollback procedures and validation checks.",
+  "userTitle": "Master SQL Database Migrations",
+  "limitations": [
+    "Does not execute migrations - provides guidance and scripts only",
+    "Does not support NoSQL databases like MongoDB or DynamoDB",
+    "Requires manual review of generated SQL before production execution",
+    "Does not provide built-in CI/CD integration"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers and DBAs",
+      "title": "Add new column without downtime",
+      "description": "Safely add a NOT NULL column to a large production table using the expand-contract pattern with batched data backfill."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Migrate legacy schema to new structure",
+      "description": "Use blue-green migration with dual-write synchronization to migrate from legacy to new schema with zero data loss."
+    },
+    {
+      "targetUser": "Database administrators",
+      "title": "Create safe rollback procedures",
+      "description": "Generate automated rollback scripts with pre-migration snapshots and validation checks to recover from failed migrations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic migration request",
+      "prompt": "Create a migration script to add a new column called email_verified (BOOLEAN, DEFAULT FALSE) to the users table in PostgreSQL. Include proper error handling.",
+      "scenario": "Simple schema change"
+    },
+    {
+      "title": "Zero-downtime migration",
+      "prompt": "Generate a zero-downtime migration strategy to convert a VARCHAR column to ENUM type in a production MySQL database with 10M+ rows.",
+      "scenario": "Production schema change"
+    },
+    {
+      "title": "Data migration with validation",
+      "prompt": "Write a migration to move data from the legacy orders table to a new v2_orders table. Include pre-validation checks, batched backfill, and post-migration row count verification.",
+      "scenario": "Data migration"
+    },
+    {
+      "title": "Complete migration with rollback",
+      "prompt": "Create a full migration package for adding a JSONB metadata column to the products table. Include: forward migration SQL, rollback SQL, validation checks, and a shell script for execution with proper error handling.",
+      "scenario": "Complete migration package"
+    }
+  ],
+  "bestPractices": [
+    "Always create a database snapshot or backup before running migrations in production",
+    "Use transaction blocks (BEGIN/COMMIT) to ensure atomicity of migration steps",
+    "Validate row counts before and after migration to detect data loss",
+    "Test migrations on a staging environment that mirrors production"
+  ],
+  "antiPatterns": [
+    "Running migrations directly on production without pre-migration validation",
+    "Using ALTER TABLE without CONCURRENTLY flag for large tables in PostgreSQL",
+    "Skipping rollback procedures for schema changes in production",
+    "Not considering foreign key constraints and referential integrity during migrations"
+  ],
+  "faq": [
+    {
+      "question": "What databases does this skill support?",
+      "answer": "This skill supports PostgreSQL, MySQL, and SQL Server. For NoSQL databases like MongoDB, use the nosql-migrations skill."
+    },
+    {
+      "question": "Does this skill execute migrations?",
+      "answer": "No, this skill generates migration scripts and guidance. You must review and execute the generated SQL yourself in your database environment."
+    },
+    {
+      "question": "How do I ensure zero-downtime during migrations?",
+      "answer": "Use expand-contract patterns: add new columns/tables first (backward compatible), migrate data in batches, then remove old structures after code deployment."
+    },
+    {
+      "question": "Can I use this with Flyway or Alembic?",
+      "answer": "Yes, the skill includes examples for both Flyway and Alembic migration frameworks. The generated scripts can be adapted to your existing migration tooling."
+    },
+    {
+      "question": "What validation checks should I run?",
+      "answer": "Run pre-migration checks (NULL values, duplicates, foreign key integrity) and post-migration checks (row counts, constraint validation, index existence)."
+    },
+    {
+      "question": "How do I handle failed migrations?",
+      "answer": "Use savepoints within transactions, create pre-migration backups, and have rollback scripts ready. The skill provides detailed rollback procedure examples."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code database migrations",
+    "SQL migration zero downtime",
+    "PostgreSQL migration best practices",
+    "MySQL schema migration",
+    "database migration rollback",
+    "Claude Codex SQL migrations",
+    "flyway migration guide",
+    "alembic migration examples",
+    "SQLite database migrations",
+    "database migration tools"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/database-migrations-sql-migrations",
+  "sourceType": "community",
+  "dependencies": []
+}

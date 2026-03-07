@@ -1,0 +1,140 @@
+{
+  "name": "flow-finishing-branch",
+  "type": "skill",
+  "description": "Decide how to complete a development branch: merge, PR, squash, or cleanup.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "branch completion",
+  "quality": 5,
+  "qualityReason": "Clear workflow integration",
+  "bundleHints": [
+    "git-workflow",
+    "flow-system"
+  ],
+  "tags": [
+    "branch",
+    "cleanup",
+    "git",
+    "merge",
+    "pr",
+    "pull-request",
+    "workflow"
+  ],
+  "capabilities": [
+    "Evaluate when to use fast-forward merge, PR, squash, or branch cleanup",
+    "Present a decision matrix based on files changed, review needs, and history quality",
+    "Provide pre-completion checklist (tests, build, lint, documentation)",
+    "Guide execution of chosen merge strategy with specific git commands",
+    "Integrate with flow-release for automated branch handling"
+  ],
+  "author": "Dimon94",
+  "icon": "🔀",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown guidance text with example git commands in code blocks. No executable code, no network calls, no file operations. All 34 static findings are false positives caused by the scanner misinterpreting documentation text as executable code.",
+  "valueStatement": "After development work finishes, choosing how to integrate changes can be unclear. This skill provides a decision matrix and step-by-step guidance to help you select the right approach for your branch completion.",
+  "userTitle": "Complete git branches with merge, PR, squash, or cleanup",
+  "limitations": [
+    "Does not execute git commands automatically",
+    "Does not connect to remote repositories",
+    "Requires manual verification of pre-completion checklist items",
+    "Does not resolve merge conflicts"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Solo developers",
+      "title": "Fast-forward small changes",
+      "description": "Quickly merge personal branches with clean history when no review is needed."
+    },
+    {
+      "targetUser": "Team developers",
+      "title": "Create pull requests",
+      "description": "Generate proper review workflows with CI verification and audit trails."
+    },
+    {
+      "targetUser": "Project maintainers",
+      "title": "Clean up abandoned branches",
+      "description": "Identify and remove abandoned or failed experiment branches to keep repository tidy."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple merge",
+      "scenario": "Quickly merge a small feature branch",
+      "prompt": "Use flow-finishing-branch to merge my feature branch into main. I made changes to 3 files and no one else reviewed it."
+    },
+    {
+      "title": "Team merge",
+      "scenario": "Prepare code for team review",
+      "prompt": "Help me complete this feature branch using flow-finishing-branch. The team needs to review and CI must verify before merge."
+    },
+    {
+      "title": "Messy history",
+      "scenario": "Clean up a cluttered commit history",
+      "prompt": "I have 20 small WIP commits in my branch. Use flow-finishing-branch to decide the best merge strategy."
+    },
+    {
+      "title": "Branch cleanup",
+      "scenario": "Remove abandoned work",
+      "prompt": "This experiment branch failed. Use flow-finishing-branch to show me how to safely delete it."
+    }
+  ],
+  "bestPractices": [
+    "Default to PR for team projects even when not required",
+    "Run the pre-completion checklist before choosing any merge option",
+    "Use the decision matrix to objectively evaluate your situation",
+    "Clean up local branches after successful merge or abandon"
+  ],
+  "antiPatterns": [
+    "Skipping PR because it takes too long - audit trails matter",
+    "Merging without verifying tests, build, and lint pass",
+    "Ignoring commit history quality - it helps with debugging",
+    "Deleting branches before confirming successful merge"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill execute git commands?",
+      "answer": "No, this skill only provides guidance and documentation. You must manually run the suggested commands."
+    },
+    {
+      "question": "When should I use fast-forward merge?",
+      "answer": "Use fast-forward for small changes under 5 files when you have a clean commit history and no review requirement."
+    },
+    {
+      "question": "What happens to my commit history with squash merge?",
+      "answer": "All commits are combined into a single logical commit, losing detailed history but creating a cleaner main branch."
+    },
+    {
+      "question": "Is my data safe when deleting branches?",
+      "answer": "Yes, but only after merge or if the work is truly abandoned. Deleted branch work cannot be recovered locally."
+    },
+    {
+      "question": "Can I use this with any git hosting service?",
+      "answer": "Yes, the concepts apply to GitHub, GitLab, Bitbucket. GitHub CLI commands (gh) are documented for GitHub."
+    },
+    {
+      "question": "How does this differ from manual git workflows?",
+      "answer": "This skill provides a structured decision framework so you do not have to remember when to use each merge strategy."
+    }
+  ],
+  "seoKeywords": [
+    "git branch merge",
+    "pull request creation",
+    "git squash merge",
+    "branch cleanup",
+    "git workflow",
+    "code review",
+    "Claude Code skill",
+    "development workflow",
+    "git commands",
+    "branch management"
+  ],
+  "sourceUrl": "https://github.com/Dimon94/cc-devflow/tree/main/.claude/skills/flow-finishing-branch",
+  "sourceType": "community",
+  "dependencies": []
+}

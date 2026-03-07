@@ -1,0 +1,142 @@
+{
+  "name": "ai-chapter-consolidate",
+  "type": "skill",
+  "description": "Use AI to merge individual page HTML files into a unified chapter document. Creates continuous document format for improved reading experience and semantic consistency.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "content merging",
+  "quality": 4,
+  "qualityReason": "Useful document workflow",
+  "bundleHints": [
+    "content-pipeline",
+    "document-processing",
+    "html-tools"
+  ],
+  "tags": [
+    "ai-assistant",
+    "chapter",
+    "content-merging",
+    "document-processing",
+    "html",
+    "merging",
+    "semantic-consistency"
+  ],
+  "capabilities": [
+    "Merge multiple HTML page files into a single continuous chapter document",
+    "Remove duplicate headers, footers, and navigation from continuation pages",
+    "Normalize heading hierarchy across merged pages (h1 through h4)",
+    "Preserve semantic HTML classes and document structure",
+    "Generate consolidation metadata log with content statistics"
+  ],
+  "author": "AbeJitsu",
+  "icon": "📑",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only instructional content for AI behavior. The SKILL.md file describes HTML document merging processes but contains no executable code, scripts, network calls, file system operations, or environment variable access. The static analysis detected false positives in skill-report.json (hash fields, URLs, path strings) that are standard metadata and documentation elements, not security risks. All detected patterns are safe patterns used in legitimate documentation contexts.",
+  "valueStatement": "Split chapter pages create fragmented reading experiences and inconsistent formatting. This skill uses AI to intelligently merge individual HTML page files into seamless continuous chapters. It removes duplicate headers, normalizes heading hierarchy, and preserves all semantic structure for a unified document.",
+  "userTitle": "Consolidate Chapter Pages into Single Document",
+  "limitations": [
+    "Requires pre-extracted page HTML files from previous processing steps",
+    "Does not perform file I/O operations directly (operates via AI prompts)",
+    "AI makes judgment calls on heading hierarchy in ambiguous cases",
+    "Output quality depends on input page HTML completeness"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content Processors",
+      "title": "Convert paginated PDFs to continuous HTML",
+      "description": "Transform multi-page PDF-derived HTML into single-file chapters for consistent reading."
+    },
+    {
+      "targetUser": "Document Engineers",
+      "title": "Normalize chapter document structure",
+      "description": "Create uniform heading hierarchy and remove duplicate elements from merged content."
+    },
+    {
+      "targetUser": "Publishing Teams",
+      "title": "Prepare unified chapter files",
+      "description": "Generate consolidated chapter documents ready for semantic validation and final output."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Merge",
+      "scenario": "Simple chapter consolidation",
+      "prompt": "Merge these HTML pages into one continuous chapter document. Remove duplicate headers. Keep all content."
+    },
+    {
+      "title": "Structured Merge",
+      "scenario": "With semantic preservation",
+      "prompt": "Merge pages maintaining all semantic classes. Create single page-container. Normalize heading levels starting with h1 for chapter title."
+    },
+    {
+      "title": "Full Specification",
+      "scenario": "Complete requirements",
+      "prompt": "Consolidate pages into single HTML5 document. Requirements: single page-container and page-content, remove page-break elements, preserve chapter header from page 1 only, normalize headings h1-h4, keep all text and exhibits exactly as written."
+    },
+    {
+      "title": "Quality-Forward",
+      "scenario": "With metadata logging",
+      "prompt": "Merge all pages into continuous chapter. Return consolidated HTML and a JSON log with page count, heading counts, total paragraphs, word count, and consolidation timestamp. Ensure no duplicate content or hierarchy jumps."
+    }
+  ],
+  "bestPractices": [
+    "Verify all page HTML files exist and are valid before consolidation",
+    "Extract page 1 content with chapter header, subsequent pages without headers",
+    "Validate output has single page-container and page-content wrapper",
+    "Review heading hierarchy for unexpected level jumps"
+  ],
+  "antiPatterns": [
+    "Running consolidation before page extraction is complete",
+    "Skipping validation of merged document structure",
+    "Allowing duplicate headers or navigation in output",
+    "Merging pages with inconsistent semantic class naming"
+  ],
+  "faq": [
+    {
+      "question": "What file formats are supported for input?",
+      "answer": "Input must be valid HTML files extracted from previous processing steps, containing page-content elements."
+    },
+    {
+      "question": "How many pages can be merged at once?",
+      "answer": "The skill supports merging any number of pages. Large chapters may hit context limits depending on AI model used."
+    },
+    {
+      "question": "How does this integrate with other skills?",
+      "answer": "This skill follows page extraction and precedes semantic validation. It reads page artifacts and outputs chapter artifacts."
+    },
+    {
+      "question": "Is my data safe during processing?",
+      "answer": "This skill contains no executable code. All processing happens within the AI model context. No data is sent to external services."
+    },
+    {
+      "question": "What if output headings are misleveled?",
+      "answer": "The semantic validation gate will catch hierarchy issues. AI makes best effort, but refinement happens in later validation steps."
+    },
+    {
+      "question": "How does this compare to manual concatenation?",
+      "answer": "Unlike simple concatenation, AI intelligently removes duplicates, normalizes structure, and ensures semantic consistency across all merged content."
+    }
+  ],
+  "seoKeywords": [
+    "AI Chapter Consolidate",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "HTML merge",
+    "document consolidation",
+    "chapter unification",
+    "continuous format",
+    "content merging"
+  ],
+  "sourceUrl": "https://github.com/AbeJitsu/Game-Settings-Panel/tree/main/.claude/skills/calypso/ai-chapter-consolidate",
+  "sourceType": "community",
+  "dependencies": []
+}

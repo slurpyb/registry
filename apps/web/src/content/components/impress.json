@@ -1,0 +1,141 @@
+{
+  "name": "impress",
+  "type": "skill",
+  "description": "Presentation creation, format conversion (ODP/PPTX/PDF), slide automation with LibreOffice Impress.",
+  "domain": "tools",
+  "subdomain": "editors",
+  "specialty": "LibreOffice",
+  "quality": 4,
+  "qualityReason": "Specific presentation tool",
+  "bundleHints": [
+    "productivity-tools",
+    "office-suite"
+  ],
+  "tags": [
+    "automation",
+    "libreoffice",
+    "odp",
+    "pdf",
+    "pdf-conversion",
+    "pptx",
+    "presentations"
+  ],
+  "capabilities": [
+    "Create new ODP presentations from scratch or templates",
+    "Convert presentations between ODP, PPTX, PDF, HTML formats",
+    "Automate slide generation using Python UNO API",
+    "Batch process multiple presentation files",
+    "Manipulate slide content programmatically",
+    "Use soffice command-line for headless operations"
+  ],
+  "author": "sickn33",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 28 static findings are false positives. The skill uses standard LibreOffice Impress command-line operations (soffice) for presentation creation and conversion. External commands use hardcoded arguments with no user input injection risk. Network access is limited to official LibreOffice documentation links. Filesystem operations are standard tempfile usage for ODP file manipulation. No malicious patterns detected.",
+  "valueStatement": "Automate LibreOffice Impress presentation creation, format conversion between ODP, PPTX, and PDF, and slide generation from templates using command-line and Python UNO API.",
+  "userTitle": "Create and Convert Presentations",
+  "limitations": [
+    "Requires LibreOffice installed on the system",
+    "Some advanced formatting may not convert perfectly between formats",
+    "UNO API requires running LibreOffice in server mode",
+    "Complex animations may not fully transfer in conversions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Business analysts and report writers",
+      "title": "Business Report Automation",
+      "description": "Generate quarterly business review presentations automatically from data exports, applying company templates with consistent branding."
+    },
+    {
+      "targetUser": "Training coordinators and content creators",
+      "title": "Training Material Conversion",
+      "description": "Convert legacy PowerPoint training materials to ODP format for open-source office workflows, or batch convert for web distribution as PDF."
+    },
+    {
+      "targetUser": "Sales teams and marketing professionals",
+      "title": "Dynamic Slide Generation",
+      "description": "Create parameterized presentation templates that generate custom slides for each client or audience segment using Python scripting."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Convert Presentation Format",
+      "prompt": "Use the impress skill to convert presentation.odp to PDF format using soffice headless mode.",
+      "scenario": "Converting an existing ODP file to PDF for distribution"
+    },
+    {
+      "title": "Create Presentation from Template",
+      "prompt": "Use the impress skill to create a new presentation using template.odp, replacing placeholders like ${title} and ${date} with quarterly_report and 2024-01-15.",
+      "scenario": "Generating a branded presentation from a template"
+    },
+    {
+      "title": "Batch Convert Multiple Files",
+      "prompt": "Use the impress skill to batch convert all .odp files in the /presentations directory to PDF format.",
+      "scenario": "Converting multiple presentation files at once"
+    },
+    {
+      "title": "Automate Slide Creation",
+      "prompt": "Use the impress skill with Python UNO API to create a 10-slide presentation with title slide, agenda, and 8 content slides with bullet points.",
+      "scenario": "Programmatically creating a structured presentation"
+    }
+  ],
+  "bestPractices": [
+    "Use slide masters in templates for consistent styling across presentations",
+    "Test all format conversions with sample files before batch processing",
+    "Use headless mode (--headless) for server-side automation"
+  ],
+  "antiPatterns": [
+    "Do not assume all PowerPoint animations will convert to LibreOffice",
+    "Do not skip testing conversions - verify output before distribution",
+    "Do not use absolute file paths that will break on different systems"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill require LibreOffice to be installed?",
+      "answer": "Yes, LibreOffice must be installed on the system. The skill uses the soffice command-line tool and Python UNO API for LibreOffice operations."
+    },
+    {
+      "question": "Can I convert PowerPoint files to ODP?",
+      "answer": "Yes, use soffice --headless --convert-to odp presentation.pptx to convert PowerPoint files to ODP format."
+    },
+    {
+      "question": "How do I automate slide creation with Python?",
+      "answer": "Use the UNO API to connect to a running LibreOffice instance. Start LibreOffice with --accept=\"socket,host=localhost,port=8100;urp;\" then use Python uno module to create and manipulate presentations."
+    },
+    {
+      "question": "What formats can be converted to PDF?",
+      "answer": "ODP, PPTX, and PPT files can all be converted to PDF using soffice --headless --convert-to pdf <filename>."
+    },
+    {
+      "question": "Can I batch convert multiple files?",
+      "answer": "Yes, you can use a shell loop or the Python script provided to batch process multiple presentation files."
+    },
+    {
+      "question": "Are ODP files really ZIP archives?",
+      "answer": "Yes, ODP files are ZIP archives containing XML files for content, styles, and metadata. This allows template manipulation by unzipping, modifying content.xml, and re-zipping."
+    }
+  ],
+  "seoKeywords": [
+    "LibreOffice Impress",
+    "presentation creation",
+    "ODP to PDF",
+    "PPTX conversion",
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "slide automation",
+    "office automation",
+    "document conversion"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/libreoffice/impress",
+  "sourceType": "community",
+  "dependencies": []
+}

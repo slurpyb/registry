@@ -1,0 +1,144 @@
+{
+  "name": "cc-skill-continuous-learning",
+  "type": "skill",
+  "description": "Development skill from everything-claude-code",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "React patterns",
+  "quality": 5,
+  "qualityReason": "Highly relevant and specific frontend guidance",
+  "bundleHints": [
+    "frontend-stack",
+    "react-patterns"
+  ],
+  "tags": [
+    "automation",
+    "claude-code",
+    "continuous-learning",
+    "frontend",
+    "hooks",
+    "knowledge-capture",
+    "nextjs",
+    "performance-optimization",
+    "react",
+    "skill-extraction"
+  ],
+  "capabilities": [
+    "Monitors Claude Code sessions via the Stop hook for efficient execution",
+    "Detects patterns including error resolution, debugging techniques, and workarounds",
+    "Filters out noise like simple typos and one-time fixes",
+    "Extracts reusable knowledge from sessions exceeding minimum message threshold",
+    "Saves learned skills to the local ~/.claude/skills/learned directory",
+    "Configurable extraction threshold and pattern detection rules"
+  ],
+  "author": "affaan-m",
+  "icon": "📚",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 19 static analysis findings were evaluated and determined to be FALSE POSITIVES. Hidden file paths reference the standard ~/.claude/skills directory for skill storage. Shell command substitutions use hardcoded arguments with no user input injection vectors. The weak cryptographic algorithm finding on SKILL.md lines 3 and 15 is incorrect as those lines contain only descriptive text. The skill performs legitimate session evaluation and local file operations within the Claude Code ecosystem.",
+  "valueStatement": "Stop repeating the same solutions. This skill captures your debugging techniques and workflow improvements automatically, turning each Claude Code session into lasting knowledge for future projects.",
+  "userTitle": "Extract reusable patterns from Claude Code sessions",
+  "limitations": [
+    "Requires sessions with at least 10 messages to trigger evaluation",
+    "Only processes sessions when Claude Code exits cleanly via the Stop hook",
+    "Does not capture patterns from external API issues or third-party service problems",
+    "Extracted skills are stored locally and do not sync across machines automatically"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Solo developers working on multiple projects",
+      "title": "Individual developer building personal knowledge base",
+      "description": "Automatically capture debugging workflows and project-specific solutions that recur across development sessions"
+    },
+    {
+      "targetUser": "Engineering teams and tech leads",
+      "title": "Team standardizing best practices",
+      "description": "Extract consistent patterns from team members sessions to build shared skill libraries for onboarding"
+    },
+    {
+      "targetUser": "Project maintainers and documentation writers",
+      "title": "Complex project documentation",
+      "description": "Document project-specific troubleshooting steps and architectural decisions through captured patterns"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Review my recent debugging session",
+      "prompt": "Analyze the last Claude Code session and identify any reusable debugging patterns that should be saved as a skill. Focus on error resolution techniques that could apply to future sessions.",
+      "scenario": "After completing a complex debugging task"
+    },
+    {
+      "title": "Extract workflow improvements",
+      "prompt": "Review this session for any workflow improvements or workarounds discovered. Save patterns that would be valuable to remember for similar projects in the future.",
+      "scenario": "When you have found efficient solutions to recurring problems"
+    },
+    {
+      "title": "Capture project-specific knowledge",
+      "prompt": "This session contained project-specific knowledge about [project name]. Extract any patterns related to our codebase structure, common issues, or architectural decisions that should be preserved.",
+      "scenario": "After deep work on a specific codebase"
+    },
+    {
+      "title": "Build a reusable skill from multiple sessions",
+      "prompt": "I have completed several sessions working on [topic]. Review the patterns across these sessions and create a comprehensive skill that captures the key learnings and techniques discovered.",
+      "scenario": "After completing a multi-session learning or development effort"
+    }
+  ],
+  "bestPractices": [
+    "Set an appropriate minimum session length in config.json to avoid capturing trivial interactions",
+    "Review extracted skills periodically to ensure quality and relevance before relying on them",
+    "Use specific pattern names in your sessions to help the skill categorize learnings accurately"
+  ],
+  "antiPatterns": [
+    "Do not set extraction threshold too low or you will accumulate low-value skills",
+    "Avoid using this skill for one-off problems that will never recur in your work",
+    "Do not rely solely on automatic extraction for critical knowledge documentation"
+  ],
+  "faq": [
+    {
+      "question": "How does the skill know when to extract patterns?",
+      "answer": "The skill runs automatically when Claude Code exits via the Stop hook. It checks if your session has enough messages and signals for evaluation if patterns are detected."
+    },
+    {
+      "question": "Where are the extracted skills stored?",
+      "answer": "Skills are saved to ~/.claude/skills/learned/ by default. You can customize this path in the config.json file."
+    },
+    {
+      "question": "Can I configure what patterns get detected?",
+      "answer": "Yes, edit the patterns_to_detect and ignore_patterns arrays in config.json to customize what the skill looks for."
+    },
+    {
+      "question": "Does this skill work with all Claude Code versions?",
+      "answer": "This skill requires Claude Code with hook support. Check your Claude Code version and settings.json for hook configuration options."
+    },
+    {
+      "question": "What happens if a session is too short?",
+      "answer": "Sessions with fewer messages than min_session_length in config.json are skipped to avoid capturing trivial or incomplete interactions."
+    },
+    {
+      "question": "Can I share extracted skills with my team?",
+      "answer": "The skills are stored locally. You can manually copy them from ~/.claude/skills/learned/ to share with teammates or set up a shared directory."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code skill",
+    "Claude assistant",
+    "Codex workflow",
+    "continuous learning",
+    "skill extraction",
+    "pattern detection",
+    "code automation",
+    "developer productivity",
+    "knowledge management",
+    "AI workflow"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cc-skill-continuous-learning",
+  "sourceType": "community",
+  "dependencies": []
+}

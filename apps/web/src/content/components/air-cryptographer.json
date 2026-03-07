@@ -1,0 +1,145 @@
+{
+  "name": "air-cryptographer",
+  "type": "skill",
+  "description": "This skill should be used when the user asks about \"AIR\", \"algebraic intermediate representation\", \"ZK constraints\", \"trace design\", \"constraint soundness\", \"polynomial commitments\", \"FRI\", \"STARK\", \"lookup arguments\", \"permutation arguments\", \"memory consistency\", \"transition constraints\", \"boundary constraints\", \"vanishing polynomial\", \"quotient polynomial\", \"Fiat-Shamir\", or needs expert-level cryptographic review of constraint systems.",
+  "domain": "security",
+  "subdomain": "cryptography",
+  "specialty": "ZK proofs",
+  "quality": 5,
+  "qualityReason": "Highly specialized cryptography focus",
+  "bundleHints": [
+    "zk-suite",
+    "crypto-security",
+    "zero-knowledge"
+  ],
+  "tags": [
+    "algebraic-intermediate-representation",
+    "constraint-systems",
+    "cryptography",
+    "fri",
+    "polynomial-commitments",
+    "stark",
+    "trace-design",
+    "zero-knowledge",
+    "zk-constraints",
+    "zk-proofs"
+  ],
+  "capabilities": [
+    "Design trace columns with proper source, derived, and auxiliary classifications",
+    "Define transition and boundary constraints with correct vanishing polynomials",
+    "Implement permutation and lookup arguments using grand products",
+    "Audit AIR soundness using systematic adversarial testing",
+    "Analyze degree accounting for composition polynomial correctness",
+    "Review Fiat-Shamir transcript binding and challenge separation"
+  ],
+  "author": "ClementWalter",
+  "icon": "🔐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only educational markdown content about AIR cryptography for ZK proof systems. Zero executable code, no file access, no network calls, no external commands. Static findings are false positives from mathematical notation and cryptographic terminology being misidentified as security risks.",
+  "valueStatement": "Zero-knowledge proof systems require mathematically sound AIR constraints to guarantee computational integrity. This skill provides expert guidance on trace design, boundary constraints, permutation arguments, and security review methodologies for ZK protocols.",
+  "userTitle": "Design and audit AIR constraint systems",
+  "limitations": [
+    "Does not generate constraint code or proof implementations",
+    "Does not execute or verify actual cryptographic implementations",
+    "Does not provide legal or regulatory compliance advice",
+    "Does not include performance benchmarking or optimization"
+  ],
+  "useCases": [
+    {
+      "targetUser": "ZK Protocol Developers",
+      "title": "Design sound AIR constraints",
+      "description": "Build constraint systems with proper boundary conditions, transition rules, and global consistency arguments."
+    },
+    {
+      "targetUser": "Security Auditors",
+      "title": "Audit ZK constraint systems",
+      "description": "Review AIR implementations for unconstrained columns, selector vulnerabilities, and soundness gaps."
+    },
+    {
+      "targetUser": "Cryptography Engineers",
+      "title": "Apply advanced cryptographic arguments",
+      "description": "Implement permutation arguments, lookup tables, and memory consistency checks with correctness proofs."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic AIR Question",
+      "scenario": "Learning about AIR basics",
+      "prompt": "Explain the difference between source, derived, and auxiliary columns in AIR trace design."
+    },
+    {
+      "title": "Constraint Design",
+      "scenario": "Building transition constraints",
+      "prompt": "How do I write a transition constraint that ensures the program counter increments correctly only when not branching?"
+    },
+    {
+      "title": "Security Review",
+      "scenario": "Auditing an AIR implementation",
+      "prompt": "What are the key red flags to look for when auditing AIR selectors and booleanity constraints?"
+    },
+    {
+      "title": "Advanced Analysis",
+      "scenario": "Deep security assessment",
+      "prompt": "Walk me through the adversarial witness exercises: how would I test if all selectors equals zero creates a vulnerability?"
+    }
+  ],
+  "bestPractices": [
+    "Start with a one-page summary: claimed statement, trace length handling, public inputs placement, and prover freedom degrees",
+    "Enforce selector exclusivity using s(s-1)=0 for booleanity and sum(s_i)=1 for mutual exclusivity",
+    "Always bound challenges in the transcript before they are used, with separate challenges for different arguments"
+  ],
+  "antiPatterns": [
+    "Leaving selectors unconstrained allows vacuous constraints when all selectors are zero",
+    "Using the same Fiat-Shamir challenge for multiple arguments enables algebraic cancellation attacks",
+    "Defining final row without unique identification allows prover to dump inconsistencies"
+  ],
+  "faq": [
+    {
+      "question": "What AIR frameworks are supported?",
+      "answer": "This skill covers general AIR principles applicable to any ZK framework including Cairo, Stwo, Plonky3, and custom implementations."
+    },
+    {
+      "question": "What trace lengths are supported?",
+      "answer": "Fixed and variable length traces. Variable length requires explicit halt handling and trace length binding into the Fiat-Shamir transcript."
+    },
+    {
+      "question": "How does this integrate with existing ZK tools?",
+      "answer": "Provides architectural guidance compatible with constraint compilers, provers, and verifiers. Does not replace implementation code."
+    },
+    {
+      "question": "Is data stored or transmitted?",
+      "answer": "No. This is a knowledge-only skill with no file access, network calls, or data persistence capabilities."
+    },
+    {
+      "question": "Why is my AIR failing FRI?",
+      "answer": "Common causes: constraint polynomial does not vanish on domain, degree exceeds domain size, or missing boundary constraints on composition."
+    },
+    {
+      "question": "How does this compare to formal verification?",
+      "answer": "Provides security review methodology for human analysis. Complements but does not replace automated formal verification tools."
+    }
+  ],
+  "seoKeywords": [
+    "AIR cryptographer",
+    "algebraic intermediate representation",
+    "zero knowledge proof",
+    "STARK protocol",
+    "constraint system audit",
+    "trace design",
+    "polynomial commitment",
+    "FRI",
+    "Claude Code",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/ClementWalter/rookie-marketplace/tree/main/air-cryptographer/skills/air-expertise",
+  "sourceType": "community",
+  "dependencies": []
+}

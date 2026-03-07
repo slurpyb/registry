@@ -1,0 +1,144 @@
+{
+  "name": "cc-skill-security-review",
+  "type": "skill",
+  "description": "Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or implementing payment/sensitive features. Provides comprehensive security checklist a...",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "context management",
+  "quality": 5,
+  "qualityReason": "Optimizes AI workflow efficiency",
+  "bundleHints": [
+    "agent-workflow",
+    "context-preserving"
+  ],
+  "tags": [
+    "best-practices",
+    "claude-code",
+    "code-review",
+    "context-management",
+    "owasp",
+    "productivity",
+    "security",
+    "session-handoff",
+    "vulnerability-prevention",
+    "workflow-optimization"
+  ],
+  "capabilities": [
+    "Provides comprehensive security checklists for authentication, input validation, SQL injection prevention, XSS protection, CSRF protection, and rate limiting",
+    "Teaches secure coding patterns with side-by-side comparisons of vulnerable vs secure code examples",
+    "Covers blockchain security for Solana including wallet verification and transaction validation",
+    "Includes pre-deployment security checklist covering 17 critical security areas",
+    "Provides security testing examples for automated test coverage",
+    "Documents best practices for secrets management, error handling, and dependency security"
+  ],
+  "author": "affaan-m",
+  "icon": "🔒",
+  "version": "1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 91 potential security issues in SKILL.md documentation file. All findings are FALSE POSITIVES - the detected patterns are code examples within educational documentation showing both vulnerable and secure coding patterns. The skill teaches security best practices through comparison examples (marked with ❌ NEVER and ✅ ALWAYS). No executable code, no actual security risks. This is a legitimate educational security review skill.",
+  "valueStatement": "Prevent common vulnerabilities like SQL injection, XSS, and authentication flaws with automated security checklists. Get expert guidance on secure coding practices during development.",
+  "userTitle": "Secure Your Code with Comprehensive Security Reviews",
+  "limitations": [
+    "Documentation-only skill that provides guidance but does not automatically scan or fix code",
+    "Requires developer knowledge to correctly implement the security patterns shown",
+    "Does not integrate with automated security testing tools or CI/CD pipelines",
+    "Examples focus on TypeScript/JavaScript ecosystem with some framework-specific guidance"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developer",
+      "title": "Pre-commit Security Review",
+      "description": "Developer runs this skill before committing code to verify authentication, input validation, and SQL injection prevention patterns are correctly implemented"
+    },
+    {
+      "targetUser": "Tech lead",
+      "title": "Pre-deployment Security Audit",
+      "description": "Team lead uses the pre-deployment checklist to ensure all 17 security requirements are met before production release"
+    },
+    {
+      "targetUser": "Junior developer",
+      "title": "Security Learning Tool",
+      "description": "Junior developer studies the skill examples to learn secure coding patterns and understand common vulnerability types"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Security Check",
+      "prompt": "Run security review on my current code changes. Check for hardcoded secrets, input validation issues, SQL injection vulnerabilities, and authentication problems.",
+      "scenario": "Quick security check before committing code"
+    },
+    {
+      "title": "Authentication Implementation",
+      "prompt": "Review my authentication implementation. Verify that tokens use httpOnly cookies (not localStorage), authorization checks are in place, and session management is secure.",
+      "scenario": "Implementing login/authentication features"
+    },
+    {
+      "title": "API Endpoint Security",
+      "prompt": "Conduct security review on my new API endpoints. Check SQL injection prevention, XSS protection, CSRF tokens, rate limiting, and error message security.",
+      "scenario": "Creating new API endpoints"
+    },
+    {
+      "title": "Pre-deployment Audit",
+      "prompt": "Run complete pre-deployment security audit. Verify all 17 checklist items including secrets management, input validation, parameterized queries, XSS/CSRF protection, rate limiting, HTTPS enforcement, security headers, and dependency security.",
+      "scenario": "Final security review before production deployment"
+    }
+  ],
+  "bestPractices": [
+    "Run security review skill before every commit involving authentication, input handling, database queries, or API endpoints",
+    "Use the pre-deployment checklist as a final verification step before production releases",
+    "Study both the NEVER and ALWAYS examples to understand vulnerability patterns and their fixes"
+  ],
+  "antiPatterns": [
+    "Using this skill as a replacement for automated security testing tools or penetration testing",
+    "Running security review only after production issues occur instead of during development",
+    "Treating documentation examples as copy-paste solutions without understanding the security principles"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill automatically scan my code for vulnerabilities?",
+      "answer": "No. This skill provides security checklists, best practices, and educational examples. You must apply the guidance manually to your code. It does not perform automated scanning."
+    },
+    {
+      "question": "Can this skill prevent all security vulnerabilities?",
+      "answer": "No. This skill covers common vulnerabilities like OWASP Top 10 but cannot prevent all possible security issues. Combine with automated tools, penetration testing, and security reviews for comprehensive protection."
+    },
+    {
+      "question": "Is this skill only for TypeScript and JavaScript projects?",
+      "answer": "The examples use TypeScript/JavaScript, but security principles apply to all languages. Concepts like input validation, parameterized queries, and authentication are universal. Adapt patterns to your language."
+    },
+    {
+      "question": "Should I use this skill instead of security audit tools?",
+      "answer": "No. Use this skill during development alongside automated tools like npm audit, SAST tools, and dependency scanners. This skill helps you write secure code; tools verify it."
+    },
+    {
+      "question": "How often should I run security review?",
+      "answer": "Run before every commit for security-sensitive changes (authentication, input handling, APIs). Run the pre-deployment checklist before every production release. Make security part of your development workflow."
+    },
+    {
+      "question": "Does this skill cover blockchain and Web3 security?",
+      "answer": "Yes, it includes a section on Solana blockchain security covering wallet verification, transaction validation, and balance checks. Apply similar principles to other blockchain platforms."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "security review",
+    "code security",
+    "OWASP",
+    "vulnerability scanning",
+    "secure development",
+    "authentication",
+    "input validation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cc-skill-security-review",
+  "sourceType": "community",
+  "dependencies": []
+}

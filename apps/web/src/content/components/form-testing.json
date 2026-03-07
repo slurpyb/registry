@@ -1,0 +1,143 @@
+{
+  "name": "form-testing",
+  "type": "skill",
+  "description": "Test WordPress form submissions and email delivery. Validates contact forms, checks WP Mail SMTP configuration, and sends test emails. Use when verifying form functionality or troubleshooting email delivery issues.",
+  "domain": "cms",
+  "subdomain": "wordpress",
+  "specialty": "form validation",
+  "quality": 4,
+  "qualityReason": "Niche but useful",
+  "bundleHints": [
+    "wordpress-dev",
+    "testing"
+  ],
+  "tags": [
+    "contact-form",
+    "email",
+    "email-delivery",
+    "forms",
+    "smtp",
+    "testing",
+    "wordpress",
+    "wordpress-plugins",
+    "wp-mail"
+  ],
+  "capabilities": [
+    "Tests WordPress email delivery via wp_mail() function",
+    "Validates WP Mail SMTP plugin configuration",
+    "Checks SMTP server connectivity and settings",
+    "Sends test emails with detailed diagnostics",
+    "Provides color-coded terminal output for easy reading",
+    "Displays WordPress and PHP version information"
+  ],
+  "author": "CrazySwami",
+  "icon": "📧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "The form-testing skill is a legitimate WordPress development tool. All detected patterns (Docker commands, email testing, file operations) are intentional functionality for testing WordPress email delivery. No malicious intent or data exfiltration patterns found.",
+  "valueStatement": "WordPress contact forms often fail silently, causing lost leads and frustrated users. This skill tests form submissions, validates email delivery, and diagnoses SMTP configuration issues to ensure your forms work reliably.",
+  "userTitle": "Test WordPress Forms and Email Delivery",
+  "limitations": [
+    "Requires Docker container access for WordPress sites",
+    "Only tests email functionality, not form UI/UX",
+    "Default recipient email must be customized",
+    "Cannot test external SMTP services directly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "WordPress developers",
+      "title": "Debug Email Delivery Issues",
+      "description": "Quickly diagnose why contact form emails are not reaching inboxes by testing SMTP configuration and mail server connectivity."
+    },
+    {
+      "targetUser": "QA testers",
+      "title": "Validate Form Functionality",
+      "description": "Automate testing of contact forms after deployments to ensure submissions work and emails are delivered properly."
+    },
+    {
+      "targetUser": "Site administrators",
+      "title": "Verify SMTP Setup",
+      "description": "Confirm WP Mail SMTP plugin is configured correctly and test email delivery without manual form submissions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Email Test",
+      "scenario": "Test if WordPress can send emails",
+      "prompt": "Run the form-testing skill to check if my WordPress container can send emails. Use the default settings."
+    },
+    {
+      "title": "Custom Recipient Test",
+      "scenario": "Test email delivery to specific address",
+      "prompt": "Test email delivery from my WordPress container to test@mycompany.com and show me the SMTP configuration."
+    },
+    {
+      "title": "Full Form Audit",
+      "scenario": "Comprehensive form and email testing",
+      "prompt": "Perform a complete audit of my WordPress forms including email delivery, SMTP configuration, and provide troubleshooting recommendations."
+    },
+    {
+      "title": "Troubleshoot Email Issues",
+      "scenario": "Diagnose specific email delivery problems",
+      "prompt": "My WordPress contact form submissions are not sending emails. Check the WP Mail SMTP configuration, test email delivery, and provide step-by-step troubleshooting guidance."
+    }
+  ],
+  "bestPractices": [
+    "Always test email delivery after configuring WP Mail SMTP to verify settings are correct",
+    "Use staging environments first before testing on production sites to avoid sending test emails to real users",
+    "Document your SMTP configuration settings for team members who need to troubleshoot email issues"
+  ],
+  "antiPatterns": [
+    "Do not test with real customer email addresses - use test emails or your own address",
+    "Avoid testing email delivery on live production sites during business hours",
+    "Never share SMTP credentials in documentation or commit them to version control"
+  ],
+  "faq": [
+    {
+      "question": "Is this compatible with all WordPress setups?",
+      "answer": "The skill requires Docker-based WordPress installations and WP-CLI access. It works with any WordPress site running in a Docker container."
+    },
+    {
+      "question": "What are the testing limits?",
+      "answer": "There is no hard limit on test emails, but SMTP providers may have daily sending limits. The skill sends one test email per execution."
+    },
+    {
+      "question": "Can I integrate this with CI/CD pipelines?",
+      "answer": "Yes, the script is designed for automation and returns appropriate exit codes for success or failure, making it suitable for continuous integration workflows."
+    },
+    {
+      "question": "Is my data safe during testing?",
+      "answer": "The skill only reads WordPress configuration and sends test emails. It does not store or transmit any sensitive data externally beyond the test email itself."
+    },
+    {
+      "question": "What if the test email fails?",
+      "answer": "The script will display error messages from PHPMailer and WordPress, helping you identify configuration issues, authentication problems, or server connectivity issues."
+    },
+    {
+      "question": "How does this compare to other email testing tools?",
+      "answer": "Unlike external email testing services, this skill tests the actual WordPress email system with your specific SMTP configuration, providing more accurate results for WordPress-specific issues."
+    }
+  ],
+  "seoKeywords": [
+    "wordpress form testing",
+    "email delivery test",
+    "wp mail smtp",
+    "contact form validation",
+    "claude code wordpress",
+    "form troubleshooting",
+    "smtp configuration",
+    "wordpress email issues",
+    "claude ai testing",
+    "codex form testing"
+  ],
+  "sourceUrl": "https://github.com/CrazySwami/wordpress-dev-skills/tree/main/skills/form-testing",
+  "sourceType": "community",
+  "dependencies": []
+}

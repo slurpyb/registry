@@ -1,0 +1,143 @@
+{
+  "name": "defi-mev-battletest",
+  "type": "skill",
+  "description": "Expert knowledge for DeFi/MEV bot development including critical pitfalls, backtesting realities, AMM mechanics, MEV extraction strategies, and production failure modes",
+  "domain": "business",
+  "subdomain": "finance",
+  "specialty": "MEV strategies",
+  "quality": 5,
+  "qualityReason": "Expert battle-tested knowledge",
+  "bundleHints": [
+    "defi-trading",
+    "mev-bots",
+    "blockchain-strategy"
+  ],
+  "tags": [
+    "amm-mechanics",
+    "backtesting",
+    "blockchain",
+    "cryptocurrency",
+    "defi",
+    "mev",
+    "trading"
+  ],
+  "capabilities": [
+    "Identify hidden risks in arbitrage opportunities including reorg, gas spikes, and latency",
+    "Calculate realistic expected value accounting for failure rates and competition",
+    "Implement Uniswap V3 tick mechanics and concentrated liquidity handling",
+    "Configure Flashbots bundle submission with proper simulation and privacy",
+    "Apply MEV-Share patterns for backrunning with profit sharing",
+    "Design kill switches and circuit breakers for automated trading systems"
+  ],
+  "author": "BarisSozen",
+  "icon": "🛡️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Pure educational skill containing only markdown documentation and TypeScript code examples for DeFi/MEV trading patterns. No executable code, scripts, network calls, or filesystem access detected. All 107 static findings are false positives caused by scanner misinterpretation of markdown formatting and legitimate blockchain terminology.",
+  "valueStatement": "DeFi trading bots fail in production due to hidden risks that backtests miss. This skill embeds battle-tested patterns from real failures so you can avoid catastrophic losses when building arbitrage, MEV, or automated trading strategies.",
+  "userTitle": "Build DeFi Bots Without Costly Mistakes",
+  "limitations": [
+    "Does not execute trades or connect to blockchain networks directly",
+    "Does not provide real-time market data or price feeds",
+    "Cannot replace testing with actual simulation before going live",
+    "References external services but does not implement connectivity"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DeFi developers",
+      "title": "Build Safe Trading Bots",
+      "description": "Learn critical pitfalls before your bot loses money on reorgs, sandwich attacks, or gas spikes."
+    },
+    {
+      "targetUser": "Quantitative researchers",
+      "title": "Model MEV Economics",
+      "description": "Calculate true expected value with realistic failure rates and competition models."
+    },
+    {
+      "targetUser": "Smart contract engineers",
+      "title": "Integrate Flashbots",
+      "description": "Implement private orderflow and bundle submission correctly with production patterns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Check Arbitrage Safety",
+      "scenario": "Evaluating an arbitrage opportunity",
+      "prompt": "Use the DeFi MEV skill to analyze this arbitrage opportunity. What are the hidden risks I should consider? Calculate the realistic expected value accounting for failure rate, reorg probability, and gas costs."
+    },
+    {
+      "title": "Implement Flashbots Bundle",
+      "scenario": "Setting up private transaction submission",
+      "prompt": "Show me the correct pattern for Flashbots bundle submission including simulation, gas configuration, and coinbase payment for competitive bidding."
+    },
+    {
+      "title": "Calculate Price Impact",
+      "scenario": "Estimating slippage on large trades",
+      "prompt": "Explain the Uniswap V3 price impact formula for concentrated liquidity. How do I calculate slippage when crossing multiple ticks with different liquidity depths?"
+    },
+    {
+      "title": "Design Kill Switch",
+      "scenario": "Adding safety limits to trading bot",
+      "prompt": "What are the non-negotiable kill switch requirements for a production trading bot? Include circuit breaker thresholds, automatic triggers, and manual override patterns."
+    }
+  ],
+  "bestPractices": [
+    "Always simulate against pending state, not historical blocks, to match production conditions",
+    "Factor in 20 to 30 percent failure rate and 1 to 2 percent reorg rate when calculating expected value",
+    "Implement kill switch with capital limits before deploying any trading strategy"
+  ],
+  "antiPatterns": [
+    "Trusting backtest results without adjusting for latency, gas prediction, and competition",
+    "Using public mempool for arbitrage transactions - you will be front-run",
+    "Setting slippage too high or too low without understanding liquidity distribution",
+    "Deploying without testing on a forked mainnet with realistic conditions first"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill connect to blockchain networks?",
+      "answer": "No. This skill provides knowledge and patterns only. You implement connectivity using standard Web3 libraries in your own code."
+    },
+    {
+      "question": "What failure rates should I assume for arbitrage?",
+      "answer": "Conservative estimates are 30 percent failure rate for cross-protocol trades and 1 to 2 percent reorg rate on Ethereum mainnet."
+    },
+    {
+      "question": "How does this skill integrate with my existing bot?",
+      "answer": "Use it during design and development. Prompt for best practices, review patterns, and validate your architecture before implementation."
+    },
+    {
+      "question": "Is my trading data safe?",
+      "answer": "Yes. This skill only provides guidance. No data leaves your environment and no external connections are made."
+    },
+    {
+      "question": "Why do backtests lie about profitability?",
+      "answer": "Backtests use perfect historical state. Production has latency, mempool competition, gas uncertainty, and reorgs that historical data cannot capture."
+    },
+    {
+      "question": "How is this different from reading documentation?",
+      "answer": "This skill embeds hard-won lessons from production failures. Documentation tells you how things work. This tells you what breaks in practice."
+    }
+  ],
+  "seoKeywords": [
+    "defi bot development",
+    "mev arbitrage",
+    "uniswap v3 trading",
+    "flashbots bundle",
+    "claude code defi",
+    "claude defi",
+    "codex defi",
+    "amm price impact",
+    "mev-share client",
+    "defi trading strategy"
+  ],
+  "sourceUrl": "https://github.com/BarisSozen/claude/tree/main/.claude/skills/defi-mev-battletest",
+  "sourceType": "community",
+  "dependencies": []
+}

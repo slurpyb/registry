@@ -1,0 +1,143 @@
+{
+  "name": "reasoning-dialectical",
+  "type": "skill",
+  "description": "Synthesize competing positions through structured thesis-antithesis-synthesis process. Use when stakeholders disagree, trade-offs exist, or multiple valid perspectives need integration. Produces integrated positions with acknowledged trade-offs.",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "Synthesis",
+  "quality": 5,
+  "qualityReason": "Clear structured synthesis methodology",
+  "bundleHints": [
+    "reasoning-framework",
+    "conflict-resolution",
+    "decision-making"
+  ],
+  "tags": [
+    "analysis",
+    "debate",
+    "decision-making",
+    "dialectical",
+    "integration",
+    "reasoning",
+    "synthesis",
+    "trade-offs"
+  ],
+  "capabilities": [
+    "Identify and articulate the core thesis position in any debate or decision",
+    "Surface the opposing antithesis with equal rigor and fairness",
+    "Analyze tension points to reveal underlying assumptions and trade-offs",
+    "Generate synthesis positions that preserve valid elements from both sides",
+    "Document acknowledged trade-offs in any integrated solution",
+    "Guide teams from conflict toward productive resolution"
+  ],
+  "author": "BellaBe",
+  "icon": "⚖️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 41 static findings are false positives. The skill is a prompt-based dialectical reasoning tool with no executable code. Backtick detections are markdown code formatting, not Ruby/shell execution. Hash values and technical terms were misidentified as cryptographic/C2 patterns.",
+  "valueStatement": "Teams often struggle to reconcile conflicting stakeholder positions. This skill applies structured dialectical analysis to identify valid points in each argument, surface essential trade-offs, and generate synthesis positions that move discussions forward productively.",
+  "userTitle": "Synthesize opposing viewpoints with dialectical reasoning",
+  "limitations": [
+    "Does not access external data or documents outside the conversation context",
+    "Cannot make decisions on behalf of users or commit to outcomes",
+    "Effectiveness depends on the quality of input perspectives provided",
+    "Should be used as a thinking aid, not a substitute for human judgment"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product managers and technical leads",
+      "title": "Resolve product strategy conflicts",
+      "description": "Product teams facing competing feature priorities can use dialectical analysis to understand why each proposal has merit, identify shared goals, and synthesize a roadmap that addresses core needs."
+    },
+    {
+      "targetUser": "Engineering managers and architects",
+      "title": "Balance technical debt vs feature velocity",
+      "description": "Engineering leaders can apply structured reasoning to evaluate arguments for shipping fast versus building sustainably, finding integration points that serve both short-term and long-term health."
+    },
+    {
+      "targetUser": "Workshop facilitators and team leads",
+      "title": "Facilitate stakeholder alignment workshops",
+      "description": "Facilitators can guide cross-functional teams through structured dialectical exercises to move from entrenched positions toward collaborative solutions with clear trade-off documentation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick synthesis check",
+      "prompt": "Apply dialectical reasoning to this situation:\n\nThesis position: [Describe what one side advocates for and why]\n\nAntithesis position: [Describe the opposing view and its reasoning]\n\nIdentify: 1) What each side gets right, 2) Where the core tension lies, 3) A synthesis position that preserves valid elements from both, 4) Remaining trade-offs to acknowledge.",
+      "scenario": "When you need a quick structured analysis of two competing options"
+    },
+    {
+      "title": "Multi-stakeholder alignment",
+      "prompt": "Conduct a dialectical analysis for [topic or decision]:\n\nPosition A (represented by [group]): [their argument in their own terms]\n\nPosition B (represented by [group]): [their argument in their own terms]\n\n[Add more positions if relevant]\n\nFor each position, identify the underlying concern being protected. Then synthesize: What shared values emerge? What integration is possible? What must be explicitly traded?",
+      "scenario": "When three or more stakeholder groups have competing priorities"
+    },
+    {
+      "title": "Personal decision dialectic",
+      "prompt": "Help me think through [decision] using dialectical reasoning:\n\nOption X: [Why this path is compelling]\n\nOption Y: [Why the alternative is compelling]\n\n[Option Z if relevant]\n\nApply thesis-antithesis-synthesis: What is the core value driving each option? Where do they fundamentally conflict? Is there a third path that honors more values? If not, what trade-off is most acceptable and why?",
+      "scenario": "When making personal or professional decisions with competing priorities"
+    },
+    {
+      "title": "Evaluate existing synthesis",
+      "prompt": "I have a proposed solution for [issue]: [Describe proposed synthesis]\n\nThe original tension was between:\nThesis: [Original thesis position]\nAntithesis: [Original antithesis position]\n\nEvaluate this synthesis:\n1) Does it preserve the strongest elements of both positions?\n2) What trade-offs does it make?\n3) What might advocates of each original position object to?\n4) Is there a stronger synthesis possible?",
+      "scenario": "When reviewing and improving an existing proposed solution"
+    }
+  ],
+  "bestPractices": [
+    "Present both positions in their strongest form before synthesizing. Steel-man the opposition rather than attacking a weak version.",
+    "Explicitly name the trade-offs in any synthesis. Clarity about what is being given up builds trust and prevents later surprises.",
+    "Use dialectical analysis as a thinking aid before making decisions, not as a substitute for stakeholder input or expert judgment."
+  ],
+  "antiPatterns": [
+    "Using synthesis as a way to avoid making hard decisions. Sometimes one position is genuinely stronger and should win.",
+    "Skipping the antithesis phase. Presenting a weak opposing view and then easily refuting it produces poor synthesis.",
+    "Treating the synthesis as a compromise average. Good synthesis should be greater than the sum of its parts."
+  ],
+  "faq": [
+    {
+      "question": "When should I use this skill versus making a unilateral decision?",
+      "answer": "Use dialectical reasoning when multiple stakeholders have invested perspectives, when the trade-offs are genuinely uncertain, or when buy-in matters for execution. Make unilateral decisions when you have clear authority, when speed is critical, or when the decision falls clearly within your expertise."
+    },
+    {
+      "question": "How many positions should I include in a dialectical analysis?",
+      "answer": "Start with two (thesis/antithesis) for clarity. Add a third position when there is a genuinely distinct perspective that does not reduce to the other two. More than three positions can become unwieldy but may be useful for complex multi-stakeholder situations."
+    },
+    {
+      "question": "What makes a good synthesis?",
+      "answer": "A good synthesis preserves the strongest elements of competing positions while transcending their limitations. It should be more than a compromise (splitting the difference) and more than a preference for one side. Look for integration that neither position would have discovered alone."
+    },
+    {
+      "question": "What if the positions are genuinely incompatible?",
+      "answer": "Document the incompatibility clearly. Sometimes synthesis means explicitly choosing one path with full acknowledgment of what is lost. The skill helps clarify when positions are irreconcilable versus when integration is possible."
+    },
+    {
+      "question": "Can this skill help with personal decision-making?",
+      "answer": "Yes. Apply the same framework to personal choices: articulate what draws you to each option, surface the underlying values, and look for integration or explicit trade-offs. This works well for career decisions, investment choices, or lifestyle trade-offs."
+    },
+    {
+      "question": "How does this differ from pros and cons lists?",
+      "answer": "Dialectical reasoning goes deeper than pros and cons. It asks about underlying values, examines where positions conflict at the level of principles, and seeks synthesis that may reveal options neither list would suggest. Pros and cons are useful input to the process but not the process itself."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "dialectical reasoning",
+    "thesis antithesis synthesis",
+    "conflict resolution",
+    "decision making",
+    "stakeholder alignment",
+    "structured thinking",
+    "synthesis"
+  ],
+  "sourceUrl": "https://github.com/BellaBe/lean-os/tree/main/.claude/skills/reasoning-dialectical",
+  "sourceType": "community",
+  "dependencies": []
+}

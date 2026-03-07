@@ -1,0 +1,143 @@
+{
+  "name": "alphafold-database",
+  "type": "skill",
+  "description": "Access AlphaFold 200M+ AI-predicted protein structures. Retrieve structures by UniProt ID, download PDB/mmCIF files, analyze confidence metrics (pLDDT, PAE), for drug discovery and structural biology.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "Protein structures",
+  "quality": 5,
+  "qualityReason": "High-value scientific resource",
+  "bundleHints": [
+    "bioinformatics",
+    "structural-biology",
+    "drug-research"
+  ],
+  "tags": [
+    "alphafold",
+    "bioinformatics",
+    "drug-discovery",
+    "mmcif",
+    "pdb",
+    "plddt",
+    "protein-structure",
+    "structural-biology",
+    "uniprot"
+  ],
+  "capabilities": [
+    "Retrieve AlphaFold predictions by UniProt accession ID",
+    "Download structure files in PDB, mmCIF, and binary CIF formats",
+    "Access confidence metrics including pLDDT scores and PAE matrices",
+    "Parse and analyze structures using Biopython",
+    "Download bulk proteome data via Google Cloud Platform",
+    "Query AlphaFold metadata through BigQuery"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate scientific skill for accessing the AlphaFold protein structure database. All 244 static findings are false positives. The analyzer misinterpreted markdown code formatting (backticks), standard Python HTTP library usage, and documented public API endpoints as security threats. The skill uses safe Biopython library calls, standard requests to authorized EBI APIs, and subprocess with list-form arguments for Google Cloud access.",
+  "valueStatement": "Researchers need efficient access to computational protein structure predictions for drug discovery and structural biology studies. This skill provides direct access to AlphaFold DB's 200M+ AI-predicted protein structures, enabling retrieval by UniProt ID, download of coordinate files, and analysis of confidence metrics.",
+  "userTitle": "Access AlphaFold protein structures by UniProt ID",
+  "limitations": [
+    "Does not generate new predictions (requires AlphaFold or external service)",
+    "Single-chain predictions only (no multi-chain complexes)",
+    "Rate limits apply to REST API requests (use Google Cloud for bulk access)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Drug discovery researchers",
+      "title": "Retrieve protein structures for docking",
+      "description": "Download target protein structures for computational docking studies and analyze binding site conformations."
+    },
+    {
+      "targetUser": "Structural biologists",
+      "title": "Analyze prediction confidence",
+      "description": "Evaluate pLDDT and PAE metrics to identify reliable structural regions for downstream analysis."
+    },
+    {
+      "targetUser": "Bioinformatics developers",
+      "title": "Build automated pipelines",
+      "description": "Integrate AlphaFold access into computational workflows for large-scale protein analysis."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Get single protein structure",
+      "scenario": "Download structure for a specific protein",
+      "prompt": "Download the AlphaFold structure for UniProt ID P00520 in mmCIF format and show the pLDDT confidence scores."
+    },
+    {
+      "title": "Compare multiple proteins",
+      "scenario": "Analyze confidence across proteins",
+      "prompt": "Download structures for P00520, P12931, and P04637. Compare their average pLDDT scores and identify high-confidence regions."
+    },
+    {
+      "title": "Batch download by species",
+      "scenario": "Download entire proteome dataset",
+      "prompt": "Download all AlphaFold predictions for E. coli (taxonomy ID 83333) using Google Cloud bulk access."
+    },
+    {
+      "title": "Integrate with analysis pipeline",
+      "scenario": "Automated structure processing",
+      "prompt": "Create a Python script that takes a list of UniProt IDs, downloads their structures, extracts CA coordinates, and calculates inter-residue distances."
+    }
+  ],
+  "bestPractices": [
+    "Use Biopython for simple single-protein access (cleaner API than direct HTTP calls)",
+    "Cache downloaded files locally to avoid repeated API requests and rate limits",
+    "For bulk downloads over 100 proteins, use Google Cloud Storage instead of REST API"
+  ],
+  "antiPatterns": [
+    "Avoid using shell=True with subprocess when calling gsutil (use list form instead)",
+    "Do not ignore pLDDT scores when interpreting structures (low confidence regions may be unreliable)",
+    "Avoid downloading individual files for whole proteomes (use tar archives from Google Cloud)"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between PDB and mmCIF formats?",
+      "answer": "PDB is legacy format with 99,999 atom limit. mmCIF is modern standard supporting larger structures with full metadata."
+    },
+    {
+      "question": "How reliable are AlphaFold predictions?",
+      "answer": "Predictions with pLDDT >90 are very reliable. Regions below 50 may be disordered. Always check confidence metrics."
+    },
+    {
+      "question": "Can I use AlphaFold structures for drug docking?",
+      "answer": "Yes, but validate high-confidence regions. Low confidence areas may not reflect true structure. Consider multiple models."
+    },
+    {
+      "question": "What is the rate limit for the AlphaFold API?",
+      "answer": "Official limits are not published. Use 10 concurrent requests max with 100-200ms delays between calls."
+    },
+    {
+      "question": "How do I download an entire species proteome?",
+      "answer": "Use Google Cloud: gsutil cp gs://public-datasets-deepmind-alphafold-v4/proteomes/proteome-tax_id-*.tar ."
+    },
+    {
+      "question": "Does this skill support multi-chain protein complexes?",
+      "answer": "No. AlphaFold DB provides single-chain predictions only. For complexes, model each chain separately."
+    }
+  ],
+  "seoKeywords": [
+    "AlphaFold protein structure",
+    "UniProt ID lookup",
+    "protein structure prediction",
+    "pLDDT confidence scores",
+    "PAE analysis",
+    "drug discovery bioinformatics",
+    "Claude Code skill",
+    "Claude scientific skills",
+    "structural biology tools",
+    "mmCIF file download"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/alphafold-database",
+  "sourceType": "community",
+  "dependencies": []
+}

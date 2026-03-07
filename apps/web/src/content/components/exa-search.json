@@ -1,0 +1,138 @@
+{
+  "name": "exa-search",
+  "type": "skill",
+  "description": "Semantic search, similar content discovery, and structured research using Exa API",
+  "domain": "tools",
+  "subdomain": "search",
+  "specialty": "semantic search",
+  "quality": 5,
+  "qualityReason": "Advanced search semantics",
+  "bundleHints": [
+    "research-toolkit",
+    "semantic-search"
+  ],
+  "tags": [
+    "api-integration",
+    "exa-api",
+    "research",
+    "search",
+    "semantic-search",
+    "similar-content"
+  ],
+  "capabilities": [
+    "Perform semantic search using AI embeddings to find conceptually similar content",
+    "Discover related documents and resources based on meaning rather than keywords",
+    "Search structured data categories including companies, people, and research papers",
+    "Integrate Exa API functionality directly into Claude Code conversations",
+    "Enable natural language queries for complex research tasks"
+  ],
+  "author": "sickn33",
+  "icon": "🔍",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged external_commands and network patterns, but all findings are false positives. The external_commands pattern is a standard npx package installation command. The network pattern is a documentation link to GitHub, not actual network code. No cryptographic code exists in the file. This is a documentation-only skill for Exa API integration.",
+  "valueStatement": "Finding relevant information online is time-consuming with traditional keyword search. This skill enables semantic search using AI embeddings to discover similar content and conduct structured research through the Exa API.",
+  "userTitle": "Search with Exa API",
+  "limitations": [
+    "Requires a valid Exa API key to function",
+    "Search results depend on Exa API index coverage and freshness",
+    "Rate limits apply based on your Exa API subscription tier",
+    "Cannot access private or authenticated web content"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Researchers and students",
+      "title": "Academic Research Discovery",
+      "description": "Find relevant research papers and academic resources by searching for concepts rather than exact keywords."
+    },
+    {
+      "targetUser": "Business analysts",
+      "title": "Competitive Intelligence",
+      "description": "Discover company information and market data using structured category searches."
+    },
+    {
+      "targetUser": "Content creators and writers",
+      "title": "Content Research",
+      "description": "Find similar articles and resources to expand knowledge on a specific topic."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Semantic Search",
+      "prompt": "Search for content about [topic] using semantic search to find the most relevant results.",
+      "scenario": "Beginner - Simple topic-based search"
+    },
+    {
+      "title": "Similar Content Discovery",
+      "prompt": "Find content similar to [URL or document] using embedding-based similarity search.",
+      "scenario": "Intermediate - Finding related resources"
+    },
+    {
+      "title": "Structured Category Search",
+      "prompt": "Search for [type: companies/people/papers] related to [topic] using Exa category filtering.",
+      "scenario": "Intermediate - Targeted category search"
+    },
+    {
+      "title": "Complex Research Query",
+      "prompt": "Conduct structured research on [topic] by performing semantic search, filtering by [criteria], and organizing results by [relevance/date/category].",
+      "scenario": "Advanced - Multi-step research workflow"
+    }
+  ],
+  "bestPractices": [
+    "Configure your Exa API key as an environment variable for secure access",
+    "Use specific and descriptive queries to improve semantic search relevance",
+    "Review API rate limits and plan batch operations accordingly"
+  ],
+  "antiPatterns": [
+    "Using overly broad or vague search queries that return unfocused results",
+    "Making rapid sequential API calls without respecting rate limits",
+    "Assuming semantic search returns exact keyword matches rather than conceptually similar content"
+  ],
+  "faq": [
+    {
+      "question": "How do I get an Exa API key?",
+      "answer": "Visit the Exa website and create an account to obtain your API key. Free and paid tiers are available depending on your usage needs."
+    },
+    {
+      "question": "What is the difference between semantic search and keyword search?",
+      "answer": "Semantic search uses AI embeddings to understand the meaning behind queries, finding conceptually similar content even without matching keywords. Keyword search only finds exact text matches."
+    },
+    {
+      "question": "Can I search for specific types of content like research papers or companies?",
+      "answer": "Yes, Exa supports category filtering to search within specific content types including research papers, companies, people, and more."
+    },
+    {
+      "question": "How are search results ranked?",
+      "answer": "Results are ranked by semantic similarity scores based on embedding distance. You can also sort by date or other metadata depending on the query type."
+    },
+    {
+      "question": "What happens if I exceed my API rate limit?",
+      "answer": "Exa will return rate limit errors. The skill will surface these errors so you can retry after the rate limit window resets or upgrade your plan."
+    },
+    {
+      "question": "Can this skill access my local files or private data?",
+      "answer": "No, this skill only interacts with the Exa API for public web content. It cannot access your local files or private databases unless you explicitly provide that content in your query."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code skill",
+    "Exa API integration",
+    "semantic search",
+    "Claude AI research",
+    "Codex search tool",
+    "embedding search",
+    "AI research assistant",
+    "content discovery",
+    "structured research"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/exa-search",
+  "sourceType": "community",
+  "dependencies": []
+}

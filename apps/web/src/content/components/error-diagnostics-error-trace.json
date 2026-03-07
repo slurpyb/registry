@@ -1,0 +1,144 @@
+{
+  "name": "error-diagnostics-error-trace",
+  "type": "skill",
+  "description": "You are an error tracking and observability expert specializing in implementing comprehensive error monitoring solutions. Set up error tracking systems, configure alerts, implement structured logging,",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "error observability",
+  "quality": 5,
+  "qualityReason": "Critical production observability",
+  "bundleHints": [
+    "observability-stack",
+    "error-tracking"
+  ],
+  "tags": [
+    "alerts",
+    "error-tracking",
+    "logging",
+    "monitoring",
+    "observability",
+    "production",
+    "sentry",
+    "structured-logging"
+  ],
+  "capabilities": [
+    "Set up Sentry error tracking with custom integrations and middleware",
+    "Implement structured logging with Winston and Elasticsearch",
+    "Configure intelligent alert rules for error rate thresholds",
+    "Create error grouping and deduplication algorithms",
+    "Build real-time error monitoring dashboards with React",
+    "Implement automatic error recovery with circuit breakers"
+  ],
+  "author": "sickn33",
+  "icon": "🔍",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 33 static findings are false positives. The skill provides educational code samples for implementing standard error tracking (Sentry integration, structured logging, alerting). Network calls are legitimate error reporting to monitoring services. No malicious behavior detected.",
+  "valueStatement": "Implement comprehensive error monitoring with Sentry integration, intelligent alerting, and real-time dashboards to quickly identify and resolve production issues.",
+  "userTitle": "Set Up Error Tracking and Monitoring",
+  "limitations": [
+    "Does not provide live error tracking infrastructure",
+    "Requires existing error tracking service account for full functionality",
+    "Code samples need adaptation for specific project requirements",
+    "Does not include pre-configured production environments"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineers and platform teams",
+      "title": "DevOps Engineer Setting Up Monitoring",
+      "description": "Implement error tracking across microservices with centralized logging and intelligent alerting"
+    },
+    {
+      "targetUser": "Full-stack and backend developers",
+      "title": "Full-Stack Developer Adding Error Handling",
+      "description": "Integrate Sentry into Node.js or Python applications with custom error context"
+    },
+    {
+      "targetUser": "Engineering managers and team leads",
+      "title": "Engineering Manager Improving Observability",
+      "description": "Set up real-time error dashboards and establish error response workflows"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Error Tracking Setup",
+      "prompt": "Help me set up error tracking for a Node.js Express application. I need to capture uncaught exceptions, unhandled promise rejections, and log them to Sentry with custom context.",
+      "scenario": "Getting started with error tracking"
+    },
+    {
+      "title": "Structured Logging Implementation",
+      "prompt": "Create a structured logger using Winston that logs errors with stack traces, user context, and request details. Include Elasticsearch transport for production environments.",
+      "scenario": "Implementing comprehensive logging"
+    },
+    {
+      "title": "Alert Configuration",
+      "prompt": "Configure intelligent alert rules for: high error rate (>5%), response time degradation (>1s), and memory usage critical (>90%). Set up Slack and PagerDuty channels with cooldown periods.",
+      "scenario": "Setting up error alerting"
+    },
+    {
+      "title": "Error Recovery System",
+      "prompt": "Implement an automatic error recovery system with circuit breaker pattern. Handle network errors with retry and backoff, database errors with read replica fallback, and rate limit errors with delay.",
+      "scenario": "Building resilient error handling"
+    }
+  ],
+  "bestPractices": [
+    "Always include structured error context (user ID, request ID, environment)",
+    "Filter sensitive data like passwords, tokens, and API keys before sending to error trackers",
+    "Use error grouping to reduce noise from similar repeated errors",
+    "Set up appropriate sampling rates for high-traffic applications"
+  ],
+  "antiPatterns": [
+    "Do not log full request bodies containing sensitive user data",
+    "Avoid capturing errors without any context or user information",
+    "Do not set alert thresholds too low causing alert fatigue",
+    "Avoid ignoring or swallowing errors without proper logging"
+  ],
+  "faq": [
+    {
+      "question": "What error tracking services does this skill support?",
+      "answer": "The skill provides examples for Sentry and custom error tracking services. The code samples are adaptable to other services like Rollbar, Bugsnag, or custom solutions."
+    },
+    {
+      "question": "Does this skill require a Sentry account?",
+      "answer": "The skill provides code templates that work with Sentry. You will need a Sentry account and DSN to fully configure the integration."
+    },
+    {
+      "question": "Can this skill help with Python applications?",
+      "answer": "Yes, the skill includes Python code samples for alert management and error analysis that work with Python applications."
+    },
+    {
+      "question": "How do I handle sensitive data in error logs?",
+      "answer": "Use the sanitization functions shown in the skill to filter sensitive keys like passwords, tokens, and API keys before sending errors."
+    },
+    {
+      "question": "Does this skill work with frontend JavaScript errors?",
+      "answer": "The skill focuses on backend error tracking. Frontend error tracking typically requires the Sentry JavaScript SDK with different configuration."
+    },
+    {
+      "question": "Can I create custom error grouping logic?",
+      "answer": "Yes, the skill includes error fingerprinting algorithms that can be customized to group errors based on your specific patterns and requirements."
+    }
+  ],
+  "seoKeywords": [
+    "error tracking",
+    "error monitoring",
+    "Sentry integration",
+    "structured logging",
+    "observability",
+    "error alerting",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "error diagnostics"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/error-diagnostics-error-trace",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,146 @@
+{
+  "name": "gwas-database",
+  "type": "skill",
+  "description": "Query NHGRI-EBI GWAS Catalog for SNP-trait associations. Search variants by rs ID, disease/trait, gene, retrieve p-values and summary statistics, for genetic epidemiology and polygenic risk scores.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "SNP associations",
+  "quality": 5,
+  "qualityReason": "Authoritative research database",
+  "bundleHints": [
+    "genetics-research",
+    "bioinformatics"
+  ],
+  "tags": [
+    "bioinformatics",
+    "database",
+    "genetics",
+    "gwas",
+    "nhgri-ebi",
+    "polygenic-risk",
+    "research",
+    "scientific",
+    "snp-trait",
+    "summary-statistics"
+  ],
+  "capabilities": [
+    "Query SNP-trait associations by rs ID",
+    "Search genetic variants by disease or trait name",
+    "Find variants associated with specific genes",
+    "Access GWAS study metadata and publication details",
+    "Retrieve full summary statistics from deposited studies",
+    "Filter associations by p-value thresholds"
+  ],
+  "author": "davila7",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing no executable code. All detected patterns are false positives: backticks are markdown delimiters, HTTP/FTP references are example patterns for querying the public GWAS Catalog API, and cryptographic/C2 keywords are incidental mentions in scientific context. The skill only provides guidance for accessing public genomic databases and makes no network calls, file access, or system modifications.",
+  "valueStatement": "Finding genetic associations for diseases requires navigating complex genomic databases. This skill provides clear guidance for querying the NHGRI-EBI GWAS Catalog to retrieve SNP-trait associations, p-values, and summary statistics for research.",
+  "userTitle": "Query GWAS Catalog for genetic associations",
+  "limitations": [
+    "Cannot download full summary statistics directly (requires FTP)",
+    "Only accesses NHGRI-EBI GWAS Catalog data",
+    "No local data storage or caching provided",
+    "Requires internet connection for API queries"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Genetic researchers",
+      "title": "Identify disease variants",
+      "description": "Find all genetic variants associated with a specific disease or trait from published GWAS studies"
+    },
+    {
+      "targetUser": "Bioinformatics analysts",
+      "title": "Variant annotation",
+      "description": "Look up rs IDs to retrieve genomic coordinates, trait associations, and effect sizes"
+    },
+    {
+      "targetUser": "Clinical geneticists",
+      "title": "Polygenic risk assessment",
+      "description": "Identify variants for building polygenic risk scores for patient stratification"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic variant lookup",
+      "scenario": "Find associations for a genetic variant",
+      "prompt": "What traits and diseases are associated with rs7903146 in the GWAS Catalog? List all associations with their p-values and study information."
+    },
+    {
+      "title": "Disease search",
+      "scenario": "Search for genetic associations by disease",
+      "prompt": "Find all genome-wide significant genetic variants (p < 5e-8) associated with type 2 diabetes from the GWAS Catalog. Include rs IDs and effect sizes."
+    },
+    {
+      "title": "Gene-based search",
+      "scenario": "Find variants in a gene region",
+      "prompt": "What genetic variants in the TCF7L2 gene region are associated with any trait in the GWAS Catalog? Include genomic coordinates and p-values."
+    },
+    {
+      "title": "Advanced query",
+      "scenario": "Cross-reference multiple variants",
+      "prompt": "For variants rs7903146, rs1111875, and rs5186, retrieve all their trait associations from the GWAS Catalog. Create a summary table showing which traits each variant is associated with."
+    }
+  ],
+  "bestPractices": [
+    "Always check the p-value threshold (genome-wide significance is 5×10⁻⁸)",
+    "Review study ancestry information to assess population applicability",
+    "Cache API responses locally when performing iterative analyses",
+    "Cite the GWAS Catalog and original studies in publications"
+  ],
+  "antiPatterns": [
+    "Ignoring ancestry information when interpreting associations",
+    "Using nominal p-values without genome-wide significance thresholds",
+    "Combining effect sizes across studies without harmonization",
+    "Assuming GWAS Catalog contains all published associations"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with Claude, Codex, and Claude Code?",
+      "answer": "Yes. The skill is compatible with all three platforms and provides guidance for querying the GWAS Catalog API."
+    },
+    {
+      "question": "What is the p-value threshold for genome-wide significance?",
+      "answer": "The standard threshold is p ≤ 5×10⁻⁸. This accounts for the multiple testing burden in GWAS."
+    },
+    {
+      "question": "How do I access full summary statistics?",
+      "answer": "Full summary statistics are available via the separate Summary Statistics API or FTP download from ftp.ebi.ac.uk."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only provides documentation. All API queries go directly to EBI servers and no user data is stored."
+    },
+    {
+      "question": "Why are some variants not found in the GWAS Catalog?",
+      "answer": "The catalog only includes curated associations from published studies meeting their inclusion criteria. Not all GWAS are included."
+    },
+    {
+      "question": "How does this compare to dbSNP or gnomAD?",
+      "answer": "GWAS Catalog focuses on trait associations from published studies. dbSNP provides variant identifiers, gnomAD provides population frequencies."
+    }
+  ],
+  "seoKeywords": [
+    "GWAS Catalog",
+    "genetic associations",
+    "SNP rsID lookup",
+    "genome-wide association",
+    "p-value database",
+    "polygenic risk scores",
+    "genetic research",
+    "Claude Code",
+    "bioinformatics",
+    "EBI API"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/gwas-database",
+  "sourceType": "community",
+  "dependencies": []
+}

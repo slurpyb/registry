@@ -1,0 +1,144 @@
+{
+  "name": "startup-financial-modeling",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"create financial projections\", \"build a financial model\", \"forecast revenue\", \"calculate burn rate\", \"estimate runway\", \"model cash flow\", or requests 3-5 year financial planning for a startup.",
+  "domain": "business",
+  "subdomain": "finance",
+  "specialty": "Financial projections",
+  "quality": 5,
+  "qualityReason": "Essential startup finance",
+  "bundleHints": [
+    "startup-toolkit",
+    "finance-suite"
+  ],
+  "tags": [
+    "burn rate",
+    "cash-flow",
+    "financial-planning",
+    "fundraising",
+    "projections",
+    "runway",
+    "startup"
+  ],
+  "capabilities": [
+    "Build 3-5 year financial projections using cohort-based revenue modeling",
+    "Calculate burn rate, runway, and cash flow positions",
+    "Create three-scenario frameworks (conservative, base, optimistic)",
+    "Model SaaS, marketplace, e-commerce, and services business models",
+    "Analyze unit economics including CAC, LTV, and payback period",
+    "Integrate fundraising scenarios with milestone-based planning"
+  ],
+  "author": "wshobson",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing financial modeling formulas and templates. All static findings are false positives: markdown code blocks with financial formulas were misidentified as code execution, and no cryptographic or reconnaissance patterns exist.",
+  "valueStatement": "Create comprehensive 3-5 year financial models with revenue projections, burn rate calculations, runway analysis, and scenario planning to support fundraising and strategic decisions.",
+  "userTitle": "Build startup financial projections",
+  "limitations": [
+    "Does not execute code or access external financial data sources",
+    "Does not validate user-provided numbers against actual market data",
+    "Does not generate interactive spreadsheets or downloadable files",
+    "Cannot replace professional financial advice or accounting services"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Founders preparing for investor meetings or pitch decks",
+      "title": "Create pitch deck financial projections",
+      "description": "Build investor-ready financial projections with 3-5 year forecasts, scenario analysis, and key metrics for fundraising presentations and board meetings."
+    },
+    {
+      "targetUser": "CFOs and finance leads planning fundraising strategy",
+      "title": "Model cash runway and funding needs",
+      "description": "Calculate monthly burn rate, runway duration, and determine optimal funding amounts based on milestones and growth targets."
+    },
+    {
+      "targetUser": "Startup operators managing annual planning and budgets",
+      "title": "Build operational budget plans",
+      "description": "Create detailed cost structures, hiring plans, and expense budgets aligned with revenue growth and business stage."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic financial model request",
+      "prompt": "Build a 3-year financial model for a SaaS startup. Include monthly projections for revenue (with cohort-based assumptions), expenses by category (COGS, S&M, R&D, G&A), headcount plan, cash flow, burn rate, and runway. Use a conservative scenario.",
+      "scenario": "Create foundational financial projections from scratch"
+    },
+    {
+      "title": "SaaS-specific projections",
+      "prompt": "Create a detailed SaaS financial model with monthly revenue projections based on new customer acquisition, retention rates by cohort, ARPU, expansion revenue, and churn. Include S&M spend with CAC payback calculations. Show metrics: ARR, gross margin, LTV/CAC ratio, and net retention.",
+      "scenario": "Model subscription business with unit economics focus"
+    },
+    {
+      "title": "Scenario comparison analysis",
+      "prompt": "Build a three-scenario financial model (conservative, base, optimistic) for a [STAGE] startup. For each scenario, vary customer acquisition rate, churn, pricing, and CAC by reasonable ranges. Compare runway, funding needs, and key milestones across scenarios.",
+      "scenario": "Compare multiple planning scenarios with sensitivities"
+    },
+    {
+      "title": "Fundraising integration model",
+      "prompt": "Model a Series A fundraising scenario: current metrics, funding amount needed to reach 18-month runway, pre-money valuation based on comparable companies, dilution analysis, and use of funds allocation across product, sales, and operations.",
+      "scenario": "Integrate fundraising scenarios with equity planning"
+    }
+  ],
+  "bestPractices": [
+    "Use cohort-based revenue modeling with realistic retention curves rather than simple growth multipliers",
+    "Include 20% buffers on expense estimates and fully-loaded compensation calculations",
+    "Model conservative scenarios first to understand cash constraints before exploring growth cases",
+    "Validate assumptions against comparable companies at similar funding stages"
+  ],
+  "antiPatterns": [
+    "Using linear revenue projections without accounting for churn and retention dynamics",
+    "Ignoring cash conversion timing and treating revenue recognition as immediate cash inflow",
+    "Creating single-scenario models without understanding downside risks and runway implications",
+    "Overlooking fully-loaded employee costs including benefits, taxes, and ramp time"
+  ],
+  "faq": [
+    {
+      "question": "What time horizon should I model for my startup?",
+      "answer": "Model 3 years in detail with monthly granularity, then add 4-5 years at annual level. Investors typically want to see monthly projections for the first 18-24 months where assumptions are most uncertain."
+    },
+    {
+      "question": "How do I estimate customer acquisition cost for my model?",
+      "answer": "Calculate CAC as total sales and marketing spend divided by new customers acquired. Include team compensation, tools, ad spend, and agency costs. For early-stage SaaS, expect $5K-20K CAC depending on sales complexity."
+    },
+    {
+      "question": "What metrics do investors care about most?",
+      "answer": "For SaaS: ARR growth rate, gross margin, net revenue retention, and LTV/CAC ratio. For any stage: runway, burn multiple, and path to profitability. Match metrics to your funding stage and sector norms."
+    },
+    {
+      "question": "How should I model headcount costs?",
+      "answer": "Use fully-loaded costs: salary plus 30-40% for benefits, taxes, and equipment. Factor in 3-6 month hiring timeline and 3-6 month ramp to productivity. Include attrition of 10-15% annually."
+    },
+    {
+      "question": "How do I calculate runway accurately?",
+      "answer": "Runway = current cash balance / average monthly net burn. Account for timing differences between revenue recognition and actual cash collection. Model conservative burn if revenue timing is uncertain."
+    },
+    {
+      "question": "Should I include funding rounds in my projections?",
+      "answer": "Model funding as a scenario variable. Show pre-funding runway, then model post-funding operations. Investors want to see how their capital extends runway and enables milestone achievement."
+    }
+  ],
+  "seoKeywords": [
+    "startup financial model",
+    "financial projections",
+    "revenue forecast",
+    "burn rate calculator",
+    "runway analysis",
+    "cash flow projection",
+    "startup fundraising",
+    "financial planning",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/startup-financial-modeling/",
+  "sourceType": "community",
+  "dependencies": []
+}

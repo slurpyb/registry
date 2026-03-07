@@ -1,0 +1,141 @@
+{
+  "name": "p2p-networking",
+  "type": "skill",
+  "description": "Peer-to-peer networking patterns using commonware for building decentralized Guts network",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "decentralized networks",
+  "quality": 4,
+  "qualityReason": "Niche but clear pattern",
+  "bundleHints": [
+    "networking-stack",
+    "decentralized-apps"
+  ],
+  "tags": [
+    "commonware",
+    "decentralized",
+    "guts-network",
+    "networking",
+    "p2p",
+    "peer-to-peer",
+    "rust"
+  ],
+  "capabilities": [
+    "Implement authenticated peer connections using Ed25519 keypairs",
+    "Design message protocols for repository sync and announcements",
+    "Build gossip protocols for decentralized message propagation",
+    "Configure network topology with bootstrap nodes and peer discovery",
+    "Implement peer state management and connection lifecycle",
+    "Apply security patterns including encryption and rate limiting"
+  ],
+  "author": "AbdelStark",
+  "icon": "🔗",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing instructional content and Rust code templates for P2P networking patterns. Contains no executable code, no file system access, no network operations. Only architectural guidance for implementing decentralized networking using commonware primitives.",
+  "valueStatement": "Implementing peer-to-peer networking for decentralized platforms requires understanding encrypted communication, gossip protocols, and distributed state management. This skill provides ready-to-use patterns using commonware for authenticated, encrypted P2P connections.",
+  "userTitle": "Build P2P networking for decentralized apps",
+  "limitations": [
+    "Does not provide pre-built binaries or deployment scripts",
+    "Does not include consensus algorithm implementation",
+    "Does not integrate with specific cloud providers",
+    "Does not handle storage layer implementation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend engineers",
+      "title": "Build decentralized networks",
+      "description": "Implement P2P networking layer for new decentralized applications using commonware primitives"
+    },
+    {
+      "targetUser": "Distributed systems developers",
+      "title": "Design gossip protocols",
+      "description": "Create efficient message propagation systems for distributed state synchronization across nodes"
+    },
+    {
+      "targetUser": "Protocol architects",
+      "title": "Define message schemas",
+      "description": "Design communication protocols for peer discovery, repository sync, and network announcements"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic peer connection",
+      "scenario": "Setting up encrypted P2P connections",
+      "prompt": "How do I establish authenticated peer connections using Ed25519 in a P2P network? Show me the handshake process."
+    },
+    {
+      "title": "Repository sync",
+      "scenario": "Synchronizing data between peers",
+      "prompt": "Implement repository synchronization between peers. How do I find peers with a repository and fetch missing objects?"
+    },
+    {
+      "title": "Gossip protocol",
+      "scenario": "Building decentralized message propagation",
+      "prompt": "Design a gossip protocol for broadcasting messages. How do I prevent message duplication and select peers for propagation?"
+    },
+    {
+      "title": "Network configuration",
+      "scenario": "Configuring P2P network settings",
+      "prompt": "Configure a P2P network with bootstrap nodes, connection timeouts, and keep-alive intervals. What security considerations should I apply?"
+    }
+  ],
+  "bestPractices": [
+    "Always authenticate peers using cryptographic keypairs before establishing connections",
+    "Implement message validation and rate limiting to prevent denial-of-service attacks",
+    "Use gossip protocols with deduplication to efficiently propagate updates without flooding the network"
+  ],
+  "antiPatterns": [
+    "Storing peer state without connection health checks or timeout mechanisms",
+    "Allowing unlimited connections without maximum connection limits",
+    "Processing messages without validating their structure and source"
+  ],
+  "faq": [
+    {
+      "question": "Which platforms support this skill?",
+      "answer": "Compatible with Claude, Codex, and Claude Code. Works with any AI assistant that can understand Rust patterns."
+    },
+    {
+      "question": "What transport protocols are supported?",
+      "answer": "Uses QUIC and TCP transports with Noise XX protocol for encrypted handshakes and Ed25519 authentication."
+    },
+    {
+      "question": "How does peer discovery work?",
+      "answer": "Uses DHT for distributed peer discovery plus bootstrap nodes for initial network entry and peer announcements."
+    },
+    {
+      "question": "Is my data safe with P2P networking?",
+      "answer": "All traffic is encrypted with Noise protocol. Peers are authenticated via Ed25519 signatures. Rate limiting and peer scoring prevent abuse."
+    },
+    {
+      "question": "Why are messages not reaching all peers?",
+      "answer": "Check that bootstrap nodes are accessible and peer scoring is not disconnecting nodes. Ensure message validation passes on receiving peers."
+    },
+    {
+      "question": "How is this different from libp2p?",
+      "answer": "Commonware provides lighter-weight primitives optimized for performance. Uses QUIC by default and integrates with Simplex BFT consensus."
+    }
+  ],
+  "seoKeywords": [
+    "p2p networking",
+    "peer-to-peer",
+    "decentralized networking",
+    "commonware",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "Rust networking",
+    "gossip protocol",
+    "distributed systems"
+  ],
+  "sourceUrl": "https://github.com/AbdelStark/guts/tree/main/.claude/skills/p2p-networking",
+  "sourceType": "community",
+  "dependencies": []
+}

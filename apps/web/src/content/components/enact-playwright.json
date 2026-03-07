@@ -1,0 +1,142 @@
+{
+  "name": "enact-playwright",
+  "type": "skill",
+  "description": "Browser automation tool using Playwright - captures screenshots and extracts content from web pages",
+  "domain": "tools",
+  "subdomain": "browser",
+  "specialty": "content extraction",
+  "quality": 5,
+  "qualityReason": "Powerful and specific automation",
+  "bundleHints": [
+    "browser-automation-suite",
+    "web-scraper"
+  ],
+  "tags": [
+    "automation",
+    "browser-automation",
+    "playwright",
+    "scraping",
+    "screenshots",
+    "web-interaction",
+    "web-scraping"
+  ],
+  "capabilities": [
+    "Navigate to any URL and wait for page load",
+    "Capture full-page screenshots in base64 format",
+    "Extract text content from page or specific elements",
+    "Extract HTML markup from specific DOM elements",
+    "Target elements using CSS selectors"
+  ],
+  "author": "EnactProtocol",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static scanner flagged 16 potential issues, but all findings are false positives. The code uses safe JavaScript template literals for logging (not shell backticks), empty string fields (not weak crypto), and standard fs operations for legitimate browser path detection. The skill is a standard Playwright browser automation tool with no malicious patterns.",
+  "valueStatement": "Browser automation is essential for testing, data extraction, and visual verification. This skill provides a reliable way to capture screenshots and extract text or HTML content from any web page using Playwright.",
+  "userTitle": "Capture screenshots and extract web content",
+  "limitations": [
+    "Only supports Chromium browser",
+    "Cannot interact with pages (no clicks, typing, or form submission)",
+    "Cannot execute JavaScript on target pages",
+    "Cannot handle authentication or login flows"
+  ],
+  "useCases": [
+    {
+      "targetUser": "QA engineers and developers",
+      "title": "Visual regression testing",
+      "description": "Take screenshots of web pages to compare against baseline images for visual regression testing."
+    },
+    {
+      "targetUser": "Data scientists and researchers",
+      "title": "Content extraction for analysis",
+      "description": "Extract text or HTML content from web pages for downstream processing or analysis."
+    },
+    {
+      "targetUser": "Technical writers and analysts",
+      "title": "Documentation and reporting",
+      "description": "Capture screenshots of web pages for documentation, reports, or presentations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple screenshot",
+      "prompt": "Take a screenshot of https://example.com",
+      "scenario": "Basic screenshot capture"
+    },
+    {
+      "title": "Extract text from element",
+      "prompt": "Get the text content from the main heading on https://example.com using the selector 'h1'",
+      "scenario": "Targeted text extraction"
+    },
+    {
+      "title": "Extract HTML content",
+      "prompt": "Extract the HTML content of the article section from https://example.com/blog/article",
+      "scenario": "HTML markup extraction"
+    },
+    {
+      "title": "Full page screenshot with selector",
+      "prompt": "Take a screenshot of the product gallery on https://example.com/shop/product using selector '.product-gallery'",
+      "scenario": "Partial page screenshot"
+    }
+  ],
+  "bestPractices": [
+    "Use specific CSS selectors to target exact elements for extraction",
+    "Handle screenshots as base64-encoded strings for easy transmission",
+    "Set appropriate timeout values for slow-loading pages",
+    "Close browsers properly with try-finally blocks to prevent resource leaks"
+  ],
+  "antiPatterns": [
+    "Do not use this skill to scrape websites that prohibit automated access",
+    "Avoid capturing screenshots of pages with sensitive or personal information",
+    "Do not rely on this for interactive web testing that requires user simulation",
+    "Avoid extracting content from pages behind authentication without proper credentials"
+  ],
+  "faq": [
+    {
+      "question": "What browsers are supported?",
+      "answer": "This skill uses Chromium via Playwright. Firefox and WebKit are not currently supported."
+    },
+    {
+      "question": "Can I interact with pages (click, type)?",
+      "answer": "No, this skill only supports navigation, screenshot capture, and content extraction. Use a different tool for interactive browser automation."
+    },
+    {
+      "question": "How are screenshots delivered?",
+      "answer": "Screenshots are output as base64-encoded strings wrapped between SCREENSHOT_START and SCREENSHOT_END markers."
+    },
+    {
+      "question": "What is the default selector?",
+      "answer": "The default CSS selector is 'body', which captures the entire page content."
+    },
+    {
+      "question": "Can I extract content from dynamic pages?",
+      "answer": "This skill waits for DOM content to load but does not wait for JavaScript execution or network idle. Use the text action for static content extraction."
+    },
+    {
+      "question": "Is this skill safe to use?",
+      "answer": "Yes, this skill runs in headless mode with no user interaction. It only navigates to URLs you specify and extracts content locally."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Playwright",
+    "browser automation",
+    "screenshot tool",
+    "web scraping",
+    "text extraction",
+    "HTML extraction",
+    "web testing"
+  ],
+  "sourceUrl": "https://github.com/EnactProtocol/enact/tree/main/test-tools/playwright",
+  "sourceType": "community",
+  "dependencies": []
+}

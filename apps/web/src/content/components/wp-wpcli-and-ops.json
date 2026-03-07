@@ -1,0 +1,141 @@
+{
+  "name": "wp-wpcli-and-ops",
+  "type": "skill",
+  "description": "Use when working with WP-CLI (wp) for WordPress operations: safe search-replace, db export/import, plugin/theme/user/content management, cron, cache flushing, multisite, and scripting/automation with wp-cli.yml.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "WP-CLI operations",
+  "quality": 5,
+  "qualityReason": "Comprehensive CLI workflow",
+  "bundleHints": [
+    "wordpress-ops",
+    "cli-automation"
+  ],
+  "tags": [
+    "automation",
+    "maintenance",
+    "operations",
+    "scripting",
+    "site-management",
+    "wordpress",
+    "wpcli"
+  ],
+  "capabilities": [
+    "Generate WP-CLI commands for plugin, theme, and core management",
+    "Provide database search-replace operations with safety checks",
+    "Guide cache management and cron job configuration",
+    "Assist with WordPress multisite network operations",
+    "Recommend debugging procedures using WP-CLI tools",
+    "Advise on safe automation practices for WordPress maintenance"
+  ],
+  "author": "Automattic",
+  "icon": "⚙️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 118 patterns, primarily false positives from documentation examples. The backtick patterns are markdown code blocks in reference docs, not executable Ruby code. The 'weak crypto' alerts are false positives from MD5 mentions in WordPress contexts (checksums, not authentication). The external command patterns in scripts/wpcli_inspect.mjs are legitimate WP-CLI wrapper functionality for a WordPress operations skill.",
+  "valueStatement": "WordPress site management requires command-line expertise and knowledge of best practices. This skill provides WP-CLI command guidance, operational procedures, and troubleshooting workflows for WordPress administrators.",
+  "userTitle": "Manage WordPress Sites with WP-CLI Commands",
+  "limitations": [
+    "Does not execute commands directly on WordPress installations",
+    "Requires WP-CLI to be installed on target system",
+    "Cannot access live WordPress database or filesystem",
+    "Provides guidance only, user must verify commands before execution"
+  ],
+  "useCases": [
+    {
+      "targetUser": "WordPress developers",
+      "title": "Automate Plugin Updates Across Sites",
+      "description": "Generate safe batch update commands with backup procedures for managing plugins across multiple WordPress installations."
+    },
+    {
+      "targetUser": "System administrators",
+      "title": "Database Migration and URL Changes",
+      "description": "Create search-replace commands for site migrations and domain changes while preserving serialized data integrity."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "WordPress Performance Optimization",
+      "description": "Configure caching strategies, optimize database tables, and automate maintenance tasks using WP-CLI workflows."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Check Site Health",
+      "scenario": "Verify WordPress installation status",
+      "prompt": "What WP-CLI commands should I use to check the health of my WordPress site including plugin status, database integrity, and core files?"
+    },
+    {
+      "title": "Safe Plugin Update",
+      "scenario": "Update plugins with backup",
+      "prompt": "Help me create a safe procedure for updating all plugins on my WordPress site using WP-CLI with proper backup and rollback steps."
+    },
+    {
+      "title": "Domain Migration",
+      "scenario": "Change site URL in database",
+      "prompt": "I need to migrate my WordPress site from oldsite.com to newsite.com. What WP-CLI search-replace commands do I need with safety checks?"
+    },
+    {
+      "title": "Multisite Network Setup",
+      "scenario": "Convert to WordPress multisite",
+      "prompt": "Guide me through converting my single WordPress site to multisite network using WP-CLI including database conversion and configuration steps."
+    }
+  ],
+  "bestPractices": [
+    "Always create complete backups before running database modification commands",
+    "Use dry-run flags to preview changes before executing search-replace operations",
+    "Test WP-CLI commands on staging environments before production execution"
+  ],
+  "antiPatterns": [
+    "Running search-replace commands without backup or dry-run preview",
+    "Executing plugin updates during high-traffic periods without maintenance mode",
+    "Modifying production databases without testing commands on staging copy first"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill execute WP-CLI commands automatically?",
+      "answer": "No, it provides command guidance and procedures. You must execute commands manually on your WordPress installation."
+    },
+    {
+      "question": "Do I need WP-CLI installed to use this skill?",
+      "answer": "Yes, WP-CLI must be installed on your server. This skill generates commands for you to run using your WP-CLI installation."
+    },
+    {
+      "question": "Can this skill access my WordPress database?",
+      "answer": "No, it provides command guidance only. You execute commands through your own WP-CLI installation with your credentials."
+    },
+    {
+      "question": "Is this safe for production WordPress sites?",
+      "answer": "The skill emphasizes safety practices including backups and dry-runs. Always test on staging before production."
+    },
+    {
+      "question": "Does this work with WordPress multisite?",
+      "answer": "Yes, it includes specific guidance for multisite network operations and site management commands."
+    },
+    {
+      "question": "What version of WP-CLI is required?",
+      "answer": "Commands are compatible with WP-CLI 2.0 and later. Some features may require specific WP-CLI package versions."
+    }
+  ],
+  "seoKeywords": [
+    "WordPress",
+    "WP-CLI",
+    "Claude",
+    "Claude Code",
+    "site management",
+    "WordPress operations",
+    "CLI automation",
+    "WordPress maintenance",
+    "database operations",
+    "plugin management"
+  ],
+  "sourceUrl": "https://github.com/Automattic/agent-skills/tree/trunk/skills/wp-wpcli-and-ops",
+  "sourceType": "community",
+  "dependencies": []
+}

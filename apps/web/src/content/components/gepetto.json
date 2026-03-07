@@ -1,0 +1,140 @@
+{
+  "name": "gepetto",
+  "type": "skill",
+  "description": "Creates detailed, sectionized implementation plans through research, stakeholder interviews, and multi-LLM review. Use when planning features that need thorough pre-implementation analysis.",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "implementation planning",
+  "quality": 5,
+  "qualityReason": "Comprehensive pre-dev planning workflow",
+  "bundleHints": [
+    "project-planning",
+    "software-architecture",
+    "pre-development"
+  ],
+  "tags": [
+    "architecture",
+    "multi-llm",
+    "planning",
+    "requirements",
+    "research",
+    "specification"
+  ],
+  "capabilities": [
+    "Conducts structured research on technology stacks and approaches",
+    "Facilitates stakeholder interviews to gather requirements",
+    "Synthesizes specifications from research and interview findings",
+    "Generates comprehensive implementation plans with sections",
+    "Sends plans to external LLMs (Gemini CLI, Codex CLI) for independent review",
+    "Creates sectionized output files ready for execution"
+  ],
+  "author": "softaworks",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation-based methodology skill with no executable code. All 223 static findings are false positives from markdown code fences and shell command examples in documentation. The skill only contains markdown files providing planning guidance to Claude agents.",
+  "valueStatement": "Pre-implementation planning often leads to missed requirements and scope creep. Gepetto transforms rough feature ideas into detailed, battle-tested implementation plans through structured research, stakeholder interviews, and optional multi-LLM review.",
+  "userTitle": "Plan features with structured research",
+  "limitations": [
+    "Does not execute code or write implementation files directly",
+    "External review requires separate Gemini CLI and Codex CLI installations",
+    "Requires markdown spec file input to start planning process",
+    "Cannot make decisions without user-provided requirements"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers and engineers",
+      "title": "New Feature Planning",
+      "description": "Transform a vague feature idea into a detailed implementation plan with research, stakeholder interviews, and multi-LLM review before writing any code."
+    },
+    {
+      "targetUser": "Technical leads and architects",
+      "title": "Architecture Review",
+      "description": "Get comprehensive analysis of proposed architecture including edge cases, security considerations, and performance implications from multiple AI reviewers."
+    },
+    {
+      "targetUser": "Product managers and business analysts",
+      "title": "Requirements Discovery",
+      "description": "Systematically uncover implicit requirements and edge cases through structured interview prompts and research protocols."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Planning Session",
+      "prompt": "Use /gepetto @planning/my-feature-spec.md to create an implementation plan for my feature. The spec file describes what I want to build.",
+      "scenario": "Starting a new feature planning session with a markdown spec file"
+    },
+    {
+      "title": "Resume Existing Plan",
+      "prompt": "Use /gepetto @planning/my-feature-spec.md to resume our planning session. We already have claude-research.md and claude-interview.md created.",
+      "scenario": "Continuing a partially completed planning process"
+    },
+    {
+      "title": "Detailed Technical Planning",
+      "prompt": "Use /gepetto @planning/my-api-spec.md to plan a comprehensive implementation. Include research on similar implementations, stakeholder interviews for requirements, and external LLM review.",
+      "scenario": "Planning a complex technical feature requiring thorough analysis"
+    },
+    {
+      "title": "Quick Feature Sketch",
+      "prompt": "Use /gepetto @planning/simple-feature.md for a quick planning session. Skip research and external review, go straight to interview and spec synthesis.",
+      "scenario": "Creating a lightweight plan for a simple feature"
+    }
+  ],
+  "bestPractices": [
+    "Provide detailed initial specs to reduce iteration cycles",
+    "Use the resume feature to continue interrupted planning sessions",
+    "Enable external review for critical features requiring multiple perspectives"
+  ],
+  "antiPatterns": [
+    "Invoking without a markdown spec file",
+    "Skipping the interview phase for complex features",
+    "Expecting complete implementation code instead of planning documents"
+  ],
+  "faq": [
+    {
+      "question": "What input does Gepetto require?",
+      "answer": "Gepetto requires a markdown spec file path ending with .md. This file contains your initial feature description or requirements."
+    },
+    {
+      "question": "Can I resume an interrupted planning session?",
+      "answer": "Yes, Gepetto automatically detects existing planning files and resumes from the appropriate step. Just invoke with the same spec file path."
+    },
+    {
+      "question": "What are the external review options?",
+      "answer": "Gepetto can send your implementation plan to Gemini CLI and Codex CLI for independent review. Both CLIs must be installed and configured separately."
+    },
+    {
+      "question": "Does Gepetto write any code?",
+      "answer": "No, Geppetto creates planning documents (research, interview notes, specifications, implementation plans). Code execution is handled by separate skills."
+    },
+    {
+      "question": "What files does Gepetto create?",
+      "answer": "Gepetto creates claude-research.md, claude-interview.md, claude-spec.md, claude-plan.md, and optional review files in a reviews/ directory."
+    },
+    {
+      "question": "Can I customize the workflow?",
+      "answer": "Yes, you can skip research or external review phases. Geppetto adapts to your preferences and project requirements."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "implementation planning",
+    "feature specification",
+    "requirements gathering",
+    "software architecture",
+    "planning workflow",
+    "research methodology"
+  ],
+  "sourceUrl": "https://github.com/softaworks/agent-toolkit/tree/main/skills/gepetto/",
+  "sourceType": "community",
+  "dependencies": []
+}

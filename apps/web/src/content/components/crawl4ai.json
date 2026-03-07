@@ -1,0 +1,139 @@
+{
+  "name": "crawl4ai",
+  "type": "skill",
+  "description": "This skill should be used when users need to scrape websites, extract structured data, handle JavaScript-heavy pages, crawl multiple URLs, or build automated web data pipelines. Includes optimized extraction patterns with schema generation for efficient, LLM-free extraction.",
+  "domain": "tools",
+  "subdomain": "browser",
+  "specialty": "structured web scraping",
+  "quality": 5,
+  "qualityReason": "Robust scraping capabilities",
+  "bundleHints": [
+    "data-extraction",
+    "web-crawling",
+    "automation"
+  ],
+  "tags": [
+    "async",
+    "crawler",
+    "data-extraction",
+    "data-pipelines",
+    "javascript-heavy",
+    "web-scraping"
+  ],
+  "capabilities": [
+    "Crawl single or multiple URLs with JavaScript support",
+    "Extract structured data using CSS selectors or LLM",
+    "Generate clean markdown output from web pages",
+    "Handle authenticated sessions and proxy configurations",
+    "Process dynamic content with configurable wait conditions"
+  ],
+  "author": "smallnest",
+  "icon": "🕷️",
+  "version": "0.7.4",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 2290 issues but 99% are false positives from markdown documentation. Actual Python code shows legitimate web crawler functionality with user-controlled URLs, explicit credential configuration, and standard file output operations. No hidden data exfiltration or malicious patterns found.",
+  "valueStatement": "Crawl4AI enables efficient web scraping with JavaScript support, schema-based extraction, and flexible output formats. Users can extract data without LLM calls for cost-effective automation or use LLM-powered extraction for complex content.",
+  "userTitle": "Scrape websites and extract structured data",
+  "limitations": [
+    "Requires external crawl4ai package installation",
+    "LLM extraction requires API keys and costs money",
+    "Rate limits and bot detection may affect some sites"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data engineers",
+      "title": "Build data pipelines",
+      "description": "Extract structured data from websites for analytics and reporting workflows."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Document websites",
+      "description": "Convert documentation sites to markdown for offline reading or migration."
+    },
+    {
+      "targetUser": "Researchers",
+      "title": "Aggregate web content",
+      "description": "Collect and filter content from multiple sources for research analysis."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic crawl",
+      "scenario": "Get page content",
+      "prompt": "Crawl this URL and return the main content as markdown: https://example.com"
+    },
+    {
+      "title": "Extract data",
+      "scenario": "Structured extraction",
+      "prompt": "Extract product names, prices, and links from this e-commerce page using CSS selectors."
+    },
+    {
+      "title": "Handle JavaScript",
+      "scenario": "Dynamic content",
+      "prompt": "Crawl this JavaScript-heavy page and wait for the dynamic content to load before extracting."
+    },
+    {
+      "title": "Batch processing",
+      "scenario": "Multiple URLs",
+      "prompt": "Crawl these three URLs in parallel and extract the main headlines from each: https://news1.com, https://news2.com, https://news3.com"
+    }
+  ],
+  "bestPractices": [
+    "Use schema-based CSS extraction for repetitive sites to avoid LLM costs",
+    "Set appropriate timeouts and wait conditions for JavaScript-heavy pages",
+    "Respect rate limits and use caching during development to reduce load"
+  ],
+  "antiPatterns": [
+    "Using LLM extraction when CSS selectors would work (higher cost)",
+    "Crawling without proper timeout settings (may hang indefinitely)",
+    "Ignoring rate limits on target sites (may get blocked)"
+  ],
+  "faq": [
+    {
+      "question": "What is crawl4ai?",
+      "answer": "A web crawling and data extraction library with CLI and Python SDK support."
+    },
+    {
+      "question": "Do I need to install anything?",
+      "answer": "Yes, run: pip install crawl4ai and crawl4ai-setup"
+    },
+    {
+      "question": "Can I extract data without LLM?",
+      "answer": "Yes, use CSS selector-based extraction which is faster and free."
+    },
+    {
+      "question": "Does it handle JavaScript pages?",
+      "answer": "Yes, it uses a browser and can wait for dynamic content."
+    },
+    {
+      "question": "What output formats supported?",
+      "answer": "Markdown, JSON, HTML, and extracted structured data."
+    },
+    {
+      "question": "How to handle authentication?",
+      "answer": "Configure session_id and provide credentials in browser config."
+    }
+  ],
+  "seoKeywords": [
+    "crawl4ai",
+    "web scraping",
+    "web crawler",
+    "data extraction",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "async crawler",
+    "markdown generation",
+    "structured data"
+  ],
+  "sourceUrl": "https://github.com/smallnest/crawl4ai-skill/tree/master/",
+  "sourceType": "community",
+  "dependencies": []
+}

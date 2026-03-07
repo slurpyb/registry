@@ -1,0 +1,142 @@
+{
+  "name": "azure-security-keyvault-keys-dotnet",
+  "type": "skill",
+  "description": "A skill for working with Azure Key Vault keys using the Azure SDK for .NET. Provides code generation, best practices, and examples for cryptographic key management operations.",
+  "domain": "security",
+  "subdomain": "cryptography",
+  "specialty": "key-management",
+  "quality": 5,
+  "qualityReason": "Specific cryptographic key operations",
+  "bundleHints": [
+    "azure-security",
+    "crypto"
+  ],
+  "tags": [
+    "azure",
+    "best-practices",
+    "cryptography",
+    "decrypt",
+    "dotnet",
+    "encrypt",
+    "hsm",
+    "keys",
+    "keyvault",
+    "security"
+  ],
+  "capabilities": [
+    "Generate code for creating, retrieving, updating, and deleting keys in Azure Key Vault",
+    "Provide examples for key rotation and lifecycle management operations",
+    "Show how to use Azure Identity for secure authentication",
+    "Demonstrate backup and restore operations for keys",
+    "Explain key permissions and access policies",
+    "Provide code for encryption and decryption using vault keys"
+  ],
+  "author": "sickn33",
+  "icon": "🔐",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Prompt-only skill with no executable code. Static analysis scanned 0 files and detected 0 potential security issues. Risk score: 0/100. This skill provides guidance and code generation templates for Azure Key Vault key operations using the official Azure SDK for .NET.",
+  "valueStatement": "Developers struggle with Azure Key Vault key management APIs and secure cryptographic practices. This skill provides ready-to-use .NET code snippets, best practices, and implementation guidance for storing, retrieving, and managing cryptographic keys in Azure Key Vault.",
+  "userTitle": "Generate Azure Key Vault key code",
+  "limitations": [
+    "Does not execute actual Azure operations - provides guidance only",
+    "Requires valid Azure subscription and configured Key Vault",
+    "Does not handle network connectivity issues or Azure service errors",
+    "User must understand Azure RBAC and Key Vault access policies"
+  ],
+  "useCases": [
+    {
+      "targetUser": ".NET developers new to Azure Key Vault",
+      "title": "Generate key creation code",
+      "description": "Create new cryptographic keys in Azure Key Vault with custom key properties"
+    },
+    {
+      "targetUser": "Security engineers managing key lifecycle",
+      "title": "Implement key rotation",
+      "description": "Set up automated key rotation with rotation policies and notifications"
+    },
+    {
+      "targetUser": "DevOps engineers handling key backup procedures",
+      "title": "Backup and restore keys",
+      "description": "Export and import keys securely for disaster recovery scenarios"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a new key",
+      "prompt": "Show me how to create a new RSA key in Azure Key Vault using the Azure SDK for .NET. Include code for setting key size and expiration.",
+      "scenario": "Basic key creation"
+    },
+    {
+      "title": "Retrieve and use a key",
+      "prompt": "How do I retrieve an existing key from Azure Key Vault and use it for encryption in my .NET application?",
+      "scenario": "Key retrieval and usage"
+    },
+    {
+      "title": "Set up key rotation",
+      "prompt": "Configure automatic key rotation for a key in Azure Key Vault. Show how to set rotation policy and lifetime actions.",
+      "scenario": "Key rotation configuration"
+    },
+    {
+      "title": "Backup and restore key",
+      "prompt": "Generate code to backup a key to a secure location and restore it when needed. Include error handling.",
+      "scenario": "Key backup and restore"
+    }
+  ],
+  "bestPractices": [
+    "Use Azure Identity with Managed Identity in production environments to avoid storing credentials",
+    "Set appropriate expiration times for keys and implement regular rotation policies",
+    "Use separate Key Vaults for different environments (dev, staging, production)"
+  ],
+  "antiPatterns": [
+    "Storing Key Vault URLs or credential information in source code",
+    "Granting excessive permissions to key operations beyond what is needed",
+    "Skipping error handling when interacting with Key Vault operations"
+  ],
+  "faq": [
+    {
+      "question": "What authentication methods does this skill support?",
+      "answer": "The skill demonstrates Azure Identity with DefaultAzureCredential, Managed Identity, and service principal authentication."
+    },
+    {
+      "question": "Can I use this skill with hardware security modules?",
+      "answer": "Yes, Azure Key Vault supports HSM-protected keys. The skill includes examples for creating HSM keys."
+    },
+    {
+      "question": "How do I handle key permissions in my application?",
+      "answer": "Configure Key Vault access policies or use Azure RBAC to grant specific permissions to your application identity."
+    },
+    {
+      "question": "What key types are supported?",
+      "answer": "Azure Key Vault supports RSA, EC (Elliptic Curve), and AES symmetric keys. The skill covers RSA and EC keys."
+    },
+    {
+      "question": "Can I import existing keys?",
+      "answer": "Yes, use the ImportKey method to bring existing keys into Azure Key Vault. The skill provides import examples."
+    },
+    {
+      "question": "How does key versioning work?",
+      "answer": "Each key operation can create a new version. The key client retrieves the latest version by default, or you can specify a version."
+    }
+  ],
+  "seoKeywords": [
+    "Azure Key Vault",
+    "key management",
+    ".NET",
+    "Azure SDK",
+    "cryptographic keys",
+    "Claude Code",
+    "Codex",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-security-keyvault-keys-dotnet",
+  "sourceType": "community",
+  "dependencies": []
+}

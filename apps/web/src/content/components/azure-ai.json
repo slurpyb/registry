@@ -1,0 +1,146 @@
+{
+  "name": "azure-ai",
+  "type": "skill",
+  "description": "Use for Azure AI: Search, Speech, OpenAI, Document Intelligence. Helps with search, vector/hybrid search, speech-to-text, text-to-speech, transcription, OCR. USE FOR: AI Search, query search, vector search, hybrid search, semantic search, speech-to-text, text-to-speech, transcribe, OCR, convert text to speech. DO NOT USE FOR: Function apps/Functions (use azure-functions), databases (azure-postgres/azure-kusto), general Azure resources.",
+  "domain": "ai-ml",
+  "subdomain": "nlp",
+  "specialty": "Azure AI Services",
+  "quality": 4,
+  "qualityReason": "Broad but well-scoped services",
+  "bundleHints": [
+    "azure-ai",
+    "nlp-stack",
+    "search-tools"
+  ],
+  "tags": [
+    "ai-search",
+    "azure",
+    "document-intelligence",
+    "hybrid-search",
+    "ocr",
+    "openai",
+    "speech",
+    "speech-to-text",
+    "vector-search"
+  ],
+  "capabilities": [
+    "Full-text, vector, and hybrid search with Azure AI Search",
+    "Speech-to-text and text-to-speech with Azure Speech",
+    "GPT model access via Azure OpenAI",
+    "Document OCR and form extraction with Document Intelligence",
+    "Image analysis and captioning with Azure Vision",
+    "Text translation with Azure Translator"
+  ],
+  "author": "microsoft",
+  "icon": "☁️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 195 static findings are false positives. The skill contains documentation with code examples for Azure AI SDK usage. Detected patterns (external_commands, env_access, network) are Markdown formatting artifacts and standard SDK documentation patterns, not security vulnerabilities.",
+  "valueStatement": "This skill provides comprehensive documentation and SDK references for Azure AI services including Search, Speech, OpenAI, Vision, Translation, and Document Intelligence. It helps developers quickly find the right APIs and code patterns for their AI solutions.",
+  "userTitle": "Build with Azure AI Services",
+  "limitations": [
+    "Requires valid Azure subscription and credentials",
+    "Service-specific quotas and rate limits apply",
+    "Some features require specific Azure regions",
+    "MCP server must be enabled for tool-based access"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Application developers building search features",
+      "title": "Build intelligent search applications",
+      "description": "Create search experiences with semantic understanding using vector embeddings and hybrid search capabilities"
+    },
+    {
+      "targetUser": "Developers adding voice features to applications",
+      "title": "Add speech capabilities to apps",
+      "description": "Integrate real-time transcription and text-to-speech for accessibility and voice interfaces"
+    },
+    {
+      "targetUser": "Data engineers automating document processing",
+      "title": "Process documents at scale",
+      "description": "Extract text and data from PDFs, forms, and images using OCR and form recognition"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic search query",
+      "prompt": "How do I use Azure AI Search to perform a vector search in Python?",
+      "scenario": "Find code examples for vector search implementation"
+    },
+    {
+      "title": "Speech transcription",
+      "prompt": "Show me how to transcribe audio files to text using Azure Speech service with Python",
+      "scenario": "Implement batch audio transcription"
+    },
+    {
+      "title": "Document extraction",
+      "prompt": "What is the code to extract text from a PDF using Azure Document Intelligence in TypeScript?",
+      "scenario": "Set up automated document processing"
+    },
+    {
+      "title": "Image analysis",
+      "prompt": "Give me an example of using Azure Vision Image Analysis to get captions and tags from an image URL",
+      "scenario": "Add image understanding to applications"
+    }
+  ],
+  "bestPractices": [
+    "Use hybrid search combining keyword and vector queries for best relevance",
+    "Enable semantic ranking for natural language query understanding",
+    "Process documents in batches of 100-1000 for optimal performance",
+    "Use async clients for high-throughput scenarios"
+  ],
+  "antiPatterns": [
+    "Do not hardcode credentials - use environment variables or Azure Managed Identity",
+    "Avoid querying large datasets without pagination or batching",
+    "Do not skip error handling for API calls",
+    "Avoid using deprecated SDK versions - keep packages updated"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between AI Search and Azure OpenAI?",
+      "answer": "AI Search provides search and indexing capabilities with vector support. Azure OpenAI provides access to GPT models for generative AI. They can be used together for RAG applications."
+    },
+    {
+      "question": "Do I need an Azure subscription to use this skill?",
+      "answer": "Yes, Azure AI services require an Azure subscription. You can use free tiers for development, but production usage requires paid subscriptions."
+    },
+    {
+      "question": "Can I use this skill offline?",
+      "answer": "No, Azure AI services are cloud-based and require network connectivity to access the APIs."
+    },
+    {
+      "question": "Which programming languages are supported?",
+      "answer": "Azure AI services support Python, TypeScript, Java, .NET, and Go. This skill includes quick reference guides for Python, TypeScript, .NET, and Java."
+    },
+    {
+      "question": "How do I enable the MCP server for Azure AI?",
+      "answer": "Run /azure:setup or enable via /mcp command. The MCP server provides tool-based access to AI Search and Speech services."
+    },
+    {
+      "question": "What are the rate limits for Azure AI services?",
+      "answer": "Rate limits vary by service and pricing tier. Check Azure portal for your specific limits. Use exponential backoff for retries."
+    }
+  ],
+  "seoKeywords": [
+    "Azure AI",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "AI Search",
+    "Speech-to-text",
+    "Text-to-speech",
+    "Document OCR",
+    "Azure OpenAI",
+    "Vector search"
+  ],
+  "sourceUrl": "https://github.com/microsoft/github-copilot-for-azure/tree/main/plugin/skills/azure-ai/",
+  "sourceType": "community",
+  "dependencies": []
+}

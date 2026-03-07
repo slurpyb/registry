@@ -1,0 +1,142 @@
+{
+  "name": "ngx-hybrid-sales",
+  "type": "skill",
+  "description": "Framework completo para venta de HYBRID. Use para calificar leads, preparar llamadas de venta, manejar objeciones y analizar pipeline.",
+  "domain": "business",
+  "subdomain": "sales",
+  "specialty": "sales framework",
+  "quality": 5,
+  "qualityReason": "Complete sales methodology",
+  "bundleHints": [
+    "sales-process",
+    "lead-management"
+  ],
+  "tags": [
+    "framework",
+    "hybrid",
+    "lead-qualification",
+    "lead-scoring",
+    "objection-handling",
+    "pipeline",
+    "qualification",
+    "sales",
+    "sales-call"
+  ],
+  "capabilities": [
+    "Qualify leads using 5-question framework",
+    "Calculate HYBRID vs ASCEND suitability scores",
+    "Structure 20-30 minute sales calls",
+    "Handle price and objection scenarios",
+    "Design post-call follow-up sequences",
+    "Analyze pipeline metrics for HYBRID"
+  ],
+  "author": "270aldo",
+  "icon": "💰",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 19 static findings are false positives caused by an over-sensitive pattern matcher. The skill contains only markdown documentation for sales frameworks - no code execution, no file system access, no network requests, and no external commands. Safe for marketplace publication.",
+  "valueStatement": "Help sales teams qualify leads between HYBRID ($199/mo) and ASCEND ($99/mo) products. Provides complete call frameworks, objection handling scripts, and qualification scoring systems.",
+  "userTitle": "Qualify leads for HYBRID sales",
+  "limitations": [
+    "Does not integrate with CRM systems",
+    "Does not automate email or calendar tasks",
+    "Does not provide customer data storage",
+    "Does not connect to payment processors"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Sales representatives",
+      "title": "Qualify new leads",
+      "description": "Use scoring framework to determine if leads are HYBRID or ASCEND candidates"
+    },
+    {
+      "targetUser": "Sales managers",
+      "title": "Train sales teams",
+      "description": "Provide call scripts and objection handling guides for consistent team performance"
+    },
+    {
+      "targetUser": "Business owners",
+      "title": "Optimize sales process",
+      "description": "Implement structured call flows and track pipeline metrics for premium product sales"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Qualify new lead",
+      "scenario": "First call qualification",
+      "prompt": "Qualify this lead for HYBRID vs ASCEND. Lead info: [name], [background], [goals]. Apply the 5-question framework and calculate score."
+    },
+    {
+      "title": "Prepare objection response",
+      "scenario": "Handling price objection",
+      "prompt": "Prepare response to objection: 'It's too expensive'. Lead context: [describe lead's situation and budget]. Use NGX framework."
+    },
+    {
+      "title": "Structure discovery call",
+      "scenario": "20-30 minute call",
+      "prompt": "Outline a discovery call structure for [lead name]. Focus on: connection, discovery, agitation, solution, offer, close."
+    },
+    {
+      "title": "Calculate lead score",
+      "scenario": "Lead scoring",
+      "prompt": "Score this lead: multiple prior failures (-3), autodiscipline 5/10, prefers guidance, budget $200+, age 52. Calculate total and recommend product."
+    }
+  ],
+  "bestPractices": [
+    "Use the 5-question qualification framework before every call to identify lead needs",
+    "Calculate scoring before calls to anticipate which product fits best",
+    "Prepare objection responses based on lead profile before each conversation"
+  ],
+  "antiPatterns": [
+    "Skip qualification and go straight to pitch without understanding lead needs",
+    "Offer HYBRID to highly disciplined leads who would succeed with ASCEND",
+    "Ignore budget signals when recommending between products"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "Compatible with Claude, Codex, and Claude Code. No additional setup required."
+    },
+    {
+      "question": "What is the scoring threshold?",
+      "answer": "0-4 points = ASCEND, 5-8 points = HYBRID candidate, 9+ points = HYBRID strong."
+    },
+    {
+      "question": "Does it integrate with CRMs?",
+      "answer": "No. This is a prompt-based skill for call guidance. Integrate manually or use separate CRM tools."
+    },
+    {
+      "question": "Is customer data stored?",
+      "answer": "No. The skill provides frameworks only. All lead data remains in your conversation context."
+    },
+    {
+      "question": "Why does the skill ask about prior failures?",
+      "answer": "This identifies leads who need accountability and coaching support, making HYBRID the better fit."
+    },
+    {
+      "question": "How does HYBRID differ from ASCEND?",
+      "answer": "HYBRID includes weekly human coaching ($199/mo). ASCEND is self-directed AI only ($99/mo)."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "sales qualification",
+    "lead scoring",
+    "objection handling",
+    "HYBRID sales",
+    "NGX GENESIS",
+    "sales script framework"
+  ],
+  "sourceUrl": "https://github.com/270aldo/ngx_workspace/tree/main/ngx-marketing/skills/ngx-hybrid-sales",
+  "sourceType": "community",
+  "dependencies": []
+}

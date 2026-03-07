@@ -1,0 +1,142 @@
+{
+  "name": "zapier-make-patterns",
+  "type": "skill",
+  "description": "No-code automation democratizes workflow building. Zapier and Make (formerly Integromat) let non-developers automate business processes without writing code. But no-code doesn't mean no-complexity - these platforms have their own patterns, pitfalls, and breaking points.  This skill covers when to use which platform, how to build reliable automations, and when to graduate to code-based solutions. Key insight: Zapier optimizes for simplicity and integrations (7000+ apps), Make optimizes for power",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "no-code automation",
+  "quality": 5,
+  "qualityReason": "Expert guidance provided",
+  "bundleHints": [
+    "workflow-automation",
+    "no-code-tools",
+    "integration-patterns"
+  ],
+  "tags": [
+    "automation",
+    "integromat",
+    "make",
+    "no-code",
+    "workflow",
+    "workflow-design",
+    "zapier"
+  ],
+  "capabilities": [
+    "Design trigger-action workflows for simple automations",
+    "Plan multi-step sequential automation scenarios",
+    "Implement conditional branching patterns in Make",
+    "Identify when workflows belong in Zapier vs Make vs custom code",
+    "Apply best practices for error handling and data management",
+    "Avoid common anti-patterns like text in dropdown fields and hardcoded values"
+  ],
+  "author": "sickn33",
+  "icon": "🔄",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The detected 'external_commands' patterns are markdown backticks used for code formatting and skill references on line 68, not actual shell command execution. The 'weak cryptographic algorithm' detections are errors - no cryptographic algorithms exist in this skill file. This is a pure documentation/prompt skill with no executable code, making it safe for use.",
+  "valueStatement": "Avoid common automation failures with proven patterns for Zapier and Make workflows. Learn when to use each platform and how to structure automations that scale.",
+  "userTitle": "Build Robust Zapier and Make Automations",
+  "limitations": [
+    "Cannot directly execute or modify Zapier or Make workflows",
+    "Does not provide API integrations or authentication setup",
+    "Limited to Zapier and Make platforms (does not cover other automation tools)",
+    "Cannot debug live automation errors without workflow details"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Marketing operations manager",
+      "title": "Marketing Team Lead Automation",
+      "description": "Design automated lead capture workflows that sync form submissions to CRM, send personalized email sequences, and notify sales teams based on lead quality scores."
+    },
+    {
+      "targetUser": "E-commerce operations specialist",
+      "title": "E-Commerce Order Processing",
+      "description": "Create order fulfillment workflows that update inventory, generate shipping labels, send customer notifications, and post revenue data to accounting systems."
+    },
+    {
+      "targetUser": "HR technology coordinator",
+      "title": "Internal HR Onboarding",
+      "description": "Build employee onboarding automations that provision accounts, send documentation, schedule training, and update HRIS systems when new hires join."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Trigger-Action Workflow",
+      "prompt": "Design a Zapier automation that triggers when [event] occurs and performs [action]. Include best practices for field mapping and error handling.",
+      "scenario": "User needs a simple one-step automation starting from scratch"
+    },
+    {
+      "title": "Complex Multi-Step Make Scenario",
+      "prompt": "Create a Make scenario with 5+ steps that processes [data source] through [transformation steps] and outputs to [destination]. Include conditional branching logic.",
+      "scenario": "User requires complex data transformation and routing"
+    },
+    {
+      "title": "Platform Selection Decision",
+      "prompt": "Evaluate whether this automation should use Zapier or Make: [describe workflow]. Consider complexity, budget, data transformation needs, and integration requirements.",
+      "scenario": "User is unsure which platform fits their use case"
+    },
+    {
+      "title": "Debug Broken Automation",
+      "prompt": "Analyze why this automation is failing: [describe symptoms and workflow steps]. Identify the issue and provide fixes following Zapier/Make best practices.",
+      "scenario": "User has an existing workflow that needs troubleshooting"
+    }
+  ],
+  "bestPractices": [
+    "Always select fields from dropdowns in Zapier/Make interfaces rather than typing text, to prevent breaking when apps update",
+    "Implement error handling paths for every critical step, including filters, retry logic, and failure notifications",
+    "Test workflows with sample data before activating on live sources to catch edge cases early"
+  ],
+  "antiPatterns": [
+    "Typing values into dropdown fields instead of selecting from the menu, which causes automations to break when applications update their field names",
+    "Building long linear workflows without error handling, resulting in silent failures when one step fails",
+    "Hardcoding values like email addresses or folder IDs directly in steps rather than using variables or environment constants"
+  ],
+  "faq": [
+    {
+      "question": "When should I choose Zapier over Make?",
+      "answer": "Choose Zapier for simple trigger-action workflows with maximum app integrations and ease of use. Choose Make for complex scenarios requiring conditional logic, data transformation, advanced error handling, or when budget is a concern."
+    },
+    {
+      "question": "Why did my Zap break after an app update?",
+      "answer": "Zaps often break after app updates because you typed values into dropdown fields instead of selecting them. Updates can change field IDs or names. Always use dropdown selections to future-proof your automations."
+    },
+    {
+      "question": "How do I handle duplicate records in automations?",
+      "answer": "Use filter steps to check for existing records before creating new ones. In Make, use the 'exists' module or database lookup. In Zapier, use Filter by Zapier or the 'Find' action before 'Create' actions."
+    },
+    {
+      "question": "What happens when one step in my workflow fails?",
+      "answer": "Without error handling, the entire workflow stops. Add error paths (Zapier's 'Error' trigger or Make's 'Error handler' router) to log failures, send alerts, or retry with different parameters. Critical workflows should always have failure notifications."
+    },
+    {
+      "question": "Can I use this skill to directly modify my existing Zaps or Make scenarios?",
+      "answer": "No. This skill provides guidance, patterns, and best practices for designing automations. You must implement the suggestions manually in your Zapier or Make accounts."
+    },
+    {
+      "question": "How do operation counting and pricing work?",
+      "answer": "Zapier charges per task (action executed). Make charges per operation (each module processed). Complex workflows with filters, routers, or loops consume more operations. Monitor your usage to avoid overage charges."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Zapier automation",
+    "Make scenarios",
+    "Integromat workflows",
+    "no-code automation",
+    "business process automation",
+    "workflow design patterns",
+    "Zapier best practices"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/zapier-make-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

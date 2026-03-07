@@ -1,0 +1,141 @@
+{
+  "name": "architect-review",
+  "type": "skill",
+  "description": "Master software architect specializing in modern architecture",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "Architecture integrity",
+  "quality": 5,
+  "qualityReason": "Expert-level review focus",
+  "bundleHints": [
+    "code-quality",
+    "architecture-review"
+  ],
+  "tags": [
+    "architecture",
+    "clean-architecture",
+    "code-review",
+    "ddd",
+    "design-patterns",
+    "microservices",
+    "system-design"
+  ],
+  "capabilities": [
+    "Evaluate architecture decisions against modern patterns like microservices, event-driven design, and clean architecture",
+    "Assess system designs for scalability, resilience, and maintainability characteristics",
+    "Identify architectural anti-patterns and recommend specific refactoring approaches",
+    "Review microservice boundaries and bounded context definitions using DDD principles",
+    "Analyze distributed system designs for proper fault tolerance and observability",
+    "Document architecture decisions using ADR format and C4 model diagrams"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 19 potential cryptographic algorithm patterns and 2 system reconnaissance patterns. All findings are FALSE POSITIVES - the skill file (SKILL.md) is pure documentation with no executable code. The pattern matches occur in text describing security concepts (encryption, JWT, OAuth2) and observability practices. No actual security risks, network access, file system operations, or external command execution present.",
+  "valueStatement": "Building scalable software systems requires expert architectural guidance. This skill provides comprehensive architecture reviews, pattern evaluation, and design recommendations to ensure your system remains maintainable and future-proof.",
+  "userTitle": "Review system architecture and design patterns",
+  "limitations": [
+    "Requires sufficient system context and requirements to provide accurate architectural assessment",
+    "Cannot validate architecture without access to actual implementation details or code",
+    "Recommendations are guidance only and require team validation for specific constraints",
+    "Does not replace human architect judgment for critical business or compliance decisions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend engineers designing or refactoring microservice systems",
+      "title": "Microservices Architecture Review",
+      "description": "Review microservice design for proper service boundaries, data isolation, and communication patterns. Ensures services follow single responsibility principle and maintain loose coupling."
+    },
+    {
+      "targetUser": "Tech leads planning major system changes or new product features",
+      "title": "System Design Evaluation",
+      "description": "Evaluate new feature or system designs for scalability, performance, and maintainability. Identifies potential bottlenecks and single points of failure before implementation."
+    },
+    {
+      "targetUser": "Engineering managers maintaining architecture standards across teams",
+      "title": "Architecture Compliance Check",
+      "description": "Assess code changes and Pull Requests for architectural consistency. Ensures implementations follow established patterns and do not introduce technical debt."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Architecture Review",
+      "prompt": "Review this system design for architectural soundness. Current setup: [describe your system architecture]. Key concerns: [list specific concerns like scalability, maintainability, or specific patterns]. Provide feedback on potential issues and recommendations.",
+      "scenario": "Getting initial feedback on a system design or architecture document"
+    },
+    {
+      "title": "Microservice Boundary Analysis",
+      "prompt": "Analyze these service boundaries for proper bounded contexts. Services: [list services and their responsibilities]. Data owned by each: [describe data ownership]. Communication patterns: [describe how services communicate]. Identify boundary violations and suggest improvements using DDD principles.",
+      "scenario": "Defining or refactoring microservice boundaries in a distributed system"
+    },
+    {
+      "title": "Architecture Pattern Selection",
+      "prompt": "Compare architecture patterns for my use case. Requirements: [list functional requirements]. Constraints: [list constraints like budget, team size, timeline]. Current scale: [describe current and expected scale]. Evaluate event-driven vs request-response vs hybrid approaches with tradeoffs.",
+      "scenario": "Choosing between architecture patterns for a new system or major refactor"
+    },
+    {
+      "title": "Technical Debt Assessment",
+      "prompt": "Assess architectural technical debt in this system. Codebase context: [describe system age, known issues, pain points]. Recent problems: [list incidents or bugs related to architecture]. Prioritize debt items by impact and effort. Create remediation plan with quick wins and long-term improvements.",
+      "scenario": "Planning architectural improvements for an existing system with accumulated technical debt"
+    }
+  ],
+  "bestPractices": [
+    "Document all significant architecture decisions using Architecture Decision Records (ADR) with context, options considered, and consequences",
+    "Design for failure by implementing circuit breakers, bulkheads, and proper timeout patterns in distributed systems",
+    "Establish clear bounded contexts and service boundaries early to prevent tightly coupled monolithic distributed systems"
+  ],
+  "antiPatterns": [
+    "Distributed monolith - microservices that share databases or have synchronous chatty communication creating tight coupling",
+    "Premature optimization - implementing complex patterns like event sourcing or CQRS without validating actual scale requirements",
+    "Architecture astronaut - over-engineering with unnecessary abstraction layers that reduce code clarity and increase maintenance burden"
+  ],
+  "faq": [
+    {
+      "question": "When should I request an architecture review?",
+      "answer": "Request reviews for major system changes, new feature designs with cross-system impact, microservice boundary changes, technology stack decisions, or when addressing scalability or performance issues. Minor bug fixes or localized changes typically do not need architectural review."
+    },
+    {
+      "question": "What information do I need to provide for a useful review?",
+      "answer": "Provide system context including current architecture diagram or description, business requirements and constraints, expected scale and growth, existing pain points or incidents, and specific areas of concern. More context enables more accurate and actionable recommendations."
+    },
+    {
+      "question": "Can this skill review my actual code for architectural compliance?",
+      "answer": "Yes, provide code snippets, Pull Request descriptions, or module structure. The skill evaluates code organization, dependency patterns, separation of concerns, and adherence to architectural principles. Include context about intended architecture for accurate assessment."
+    },
+    {
+      "question": "How do I implement recommended architectural changes?",
+      "answer": "Prioritize changes by impact and risk. Start with low-risk improvements that provide quick wins. Create incremental migration plans for larger changes. Use feature flags and gradual rollout strategies. Document each step and validate with testing before proceeding to next phase."
+    },
+    {
+      "question": "What architecture patterns does this skill support?",
+      "answer": "Supports modern patterns including microservices, event-driven architecture, clean architecture, hexagonal architecture, domain-driven design, CQRS, event sourcing, serverless, and cloud-native patterns. Also covers SOLID principles and common design patterns."
+    },
+    {
+      "question": "Can this help with cloud provider selection and multi-cloud strategy?",
+      "answer": "Yes, provides guidance on cloud provider patterns for AWS, Azure, and GCP. Discusses multi-cloud and hybrid cloud considerations including portability tradeoffs, vendor lock-in risks, and operational complexity. Helps evaluate serverless vs container vs VM deployment options."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "software architecture",
+    "system design",
+    "microservices",
+    "clean architecture",
+    "domain-driven design",
+    "architecture review",
+    "distributed systems"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/architect-review",
+  "sourceType": "community",
+  "dependencies": []
+}

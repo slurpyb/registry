@@ -1,0 +1,137 @@
+{
+  "name": "clickup-integration-expert",
+  "type": "skill",
+  "description": "When the user asks about ClickUp synchronization or syncing roadmaps with ClickUp",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "roadmap sync",
+  "quality": 4,
+  "qualityReason": "Specific but narrow integration",
+  "bundleHints": [
+    "project-automation",
+    "planning-tools"
+  ],
+  "tags": [
+    "clickup",
+    "integration",
+    "mcp",
+    "planning",
+    "project-management",
+    "roadmap",
+    "sync"
+  ],
+  "capabilities": [
+    "Provide guidance on ClickUp MCP setup and authentication",
+    "Explain sync mapping between local epics/milestones and ClickUp tasks/subtasks",
+    "Describe command usage for setup, push, pull, and full sync operations",
+    "Recommend best practices for conflict resolution between local and remote states"
+  ],
+  "author": "AndresNaza",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based skill with no executable code. Only contains documentation about ClickUp integration patterns and MCP usage. No file access, network calls, or command execution capabilities. Static findings are false positives caused by the scanner misidentifying documentation formatting and JSON examples as security patterns.",
+  "valueStatement": "Manual roadmap-to-ClickUp synchronization is time-consuming and error-prone. This skill provides expert guidance on using the ClickUp MCP for bidirectional sync between local planning files and ClickUp tasks.",
+  "userTitle": "Sync Roadmaps with ClickUp",
+  "limitations": [
+    "This is a guidance skill only - it does not execute sync operations itself",
+    "Requires the ClickUp MCP server to be installed and configured separately",
+    "Does not handle authentication - users must complete OAuth flow via /mcp command"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project Managers",
+      "title": "Plan and Track Roadmaps",
+      "description": "Maintain strategic roadmaps locally while keeping ClickUp tasks synchronized for team execution."
+    },
+    {
+      "targetUser": "Engineering Leads",
+      "title": "Coordinate Epic Deliverables",
+      "description": "Define epics and milestones in planning files and push them to ClickUp for developer task breakdown."
+    },
+    {
+      "targetUser": "Product Owners",
+      "title": "Bridge Planning and Execution",
+      "description": "Keep planning documents authoritative while using ClickUp for sprint-level task management."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Setup ClickUp Sync",
+      "scenario": "First-time configuration",
+      "prompt": "How do I set up ClickUp synchronization for my roadmap? What MCP commands do I need?"
+    },
+    {
+      "title": "Push Changes to ClickUp",
+      "scenario": "Publishing local changes",
+      "prompt": "I made changes to my local epics. How do I push them to ClickUp without overwriting remote work?"
+    },
+    {
+      "title": "Resolve Sync Conflicts",
+      "scenario": "Handling conflicts",
+      "prompt": "What happens when my local roadmap and ClickUp have conflicting changes? How are conflicts resolved?"
+    },
+    {
+      "title": "Link Items Manually",
+      "scenario": "Custom synchronization",
+      "prompt": "How do I manually link a local milestone to an existing ClickUp task that was created outside the sync?"
+    }
+  ],
+  "bestPractices": [
+    "Pull changes from ClickUp before pushing local changes to avoid overwriting team updates",
+    "Use dry-run mode when available to preview sync operations before executing them",
+    "Check sync status regularly to identify issues early before they compound"
+  ],
+  "antiPatterns": [
+    "Pushing without pulling first - this can overwrite remote changes made by team members",
+    "Manually editing ClickUp tasks that were created via sync without using the sync tool",
+    "Skipping the initial setup step - improper configuration leads to duplicate tasks"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with self-hosted ClickUp instances?",
+      "answer": "ClickUp MCP connects to cloud ClickUp. Self-hosted requires checking if your instance supports API access."
+    },
+    {
+      "question": "What happens to my data during sync?",
+      "answer": "Sync creates tasks in your ClickUp space. Local files remain unchanged. No data is sent to third parties."
+    },
+    {
+      "question": "Can multiple team members use sync on the same roadmap?",
+      "answer": "Yes, but coordinate to avoid conflicts. Pull before push and communicate changes to your team."
+    },
+    {
+      "question": "How are conflicts between local and ClickUp resolved?",
+      "answer": "Status defaults to ClickUp (current state). Points and titles default to local (planning authority)."
+    },
+    {
+      "question": "What permissions does ClickUp MCP require?",
+      "answer": "OAuth grants access to workspaces you authorize. MCP only accesses data you explicitly select."
+    },
+    {
+      "question": "How is this different from other ClickUp integrations?",
+      "answer": "This skill works with the official ClickUp MCP for Claude Code, enabling bidirectional sync with local markdown roadmaps."
+    }
+  ],
+  "seoKeywords": [
+    "clickup sync",
+    "roadmap planning",
+    "claude code clickup",
+    "clickup mcp",
+    "project management",
+    "task synchronization",
+    "epic management",
+    "milestone tracking",
+    "claude integration",
+    "bidirectional sync"
+  ],
+  "sourceUrl": "https://github.com/AndresNaza/claude-plugins/tree/main/clickup-sync/skills/clickup-integration",
+  "sourceType": "community",
+  "dependencies": []
+}

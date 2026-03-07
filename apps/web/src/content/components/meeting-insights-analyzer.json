@@ -1,0 +1,139 @@
+{
+  "name": "meeting-insights-analyzer",
+  "type": "skill",
+  "description": "Analyzes meeting transcripts and recordings to uncover behavioral patterns, communication insights, and actionable feedback. Identifies when you avoid conflict, use filler words, dominate conversations, or miss opportunities to listen. Perfect for professionals seeking to improve their communication and leadership skills.",
+  "domain": "productivity",
+  "subdomain": "communication",
+  "specialty": "Behavior analysis",
+  "quality": 5,
+  "qualityReason": "Deep communication insights",
+  "bundleHints": [
+    "meeting-tools",
+    "team-productivity"
+  ],
+  "tags": [
+    "analysis",
+    "communication",
+    "feedback",
+    "leadership",
+    "meetings"
+  ],
+  "capabilities": [
+    "Identifies conflict avoidance patterns with specific transcript quotes",
+    "Calculates speaking ratios and turn-taking statistics",
+    "Detects filler words and hedging language patterns",
+    "Evaluates active listening behaviors and questions",
+    "Analyzes leadership and facilitation style with examples",
+    "Compares communication patterns across multiple meetings over time"
+  ],
+  "author": "davila7",
+  "icon": "🎙️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based skill containing only text instructions for analyzing meeting transcripts. No executable code, scripts, network calls, or external commands. The 29 static findings are false positives triggered by Markdown syntax and JSON metadata fields. All file access is user-initiated and limited to files the user explicitly provides.",
+  "valueStatement": "Meeting transcripts contain valuable feedback about communication patterns that most people never see. This skill reads your transcripts and identifies specific behaviors like conflict avoidance, filler words, interruptions, and listening habits with concrete examples and improvement suggestions.",
+  "userTitle": "Analyze Meeting Transcripts for Communication Insights",
+  "limitations": [
+    "Requires pre-existing meeting transcript files to analyze",
+    "Does not transcribe audio or video recordings directly",
+    "Analysis quality depends on transcript accuracy and speaker labels",
+    "Cannot access live meeting feeds or real-time conversations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Managers and leaders",
+      "title": "Improve facilitation skills",
+      "description": "Analyze team meetings to understand how you include quiet members, handle disagreements, and balance speaking time."
+    },
+    {
+      "targetUser": "Individual contributors",
+      "title": "Track personal communication growth",
+      "description": "Compare quarterly transcripts to see measurable improvements in listening, questioning, and direct communication."
+    },
+    {
+      "targetUser": "Coaches and mentors",
+      "title": "Give data-driven feedback",
+      "description": "Provide team members with specific examples from their meetings to accelerate their communication development."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick conflict analysis",
+      "scenario": "Find indirect communication patterns",
+      "prompt": "Analyze all meeting transcripts in this folder and tell me every instance where I avoided giving direct feedback or addressed tension indirectly. Include the exact quotes and suggest better approaches."
+    },
+    {
+      "title": "Speaking ratio check",
+      "scenario": "Measure communication balance",
+      "prompt": "Look at my team meetings and calculate my speaking time percentage compared to other participants. Show me specific moments where I dominated conversations or interrupted others."
+    },
+    {
+      "title": "Listening skills review",
+      "scenario": "Evaluate active listening",
+      "prompt": "Analyze my meetings for active listening indicators: paraphrasing others ideas, asking clarifying questions, and building on previous contributions. Give me examples of both strong and weak listening moments."
+    },
+    {
+      "title": "Monthly progress report",
+      "scenario": "Track improvement over time",
+      "prompt": "Compare my communication patterns from last month to this month. Track changes in interruptions, filler word usage, question-asking, and direct feedback delivery. Show specific examples of improvement."
+    }
+  ],
+  "bestPractices": [
+    "Store transcripts in a dedicated folder with consistent naming like YYYY-MM-DD - Meeting Name.txt",
+    "Run monthly analyses to track meaningful trends over time",
+    "Focus on one specific behavior at a time for deeper insights rather than broad analyses"
+  ],
+  "antiPatterns": [
+    "Asking for comprehensive analysis of all behaviors at once instead of focusing on specific areas",
+    "Analyzing low-quality transcripts without speaker labels or timestamps",
+    "Ignoring the specific quotes and examples provided in favor of abstract recommendations"
+  ],
+  "faq": [
+    {
+      "question": "What file formats does this skill support?",
+      "answer": "Supports txt, md, vtt, srt, and docx transcript files with speaker labels and timestamps."
+    },
+    {
+      "question": "How many meetings can I analyze at once?",
+      "answer": "There is no strict limit. The skill works with any number of transcript files in a folder."
+    },
+    {
+      "question": "Does this skill record or transcribe my meetings?",
+      "answer": "No. You must provide existing transcript files. The skill only reads files you explicitly share."
+    },
+    {
+      "question": "Is my meeting data kept private?",
+      "answer": "Yes. All analysis happens locally with files you provide. No data is sent to external services."
+    },
+    {
+      "question": "Why is my analysis missing some meetings?",
+      "answer": "Ensure transcripts have clear speaker labels and timestamps. Check that files are in the folder you specified."
+    },
+    {
+      "question": "How is this different from AI meeting recording tools?",
+      "answer": "This skill analyzes text you already have. It focuses on behavioral patterns, not transcription or summarization."
+    }
+  ],
+  "seoKeywords": [
+    "meeting insights analyzer",
+    "communication skills analysis",
+    "meeting transcript analysis",
+    "conflict avoidance detection",
+    "active listening feedback",
+    "Claude Code skill",
+    "leadership communication",
+    "meeting behavior patterns",
+    "professional development",
+    "communication improvement"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/productivity/meeting-insights-analyzer",
+  "sourceType": "community",
+  "dependencies": []
+}

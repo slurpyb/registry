@@ -1,0 +1,137 @@
+{
+  "name": "siteground-cache",
+  "type": "skill",
+  "description": "Bypass SiteGround caching (SG CachePress + LiteSpeed) for WordPress development. Adds cache-busting code to child themes for real-time development testing.",
+  "domain": "cms",
+  "subdomain": "wordpress",
+  "specialty": "cache bypass",
+  "quality": 4,
+  "qualityReason": "Specific hosting issue",
+  "bundleHints": [
+    "wordpress-dev",
+    "cms-debugging",
+    "local-dev"
+  ],
+  "tags": [
+    "cache",
+    "development",
+    "litespeed",
+    "siteground",
+    "wordpress"
+  ],
+  "capabilities": [
+    "Inject cache-busting PHP code into child themes",
+    "Disable LiteSpeed Cache for administrator users",
+    "Disable SG CachePress for administrator users",
+    "Add timestamp versioning to CSS and JS asset URLs",
+    "Display development mode banner showing theme version"
+  ],
+  "author": "CrazySwami",
+  "icon": "🚀",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate WordPress development tool. The skill injects PHP code into child themes to disable caching during development. The static scanner flagged 55 patterns but all are false positives: shell commands are standard bash scripting (path resolution, date commands for backups), hardcoded URLs are example placeholders (ftp.example.com), and weak crypto alerts are triggered by documentation text patterns. The SKILL.md explicitly enforces staging-only deployments with production path blocking.",
+  "valueStatement": "SiteGround caching can delay CSS and JS changes during development. This skill adds cache-busting code to child themes for instant feedback. Perfect for WordPress developers working with SG CachePress or LiteSpeed Cache.",
+  "userTitle": "Bypass SiteGround caching for WordPress",
+  "limitations": [
+    "Code must be removed before deploying to production",
+    "Only works on staging or local development environments",
+    "Requires write access to child theme functions.php file"
+  ],
+  "useCases": [
+    {
+      "targetUser": "WordPress developers",
+      "title": "Speed up theme development",
+      "description": "See CSS and JS changes instantly without waiting for cache to clear"
+    },
+    {
+      "targetUser": "Theme designers",
+      "title": "Test child theme changes",
+      "description": "Verify child theme modifications work correctly before pushing live"
+    },
+    {
+      "targetUser": "WordPress agencies",
+      "title": "Streamline client workflows",
+      "description": "Maintain fast iteration cycles when building client sites on SiteGround"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Enable cache busting",
+      "scenario": "Adding cache busting to a theme",
+      "prompt": "Add SiteGround cache busting to this WordPress child theme"
+    },
+    {
+      "title": "Inject PHP snippet",
+      "scenario": "Installing the cache buster",
+      "prompt": "Inject the cache-buster.php code into functions.php for this theme"
+    },
+    {
+      "title": "Configure dev mode",
+      "scenario": "Setting up development mode",
+      "prompt": "Enable dev mode for this SiteGround staging site with cache bypass"
+    },
+    {
+      "title": "Remove and clean up",
+      "scenario": "Cleaning up before production",
+      "prompt": "Remove the cache buster code from this theme before deploying to production"
+    }
+  ],
+  "bestPractices": [
+    "Always test on staging first before making any changes",
+    "Remove cache buster code before deploying to production",
+    "Keep backups of functions.php before and after modifications"
+  ],
+  "antiPatterns": [
+    "Deploying cache-busting code to production sites",
+    "Forgetting to remove the cache buster before going live",
+    "Testing without verifying the development banner appears"
+  ],
+  "faq": [
+    {
+      "question": "Which WordPress versions are supported?",
+      "answer": "Works with WordPress 5.0 and newer. Requires a child theme with a functions.php file."
+    },
+    {
+      "question": "What are the resource limits?",
+      "answer": "No specific limits. The PHP code adds small constants and filters that have minimal performance impact."
+    },
+    {
+      "question": "Does this integrate with other plugins?",
+      "answer": "Yes. It disables caching for LiteSpeed Cache and SG Optimizer plugins specifically. Other caching may still apply."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes. The skill only modifies local theme files. No external network calls are made by the PHP code."
+    },
+    {
+      "question": "The banner is not showing. What do I do?",
+      "answer": "Verify you are logged in as an administrator. Check that the child theme is activated. Clear your browser cache."
+    },
+    {
+      "question": "How is this different from other cache plugins?",
+      "answer": "This tool disables caching only for logged-in administrators. Production visitors still get cached pages for optimal performance."
+    }
+  ],
+  "seoKeywords": [
+    "wordpress",
+    "siteground",
+    "cache",
+    "litespeed",
+    "caching",
+    "development",
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "sourceUrl": "https://github.com/CrazySwami/wordpress-dev-skills/tree/main/skills/siteground-cache",
+  "sourceType": "community",
+  "dependencies": []
+}

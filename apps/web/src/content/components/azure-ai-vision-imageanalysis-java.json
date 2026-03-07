@@ -1,0 +1,144 @@
+{
+  "name": "azure-ai-vision-imageanalysis-java",
+  "type": "skill",
+  "description": "Build image analysis applications with Azure AI Vision SDK for Java. Use when implementing image captioning, OCR text extraction, object detection, tagging, or smart cropping.",
+  "domain": "ai-ml",
+  "subdomain": "computer-vision",
+  "specialty": "Java Image Analysis",
+  "quality": 5,
+  "qualityReason": "Rich vision features in Java",
+  "bundleHints": [
+    "computer-vision",
+    "image-analysis",
+    "azure-ai"
+  ],
+  "tags": [
+    "azure",
+    "computer-vision",
+    "image-analysis",
+    "image-captioning",
+    "java",
+    "object-detection",
+    "ocr",
+    "smart-cropping",
+    "tagging"
+  ],
+  "capabilities": [
+    "Generate human-readable image captions with confidence scores",
+    "Extract text from images using OCR with bounding box coordinates",
+    "Detect objects in images with bounding boxes and confidence levels",
+    "Tag images with content labels for categorization",
+    "Detect people in images with location coordinates",
+    "Create smart crop thumbnails with aspect ratio optimization"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate Azure AI Vision SDK documentation skill for Java. Static analysis flagged many patterns but all are false positives: (1) External commands detected at lines 15-268 are Maven XML and Java code examples, not shell commands. (2) Network URLs at lines 102, 269, 281 are example/demo URLs and documentation links. (3) Environment variable access at lines 32-33 uses System.getenv() for secure credential management - this is the recommended secure practice. (4) High/blocker findings for 'weak cryptographic algorithm' are YAML metadata and table formatting, not cryptographic code. The skill uses proper security practices by reading Azure credentials from environment variables rather than hardcoding them.",
+  "valueStatement": "Need to add image captioning, OCR text extraction, object detection, or smart cropping to your Java application. This skill provides ready-to-use code patterns for integrating Azure AI Vision SDK with proper credential management and error handling.",
+  "userTitle": "Build image analysis apps with Azure AI Vision Java SDK",
+  "limitations": [
+    "Requires Azure AI Vision subscription and valid API credentials",
+    "Image size limited to 20MB and dimensions between 50x50 and 16000x16000 pixels",
+    "Caption and Dense Captions features require GPU-supported Azure regions",
+    "Supported image formats: JPEG, PNG, GIF, BMP, WEBP, ICO, TIFF, MPO"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Enterprise developers building document management systems",
+      "title": "Automate document digitization",
+      "description": "Extract text from scanned documents, receipts, and invoices to create searchable digital archives. Use OCR to convert paper documents into editable text."
+    },
+    {
+      "targetUser": "E-commerce platform developers",
+      "title": "Enhance e-commerce product catalogs",
+      "description": "Automatically generate product image captions and detect objects for better search indexing. Create consistent smart-cropped thumbnails for uniform catalog display."
+    },
+    {
+      "targetUser": "Accessibility-focused application developers",
+      "title": "Build accessibility features",
+      "description": "Generate image descriptions for visually impaired users. Provide automatic alt text for images in content management systems."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic image caption",
+      "prompt": "Use the Azure AI Vision Java SDK to generate a caption for the image at local file path /path/to/image.jpg. Show how to set up the client with environment variables and print the caption text with confidence score.",
+      "scenario": "Getting started with image captioning"
+    },
+    {
+      "title": "Extract text from document",
+      "prompt": "Show me how to use the Azure AI Vision SDK to perform OCR on a scanned document image. Include code to iterate through detected text blocks, lines, and words with their bounding polygons.",
+      "scenario": "Document text extraction with OCR"
+    },
+    {
+      "title": "Multi-feature analysis",
+      "prompt": "Write Java code that analyzes an image using multiple visual features: caption, tags, objects, and read (OCR). Show how to configure the analysis options for gender-neutral captions and specify language.",
+      "scenario": "Running multiple analysis features"
+    },
+    {
+      "title": "Async image processing",
+      "prompt": "Demonstrate how to use the async client in Azure AI Vision Java SDK to analyze images. Show the subscription pattern for handling async results and errors.",
+      "scenario": "High-throughput async image processing"
+    }
+  ],
+  "bestPractices": [
+    "Always store Azure credentials in environment variables, never hardcode API keys in source code",
+    "Use async clients for high-volume image processing to improve throughput",
+    "Handle HttpResponseException for robust error handling and retry logic"
+  ],
+  "antiPatterns": [
+    "Do not hardcode API keys or endpoint URLs in your Java source files",
+    "Do not ignore error handling - always catch and log Azure service exceptions",
+    "Do not process images larger than 20MB - resize before analysis to avoid failures"
+  ],
+  "faq": [
+    {
+      "question": "How do I authenticate with Azure AI Vision?",
+      "answer": "You can authenticate using an API key with KeyCredential or use DefaultAzureCredential for managed identity support. Store your VISION_ENDPOINT and VISION_KEY in environment variables."
+    },
+    {
+      "question": "What image formats are supported?",
+      "answer": "Azure AI Vision supports JPEG, PNG, GIF, BMP, WEBP, ICO, TIFF, and MPO formats. Image size must be under 20MB with dimensions between 50x50 and 16000x16000 pixels."
+    },
+    {
+      "question": "Can I analyze images from a URL?",
+      "answer": "Yes, use the analyzeFromUrl() method to analyze images accessible via HTTP URLs. The SDK also supports analyzing local files using BinaryData.fromFile()."
+    },
+    {
+      "question": "How accurate is the caption feature?",
+      "answer": "Caption confidence scores typically range from 0.0 to 1.0. Higher scores indicate more reliable captions. Dense Captions provides multiple descriptions for different image regions."
+    },
+    {
+      "question": "What languages are supported for OCR?",
+      "answer": "Azure AI Vision OCR supports over 90 languages. Specify the language in ImageAnalysisOptions using setLanguage() for best results."
+    },
+    {
+      "question": "Does this work with on-premise Azure Stack?",
+      "answer": "Yes, Azure AI Vision SDK can connect to Azure Stack or other Azure Cognitive Services instances by setting the appropriate endpoint URL to your local service."
+    }
+  ],
+  "seoKeywords": [
+    "Azure AI Vision",
+    "image analysis Java",
+    "computer vision SDK",
+    "OCR text extraction",
+    "object detection",
+    "image captioning",
+    "Claude Code",
+    "Codex",
+    "Azure Vision Java",
+    "smart crop thumbnail"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-ai-vision-imageanalysis-java",
+  "sourceType": "community",
+  "dependencies": []
+}

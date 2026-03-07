@@ -1,0 +1,142 @@
+{
+  "name": "swift-development",
+  "type": "skill",
+  "description": "Comprehensive Swift development for building, testing, and deploying iOS/macOS applications. Use when Claude needs to: (1) Build Swift packages or Xcode projects from command line, (2) Run tests with XCTest or Swift Testing framework, (3) Manage iOS simulators with simctl, (4) Handle code signing, provisioning profiles, and app distribution, (5) Format or lint Swift code with SwiftFormat/SwiftLint, (6) Work with Swift Package Manager (SPM), (7) Implement Swift 6 concurrency patterns (async/await, actors, Sendable), (8) Create SwiftUI views with MVVM architecture, (9) Set up Core Data or SwiftData persistence, or any other Swift/iOS/macOS development tasks.\n",
+  "domain": "mobile",
+  "subdomain": "ios",
+  "specialty": "iOS development",
+  "quality": 5,
+  "qualityReason": "Comprehensive dev lifecycle",
+  "bundleHints": [
+    "ios-dev",
+    "swift-stack"
+  ],
+  "tags": [
+    "apple",
+    "deployment",
+    "ios",
+    "macos",
+    "packages",
+    "swift",
+    "testing",
+    "xcode"
+  ],
+  "capabilities": [
+    "Build Swift packages and Xcode projects from command line",
+    "Run tests with XCTest or Swift Testing framework with coverage",
+    "Manage iOS simulators with simctl for testing and screenshots",
+    "Handle code signing, provisioning profiles, and app distribution",
+    "Format and lint Swift code with SwiftFormat and SwiftLint",
+    "Implement Swift 6 concurrency patterns with async/await and actors"
+  ],
+  "author": "hmohamed01",
+  "icon": "Swift",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 460 static findings are false positives. This skill contains legitimate Swift/iOS/macOS development documentation and tooling. Keychain API usage is standard secure storage patterns. Shell commands are build/test scripts, not injection vulnerabilities. Troubleshooting commands target user cache directories only.",
+  "valueStatement": "Developers need tools to build, test, and deploy Apple platform applications efficiently. This skill provides command-line workflows for Swift Package Manager, Xcode projects, simulator management, and code signing.",
+  "userTitle": "Build Swift iOS and macOS apps",
+  "limitations": [
+    "Requires macOS with Xcode Command Line Tools installed",
+    "Cannot create Apple Developer certificates or provisioning profiles",
+    "Does not interact with App Store Connect API directly",
+    "Simulator management requires booted simulator instance"
+  ],
+  "useCases": [
+    {
+      "targetUser": "iOS Developers",
+      "title": "Build and test iOS apps",
+      "description": "Create new Swift packages, run test suites, and prepare apps for simulator deployment."
+    },
+    {
+      "targetUser": "macOS Developers",
+      "title": "Compile macOS applications",
+      "description": "Build Xcode projects for macOS, manage code signing, and create archive exports."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Automate CI/CD pipelines",
+      "description": "Set up GitHub Actions workflows for automated building, testing, and releasing Swift projects."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Swift package",
+      "scenario": "Initialize a new library",
+      "prompt": "Create a new Swift package named NetworkKit with iOS 15 and macOS 13 support using Swift 5.10"
+    },
+    {
+      "title": "Run test suite",
+      "scenario": "Execute tests with coverage",
+      "prompt": "Run all tests in the current workspace with code coverage enabled using parallel execution"
+    },
+    {
+      "title": "Manage simulator",
+      "scenario": "Boot and configure simulator",
+      "prompt": "List available iOS simulators, boot iPhone 15, and take a screenshot of the home screen"
+    },
+    {
+      "title": "Build release archive",
+      "scenario": "Create production build",
+      "prompt": "Build a release archive for iOS distribution and export it using the app-store export options plist"
+    }
+  ],
+  "bestPractices": [
+    "Use Swift Package Manager for library dependencies to enable better dependency isolation and faster builds",
+    "Enable code coverage tracking to identify untested code paths in CI/CD workflows",
+    "Use consistent destination specifications (platform=iOS Simulator,name=iPhone 15) for reproducible builds"
+  ],
+  "antiPatterns": [
+    "Avoid hardcoding team IDs or bundle identifiers in export options templates",
+    "Do not commit generated DerivedData or build folders to version control",
+    "Never store app store credentials in scripts; use environment variables and keychain access"
+  ],
+  "faq": [
+    {
+      "question": "What macOS version is required?",
+      "answer": "macOS with Xcode 15+ (Xcode 16+ for Swift 6 features) and Command Line Tools via xcode-select --install."
+    },
+    {
+      "question": "How do I create an iOS simulator build?",
+      "answer": "Use xcodebuild with -destination 'platform=iOS Simulator,name=iPhone 15' to build for simulator testing."
+    },
+    {
+      "question": "Can this skill handle App Store submissions?",
+      "answer": "The skill creates properly signed archives. Upload to App Store Connect requires Apple ID authentication separately."
+    },
+    {
+      "question": "Does it support Swift 6 concurrency?",
+      "answer": "Yes, includes documentation for actors, Sendable protocols, @MainActor, and structured concurrency patterns."
+    },
+    {
+      "question": "How do I add third-party dependencies?",
+      "answer": "Edit Package.swift to add .package(url:) dependencies in the targets section, then run swift package resolve."
+    },
+    {
+      "question": "Can I use this for cross-platform Apple development?",
+      "answer": "Yes, configure platforms array in Package.swift or xcodebuild destinations for iOS, macOS, watchOS, and tvOS."
+    }
+  ],
+  "seoKeywords": [
+    "swift development",
+    "ios development",
+    "macos development",
+    "xcodebuild",
+    "swift package manager",
+    "simulator management",
+    "code signing",
+    "swiftlint",
+    "swiftformat",
+    "claude code"
+  ],
+  "sourceUrl": "https://github.com/hmohamed01/swift-development/tree/main/swift-development",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "mailchimp-automation",
+  "type": "skill",
+  "description": "Automate Mailchimp email marketing including campaigns, audiences, subscribers, segments, and analytics via Rube MCP (Composio). Always search tools first for current schemas.",
+  "domain": "marketing",
+  "subdomain": "email-marketing",
+  "specialty": "Mailchimp campaigns",
+  "quality": 4,
+  "qualityReason": "Clear integration use case",
+  "bundleHints": [
+    "marketing-automation",
+    "email-stack"
+  ],
+  "tags": [
+    "analytics",
+    "audiences",
+    "automation",
+    "campaigns",
+    "composio",
+    "email-marketing",
+    "mailchimp",
+    "segments"
+  ],
+  "capabilities": [
+    "Create, configure, test, and send email campaigns programmatically",
+    "Manage audiences and subscriber lists with pagination support",
+    "Add, update, and search subscribers using MD5 hash resolution",
+    "Retrieve campaign performance reports including opens, clicks, and bounces",
+    "Schedule campaigns for future delivery or send immediately",
+    "Analyze link-level click data and subscriber engagement metrics"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 189 external_commands patterns and 1 network reference, but all are false positives. The skill is documentation for MCP (Model Context Protocol) tool calls to Mailchimp API, not actual shell commands. Network reference is the legitimate Rube MCP endpoint configuration. No malicious intent detected. Safe for publication.",
+  "valueStatement": "Streamline email marketing by automating campaign creation, audience management, and performance analytics. Integrate Mailchimp operations directly into your AI assistant workflow.",
+  "userTitle": "Automate Mailchimp Email Marketing Workflows",
+  "limitations": [
+    "Requires active Rube MCP connection with Mailchimp OAuth authentication",
+    "Cannot bypass Mailchimp API rate limits for high-volume operations",
+    "Campaign sending is irreversible; test emails must be sent first",
+    "Subscriber hash computation requires MD5 of lowercase email addresses"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Marketing managers and email specialists",
+      "title": "Marketing Team Campaign Automation",
+      "description": "Create and send targeted email campaigns to specific audience segments with automated test emails and approval workflows before live deployment."
+    },
+    {
+      "targetUser": "CRM administrators and data managers",
+      "title": "Subscriber List Management",
+      "description": "Bulk import new subscribers, update existing contact information, and maintain clean audience lists with status filtering and duplicate detection."
+    },
+    {
+      "targetUser": "Data analysts and marketing analysts",
+      "title": "Performance Analytics Dashboard",
+      "description": "Generate comprehensive campaign reports analyzing open rates, click-through rates, and subscriber engagement patterns across multiple campaigns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Beginner: Send a Simple Campaign",
+      "prompt": "Help me create and send an email campaign to my main audience. I need to set the subject line, from name, and HTML content, then send a test email before going live.",
+      "scenario": "First-time user sending a basic newsletter"
+    },
+    {
+      "title": "Intermediate: Manage Subscriber Lists",
+      "prompt": "I need to add 50 new subscribers to my audience list and update the status of existing subscribers who unsubscribed. Show me how to handle pagination and avoid duplicates.",
+      "scenario": "Regular list maintenance with bulk operations"
+    },
+    {
+      "title": "Advanced: Campaign Analytics Report",
+      "prompt": "Generate a comprehensive report comparing open rates and click-through rates across all campaigns sent last month. Include link-level details for the top 3 performing campaigns.",
+      "scenario": "Monthly performance review and optimization"
+    },
+    {
+      "title": "Expert: Automated Workflow Pipeline",
+      "prompt": "Build an automated workflow that creates a campaign from a template, segments the audience based on engagement history, sends personalized test emails, and schedules delivery for optimal send time.",
+      "scenario": "Complex multi-step automation with segmentation"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before executing any workflow",
+    "Send test emails and obtain explicit user approval before executing MAILCHIMP_SEND_CAMPAIGN",
+    "Use pagination with appropriate count and offset values to retrieve complete datasets from large audiences"
+  ],
+  "antiPatterns": [
+    "Do not send campaigns without testing first; MAILCHIMP_SEND_CAMPAIGN is irreversible",
+    "Do not omit status filters when querying subscribers; always specify status=subscribed for active contacts",
+    "Do not use default pagination values for bulk operations; set count explicitly to reduce API calls"
+  ],
+  "faq": [
+    {
+      "question": "How do I connect Mailchimp to this skill?",
+      "answer": "Add https://rube.app/mcp as an MCP server in your client configuration, then call RUBE_MANAGE_CONNECTIONS with toolkit mailchimp. Follow the returned auth link to complete OAuth. Confirm connection status shows ACTIVE before running workflows."
+    },
+    {
+      "question": "What is a subscriber_hash and how do I compute it?",
+      "answer": "A subscriber_hash is an MD5 hash of the lowercase email address required by many Mailchimp endpoints. Compute it using: hashlib.md5(email.lower().encode()).hexdigest() in Python or equivalent in other languages."
+    },
+    {
+      "question": "Why do open rates and click rates show as decimals like 0.342?",
+      "answer": "Mailchimp returns rates as 0-1 fractions, not 0-100 percentages. Multiply by 100 to display as percentages. For example, 0.342 = 34.2% open rate."
+    },
+    {
+      "question": "How do I avoid creating duplicate subscribers?",
+      "answer": "Use MAILCHIMP_ADD_OR_UPDATE_LIST_MEMBER (upsert operation) instead of MAILCHIMP_ADD_MEMBER_TO_LIST. The upsert operation updates existing subscribers and only creates new ones if they do not exist."
+    },
+    {
+      "question": "Can I schedule a campaign for a specific time?",
+      "answer": "Yes, use MAILCHIMP_SCHEDULE_CAMPAIGN with a valid future datetime in ISO 8601 format. Past timestamps will fail. Ensure the campaign has valid content and settings before scheduling."
+    },
+    {
+      "question": "What happens if I hit Mailchimp API rate limits?",
+      "answer": "Mailchimp enforces rate limits on API calls. For high-volume operations, use batch endpoints like MAILCHIMP_BATCH_ADD_OR_REMOVE_MEMBERS and implement exponential backoff. Pagination with larger count values reduces total API calls."
+    }
+  ],
+  "seoKeywords": [
+    "Mailchimp automation",
+    "email marketing",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "campaign management",
+    "MCP integration",
+    "audience segmentation",
+    "email analytics",
+    "Rube MCP"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/mailchimp-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "context-management-context-save",
+  "type": "skill",
+  "description": "Use when working with context management context save",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "state preservation",
+  "quality": 5,
+  "qualityReason": "Essential for multi-session work",
+  "bundleHints": [
+    "agent-memory",
+    "context-persistence",
+    "workflow-continuity"
+  ],
+  "tags": [
+    "ai-workflow",
+    "architectural-decisions",
+    "context-management",
+    "knowledge-preservation",
+    "project-state",
+    "semantic-knowledge",
+    "session-management"
+  ],
+  "capabilities": [
+    "Extract project metadata and architectural patterns from codebase",
+    "Generate semantic context fingerprints for efficient retrieval",
+    "Support multiple storage formats (JSON, Markdown, YAML, Protocol Buffers)",
+    "Integrate with vector databases (Pinecone, Weaviate, Qdrant) for semantic search",
+    "Create knowledge graphs linking cross-domain concepts",
+    "Enable context versioning and drift detection for long-running projects"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static security findings are false positives. The skill is a pure documentation guide containing example code snippets for educational purposes. No actual executable code, shell commands, network calls, or cryptographic implementations exist. The scanner misinterpreted markdown code fences and JSON schema references as security risks.",
+  "valueStatement": "This skill helps Claude preserve project knowledge, architectural decisions, and workflow state between sessions, enabling seamless continuity in long-running AI collaborations.",
+  "userTitle": "Save Context Across AI Sessions",
+  "limitations": [
+    "Does not execute actual code - provides methodology and examples only",
+    "Requires manual configuration for optimal performance in specific projects",
+    "Does not automatically capture context - must be invoked explicitly",
+    "Vector database integration requires additional setup and API keys"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Team leads and project managers",
+      "title": "Onboarding New Team Members",
+      "description": "Capture comprehensive project context including architecture, decisions, and dependencies to help new team members understand the codebase quickly"
+    },
+    {
+      "targetUser": "Researchers and data scientists",
+      "title": "Long-Running Research Projects",
+      "description": "Preserve research context across multiple sessions, maintaining knowledge about hypotheses, findings, and experimental approaches"
+    },
+    {
+      "targetUser": "Software engineers and architects",
+      "title": "Complex Multi-File Refactoring",
+      "description": "Maintain awareness of architectural decisions and dependencies during large-scale code changes that span multiple sessions"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Context Capture",
+      "prompt": "Use the context-management-context-save skill to capture the current project state. Focus on extracting architectural decisions and key dependencies.",
+      "scenario": "Starting a new work session and want to preserve context"
+    },
+    {
+      "title": "Detailed Architecture Analysis",
+      "prompt": "Analyze the project structure and create a comprehensive context snapshot including dependency graphs, semantic tags, and architectural patterns.",
+      "scenario": "Preparing for a major refactoring or audit"
+    },
+    {
+      "title": "Vector Database Storage",
+      "prompt": "Generate semantic embeddings for the current context and store them in [Pinecone/Weaviate/Qdrant] for similarity-based retrieval.",
+      "scenario": "Enabling semantic search across project knowledge"
+    },
+    {
+      "title": "Context Restoration",
+      "prompt": "Retrieve and reconstruct the project context from the stored artifacts. Focus on recent architectural decisions and active workflow state.",
+      "scenario": "Resuming work after an extended break"
+    }
+  ],
+  "bestPractices": [
+    "Capture context at logical breakpoints in your workflow, such as after completing a feature or before taking a break",
+    "Use semantic tags to organize context by project phase, feature area, or team responsibility",
+    "Exclude sensitive information (API keys, credentials) from context snapshots explicitly"
+  ],
+  "antiPatterns": [
+    "Avoid capturing context too frequently - this creates storage overhead without added value",
+    "Do not include large binary files or generated artifacts in context snapshots",
+    "Avoid relying solely on context capture without regular manual verification of accuracy"
+  ],
+  "faq": [
+    {
+      "question": "What is context management in Claude?",
+      "answer": "Context management is the practice of preserving project knowledge, architectural decisions, and workflow state so that Claude can maintain continuity across multiple sessions."
+    },
+    {
+      "question": "Does this skill execute code in my project?",
+      "answer": "No. This skill provides methodology, best practices, and example code patterns. It does not modify or execute any code in your project."
+    },
+    {
+      "question": "What storage formats are supported?",
+      "answer": "The skill supports JSON, Markdown with frontmatter, YAML with annotations, Protocol Buffers, and MessagePack for context serialization."
+    },
+    {
+      "question": "How do I restore context from a previous session?",
+      "answer": "Use the context retrieval function to load stored context artifacts. The skill will reconstruct the project state from the serialized format."
+    },
+    {
+      "question": "Can I integrate with vector databases?",
+      "answer": "Yes. The skill supports integration with Pinecone, Weaviate, and Qdrant for semantic embedding storage and similarity-based retrieval."
+    },
+    {
+      "question": "Is my code safe with this skill?",
+      "answer": "Yes. The skill is read-only - it analyzes and documents your project structure without making any modifications to your codebase."
+    }
+  ],
+  "seoKeywords": [
+    "Claude context save",
+    "Claude Code context management",
+    "AI session persistence",
+    "project state preservation",
+    "context management skill",
+    "knowledge transfer AI",
+    "architectural decision capture",
+    "semantic context retrieval",
+    "multi-session AI workflow",
+    "Codex context save"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/context-management-context-save",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,145 @@
+{
+  "name": "fiftyone-pr-triage",
+  "type": "skill",
+  "description": "Triage FiftyOne GitHub issues by validating status, categorizing resolution, and generating standardized responses. Use when reviewing issues to determine if fixed, won't fix, not reproducible, no longer relevant, or still valid.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "plugin workflow",
+  "quality": 4,
+  "qualityReason": "Specific plugin development",
+  "bundleHints": [
+    "figma-tools",
+    "design-plugins"
+  ],
+  "tags": [
+    "bug-triaging",
+    "fiftyone",
+    "figjam",
+    "figma",
+    "github",
+    "integration",
+    "issue-triage",
+    "plugin-development",
+    "ui",
+    "websocket",
+    "workflow"
+  ],
+  "capabilities": [
+    "Categorize issues into five triage states based on investigation",
+    "Provide structured workflows for searching codebase and git history",
+    "Generate standardized response templates for each triage category",
+    "Guide maintainers through systematic decision trees",
+    "Document code references with file paths and line numbers",
+    "Include commands for GitHub CLI and git operations"
+  ],
+  "author": "AdonaiVera",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation and response templates for GitHub issue triage. All detected patterns are false positives from markdown code examples. No executable code, network calls, file system access, or environment variable reads exist. The skill is pure instructional content.",
+  "valueStatement": "GitHub issue triage requires consistent categorization and clear communication. This skill provides a structured workflow with decision trees and response templates for FiftyOne repository maintainers.",
+  "userTitle": "Triage FiftyOne GitHub issues systematically",
+  "limitations": [
+    "Requires GitHub CLI and git to be installed and configured",
+    "Designed specifically for FiftyOne repository structure",
+    "Does not automatically execute commands or close issues",
+    "Cannot reproduce bugs without proper development environment"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Open source maintainers",
+      "title": "Maintain healthy issue tracker",
+      "description": "Keep issue backlog organized by systematically categorizing and responding to bug reports and feature requests."
+    },
+    {
+      "targetUser": "Technical support teams",
+      "title": "Provide consistent user communication",
+      "description": "Use standardized response templates to ensure users receive clear explanations for issue resolutions."
+    },
+    {
+      "targetUser": "Repository contributors",
+      "title": "Assist with issue management",
+      "description": "Help maintainers by following documented workflows to identify duplicates and verify bug reports."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Initial issue triage",
+      "scenario": "New issue needs categorization",
+      "prompt": "Triage this FiftyOne issue. Read the full description, search the codebase for related code, check git history for recent fixes, and categorize as already fixed, won't fix, not reproducible, no longer relevant, or still valid."
+    },
+    {
+      "title": "Bug verification",
+      "scenario": "Verify if bug can be reproduced",
+      "prompt": "Use fiftyone-pr-triage skill to verify this bug report. Search for related code modules, check recent commits, and determine if the issue is reproducible or already fixed."
+    },
+    {
+      "title": "Duplicate detection",
+      "scenario": "Find similar closed issues",
+      "prompt": "Search closed issues and merged PRs using the fiftyone-pr-triage workflow. Identify if this is a duplicate and generate a response linking to the original issue."
+    },
+    {
+      "title": "Feature request evaluation",
+      "scenario": "Evaluate new feature proposal",
+      "prompt": "Apply the fiftyone-pr-triage decision tree to evaluate this feature request. Determine if it aligns with project scope and generate an appropriate response with clear reasoning."
+    }
+  ],
+  "bestPractices": [
+    "Always check git history and closed issues before marking an issue as new",
+    "Provide specific commit hashes or PR numbers when referencing fixes",
+    "Request minimal reproducible examples when issues cannot be verified"
+  ],
+  "antiPatterns": [
+    "Closing issues without searching for duplicates or related fixes",
+    "Using vague explanations that do not reference specific code locations",
+    "Skipping the investigation checklist before categorizing issues"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with repositories other than FiftyOne?",
+      "answer": "The workflow is designed for FiftyOne but the triage categories and decision trees can be adapted to other projects."
+    },
+    {
+      "question": "Will this skill automatically close GitHub issues?",
+      "answer": "No. It generates response templates and recommendations but requires human review before posting responses or closing issues."
+    },
+    {
+      "question": "What tools are required to use this skill effectively?",
+      "answer": "You need GitHub CLI, git, access to the repository, and the ability to run grep and find commands."
+    },
+    {
+      "question": "How does this skill handle security vulnerabilities?",
+      "answer": "This skill focuses on general issue triage. Security issues should follow separate responsible disclosure procedures."
+    },
+    {
+      "question": "Can I customize the response templates?",
+      "answer": "Yes. The templates provide a starting structure that you can modify based on specific context and project communication style."
+    },
+    {
+      "question": "What should I do if an issue fits multiple categories?",
+      "answer": "Follow the decision tree in priority order. For example, if an issue is both fixed and outdated, categorize as already fixed."
+    }
+  ],
+  "seoKeywords": [
+    "fiftyone issue triage",
+    "github issue management",
+    "bug triage workflow",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "repository maintenance",
+    "issue categorization",
+    "open source triage",
+    "github automation"
+  ],
+  "sourceUrl": "https://github.com/AdonaiVera/fiftyone-skills/tree/main/pr-triage/skills/fiftyone-pr-triage",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,138 @@
+{
+  "name": "api-documenter",
+  "type": "skill",
+  "description": "Master API documentation with OpenAPI 3.1, AI-powered tools, and",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "comprehensive docs",
+  "quality": 4,
+  "qualityReason": "Strong but overlaps with other doc skills",
+  "bundleHints": [
+    "api-docs",
+    "developer-experience",
+    "productivity"
+  ],
+  "tags": [
+    "api",
+    "codex",
+    "documentation",
+    "examples",
+    "openapi",
+    "rest",
+    "schemas"
+  ],
+  "capabilities": [
+    "Generate endpoint documentation from code or OpenAPI specs",
+    "Create request and response schema definitions",
+    "Produce usage code examples in multiple languages",
+    "Format documentation with proper markdown structure"
+  ],
+  "author": "sickn33",
+  "icon": "📝",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only skill that generates API documentation. Static analysis found no executable code, no network requests, no filesystem access, and no external command execution. The skill contains only natural language prompts for generating documentation content.",
+  "valueStatement": "Developers spend hours manually writing API documentation. This skill automates the creation of comprehensive API docs from code or OpenAPI specifications, saving time and ensuring consistency.",
+  "userTitle": "Generate API Documentation",
+  "limitations": [
+    "Cannot execute code to test endpoints",
+    "Cannot access live API servers",
+    "Output quality depends on input specification completeness"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building internal APIs",
+      "title": "Quick API Docs for Internal Services",
+      "description": "Rapidly generate documentation for internal microservices during development sprints"
+    },
+    {
+      "targetUser": "API product managers and technical writers",
+      "title": "Public API Documentation",
+      "description": "Create polished, user-facing documentation for public API products"
+    },
+    {
+      "targetUser": "DevOps engineers maintaining older systems",
+      "title": "Legacy API Documentation Recovery",
+      "description": "Generate documentation for undocumented legacy APIs by analyzing code"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Documentation Request",
+      "prompt": "Generate API documentation for the following endpoint: [paste endpoint code or description]",
+      "scenario": "Quick documentation for a single endpoint"
+    },
+    {
+      "title": "Full API Documentation",
+      "prompt": "Create comprehensive API documentation for this OpenAPI specification: [paste OpenAPI JSON/YAML]",
+      "scenario": "Complete documentation for an entire API"
+    },
+    {
+      "title": "Multi-Language Examples",
+      "prompt": "Generate API documentation with code examples in Python, JavaScript, and curl for: [paste endpoint details]",
+      "scenario": "Documentation needed for multiple programming languages"
+    },
+    {
+      "title": "Markdown Documentation",
+      "prompt": "Create polished markdown API documentation with sections for overview, endpoints, authentication, error codes, and examples: [paste API specification]",
+      "scenario": "Production-ready formatted documentation"
+    }
+  ],
+  "bestPractices": [
+    "Provide complete OpenAPI specs for best results",
+    "Include authentication details in the input",
+    "Review generated examples for accuracy before publishing"
+  ],
+  "antiPatterns": [
+    "Expecting live testing of API endpoints",
+    "Providing incomplete or ambiguous endpoint descriptions",
+    "Assuming the skill knows your specific internal conventions"
+  ],
+  "faq": [
+    {
+      "question": "What input formats does this skill accept?",
+      "answer": "This skill accepts OpenAPI specifications in JSON or YAML format, as well as natural language descriptions of API endpoints."
+    },
+    {
+      "question": "Can this skill test my API endpoints?",
+      "answer": "No, this skill generates documentation only. It cannot make actual HTTP requests to test endpoints."
+    },
+    {
+      "question": "What programming languages are supported for code examples?",
+      "answer": "The skill can generate examples in JavaScript, Python, curl, Ruby, Go, and other common languages."
+    },
+    {
+      "question": "Does this work with GraphQL APIs?",
+      "answer": "Currently this skill focuses on REST APIs. GraphQL support may be added in future versions."
+    },
+    {
+      "question": "How accurate is the generated documentation?",
+      "answer": "Accuracy depends on the completeness of your input specification. Full OpenAPI specs produce the most accurate documentation."
+    },
+    {
+      "question": "Can I customize the output format?",
+      "answer": "Yes, you can specify markdown, HTML, or other formats in your prompt. The default output is markdown."
+    }
+  ],
+  "seoKeywords": [
+    "api documentation",
+    "openapi",
+    "rest api docs",
+    "api reference",
+    "claude code",
+    "codex",
+    "api documentation generator",
+    "swagger",
+    "developer documentation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/api-documenter",
+  "sourceType": "community",
+  "dependencies": []
+}

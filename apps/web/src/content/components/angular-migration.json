@@ -1,0 +1,146 @@
+{
+  "name": "angular-migration",
+  "type": "skill",
+  "description": "Migrate from AngularJS to Angular using hybrid mode, incremental component rewriting, and dependency injection updates. Use when upgrading AngularJS applications, planning framework migrations, or modernizing legacy Angular code.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Framework upgrade",
+  "quality": 5,
+  "qualityReason": "Essential migration methodology",
+  "bundleHints": [
+    "angular-upgrade",
+    "legacy-modernization",
+    "migration-strategy"
+  ],
+  "tags": [
+    "angular",
+    "angularjs",
+    "dependency-injection",
+    "framework-upgrade",
+    "frontend",
+    "hybrid-mode",
+    "incremental-migration",
+    "migration",
+    "modernization",
+    "typescript"
+  ],
+  "capabilities": [
+    "Guide hybrid AngularJS/Angular application setup using ngUpgrade",
+    "Convert AngularJS controllers and directives to Angular components",
+    "Migrate AngularJS services to Angular with proper dependency injection",
+    "Transform AngularJS routing to Angular Router configuration",
+    "Migrate AngularJS forms to Angular template-driven and reactive forms",
+    "Provide migration timeline and best practices for incremental migration"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation file containing code examples and migration guides for AngularJS to Angular migration. Static findings flagged backticks (code fences), example API calls in code blocks, and references to assessment/setup tasks - all false positives. No actual security concerns detected.",
+  "valueStatement": "This skill provides comprehensive guidance for migrating legacy AngularJS applications to modern Angular, covering hybrid setup, component conversion, service migration, and routing patterns.",
+  "userTitle": "Migrate AngularJS to Angular",
+  "limitations": [
+    "Does not execute code or run migration scripts",
+    "Does not modify user codebase directly",
+    "Cannot analyze existing AngularJS applications automatically",
+    "Does not provide automated conversion tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers and tech leads",
+      "title": "Planning AngularJS to Angular migration",
+      "description": "A development team planning to upgrade their legacy AngularJS application to modern Angular uses this skill to understand migration strategies and set up a hybrid application."
+    },
+    {
+      "targetUser": "Angular developers",
+      "title": "Converting AngularJS components",
+      "description": "A developer working on incremental migration needs guidance on converting AngularJS controllers and directives to Angular components with proper TypeScript typing."
+    },
+    {
+      "targetUser": "Junior to mid-level developers",
+      "title": "Learning Angular migration patterns",
+      "description": "A developer new to Angular wants to understand how dependency injection works differently between AngularJS and Angular and how to bridge the two frameworks."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic migration strategy",
+      "prompt": "I need to migrate my AngularJS application to Angular. What are the main migration strategies available and which one should I choose for a large enterprise application?",
+      "scenario": "Initial migration planning"
+    },
+    {
+      "title": "Hybrid app setup",
+      "prompt": "How do I set up a hybrid AngularJS/Angular application using ngUpgrade? Show me the bootstrap process and module configuration.",
+      "scenario": "Setting up hybrid environment"
+    },
+    {
+      "title": "Component conversion",
+      "prompt": "Convert this AngularJS controller to an Angular component: (provide AngularJS code). Show me the TypeScript component with proper imports and decorators.",
+      "scenario": "Converting code"
+    },
+    {
+      "title": "Service and DI migration",
+      "prompt": "How do I downgrade an Angular service to make it available in AngularJS, and how do I upgrade an AngularJS factory to work in Angular?",
+      "scenario": "Service migration between frameworks"
+    }
+  ],
+  "bestPractices": [
+    "Start migration with services first as they are easier to convert than UI components",
+    "Use TypeScript from the beginning to leverage type safety during migration",
+    "Test continuously at each step to catch issues early in the migration process",
+    "Follow the official Angular style guide for all new code written during migration"
+  ],
+  "antiPatterns": [
+    "Avoid big-bang cutovers without proper staging validation and rollback plans",
+    "Do not migrate UI components before migrating business logic and services",
+    "Avoid mixing AngularJS and Angular patterns inconsistently within the same feature"
+  ],
+  "faq": [
+    {
+      "question": "What is ngUpgrade and why do I need it?",
+      "answer": "ngUpgrade is an Angular library that helps you run AngularJS and Angular in the same application. It provides the UpgradeModule that allows you to bootstrap AngularJS components within an Angular application and use Angular services in AngularJS code."
+    },
+    {
+      "question": "Which migration strategy should I choose?",
+      "answer": "Choose Big Bang for small applications, Incremental (Hybrid) for large applications with continuous delivery needs, and Vertical Slice for medium apps with distinct feature modules."
+    },
+    {
+      "question": "Can I use Angular components inside AngularJS templates?",
+      "answer": "Yes, you can downgrade Angular components to use them in AngularJS templates using downgradeComponent from @angular/upgrade/static."
+    },
+    {
+      "question": "How do I handle dependency injection differences?",
+      "answer": "AngularJS uses implicit dependency injection with string names. Angular uses explicit dependency injection with classes and the Inject decorator. Use downgradeInjectable and upgradeModule to bridge services between frameworks."
+    },
+    {
+      "question": "Should I migrate to reactive forms or template-driven forms?",
+      "answer": "Reactive forms are recommended for most cases as they provide better type safety, easier testing, and more control over form validation logic."
+    },
+    {
+      "question": "How long does an AngularJS to Angular migration typically take?",
+      "answer": "Migration time varies based on application size, complexity, and team experience. A typical timeline is: Setup (1-2 weeks), Infrastructure (2-4 weeks), Feature Migration (varies by app size), and Cleanup (1-2 weeks)."
+    }
+  ],
+  "seoKeywords": [
+    "Angular migration",
+    "AngularJS to Angular",
+    "Angular upgrade",
+    "hybrid Angular app",
+    "ngUpgrade",
+    "Angular component migration",
+    "Angular service migration",
+    "Claude Code Angular",
+    "Codex Angular migration",
+    "AngularJS modernization"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/angular-migration",
+  "sourceType": "community",
+  "dependencies": []
+}

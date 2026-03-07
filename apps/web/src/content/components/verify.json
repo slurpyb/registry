@@ -1,0 +1,142 @@
+{
+  "name": "verify",
+  "type": "skill",
+  "description": "Verifies builds, recovers from errors, and applies review fixes. Use when user mentions ビルド, build, 検証, verify, エラー復旧, error recovery, 指摘を適用, apply fixes, テスト実行, tests fail, lint errors occur, CI breaks, テスト失敗, lintエラー, 型エラー, ビルドエラー, CIが落ちた. Do NOT load for: 実装作業, レビュー, セットアップ, 新機能開発.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "build verification",
+  "quality": 5,
+  "qualityReason": "Comprehensive and triggered",
+  "bundleHints": [
+    "ci-cd-pipeline",
+    "quality-gate"
+  ],
+  "tags": [
+    "build",
+    "build-check",
+    "ci-break",
+    "error-recovery",
+    "fixes",
+    "lint-fix",
+    "test-execution",
+    "testing",
+    "verify"
+  ],
+  "capabilities": [
+    "Runs builds and tests to verify code changes work correctly",
+    "Automatically recovers from common build errors like missing modules",
+    "Applies approved review fixes such as removing unused imports",
+    "Enforces quality guardrails that prevent test skipping or assertion removal",
+    "Aggregates multiple review types into unified reports"
+  ],
+  "author": "Chachamaru127",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing no executable code. All 137 static findings are false positives. The skill provides guidelines for build verification, error recovery, and code review processes with strong quality guardrails that prevent test tampering and enforce proper development practices.",
+  "valueStatement": "Failed builds and broken tests waste development time. This skill verifies code builds, recovers from common errors, and applies approved review fixes while enforcing quality standards that prevent test tampering.",
+  "userTitle": "Verify Builds and Recover from Errors",
+  "limitations": [
+    "Cannot fix complex architectural or design issues automatically",
+    "Requires user approval for non-trivial code changes",
+    "Limited to 3 retry attempts before escalation",
+    "Cannot modify protected configuration files like eslintrc or tsconfig"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers",
+      "title": "Post-Implementation Verification",
+      "description": "Automatically verify builds and tests pass after implementing new features or fixes"
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Apply Review Feedback",
+      "description": "Quickly apply approved automated fixes from code reviews like formatting and unused code removal"
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "CI Pipeline Recovery",
+      "description": "Automatically recover from common CI failures without manual intervention"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Verify Build",
+      "scenario": "After implementing changes",
+      "prompt": "I just finished implementing the new feature. Can you verify that the build passes and all tests are working correctly?"
+    },
+    {
+      "title": "Fix Build Errors",
+      "scenario": "When build fails",
+      "prompt": "The build is failing with TypeScript errors. Can you help fix these compilation issues?"
+    },
+    {
+      "title": "Apply Review Fixes",
+      "scenario": "After code review",
+      "prompt": "The code review found several issues. Can you apply the automated fixes for unused imports and formatting?"
+    },
+    {
+      "title": "Error Recovery",
+      "scenario": "Test failures",
+      "prompt": "The tests are failing with assertion errors. Try to automatically fix the issues or escalate if needed."
+    }
+  ],
+  "bestPractices": [
+    "Always verify builds after making changes before submitting pull requests",
+    "Use the skill quality guardrails to prevent test tampering shortcuts",
+    "Review the diff before approving automated fixes to understand changes"
+  ],
+  "antiPatterns": [
+    "Skipping tests or removing assertions to make builds pass",
+    "Disabling lint rules instead of fixing underlying code issues",
+    "Using continue-on-error to bypass CI checks without resolving root causes"
+  ],
+  "faq": [
+    {
+      "question": "Which programming languages are supported?",
+      "answer": "Node.js, Python, Rust, and Go projects are supported with language-specific build commands"
+    },
+    {
+      "question": "What happens if automatic fixes fail?",
+      "answer": "The skill retries up to 3 times, then escalates with detailed error information and recommended actions"
+    },
+    {
+      "question": "Can it fix all types of errors?",
+      "answer": "It handles common patterns like missing modules and type errors but not complex architectural problems"
+    },
+    {
+      "question": "Is my code protected from harmful changes?",
+      "answer": "Yes, quality guardrails prevent test tampering and require approval for non-trivial changes"
+    },
+    {
+      "question": "How does it integrate with existing CI?",
+      "answer": "It runs the same commands as your CI ensuring consistency between local and CI environments"
+    },
+    {
+      "question": "Which AI platforms support this skill?",
+      "answer": "The skill works with Claude Code, Claude, and Codex across different AI coding platforms"
+    }
+  ],
+  "seoKeywords": [
+    "build verification",
+    "error recovery",
+    "test automation",
+    "CI fixes",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "code review",
+    "automated fixes",
+    "development workflow"
+  ],
+  "sourceUrl": "https://github.com/Chachamaru127/claude-code-harness/tree/main/skills/verify",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,146 @@
+{
+  "name": "unocss",
+  "type": "skill",
+  "description": "UnoCSS instant atomic CSS engine, superset of Tailwind CSS. Use when configuring UnoCSS, writing utility rules, shortcuts, or working with presets like Wind, Icons, Attributify.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "atomic CSS",
+  "quality": 5,
+  "qualityReason": "Modern CSS engine expertise",
+  "bundleHints": [
+    "frontend-stack",
+    "css-tools"
+  ],
+  "tags": [
+    "atomic-css",
+    "css",
+    "presets",
+    "shortcuts",
+    "styling",
+    "tailwind",
+    "unocss",
+    "utilities",
+    "utility-first",
+    "wind"
+  ],
+  "capabilities": [
+    "Provide UnoCSS configuration guidance for uno.config.ts files",
+    "Explain utility rules, shortcuts, and dynamic rules for custom CSS generation",
+    "Describe theme configuration for colors, breakpoints, and design tokens",
+    "Document preset options including Wind3, Wind4, Icons, Attributify, and Typography",
+    "Detail transformer features like @apply directives, variant grouping, and JSX support",
+    "Explain integrations with Vite and Nuxt frameworks"
+  ],
+  "author": "antfu",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill providing reference material for UnoCSS configuration. All static findings are false positives - patterns detected in markdown documentation code blocks are not executable code. This skill contains no code that performs network requests, filesystem operations, or external command execution.",
+  "valueStatement": "UnoCSS is an instant atomic CSS engine that provides a flexible, extensible alternative to Tailwind CSS. This skill helps developers configure UnoCSS, write custom utility rules, and leverage presets like Wind, Icons, and Attributify.",
+  "userTitle": "Configure and use UnoCSS atomic CSS",
+  "limitations": [
+    "This is a reference skill that provides documentation guidance - it does not write or modify code files",
+    "Does not install or configure UnoCSS in projects automatically",
+    "Cannot execute UnoCSS build processes or validate configurations",
+    "Limited to providing information based on UnoCSS documentation and best practices"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers setting up new projects",
+      "title": "Configure UnoCSS for a new project",
+      "description": "Set up a complete UnoCSS configuration with presets, custom rules, and theme customization for a new web project."
+    },
+    {
+      "targetUser": "CSS architects and design system maintainers",
+      "title": "Create custom utility rules",
+      "description": "Define custom CSS utility rules and shortcuts to extend UnoCSS with project-specific styling patterns."
+    },
+    {
+      "targetUser": "Full-stack developers integrating CSS frameworks",
+      "title": "Choose and configure presets",
+      "description": "Select and configure the appropriate UnoCSS presets for a project, such as Wind3 for Tailwind compatibility or Icons for icon libraries."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic UnoCSS configuration",
+      "prompt": "Help me configure UnoCSS in my project. I want to set up a basic configuration with the Wind3 preset, custom shortcuts for common patterns, and a custom theme with my brand colors.",
+      "scenario": "Setting up a new UnoCSS configuration from scratch"
+    },
+    {
+      "title": "Custom utility rules",
+      "prompt": "Show me how to create a custom static or dynamic utility rule in UnoCSS. I need to create utilities for specific design requirements that are not covered by the default presets.",
+      "scenario": "Extending UnoCSS with custom utility rules"
+    },
+    {
+      "title": "Using UnoCSS with frameworks",
+      "prompt": "How do I integrate UnoCSS with my [Vite/Nuxt] project? What configuration options do I need and how do I ensure hot module replacement works correctly?",
+      "scenario": "Integrating UnoCSS with build tools and frameworks"
+    },
+    {
+      "title": "Advanced features and transformers",
+      "prompt": "Explain how to use UnoCSS transformers like @apply directives, variant groups, and attributify mode. When should I use each feature and what are the performance implications?",
+      "scenario": "Using advanced UnoCSS features for productivity"
+    }
+  ],
+  "bestPractices": [
+    "Use the uno.config.ts file format for best IDE support, TypeScript hints, and hot module replacement",
+    "Start with a preset (like presetWind3 for Tailwind compatibility) and add customizations progressively",
+    "Define custom shortcuts for frequently used class combinations to keep HTML clean and maintainable",
+    "Use the safelist option sparingly - prefer extracting utilities from source code when possible"
+  ],
+  "antiPatterns": [
+    "Avoid putting too many utility classes directly in HTML - use shortcuts and custom rules instead",
+    "Do not use the full safelist as a replacement for proper utility extraction configuration",
+    "Avoid deeply nested custom rules that could conflict with preset utilities - test combinations",
+    "Do not ignore the extracting configuration - proper extraction significantly reduces CSS bundle size"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between UnoCSS and Tailwind CSS?",
+      "answer": "UnoCSS is a superset of Tailwind CSS syntax, meaning all valid Tailwind classes work. UnoCSS is designed to be instant (faster build times) and fully configurable - you can replace all default utilities with your own. Unlike Tailwind, UnoCSS has no mandatory dependencies and the core is un-opinionated."
+    },
+    {
+      "question": "Which preset should I choose for my project?",
+      "answer": "Use presetWind3 for projects migrating from Tailwind CSS or Windi CSS. Use presetWind4 for new projects wanting modern CSS features. Use presetMini for minimal bundles or when building custom preset configurations from scratch."
+    },
+    {
+      "question": "How does UnoCSS handle purging and tree-shaking?",
+      "answer": "UnoCSS automatically extracts used utilities from your source files during build time. Configure the content array in your config to specify which files to scan. Unused utilities are not included in the final CSS, keeping bundles small."
+    },
+    {
+      "question": "Can I use UnoCSS with React, Vue, or other frameworks?",
+      "answer": "Yes, UnoCSS works with any framework. Use the Vite integration for most modern frameworks (React, Vue, Svelte) or the Nuxt module for Nuxt applications. UnoCSS generates a virtual CSS module that integrates with any build system."
+    },
+    {
+      "question": "How do I create custom responsive variants?",
+      "answer": "Define custom variants in the variants configuration using the matcher function. Variants allow you to create custom prefix selectors like 'dark:', 'container:', or your own project-specific variants that apply conditional styling."
+    },
+    {
+      "question": "What are transformers and when should I use them?",
+      "answer": "Transformers modify source code before UnoCSS processes it. Use transformerDirectives for @apply syntax, transformerVariantGroup for grouping utilities, and transformerAttributifyJSX for JSX attributify mode. They improve developer experience but add processing overhead."
+    }
+  ],
+  "seoKeywords": [
+    "UnoCSS",
+    "atomic CSS",
+    "Tailwind CSS alternative",
+    "CSS utilities",
+    "utility classes",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "CSS framework",
+    "CSS configuration"
+  ],
+  "sourceUrl": "https://github.com/antfu/skills/tree/main/skills/unocss/",
+  "sourceType": "community",
+  "dependencies": []
+}

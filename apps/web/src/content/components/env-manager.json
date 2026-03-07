@@ -1,0 +1,139 @@
+{
+  "name": "env-manager",
+  "type": "skill",
+  "description": "Environment variable management, validation, and documentation.",
+  "domain": "devops",
+  "subdomain": "iac",
+  "specialty": "env validation",
+  "quality": 4,
+  "qualityReason": "Good utility, slight overlap",
+  "bundleHints": [
+    "devops-toolkit",
+    "configuration-management"
+  ],
+  "tags": [
+    "configuration",
+    "devops",
+    "documentation",
+    "environment-variables",
+    "security",
+    "validation",
+    "variables"
+  ],
+  "capabilities": [
+    "Analyze code to identify environment variables in use",
+    "Generate .env.example templates for projects",
+    "Validate environment variable formats and required values",
+    "Document environment configurations with descriptions and defaults",
+    "Provide security recommendations for secret handling"
+  ],
+  "author": "CuriousLearner",
+  "icon": "🔐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure prompt-based documentation skill containing only instructional markdown. The static analyzer flagged 188 patterns that appear in documentation examples, but all are false positives. The skill teaches legitimate environment variable management practices, explicitly recommends against committing secrets, and has no executable code, file access, network calls, or command execution capability.",
+  "valueStatement": "Managing environment variables across different environments can lead to errors, security issues, and configuration headaches. This skill helps you validate, document, and secure environment configurations for any project.",
+  "userTitle": "Manage environment variables",
+  "limitations": [
+    "Does not modify files on your filesystem",
+    "Does not execute shell commands or scripts",
+    "Does not access or read existing .env files",
+    "Does not connect to external services or APIs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers",
+      "title": "Set up new projects",
+      "description": "Generate environment configuration templates for new projects with proper validation and documentation"
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Audit configurations",
+      "description": "Review environment variable usage across codebases and identify missing or misconfigured variables"
+    },
+    {
+      "targetUser": "Security Teams",
+      "title": "Enforce best practices",
+      "description": "Verify projects follow secret management guidelines and do not hardcode sensitive values"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Generate template",
+      "scenario": "Create env file for new project",
+      "prompt": "@env-manager Generate a .env.example template for a Node.js application with PostgreSQL, Redis, and JWT authentication"
+    },
+    {
+      "title": "Validate variables",
+      "scenario": "Check configuration completeness",
+      "prompt": "@env-manager What environment variables are required for a production Node.js application and how should they be validated"
+    },
+    {
+      "title": "Document secrets",
+      "scenario": "Create env documentation",
+      "prompt": "@env-manager Create documentation template for environment variables including descriptions, examples, and security notes"
+    },
+    {
+      "title": "Security audit",
+      "scenario": "Review env practices",
+      "prompt": "@env-manager What security best practices should I follow for environment variable management in production"
+    }
+  ],
+  "bestPractices": [
+    "Use a validation library to check environment variables on application startup",
+    "Keep .env.example committed to version control with placeholder values",
+    "Use different configuration files for development, staging, and production environments"
+  ],
+  "antiPatterns": [
+    "Hardcoding secrets directly in source code",
+    "Committing .env files with real credentials to version control",
+    "Skipping validation and letting missing variables cause runtime errors"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill read my .env files?",
+      "answer": "No. This is a prompt-based skill that provides guidance. It does not access or read any files on your system."
+    },
+    {
+      "question": "What languages does it support?",
+      "answer": "The guidance applies to any language. Examples include Node.js, Python, and other languages using environment variables."
+    },
+    {
+      "question": "Can it validate my existing configuration?",
+      "answer": "The skill provides validation patterns and examples. Actual validation requires integration with your application code."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes. This skill runs entirely as a prompt response and does not transmit data, access files, or execute code."
+    },
+    {
+      "question": "What validation libraries are recommended?",
+      "answer": "For Node.js: envalid or dotenv. For Python: pydantic-settings or python-dotenv with manual validation."
+    },
+    {
+      "question": "How is this different from other config management tools?",
+      "answer": "This skill provides conceptual guidance and templates. Tools like Docker Secrets, AWS Secrets Manager, or Vault handle actual secret storage and injection."
+    }
+  ],
+  "seoKeywords": [
+    "environment variables",
+    "env manager",
+    "configuration management",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "dotenv",
+    "secret management",
+    "environment validation"
+  ],
+  "sourceUrl": "https://github.com/CuriousLearner/devkit/tree/main/skills/env-manager",
+  "sourceType": "community",
+  "dependencies": []
+}

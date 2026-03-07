@@ -1,0 +1,140 @@
+{
+  "name": "site-management",
+  "type": "skill",
+  "description": "Manage and monitor UniFi sites across your account. View site details, organization structure, and multi-site overview for centralized infrastructure management.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "UniFi monitoring",
+  "quality": 4,
+  "qualityReason": "Niche but well-defined",
+  "bundleHints": [
+    "network-ops",
+    "infrastructure-monitoring",
+    "unifi-tooling"
+  ],
+  "tags": [
+    "infrastructure",
+    "multi-site",
+    "network-management",
+    "site-monitoring",
+    "unifi"
+  ],
+  "capabilities": [
+    "List all UniFi sites in your account with names and locations",
+    "Get detailed information about specific site configurations",
+    "View site overview statistics and device counts",
+    "Analyze multi-site organization structure and hierarchy",
+    "Generate comprehensive site inventory reports",
+    "Compare site details across all locations"
+  ],
+  "author": "DataKnifeAI",
+  "icon": "🏢",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill consists only of documentation (SKILL.md) describing UniFi site management capabilities. No executable code, scripts, network calls, or file system access are present. All 21 static findings are false positives caused by the analyzer misinterpreting JSON metadata fields, markdown formatting syntax (backticks), and benign descriptive text as security patterns.",
+  "valueStatement": "Managing multiple UniFi sites across your network infrastructure requires manual access to each dashboard. This skill provides centralized site oversight, allowing you to list all sites, retrieve detailed configurations, and generate inventory reports through simple conversational queries.",
+  "userTitle": "Manage UniFi network sites",
+  "limitations": [
+    "Requires valid UniFi account credentials with API access",
+    "Cannot modify or create site configurations directly",
+    "Limited to sites accessible by your account credentials",
+    "Does not provision or manage network devices directly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Network administrators",
+      "title": "Multi-site oversight",
+      "description": "View all UniFi sites across your organization and verify configurations from a single conversational interface."
+    },
+    {
+      "targetUser": "IT managers",
+      "title": "Infrastructure reporting",
+      "description": "Generate comprehensive site inventory reports for compliance documentation and resource planning."
+    },
+    {
+      "targetUser": "System integrators",
+      "title": "Site planning",
+      "description": "Analyze existing site structures to identify gaps and plan new deployments across multiple locations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List all sites",
+      "scenario": "Get complete site inventory",
+      "prompt": "Show me all UniFi sites in my account with their names and locations."
+    },
+    {
+      "title": "Site details",
+      "scenario": "Retrieve specific site info",
+      "prompt": "What is the configuration of my headquarters site? Include all available details."
+    },
+    {
+      "title": "Organization view",
+      "scenario": "View site hierarchy",
+      "prompt": "Show me the full organization structure of all my UniFi sites."
+    },
+    {
+      "title": "Inventory report",
+      "scenario": "Generate site report",
+      "prompt": "Generate a complete site inventory report for all my UniFi locations."
+    }
+  ],
+  "bestPractices": [
+    "Maintain consistent naming conventions across all sites for easier identification and automation.",
+    "Regularly review site configurations to ensure standardization and compliance across locations.",
+    "Use site inventory reports to track device distribution and plan capacity across your infrastructure."
+  ],
+  "antiPatterns": [
+    "Do not rely on memory for site details - query the skill for accurate and current information.",
+    "Avoid modifying configurations without first reviewing current settings through the skill.",
+    "Do not ignore site health alerts - use overview tools to monitor status across all locations regularly."
+  ],
+  "faq": [
+    {
+      "question": "What UniFi products does this skill support?",
+      "answer": "This skill works with UniFi Network accounts that include site management capabilities through the official UniFi API."
+    },
+    {
+      "question": "How many sites can I manage at once?",
+      "answer": "The skill can list and display all sites accessible through your UniFi account credentials without specific limits."
+    },
+    {
+      "question": "Does this integrate with other UniFi tools?",
+      "answer": "This skill focuses on site-level management. Device-level control and network configuration require separate tools or skills."
+    },
+    {
+      "question": "Is my credential data stored by this skill?",
+      "answer": "Credentials are managed by your MCP client and are never stored or logged by this skill documentation."
+    },
+    {
+      "question": "Why am I seeing authentication errors?",
+      "answer": "Verify your UniFi credentials have access to the sites you are querying. Check account permissions and API access."
+    },
+    {
+      "question": "How is this different from the UniFi Console?",
+      "answer": "This skill provides programmatic access through AI conversation. The Console offers a full graphical interface for manual management."
+    }
+  ],
+  "seoKeywords": [
+    "unifi site management",
+    "network site monitoring",
+    "multi-site infrastructure",
+    "claude unifi",
+    "claude-code network",
+    "unifi dashboard",
+    "site inventory",
+    "network management",
+    "UniFi Network API",
+    "infrastructure oversight"
+  ],
+  "sourceUrl": "https://github.com/DataKnifeAI/unifi-manager-mcp/tree/main/.github/skills/site-management",
+  "sourceType": "community",
+  "dependencies": []
+}

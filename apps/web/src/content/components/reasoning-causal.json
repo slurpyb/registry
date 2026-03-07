@@ -1,0 +1,144 @@
+{
+  "name": "reasoning-causal",
+  "type": "skill",
+  "description": "Execute evidence-based decision-making through 6-stage causal flow. Use for known processes, operational execution, and decisions with clear cause-effect chains.",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "Causal flow",
+  "quality": 5,
+  "qualityReason": "Structured causal decision-making process",
+  "bundleHints": [
+    "reasoning-framework",
+    "operations-toolkit",
+    "decision-making"
+  ],
+  "tags": [
+    "causal",
+    "decision-making",
+    "evidence",
+    "execution",
+    "framework",
+    "operations",
+    "process",
+    "reasoning"
+  ],
+  "capabilities": [
+    "Execute 6-stage causal flow: Input → Hypothesis → Implication → Decision → Actions → Learning",
+    "Structure business decisions with thread architecture (operations, sales, marketing, engineering)",
+    "Calculate impact scores to determine AI autonomy vs human review requirements",
+    "Validate hypotheses against Canvas assumptions and update business model",
+    "Generate executable action plans with owners, deadlines, and success criteria",
+    "Document outcomes and auto-update strategic Canvas from learnings"
+  ],
+  "author": "BellaBe",
+  "icon": "🔗",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure markdown documentation skill containing only workflow templates and guidance. No executable code, file access, network calls, or external commands exist. All 440 static findings are false positives caused by markdown syntax being misidentified as security patterns.",
+  "valueStatement": "Make evidence-based decisions through a systematic 6-stage workflow. Start with factual observations, test hypotheses, quantify impact, commit to action, execute tasks, and capture learning.",
+  "userTitle": "Apply causal reasoning to business decisions",
+  "limitations": [
+    "Only supports structured workflows with clear cause-effect chains",
+    "Does not execute actions or integrate with external systems",
+    "Requires human input for factual observations and evidence",
+    "Does not perform automated data collection or analysis"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Business operators",
+      "title": "Strategic decision workflow",
+      "description": "Document market signals, analyze impact, make commitments, and track execution through 6 stages"
+    },
+    {
+      "targetUser": "Sales teams",
+      "title": "Deal pipeline management",
+      "description": "Track leads through qualification, demo, pilot, and close stages with structured reasoning"
+    },
+    {
+      "targetUser": "Engineering leads",
+      "title": "Requirements to execution",
+      "description": "Translate business requirements into specs with feasibility analysis and effort estimation"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start decision thread",
+      "scenario": "New business observation",
+      "prompt": "Start a new causal reasoning thread for [situation]. Create thread structure and document Stage 1: Input with factual observation, source, date, and context."
+    },
+    {
+      "title": "Analyze hypothesis",
+      "scenario": "Validate assumptions",
+      "prompt": "For thread [thread-name], complete Stage 2: Hypothesis. Identify which Canvas assumptions are challenged or validated. Set confidence levels and identify Canvas sections to update."
+    },
+    {
+      "title": "Quantify impact",
+      "scenario": "Business impact analysis",
+      "prompt": "Complete Stage 3: Implication for thread [thread-name]. Quantify revenue opportunity, costs, ROI, timeline, and risk. Classify as low/medium/high/critical impact."
+    },
+    {
+      "title": "Make commitment",
+      "scenario": "Decision point",
+      "prompt": "Complete Stage 4: Decision for thread [thread-name]. Document decision statement, alternatives considered, success metrics, and calculate impact score. Determine if human review required."
+    }
+  ],
+  "bestPractices": [
+    "Start each thread with factual observations only, no interpretation or solutions",
+    "Link every hypothesis to specific Canvas assumption IDs for traceability",
+    "Calculate impact scores using formula: (Revenue × 0.4) + (Strategic × 0.3) + (Risk × 0.2) + (Urgency × 0.1)",
+    "Complete Stage 6 Learning to auto-update Canvas with validated evidence"
+  ],
+  "antiPatterns": [
+    "Skipping stages or making decisions without completing the 6-stage flow",
+    "Including solutions or recommendations in Stage 1 Input",
+    "Missing confidence levels for hypotheses",
+    "Failing to update Canvas after Stage 6 Learning"
+  ],
+  "faq": [
+    {
+      "question": "What tools support this skill?",
+      "answer": "Compatible with Claude, Codex, and Claude Code. Works with any AI that can follow structured reasoning workflows."
+    },
+    {
+      "question": "What impact scores require human review?",
+      "answer": "Scores 0.7 or higher require human review. AI has full autonomy for scores below 0.7 when ROI exceeds 3x and risk is low-medium."
+    },
+    {
+      "question": "How does it integrate with other skills?",
+      "answer": "Links to goal-tracker for goal state updates. Reads Canvas assumptions for hypothesis validation. Spawns sales, marketing, or engineering threads for execution."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Pure prompt-based skill with no data collection. All data stays within your AI session. No external network calls or file system access."
+    },
+    {
+      "question": "Why is my thread stuck?",
+      "answer": "Check that each stage produces required outputs. Stage 1 needs facts, Stage 2 needs assumption links, Stage 3 needs numbers, Stage 4 needs decision."
+    },
+    {
+      "question": "How is this different from other reasoning skills?",
+      "answer": "Reasoning-causal uses structured 6-stage flow for known processes with clear cause-effect. Use abductive for diagnosis or inductive for pattern detection."
+    }
+  ],
+  "seoKeywords": [
+    "causal reasoning",
+    "decision making framework",
+    "6-stage workflow",
+    "evidence-based decisions",
+    "business operations",
+    "process execution",
+    "Claude Code",
+    "Claude",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/BellaBe/lean-os/tree/main/.claude/skills/reasoning-causal",
+  "sourceType": "community",
+  "dependencies": []
+}

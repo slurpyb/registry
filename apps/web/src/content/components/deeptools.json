@@ -1,0 +1,142 @@
+{
+  "name": "deeptools",
+  "type": "skill",
+  "description": "NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA, fingerprints), heatmaps/profiles (TSS, peaks), for ChIP-seq, RNA-seq, ATAC-seq visualization.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "NGS analysis",
+  "quality": 5,
+  "qualityReason": "Established bioinformatics suite",
+  "bundleHints": [
+    "genomics-pipeline",
+    "bioinformatics-stack",
+    "ngs-analysis"
+  ],
+  "tags": [
+    "bioinformatics",
+    "chip-seq",
+    "genomics",
+    "ngs",
+    "rna-seq",
+    "sequencing",
+    "visualization"
+  ],
+  "capabilities": [
+    "Convert BAM alignment files to normalized bigWig coverage tracks",
+    "Generate quality control metrics including correlation, PCA, and fingerprint plots",
+    "Create heatmaps and profile plots around genomic features like TSS and peaks",
+    "Compare treatment versus control samples with log2 ratio tracks",
+    "Validate input files for proper indexing and format",
+    "Generate ready-to-run workflow scripts for common analyses"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "BSD license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 519 static findings are FALSE_POSITIVES. The scanner misinterpreted markdown documentation examples with backticks as shell execution, 'SAM files' (Sequence Alignment/Map format) as Windows SAM database, and mentions of bioinformatics tools (samtools, plotFingerprint) as security threats. The Python scripts perform legitimate workflow generation for NGS analysis. No actual security risks present.",
+  "valueStatement": "Process and visualize next-generation sequencing data. Convert BAM to bigWig, generate quality control plots, and create publication-ready heatmaps for ChIP-seq, RNA-seq, and ATAC-seq experiments.",
+  "userTitle": "Analyze NGS data with deepTools",
+  "limitations": [
+    "Requires BAM files to be properly indexed with .bai files",
+    "Does not perform peak calling or read alignment",
+    "Large genome files require significant memory and processing time",
+    "Results depend on correct normalization method selection"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Genomics researchers",
+      "title": "QC for ChIP-seq experiments",
+      "description": "Validate ChIP quality, assess enrichment strength, and compare replicates before downstream analysis."
+    },
+    {
+      "targetUser": "Bioinformaticians",
+      "title": "Coverage track generation",
+      "description": "Create normalized bigWig files from BAM alignments for genome browser visualization."
+    },
+    {
+      "targetUser": "Data scientists",
+      "title": "Sample comparison",
+      "description": "Compare multiple samples with correlation analysis and generate publication-ready heatmaps."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic conversion",
+      "scenario": "Convert BAM to bigWig",
+      "prompt": "Convert my sample.bam file to a normalized bigWig coverage track using RPGC normalization for hg38 genome."
+    },
+    {
+      "title": "Quality check",
+      "scenario": "Assess ChIP quality",
+      "prompt": "Check the quality of my ChIP-seq experiment by generating a fingerprint plot and correlation heatmap."
+    },
+    {
+      "title": "Visualization",
+      "scenario": "Create TSS heatmap",
+      "prompt": "Generate a heatmap showing ChIP signal around transcription start sites for my H3K4me3 data."
+    },
+    {
+      "title": "Full workflow",
+      "scenario": "Complete ChIP-seq analysis",
+      "prompt": "Generate a complete ChIP-seq analysis workflow from BAM files to heatmaps comparing treatment versus input control."
+    }
+  ],
+  "bestPractices": [
+    "Always validate BAM files with the validation script before analysis to ensure indices exist",
+    "Choose appropriate normalization method: RPGC for ChIP-seq, CPM for RNA-seq bins, RPKM for gene-level analysis",
+    "Use --ignoreDuplicates to remove PCR duplicates unless specifically analyzing clonality"
+  ],
+  "antiPatterns": [
+    "Do not use --extendReads for RNA-seq analysis as it would extend across splice junctions",
+    "Avoid mixing normalization methods when comparing multiple samples",
+    "Do not skip quality control steps before detailed analysis"
+  ],
+  "faq": [
+    {
+      "question": "What normalization method should I use for ChIP-seq?",
+      "answer": "Use RPGC for ChIP-seq coverage tracks or CPM for simple normalization. Both require effective genome size."
+    },
+    {
+      "question": "Why is my BAM file giving an error?",
+      "answer": "Ensure the BAM file has a corresponding .bai index file. Run: samtools index yourfile.bam"
+    },
+    {
+      "question": "Can I use this for ATAC-seq data?",
+      "answer": "Yes. Use alignmentSieve with --ATACshift to apply Tn5 correction before coverage generation."
+    },
+    {
+      "question": "What genome size should I use?",
+      "answer": "Human hg38: 2913022398, Mouse mm10: 2652783500, Fly dm6: 142573017. Use the effective genome size, not assembly size."
+    },
+    {
+      "question": "How do I compare treatment vs control?",
+      "answer": "Use bamCompare with --operation log2 to create a log2 ratio track of ChIP over input."
+    },
+    {
+      "question": "Why are my heatmaps empty?",
+      "answer": "Check that your bigWig and BED files use matching genome assemblies and chromosomes."
+    }
+  ],
+  "seoKeywords": [
+    "deepTools",
+    "NGS analysis",
+    "ChIP-seq visualization",
+    "BAM to bigWig",
+    "quality control genomics",
+    "heatmap plot",
+    "bioinformatics",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/deeptools",
+  "sourceType": "community",
+  "dependencies": []
+}

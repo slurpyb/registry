@@ -1,0 +1,141 @@
+{
+  "name": "when-automating-github-actions-use-workflow-automation",
+  "type": "skill",
+  "description": "Advanced GitHub Actions workflow automation with AI swarm coordination, intelligent CI/CD pipelines, and comprehensive repository management. Coordinates cicd-engineer, workflow-automation, tester, and security-auditor agents through mesh topology to create, optimize, and maintain GitHub Actions workflows. Handles workflow generation, performance optimization, security hardening, matrix testing strategies, and workflow debugging. Use when building CI/CD pipelines, optimizing existing workflows, or establishing automation standards.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "workflow coordination",
+  "quality": 5,
+  "qualityReason": "AI-coordinated CI/CD",
+  "bundleHints": [
+    "ci-cd-swarm",
+    "github-automation"
+  ],
+  "tags": [
+    "automation",
+    "ci-cd",
+    "devops",
+    "github-actions",
+    "repository management",
+    "swarm coordination",
+    "workflows"
+  ],
+  "capabilities": [
+    "Generate CI/CD pipelines from scratch using 5 specialized AI agents",
+    "Optimize existing workflows for faster execution and lower costs",
+    "Debug failing workflows with systematic root cause analysis",
+    "Implement security hardening and secrets management best practices",
+    "Design matrix testing strategies across multiple OS and runtime versions",
+    "Create reusable workflows and composite actions for organization-wide reuse"
+  ],
+  "author": "DNYoussef",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing markdown documentation and prompt templates for AI agents. The static analyzer incorrectly flagged documentation examples as executable code. All 142 reported findings are false positives - there is no actual code execution, network access, or credential access in this skill package. Referenced scripts are external dependencies not bundled with the skill.",
+  "valueStatement": "Creating and maintaining CI/CD pipelines manually is time-consuming and error-prone. This skill coordinates specialized AI agents to design, implement, optimize, and debug GitHub Actions workflows in parallel.",
+  "userTitle": "Automate GitHub Actions workflows with AI agents",
+  "limitations": [
+    "Requires external scripts (workflow-generator.sh, workflow-validator.sh) to be present",
+    "Depends on MCP tools from claude-flow package for agent orchestration",
+    "GitHub repository access and permissions required for actual workflow deployment",
+    "Cannot execute workflows locally without the act tool installed"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Build CI/CD pipelines",
+      "description": "Create production-ready GitHub Actions workflows with testing, security scanning, and deployment automation"
+    },
+    {
+      "targetUser": "Security Engineers",
+      "title": "Harden workflow security",
+      "description": "Audit and strengthen GitHub Actions workflows against vulnerabilities, supply chain attacks, and secrets exposure"
+    },
+    {
+      "targetUser": "Development Teams",
+      "title": "Debug failing workflows",
+      "description": "Systematically diagnose and fix CI/CD failures including flaky tests, timeouts, and dependency issues"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create new workflow",
+      "scenario": "New project CI/CD setup",
+      "prompt": "Create a GitHub Actions CI/CD pipeline for my Node.js project with testing, linting, and deployment to npm"
+    },
+    {
+      "title": "Optimize slow workflow",
+      "scenario": "Performance improvement",
+      "prompt": "Analyze my existing workflow at .github/workflows/ci.yml and optimize it for faster execution with better caching"
+    },
+    {
+      "title": "Debug failing build",
+      "scenario": "CI failure investigation",
+      "prompt": "Debug my failing GitHub Actions workflow. The build job times out on ubuntu-latest with Node 18"
+    },
+    {
+      "title": "Implement matrix testing",
+      "scenario": "Cross-platform testing",
+      "prompt": "Add matrix testing to my workflow to test across ubuntu-latest, macos-latest, windows-latest with Node 16, 18, 20"
+    }
+  ],
+  "bestPractices": [
+    "Always pin GitHub Actions to specific commit SHAs instead of tags like @v1 or @latest",
+    "Use minimal permissions (GITHUB_TOKEN) and scope permissions at job level for least privilege",
+    "Implement caching strategies for dependencies, build artifacts, and Docker layers to reduce execution time"
+  ],
+  "antiPatterns": [
+    "Using @latest or @main for action versions (security and reproducibility risk)",
+    "Granting excessive permissions to GITHUB_TOKEN beyond what jobs require",
+    "Running all jobs serially when independent jobs could execute in parallel"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code through the claude-flow MCP integration."
+    },
+    {
+      "question": "What are the rate limits for GitHub Actions API calls?",
+      "answer": "GitHub API has a 5000 requests per hour limit for authenticated users. Use GITHUB_TOKEN for authenticated requests."
+    },
+    {
+      "question": "How do I integrate this with existing GitHub Actions workflows?",
+      "answer": "The skill analyzes your existing .github/workflows/ files and suggests optimizations or creates parallel workflows."
+    },
+    {
+      "question": "Is my repository data safe with this skill?",
+      "answer": "Yes. The skill only reads workflow files you explicitly provide. It does not access other repository data or secrets."
+    },
+    {
+      "question": "Why is my workflow running slowly after optimization?",
+      "answer": "First runs may be slower due to cache misses. Subsequent runs should be faster. Check cache key specificity."
+    },
+    {
+      "question": "How does this compare to GitHub's native workflow templates?",
+      "answer": "This skill provides AI-powered customization, multi-agent coordination, and advanced patterns beyond basic templates."
+    }
+  ],
+  "seoKeywords": [
+    "GitHub Actions automation",
+    "CI/CD pipeline",
+    "Claude Code workflow",
+    "DevOps automation",
+    "GitHub Actions workflow",
+    "CI pipeline automation",
+    "GitHub Actions optimization",
+    "DevOps pipeline",
+    "Claude automation",
+    "GitHub CI/CD"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/github-integration/when-automating-github-actions-use-workflow-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

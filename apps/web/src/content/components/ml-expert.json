@@ -1,0 +1,144 @@
+{
+  "name": "ml-expert",
+  "type": "skill",
+  "description": "Implement machine learning solutions including model architectures, training pipelines, optimization strategies, and performance improvements. This skill spawns a specialist ML implementation agent...",
+  "domain": "ai-ml",
+  "subdomain": "ml-ops",
+  "specialty": "model implementation",
+  "quality": 4,
+  "qualityReason": "Good detail, spawns agent",
+  "bundleHints": [
+    "ml-engineering",
+    "deep-learning"
+  ],
+  "tags": [
+    "agent-spawning",
+    "deep learning",
+    "deep-learning",
+    "machine-learning",
+    "model architectures",
+    "model-implementation",
+    "optimization",
+    "performance tuning",
+    "pytorch",
+    "training pipelines"
+  ],
+  "capabilities": [
+    "Implement neural network architectures from research papers and specifications",
+    "Build training pipelines with gradient handling, mixed precision, and checkpointing",
+    "Optimize model performance for inference speed, memory efficiency, and numerical stability",
+    "Write comprehensive unit tests with 90%+ coverage and integration tests",
+    "Apply PyTorch best practices including proper module registration and autograd handling",
+    "Integrate with ml-training-debugger for diagnosing and fixing training issues"
+  ],
+  "author": "DNYoussef",
+  "icon": "🤖",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate ML implementation skill. All 79 static findings are false positives. The scanner misidentified Python code examples (backticks in string literals) as shell commands, and benign ML terminology as cryptographic/network threats. The skill operates in plan mode with user approval for all changes. No malicious patterns, credential theft, or exfiltration behavior detected.",
+  "valueStatement": "Transform ML research into production code. Get expert implementation of neural architectures, training pipelines, and performance optimizations with comprehensive testing and validation.",
+  "userTitle": "Implement PyTorch ML Models",
+  "limitations": [
+    "Does not provide pretrained model weights or trained parameters",
+    "Cannot access external GPUs or cloud compute resources for actual training",
+    "Limited to generating and validating code; does not execute training loops itself",
+    "Requires reference papers or clear specifications for custom architecture implementation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "ML Engineers",
+      "title": "Implement Research Papers",
+      "description": "Transform academic papers into working PyTorch implementations with proper testing and documentation"
+    },
+    {
+      "targetUser": "Data Scientists",
+      "title": "Optimize Training Code",
+      "description": "Fix training issues and optimize model performance for faster inference and lower memory usage"
+    },
+    {
+      "targetUser": "DevOps Teams",
+      "title": "Build ML Pipelines",
+      "description": "Create production-ready training pipelines with checkpointing, validation, and monitoring"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Implementation",
+      "scenario": "Simple model request",
+      "prompt": "Implement a [architecture name] model in PyTorch with [n] layers and [d] hidden dimensions. Include proper initialization and docstrings."
+    },
+    {
+      "title": "Paper Implementation",
+      "scenario": "Research paper task",
+      "prompt": "Implement the [paper name] architecture from this paper specification. Target parameter count: [X]M. Framework: PyTorch. Include tests."
+    },
+    {
+      "title": "Training Pipeline",
+      "scenario": "Pipeline creation",
+      "prompt": "Build a complete training pipeline for my model. Include: mixed precision training, gradient checkpointing, learning rate scheduling, checkpoint saving, and validation loop."
+    },
+    {
+      "title": "Performance Tuning",
+      "scenario": "Optimization request",
+      "prompt": "Optimize my model for real-time inference. Current latency is [X]ms. Target: [Y]ms. Apply torch.compile, operator fusion, and memory optimizations."
+    }
+  ],
+  "bestPractices": [
+    "Provide reference papers or clear specifications when requesting custom architectures",
+    "Specify constraints upfront including parameter budget, memory limits, and speed requirements",
+    "Request tests and documentation in the same prompt for complete, verifiable deliverables"
+  ],
+  "antiPatterns": [
+    "Asking for implementation without reviewing the plan first breaks plan mode safety guarantees",
+    "Requesting changes to production code without updating corresponding unit tests",
+    "Skipping validation by not running the provided test suite before deployment"
+  ],
+  "faq": [
+    {
+      "question": "What ML frameworks are supported?",
+      "answer": "Primary support for PyTorch. Custom implementations work with standard tensor operations and can adapt to other frameworks."
+    },
+    {
+      "question": "What performance targets can I request?",
+      "answer": "Specify parameter counts, memory limits (VRAM), and latency requirements. Agent optimizes within constraints."
+    },
+    {
+      "question": "How does this integrate with other skills?",
+      "answer": "Works with ml-training-debugger for issue fixes and code-analyzer for quality review."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "The skill only accesses your project files. No external data transmission occurs during implementation."
+    },
+    {
+      "question": "Why does it ask before making changes?",
+      "answer": "Plan mode ensures transparency. You review and approve all code changes before they are applied."
+    },
+    {
+      "question": "How is this different from Codex?",
+      "answer": "Provides specialized ML expertise with structured methodology, testing standards, and optimization knowledge."
+    }
+  ],
+  "seoKeywords": [
+    "machine learning implementation",
+    "PyTorch",
+    "deep learning",
+    "Claude Code",
+    "Claude",
+    "model training",
+    "neural network",
+    "Codex",
+    "transformers",
+    "ML optimization"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/ml-expert",
+  "sourceType": "community",
+  "dependencies": []
+}

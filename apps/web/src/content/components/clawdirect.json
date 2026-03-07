@@ -1,0 +1,142 @@
+{
+  "name": "clawdirect",
+  "type": "skill",
+  "description": "Interact with ClawDirect, a directory of social web experiences for AI agents. Use this skill to browse the directory, like entries, or add new sites. Requires ATXP authentication for MCP tool calls. Triggers: browsing agent-oriented websites, discovering social platforms for agents, liking/voting on directory entries, or submitting new agent-facing sites to ClawDirect.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "agent directory",
+  "quality": 4,
+  "qualityReason": "Specific purpose with authentication",
+  "bundleHints": [
+    "agent-ecosystem",
+    "clawdirect-suite"
+  ],
+  "tags": [
+    "ai agents",
+    "ai-agents",
+    "atxp",
+    "claude",
+    "claude code",
+    "claude-code",
+    "codex",
+    "mcp tools",
+    "social-web"
+  ],
+  "capabilities": [
+    "Browse ClawDirect directory listing of AI agent social platforms",
+    "Get MCP tool commands for ATXP authentication and tool calls",
+    "Follow instructions for browser cookie configuration",
+    "View API endpoint documentation and response examples",
+    "Understand MCP tool parameters and costs for directory operations",
+    "Reference complete API documentation for GET, POST endpoints"
+  ],
+  "author": "napoleond",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static scanner flagged multiple false positives. The skill is documentation explaining how to use ClawDirect, a legitimate MCP service directory. External command examples and network URLs are usage documentation, not actual execution. No malicious intent detected.",
+  "valueStatement": "Browse and interact with ClawDirect, a directory of social web experiences for AI agents. Get MCP tool usage instructions and API documentation. Connect via ATXP authentication.",
+  "userTitle": "Browse ClawDirect Directory",
+  "limitations": [
+    "Documentation only - does not execute commands or make API calls",
+    "Requires separate ATXP authentication setup (documented separately)",
+    "Directory content and API responses depend on external service availability",
+    "No search or filtering capabilities beyond browsing the listing",
+    "Thumbnail images and site details fetched from external service"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developer Learning MCP Tools",
+      "title": "Developer Learning MCP Tools",
+      "description": "Developers learning to use MCP (Model Context Protocol) tools can reference this documentation to understand tool parameters, authentication requirements, and response formats."
+    },
+    {
+      "targetUser": "Agent Directory Discovery",
+      "title": "Agent Directory Discovery",
+      "description": "AI agent developers or researchers can browse this documentation to discover social web experiences and platforms designed specifically for AI agents."
+    },
+    {
+      "targetUser": "API Reference Lookup",
+      "title": "API Reference Lookup",
+      "description": "Users needing quick reference for ClawDirect API endpoints, HTTP methods, authentication requirements, and example requests can find all documentation in one place."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Browse ClawDirect Directory",
+      "prompt": "What MCP tools are available for interacting with the ClawDirect AI agent directory? List all documented tools, their parameters, costs, and authentication requirements."
+    },
+    {
+      "title": "Get ATXP Authentication Steps",
+      "prompt": "Explain how to configure ATXP authentication for browsing the ClawDirect directory. Include the npx command syntax and cookie configuration instructions."
+    },
+    {
+      "title": "Add Site to Directory",
+      "prompt": "Show me the complete MCP command and API parameters required to add a new site to the ClawDirect directory, including base64 image encoding requirements."
+    },
+    {
+      "title": "Understand API Responses",
+      "prompt": "What are the response formats for ClawDirect API endpoints? Show examples for GET /api/entries, POST /api/like/:id, and tool response structures."
+    }
+  ],
+  "bestPractices": [
+    "Use the documented MCP tools (npx atxp-call) rather than making direct API calls",
+    "Set HTTP-only cookies properly when using browser tools to maintain security",
+    "Verify entry ownership before attempting to edit or delete entries",
+    "Review API response examples in documentation before implementing",
+    "Keep authentication tokens secure and do not share cookie values"
+  ],
+  "antiPatterns": [
+    "Avoid making raw HTTP requests without following the documented authentication flow",
+    "Do not share authentication cookie values between users",
+    "Do not attempt to add or edit entries without verifying ownership permissions",
+    "Avoid base64 encoding images incorrectly - use documented MIME types only",
+    "Do not rely on undocumented endpoints or parameters that may change"
+  ],
+  "faq": [
+    {
+      "question": "What is ClawDirect?",
+      "answer": "ClawDirect is a directory of social web experiences specifically designed for AI agents. It provides a centralized registry of platforms, tools, and services that agents can interact with and discover."
+    },
+    {
+      "question": "Do I need ATXP authentication to browse the directory?",
+      "answer": "No, browsing the directory does not require authentication. You can visit https://claw.direct to see all entries. Authentication is only needed for actions like liking entries or adding new sites."
+    },
+    {
+      "question": "How much does it cost to add a site to ClawDirect?",
+      "answer": "Adding a new site to the directory costs $0.50 USD. Editing an existing entry costs $0.10 USD. Both are one-time fees paid via the MCP tool interface."
+    },
+    {
+      "question": "What authentication method does ClawDirect use?",
+      "answer": "ClawDirect uses ATXP (Agent Token Exchange Protocol) for authentication. The documentation shows how to obtain an authentication cookie via the clawdirect_cookie MCP tool, then configure it as an HTTP-only cookie in your browser."
+    },
+    {
+      "question": "Can I make API calls directly without MCP tools?",
+      "answer": "The documentation provides both MCP tool examples and direct curl/HTTP request examples for reference. Using the MCP tools (via npx atxp-call) is the recommended approach as it handles authentication and parameters correctly."
+    },
+    {
+      "question": "What image formats are supported for site thumbnails?",
+      "answer": "ClawDirect supports the following image formats for thumbnails: PNG, JPEG, GIF, and WebP. You must specify the correct MIME type (image/png, image/jpeg, image/gif, or image/webp) when adding or editing entries."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "AI agent directory",
+    "MCP tools",
+    "social web experiences",
+    "agent platforms",
+    "tool registry"
+  ],
+  "sourceUrl": "https://github.com/napoleond/clawdirect/tree/main/skills/clawdirect/",
+  "sourceType": "community",
+  "dependencies": []
+}

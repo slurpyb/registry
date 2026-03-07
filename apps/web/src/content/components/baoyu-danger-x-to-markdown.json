@@ -1,0 +1,135 @@
+{
+  "name": "baoyu-danger-x-to-markdown",
+  "type": "skill",
+  "description": "Convert X (Twitter) tweet or article URL to markdown. Uses reverse-engineered X API (private). Requires user consent before use.",
+  "domain": "tools",
+  "subdomain": "browser",
+  "specialty": "X API Scraping",
+  "quality": 3,
+  "qualityReason": "Uses reverse-engineered API",
+  "bundleHints": [
+    "scraping-tools",
+    "content-extraction"
+  ],
+  "tags": [
+    "content-conversion",
+    "markdown",
+    "private-api",
+    "social-media",
+    "twitter",
+    "x"
+  ],
+  "capabilities": [
+    "Convert single tweets to markdown with YAML front matter",
+    "Extract full thread conversations with all replies",
+    "Parse X Articles into structured markdown format",
+    "Authenticate via environment variables or Chrome browser login",
+    "Output as JSON or markdown file with configurable paths"
+  ],
+  "author": "jimliu",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "medium",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a legitimate X/Twitter content conversion utility. The heuristic flagged a 'dangerous combination' of code execution, network access, and credential handling. After evaluation, these patterns are FALSE POSITIVES - they represent standard browser automation for X authentication via Chrome DevTools Protocol. The skill uses child_process.spawn to launch Chrome, reads local browser cookies, and makes API calls to X - all required for its documented functionality. The reverse-engineered API usage is transparently disclosed with a consent flow requiring user acceptance before use.",
+  "valueStatement": "Converting X (Twitter) content to markdown is time-consuming when done manually. This skill automates the extraction of tweets, threads, and articles into clean markdown with YAML front matter, preserving content structure and metadata.",
+  "userTitle": "Convert X/Twitter URLs to Markdown",
+  "limitations": [
+    "Uses reverse-engineered X API - may break without notice if X changes",
+    "Requires X authentication (auth_token and ct0 cookies)",
+    "No official support or guarantees from X",
+    "Account restrictions possible if API usage detected by X"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Researchers, journalists, content curators",
+      "title": "Archive Important Tweets",
+      "description": "Save tweets and threads from thought leaders, journalists, or public figures to offline markdown files for research and reference."
+    },
+    {
+      "targetUser": "Bloggers, content marketers, writers",
+      "title": "Blog Content Preparation",
+      "description": "Convert X Articles to markdown for republishing or quoting in blog posts with proper attribution metadata."
+    },
+    {
+      "targetUser": "Knowledge managers, educators, analysts",
+      "title": "Knowledge Base Building",
+      "description": "Systematically collect and organize Twitter threads on specific topics into a searchable markdown knowledge base."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Tweet Conversion",
+      "prompt": "Convert this X URL to markdown: https://x.com/username/status/1234567890\n\nSave the output to ./output/tweet-1234567890.md",
+      "scenario": "Converting a single tweet to markdown"
+    },
+    {
+      "title": "Thread Extraction",
+      "prompt": "Extract the full thread from this tweet URL. The URL is: https://x.com/tech_expert/status/9876543210\n\nOutput directory: ./threads/tech-insights/"
+    },
+    {
+      "title": "Article to Markdown",
+      "prompt": "Convert this X Article to markdown format:\nhttps://x.com/i/article/5555555555\n\nOutput path: ./articles/topic-name.md",
+      "scenario": "Converting X Articles to markdown"
+    },
+    {
+      "title": "JSON Output for Processing",
+      "prompt": "Convert this tweet URL to JSON format for programmatic processing:\nhttps://x.com/developer/status/1112223333\n\nUse: npx -y bun skills/baoyu-danger-x-to-markdown/scripts/main.ts <url> --json"
+    }
+  ],
+  "bestPractices": [
+    "Set X_AUTH_TOKEN and X_CT0 environment variables for automation without browser login",
+    "Use --json flag when integrating with scripts for parseable output",
+    "Accept the disclaimer when prompted - the tool uses reverse-engineered X API"
+  ],
+  "antiPatterns": [
+    "Do not use for bulk scraping - this may trigger X rate limits or account restrictions",
+    "Do not share authentication cookies - they grant access to your X account",
+    "Do not assume indefinite functionality - reverse-engineered APIs can break without notice"
+  ],
+  "faq": [
+    {
+      "question": "How does authentication work?",
+      "answer": "The skill authenticates via X cookies. Set X_AUTH_TOKEN and X_CT0 environment variables, or the tool will launch Chrome for interactive login on first run."
+    },
+    {
+      "question": "What X content can be converted?",
+      "answer": "Single tweets, threads (all replies in conversation), and X Articles are supported. Public and authenticated content works."
+    },
+    {
+      "question": "Is this an official X API?",
+      "answer": "No, this uses a reverse-engineered X API. X may change their API without notice, potentially breaking this tool."
+    },
+    {
+      "question": "Where are cookies stored?",
+      "answer": "Cookies are cached locally in the skill data directory (~/.local/share/baoyu-skills/x-to-markdown/ on Linux)."
+    },
+    {
+      "question": "Can I use this programmatically?",
+      "answer": "Yes, use --json flag for parseable output. The tool can be called from scripts with URL and output path arguments."
+    },
+    {
+      "question": "What happens if X blocks the API?",
+      "answer": "The tool may stop working without notice. The disclaimer explains this risk. Always archive important content locally."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "X to markdown",
+    "Twitter to markdown",
+    "tweet converter",
+    "content extraction",
+    "social media conversion"
+  ],
+  "sourceUrl": "https://github.com/jimliu/baoyu-skills/tree/main/skills/baoyu-danger-x-to-markdown/",
+  "sourceType": "community",
+  "dependencies": []
+}

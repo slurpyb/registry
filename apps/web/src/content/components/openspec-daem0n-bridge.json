@@ -1,0 +1,140 @@
+{
+  "name": "openspec-daem0n-bridge",
+  "type": "skill",
+  "description": "Bridges OpenSpec (spec-driven development) with Daem0n-MCP memory - auto-imports specs, informs proposals with past outcomes, converts archived changes to learnings",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "Spec memory",
+  "quality": 4,
+  "qualityReason": "Integration with memory",
+  "bundleHints": [
+    "spec-driven",
+    "agent-memory",
+    "development-bridge"
+  ],
+  "tags": [
+    "auto-import",
+    "daem0n",
+    "integration",
+    "learnings",
+    "memory",
+    "openspec",
+    "specifications"
+  ],
+  "capabilities": [
+    "Auto-detects OpenSpec directories and imports specifications to memory",
+    "Converts MUST and SHOULD requirements into enforceable rules",
+    "Provides relevant context from past decisions before creating proposals",
+    "Converts archived changes into learnings for future reference",
+    "Links related memories to create causal chains between decisions and outcomes"
+  ],
+  "author": "DasBluEyedDevil",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 95 static findings are false positives. This skill contains only markdown documentation describing integration workflows between OpenSpec and Daem0n-MCP. The detected patterns are code examples within markdown fenced blocks, not executable code. No actual shell execution, cryptographic operations, or security risks exist.",
+  "valueStatement": "AI assistants often lack context about project specifications and past decisions. This skill syncs OpenSpec requirements to Daem0n memory, enabling informed proposals and preserving learnings.",
+  "userTitle": "Bridge OpenSpec Specifications with Daem0n Memory",
+  "limitations": [
+    "Requires existing OpenSpec directory structure in the project",
+    "Depends on Daem0n-MCP being installed and accessible",
+    "Only parses standard markdown spec file format",
+    "Cannot modify specifications directly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development teams using OpenSpec",
+      "title": "Maintain Specification Consistency",
+      "description": "Ensure AI assistants reference current specifications when proposing changes. Reduce deviation from established patterns."
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Track Implementation Outcomes",
+      "description": "Convert completed implementations into learnings. Build organizational knowledge from past successes and failures."
+    },
+    {
+      "targetUser": "Individual developers",
+      "title": "Context-Aware Proposal Creation",
+      "description": "Get warnings about past failures and relevant rules before proposing changes. Improve proposal success rates."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Sync Specifications",
+      "scenario": "Starting work on a project with OpenSpec",
+      "prompt": "Sync all specifications from my openspec directory to Daem0n memory."
+    },
+    {
+      "title": "Check Before Proposing",
+      "scenario": "Planning a new feature implementation",
+      "prompt": "I want to add OAuth support. What specifications and past outcomes should I consider before proposing this change?"
+    },
+    {
+      "title": "Record Archived Change",
+      "scenario": "Completed a feature implementation",
+      "prompt": "I archived change AUTH-001. Please record the outcome and create learnings for future reference."
+    },
+    {
+      "title": "Refresh Spec Memory",
+      "scenario": "Specifications have been updated",
+      "prompt": "Our specs have changed. Please refresh Daem0n memory with the latest OpenSpec updates."
+    }
+  ],
+  "bestPractices": [
+    "Call get_briefing() at session start to enable automatic OpenSpec detection",
+    "Record proposal decisions before implementing to maintain an audit trail",
+    "Archive completed changes promptly to capture learnings while context is fresh"
+  ],
+  "antiPatterns": [
+    "Creating proposals without checking existing specifications and past outcomes",
+    "Manually editing memories created by this skill instead of using refresh commands",
+    "Skipping the archive step after completing changes which loses valuable learnings"
+  ],
+  "faq": [
+    {
+      "question": "Is this compatible with all OpenSpec versions?",
+      "answer": "Yes, it works with standard OpenSpec markdown format. Custom formats may require pattern adjustments."
+    },
+    {
+      "question": "What if Daem0n-MCP is not installed?",
+      "answer": "The skill will detect missing MCP tools and prompt you to install Daem0n-MCP first."
+    },
+    {
+      "question": "Can I use this with multiple projects?",
+      "answer": "Yes. The skill maintains separate memory contexts per project based on current working directory."
+    },
+    {
+      "question": "How are specification conflicts handled?",
+      "answer": "Each spec creates separate memories. Conflicts are surfaced during proposal creation for human resolution."
+    },
+    {
+      "question": "What happens when specs change frequently?",
+      "answer": "Use the refresh command to update memories. Old versions are superseded, not deleted."
+    },
+    {
+      "question": "Does this require an internet connection?",
+      "answer": "No. All operations are local. It reads local spec files and uses local Daem0n memory."
+    }
+  ],
+  "seoKeywords": [
+    "openspec",
+    "daem0n",
+    "claude",
+    "claude code",
+    "codex",
+    "specification management",
+    "AI memory",
+    "spec-driven development",
+    "development workflow"
+  ],
+  "sourceUrl": "https://github.com/DasBluEyedDevil/Daem0n-MCP/tree/main/.claude/skills/openspec-daem0n-bridge",
+  "sourceType": "community",
+  "dependencies": []
+}

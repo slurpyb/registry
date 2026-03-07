@@ -1,0 +1,141 @@
+{
+  "name": "machine-learning",
+  "type": "skill",
+  "description": "Machine learning development patterns, model training, evaluation, and",
+  "domain": "ai-ml",
+  "subdomain": "ml-ops",
+  "specialty": "ML development",
+  "quality": 4,
+  "qualityReason": "Broad but foundational",
+  "bundleHints": [
+    "ml-stack",
+    "data-science"
+  ],
+  "tags": [
+    "data-science",
+    "deployment",
+    "evaluation",
+    "machine-learning",
+    "mlops",
+    "model-training",
+    "pipelines"
+  ],
+  "capabilities": [
+    "Guide ML problem definition and metric selection",
+    "Provide data preprocessing and feature engineering patterns",
+    "Recommend model selection based on data characteristics",
+    "Explain hyperparameter tuning strategies",
+    "Outline production deployment patterns and monitoring",
+    "Share MLOps best practices for experiment tracking"
+  ],
+  "author": "Joseph OBrien",
+  "icon": "🧠",
+  "version": "1.0.1",
+  "license": "UNLICENSED",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown guidance for ML development. All static findings are FALSE POSITIVES: The 'external_commands' detections are Python variable names (X_train, X_test) that regex incorrectly matches as backticks; the 'C2 keywords' and 'weak cryptographic algorithm' detections are SHA256 content hash strings in metadata; the 'system reconnaissance' detections are standard ML monitoring references. No executable code, scripts, network calls, or command execution capabilities exist.",
+  "valueStatement": "Building machine learning systems requires navigating complex choices from data preprocessing to production deployment. This skill provides battle-tested patterns for the complete ML lifecycle.",
+  "userTitle": "Apply ML Development Best Practices",
+  "limitations": [
+    "Does not execute code or interact with ML frameworks directly",
+    "Does not provide custom model implementations or trained weights",
+    "Cannot access external data sources or APIs",
+    "Does not replace domain expertise for specific use cases"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data scientists",
+      "title": "Structure ML Projects",
+      "description": "Follow proven patterns from data prep through model deployment"
+    },
+    {
+      "targetUser": "ML Engineers",
+      "title": "Deploy Models to Production",
+      "description": "Learn serving patterns, monitoring strategies, and maintenance schedules"
+    },
+    {
+      "targetUser": "Software Engineers",
+      "title": "Add ML to Applications",
+      "description": "Integrate ML capabilities using REST APIs and batch inference"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Problem Definition",
+      "scenario": "Start new ML project",
+      "prompt": "Help me define the right ML problem type and success metrics for [use case description]."
+    },
+    {
+      "title": "Data Preprocessing",
+      "scenario": "Prepare data for training",
+      "prompt": "What are the best practices for preprocessing [data type] with [specific challenges]?"
+    },
+    {
+      "title": "Model Selection",
+      "scenario": "Choose algorithms",
+      "prompt": "Recommend appropriate models for [data size] records with [problem type]. Explain trade-offs."
+    },
+    {
+      "title": "Production Deployment",
+      "scenario": "Deploy trained model",
+      "prompt": "What deployment patterns work best for [use case] with requirements: [latency, throughput]?"
+    }
+  ],
+  "bestPractices": [
+    "Always use held-out test sets for final evaluation after validating on cross-validation",
+    "Fit preprocessing on training data only, then transform test data to prevent leakage",
+    "Track experiments with version control for code, data, and model artifacts"
+  ],
+  "antiPatterns": [
+    "Using accuracy alone for imbalanced classification problems",
+    "Fitting preprocessing steps on the entire dataset before splitting",
+    "Deploying models without monitoring for data drift and performance degradation"
+  ],
+  "faq": [
+    {
+      "question": "What ML frameworks does this skill support?",
+      "answer": "Framework-agnostic guidance applicable to scikit-learn, TensorFlow, PyTorch, XGBoost, and similar libraries."
+    },
+    {
+      "question": "What data sizes can Claude handle with this skill?",
+      "answer": "The skill provides guidance for small, medium, and large datasets with appropriate algorithm recommendations."
+    },
+    {
+      "question": "How does this skill integrate with other skills?",
+      "answer": "Works with performance, testing, database-optimization, and debugging skills for complete ML workflows."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only provides guidance patterns. No data is stored, transmitted, or processed externally."
+    },
+    {
+      "question": "Why is my model performing poorly on new data?",
+      "answer": "Common causes include data leakage, overfitting, and distribution shift between training and production data."
+    },
+    {
+      "question": "How does this compare to AutoML tools?",
+      "answer": "This skill explains concepts and patterns. AutoML automates selection. Understanding both approaches together is most effective."
+    }
+  ],
+  "seoKeywords": [
+    "machine learning",
+    "ML development",
+    "model training",
+    "feature engineering",
+    "MLOps",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "data preprocessing",
+    "model evaluation"
+  ],
+  "sourceUrl": "https://github.com/89jobrien/steve/tree/main/steve/skills/machine-learning",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "research-lookup",
+  "type": "skill",
+  "description": "Look up current research information using Perplexity's Sonar Pro Search or Sonar Reasoning Pro models through OpenRouter. Automatically selects the best model based on query complexity. Search academic papers, recent studies, technical documentation, and general research information with citations.",
+  "domain": "tools",
+  "subdomain": "search",
+  "specialty": "academic search",
+  "quality": 5,
+  "qualityReason": "Model selection and academic focus",
+  "bundleHints": [
+    "research-search",
+    "academic-tools"
+  ],
+  "tags": [
+    "academic",
+    "citations",
+    "literature-review",
+    "openrouter",
+    "research",
+    "scientific",
+    "sonar-pro"
+  ],
+  "capabilities": [
+    "Search academic papers and peer-reviewed journals via Perplexity Sonar models",
+    "Automatic citation extraction with DOI and source links",
+    "Intelligent model selection between Pro Search and Reasoning Pro",
+    "Batch query processing for literature reviews",
+    "Focus on recent publications (2020-2026)",
+    "Protocol and methodology information lookup"
+  ],
+  "author": "davila7",
+  "icon": "🔬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate academic research tool. All static findings are false positives: env_access is standard API authentication, external_commands are markdown backticks in documentation, network access is essential for Perplexity API calls, and the 'dangerous combination' heuristic misinterprets normal API usage patterns as suspicious.",
+  "valueStatement": "Finding current research and academic papers takes significant time. This skill uses Perplexity Sonar models through OpenRouter to search academic literature, recent studies, and technical documentation with automatic citations.",
+  "userTitle": "Search academic papers and research",
+  "limitations": [
+    "Requires OPENROUTER_API_KEY and credits for API access",
+    "Cannot access paywalled full-text articles directly",
+    "May miss very recent papers not yet indexed in search",
+    "Dependent on Perplexity API availability and rate limits"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Academic researchers",
+      "title": "Literature reviews",
+      "description": "Gather current research for papers, theses, and grant proposals with proper citations."
+    },
+    {
+      "targetUser": "Scientific writers",
+      "title": "Fact verification",
+      "description": "Verify claims, statistics, and findings against current peer-reviewed sources."
+    },
+    {
+      "targetUser": "Graduate students",
+      "title": "Paper discovery",
+      "description": "Find relevant studies and foundational works for literature review sections."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple paper search",
+      "scenario": "Find recent papers on a topic",
+      "prompt": "Find recent academic papers on [TOPIC] from 2024. Include authors, titles, journals, and DOIs."
+    },
+    {
+      "title": "Compare studies",
+      "scenario": "Compare different approaches",
+      "prompt": "Compare [METHOD A] versus [METHOD B] for [APPLICATION]. Include key studies with citations."
+    },
+    {
+      "title": "Protocol lookup",
+      "scenario": "Find experimental methods",
+      "prompt": "What is the standard protocol for [PROCEDURE]? Include step-by-step and recent improvements."
+    },
+    {
+      "title": "Systematic review",
+      "scenario": "Comprehensive literature gathering",
+      "prompt": "Conduct a systematic review on [RESEARCH QUESTION]. Find all relevant randomized controlled trials, meta-analyses, and systematic reviews from 2020-2024 with full citations."
+    }
+  ],
+  "bestPractices": [
+    "Use specific queries with timeframes (e.g., 2024) for better results",
+    "Break complex literature reviews into multiple focused queries",
+    "Always verify citations against original sources for accuracy",
+    "Combine with WebSearch to verify publication metadata like DOIs and years"
+  ],
+  "antiPatterns": [
+    "Asking overly broad queries like tell me about AI",
+    "Relying solely on AI-generated citations without verification",
+    "Expecting access to full-text articles behind paywalls",
+    "Ignoring the automatic model selection for simple vs complex queries"
+  ],
+  "faq": [
+    {
+      "question": "What models does this skill use?",
+      "answer": "Perplexity Sonar Pro Search for fast lookups and Sonar Reasoning Pro for complex analysis. Automatic selection based on query keywords."
+    },
+    {
+      "question": "How much do queries cost?",
+      "answer": "Typical costs range from $0.01 to $0.05 per query through OpenRouter. Monitor usage through your OpenRouter dashboard."
+    },
+    {
+      "question": "Can I use this with other AI tools?",
+      "answer": "Yes, works with Claude, Codex, and Claude Code. The skill makes independent API calls to OpenRouter."
+    },
+    {
+      "question": "Is my research data sent anywhere?",
+      "answer": "Queries are sent to OpenRouter to access Perplexity models. No research data is stored or shared beyond completing your request."
+    },
+    {
+      "question": "Why are some citations incomplete?",
+      "answer": "Citations depend on what Perplexity API returns. Some sources may lack full metadata. Use WebSearch to verify details."
+    },
+    {
+      "question": "How is this different from WebSearch?",
+      "answer": "Research-lookup uses Perplexity Sonar models optimized for academic sources. WebSearch is a general web search better for current events and non-academic sources."
+    }
+  ],
+  "seoKeywords": [
+    "Claude research skill",
+    "academic paper search",
+    "literature review tool",
+    "scientific research lookup",
+    "citation finder",
+    "Perplexity Sonar",
+    "OpenRouter API",
+    "Claude Code research",
+    "academic search tool",
+    "paper citation finder"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/research-lookup",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "rag-implementation",
+  "type": "skill",
+  "description": "Build Retrieval-Augmented Generation (RAG) systems for LLM applications with vector databases and semantic search. Use when implementing knowledge-grounded AI, building document Q&A systems, or integrating LLMs with external knowledge bases.",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "knowledge-grounded AI",
+  "quality": 5,
+  "qualityReason": "Clear implementation focus",
+  "bundleHints": [
+    "ai-stack",
+    "llm-engineering"
+  ],
+  "tags": [
+    "document-qa",
+    "embeddings",
+    "llm-integration",
+    "rag",
+    "retrieval",
+    "semantic-search",
+    "vector-databases"
+  ],
+  "capabilities": [
+    "Provides a quick start RAG pipeline example with loaders, chunking, embeddings, and retrieval.",
+    "Describes vector database options and setup patterns for Pinecone, Weaviate, Chroma, Milvus, Qdrant, and FAISS.",
+    "Explains retrieval strategies like hybrid search, multi-query retrieval, contextual compression, and parent document retriever.",
+    "Shows reranking approaches including cross-encoder, Cohere Rerank, and Maximal Marginal Relevance (MMR).",
+    "Outlines evaluation metrics for accuracy, retrieval quality, and groundedness with test case structure."
+  ],
+  "author": "wshobson",
+  "icon": "📚",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing Markdown guides with Python code examples. No executable scripts, network calls, or file access capabilities exist in the skill itself. All static findings are false positives from the scanner misinterpreting documentation patterns as security risks. Code examples demonstrate typical RAG patterns using LangChain APIs. No obfuscation, persistence mechanisms, or malicious patterns detected.",
+  "valueStatement": "You need accurate answers from private documents and changing data. This skill explains RAG components and retrieval patterns to ground responses with sources.",
+  "userTitle": "Build a grounded RAG pipeline",
+  "limitations": [
+    "Does not execute code or connect to databases.",
+    "Does not ingest or index documents automatically.",
+    "Examples focus on Python and LangChain style APIs.",
+    "No deployment, scaling, or cost guidance."
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product engineer",
+      "title": "Design a RAG chatbot",
+      "description": "Plan a retrieval pipeline that grounds answers with citations from internal documentation."
+    },
+    {
+      "targetUser": "Data scientist",
+      "title": "Evaluate retrieval quality",
+      "description": "Define metrics and test cases to measure accuracy, grounding, and retrieval quality."
+    },
+    {
+      "targetUser": "Platform team",
+      "title": "Select vector storage",
+      "description": "Compare vector database options and choose an approach that fits scale and deployment needs."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "RAG basics",
+      "scenario": "New project setup",
+      "prompt": "Create a simple RAG plan for a document Q&A app. Include data ingestion, chunking, embeddings, vector store choice, and retrieval chain."
+    },
+    {
+      "title": "Hybrid retrieval",
+      "scenario": "Improve recall",
+      "prompt": "Design a hybrid retrieval strategy using dense and BM25. Specify k values, weights, and when to rerank."
+    },
+    {
+      "title": "Reranking plan",
+      "scenario": "Increase precision",
+      "prompt": "Propose a reranking approach with cross-encoders or MMR. Explain candidate size and selection criteria."
+    },
+    {
+      "title": "Evaluation design",
+      "scenario": "Quality audit",
+      "prompt": "Draft an evaluation plan for a RAG system. Include accuracy, retrieval quality, groundedness metrics, and test case structure."
+    }
+  ],
+  "bestPractices": [
+    "Use metadata for filtering and debugging.",
+    "Combine hybrid search with reranking for top results.",
+    "Track retrieval metrics during evaluation."
+  ],
+  "antiPatterns": [
+    "Indexing documents without chunk overlap.",
+    "Skipping citations in user-facing answers.",
+    "Using only dense retrieval for keyword-heavy queries."
+  ],
+  "faq": [
+    {
+      "question": "Which platforms does this support",
+      "answer": "It works with Claude, Codex, and Claude Code prompts and is framework agnostic."
+    },
+    {
+      "question": "What are the main limits",
+      "answer": "It provides guidance only and does not run code or manage infrastructure."
+    },
+    {
+      "question": "How do I integrate it into my app",
+      "answer": "Follow the pipeline steps and map loaders, embeddings, and retrievers to your stack."
+    },
+    {
+      "question": "Does it access my data",
+      "answer": "No. It is a text guide and does not read files or send network requests."
+    },
+    {
+      "question": "What if retrieval quality is low",
+      "answer": "Adjust chunk size, embedding model, filters, and reranking weights, then re-test."
+    },
+    {
+      "question": "How is this different from basic search",
+      "answer": "It combines semantic retrieval with grounding, which improves relevance over keyword search."
+    }
+  ],
+  "seoKeywords": [
+    "RAG",
+    "retrieval augmented generation",
+    "vector databases",
+    "semantic search",
+    "embeddings",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "document Q&A",
+    "LLM apps"
+  ],
+  "sourceUrl": "https://github.com/wshobson/agents/tree/main/plugins/llm-application-dev/skills/rag-implementation",
+  "sourceType": "community",
+  "dependencies": []
+}

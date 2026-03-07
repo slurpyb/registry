@@ -1,0 +1,143 @@
+{
+  "name": "performance-profiler",
+  "type": "skill",
+  "description": "Identifies performance bottlenecks including N+1 queries, inefficient loops, memory leaks, and slow algorithms. Use when user mentions performance issues, slow code, optimization, or profiling.",
+  "domain": "performance",
+  "subdomain": "analysis",
+  "specialty": "bottleneck identification",
+  "quality": 4,
+  "qualityReason": "Clear detection focus",
+  "bundleHints": [
+    "performance-stack",
+    "profiling-suite"
+  ],
+  "tags": [
+    "code-quality",
+    "debugging",
+    "inefficient-loops",
+    "memory-leaks",
+    "n+1-queries",
+    "optimization",
+    "performance",
+    "profiling",
+    "slow-algorithms"
+  ],
+  "capabilities": [
+    "Identify N+1 query problems in database code",
+    "Detect inefficient loops and algorithm complexity issues",
+    "Find memory leaks from uncleared event listeners and timers",
+    "Spot blocking operations and missing pagination",
+    "Analyze frontend performance issues like unnecessary re-renders",
+    "Generate detailed performance reports with fixes"
+  ],
+  "author": "CrazyDubya",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only guidance for identifying performance bottlenecks. No executable code, network calls, file modifications, or command execution. All 27 static findings are false positives caused by pattern matcher misidentifying legitimate performance optimization terminology (hash maps, O(n²), JOIN, lazy loading) as security threats. This skill is safe for publishing.",
+  "valueStatement": "Code performance issues like slow queries and memory leaks are hard to identify without the right approach. This skill provides systematic methods to find and fix performance bottlenecks in any codebase.",
+  "userTitle": "Detect and Fix Performance Bottlenecks",
+  "limitations": [
+    "Does not execute code or run profiling tools",
+    "Cannot measure actual runtime performance metrics",
+    "Analysis is limited to code patterns visible in source files",
+    "Requires readable source code to analyze"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developers",
+      "title": "Database Query Optimization",
+      "description": "Find and fix N+1 queries, missing indexes, and slow database operations in your backend code"
+    },
+    {
+      "targetUser": "Frontend Developers",
+      "title": "React Performance Tuning",
+      "description": "Identify unnecessary re-renders, large bundle sizes, and inefficient component patterns"
+    },
+    {
+      "targetUser": "Full-Stack Engineers",
+      "title": "Algorithm Complexity Review",
+      "description": "Detect O(n²) algorithms and recommend efficient data structures like hash maps"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Performance Check",
+      "scenario": "General performance review",
+      "prompt": "Analyze this code for performance issues. Look for N+1 queries, inefficient loops, memory leaks, and any anti-patterns that could slow down execution."
+    },
+    {
+      "title": "Database Query Analysis",
+      "scenario": "Finding slow queries",
+      "prompt": "Review this codebase for database performance issues. Check for N+1 queries, missing indexes, SELECT * usage, and queries that could benefit from pagination."
+    },
+    {
+      "title": "Memory Leak Detection",
+      "scenario": "Finding memory issues",
+      "prompt": "Search for potential memory leaks in this code. Look for event listeners not being cleaned up, timers not being cleared, circular references, and unbounded caches."
+    },
+    {
+      "title": "Full Performance Report",
+      "scenario": "Complete analysis",
+      "prompt": "Perform a comprehensive performance analysis of this codebase. Generate a report categorizing issues by severity: critical, high, medium. For each issue, explain the impact and suggest a fix."
+    }
+  ],
+  "bestPractices": [
+    "Profile before optimizing - use actual metrics to identify real bottlenecks rather than guessing",
+    "Focus on hot paths first - optimize the 20% of code that runs 80% of the time",
+    "Measure impact after changes - verify that optimizations actually improve performance"
+  ],
+  "antiPatterns": [
+    "Premature optimization - optimizing code without first identifying actual performance problems",
+    "Ignoring N+1 queries - each query in a loop creates a multiplicative performance problem",
+    "Using O(n²) algorithms - nested loops quickly become slow as data grows"
+  ],
+  "faq": [
+    {
+      "question": "Which programming languages does this skill support?",
+      "answer": "The skill works with any language. Performance patterns like N+1 queries, inefficient loops, and memory leaks apply across JavaScript, Python, Java, Ruby, and most other languages."
+    },
+    {
+      "question": "What are the limits of pattern-based analysis?",
+      "answer": "This skill analyzes code structure and patterns. It cannot measure actual runtime performance or execute code. For real metrics, use profiling tools like Chrome DevTools, cProfile, or database query analyzers."
+    },
+    {
+      "question": "How does this integrate with my IDE?",
+      "answer": "The skill uses Claude tools like Read, Grep, and Glob to analyze code in your workspace. It provides recommendations based on source code patterns without modifying your files."
+    },
+    {
+      "question": "Is my code data sent anywhere?",
+      "answer": "No. This is a pure prompt-based skill. Code analysis happens locally through Claude tools. No data is transmitted to external servers or stored elsewhere."
+    },
+    {
+      "question": "Why are my queries slow despite having indexes?",
+      "answer": "The skill can identify common issues like SELECT *, missing compound indexes, or queries that cannot use indexes effectively. For deep analysis, use EXPLAIN ANALYZE on your database queries."
+    },
+    {
+      "question": "How is this different from profiling tools?",
+      "answer": "Profiling tools measure actual runtime behavior. This skill identifies code patterns that typically cause performance problems. Use both together - the skill finds issues to investigate, profilers verify the impact."
+    }
+  ],
+  "seoKeywords": [
+    "performance profiler",
+    "performance optimization",
+    "N+1 query detection",
+    "memory leak finder",
+    "slow code analyzer",
+    "code optimization",
+    "Claude Code skill",
+    "AI performance tool",
+    "bottleneck detection",
+    "profiling tool"
+  ],
+  "sourceUrl": "https://github.com/CrazyDubya/claude-skills/tree/main/performance-profiler",
+  "sourceType": "community",
+  "dependencies": []
+}

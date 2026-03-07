@@ -1,0 +1,143 @@
+{
+  "name": "gemini-research-subagent",
+  "type": "skill",
+  "description": "Delegates large-context code analysis to Gemini CLI. Use when analyzing codebases, tracing bugs across files, reviewing architecture, or performing security audits. Gemini reads, Claude implements.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "code analysis",
+  "quality": 5,
+  "qualityReason": "Specialized research delegation",
+  "bundleHints": [
+    "ai-analysis",
+    "research-agent"
+  ],
+  "tags": [
+    "architecture review",
+    "architecture-review",
+    "code analysis",
+    "codebase-analysis",
+    "debugging",
+    "large-context",
+    "research",
+    "research assistant",
+    "security audit"
+  ],
+  "capabilities": [
+    "Delegates large-context analysis to Gemini CLI",
+    "Provides 10 pre-defined research roles (reviewer, debugger, planner, security, auditor, explainer, migrator, documenter, dependency-mapper, onboarder)",
+    "Supports custom role definitions in .gemini/roles/",
+    "Offers multiple output templates (implement-ready, fix-ready, verify)",
+    "Returns structured output with summary, file references, analysis, and recommendations",
+    "Enforces research-first workflow (Gemini researches, Claude implements)"
+  ],
+  "author": "DasBluEyedDevil",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a pure documentation/markdown file with no executable code. It provides instructions for delegating large-context analysis to Gemini CLI via wrapper script. All 51 static findings are FALSE POSITIVES: URLs are legitimate documentation links, backticks are markdown code block delimiters, and the reported 'cryptographic algorithms' and 'system reconnaissance' are misidentified metadata fields and text patterns. The skill poses no security risk.",
+  "valueStatement": "Complex codebases are difficult to analyze without full context. This skill delegates large-scale code analysis to Gemini CLI while Claude handles implementation, following a proven research-then-implement workflow.",
+  "userTitle": "Delegate Code Research to Gemini",
+  "limitations": [
+    "Requires gemini-cli to be installed and configured separately",
+    "The wrapper script must be available at ./skills/gemini.agent.wrapper.sh",
+    "Does not perform code execution or file modifications directly",
+    "Does not work offline (requires Gemini API access)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developers",
+      "title": "Analyze unfamiliar codebases",
+      "description": "Understand large codebases quickly by delegating research to Gemini before implementing changes"
+    },
+    {
+      "targetUser": "Security Engineers",
+      "title": "Perform security audits",
+      "description": "Use the security role to identify vulnerabilities across multiple files with full context awareness"
+    },
+    {
+      "targetUser": "Technical Leads",
+      "title": "Plan architecture changes",
+      "description": "Get architectural recommendations before implementation to avoid costly refactoring later"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Research",
+      "scenario": "Initial codebase exploration",
+      "prompt": "Analyze the @src/ directory and summarize the main components, their relationships, and key architectural patterns."
+    },
+    {
+      "title": "Code Review",
+      "scenario": "Bug or quality issues",
+      "prompt": "Review the authentication module at @src/auth/ for bugs, security issues, and code quality concerns."
+    },
+    {
+      "title": "Bug Tracing",
+      "scenario": "Debugging complex issues",
+      "prompt": "Trace the root cause of the login failure. Check auth.ts, user.service.ts, and token.handler.ts for issues."
+    },
+    {
+      "title": "Pre-implementation Planning",
+      "scenario": "Feature design",
+      "prompt": "Plan how to add caching to the data layer. Consider existing patterns, dependencies, and performance impact."
+    }
+  ],
+  "bestPractices": [
+    "Always use Gemini for research before making multi-file changes",
+    "Use the appropriate role for your task (reviewer for bugs, security for vulnerabilities, planner for features)",
+    "Verify implementations with Gemini after completing changes using the verify template"
+  ],
+  "antiPatterns": [
+    "Using Gemini for simple single-file edits you can handle yourself",
+    "Skipping research and directly asking Claude to implement without context",
+    "Writing complex multi-part prompts that exceed token limits"
+  ],
+  "faq": [
+    {
+      "question": "How do I install the gemini-cli dependency?",
+      "answer": "Visit https://ai.google.dev/gemini-api/docs/cli for installation instructions for your platform."
+    },
+    {
+      "question": "What happens if gemini-cli is not installed?",
+      "answer": "The wrapper script will fail. Install gemini-cli and configure your API key before using this skill."
+    },
+    {
+      "question": "Can I use this with Claude Code desktop app?",
+      "answer": "Yes, if Claude Code is configured to load skills from your .claude/skills/ directory."
+    },
+    {
+      "question": "Is my code sent to external servers?",
+      "answer": "Yes, code context is sent to Googles Gemini API when using gemini-cli. Review their privacy policy."
+    },
+    {
+      "question": "Why not just use Gemini directly?",
+      "answer": "This skill provides a structured workflow with roles, templates, and integration with Claude Code for implementation."
+    },
+    {
+      "question": "How is this different from regular Gemini prompting?",
+      "answer": "It provides a collaborative workflow: Gemini researches with full context, Claude implements, Gemini verifies."
+    }
+  ],
+  "seoKeywords": [
+    "Gemini CLI",
+    "Claude Code",
+    "code analysis",
+    "codebase research",
+    "bug tracing",
+    "architecture review",
+    "security audit",
+    "code review",
+    "AI pair programming",
+    "software development"
+  ],
+  "sourceUrl": "https://github.com/DasBluEyedDevil/Multi-Agent-Workflow/tree/main/.claude/skills/gemini-research",
+  "sourceType": "community",
+  "dependencies": []
+}

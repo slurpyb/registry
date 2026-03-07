@@ -1,0 +1,139 @@
+{
+  "name": "issue-review",
+  "type": "skill",
+  "description": "系統化的問題分析專家技能，自動協調五個專門代理進行深度問題分析。\n\n適用於：\n- 使用者或 PM 報告的線上問題\n- 開發團隊反映的技術問題\n- 測試發現的 bug\n- 生產環境告警和異常\n",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "root cause analysis",
+  "quality": 5,
+  "qualityReason": "Structured problem solving",
+  "bundleHints": [
+    "debugging-workflow",
+    "quality-assurance"
+  ],
+  "tags": [
+    "agent-coordination",
+    "debugging",
+    "issue-analysis",
+    "problem-solving",
+    "root-cause",
+    "systematic",
+    "troubleshooting"
+  ],
+  "capabilities": [
+    "Coordinates five specialized agents for comprehensive issue analysis",
+    "Automatically triggers conditional agents based on problem characteristics",
+    "Generates structured analysis reports with confidence scores",
+    "Supports parallel execution of diff and log analysis agents",
+    "Provides iterative root cause validation with evidence collection"
+  ],
+  "author": "DennisLiuCk",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure prompt-based skill with no code execution, file access, or network capabilities. It only defines AI agent workflows for systematic issue analysis. All 45 static findings are false positives: Chinese text was misidentified as cryptographic code, markdown code block delimiters were flagged as shell execution, and metadata fields were treated as network indicators.",
+  "valueStatement": "Debugging complex issues often requires multiple perspectives and deep analysis. This skill orchestrates five specialized AI agents to systematically investigate problems, trace root causes, and provide actionable solutions.",
+  "userTitle": "Analyze Issues with Five-Agent Systematic Approach",
+  "limitations": [
+    "Requires existing codebase access for code investigation",
+    "Analysis quality depends on problem description completeness",
+    "Maximum of 3 root cause hypotheses tested per session",
+    "Git history analysis limited to recent 1-2 weeks"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Engineers",
+      "title": "Production Issue Investigation",
+      "description": "Systematically analyze production bugs by coordinating multiple investigation approaches including code analysis, recent changes, and log examination."
+    },
+    {
+      "targetUser": "DevOps Teams",
+      "title": "Incident Root Cause Analysis",
+      "description": "Quickly identify root causes of system incidents through collaborative agent investigation of logs, recent deployments, and configuration changes."
+    },
+    {
+      "targetUser": "QA Engineers",
+      "title": "Bug Report Analysis",
+      "description": "Deep dive into complex bug reports to understand failure patterns, identify code locations, and suggest targeted fixes."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Start Analysis",
+      "scenario": "For urgent production issues",
+      "prompt": "Analyze this production issue: [describe symptoms, error messages, affected users]. Use the systematic approach to find the root cause."
+    },
+    {
+      "title": "Bug Investigation",
+      "scenario": "For development bugs",
+      "prompt": "Investigate this bug: [describe behavior, expected vs actual, reproduction steps]. Help me understand what's causing it."
+    },
+    {
+      "title": "Performance Issue",
+      "scenario": "For slow or failing systems",
+      "prompt": "Analyze this performance issue: [describe degradation, timing, affected components]. Check recent changes and logs."
+    },
+    {
+      "title": "Complex Multi-System Issue",
+      "scenario": "For cross-system problems",
+      "prompt": "Debug this complex issue spanning multiple services: [describe interactions, failure points, dependencies]. Use all available agents."
+    }
+  ],
+  "bestPractices": [
+    "Provide detailed problem descriptions including error messages, timing, and affected components",
+    "Include relevant log snippets and recent changes when available",
+    "Specify the environment and conditions where the issue occurs"
+  ],
+  "antiPatterns": [
+    "Avoid vague problem descriptions without specific error messages or symptoms",
+    "Do not skip providing context about recent changes or deployments",
+    "Do not expect analysis without access to the relevant codebase"
+  ],
+  "faq": [
+    {
+      "question": "Which Claude tools support this skill?",
+      "answer": "Compatible with Claude Code and standard Claude. The skill uses Task tool for agent coordination."
+    },
+    {
+      "question": "How many agents does it use?",
+      "answer": "Five agents: problem-analyzer, codebase-investigator, root-cause-finder, plus conditional diff-analyzer and log-analyzer."
+    },
+    {
+      "question": "Can it analyze any codebase?",
+      "answer": "Requires existing codebase access through Claude Code. Cannot analyze remote or inaccessible code."
+    },
+    {
+      "question": "Is my code data safe?",
+      "answer": "Yes, this is a prompt-based skill with no external data transmission. All analysis stays within your Claude session."
+    },
+    {
+      "question": "What if no root cause is found?",
+      "answer": "Provides best hypotheses with evidence, identifies information gaps, and suggests additional data needed."
+    },
+    {
+      "question": "How does it compare to manual debugging?",
+      "answer": "Provides systematic multi-perspective analysis faster than manual investigation, with structured reports and confidence scores."
+    }
+  ],
+  "seoKeywords": [
+    "issue analysis",
+    "debugging",
+    "Claude Code",
+    "root cause analysis",
+    "problem solving",
+    "troubleshooting",
+    "multi-agent system",
+    "systematic investigation",
+    "code analysis",
+    "bug tracking"
+  ],
+  "sourceUrl": "https://github.com/DennisLiuCk/claude-plugin-marketplace/tree/main/plugins/issue-review/skills/issue-review",
+  "sourceType": "community",
+  "dependencies": []
+}

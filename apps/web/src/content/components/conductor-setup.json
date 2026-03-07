@@ -1,0 +1,139 @@
+{
+  "name": "conductor-setup",
+  "type": "skill",
+  "description": "Initialize project with Conductor artifacts (product definition,",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "project initialization",
+  "quality": 5,
+  "qualityReason": "Comprehensive onboarding workflow",
+  "bundleHints": [
+    "conductor-suite",
+    "project-setup-kit",
+    "onboarding-system"
+  ],
+  "tags": [
+    "code-guides",
+    "conventions",
+    "documentation",
+    "interactive-setup",
+    "project-management",
+    "project-setup",
+    "workflow"
+  ],
+  "capabilities": [
+    "Guide users through interactive Q&A to define project properties",
+    "Detect project type (greenfield or brownfield) and pre-populate tech stack",
+    "Generate documentation artifacts: index.md, product.md, tech-stack.md, workflow.md",
+    "Support resume functionality for interrupted setup sessions",
+    "Create code style guides for detected programming languages"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only skill with no executable code. The skill uses interactive Q&A to guide users through creating project documentation files. No network requests, file system access beyond creating documentation, or external command execution. Static analysis confirmed 0 files scanned with 0 potential security issues. Risk score: 0/100.",
+  "valueStatement": "Projects often lack consistent documentation structure. This skill guides users through interactive Q&A to generate standardized Conductor documentation including product definition, tech stack, workflow, and code style guides.",
+  "userTitle": "Set Up Project Documentation",
+  "limitations": [
+    "Does not execute code or modify existing source files",
+    "Cannot detect all project frameworks without explicit user input",
+    "Limited to documentation generation only, no actual project scaffolding guides are",
+    "Style template-based, not tailored to specific project needs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers starting new projects",
+      "title": "New Project Initialization",
+      "description": "Starting a new project and want to establish consistent documentation from the beginning"
+    },
+    {
+      "targetUser": "Teams onboarding existing codebases",
+      "title": "Existing Project Documentation",
+      "description": "Adding structure to an existing brownfield project with tech stack detection"
+    },
+    {
+      "targetUser": "Team leads and project managers",
+      "title": "Team Convention Standardization",
+      "description": "Establishing team-wide conventions for workflow, code review, and style guides"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Setup",
+      "prompt": "Run /conductor-setup to initialize project documentation",
+      "scenario": "Starting fresh project documentation"
+    },
+    {
+      "title": "Resume Setup",
+      "prompt": "Run /conductor-setup --resume to continue from where I left off",
+      "scenario": "Continuing interrupted setup"
+    },
+    {
+      "title": "Project Type Detection",
+      "prompt": "Run /conductor-setup and detect my existing tech stack from package.json and requirements.txt",
+      "scenario": "Setting up docs for existing project"
+    },
+    {
+      "title": "Style Guide Generation",
+      "prompt": "Run /conductor-setup and generate TypeScript and Python style guides",
+      "scenario": "Creating language-specific code conventions"
+    }
+  ],
+  "bestPractices": [
+    "Complete all Q&A sections in one session for consistent documentation",
+    "Review generated files and customize templates as needed",
+    "Use the --resume flag if setup is interrupted mid-process"
+  ],
+  "antiPatterns": [
+    "Skipping sections without understanding their impact on generated docs",
+    "Providing inaccurate tech stack information leading to mismatched style guides",
+    "Not reviewing generated documentation for accuracy"
+  ],
+  "faq": [
+    {
+      "question": "What is Conductor?",
+      "answer": "Conductor is a project management framework that uses documentation tracks to organize work. This skill helps set up the initial documentation structure."
+    },
+    {
+      "question": "Does this skill modify my source code?",
+      "answer": "No. This skill only creates documentation files in the conductor/ directory. It does not modify any existing source code."
+    },
+    {
+      "question": "Can I resume setup if interrupted?",
+      "answer": "Yes. Use the --resume flag or the resume option to continue from where you left off. The skill tracks progress in conductor/setup_state.json."
+    },
+    {
+      "question": "What files does this skill create?",
+      "answer": "It creates conductor/index.md, product.md, product-guidelines.md, tech-stack.md, workflow.md, tracks.md, and code style guides."
+    },
+    {
+      "question": "How does it detect my tech stack?",
+      "answer": "For existing projects, it scans for package.json, requirements.txt, go.mod, or Cargo.toml to infer languages and frameworks."
+    },
+    {
+      "question": "Can I customize the generated documentation?",
+      "answer": "Yes. The skill generates template files that you can edit afterward to match your specific project needs."
+    }
+  ],
+  "seoKeywords": [
+    "Claude project setup",
+    "Codex documentation generator",
+    "Claude Code skill",
+    "project initialization",
+    "Conductor documentation",
+    "tech stack documentation",
+    "code style guides",
+    "project workflow setup"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/conductor-setup",
+  "sourceType": "community",
+  "dependencies": []
+}

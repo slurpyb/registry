@@ -1,0 +1,144 @@
+{
+  "name": "angular-state-management",
+  "type": "skill",
+  "description": "Master modern Angular state management with Signals, NgRx, and RxJS. Use when setting up global state, managing component stores, choosing between state solutions, or migrating from legacy patterns.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "state management",
+  "quality": 5,
+  "qualityReason": "Specific, actionable Angular state guidance",
+  "bundleHints": [
+    "angular-stack",
+    "frontend-state",
+    "angular-dev"
+  ],
+  "tags": [
+    "angular",
+    "components",
+    "ngrx",
+    "rxjs",
+    "signals",
+    "state",
+    "state-management"
+  ],
+  "capabilities": [
+    "Provide decision frameworks for choosing between Signals, NgRx, Component Stores based on app complexity",
+    "Generate Signal-based service patterns for local and shared state",
+    "Create NgRx Store setup with actions, reducers, selectors, and effects",
+    "Implement NgRx SignalStore with computed values and methods",
+    "Show migration patterns from BehaviorSubject to modern Signals",
+    "Demonstrate bridging techniques between Signals and RxJS Observables"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 70 potential issues. Manual review confirms all findings are false positives. The 'Ruby/shell backtick execution' findings are triggered by markdown code fences and TypeScript template literals. 'Weak cryptographic algorithm' is triggered by words like 'sha' in 'shared' and 'source'. Network-related findings are legitimate documentation URLs and code examples. This is a genuine Angular state management documentation skill with no security concerns.",
+  "valueStatement": "Angular state management is complex with multiple solutions. This skill provides decision frameworks and implementation patterns for Signals, NgRx, Component Stores, and RxJS patterns to build maintainable applications.",
+  "userTitle": "Implement Angular State Management",
+  "limitations": [
+    "Does not execute code or modify existing projects",
+    "Does not provide runtime debugging or Chrome DevTools integration",
+    "Does not generate complete project scaffolding or CLI commands",
+    "Does not cover backend state management or database patterns"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Angular developers deciding on state architecture",
+      "title": "Choose the Right State Solution",
+      "description": "Get guidance on when to use Signals for simple state, Component Stores for feature-scoped state, or NgRx Store for enterprise applications with complex flows."
+    },
+    {
+      "targetUser": "Developers migrating from RxJS BehaviorSubject to Signals",
+      "title": "Implement Modern Signal Patterns",
+      "description": "Learn to create Signal-based services with computed values, toSignal conversion from Observables, and proper immutability patterns."
+    },
+    {
+      "targetUser": "Enterprise Angular developers building scalable apps",
+      "title": "Set Up NgRx SignalStore",
+      "description": "Configure NgRx SignalStore with withState, withMethods, withComputed for type-safe feature state management without boilerplate."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic State Solution Query",
+      "prompt": "I have an Angular app with [describe your use case]. Should I use Signals, Component Store, or NgRx? What factors should influence my decision?",
+      "scenario": "Choosing between state management approaches"
+    },
+    {
+      "title": "Signal Service Implementation",
+      "prompt": "Create a Signal-based service for managing [describe state]. Include writable signals, computed values, and methods for updating state.",
+      "scenario": "Implementing signal-based state"
+    },
+    {
+      "title": "NgRx Store Setup",
+      "prompt": "Set up NgRx Store for [describe feature]. Include actions with createActionGroup, a reducer, selectors, and effects for async operations.",
+      "scenario": "Setting up NgRx Store"
+    },
+    {
+      "title": "Migration from BehaviorSubject",
+      "prompt": "Convert this RxJS BehaviorSubject service to modern Angular Signals. Show the before and after patterns with proper reactivity.",
+      "scenario": "Migrating legacy code to Signals"
+    }
+  ],
+  "bestPractices": [
+    "Prefer Signals for new Angular applications - they are the recommended modern approach",
+    "Use computed() for all derived state to ensure automatic updates",
+    "Colocate state with the feature that uses it rather than global state",
+    "Use NgRx when you need time-travel debugging, strict patterns, or enterprise coordination"
+  ],
+  "antiPatterns": [
+    "Avoid mutating signals directly - always use set() or update() methods",
+    "Do not over-globalize state - keep local when possible to reduce complexity",
+    "Avoid mixing RxJS and Signals without clear bridging patterns",
+    "Do not subscribe in components for state - use signals in templates directly"
+  ],
+  "faq": [
+    {
+      "question": "What is the simplest state management in Angular?",
+      "answer": "Signals are the simplest. Use signal() for writable state and computed() for derived values. No extra libraries needed."
+    },
+    {
+      "question": "When should I use NgRx over Signals?",
+      "answer": "Use NgRx for large applications with complex state flows, when you need time-travel debugging, or when multiple teams work on the same codebase."
+    },
+    {
+      "question": "Can I mix Signals with RxJS?",
+      "answer": "Yes. Use toSignal() to convert Observables to Signals, and toObservable() to convert Signals to Observables. Angular provides built-in support."
+    },
+    {
+      "question": "What is NgRx SignalStore?",
+      "answer": "SignalStore is a new NgRx pattern that provides reactive state with computed values and methods. It is lighter than traditional NgRx Store."
+    },
+    {
+      "question": "How do I migrate from BehaviorSubject to Signals?",
+      "answer": "Replace BehaviorSubject with signal(). Replace .next() with .set() or .update(). Replace .asObservable() with .asReadonly()."
+    },
+    {
+      "question": "Does this skill write code for me?",
+      "answer": "Yes, this skill generates code examples and patterns. You can copy them into your project. It does not modify files directly."
+    }
+  ],
+  "seoKeywords": [
+    "Angular state management",
+    "Angular Signals tutorial",
+    "NgRx Store guide",
+    "Angular Component Store",
+    "RxJS state management",
+    "Claude Code Angular",
+    "Codex Angular development",
+    "Angular reactive programming",
+    "Signal-based state Angular",
+    "NgRx SignalStore"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/angular-state-management",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "telegram-bot-builder",
+  "type": "skill",
+  "description": "Expert in building Telegram bots that solve real problems - from simple automation to complex AI-powered bots. Covers bot architecture, the Telegram Bot API, user experience, monetization strategies, and scaling bots to thousands of users. Use when: telegram bot, bot api, telegram automation, chat bot telegram, tg bot.",
+  "domain": "gaming",
+  "subdomain": "game-dev",
+  "specialty": "Telegram bot architecture",
+  "quality": 4,
+  "qualityReason": "Slightly broad application",
+  "bundleHints": [
+    "bot-development",
+    "messaging-tools",
+    "ai-integration"
+  ],
+  "tags": [
+    "ai-powered",
+    "api",
+    "automation",
+    "bot",
+    "messaging",
+    "monetization",
+    "telegram",
+    "ux"
+  ],
+  "capabilities": [
+    "Design bot architecture using Telegraf, grammY, or python-telegram-bot libraries",
+    "Implement command handlers and text message processing",
+    "Create inline keyboards and interactive button interfaces",
+    "Set up webhook management for bot updates",
+    "Implement bot monetization with Telegram Payments and freemium models",
+    "Add bot analytics and user usage tracking"
+  ],
+  "author": "sickn33",
+  "icon": "🤖",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 41 static findings are false positives. The external_commands detections are markdown code fences (```), not shell execution. Environment variable references (process.env.BOT_TOKEN, process.env.PAYMENT_TOKEN) are legitimate Telegram bot configuration patterns. The skill contains only instructional content about building Telegram bots with no malicious code or data exfiltration.",
+  "valueStatement": "Create Telegram bots that users love with proper architecture, interactive keyboards, and monetization strategies. From simple command handlers to complex AI-powered assistants.",
+  "userTitle": "Build Production-Ready Telegram Bots",
+  "limitations": [
+    "Does not cover Telegram Mini Apps or games development",
+    "Does not include backend database setup or deployment",
+    "Does not provide AI/LLM integration examples beyond bot concepts",
+    "No coverage of Telegram Channel or Group management APIs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Small business owners wanting to automate customer service",
+      "title": "Customer Support Bot",
+      "description": "Build a bot that handles common customer inquiries, routes complex issues to humans, and provides 24/7 automated responses"
+    },
+    {
+      "targetUser": "Content creators and newsletter authors",
+      "title": "Content Subscription Bot",
+      "description": "Create a paid content delivery bot with freemium model, subscription payments via Telegram, and daily content delivery"
+    },
+    {
+      "targetUser": "DevOps teams and project managers",
+      "title": "Team Workflow Automation",
+      "description": "Design bots that integrate with internal tools, send notifications, and allow team members to trigger actions via commands"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Bot Setup",
+      "prompt": "Create a basic Telegram bot using Telegraf that responds to /start and /help commands. Show how to set up the bot with environment variables for the token.",
+      "scenario": "Starting a new Telegram bot project"
+    },
+    {
+      "title": "Inline Keyboard Menu",
+      "prompt": "Build an interactive menu using inline keyboards with multiple options. Include callback handlers that respond when users click each button.",
+      "scenario": "Creating interactive bot interfaces"
+    },
+    {
+      "title": "Payment Integration",
+      "prompt": "Implement Telegram Payments in a bot. Create a premium subscription flow where users can purchase access using the built-in payment system.",
+      "scenario": "Adding monetization to a bot"
+    },
+    {
+      "title": "Production Architecture",
+      "prompt": "Design a production-ready bot structure with middleware for logging and auth, separate command handlers, and graceful shutdown handling.",
+      "scenario": "Scaling a bot for production use"
+    }
+  ],
+  "bestPractices": [
+    "Use environment variables for all secrets and tokens, never hardcode them",
+    "Implement graceful shutdown to properly stop the bot and avoid leaving users with hanging requests",
+    "Use typing indicators and acknowledge user actions immediately before processing long tasks"
+  ],
+  "antiPatterns": [
+    "Blocking the main thread with long-running operations instead of processing in background",
+    "Not handling errors - leaving users with no response when something fails",
+    "Sending too many messages or notifications that cause users to block the bot"
+  ],
+  "faq": [
+    {
+      "question": "What programming languages can I use to build Telegram bots?",
+      "answer": "You can build Telegram bots with many languages. Popular options include JavaScript/TypeScript with Telegraf or grammY, Python with python-telegram-bot or aiogram. The skill covers Node.js and Python examples."
+    },
+    {
+      "question": "How do I get a Telegram Bot API token?",
+      "answer": "Start a chat with @BotFather on Telegram. Use the /newbot command to create a new bot. BotFather will give you an API token. Keep this token secret."
+    },
+    {
+      "question": "Can I accept payments in my Telegram bot?",
+      "answer": "Yes, Telegram has built-in payment processing. You can use Telegram Payments to accept credit cards. You need to set up a provider token from a payment provider like Stripe."
+    },
+    {
+      "question": "What are webhooks and should I use them?",
+      "answer": "Webhooks are a way for Telegram to send updates to your server instead of your bot constantly polling for new messages. Use webhooks for production bots for better performance. Use polling for development."
+    },
+    {
+      "question": "How do I make my bot respond faster?",
+      "answer": "Send an immediate response or typing indicator first, then process the request in the background. This prevents users from thinking the bot has frozen during long operations."
+    },
+    {
+      "question": "Can this skill help me integrate AI into my bot?",
+      "answer": "The skill provides bot architecture and Telegram API guidance. You can combine it with other skills like ai-wrapper-product to add AI capabilities to your bot's responses."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Telegram bot",
+    "Codex Telegram bot builder",
+    "Claude Code Telegram automation",
+    "Telegram bot development",
+    "Telegram Bot API guide",
+    "build Telegram bot",
+    "Telegram bot monetization",
+    "Telegram inline keyboards",
+    "Telegraf bot tutorial",
+    "Telegram bot architecture"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/telegram-bot-builder",
+  "sourceType": "community",
+  "dependencies": []
+}

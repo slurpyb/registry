@@ -1,0 +1,146 @@
+{
+  "name": "react-server-components-framework",
+  "type": "skill",
+  "description": "Design and implement React Server Components with Next.js 15 App Router. Master server-first architecture, streaming SSR, Server Actions, and modern data fetching patterns for 2025+ frontend development.",
+  "domain": "web-development",
+  "subdomain": "fullstack",
+  "specialty": "Server-first",
+  "quality": 5,
+  "qualityReason": "Expert-level server-first architecture guidance",
+  "bundleHints": [
+    "nextjs-stack",
+    "modern-web",
+    "fullstack-react"
+  ],
+  "tags": [
+    "2025",
+    "actions",
+    "data-fetching",
+    "frontend",
+    "nextjs",
+    "react",
+    "server-components",
+    "ssr",
+    "streaming"
+  ],
+  "capabilities": [
+    "Create async Server Components with data fetching",
+    "Build Server Actions for form submissions and mutations",
+    "Implement streaming with Suspense for progressive loading",
+    "Configure data caching and revalidation patterns",
+    "Design component boundaries between server and client",
+    "Use advanced routing patterns including parallel and intercepting routes"
+  ],
+  "author": "AI Agent Hub",
+  "icon": "⚛️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing markdown guides and code templates for React Server Components. Static scanner findings are false positives - backticks in markdown code blocks were misinterpreted as shell execution, validation patterns as crypto algorithms, and documentation examples as network calls. No executable scripts, network calls, or concerning patterns detected.",
+  "valueStatement": "React Server Components change how you build React apps by moving rendering to the server. This skill provides patterns and templates for Next.js 15 App Router including data fetching, Server Actions, and streaming for faster pages.",
+  "userTitle": "Build React Server Components",
+  "limitations": [
+    "Requires Next.js 15 App Router",
+    "Cannot use React hooks in Server Components",
+    "Client Components cannot directly import Server Components",
+    "Environment setup and deployment configuration not included"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Build production apps",
+      "description": "Create Next.js 15 applications with server-first architecture and optimized performance"
+    },
+    {
+      "targetUser": "Frontend developers",
+      "title": "Adopt RSC patterns",
+      "description": "Learn when to use Server Components versus Client Components in React applications"
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Set team standards",
+      "description": "Establish consistent patterns for Server Actions, data fetching, and component design"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Server Component",
+      "scenario": "Fetch data on server",
+      "prompt": "Create an async Server Component that fetches posts from a database using Prisma and displays them in a list. Include proper error handling and type definitions."
+    },
+    {
+      "title": "Build Server Action",
+      "scenario": "Handle form submission",
+      "prompt": "Write a Server Action that handles form submission with Zod validation, creates a record in the database, revalidates the cache, and redirects to the new resource."
+    },
+    {
+      "title": "Add streaming",
+      "scenario": "Improve perceived performance",
+      "prompt": "Wrap a slow data-fetching component in a Suspense boundary with a skeleton fallback. Show how to stream independent components in parallel."
+    },
+    {
+      "title": "Configure caching",
+      "scenario": "Control data freshness",
+      "prompt": "Create a data fetching function that uses fetch with caching options. Include examples for static data, ISR with revalidate, and dynamic data with no-store."
+    }
+  ],
+  "bestPractices": [
+    "Keep Client Components at the edges of the component tree",
+    "Default to Server Components and only add use client when needed",
+    "Use Suspense boundaries to enable streaming for slow components",
+    "Fetch data in Server Components, never in Client Components with useEffect"
+  ],
+  "antiPatterns": [
+    "Using useState or useEffect in Server Components",
+    "Importing Server Components directly into Client Components",
+    "Passing functions, dates, or class instances as props between components",
+    "Making entire pages Client Components instead of targeted interactive islands"
+  ],
+  "faq": [
+    {
+      "question": "Can I migrate incrementally from Pages Router?",
+      "answer": "Yes. Both routers can coexist. Keep pages directory and add new routes in app directory. Migrate route by route."
+    },
+    {
+      "question": "How do I share state between Server and Client Components?",
+      "answer": "Use URL search params or cookies. Pass serializable data as props. Server Components can read cookies directly."
+    },
+    {
+      "question": "What can I pass from Server to Client Components?",
+      "answer": "Only serializable data: strings, numbers, booleans, arrays, objects. Cannot pass functions, dates, or class instances."
+    },
+    {
+      "question": "How does caching work with Server Actions?",
+      "answer": "Server Actions trigger revalidation with revalidatePath or revalidateTag. Use redirect after successful mutations."
+    },
+    {
+      "question": "What causes hydration mismatch errors?",
+      "answer": "Using Date.now, Math.random, or browser APIs in Server Components. Add use client for components using these."
+    },
+    {
+      "question": "How is this different from traditional SSR?",
+      "answer": "RSC runs only on the server with zero client bundle. Components are rendered on server and streamed without hydration."
+    }
+  ],
+  "seoKeywords": [
+    "react server components",
+    "next.js 15",
+    "app router",
+    "server actions",
+    "streaming ssr",
+    "react",
+    "nextjs",
+    "typescript",
+    "frontend",
+    "web development"
+  ],
+  "sourceUrl": "https://github.com/ArieGoldkin/ai-agent-hub/tree/main/skills/react-server-components-framework",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "4-step-program",
+  "type": "skill",
+  "description": "Coordinator workflow for orchestrating dockeragents through fix-review-iterate-present loop. Use when delegating any task that produces code changes. Ensures agents achieve 10/10 quality before presenting to human.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "agent coordination",
+  "quality": 5,
+  "qualityReason": "Actionable, structured agent workflow",
+  "bundleHints": [
+    "agent-orchestration",
+    "quality-workflow"
+  ],
+  "tags": [
+    "agent-coordination",
+    "code-iteration",
+    "code-review",
+    "dockeragents",
+    "fix-review",
+    "iterate-present",
+    "quality-assurance",
+    "quality-loop",
+    "workflow"
+  ],
+  "capabilities": [
+    "Enforces 4-step fix-review-iterate-present loop for AI agents",
+    "Mandates GitHub PR review posting (not optional)",
+    "Requires 100% issue requirement coverage verification",
+    "Demands 10/10 review score with zero suggestions",
+    "Provides detailed delegation templates with success criteria",
+    "Includes anti-pattern examples and common mistakes"
+  ],
+  "author": "Cygnusfear",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only workflow documentation with no executable code. The static scanner produced false positives by misinterpreting markdown syntax and documentation text. All patterns flagged as cryptographic algorithms, backtick execution, and reconnaissance are legitimate documentation formatting and GitHub CLI workflow instructions.",
+  "valueStatement": "Stop accepting mediocre code reviews from AI agents. This workflow enforces a 4-step loop that guarantees 10/10 quality and 100% issue coverage before any code is presented. Agents must fix, review, iterate, and present with mandatory GitHub PR posting.",
+  "userTitle": "Implement AI Agent Quality Control Workflow",
+  "limitations": [
+    "Requires agents with GitHub PR posting capabilities",
+    "Works only with tasks that produce code changes",
+    "Maximum 5 iterations before human escalation needed",
+    "Needs GitHub CLI access for issue/PR management"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development team leads",
+      "title": "Enforce Code Quality Standards",
+      "description": "Ensure AI agents deliver production-ready code with mandatory reviews and complete issue coverage before human review."
+    },
+    {
+      "targetUser": "Open source maintainers",
+      "title": "Automate PR Quality Gates",
+      "description": "Coordinate AI contributors through a rigorous quality loop that guarantees 10/10 reviews and full requirement implementation."
+    },
+    {
+      "targetUser": "AI-assisted development teams",
+      "title": "Standardize Agent Workflows",
+      "description": "Implement consistent quality control across all AI agent tasks with documented workflows and clear acceptance criteria."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Task Delegation",
+      "scenario": "Simple bug fix with clear requirements",
+      "prompt": "Fix the authentication bug in src/auth.ts (Issue #45). Requirements: 1) Session expires after 24h, 2) Refresh token works, 3) Error on dual expiration, 4) Redirect on failure. Success: ALL 4 implemented, tests pass. After reviewing with Skill(code-reviewer), POST review to GitHub and report with PR link."
+    },
+    {
+      "title": "Feature Implementation",
+      "scenario": "New feature with multiple components",
+      "prompt": "Implement user profile editing (Issue #123). Requirements from issue: Backend API endpoint, Frontend form with validation, Database migration, Unit tests for all components. Success: ALL requirements implemented, 100% test coverage. Create PR, review with Skill(code-reviewer), POST review to GitHub."
+    },
+    {
+      "title": "Refactoring Task",
+      "scenario": "Code refactoring with architecture changes",
+      "prompt": "Refactor payment service (Issue #89). Requirements: Extract payment logic to separate module, Add retry mechanism for failed payments, Implement circuit breaker pattern, Update all dependent services. Success: Zero breaking changes, all tests pass, performance improved. Review and POST to GitHub PR."
+    },
+    {
+      "title": "Complex Multi-Issue Task",
+      "scenario": "Multiple related issues in one PR",
+      "prompt": "Handle authentication system overhaul (Issues #200-205). Requirements: Migrate to JWT tokens, Add OAuth providers, Implement rate limiting, Update all auth checks, Add audit logging. Success: All 5 issues closed, backward compatibility maintained. Create comprehensive PR with Skill(code-reviewer) review posted to GitHub."
+    }
+  ],
+  "bestPractices": [
+    "Always include ALL requirements from the issue in your delegation prompt",
+    "Verify agent posted review to GitHub before accepting completion",
+    "Use line-by-line requirement verification table for final coverage check"
+  ],
+  "antiPatterns": [
+    "Never accept mostly done or partial issue coverage",
+    "Do not skip the review step even if code looks correct",
+    "Avoid presenting without clickable PR and issue URLs"
+  ],
+  "faq": [
+    {
+      "question": "What happens if the agent cannot achieve 10/10 review score?",
+      "answer": "After 5 iterations, escalate to human with details. The workflow enforces quality standards and does not compromise on 10/10 requirements."
+    },
+    {
+      "question": "Can this work with private GitHub repositories?",
+      "answer": "Yes, as long as the agent has proper GitHub CLI authentication and repository access permissions for creating PRs and posting reviews."
+    },
+    {
+      "question": "How do I verify 100% issue coverage?",
+      "answer": "Use the line-by-line verification table format provided. Extract all requirements from the issue and check each one against the implementation."
+    },
+    {
+      "question": "What if requirements are unclear in the issue?",
+      "answer": "Ask for clarification before delegating. The workflow requires 100% coverage of all requirements, so unclear requirements must be clarified first."
+    },
+    {
+      "question": "Can agents work on multiple issues simultaneously?",
+      "answer": "Yes, but each issue must have 100% coverage. Create separate PRs or ensure one PR addresses all issues with proper linking."
+    },
+    {
+      "question": "Is GitHub PR posting really mandatory?",
+      "answer": "Yes, absolutely mandatory. Reviews must be visible on the PR page for human evaluation. Local-only reviews mean the task has failed."
+    }
+  ],
+  "seoKeywords": [
+    "AI agent workflow",
+    "code review automation",
+    "Claude Code quality control",
+    "GitHub PR automation",
+    "agent orchestration",
+    "10/10 code review",
+    "issue coverage verification",
+    "dockeragents",
+    "Claude workflow",
+    "Codex quality assurance"
+  ],
+  "sourceUrl": "https://github.com/Cygnusfear/claude-stuff/tree/main/skills/4-step-program",
+  "sourceType": "community",
+  "dependencies": []
+}

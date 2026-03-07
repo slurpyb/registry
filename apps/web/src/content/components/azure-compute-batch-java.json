@@ -1,0 +1,142 @@
+{
+  "name": "azure-compute-batch-java",
+  "type": "skill",
+  "description": "A comprehensive skill for running large-scale parallel and high-performance computing (HPC) batch jobs in Azure using Java. Provides code examples and guidance for pools, jobs, tasks, compute nodes, and job schedules.",
+  "domain": "devops",
+  "subdomain": "cloud",
+  "specialty": "hpc batch",
+  "quality": 5,
+  "qualityReason": "Specific HPC use case",
+  "bundleHints": [
+    "azure-devops",
+    "hpc",
+    "java-batch"
+  ],
+  "tags": [
+    "azure",
+    "batch",
+    "cloud-computing",
+    "compute-nodes",
+    "hpc",
+    "java",
+    "parallel-computing"
+  ],
+  "capabilities": [
+    "Create and manage Azure Batch pools with virtual machine configurations",
+    "Create, list, and terminate batch jobs with priority and constraint settings",
+    "Create single tasks, task collections, and handle exit conditions",
+    "Manage compute nodes including listing, rebooting, and getting remote login settings",
+    "Implement job schedules for recurring batch workloads",
+    "Handle Azure Batch errors and long-running operations properly"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only documentation skill containing code examples for the Azure Batch SDK for Java. Static analysis scanned 0 files and detected 0 security issues. The skill provides guidance on using Azure Batch APIs and presents no executable code or security risks. All content is documentation for a legitimate Azure cloud service.",
+  "valueStatement": "Developers need to run large-scale parallel and HPC workloads in Azure but lack guidance on using the Azure Batch SDK for Java. This skill provides comprehensive code examples for pools, jobs, tasks, and compute node management.",
+  "userTitle": "Run Azure Batch Jobs with Java",
+  "limitations": [
+    "This skill provides code examples and guidance but does not execute actual batch jobs",
+    "Requires existing Azure Batch account and configured pools to be functional",
+    "Does not include Azure resource management or subscription-level operations",
+    "Authentication requires proper Azure credentials setup (Entra ID or shared key)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data engineers building ETL pipelines",
+      "title": "Data Processing Pipeline",
+      "description": "Process large datasets in parallel using Azure Batch pools with multiple compute nodes executing concurrent tasks"
+    },
+    {
+      "targetUser": "Scientists and researchers running HPC simulations",
+      "title": "HPC Workload Execution",
+      "description": "Run computational simulations or scientific calculations across distributed compute nodes"
+    },
+    {
+      "targetUser": "DevOps engineers automating batch workflows",
+      "title": "Recurring Batch Jobs",
+      "description": "Schedule periodic data processing or report generation jobs using Azure Batch job schedules"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Azure Batch Pool",
+      "prompt": "Show me how to create an Azure Batch pool using the Java SDK with Ubuntu compute nodes and 2 dedicated nodes",
+      "scenario": "Setting up compute infrastructure for batch workloads"
+    },
+    {
+      "title": "Submit Batch Job with Tasks",
+      "prompt": "Create a Java code example for submitting a batch job with 100 concurrent tasks to process data files",
+      "scenario": "Submitting parallel workload to Azure Batch"
+    },
+    {
+      "title": "Monitor Job Progress",
+      "prompt": "How do I monitor task counts and job status using the Azure Batch Java SDK?",
+      "scenario": "Tracking batch job execution status"
+    },
+    {
+      "title": "Handle Task Errors",
+      "prompt": "Show me how to configure exit conditions and error handling for batch tasks in Java",
+      "scenario": "Implementing fault-tolerant batch processing"
+    }
+  ],
+  "bestPractices": [
+    "Use Microsoft Entra ID authentication instead of shared key credentials for better security",
+    "Batch task creation using createTaskCollection or createTasks for multiple tasks to reduce API calls",
+    "Configure job constraints (maxWallClockTime, maxTaskRetryCount) to prevent runaway tasks"
+  ],
+  "antiPatterns": [
+    "Do not use shared key authentication in production - prefer Entra ID with managed identities",
+    "Avoid creating tasks one-by-one in tight loops - use batch task creation APIs instead",
+    "Do not ignore long-running operations - always wait for SyncPoller to complete for pool resize and delete"
+  ],
+  "faq": [
+    {
+      "question": "What is Azure Batch?",
+      "answer": "Azure Batch is a cloud-based job scheduling service that enables running large-scale parallel and HPC workloads across managed pools of virtual machines."
+    },
+    {
+      "question": "How do I authenticate with Azure Batch in Java?",
+      "answer": "Use Microsoft Entra ID with DefaultAzureCredentialBuilder, or AzureNamedKeyCredential for shared key authentication. Entra ID is recommended for production."
+    },
+    {
+      "question": "What's the difference between dedicated and low-priority nodes?",
+      "answer": "Dedicated nodes are reserved and more expensive but reliable. Low-priority nodes use spare Azure capacity and are cheaper but can be preempted."
+    },
+    {
+      "question": "How do I handle task failures?",
+      "answer": "Configure exit conditions with ExitCodeRangeMapping to define actions for specific exit codes, such as terminating the job on failure."
+    },
+    {
+      "question": "Can I run Windows or Linux containers in Azure Batch?",
+      "answer": "Azure Batch supports both Windows and Linux compute nodes. For containers, use Azure Container Instances or Azure Kubernetes Service instead."
+    },
+    {
+      "question": "How does auto-scaling work in Azure Batch?",
+      "answer": "Auto-scaling uses a formula evaluated at intervals to adjust the target dedicated node count based on metrics like pending tasks or CPU usage."
+    }
+  ],
+  "seoKeywords": [
+    "azure batch java",
+    "azure batch sdk",
+    "batch processing java",
+    "hpc java",
+    "parallel computing azure",
+    "azure pool management",
+    "batch job scheduling",
+    "claude code",
+    "claude",
+    "codex"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-compute-batch-java",
+  "sourceType": "community",
+  "dependencies": []
+}

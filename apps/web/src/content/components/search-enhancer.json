@@ -1,0 +1,140 @@
+{
+  "name": "search-enhancer",
+  "type": "skill",
+  "description": "Enhanced code search with semantic understanding, pattern matching, and intelligent query interpr...",
+  "domain": "tools",
+  "subdomain": "search",
+  "specialty": "Semantic code search",
+  "quality": 4,
+  "qualityReason": "Good description, slightly incomplete",
+  "bundleHints": [
+    "dev-tools",
+    "code-search"
+  ],
+  "tags": [
+    "code-discovery",
+    "grep",
+    "pattern-matching",
+    "ripgrep",
+    "search",
+    "semantic-search"
+  ],
+  "capabilities": [
+    "Translates natural language queries into search commands",
+    "Provides regex patterns for JavaScript, Python, Go, and TypeScript",
+    "Suggests filtering by file type and directory scope",
+    "Teaches cross-reference and dependency tracking searches",
+    "Identifies security and performance anti-patterns via search",
+    "Optimizes search performance for large codebases"
+  ],
+  "author": "CuriousLearner",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown text with example shell commands. All static findings are false positives triggered by example code patterns in documentation. No executable code exists. The skill teaches developers how to use grep and ripgrep for code search.",
+  "valueStatement": "Finding code in large projects wastes valuable development time. This skill teaches you advanced search techniques with grep and ripgrep for instant code discovery.",
+  "userTitle": "Find Code Faster with Intelligent Search Patterns",
+  "limitations": [
+    "Requires grep or ripgrep to be installed on your system",
+    "Cannot search inside binary or compiled files",
+    "Regex patterns may need adjustment for edge cases",
+    "Does not replace IDE-integrated semantic analysis tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developer",
+      "title": "Find API Endpoints Quickly",
+      "description": "Locate all Express, Flask, or Go HTTP handlers using smart regex patterns across your codebase"
+    },
+    {
+      "targetUser": "Security Engineer",
+      "title": "Audit for Hardcoded Secrets",
+      "description": "Search for API keys, passwords, and tokens that should not be in source code"
+    },
+    {
+      "targetUser": "Tech Lead",
+      "title": "Track Technical Debt",
+      "description": "Find all TODO comments, deprecated APIs, and code quality issues for sprint planning"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Find Functions",
+      "scenario": "Locate specific function definitions",
+      "prompt": "Search for all async functions in the src directory"
+    },
+    {
+      "title": "Security Audit",
+      "scenario": "Find potential security issues",
+      "prompt": "Find all places where SQL queries use string concatenation"
+    },
+    {
+      "title": "React Hook Usage",
+      "scenario": "Track React patterns",
+      "prompt": "Find all components using useState and useEffect hooks"
+    },
+    {
+      "title": "Cross-Reference Analysis",
+      "scenario": "Track dependencies",
+      "prompt": "Find all files that import and use the AuthService class"
+    }
+  ],
+  "bestPractices": [
+    "Always exclude node_modules, dist, and build directories from searches",
+    "Use ripgrep for speed and automatic gitignore respect",
+    "Start with broad searches and add filters progressively"
+  ],
+  "antiPatterns": [
+    "Searching entire codebase without file type or directory filters",
+    "Using case-sensitive search when matching identifiers of any case",
+    "Including generated files and dependencies in search results"
+  ],
+  "faq": [
+    {
+      "question": "Which search tool is recommended?",
+      "answer": "Ripgrep (rg) is fastest and respects .gitignore automatically. Use grep when ripgrep is not available."
+    },
+    {
+      "question": "How do I search across multiple lines?",
+      "answer": "Use ripgrep with -U flag for multiline mode: rg -U 'pattern.*\\n.*continuation'"
+    },
+    {
+      "question": "Can I search for patterns in specific file types?",
+      "answer": "Yes, use -t flag with ripgrep: rg 'pattern' -t js -t ts or --glob with grep."
+    },
+    {
+      "question": "How do I exclude test files from results?",
+      "answer": "Use glob exclusion: rg 'pattern' --glob '!**/*.test.*' --glob '!**/__tests__/**'"
+    },
+    {
+      "question": "What languages does this skill support?",
+      "answer": "The skill provides patterns for JavaScript, TypeScript, Python, Go, and any text-based language."
+    },
+    {
+      "question": "How can I count matches instead of showing them?",
+      "answer": "Use --count flag with ripgrep: rg 'TODO' --count shows match counts per file."
+    }
+  ],
+  "seoKeywords": [
+    "code search",
+    "grep",
+    "ripgrep",
+    "pattern matching",
+    "regex search",
+    "Claude Code",
+    "Codex",
+    "semantic search",
+    "developer productivity",
+    "codebase navigation"
+  ],
+  "sourceUrl": "https://github.com/CuriousLearner/devkit/tree/main/skills/search-enhancer",
+  "sourceType": "community",
+  "dependencies": []
+}

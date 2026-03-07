@@ -1,0 +1,137 @@
+{
+  "name": "claude-code-templates",
+  "type": "skill",
+  "description": "Boilerplate templates for Claude Code extensions. Triggers on: create agent, new skill, command template, hook script, extension scaffold.",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "skill scaffolding",
+  "quality": 5,
+  "qualityReason": "Foundational for skill development",
+  "bundleHints": [
+    "claude-code-tools",
+    "dev-productivity"
+  ],
+  "tags": [
+    "boilerplate",
+    "claude-code",
+    "command-template",
+    "extensions",
+    "scaffolding",
+    "templates"
+  ],
+  "capabilities": [
+    "Provides agent template with focus areas, principles, and quality checklist structure",
+    "Includes skill template following AgentSkills.io specification with YAML frontmatter",
+    "Offers command template with execution flow diagrams and option documentation",
+    "Supplies secure hook script template with input validation and error handling",
+    "Documents standard file paths and naming conventions for all extension types"
+  ],
+  "author": "0xDarkMatter",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill provides documentation templates for building Claude Code extensions. All static findings are false positives - the flagged patterns are template placeholders (backticks in markdown code blocks), example code showing how to write secure hooks, and references to standard Claude Code configuration paths. No executable code runs when this skill is used.",
+  "valueStatement": "Building Claude Code extensions requires understanding multiple file formats and configuration patterns. This skill provides tested templates for agents, skills, commands, and hooks that you can customize immediately.",
+  "userTitle": "Create Claude Code Extensions with Ready-Made Templates",
+  "limitations": [
+    "Templates require manual customization for specific use cases",
+    "Does not auto-generate extensions from descriptions",
+    "Hook script template requires bash and jq to be installed"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Extension Developer",
+      "title": "Create a New Expert Agent",
+      "description": "Use the agent template to build a specialized persona with defined focus areas, quality checklist, and reference documentation."
+    },
+    {
+      "targetUser": "Tool Builder",
+      "title": "Build a Claude Code Skill",
+      "description": "Start with the skill template that includes proper YAML frontmatter, trigger keywords, and follows the AgentSkills.io specification."
+    },
+    {
+      "targetUser": "Automation Engineer",
+      "title": "Implement Secure Hook Scripts",
+      "description": "Copy the hook template with built-in input validation, JSON parsing, and security patterns for PreToolUse or PostToolUse events."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Get Template Overview",
+      "scenario": "Learning what templates are available",
+      "prompt": "What Claude Code templates are available and when should I use each one?"
+    },
+    {
+      "title": "Create Agent",
+      "scenario": "Building a specialized expert agent",
+      "prompt": "Help me create a Python expert agent using the agent template. I want to focus on FastAPI and async patterns."
+    },
+    {
+      "title": "Create Skill",
+      "scenario": "Building a new skill with proper structure",
+      "prompt": "Create a skill for git workflow automation using the skill template. Include common patterns for branching and PR reviews."
+    },
+    {
+      "title": "Create Secure Hook",
+      "scenario": "Implementing tool validation hooks",
+      "prompt": "Help me create a PreToolUse hook that validates Write operations to prevent modifications to package.json files."
+    }
+  ],
+  "bestPractices": [
+    "Match the name field in YAML frontmatter exactly to the filename for proper discovery",
+    "Include trigger keywords in skill descriptions so Claude can find and activate them",
+    "Use the references directory for detailed documentation to keep SKILL.md under 500 lines"
+  ],
+  "antiPatterns": [
+    "Do not include sensitive data or credentials in template files",
+    "Avoid creating hooks without input validation as shown in the template",
+    "Do not skip the YAML frontmatter as it is required for Claude Code to recognize extensions"
+  ],
+  "faq": [
+    {
+      "question": "Where should I put agent files?",
+      "answer": "Place agent files in ~/.claude/agents/ with the .md extension. The filename should match the name field in the YAML frontmatter."
+    },
+    {
+      "question": "How do I make a hook script work?",
+      "answer": "Copy the template to .claude/hooks/, make it executable with chmod +x, then add the hook configuration to your settings.json or settings.local.json file."
+    },
+    {
+      "question": "What is the AgentSkills.io specification?",
+      "answer": "It is an open standard for agent skills that defines required fields like name and description. The skill template follows this specification for compatibility."
+    },
+    {
+      "question": "Can I use these templates for project-specific extensions?",
+      "answer": "Yes. Place project-specific files in .claude/ subdirectories within your project instead of ~/.claude/ for global extensions."
+    },
+    {
+      "question": "Why does the hook template require jq?",
+      "answer": "Claude Code passes JSON data to hooks via stdin. The jq tool safely parses this JSON to extract fields like tool_name and tool_input."
+    },
+    {
+      "question": "How do I test if my extension is working?",
+      "answer": "For agents, ask Claude to use your agent by name. For skills, mention trigger keywords. For commands, type the slash command. For hooks, check the log file."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Claude",
+    "templates",
+    "scaffolding",
+    "agents",
+    "skills",
+    "commands",
+    "hooks",
+    "boilerplate",
+    "extensions"
+  ],
+  "sourceUrl": "https://github.com/0xDarkMatter/claude-mods/tree/main/skills/claude-code-templates",
+  "sourceType": "community",
+  "dependencies": []
+}

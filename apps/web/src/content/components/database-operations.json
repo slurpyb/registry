@@ -1,0 +1,140 @@
+{
+  "name": "database-operations",
+  "type": "skill",
+  "description": "Instructions on how to write database queries with SQLAlchemy.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "sqlalchemy queries",
+  "quality": 4,
+  "qualityReason": "Specific to SQLAlchemy usage",
+  "bundleHints": [
+    "python-db",
+    "orm-queries"
+  ],
+  "tags": [
+    "database",
+    "instructions",
+    "orm",
+    "python",
+    "queries",
+    "sql",
+    "sqlalchemy"
+  ],
+  "capabilities": [
+    "Guide bulk insert, update, and delete operations using SQLAlchemy",
+    "Recommend SQL joins instead of N+1 query patterns",
+    "Structure database code with repository classes",
+    "Optimize query performance through proper ORM usage",
+    "Avoid inefficient for-loop patterns in database operations"
+  ],
+  "author": "Crossbill-Highlights",
+  "icon": "🗄️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based skill containing only SQLAlchemy guidelines. No executable code, no file access, no network calls, no command execution. Static findings are false positives from pattern matching on words like 'algorithm' in non-security contexts. This skill provides only instructional text about database query optimization.",
+  "valueStatement": "Database queries written with for-loops are slow and create maintenance problems. This skill provides guidelines for using SQLAlchemy bulk operations and repository patterns to write fast, maintainable database code.",
+  "userTitle": "Write efficient SQLAlchemy database queries",
+  "limitations": [
+    "Provides guidelines only, does not execute database operations",
+    "Does not generate complete repository implementations",
+    "Does not provide database connection or migration support",
+    "Focused on SQLAlchemy ORM, not raw SQL optimization"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Python developers",
+      "title": "Optimize existing database code",
+      "description": "Refactor slow for-loop database operations to use SQLAlchemy bulk methods for better performance."
+    },
+    {
+      "targetUser": "Backend engineers",
+      "title": "Design maintainable data layer",
+      "description": "Structure database operations in repository classes following established patterns."
+    },
+    {
+      "targetUser": "Data engineers",
+      "title": "Write efficient batch operations",
+      "description": "Use SQL joins and bulk methods when processing large datasets with SQLAlchemy."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic bulk insert",
+      "scenario": "Insert multiple records efficiently",
+      "prompt": "Use SQLAlchemy bulk insert to add multiple user records to the database. Show the bulk_insert_mappings method."
+    },
+    {
+      "title": "Batch update pattern",
+      "scenario": "Update many records at once",
+      "prompt": "Write a SQLAlchemy bulk update operation to change status for all pending orders. Include the Core update statement pattern."
+    },
+    {
+      "title": "Repository structure",
+      "scenario": "Organize database operations",
+      "prompt": "Create a UserRepository class with methods for finding users by email, getting active users, and updating last login."
+    },
+    {
+      "title": "Join optimization",
+      "scenario": "Replace N+1 queries",
+      "prompt": "Show how to use SQLAlchemy joinedload or selectinload to fetch users with their orders in a single query instead of separate queries."
+    }
+  ],
+  "bestPractices": [
+    "Always prefer SQLAlchemy bulk methods over Python for-loops for database operations",
+    "Use SQL joins to fetch related data in a single query rather than multiple queries",
+    "Organize database operations in repository classes for maintainability and testing"
+  ],
+  "antiPatterns": [
+    "Iterating through query results with for-loops to insert or update records",
+    "Making separate database calls in loops to fetch related objects (N+1 problem)",
+    "Putting database logic directly in route handlers or controllers without abstraction"
+  ],
+  "faq": [
+    {
+      "question": "What SQLAlchemy versions are supported?",
+      "answer": "Works with SQLAlchemy 1.4 and 2.0. Patterns apply to both Core and ORM interfaces."
+    },
+    {
+      "question": "What are the performance benefits?",
+      "answer": "Bulk operations reduce hundreds of queries to a single database round-trip, improving speed significantly."
+    },
+    {
+      "question": "Can this integrate with FastAPI or Flask?",
+      "answer": "Yes, the repository pattern works with any Python web framework using SQLAlchemy."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "This skill provides guidance only. No data is stored, transmitted, or accessed by the skill itself."
+    },
+    {
+      "question": "Why avoid for-loops for database operations?",
+      "answer": "For-loops cause N+1 queries, making hundreds of database calls instead of one efficient batch operation."
+    },
+    {
+      "question": "How does this compare to raw SQL?",
+      "answer": "SQLAlchemy bulk methods use optimized SQL under the hood while providing Pythonic abstractions and safety."
+    }
+  ],
+  "seoKeywords": [
+    "SQLAlchemy database queries",
+    "bulk operations Python",
+    "repository pattern database",
+    "SQL joins performance",
+    "Claude Code database",
+    "Claude database operations",
+    "Codex SQLAlchemy",
+    "Python ORM optimization",
+    "database query efficiency",
+    "SQLAlchemy best practices"
+  ],
+  "sourceUrl": "https://github.com/Crossbill-Highlights/crossbill-web/tree/main/.claude/skills/database-operations",
+  "sourceType": "community",
+  "dependencies": []
+}

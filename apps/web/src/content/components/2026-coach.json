@@ -1,0 +1,144 @@
+{
+  "name": "2026-coach",
+  "type": "skill",
+  "description": "Executive coaching skill that helps you plan your 2026 using research-backed process goals. Guides you through discovery questions, creates outcome goals, converts them to daily behaviors, and sets up accountability systems. Use when you want to plan your year, set goals, or need a coach to help you stay focused.",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "goal planning",
+  "quality": 4,
+  "qualityReason": "Useful framework with clear structure",
+  "bundleHints": [
+    "productivity-suite",
+    "goal-coaching"
+  ],
+  "tags": [
+    "2026",
+    "coaching",
+    "daily-habits",
+    "discovery",
+    "executive-coaching",
+    "goal-setting",
+    "outcome-goals",
+    "planning",
+    "process-goals",
+    "productivity"
+  ],
+  "capabilities": [
+    "Guides users through strategic discovery about current state, vision, strategy, and available time",
+    "Creates structured goal hierarchies from annual outcomes to quarterly milestones to daily behaviors",
+    "Converts outcome goals into daily process goals that are 100% within user control",
+    "Generates markdown files for annual plans, weekly tracking, and coaching context",
+    "Provides accountability prompts for weekly reviews and motivation",
+    "Adapts questioning style based on available tools between Claude Code and Claude.ai"
+  ],
+  "author": "BayramAnnakov",
+  "icon": "🎯",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation-only skill containing only markdown files and system prompts. No executable code exists - the skill defines how the AI behaves as an executive coach but has no file system access, network capabilities, command execution, or any operational functionality. All static findings are false positives triggered by documentation patterns, not actual security issues.",
+  "valueStatement": "Setting goals for 2026 often leads to frustration when outcome goals fail. This executive coaching skill uses the proven process goals methodology that research shows is 15x more effective. It guides you through structured discovery, converts vague aspirations into daily behaviors you control, and builds an accountability system.",
+  "userTitle": "Plan your 2026 with research-backed coaching",
+  "limitations": [
+    "Does not execute tasks or access external systems on behalf of users",
+    "Cannot track user progress automatically without user input to each session",
+    "Only creates markdown files when users explicitly request and specify the save location",
+    "Requires users to provide honest answers for effective planning"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Founders and entrepreneurs",
+      "title": "Plan your startup year",
+      "description": "Define your 2026 north star, break it into quarterly milestones, and establish daily behaviors."
+    },
+    {
+      "targetUser": "Corporate executives",
+      "title": "Strategic career planning",
+      "description": "Map out department goals, personal development targets, and daily actions that build influence."
+    },
+    {
+      "targetUser": "Creators and makers",
+      "title": "Build consistent habits",
+      "description": "Transform creative ambitions into reproducible daily routines with weekly tracking."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start coaching session",
+      "scenario": "Begin annual planning",
+      "prompt": "Please act as my executive coach and help me plan my 2026 using the process goals methodology. Start by asking me about my current situation."
+    },
+    {
+      "title": "Convert my outcome goal",
+      "scenario": "Transform goals to behaviors",
+      "prompt": "My outcome goal for 2026 is [describe goal]. Help me convert this into daily process goals I can control 100%."
+    },
+    {
+      "title": "Weekly review session",
+      "scenario": "Check progress and adjust",
+      "prompt": "Help me do my weekly review. Did I hit my process goal targets? What worked? What did not work?"
+    },
+    {
+      "title": "Create tracking files",
+      "scenario": "Set up documentation",
+      "prompt": "Based on our conversation, create my 2026_PLAN.md, COACHING_CONTEXT.md, and WEEK_01.md files."
+    }
+  ],
+  "bestPractices": [
+    "Complete the full discovery phase before setting goals. The skill needs to understand your constraints and available time.",
+    "Be honest about your time availability. Process goals must be achievable within your actual schedule.",
+    "Use the COACHING_CONTEXT.md file in future AI sessions to give new conversations your full context."
+  ],
+  "antiPatterns": [
+    "Setting process goals that depend on others. Process goals must be 100% within your control.",
+    "Skipping the weekly review. Without reflection, you lose visibility into whether goals are driving progress.",
+    "Using vague language in discovery. Be specific about your situation and what success looks like."
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with Claude Code and Claude.ai?",
+      "answer": "Yes. In Claude Code, it uses structured questions. In Claude.ai, it asks conversational questions."
+    },
+    {
+      "question": "How many process goals should I set?",
+      "answer": "Research suggests focusing on 3-5 daily process goals maximum that you control 100%."
+    },
+    {
+      "question": "Can I integrate this with other tools?",
+      "answer": "Yes. Pair with ActivityWatch Analysis for focus time tracking. COACHING_CONTEXT.md works with any AI."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. This is a prompt-only skill with no file access, network calls, or code execution."
+    },
+    {
+      "question": "What if I miss my daily targets?",
+      "answer": "Missing process goals is data, not failure. Use weekly reviews to identify barriers and adjust."
+    },
+    {
+      "question": "How is this different from other goal-setting methods?",
+      "answer": "Most methods focus on outcome goals you cannot control. This uses process goals (d=1.36) for 15x better results."
+    }
+  ],
+  "seoKeywords": [
+    "2026 goal planning",
+    "executive coaching skill",
+    "process goals method",
+    "Claude AI coaching",
+    "productivity planning",
+    "annual goal setting",
+    "daily habits system",
+    "accountability framework",
+    "Claude Code skill",
+    "AI assistant coach"
+  ],
+  "sourceUrl": "https://github.com/BayramAnnakov/2026-coach/tree/master/",
+  "sourceType": "community",
+  "dependencies": []
+}

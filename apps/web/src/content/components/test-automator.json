@@ -1,0 +1,143 @@
+{
+  "name": "test-automator",
+  "type": "skill",
+  "description": "Master AI-powered test automation with modern frameworks,",
+  "domain": "testing",
+  "subdomain": "e2e",
+  "specialty": "AI test automation",
+  "quality": 5,
+  "qualityReason": "Advanced automation strategies",
+  "bundleHints": [
+    "testing-suite",
+    "quality-engineering",
+    "ci-cd-tools"
+  ],
+  "tags": [
+    "ai-testing",
+    "ci-cd",
+    "ci/cd",
+    "frameworks",
+    "quality-engineering",
+    "self-healing",
+    "tdd",
+    "test-automation"
+  ],
+  "capabilities": [
+    "Design comprehensive test automation strategies for microservices and distributed systems",
+    "Implement AI-powered self-healing tests with tools like Testsigma, Testim, and Applitools",
+    "Guide TDD workflows with red-green-refactor cycle automation and metrics tracking",
+    "Integrate testing pipelines with Jenkins, GitLab CI, and GitHub Actions",
+    "Generate test cases using natural language processing and machine learning optimization",
+    "Provide cross-browser, mobile, and API testing framework recommendations"
+  ],
+  "author": "sickn33",
+  "icon": "🧪",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Prompt-only skill containing no executable code, scripts, or external command invocations. Static analysis scanned 0 files and found 0 security issues. The skill provides test automation guidance through natural language instructions only. No network access, filesystem operations, or code execution patterns detected. Safe for publication.",
+  "valueStatement": "Manual testing and fragile test suites slow down development and reduce confidence. This skill delivers expert guidance on modern test automation, self-healing tests, and AI-driven quality engineering to build robust testing ecosystems.",
+  "userTitle": "Automate testing with AI-powered frameworks",
+  "limitations": [
+    "Cannot execute tests directly - provides guidance and code examples only",
+    "Requires access to your codebase and testing infrastructure for specific implementations",
+    "Framework recommendations depend on your technology stack and team expertise",
+    "AI-powered testing tools require separate subscriptions and setup"
+  ],
+  "useCases": [
+    {
+      "targetUser": "QA Engineers and Test Architects",
+      "title": "QA Engineer Building Test Strategy",
+      "description": "Design a comprehensive test automation strategy for a microservices architecture with appropriate framework selection, CI/CD integration, and quality metrics."
+    },
+    {
+      "targetUser": "Software Developers",
+      "title": "Developer Practicing TDD",
+      "description": "Get real-time guidance on test-driven development workflows, including failing test generation, minimal implementation patterns, and refactoring with regression safety."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "DevOps Team Optimizing CI/CD",
+      "description": "Implement parallel test execution, dynamic test selection, and containerized testing environments with automated reporting and threshold validation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Test Framework Setup",
+      "prompt": "I need to set up test automation for a React application. Recommend a testing framework combination for unit, integration, and end-to-end tests, and provide a starter configuration.",
+      "scenario": "Starting a new project with no existing tests"
+    },
+    {
+      "title": "TDD Workflow Guidance",
+      "prompt": "Help me implement a user authentication feature using TDD. Guide me through writing the failing test first, then minimal implementation, and finally refactoring with safety validation.",
+      "scenario": "Following test-driven development for a new feature"
+    },
+    {
+      "title": "CI/CD Pipeline Integration",
+      "prompt": "Our tests run sequentially and take 45 minutes. Analyze our GitHub Actions workflow and suggest optimizations for parallel execution, test selection, and caching strategies.",
+      "scenario": "Optimizing slow test pipelines"
+    },
+    {
+      "title": "AI-Powered Self-Healing Tests",
+      "prompt": "Our UI tests break frequently due to selector changes. Evaluate AI-powered self-healing testing tools and provide an implementation plan for migrating our existing Selenium tests.",
+      "scenario": "Reducing test maintenance overhead"
+    }
+  ],
+  "bestPractices": [
+    "Follow the test pyramid: prioritize fast unit tests over slow end-to-end tests for efficient feedback loops",
+    "Design tests as living documentation with descriptive names and clear assertions that explain intent",
+    "Implement test data management with factories and fixtures to ensure isolation and reproducibility"
+  ],
+  "antiPatterns": [
+    "Testing implementation details instead of observable behavior, causing brittle tests that break during refactoring",
+    "Creating oversized end-to-end tests that cover multiple concerns and are difficult to debug when they fail",
+    "Ignoring test execution time and running all tests sequentially instead of optimizing for parallel execution"
+  ],
+  "faq": [
+    {
+      "question": "What testing frameworks do you recommend for my stack?",
+      "answer": "Framework selection depends on your technology stack. For JavaScript: Jest and Playwright. For Python: pytest and Playwright. For Java: JUnit 5 and Selenium. I will analyze your specific requirements and provide tailored recommendations."
+    },
+    {
+      "question": "How do I convince my team to adopt TDD?",
+      "answer": "Start with pilot projects demonstrating measurable benefits: reduced bug rates, faster refactoring confidence, and living documentation. Track TDD metrics like cycle time and test coverage. Provide training through TDD katas and pair programming sessions."
+    },
+    {
+      "question": "Are AI-powered testing tools worth the investment?",
+      "answer": "AI testing tools excel at reducing maintenance overhead through self-healing selectors and automated test generation. They work best for UI-heavy applications with frequent changes. Evaluate ROI based on your test flakiness rate and maintenance time."
+    },
+    {
+      "question": "How can I reduce flaky tests in CI?",
+      "answer": "Address root causes: add explicit waits instead of fixed delays, ensure test isolation with proper cleanup, mock external dependencies, and implement retry mechanisms for known transient failures. Monitor flakiness metrics to track improvement."
+    },
+    {
+      "question": "What is the optimal test coverage percentage?",
+      "answer": "Coverage percentage alone is misleading. Focus on testing critical paths, edge cases, and business logic. Aim for 80% on core modules while ensuring 100% coverage on high-risk areas like payment processing and authentication."
+    },
+    {
+      "question": "How do I test microservices effectively?",
+      "answer": "Use contract testing with Pact for service communication, implement consumer-driven contracts, test services in isolation with test containers, and validate full integration with periodic E2E tests. Prioritize API contract stability."
+    }
+  ],
+  "seoKeywords": [
+    "Claude test automation",
+    "Codex testing framework",
+    "Claude Code quality engineering",
+    "AI-powered testing",
+    "TDD automation",
+    "self-healing tests",
+    "CI/CD testing",
+    "Playwright automation",
+    "test generation",
+    "visual regression testing"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/test-automator",
+  "sourceType": "community",
+  "dependencies": []
+}

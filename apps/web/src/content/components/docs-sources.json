@@ -1,0 +1,142 @@
+{
+  "name": "docs-sources",
+  "type": "skill",
+  "description": "Knowledge of documentation platforms and fetching strategies. Use when adding new documentation sources, determining fetch strategy for a docs site, detecting doc frameworks, or configuring the docs registry.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "documentation fetching",
+  "quality": 4,
+  "qualityReason": "Clear use cases and triggers",
+  "bundleHints": [
+    "docs-toolkit",
+    "knowledge-pipeline"
+  ],
+  "tags": [
+    "doc-integration",
+    "documentation",
+    "fetching",
+    "framework-detection",
+    "registry",
+    "source-discovery"
+  ],
+  "capabilities": [
+    "Detects 20+ documentation frameworks from config files",
+    "Selects appropriate fetch strategy based on doc platform",
+    "Provides step-by-step workflow for adding new sources",
+    "Configures registry entries for documentation sources",
+    "Maps libraries to their official documentation URLs"
+  ],
+  "author": "Consiliency",
+  "icon": "book",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation/knowledge skill with no executable code. All 463 static findings are FALSE POSITIVES. The scanner detected shell commands inside markdown code blocks (examples for users) and flagged them as potential security issues. There are no .py or .sh files, no actual network calls, no file system operations, and no cryptographic operations in this skill.",
+  "valueStatement": "This skill provides knowledge about 20+ documentation platforms and their fetch strategies. It helps you detect documentation frameworks, select the right fetching approach, and configure registry entries for new documentation sources.",
+  "userTitle": "Add documentation sources efficiently",
+  "limitations": [
+    "Does not execute fetch commands - provides guidance only",
+    "Does not store or cache documentation content",
+    "Requires another skill or tool to actually fetch doc content",
+    "Knowledge is framework-based, not URL-specific"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI assistant developers",
+      "title": "Add new doc sources",
+      "description": "Add new documentation sources to an AI assistant's knowledge base with correct strategy selection."
+    },
+    {
+      "targetUser": "Documentation engineers",
+      "title": "Detect doc frameworks",
+      "description": "Identify documentation framework type from config files and choose optimal fetch strategy."
+    },
+    {
+      "targetUser": "AI Code users",
+      "title": "Configure documentation registry",
+      "description": "Set up registry entries for custom or internal documentation with proper strategy configuration."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Add a doc source",
+      "scenario": "Adding new documentation",
+      "prompt": "I need to add documentation from {url}. Use the docs-sources skill to detect the framework and determine the best fetch strategy."
+    },
+    {
+      "title": "Detect framework",
+      "scenario": "Identifying doc type",
+      "prompt": "Help me detect what documentation framework this site uses. The URL is {url}. Check for common config files."
+    },
+    {
+      "title": "Configure registry",
+      "scenario": "Setting up registry entry",
+      "prompt": "Create a registry entry for {library_name} documentation at {url}. Use the appropriate strategy from docs-sources."
+    },
+    {
+      "title": "Debug fetch issues",
+      "scenario": "Troubleshooting fetch failures",
+      "prompt": "My curl command is returning less than 1KB for {url}. The docs-sources skill should help identify if this is JS-rendered and suggest browser automation."
+    }
+  ],
+  "bestPractices": [
+    "Always check for AI-native docs (llms.txt) before other strategies",
+    "Prefer raw GitHub content over web scraping when repo is available",
+    "Test fetch with curl before using browser automation",
+    "Use browser automation only when curl returns incomplete data"
+  ],
+  "antiPatterns": [
+    "Using web crawl for docs with llms.txt available",
+    "Skipping framework detection and using wrong strategy",
+    "Fetching rendered HTML when raw markdown is available",
+    "Using browser automation without trying curl first"
+  ],
+  "faq": [
+    {
+      "question": "What strategies does this skill support?",
+      "answer": "Supports llmstxt, github_raw, openapi, web_sitemap, browser_crawl, and web_crawl strategies."
+    },
+    {
+      "question": "How do I add a new documentation source?",
+      "answer": "Identify the URL, detect the framework, select strategy, configure registry entry, validate fetch works."
+    },
+    {
+      "question": "What is the priority order?",
+      "answer": "First check llms.txt, then GitHub raw, then OpenAPI, then sitemap, then browser automation as last resort."
+    },
+    {
+      "question": "Does this skill fetch content?",
+      "answer": "No, this skill provides knowledge and guidance. Another skill or tool is needed to actually fetch content."
+    },
+    {
+      "question": "How does framework detection work?",
+      "answer": "Checks for config files like docs.yml, docusaurus.config.js, mkdocs.yml, mint.json based on framework patterns."
+    },
+    {
+      "question": "What if curl fails?",
+      "answer": "Check response size. If less than 1KB, site is likely JS-rendered. Use browser automation strategy as fallback."
+    }
+  ],
+  "seoKeywords": [
+    "documentation sources",
+    "docs fetching",
+    "framework detection",
+    "documentation registry",
+    "llms.txt",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Docusaurus",
+    "MkDocs",
+    "Mintlify"
+  ],
+  "sourceUrl": "https://github.com/Consiliency/treesitter-chunker/tree/main/.ai-dev-kit/skills/docs-sources",
+  "sourceType": "community",
+  "dependencies": []
+}

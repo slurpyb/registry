@@ -1,0 +1,139 @@
+{
+  "name": "exa-research",
+  "type": "skill",
+  "description": "Comprehensive research skill using Exa AI tools for web search and code context retrieval. Use when conducting research on technologies, finding code examples, discovering latest tools, or gathering comprehensive information on any topic. Combines web search for articles/news with code search for implementation examples.",
+  "domain": "tools",
+  "subdomain": "search",
+  "specialty": "comprehensive research",
+  "quality": 5,
+  "qualityReason": "End-to-end research capability",
+  "bundleHints": [
+    "research-toolkit",
+    "ai-research"
+  ],
+  "tags": [
+    "code",
+    "documentation",
+    "information-retrieval",
+    "research",
+    "search",
+    "web"
+  ],
+  "capabilities": [
+    "Search the web for articles, news, and documentation on any topic",
+    "Find code examples and implementation patterns from open source repositories",
+    "Combine web and code research for comprehensive understanding",
+    "Optimize search queries for better results with built-in analysis",
+    "Run automated multi-step research workflows for common patterns"
+  ],
+  "author": "Calel33",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate research skill providing web search and code context retrieval via Exa API. The static scanner flagged 224 issues, but 181 are false positives from markdown code block delimiters being misidentified as shell commands. Other findings (env_access, crypto patterns) refer to documentation examples, not actual code. No malicious patterns detected. All network calls go to documented Exa API endpoints.",
+  "valueStatement": "Finding current information and working code examples takes significant time and effort. This skill provides unified access to web search and code context retrieval through Exa AI, enabling efficient technical research with both articles and implementation examples.",
+  "userTitle": "Search the web and code with Exa AI",
+  "limitations": [
+    "Requires Exa API key to function",
+    "Results depend on Exa API availability and data quality",
+    "Cannot access private or behind-paywall content",
+    "Code context results are limited by token settings"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Learn a new framework",
+      "description": "Get overview, examples, and best practices for any technology quickly."
+    },
+    {
+      "targetUser": "Engineers",
+      "title": "Solve technical problems",
+      "description": "Find solutions to specific errors or implementation challenges with working code."
+    },
+    {
+      "targetUser": "Technical researchers",
+      "title": "Compare solutions",
+      "description": "Research multiple tools or libraries with side-by-side comparisons and code."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick web search",
+      "scenario": "Find recent information",
+      "prompt": "Search the web for {topic} latest information 2025 using exa_web_search with 10 results and deep search type."
+    },
+    {
+      "title": "Code examples",
+      "scenario": "Find implementation code",
+      "prompt": "Find code examples for {framework} {feature} using exa_get_code_context with 5000 tokens."
+    },
+    {
+      "title": "Combined research",
+      "scenario": "Full research task",
+      "prompt": "Research {topic} by first searching the web for overview, then finding code examples. Use deep search and 8000 tokens for code."
+    },
+    {
+      "title": "Comparison",
+      "scenario": "Compare solutions",
+      "prompt": "Compare {solution_a} and {solution_b} by searching for comparison articles and getting code examples for each."
+    }
+  ],
+  "bestPractices": [
+    "Use deep search type (type=\"deep\") for comprehensive research tasks",
+    "Include the current year in queries to get latest information",
+    "Combine web search with code search for complete understanding"
+  ],
+  "antiPatterns": [
+    "Using overly broad queries without specific technology or framework names",
+    "Skipping the year in queries and getting outdated information",
+    "Relying only on web search without checking working code examples"
+  ],
+  "faq": [
+    {
+      "question": "What tools does this skill support?",
+      "answer": "Works with Claude, Codex, and Claude Code for web and code search."
+    },
+    {
+      "question": "What are the result limits?",
+      "answer": "Web search returns up to 50 results. Code context supports 1000 to 50000 tokens."
+    },
+    {
+      "question": "How do I integrate this skill?",
+      "answer": "Import exa_web_search and exa_get_code_context from servers.exa module."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Queries are sent to Exa API. No local data is collected or stored."
+    },
+    {
+      "question": "Why are my results empty?",
+      "answer": "Check your Exa API key is set. Try more specific search terms."
+    },
+    {
+      "question": "How is this different from regular search?",
+      "answer": "Combines web articles with actual code examples from open source projects."
+    }
+  ],
+  "seoKeywords": [
+    "Exa AI",
+    "web search",
+    "code search",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "research",
+    "technical documentation",
+    "code examples",
+    "open source"
+  ],
+  "sourceUrl": "https://github.com/Calel33/my-flash-ui-app--1-/tree/main/skills/exa-research",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "ensembl-database",
+  "type": "skill",
+  "description": "Query Ensembl genome database REST API for 250+ species. Gene lookups, sequence retrieval, variant analysis, comparative genomics, orthologs, VEP predictions, for genomic research.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "genome research",
+  "quality": 5,
+  "qualityReason": "Essential for genomic research",
+  "bundleHints": [
+    "genomics-pipeline",
+    "bioinformatics-tools"
+  ],
+  "tags": [
+    "api",
+    "bioinformatics",
+    "comparative-genomics",
+    "database",
+    "gene-lookup",
+    "genomics",
+    "orthologs",
+    "research",
+    "variant-analysis",
+    "vep"
+  ],
+  "capabilities": [
+    "Look up gene information by symbol or Ensembl ID for 250+ species",
+    "Retrieve DNA, transcript, and protein sequences from genomic databases",
+    "Analyze genetic variants using the Variant Effect Predictor (VEP)",
+    "Find orthologs and paralogs across species for comparative genomics",
+    "Convert coordinates between genome assemblies (GRCh37 to GRCh38)",
+    "Query regulatory features and phenotype associations"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 177 static findings are false positives. The skill is a legitimate bioinformatics tool querying the Ensembl genome database (maintained by EMBL-EBI). Scanner misidentified GA4GH Beacon API endpoints as Cobalt Strike keywords, HTTP status codes as cryptographic algorithms, and markdown code fences as shell command execution. Network requests target public bioinformatics APIs with proper rate limiting.",
+  "valueStatement": "Query the Ensembl genome database REST API for vertebrate genomic data. Look up genes, retrieve sequences, analyze variants with VEP, and perform comparative genomics across 250+ species.",
+  "userTitle": "Query Ensembl Genome Database",
+  "limitations": [
+    "Rate limited to 15 requests per second for anonymous users",
+    "Only queries Ensembl REST API; does not access local databases",
+    "Returns raw API responses; downstream analysis requires additional processing"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Genomic Researchers",
+      "title": "Gene Annotation Pipeline",
+      "description": "Look up genes, retrieve transcripts, get protein sequences, find orthologs, and export results for analysis."
+    },
+    {
+      "targetUser": "Clinical Geneticists",
+      "title": "Variant Analysis",
+      "description": "Query variants by rsID, predict functional consequences with VEP, check population frequencies, retrieve phenotype associations."
+    },
+    {
+      "targetUser": "Evolutionary Biologists",
+      "title": "Comparative Genomics",
+      "description": "Find orthologs across species, retrieve sequences, compare gene structures, analyze evolutionary conservation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Gene Lookup",
+      "scenario": "Find gene information",
+      "prompt": "Look up the gene TP53 in human using Ensembl and return its Ensembl ID, chromosomal location, and description."
+    },
+    {
+      "title": "Sequence Retrieval",
+      "scenario": "Get genomic sequence",
+      "prompt": "Retrieve the DNA sequence for the BRCA2 gene (ENSG00000139618) in FASTA format."
+    },
+    {
+      "title": "Variant Analysis",
+      "scenario": "Analyze genetic variant",
+      "prompt": "Analyze the variant rs699 using VEP and show its predicted consequences and population frequencies."
+    },
+    {
+      "title": "Cross-Species Comparison",
+      "scenario": "Find orthologs",
+      "prompt": "Find all mouse orthologs for human gene BRCA2 and show their Ensembl IDs and sequence similarity."
+    }
+  ],
+  "bestPractices": [
+    "Respect the 15 requests per second rate limit for anonymous users",
+    "Use batch endpoints when querying multiple items to improve efficiency",
+    "Cache frequently accessed data to reduce API calls"
+  ],
+  "antiPatterns": [
+    "Making sequential single requests instead of using batch endpoints",
+    "Ignoring rate limit responses (429 status codes)",
+    "Not specifying the correct assembly (GRCh37 vs GRCh38) for coordinate queries"
+  ],
+  "faq": [
+    {
+      "question": "What species are supported?",
+      "answer": "Ensembl covers 250+ vertebrate species including human, mouse, zebrafish, and fruit fly."
+    },
+    {
+      "question": "How do I handle rate limits?",
+      "answer": "Implement retry logic with the Retry-After header. Maximum 15 requests per second for anonymous users."
+    },
+    {
+      "question": "What is VEP?",
+      "answer": "Variant Effect Predictor analyzes genetic variants and predicts their functional consequences on genes and proteins."
+    },
+    {
+      "question": "How do I query older genome assemblies?",
+      "answer": "Use https://grch37.rest.ensembl.org for GRCh37/hg19 queries. Current assemblies use https://rest.ensembl.org."
+    },
+    {
+      "question": "Can I batch multiple queries?",
+      "answer": "Yes, use POST endpoints with JSON arrays to query multiple IDs in a single request."
+    },
+    {
+      "question": "What output formats are available?",
+      "answer": "Most endpoints support JSON, FASTA for sequences, and some support XML or plain text."
+    }
+  ],
+  "seoKeywords": [
+    "Ensembl database",
+    "genomics research",
+    "gene lookup",
+    "variant analysis",
+    "sequence retrieval",
+    "comparative genomics",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "bioinformatics"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/ensembl-database",
+  "sourceType": "community",
+  "dependencies": []
+}

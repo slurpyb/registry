@@ -1,0 +1,139 @@
+{
+  "name": "sast-configuration",
+  "type": "skill",
+  "description": "Configure Static Application Security Testing (SAST) tools for automated vulnerability detection in application code. Use when setting up security scanning, implementing DevSecOps practices, or automating code vulnerability detection.",
+  "domain": "security",
+  "subdomain": "devsecops",
+  "specialty": "SAST setup",
+  "quality": 5,
+  "qualityReason": "Essential DevSecOps skill",
+  "bundleHints": [
+    "devsecops",
+    "security-toolkit"
+  ],
+  "tags": [
+    "automation",
+    "ci-cd",
+    "code-scanning",
+    "devsecops",
+    "sast",
+    "security-pipeline",
+    "security-tools"
+  ],
+  "capabilities": [
+    "Guide Semgrep configuration and custom rule creation",
+    "Explain SonarQube quality gates and security profiles",
+    "Outline CodeQL setup and query development workflows",
+    "Provide CI pipeline and pre-commit integration examples",
+    "Describe false positive tuning and performance optimization"
+  ],
+  "author": "wshobson",
+  "icon": "🛡️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only guidance and example commands for configuring SAST tools. All 32 static findings are false positives triggered by security-related terminology in documentation. The skill describes legitimate defensive security practices (Semgrep, SonarQube, CodeQL configuration) with no executable code, file access, network calls, or command execution. Behavior matches stated purpose of providing SAST configuration guidance.",
+  "valueStatement": "You need consistent SAST tool setup across your projects. This skill provides guidance for configuring Semgrep, SonarQube, and CodeQL with custom rules and CI integration.",
+  "userTitle": "Configure SAST tools for secure code scanning",
+  "limitations": [
+    "Does not run scans or install tools automatically",
+    "Does not access your repositories or modify CI settings",
+    "Does not guarantee compliance certification outcomes",
+    "Requires you to configure tool-specific credentials"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security engineer",
+      "title": "SAST baseline rollout",
+      "description": "Plan and configure Semgrep, SonarQube, and CodeQL for an initial organization baseline scan."
+    },
+    {
+      "targetUser": "DevOps engineer",
+      "title": "CI pipeline integration",
+      "description": "Add SAST checks to GitHub Actions or GitLab CI with clear failure gates."
+    },
+    {
+      "targetUser": "Developer",
+      "title": "Custom rule authoring",
+      "description": "Create targeted rules to detect risky patterns in a specific codebase."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Beginner setup",
+      "scenario": "New SAST setup for a small repo",
+      "prompt": "Set up a basic Semgrep scan for a Python project and suggest a minimal CI step."
+    },
+    {
+      "title": "Pipeline hardening",
+      "scenario": "CI gate for security issues",
+      "prompt": "Define a CI workflow that blocks merges on critical SAST findings and keeps noise low."
+    },
+    {
+      "title": "Rule tuning",
+      "scenario": "Reduce false positives",
+      "prompt": "Suggest rule tuning and path exclusions to reduce false positives in a large monorepo."
+    },
+    {
+      "title": "Advanced multi-tool",
+      "scenario": "Defense-in-depth scanning",
+      "prompt": "Design a plan to combine Semgrep, SonarQube, and CodeQL with clear ownership and reporting."
+    }
+  ],
+  "bestPractices": [
+    "Start with a baseline scan and prioritize critical issues first",
+    "Document suppressions and review them regularly",
+    "Cache dependencies and use incremental scans for speed"
+  ],
+  "antiPatterns": [
+    "Blocking merges on low severity findings",
+    "Ignoring false positives without documentation",
+    "Scanning generated or vendor code by default"
+  ],
+  "faq": [
+    {
+      "question": "Which platforms does this skill support?",
+      "answer": "It provides guidance for Semgrep, SonarQube, and CodeQL across common CI platforms."
+    },
+    {
+      "question": "What are the limits of this skill?",
+      "answer": "It does not execute scans or modify your CI configuration directly."
+    },
+    {
+      "question": "Can it integrate with my existing CI pipeline?",
+      "answer": "Yes, it offers examples for GitHub Actions, GitLab CI, and pre-commit hooks."
+    },
+    {
+      "question": "Is my data accessed or stored?",
+      "answer": "No, the skill content is static documentation and does not access files or transmit data."
+    },
+    {
+      "question": "How do I troubleshoot noisy results?",
+      "answer": "Use rule tuning, path exclusions, and documented suppressions to reduce noise."
+    },
+    {
+      "question": "How does it compare to using one tool only?",
+      "answer": "It helps plan a multi-tool approach for stronger coverage and defense in depth."
+    }
+  ],
+  "seoKeywords": [
+    "SAST configuration",
+    "Semgrep rules",
+    "SonarQube setup",
+    "CodeQL analysis",
+    "CI security scanning",
+    "DevSecOps",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/wshobson/agents/tree/main/plugins/security-scanning/skills/sast-configuration",
+  "sourceType": "community",
+  "dependencies": []
+}

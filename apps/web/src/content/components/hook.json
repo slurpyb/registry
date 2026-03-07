@@ -1,0 +1,144 @@
+{
+  "name": "hook",
+  "type": "skill",
+  "description": "Use PROACTIVELY when you need to create, update, configure, or validate Claude hooks for various events and integrations",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "Claude hooks",
+  "quality": 5,
+  "qualityReason": "Specific Claude Code integration",
+  "bundleHints": [
+    "claude-ecosystem",
+    "agent-config"
+  ],
+  "tags": [
+    "automation",
+    "claude-code",
+    "configuration",
+    "event-hooks",
+    "hooks",
+    "posttooluse",
+    "pretooluse",
+    "workflow",
+    "workflows"
+  ],
+  "capabilities": [
+    "Create new hook scripts in the .claude/hooks/ directory",
+    "Configure hooks in settings.local.json for various events",
+    "Implement prompt-based hooks for intelligent decision making",
+    "Add proper error handling and validation to hooks",
+    "Test hook execution without creating test files"
+  ],
+  "author": "Emz1998",
+  "icon": "🪝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill provides official Claude Code hooks documentation and helper workflows. All static findings are FALSE POSITIVES - the detected patterns are documentation examples showing legitimate hook configurations, not actual security threats. The skill includes explicit security constraints prohibiting dangerous operations like hardcoded credentials or system file modifications.",
+  "valueStatement": "Claude Code hooks enable developers to automate workflows by running custom scripts before, after, or during Claude operations. This skill helps you set up, configure, and validate hooks for tasks like code formatting, validation, notifications, and context management.",
+  "userTitle": "Create Claude Code Hooks for Workflow Automation",
+  "limitations": [
+    "Cannot modify critical system files",
+    "Cannot implement hooks with hardcoded credentials",
+    "Cannot bypass security validations or access controls",
+    "Cannot create hooks that cause infinite loops"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development teams enforcing code quality standards",
+      "title": "Code Quality Gates",
+      "description": "Set up PostToolUse hooks to automatically run linters, formatters, or tests after file modifications. Ensure code quality standards are met without manual intervention."
+    },
+    {
+      "targetUser": "Developers working on large codebases requiring context awareness",
+      "title": "Context Management",
+      "description": "Use SessionStart hooks to load project context, recent changes, or issue tracking information at the start of each Claude Code session."
+    },
+    {
+      "targetUser": "Teams with security or operational policies to enforce",
+      "title": "Approval Workflows",
+      "description": "Configure PreToolUse and PermissionRequest hooks to automatically approve or block certain operations based on defined policies, reducing permission dialog fatigue."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Hook Creation",
+      "prompt": "Create a hook called $1 that $2",
+      "scenario": "When you need to create a simple hook for a specific purpose"
+    },
+    {
+      "title": "Notification Hook Setup",
+      "prompt": "Set up a Notification hook that alerts when Claude is idle for more than 60 seconds",
+      "scenario": "When you want notifications for idle sessions"
+    },
+    {
+      "title": "Session Start Configuration",
+      "prompt": "Create a SessionStart hook that loads environment variables and project context from .env file",
+      "scenario": "When you need environment setup at session start"
+    },
+    {
+      "title": "Prompt-Based Decision Hook",
+      "prompt": "Create a Stop hook that uses LLM evaluation to decide if Claude should continue working based on task completion",
+      "scenario": "When you want intelligent stop decisions"
+    }
+  ],
+  "bestPractices": [
+    "Always quote shell variables in hook scripts using \"$VAR\" syntax",
+    "Validate and sanitize all inputs received via stdin before processing",
+    "Use absolute paths for scripts and leverage $CLAUDE_PROJECT_DIR for project-relative paths",
+    "Implement proper exit codes and error handling for predictable behavior"
+  ],
+  "antiPatterns": [
+    "Hardcoding credentials or secrets in hook scripts",
+    "Creating hooks without timeout limits that could hang indefinitely",
+    "Modifying files outside the project directory",
+    "Skipping input validation when processing hook input data"
+  ],
+  "faq": [
+    {
+      "question": "What hook events are available?",
+      "answer": "Claude Code supports PreToolUse, PermissionRequest, PostToolUse, Notification, UserPromptSubmit, Stop, SubagentStop, PreCompact, SessionStart, and SessionEnd hooks. Each serves different purposes from pre-execution validation to post-execution cleanup."
+    },
+    {
+      "question": "How do I configure hooks?",
+      "answer": "Hooks are configured in .claude/settings.local.json under the hooks key. Each event can have matchers and an array of hooks with type (command or prompt), command/prompt, and optional timeout."
+    },
+    {
+      "question": "Can hooks modify tool inputs?",
+      "answer": "Yes, PreToolUse and PermissionRequest hooks can use updatedInput to modify tool parameters before execution. This allows hooks to transform or approve operations automatically."
+    },
+    {
+      "question": "What is the difference between command and prompt hooks?",
+      "answer": "Command hooks execute bash scripts for deterministic operations. Prompt hooks use an LLM for context-aware decisions. Prompt hooks currently work best with Stop and SubagentStop events for intelligent continuation decisions."
+    },
+    {
+      "question": "How do hooks handle errors?",
+      "answer": "Exit code 0 means success. Exit code 2 is a blocking error. Other non-zero codes are non-blocking errors. Hooks can also return JSON for structured control over Claude's behavior."
+    },
+    {
+      "question": "Are hooks safe to use?",
+      "answer": "Hooks execute commands on your system, so review any hook commands before adding them. Claude Code warns about external modifications and requires review for changes. Always test hooks in safe environments first."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "hooks",
+    "automation",
+    "workflow",
+    "scripts",
+    "configuration",
+    "events",
+    "integration"
+  ],
+  "sourceUrl": "https://github.com/Emz1998/nexly-notes/tree/main/.claude/skills%20copy/hook",
+  "sourceType": "community",
+  "dependencies": []
+}

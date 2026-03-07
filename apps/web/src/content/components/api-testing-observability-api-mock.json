@@ -1,0 +1,137 @@
+{
+  "name": "api-testing-observability-api-mock",
+  "type": "skill",
+  "description": "You are an API mocking expert specializing in realistic mock services for development, testing, and demos. Design mocks that simulate real API behavior and enable parallel development.",
+  "domain": "testing",
+  "subdomain": "e2e",
+  "specialty": "mock services",
+  "quality": 5,
+  "qualityReason": "Critical tool for realistic testing",
+  "bundleHints": [
+    "testing-toolkit",
+    "api-mocks",
+    "dev-qa"
+  ],
+  "tags": [
+    "api-mocking",
+    "contract-testing",
+    "demos",
+    "development",
+    "mock-server",
+    "observability",
+    "testing"
+  ],
+  "capabilities": [
+    "Design mock API servers with FastAPI or similar frameworks",
+    "Create scenario-based mocking for different test conditions",
+    "Generate realistic mock data using schema-based generators",
+    "Implement contract testing against OpenAPI specifications",
+    "Simulate performance characteristics like latency and rate limiting",
+    "Integrate mocks with Jest, pytest, and other testing frameworks"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static analyzer findings are false positives. The skill consists of Markdown documentation files (SKILL.md and implementation-playbook.md) containing Python code examples for educational purposes. The detected patterns (external commands, network calls, crypto references) exist only in documentation code blocks, not executable code. No security risks identified after semantic evaluation.",
+  "valueStatement": "Build comprehensive mock API servers that simulate real backend behavior without needing actual services. Enable parallel development and thorough testing with realistic responses, scenarios, and contract validation.",
+  "userTitle": "Create realistic mock APIs for testing and development",
+  "limitations": [
+    "Provides code examples and patterns, not pre-built executable tools",
+    "Mock implementations require manual setup in your project",
+    "Does not replace actual API integration testing with real services",
+    "Performance simulation is approximate and may not match production exactly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers building applications awaiting API availability",
+      "title": "Frontend Development",
+      "description": "Enable frontend teams to build and test UI components against mock APIs before backend services are complete."
+    },
+    {
+      "targetUser": "QA engineers and test automation developers",
+      "title": "Integration Testing",
+      "description": "Create deterministic test scenarios including error conditions, rate limiting, and edge cases that are difficult to reproduce with live APIs."
+    },
+    {
+      "targetUser": "Backend developers integrating with external services",
+      "title": "Third-Party API Simulation",
+      "description": "Mock external partner APIs during development to avoid rate limits, costs, and dependencies on external service availability."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Mock Server Setup",
+      "prompt": "Create a mock API server for a REST endpoint that returns user data. Include routes for GET /users and GET /users/{id} with sample JSON responses."
+    },
+    {
+      "title": "Scenario-Based Testing",
+      "prompt": "Set up mock scenarios for an authentication API including: successful login, invalid credentials, locked account, and rate-limited responses. Show how to switch between scenarios during tests."
+    },
+    {
+      "title": "Contract-Driven Mocks",
+      "prompt": "Generate mock implementations from this OpenAPI specification. Ensure all responses validate against the defined schemas and include examples for each status code."
+    },
+    {
+      "title": "Performance Testing Mocks",
+      "prompt": "Create a mock server that simulates production-like latency, occasional timeouts, and rate limiting. Include metrics collection to track request patterns."
+    }
+  ],
+  "bestPractices": [
+    "Label mock endpoints clearly with response headers like X-Mock-Server to prevent accidental production use",
+    "Use schema-based data generation to ensure mock responses match expected API contracts",
+    "Implement stateful mocks that track request history and support scenario transitions"
+  ],
+  "antiPatterns": [
+    "Using production credentials or real customer data in mock configurations",
+    "Creating mocks that are too simplistic and miss important edge cases like null values or error states",
+    "Hardcoding mock responses instead of using dynamic data generation based on request parameters"
+  ],
+  "faq": [
+    {
+      "question": "Can I use this skill with any programming language?",
+      "answer": "The examples use Python with FastAPI, but the patterns apply to any language. The concepts of routing, stubbing, and scenario management are framework-agnostic."
+    },
+    {
+      "question": "How do I ensure my mocks stay in sync with the real API?",
+      "answer": "Use contract testing by loading OpenAPI specifications. Generate mocks from the contract and validate responses against the same schemas used by the real API."
+    },
+    {
+      "question": "Can mocks simulate database operations?",
+      "answer": "Yes, the skill covers in-memory data stores with support for CRUD operations, indexing, and relationships between collections for realistic data behavior."
+    },
+    {
+      "question": "How do I test error conditions that are hard to reproduce?",
+      "answer": "Use scenario-based mocking to explicitly define error responses including timeouts, rate limiting, malformed data, and service unavailability states."
+    },
+    {
+      "question": "Can I deploy mock servers for team use?",
+      "answer": "Yes, the skill includes Docker and Kubernetes deployment configurations so mock servers can run as shared services accessible to your entire team."
+    },
+    {
+      "question": "How realistic can the mock data be?",
+      "answer": "Very realistic - the skill uses libraries like Faker for generating names, emails, addresses, and other realistic data while maintaining referential integrity between related entities."
+    }
+  ],
+  "seoKeywords": [
+    "API mocking",
+    "Claude Code skill",
+    "Codex testing",
+    "mock server",
+    "API testing",
+    "Claude development",
+    "contract testing",
+    "test fixtures",
+    "API documentation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/api-testing-observability-api-mock",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,139 @@
+{
+  "name": "wordpress-admin",
+  "type": "skill",
+  "description": "Full WordPress site management - create pages/posts, configure SEO (Yoast), upload media, manage settings. Use when creating content, setting up SEO, or managing any WordPress site.",
+  "domain": "web-development",
+  "subdomain": "cms",
+  "specialty": "site management",
+  "quality": 5,
+  "qualityReason": "Clear admin content workflow",
+  "bundleHints": [
+    "cms-admin",
+    "wordpress-ops"
+  ],
+  "tags": [
+    "cms",
+    "content-management",
+    "media-upload",
+    "seo",
+    "wordpress",
+    "yoast"
+  ],
+  "capabilities": [
+    "Create, update, list, and delete WordPress pages and posts",
+    "Configure Yoast SEO fields including focus keyphrase, meta description, and SEO title",
+    "Upload and manage media files including featured images",
+    "Execute WP-CLI commands within Docker containers for local development",
+    "Manage WordPress plugins through WP-CLI",
+    "Generate SEO-friendly meta descriptions based on page content"
+  ],
+  "author": "CrazySwami",
+  "icon": "🔧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "The static analyzer flagged 151 potential issues, but evaluation reveals most are false positives. The skill uses subprocess.run for legitimate WordPress management via WP-CLI and Docker. Hardcoded URLs are configuration values, not suspicious network connections. The SKILL.md backtick patterns are markdown documentation, not shell execution. The 'weak cryptographic algorithm' flags are false positives from meta field names containing underscores. The combination of code execution, network access, and credential handling is expected for a WordPress administration skill. All operations are within the explicitly declared allowed-tools scope.",
+  "valueStatement": "This skill provides complete WordPress site management capabilities. Create and edit pages and posts, configure Yoast SEO metadata, upload media files, and manage WordPress settings. Use this skill to automate content publishing workflows.",
+  "userTitle": "Manage WordPress sites with WP-CLI and REST API",
+  "limitations": [
+    "REST API implementation for production sites is not yet complete",
+    "Requires Docker for local WordPress management or WP-CLI access for production",
+    "Yoast SEO fields require theme modifications to expose meta fields in REST API"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content Managers",
+      "title": "Automate content publishing",
+      "description": "Create and update WordPress pages with SEO metadata from Claude prompts without manual CMS login"
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Manage local WordPress",
+      "description": "Control local Docker WordPress environment, run WP-CLI commands, and sync theme files to production"
+    },
+    {
+      "targetUser": "SEO Specialists",
+      "title": "Bulk SEO optimization",
+      "description": "Set focus keyphrases, meta descriptions, and SEO titles for multiple pages efficiently"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create new page",
+      "scenario": "Add a new page to WordPress",
+      "prompt": "Create a page titled 'About Us' with slug 'about-us', template 'page-about.php', and content describing our company. Also set the focus keyphrase to 'company description' and meta description to 155 characters."
+    },
+    {
+      "title": "List all pages",
+      "scenario": "Review existing content",
+      "prompt": "List all pages on the local WordPress site. Show their IDs, titles, and current status."
+    },
+    {
+      "title": "Update SEO metadata",
+      "scenario": "Optimize existing content",
+      "prompt": "Set SEO title to 'Privacy Policy | Company Name' and meta description to 150 characters for page ID 42. Focus keyphrase is 'privacy policy'."
+    },
+    {
+      "title": "Upload featured image",
+      "scenario": "Add media to post",
+      "prompt": "Search Pexels for 'office building' photos, download one, and set it as the featured image for post ID 123."
+    }
+  ],
+  "bestPractices": [
+    "Use the local Docker environment for testing before publishing to production sites",
+    "Validate meta descriptions stay under 155 characters and SEO titles under 60 characters",
+    "Store API keys for stock photo services in environment variables or secure files, not in code"
+  ],
+  "antiPatterns": [
+    "Do not hardcode production credentials directly in scripts or command arguments",
+    "Avoid using shell=True with subprocess when possible to prevent injection risks",
+    "Do not skip the theme modification step when using Yoast SEO fields via REST API"
+  ],
+  "faq": [
+    {
+      "question": "How do I connect to a production WordPress site?",
+      "answer": "Configure the site in the SITES dictionary with type 'rest' and the REST API endpoint. You will need authentication credentials for the WordPress REST API."
+    },
+    {
+      "question": "What permissions does the skill need?",
+      "answer": "The skill requires Bash access for docker, curl, python3, and lftp commands to manage WordPress through WP-CLI and manage files."
+    },
+    {
+      "question": "Can I use this with WordPress.com sites?",
+      "answer": "This skill is designed for self-hosted WordPress sites using WordPress.org software with WP-CLI or REST API access."
+    },
+    {
+      "question": "How do I set up Yoast SEO fields?",
+      "answer": "Add the provided PHP snippet to your theme functions.php to register Yoast meta fields in the REST API, then use the skill to set SEO values."
+    },
+    {
+      "question": "Is this skill safe to use?",
+      "answer": "Yes. All operations are logged and use the explicitly declared allowed tools. The skill manages WordPress through official APIs."
+    },
+    {
+      "question": "Can I create custom workflows?",
+      "answer": "Yes. The Python scripts (wp-page.py, wp-seo.py, wp-media.py) can be combined or extended for custom WordPress management workflows."
+    }
+  ],
+  "seoKeywords": [
+    "wordpress management",
+    "wp-cli",
+    "wordpress rest api",
+    "yoast seo",
+    "wordpress content management",
+    "claude wordpress",
+    "codex wordpress",
+    "claude-code wordpress",
+    "cms automation",
+    "wordpress automation"
+  ],
+  "sourceUrl": "https://github.com/CrazySwami/wordpress-dev-skills/tree/main/skills/wordpress-admin",
+  "sourceType": "community",
+  "dependencies": []
+}

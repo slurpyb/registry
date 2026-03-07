@@ -1,0 +1,138 @@
+{
+  "name": "checkpoint",
+  "type": "skill",
+  "description": "Robust workflow checkpoint and resume. Handles session interruption, state recovery, and safe resume across all workflow phases.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "state recovery",
+  "quality": 5,
+  "qualityReason": "Robust workflow continuity保障",
+  "bundleHints": [
+    "agent-workflow",
+    "state-preserving"
+  ],
+  "tags": [
+    "interruption-handling",
+    "persistence",
+    "recovery",
+    "state-management",
+    "workflow"
+  ],
+  "capabilities": [
+    "Save workflow state to disk after each phase completion",
+    "Detect interrupted workflows when sessions reconnect",
+    "Validate state integrity before resuming",
+    "Archive old state files for debugging",
+    "Continue from the exact phase where interruption occurred",
+    "Present resume options to users before proceeding"
+  ],
+  "author": "Clouder0",
+  "icon": "💾",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill with no executable code. All 57 static findings are false positives caused by pattern misinterpretation. The skill contains only markdown documentation describing file-based workflow state management. No network calls, external commands, credential access, or filesystem operations beyond describing patterns. Behavior matches stated purpose exactly.",
+  "valueStatement": "Multi-phase AI workflows can be interrupted by crashes, timeouts, or session endings. This skill provides checkpoint and resume functionality so you never lose progress and can continue from where you left off.",
+  "userTitle": "Save and Resume Workflow Progress",
+  "limitations": [
+    "Only works with workflows that follow the dotagent phase structure",
+    "Cannot recover from corrupted output files outside the checkpoint system",
+    "Requires users to use claude -r flag to trigger resume",
+    "Does not automatically back up external project files"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Long-running project developers",
+      "title": "Recover from crashes",
+      "description": "Continue complex multi-phase projects after unexpected interruptions without losing progress or redoing completed work."
+    },
+    {
+      "targetUser": "Multi-agent team leads",
+      "title": "Resume orchestrated workflows",
+      "description": "Pick up multi-agent workflows from the exact point where they stopped, maintaining consistency across phases."
+    },
+    {
+      "targetUser": "Iterative improvement teams",
+      "title": "Archive and compare iterations",
+      "description": "Save workflow state archives to compare different approaches and debug workflow issues across sessions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start workflow with checkpoints",
+      "scenario": "Beginning a multi-phase project",
+      "prompt": "Use the checkpoint skill to start a new workflow. Save state after each phase completion. If the session ends, I want to resume from the last checkpoint."
+    },
+    {
+      "title": "Resume interrupted workflow",
+      "scenario": "Reconnecting to a stopped session",
+      "prompt": "Check for existing checkpoint state. If found, validate the state integrity and present me with resume options showing what was completed and what remains."
+    },
+    {
+      "title": "Archive completed workflow",
+      "scenario": "Finishing a major milestone",
+      "prompt": "Archive the completed workflow state to memory/state/.archive/ with a timestamp so we can reference it later if needed."
+    },
+    {
+      "title": "Recover from corrupted state",
+      "scenario": "Detecting invalid checkpoint data",
+      "prompt": "Validate the checkpoint state files. If any files are missing or timestamps are invalid, ask me whether to start fresh or attempt recovery."
+    }
+  ],
+  "bestPractices": [
+    "Use atomic writes by writing to .tmp files before renaming to prevent corrupted checkpoints during writes.",
+    "Validate state integrity before resuming to avoid using outdated or partially written checkpoint data.",
+    "Archive old workflow states instead of deleting them for debugging and audit purposes."
+  ],
+  "antiPatterns": [
+    "Relying on conversation memory alone instead of file-based state for critical progress.",
+    "Skipping checkpoint writes before spawning expensive operations that might timeout.",
+    "Blindly trusting old state without validating file existence and timestamps."
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with all Claude interactions?",
+      "answer": "This skill follows dotagent patterns. For general Claude or Claude Code use, it provides checkpoint functionality when sessions are resumed with claude -r."
+    },
+    {
+      "question": "How often are checkpoints saved?",
+      "answer": "Checkpoints are saved after phase completion, user approval, task status changes, and before spawning expensive operations like Opus agents."
+    },
+    {
+      "question": "Can I integrate this with my own workflow system?",
+      "answer": "The skill defines patterns that can be adapted. The core idea of file-based state with atomic writes and validation applies broadly."
+    },
+    {
+      "question": "Is my workflow data stored securely?",
+      "answer": "State files are stored in memory/state/ within your project. No data is sent externally. You control where these files reside."
+    },
+    {
+      "question": "What happens if my checkpoint file gets corrupted?",
+      "answer": "The skill detects corruption through validation checks. It will ask whether to start fresh and can archive the corrupted state for debugging."
+    },
+    {
+      "question": "How is this different from simple file saving?",
+      "answer": "This skill provides a structured protocol with validation, atomic writes, phase tracking, and intelligent resume logic that handles multiple failure scenarios."
+    }
+  ],
+  "seoKeywords": [
+    "checkpoint resume",
+    "workflow persistence",
+    "Claude Code recovery",
+    "session interruption",
+    "workflow state",
+    "AI development",
+    "multi-phase workflow",
+    "progress saving",
+    "claude-code",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/Clouder0/dotagent/tree/main/.claude/skills/checkpoint",
+  "sourceType": "community",
+  "dependencies": []
+}

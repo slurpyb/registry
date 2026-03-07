@@ -1,0 +1,139 @@
+{
+  "name": "code-review-standards",
+  "type": "skill",
+  "description": "Code review framework and criteria. References security-sentinel for security checks. Use when performing code reviews or defining review standards.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "review framework",
+  "quality": 4,
+  "qualityReason": "Clear standards reference",
+  "bundleHints": [
+    "code-quality",
+    "security-toolkit"
+  ],
+  "tags": [
+    "best-practices",
+    "code-quality",
+    "code-review",
+    "development-standards",
+    "framework",
+    "security-sentinel",
+    "software-quality"
+  ],
+  "capabilities": [
+    "Apply maintainability rules to assess code clarity and organization",
+    "Evaluate code against performance criteria and optimization guidelines",
+    "Conduct security-focused reviews using established checklist items",
+    "Provide consistent review standards across team code contributions"
+  ],
+  "author": "Barnhardt-Enterprises-Inc",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 177 static findings are false positives. The skill consists of markdown documentation files containing code examples for educational purposes. The flagged patterns (external_commands, network, filesystem, scripts, env_access) appear only in documentation examples demonstrating what to look for during code reviews, not as executable code. This is a documentation skill with no security risks.",
+  "valueStatement": "Teams struggle with inconsistent code reviews and missed issues. This skill provides comprehensive criteria for maintainability, performance, and security reviews, ensuring consistent quality standards across all code contributions.",
+  "userTitle": "Apply Code Review Standards",
+  "limitations": [
+    "Does not execute or test code - only provides review criteria",
+    "Does not integrate with version control systems automatically",
+    "Does not enforce rules or block commits directly",
+    "Requires human judgment for final review decisions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "New developers joining a team",
+      "title": "New Team Member Onboarding",
+      "description": "New developers use the skill to learn team code standards before submitting their first pull requests, reducing review cycles and improving code quality from day one."
+    },
+    {
+      "targetUser": "Code reviewers and team leads",
+      "title": "Pull Request Review Process",
+      "description": "Team leads apply the skill during code reviews to ensure all maintainability, performance, and security criteria are checked systematically."
+    },
+    {
+      "targetUser": "Engineering managers and architects",
+      "title": "Establishing Team Standards",
+      "description": "Engineering managers use the skill to define or update team code review standards, creating documented criteria for consistent code quality."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Code Review",
+      "prompt": "Review the following code for maintainability, performance, and security issues using the code-review-standards skill. List any problems you find.",
+      "scenario": "Quick code review request"
+    },
+    {
+      "title": "Detailed Security Review",
+      "prompt": "Perform a security-focused code review on the following code. Check for common vulnerabilities and security anti-patterns. Report your findings.",
+      "scenario": "Security-specific code review"
+    },
+    {
+      "title": "Performance Optimization Review",
+      "prompt": "Review the following code for performance issues. Identify any inefficient algorithms, unnecessary operations, or resource management problems.",
+      "scenario": "Performance optimization review"
+    },
+    {
+      "title": "Comprehensive Code Audit",
+      "prompt": "Conduct a full code review using all criteria from code-review-standards. Evaluate maintainability, performance, and security. Provide a summary report with prioritized findings.",
+      "scenario": "Complete code audit"
+    }
+  ],
+  "bestPractices": [
+    "Use the complete review checklist from all three criteria files (maintainability, performance, security) for comprehensive reviews",
+    "Provide specific, actionable feedback with code examples when suggesting improvements",
+    "Document exceptions and trade-offs when deviating from standards is necessary"
+  ],
+  "antiPatterns": [
+    "Skipping security checks in favor of speed - security issues are harder to fix later",
+    "Reviewing only for style preferences without checking actual code quality and correctness",
+    "Not documenting the reasoning behind review decisions and feedback"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill execute the code being reviewed?",
+      "answer": "No. This skill provides criteria and guidelines for reviewing code. It does not run or test the code itself. It is designed to be used as a reference framework during manual or automated code reviews."
+    },
+    {
+      "question": "Can I use this skill with other Claude skills?",
+      "answer": "Yes. The skill description references security-sentinel for additional security checks. You can combine it with other skills for comprehensive code analysis and review workflows."
+    },
+    {
+      "question": "How do I customize the standards for my team?",
+      "answer": "The skill provides baseline criteria. You can modify the markdown files to add, remove, or adjust criteria to match your team's specific requirements and coding conventions."
+    },
+    {
+      "question": "What file formats can this skill review?",
+      "answer": "This skill provides criteria applicable to any programming language. The examples in the documentation cover multiple languages. You can apply the principles to review code in any format."
+    },
+    {
+      "question": "Does this skill integrate with CI/CD pipelines?",
+      "answer": "This skill is designed for human-assisted code reviews. For automated checks in CI/CD, you would need to use complementary tools that enforce similar standards programmatically."
+    },
+    {
+      "question": "How detailed are the review criteria?",
+      "answer": "The skill includes comprehensive criteria across maintainability, performance, and security domains. Each category contains specific rules, examples, and guidance for thorough code evaluation."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "code review",
+    "code review standards",
+    "software quality",
+    "code review checklist",
+    "development standards",
+    "code review criteria",
+    "software engineering"
+  ],
+  "sourceUrl": "https://github.com/Barnhardt-Enterprises-Inc/quetrex-plugin/tree/main/templates/skills/code-review-standards",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,144 @@
+{
+  "name": "obsidian-markdown",
+  "type": "skill",
+  "description": "Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax. Use when working with .md files in Obsidian, or when the user mentions wikilinks, callouts, frontmatter, tags, embeds, or Obsidian notes.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "Flavored Markdown",
+  "quality": 5,
+  "qualityReason": "Syntax-specific expertise",
+  "bundleHints": [
+    "obsidian-tools",
+    "documentation-automation",
+    "markdown-enhanced"
+  ],
+  "tags": [
+    "callouts",
+    "embeds",
+    "knowledge-management",
+    "markdown",
+    "note-taking",
+    "obsidian",
+    "wikilinks"
+  ],
+  "capabilities": [
+    "Create valid wikilinks with aliases and heading references",
+    "Format callouts with all supported types and foldable options",
+    "Add frontmatter properties with correct YAML syntax",
+    "Embed notes, images, audio, PDFs, and code blocks",
+    "Use block IDs for precise internal linking",
+    "Format task lists, tables, and math equations"
+  ],
+  "author": "ZhanlinCui",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static security findings are false positives. The skill is a documentation/reference guide for Obsidian Markdown syntax. The 'external_commands' alerts are markdown backtick syntax being misidentified as shell commands. The 'network' findings are legitimate documentation URLs (commonmark.org, help.obsidian.md) used as references. The 'weak_crypto' and 'system_reconnaissance' alerts are YAML frontmatter and Obsidian block IDs being misinterpreted.",
+  "valueStatement": "This skill enables AI agents to create and edit Obsidian Flavored Markdown with proper syntax for wikilinks, callouts, embeds, properties, and other Obsidian-specific features.",
+  "userTitle": "Create Obsidian Markdown Notes",
+  "limitations": [
+    "Does not execute Obsidian plugins or JavaScript",
+    "Does not interact with Obsidian API or vault files",
+    "Does not render or preview markdown visually",
+    "Does not manage Obsidian settings or configurations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Users building second brain or PKM systems",
+      "title": "Generate Knowledge Base Notes",
+      "description": "Create interconnected notes with wikilinks for building a personal knowledge management system"
+    },
+    {
+      "targetUser": "Developers and technical writers",
+      "title": "Format Technical Documentation",
+      "description": "Write documentation with code blocks, callouts, and embedded files using proper syntax"
+    },
+    {
+      "targetUser": "Project managers and team leads",
+      "title": "Create Project Tracking Notes",
+      "description": "Set up project notes with properties, task lists, and status tracking"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Note Creation",
+      "prompt": "Create an Obsidian note with title 'Meeting Notes', add frontmatter with date and tags, include a callout for action items, and link to other notes using wikilinks.",
+      "scenario": "Creating a simple meeting note"
+    },
+    {
+      "title": "Link to Specific Section",
+      "prompt": "Create a note that links to a specific heading in another note using the wikilink syntax. Include an embed of a code block from a third note.",
+      "scenario": "Linking to headings and embedding content"
+    },
+    {
+      "title": "Complex Property Setup",
+      "prompt": "Create a note with multiple property types: text, number, checkbox, date, list of tags, and related links using Obsidian properties syntax.",
+      "scenario": "Setting up frontmatter properties"
+    },
+    {
+      "title": "Callout with Foldable Content",
+      "prompt": "Create a note with a foldable callout that shows a warning, includes nested content, and collapses by default.",
+      "scenario": "Using advanced callout features"
+    }
+  ],
+  "bestPractices": [
+    "Use consistent naming conventions for wikilinks to maintain vault organization",
+    "Add frontmatter properties to enable Obsidian queries and organization features",
+    "Use descriptive aliases in wikilinks for readability in published notes",
+    "Use appropriate callout types to communicate information hierarchy"
+  ],
+  "antiPatterns": [
+    "Using standard Markdown links instead of wikilinks when linking to vault notes",
+    "Forgetting to URL-encode spaces in Markdown-style links",
+    "Using incorrect YAML syntax in frontmatter properties",
+    "Not using block IDs when needing precise links to specific content"
+  ],
+  "faq": [
+    {
+      "question": "What is Obsidian Flavored Markdown?",
+      "answer": "Obsidian Flavored Markdown extends standard Markdown with features like wikilinks, callouts, embeds, and frontmatter properties for note metadata."
+    },
+    {
+      "question": "What is the difference between wikilinks and Markdown links?",
+      "answer": "Wikilinks use double brackets [[Note Name]] and automatically create links to notes. Markdown links use [text](url) syntax and require full file paths or URLs."
+    },
+    {
+      "question": "How do I link to a specific heading in another note?",
+      "answer": "Use wikilink syntax with # symbol: [[Note Name#Heading]]. The heading must exist in the target note."
+    },
+    {
+      "question": "What are Obsidian properties?",
+      "answer": "Properties are YAML key-value pairs at the top of a note (frontmatter) that add metadata like tags, dates, aliases, and custom fields."
+    },
+    {
+      "question": "Can I embed entire notes or just parts?",
+      "answer": "You can embed full notes with ![[Note Name]], specific headings with ![[Note Name#Heading]], or specific blocks with ![[Note Name#^block-id]]."
+    },
+    {
+      "question": "What callout types does Obsidian support?",
+      "answer": "Obsidian supports: note, abstract, info, todo, tip, success, question, warning, failure, danger, bug, example, and quote."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Obsidian markdown",
+    "wikilinks",
+    "Obsidian callouts",
+    "Obsidian properties",
+    "Obsidian embeds",
+    "note-taking markdown",
+    "knowledge management"
+  ],
+  "sourceUrl": "https://github.com/ZhanlinCui/Ultimate-Agent-Skills-Collection/tree/main/obsidian-markdown",
+  "sourceType": "community",
+  "dependencies": []
+}

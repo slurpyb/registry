@@ -1,0 +1,140 @@
+{
+  "name": "data-analysis",
+  "type": "skill",
+  "description": "AI-powered data analysis for Empathy Ledger. Use when working with themes, quotes, story suggestions, transcript analysis, storyteller connections, or any feature requiring extracted insights. Ensures consistent analysis patterns across the platform.",
+  "domain": "data",
+  "subdomain": "analytics",
+  "specialty": "insight extraction",
+  "quality": 4,
+  "qualityReason": "Useful for specific domain analysis",
+  "bundleHints": [
+    "data-insights",
+    "nlp-pipeline"
+  ],
+  "tags": [
+    "ai-insights",
+    "data-analysis",
+    "nlp",
+    "quotes",
+    "storytelling",
+    "supabase",
+    "themes",
+    "transcripts"
+  ],
+  "capabilities": [
+    "Provides TypeScript patterns for theme extraction and matching algorithms",
+    "Includes optimized Supabase query examples for array operations and full-text search",
+    "Contains React component examples for displaying quotes and themes",
+    "Documents AI analysis integration with Anthropic Claude API",
+    "Provides SQL patterns for analytics views and theme statistics",
+    "Includes theme taxonomy with color mapping and normalization functions"
+  ],
+  "author": "Acurioustractor",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only Markdown documentation files with code examples for data analysis patterns. All 260 static findings are false positives. The 'backtick execution' alerts are triggered by Markdown code fence syntax (```), not Ruby shell execution. The 'weak cryptographic algorithm' alerts match 'MD' in file extensions like 'SKILL.md'. The 'key files' alerts match database field names like 'key_quotes'. No executable code, no actual network calls, no credential access.",
+  "valueStatement": "Working with storytelling platforms requires consistent patterns for extracting themes, quotes, and AI insights. This skill provides ready-to-use patterns for Supabase queries, theme matching, and AI analysis integration.",
+  "userTitle": "Analyze themes and quotes from storytelling data",
+  "limitations": [
+    "Designed specifically for the Empathy Ledger platform schema",
+    "Requires Supabase backend with specific table structure",
+    "AI analysis examples use Anthropic Claude API which requires API key"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developer",
+      "title": "Implement theme-based story suggestions",
+      "description": "Use the theme matching algorithms and Supabase query patterns to build related content suggestions based on overlapping themes."
+    },
+    {
+      "targetUser": "Data engineer",
+      "title": "Create analytics dashboards",
+      "description": "Apply the materialized view patterns and analytics queries to build theme popularity and quote statistics dashboards."
+    },
+    {
+      "targetUser": "Frontend developer",
+      "title": "Display analysis results in UI",
+      "description": "Use the React component examples to show theme badges, quote cards, and suggested stories consistently across the application."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Extract themes from text",
+      "scenario": "Need to analyze new content for themes",
+      "prompt": "Using the theme extraction pattern from the data-analysis skill, help me analyze this transcript and extract 5-7 key themes following the standard categories."
+    },
+    {
+      "title": "Build theme matching query",
+      "scenario": "Finding related stories by theme overlap",
+      "prompt": "Using the Supabase query patterns, write a query to find stories that share at least 2 themes with the current story, ordered by overlap percentage."
+    },
+    {
+      "title": "Create analytics view",
+      "scenario": "Building a theme statistics dashboard",
+      "prompt": "Help me create a materialized view following the data-analysis skill patterns that shows theme popularity, storyteller count, and average views per theme."
+    },
+    {
+      "title": "Implement full-text search",
+      "scenario": "Adding search across quotes and stories",
+      "prompt": "Using the full-text search patterns from the skill, implement a search function that searches across story content, quotes, and themes with weighted ranking."
+    }
+  ],
+  "bestPractices": [
+    "Always normalize themes using the theme aliases mapping before storing or comparing",
+    "Use server-side Supabase filtering with overlaps() instead of client-side filtering for performance",
+    "Limit theme arrays to 5-7 primary themes to maintain meaningful relationships"
+  ],
+  "antiPatterns": [
+    "Fetching all columns with select('*') when only specific fields are needed",
+    "Performing theme filtering on the client side after fetching all stories",
+    "Storing unnormalized theme variations that create duplicate entries"
+  ],
+  "faq": [
+    {
+      "question": "What database does this skill work with?",
+      "answer": "This skill provides patterns for Supabase (PostgreSQL) with specific array operations for theme matching and GIN indexes for full-text search."
+    },
+    {
+      "question": "Can I use these patterns with a different schema?",
+      "answer": "Yes, adapt the table and column names to match your schema. The core patterns for array operations and theme matching are transferable."
+    },
+    {
+      "question": "How do I handle theme normalization?",
+      "answer": "Use the THEME_ALIASES mapping to convert variations like 'tradition' to 'heritage'. Apply normalizeThemes() before storing or comparing."
+    },
+    {
+      "question": "What AI model is used for analysis?",
+      "answer": "The examples use Anthropic Claude (claude-sonnet-4-20250514) for transcript analysis. You can substitute other models that support JSON output."
+    },
+    {
+      "question": "How do I display themes with consistent colors?",
+      "answer": "Use the THEME_COLORS mapping and ThemeBadge component. Each theme category has assigned colors like earth tones for cultural themes."
+    },
+    {
+      "question": "What is the recommended theme limit per story?",
+      "answer": "Extract 5-7 primary themes per story. This maintains meaningful relationships without diluting theme connections across content."
+    }
+  ],
+  "seoKeywords": [
+    "data analysis",
+    "theme extraction",
+    "quote analysis",
+    "Supabase queries",
+    "AI insights",
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "storytelling analytics"
+  ],
+  "sourceUrl": "https://github.com/Acurioustractor/empathy-ledger-v2/tree/main/.claude/skills/local/data-analysis",
+  "sourceType": "community",
+  "dependencies": []
+}

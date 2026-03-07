@@ -1,0 +1,143 @@
+{
+  "name": "bark-notify",
+  "type": "skill",
+  "description": "Send Bark (day.app) push notifications after Codex completes a task. Use when one Codex or Claude run is finished, or when you need to notify on task completion with device name, project name, status, and summary.",
+  "domain": "productivity",
+  "subdomain": "communication",
+  "specialty": "push notifications",
+  "quality": 5,
+  "qualityReason": "Clear use case and integration",
+  "bundleHints": [
+    "devops-automation",
+    "notification-system"
+  ],
+  "tags": [
+    "alerts",
+    "bark",
+    "device-sync",
+    "mobile-alerts",
+    "notifications",
+    "push",
+    "real-time",
+    "task-completion",
+    "workflow"
+  ],
+  "capabilities": [
+    "Send push notifications to iOS devices via Bark (day.app)",
+    "Include device name, project name, task status, and summary in notifications",
+    "Read project names from AGENTS.md files or use folder names",
+    "Support multiple execution statuses (success, failed, partial, blocked)",
+    "Validate required environment variables before sending",
+    "Dry-run mode to preview notifications without sending"
+  ],
+  "author": "caopulan",
+  "icon": "🔔",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 42 static findings are false positives. The scanner misinterpreted YAML frontmatter fields as 'weak cryptographic algorithms', bash escaping quotes as 'path traversal sequences', and standard config file paths as 'hidden file' access. This is a legitimate notification utility that reads environment variables for API configuration, reads project metadata from AGENTS.md files, and sends push notifications to the official Bark API (api.day.app). The credential access pattern is explicitly documented and required for the skill's intended function.",
+  "valueStatement": "Stay informed about Codex and Claude task completions on your devices. Receive instant push notifications with task status, project name, and results without checking the terminal.",
+  "userTitle": "Send push notifications when tasks complete",
+  "limitations": [
+    "Requires Bark app installed and Bark key configured",
+    "Only reads AGENTS.md files for project name extraction",
+    "Network connectivity required to send notifications",
+    "No support for rich notifications with custom icons or actions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers running Codex or Claude Code",
+      "title": "Remote task monitoring",
+      "description": "Get notified on your phone when long-running coding tasks finish while you work elsewhere."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "CI/CD completion alerts",
+      "description": "Receive instant alerts when automated builds or deployments complete with status details."
+    },
+    {
+      "targetUser": "Productivity-focused users",
+      "title": "Workflow completion tracking",
+      "description": "Track multiple task completions across projects with organized notification summaries."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic task notification",
+      "scenario": "Notify when a coding task finishes",
+      "prompt": "Use bark-notify to notify me when this task completes. Task title: \"Refactor authentication module\". Status: success. Summary: All tests passed, code refactored successfully."
+    },
+    {
+      "title": "Failure notification",
+      "scenario": "Alert on task failure with details",
+      "prompt": "Use bark-notify to send a notification if this fails. Task title: \"Database migration\". Status: failed. Summary: Migration script encountered constraint violation on users table."
+    },
+    {
+      "title": "Multi-step workflow",
+      "scenario": "Notify after each workflow step",
+      "prompt": "After completing each step, use bark-notify to update me. Task title: \"Deploy to staging\". Status: partial. Summary: Build succeeded, deployment in progress."
+    },
+    {
+      "title": "Custom project name",
+      "scenario": "Override project detection",
+      "prompt": "Use bark-notify to notify upon completion. Task title: \"Code review completed\". Status: success. Summary: All 12 files reviewed. Project name: \"Backend API v2\"."
+    }
+  ],
+  "bestPractices": [
+    "Configure CODEX_MACHINE_NAME with a descriptive identifier to distinguish multiple machines",
+    "Use AGENTS.md with project_name frontmatter for consistent project naming across notifications",
+    "Test notifications with --dry-run before relying on them for important task monitoring"
+  ],
+  "antiPatterns": [
+    "Including sensitive data like API keys, passwords, or personal information in the summary field",
+    "Using the same machine name across multiple development environments",
+    "Relying on notifications without verifying the Bark key configuration is correct"
+  ],
+  "faq": [
+    {
+      "question": "What platforms support Bark notifications?",
+      "answer": "Bark is an iOS and macOS app. Install it from the App Store, then configure the Bark key from settings."
+    },
+    {
+      "question": "How do I find my Bark key?",
+      "answer": "Open Bark app, tap your device name, and copy the full URL. The key is the string after api.day.app/."
+    },
+    {
+      "question": "Can I use this with multiple devices?",
+      "answer": "Yes, create separate Bark keys for each device and switch environment variables as needed."
+    },
+    {
+      "question": "Is my notification data stored securely?",
+      "answer": "Notifications are sent directly to your device through Apple push service. No third-party servers."
+    },
+    {
+      "question": "Why is my notification not arriving?",
+      "answer": "Check that CODEX_BARK_KEY is set correctly, network is available, and Bark app has notification permissions."
+    },
+    {
+      "question": "How is this different from other notification skills?",
+      "answer": "Bark delivers native iOS/macOS push notifications with no app installation required on the sending side."
+    }
+  ],
+  "seoKeywords": [
+    "Bark notifications",
+    "push notifications",
+    "Claude Code notifications",
+    "Codex alerts",
+    "task completion",
+    "iOS notifications",
+    "day.app",
+    "macOS notifications",
+    "automation alerts",
+    "notification skill"
+  ],
+  "sourceUrl": "https://github.com/caopulan/Notification-Skill/tree/main/bark-notify",
+  "sourceType": "community",
+  "dependencies": []
+}

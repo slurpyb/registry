@@ -1,0 +1,144 @@
+{
+  "name": "deploy-model",
+  "type": "skill",
+  "description": "Unified Azure OpenAI model deployment skill with intelligent intent-based routing. Handles quick preset deployments, fully customized deployments (version/SKU/capacity/RAI policy), and capacity discovery across regions and projects. USE FOR: deploy model, deploy gpt, create deployment, model deployment, deploy openai model, set up model, provision model, find capacity, check model availability, where can I deploy, best region for model, capacity analysis. DO NOT USE FOR: listing existing deployments (use foundry_models_deployments_list MCP tool), deleting deployments, agent creation (use agent/create), project creation (use project/create).",
+  "domain": "ai-ml",
+  "subdomain": "ml-ops",
+  "specialty": "Azure OpenAI deployment",
+  "quality": 5,
+  "qualityReason": "Highly specific, enterprise AI focus",
+  "bundleHints": [
+    "azure-ai",
+    "ml-ops-suite"
+  ],
+  "tags": [
+    "ai",
+    "azure",
+    "capacity-management",
+    "intent-routing",
+    "microsoft-foundry",
+    "model-deployment",
+    "openai",
+    "rai"
+  ],
+  "capabilities": [
+    "Deploy OpenAI models using quick preset configurations",
+    "Deploy models with custom settings (version, SKU, capacity, RAI policies)",
+    "Discover available capacity across Azure regions and projects",
+    "Query model availability in specific regions",
+    "Generate deployment URLs for Azure resources",
+    "Intelligent intent-based routing between deployment modes"
+  ],
+  "author": "microsoft",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 475 potential issues, but evaluation confirms these are false positives or expected behavior. The skill uses shell commands to invoke Azure CLI for model deployment operations, which is legitimate for Azure tooling. Network access is to Azure API endpoints. Filesystem patterns are documentation examples, not vulnerabilities. This is an official Microsoft skill for Azure Foundry.",
+  "valueStatement": "Deploy OpenAI models to Azure Foundry with intelligent routing. This skill handles preset deployments, custom configurations, and capacity discovery across Azure regions.",
+  "userTitle": "Deploy Azure OpenAI Models",
+  "limitations": [
+    "Requires valid Azure subscription with access to Azure Foundry",
+    "Cannot list existing deployments (use dedicated MCP tool)",
+    "Cannot delete deployments or manage existing resources",
+    "Does not support agent or project creation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers who need quick access to AI models",
+      "title": "Quick Model Deployment",
+      "description": "Deploy an OpenAI model with default settings for rapid prototyping"
+    },
+    {
+      "targetUser": "Enterprise users with specific compliance requirements",
+      "title": "Custom Enterprise Deployment",
+      "description": "Configure deployment with specific SKU, capacity, and RAI policies for production"
+    },
+    {
+      "targetUser": "Platform engineers planning multi-region deployments",
+      "title": "Capacity Discovery",
+      "description": "Find available regions and capacity for specific model types before deployment"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Deployment",
+      "prompt": "Deploy gpt-4o to Azure Foundry in the eastus region",
+      "scenario": "Basic model deployment with preset configuration"
+    },
+    {
+      "title": "Custom Deployment",
+      "prompt": "Deploy gpt-4 with Standard SKU, 100 TPM capacity, and content filtering enabled to westus2",
+      "scenario": "Custom deployment with specific parameters"
+    },
+    {
+      "title": "Find Capacity",
+      "prompt": "Find where I can deploy gpt-4o-mini with at least 50 TPM capacity",
+      "scenario": "Capacity discovery across regions"
+    },
+    {
+      "title": "Deployment Analysis",
+      "prompt": "Show me the best regions for deploying gpt-4 with high capacity",
+      "scenario": "Analyze deployment options across regions"
+    }
+  ],
+  "bestPractices": [
+    "Always verify capacity availability before deploying in production",
+    "Use descriptive deployment names for easier management",
+    "Configure RAI policies appropriate for your use case",
+    "Store deployment URLs securely for reference"
+  ],
+  "antiPatterns": [
+    "Do not use for listing existing deployments (use foundry_models_deployments_list)",
+    "Do not use for deleting resources (use dedicated Azure tools)",
+    "Do not assume all regions have equal capacity",
+    "Avoid deploying without checking availability first"
+  ],
+  "faq": [
+    {
+      "question": "What Azure permissions are required to use this skill?",
+      "answer": "You need Azure Foundry contributor access or higher to deploy models."
+    },
+    {
+      "question": "Can this skill delete existing deployments?",
+      "answer": "No, this skill is for deployment creation only. Use Azure portal or dedicated tools for management."
+    },
+    {
+      "question": "How do I check deployment status?",
+      "answer": "The skill returns deployment status after creation. Use Azure portal or MCP tools for ongoing monitoring."
+    },
+    {
+      "question": "What regions are supported?",
+      "answer": "All Azure regions that support Azure OpenAI service are supported."
+    },
+    {
+      "question": "Can I deploy multiple models at once?",
+      "answer": "The skill handles one deployment request at a time. Repeat the command for multiple models."
+    },
+    {
+      "question": "What happens if capacity is unavailable?",
+      "answer": "The skill will report unavailable regions. Use capacity discovery to find viable alternatives."
+    }
+  ],
+  "seoKeywords": [
+    "Azure OpenAI deployment",
+    "Claude Code Azure",
+    "Codex Azure integration",
+    "model deployment Azure",
+    "Azure Foundry",
+    "OpenAI model provisioning",
+    "Azure AI deployment",
+    "Microsoft Foundry skill",
+    "Claude Codex Azure AI",
+    "Azure model deployment skill"
+  ],
+  "sourceUrl": "https://github.com/microsoft/github-copilot-for-azure/tree/main/plugin/skills/microsoft-foundry/models/deploy-model",
+  "sourceType": "community",
+  "dependencies": []
+}

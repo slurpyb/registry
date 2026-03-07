@@ -1,0 +1,141 @@
+{
+  "name": "shodan-reconnaissance",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \\\"search for exposed devices on the internet,\\\" \\\"perform Shodan reconnaissance,\\\" \\\"find vulnerable services using Shodan,\\\" \\\"scan IP ranges...",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "device discovery",
+  "quality": 5,
+  "qualityReason": "Precise, offensive security",
+  "bundleHints": [
+    "pentesting-toolkit",
+    "reconnaissance-suite",
+    "security-research"
+  ],
+  "tags": [
+    "network-mapping",
+    "network-scanning",
+    "pentesting",
+    "reconnaissance",
+    "security",
+    "shodan"
+  ],
+  "capabilities": [
+    "Query Shodan for exposed devices and services using CLI and API",
+    "Search with filters to find specific products, vulnerabilities, and network ranges",
+    "Perform host reconnaissance to identify open ports and service banners",
+    "Use on-demand scanning to discover current states of target networks",
+    "Extract and analyze SSL certificate information",
+    "Generate vulnerability reports using CVE search filters"
+  ],
+  "author": "sickn33",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 138 potential issues, but manual evaluation confirms all are false positives. The skill teaches legitimate use of Shodan, a recognized security research tool. Code examples show bash commands (not Ruby execution), placeholder API keys (not real secrets), and public/placeholder IP addresses. Includes explicit authorization requirements. Risk level set to LOW.",
+  "valueStatement": "Identify vulnerable services and exposed devices on the internet using Shodan's comprehensive reconnaissance capabilities for penetration testing and security research.",
+  "userTitle": "Discover Exposed Devices with Shodan",
+  "limitations": [
+    "Requires valid Shodan API key (free or paid account)",
+    "Rate limited to 1 request per second",
+    "Cannot re-scan same IP within 24 hours on non-Enterprise plans",
+    "Free accounts have limited query and scan credits"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security professionals and penetration testers",
+      "title": "Penetration Testing Reconnaissance",
+      "description": "Use Shodan to discover exposed services and vulnerabilities in target infrastructure during authorized security assessments."
+    },
+    {
+      "targetUser": "Red teamers and security researchers",
+      "title": "Organization Asset Discovery",
+      "description": "Map public-facing assets belonging to target organizations for attack surface analysis."
+    },
+    {
+      "targetUser": "Security analysts and vulnerability researchers",
+      "title": "IoT and Vulnerability Monitoring",
+      "description": "Find exposed IoT devices and services vulnerable to known CVEs across the internet."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Host Lookup",
+      "prompt": "Use the shodan-reconnaissance skill to find information about IP address 1.1.1.1. What services are running and what country is it located in?",
+      "scenario": "Quick host information lookup"
+    },
+    {
+      "title": "Vulnerable Service Discovery",
+      "prompt": "Find all hosts in the US running vulnerable versions of Log4j (CVE-2021-44228) using Shodan search filters.",
+      "scenario": "Finding vulnerable services"
+    },
+    {
+      "title": "Organization Reconnaissance",
+      "prompt": "Perform reconnaissance on an organization. Search for all hosts belonging to Google and get statistics on their infrastructure including ports and products.",
+      "scenario": "Organization asset mapping"
+    },
+    {
+      "title": "SSL Certificate Analysis",
+      "prompt": "Find hosts with SSL certificates for example.com domain. Show how to search for expired or self-signed certificates.",
+      "scenario": "Certificate inventory"
+    }
+  ],
+  "bestPractices": [
+    "Always obtain written authorization before scanning target networks",
+    "Use Shodan credits efficiently by starting with free count queries",
+    "Combine multiple search filters to narrow results and find specific vulnerabilities"
+  ],
+  "antiPatterns": [
+    "Using Shodan to target systems without authorization is illegal and unethical",
+    "Do not rely solely on Shodan data for vulnerability assessment - verify findings manually",
+    "Avoid excessive scanning that may trigger rate limits or account suspension"
+  ],
+  "faq": [
+    {
+      "question": "Is Shodan legal to use?",
+      "answer": "Shodan is a legal security research tool. However, using it to scan or target systems without authorization may violate laws. Always obtain written permission before investigating specific targets."
+    },
+    {
+      "question": "Do I need a paid Shodan account?",
+      "answer": "A free account provides limited credits. Paid plans offer more queries and scan credits. Basic searches without filters are free."
+    },
+    {
+      "question": "Can this skill help me hack systems?",
+      "answer": "No. This skill provides reconnaissance methodology for authorized security testing. Unauthorized access to computer systems is illegal."
+    },
+    {
+      "question": "How accurate is Shodan data?",
+      "answer": "Shodan data may be days or weeks old. On-demand scans provide current data. Always verify critical findings with direct testing."
+    },
+    {
+      "question": "What are Shodan credits?",
+      "answer": "Credits are consumed for filtered searches, downloads, and on-demand scans. Basic searches without filters are free. Check your balance with 'shodan info'."
+    },
+    {
+      "question": "Can I scan private IP ranges?",
+      "answer": "Shodan crawls public internet. Private IP ranges (RFC 1918) like 192.168.x.x are placeholders in examples. Only public IPs can be scanned."
+    }
+  ],
+  "seoKeywords": [
+    "Shodan",
+    "reconnaissance",
+    "penetration testing",
+    "vulnerability scanning",
+    "network security",
+    "IoT discovery",
+    "Claue Code",
+    "Codex",
+    "claude-code",
+    "security research"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/shodan-reconnaissance",
+  "sourceType": "community",
+  "dependencies": []
+}

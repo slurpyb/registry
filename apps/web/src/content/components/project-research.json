@@ -1,0 +1,140 @@
+{
+  "name": "project-research",
+  "type": "skill",
+  "description": "Research workflow patterns specific to {project}. Covers research agent coordination, source management, and synthesis strategies.",
+  "domain": "science",
+  "subdomain": "research",
+  "specialty": "research workflow",
+  "quality": 4,
+  "qualityReason": "Supports systematic research",
+  "bundleHints": [
+    "research-methods",
+    "knowledge-work"
+  ],
+  "tags": [
+    "agent-coordination",
+    "coordination",
+    "documentation",
+    "research",
+    "synthesis",
+    "templates",
+    "workflow"
+  ],
+  "capabilities": [
+    "Provides research workflow templates for AI agents",
+    "Defines source selection and citation requirements",
+    "Includes red flags for quality control",
+    "Offers synthesis strategies for combining findings",
+    "Supports customizable research parameters",
+    "Coordinates research subagents for parallel processing"
+  ],
+  "author": "Consiliency",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only markdown documentation providing research workflow templates. All 21 static findings are false positives triggered by benign content: GitHub URL in metadata, the word 'source' in text, and markdown code block syntax. No executable code, scripts, or network operations exist. This is pure documentation safe for publication.",
+  "valueStatement": "Stop manually coordinating research tasks across multiple sources. This skill provides structured templates for AI agents to conduct systematic research with proper source management and synthesis.",
+  "userTitle": "Automate Research Workflows with AI Agents",
+  "limitations": [
+    "Requires manual customization for specific projects",
+    "No built-in source databases - must define approved sources",
+    "Templates need project-specific patterns added",
+    "Does not execute research - only provides guidance"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Research teams",
+      "title": "Standardize Research Methods",
+      "description": "Ensure consistent research quality across team members with standardized templates and citation requirements."
+    },
+    {
+      "targetUser": "AI developers",
+      "title": "Build Research Agents",
+      "description": "Use as foundation for building AI agents that can conduct systematic research with proper attribution."
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Document Research Processes",
+      "description": "Create clear documentation for research workflows that can be followed by humans or AI systems."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Research Setup",
+      "scenario": "Configure research parameters for a new project",
+      "prompt": "Using the project-research skill, set up research parameters with MAX_SOURCES=15, SYNTHESIS_STYLE=comprehensive, and REQUIRE_CITATIONS=true for analyzing market trends."
+    },
+    {
+      "title": "Source Selection Guide",
+      "scenario": "Define approved sources for technical research",
+      "prompt": "Help me customize the project-research skill to use official documentation, peer-reviewed papers, and verified news sources for researching cloud security trends."
+    },
+    {
+      "title": "Quality Control Check",
+      "scenario": "Ensure research meets quality standards",
+      "prompt": "Review my research process using the red flags section of project-research skill to ensure I am not making unsupported claims or skipping synthesis steps."
+    },
+    {
+      "title": "Advanced Pattern Creation",
+      "scenario": "Create custom research patterns",
+      "prompt": "Based on the project-research template, help me create a custom pattern for analyzing competitor strategies that includes specific trigger conditions and output formats."
+    }
+  ],
+  "bestPractices": [
+    "Always customize approved sources for your specific domain before use",
+    "Train team members on the red flags to ensure quality research",
+    "Regularly update source lists to maintain relevance and accuracy"
+  ],
+  "antiPatterns": [
+    "Using default templates without project-specific customization",
+    "Skipping the synthesis step in favor of raw source aggregation",
+    "Ignoring citation requirements for speed"
+  ],
+  "faq": [
+    {
+      "question": "Is this skill compatible with Claude Code?",
+      "answer": "Yes, it works with Claude Code and standard Claude interfaces for research workflow guidance."
+    },
+    {
+      "question": "What are the source limits?",
+      "answer": "Default is 10 sources but configurable via MAX_SOURCES variable. Adjust based on research depth needed."
+    },
+    {
+      "question": "How do I integrate with existing research tools?",
+      "answer": "The skill provides framework templates that can reference your existing tools in the approved sources section."
+    },
+    {
+      "question": "Is my research data safe?",
+      "answer": "Yes, this is documentation-only with no data collection or external calls - all processing happens locally."
+    },
+    {
+      "question": "Why is my research output missing citations?",
+      "answer": "Ensure REQUIRE_CITATIONS=true and verify synthesis step was not skipped - check red flags section for guidance."
+    },
+    {
+      "question": "How does this compare to other research skills?",
+      "answer": "This focuses on workflow patterns and quality control rather than executing searches - it is a framework for building research processes."
+    }
+  ],
+  "seoKeywords": [
+    "Claude research",
+    "AI research automation",
+    "Claude Code research patterns",
+    "agent coordination",
+    "source management",
+    "research synthesis",
+    "documentation templates",
+    "workflow automation",
+    "Codex research"
+  ],
+  "sourceUrl": "https://github.com/Consiliency/treesitter-chunker/tree/main/.ai-dev-kit/skills/stack-analyzer/templates/project-research",
+  "sourceType": "community",
+  "dependencies": []
+}

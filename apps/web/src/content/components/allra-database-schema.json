@@ -1,0 +1,144 @@
+{
+  "name": "allra-database-schema",
+  "type": "skill",
+  "description": "Allra 데이터베이스 설계 및 QueryDSL 사용 규칙. Use when creating JPA entities, writing QueryDSL queries, or adding @Transactional annotations.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "JPA entities",
+  "quality": 5,
+  "qualityReason": "Detailed database layer standards",
+  "bundleHints": [
+    "java-data",
+    "spring-data",
+    "jpa-best-practices"
+  ],
+  "tags": [
+    "database",
+    "database-design",
+    "java",
+    "jpa",
+    "querydsl",
+    "schema",
+    "spring-boot",
+    "transactional"
+  ],
+  "capabilities": [
+    "Provides JPA entity design guidelines with annotations and naming conventions",
+    "Defines QueryDSL repository patterns with Support interface structure",
+    "Specifies @Transactional usage with readOnly optimization",
+    "Establishes DTO projection rules using @QueryProjection",
+    "Includes code review checklist for database-related code"
+  ],
+  "author": "Allra-Fintech",
+  "icon": "🗄️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing coding standards and guidelines for Java/Spring Boot database development. All 46 static findings are false positives caused by the scanner misidentifying code examples in markdown documentation as executable code, and hash/metadata values triggering pattern matches. No actual executable code, no file system access, no network calls, and no system modifications.",
+  "valueStatement": "Inconsistent database code causes bugs and maintenance issues. This skill provides Allra backend coding standards for JPA entities, QueryDSL queries, and transaction management to ensure consistency.",
+  "userTitle": "Apply database design standards",
+  "limitations": [
+    "Does not generate actual database schema code",
+    "Does not execute or validate database queries",
+    "Specific to Allra backend conventions - may require adaptation",
+    "Does not cover database migration or schema evolution"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Create database entities",
+      "description": "Generate JPA entities following Allra naming conventions and annotation patterns"
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Review database code",
+      "description": "Validate QueryDSL queries and transaction annotations against team standards"
+    },
+    {
+      "targetUser": "New team members",
+      "title": "Learn team conventions",
+      "description": "Understand Allra backend database patterns and best practices quickly"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create JPA entity",
+      "scenario": "Generate a new entity",
+      "prompt": "Create a JPA entity for [entity_name] with fields [field_list] following Allra database schema conventions. Include proper @Table, @Column annotations, @CreatedDate, @LastModifiedDate, and use @QueryProjection for DTOs."
+    },
+    {
+      "title": "Write QueryDSL query",
+      "scenario": "Build a query with QueryDSL",
+      "prompt": "Write a QueryDSL query using the Support pattern to fetch [data_requirements] from [entity]. Follow Allra conventions: @QueryProjection for DTOs, proper repository structure, and From clause placement."
+    },
+    {
+      "title": "Add transaction support",
+      "scenario": "Annotate service methods",
+      "prompt": "Add @Transactional annotations to this service class. Use readOnly=true for pure read operations and regular @Transactional for methods with writes or modifications."
+    },
+    {
+      "title": "Review database code",
+      "scenario": "Audit existing code",
+      "prompt": "Review this repository or service code against Allra database schema standards. Check: JPA entity annotations, QueryDSL usage, transaction annotations, lazy loading, and naming conventions. Report any violations."
+    }
+  ],
+  "bestPractices": [
+    "Use lazy loading (FetchType.LAZY) for all entity relationships",
+    "Apply @QueryProjection to DTOs used with QueryDSL queries",
+    "Place QueryDSL implementations in the entity's repository following the Support pattern",
+    "Annotate all service methods explicitly with @Transactional"
+  ],
+  "antiPatterns": [
+    "Avoid direct injection of RepositorySupport implementation classes",
+    "Do not use eager loading (FetchType.EAGER) by default",
+    "Do not omit @Transactional on service methods",
+    "Avoid putting query logic in the wrong repository based on FROM clause"
+  ],
+  "faq": [
+    {
+      "question": "Which tools work with this skill?",
+      "answer": "Claude, Codex, and Claude Code. The skill provides guidelines that work with any Java/Spring Boot development."
+    },
+    {
+      "question": "What versions are supported?",
+      "answer": "Java 17+, Spring Boot 3.2+, JPA/Hibernate, and QueryDSL. Testcontainers is optional."
+    },
+    {
+      "question": "Does it generate code?",
+      "answer": "No. This skill provides standards and conventions. You use the prompts to request code generation."
+    },
+    {
+      "question": "Is this mandatory or flexible?",
+      "answer": "Core rules are mandatory for Allra projects. Guidelines marked as optional can be adapted per project needs."
+    },
+    {
+      "question": "Can I use this for non-Allra projects?",
+      "answer": "Yes. The patterns are general Java/Spring Boot best practices but reflect Allra-specific conventions."
+    },
+    {
+      "question": "What databases are supported?",
+      "answer": "Maria, MySQL, and other JPADB, PostgreSQL-compatible databases. The skill includes MariaDB compatibility notes."
+    }
+  ],
+  "seoKeywords": [
+    "database schema",
+    "JPA entity",
+    "QueryDSL",
+    "Spring Boot",
+    "Java",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "transaction management",
+    "backend standards"
+  ],
+  "sourceUrl": "https://github.com/Allra-Fintech/allra-ai-skills/tree/main/backend-plugin/skills/database-schema",
+  "sourceType": "community",
+  "dependencies": []
+}

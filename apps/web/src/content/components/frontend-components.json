@@ -1,0 +1,142 @@
+{
+  "name": "frontend-components",
+  "type": "skill",
+  "description": "Build reusable, composable UI components with single responsibilities, clear prop interfaces, proper state management, and minimal coupling. Use this skill when creating or editing React components (.tsx, .jsx files), when designing component APIs with props, when implementing component composition patterns, when managing local component state, when building shadcn/ui components, when creating shared UI components in resources/js/Components/, when implementing component documentation, or when refactoring large components into smaller, focused pieces.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "reusable components",
+  "quality": 5,
+  "qualityReason": "Clear component principles",
+  "bundleHints": [
+    "component-library",
+    "design-system"
+  ],
+  "tags": [
+    "component-design",
+    "components",
+    "frontend",
+    "props",
+    "react",
+    "state-management",
+    "typescript",
+    "ui"
+  ],
+  "capabilities": [
+    "Guides Claude Code on React component structure and organization",
+    "Enforces single responsibility principle for components",
+    "Provides standards for prop interface design and TypeScript types",
+    "Helps implement component composition patterns",
+    "Supports shadcn/ui component customization",
+    "Assists with component refactoring and documentation"
+  ],
+  "author": "DevanB",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation and guidance for React component development. All 21 static findings are false positives from pattern matching on metadata fields, markdown formatting, and file paths. No executable code, network operations, or security vulnerabilities detected.",
+  "valueStatement": "Creating maintainable frontend components can be challenging without clear standards. This skill guides Claude Code to build React components with single responsibilities, clean prop interfaces, and proper composition patterns.",
+  "userTitle": "Build Reusable React Components with Best Practices",
+  "limitations": [
+    "Does not provide runtime validation or linting",
+    "Requires reference to external documentation file for full standards",
+    "Focused on React components only, not other frontend frameworks",
+    "Does not enforce standards automatically, relies on AI interpretation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers and UI engineers",
+      "title": "Building New UI Component Library",
+      "description": "Frontend developers creating a new design system can use this skill to ensure all components follow consistent patterns for props, state management, and composition."
+    },
+    {
+      "targetUser": "Software engineers working on code modernization",
+      "title": "Refactoring Legacy Components",
+      "description": "Teams modernizing codebases can leverage this skill to break down monolithic components into smaller, focused pieces with clear responsibilities and better testability."
+    },
+    {
+      "targetUser": "Engineering managers and technical leads",
+      "title": "Onboarding New Team Members",
+      "description": "Development teams can use this skill to teach new developers the component architecture standards, ensuring consistent code quality across the team from day one."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a New Component",
+      "prompt": "Create a Button component in resources/js/Components/ with variants for primary, secondary, and ghost styles. Include proper TypeScript props and follow component best practices.",
+      "scenario": "Starting a new component from scratch with type safety"
+    },
+    {
+      "title": "Refactor Large Component",
+      "prompt": "Refactor the UserProfileForm component to separate concerns. Extract form fields into smaller components and improve state management.",
+      "scenario": "Breaking down complex components into manageable pieces"
+    },
+    {
+      "title": "Design Component API",
+      "prompt": "Design the prop interface for a DataTable component that needs to support sorting, filtering, pagination, and custom cell renderers. Show me the TypeScript types.",
+      "scenario": "Planning component architecture before implementation"
+    },
+    {
+      "title": "Customize shadcn Component",
+      "prompt": "Customize the shadcn/ui Dialog component to add a confirm action footer with cancel and submit buttons. Maintain the existing composition pattern.",
+      "scenario": "Extending third-party components while following patterns"
+    }
+  ],
+  "bestPractices": [
+    "Always define TypeScript interfaces for component props to ensure type safety and better developer experience",
+    "Keep components focused on a single responsibility and extract subcomponents when complexity grows beyond 100 lines",
+    "Use composition patterns to combine smaller components rather than building monolithic components with many conditional branches"
+  ],
+  "antiPatterns": [
+    "Avoid creating components with more than 5-7 props as this indicates the component may have too many responsibilities",
+    "Do not mix business logic with presentation code inside component files. Extract logic to custom hooks or utility functions",
+    "Never pass entire state objects as props when only specific fields are needed. This creates unnecessary coupling and re-renders"
+  ],
+  "faq": [
+    {
+      "question": "What component file structure does this skill enforce?",
+      "answer": "This skill guides Claude Code to place shared components in resources/js/Components/ or similar directories, use .tsx extension for TypeScript React components, and follow naming conventions where components match their filename."
+    },
+    {
+      "question": "Does this skill work with Vue or Angular components?",
+      "answer": "No, this skill is specifically designed for React component development. It focuses on React patterns like hooks, JSX composition, and React-specific state management approaches."
+    },
+    {
+      "question": "How does this skill help with shadcn/ui components?",
+      "answer": "The skill provides guidance on customizing and extending shadcn/ui components while maintaining their composition patterns. It helps you build on top of shadcn components without breaking their design principles."
+    },
+    {
+      "question": "Will this skill automatically fix component issues in my code?",
+      "answer": "This skill guides Claude Code on how to write components correctly. You need to ask Claude Code to create or refactor components, and it will follow the standards defined in this skill."
+    },
+    {
+      "question": "What TypeScript patterns does this skill recommend?",
+      "answer": "The skill encourages defining explicit prop interfaces, using discriminated unions for variant props, avoiding any types, and leveraging TypeScript utility types for component API design."
+    },
+    {
+      "question": "Can I customize the component standards this skill enforces?",
+      "answer": "This skill references an external standards document. You can modify the component standards by updating the referenced documentation file at agent-os/standards/frontend/components.md in your project."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "React components",
+    "frontend development",
+    "TypeScript",
+    "component composition",
+    "UI components",
+    "shadcn/ui",
+    "component architecture"
+  ],
+  "sourceUrl": "https://github.com/DevanB/lucidlog/tree/master/.claude/skills/frontend-components",
+  "sourceType": "community",
+  "dependencies": []
+}

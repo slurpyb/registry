@@ -1,0 +1,141 @@
+{
+  "name": "deslop",
+  "type": "skill",
+  "description": "Remove AI-generated code slop from a branch. Use when cleaning up AI-generated code, removing unnecessary comments, defensive checks, or type casts. Checks diff against main and fixes style inconsistencies.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "AI code cleanup",
+  "quality": 5,
+  "qualityReason": "Solves real AI-generated code issues",
+  "bundleHints": [
+    "ai-assistance",
+    "code-quality"
+  ],
+  "tags": [
+    "ai-assistance",
+    "cleanup",
+    "code-quality",
+    "code-review",
+    "defensive-code-removal",
+    "git",
+    "style-fix"
+  ],
+  "capabilities": [
+    "Review git diff against main branch for AI-generated patterns",
+    "Identify and remove excessive comments inconsistent with codebase style",
+    "Eliminate unnecessary defensive checks and try-catch blocks in trusted code paths",
+    "Fix inline imports and type casts to any in Python and TypeScript",
+    "Report concise summary of cleanup actions performed",
+    "Preserve legitimate functional changes while removing stylistic bloat"
+  ],
+  "author": "getsentry",
+  "icon": "🧹",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based skill with no executable code. All 37 static findings are false positives from scanning metadata files. The skill provides behavioral guidelines for cleaning AI-generated code patterns through natural language instructions only.",
+  "valueStatement": "AI-generated code often includes excessive comments, defensive checks, and unnecessary patterns. This skill reviews git diffs against main and systematically removes code slop while preserving legitimate changes.",
+  "userTitle": "Clean Up AI-Generated Code Patterns",
+  "limitations": [
+    "Only operates on changed files in the current branch diff",
+    "Requires manual review to prevent removal of legitimate code patterns",
+    "Does not fix logic bugs or improve algorithmic efficiency",
+    "Cannot detect slop patterns in files unchanged from main branch"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Individual Developers",
+      "title": "Clean Feature Branches Before PR",
+      "description": "Remove AI-generated patterns before submitting pull requests for cleaner code review and faster approval"
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Enforce Team Code Standards",
+      "description": "Systematically identify and flag AI slop patterns in submitted code changes during review process"
+    },
+    {
+      "targetUser": "Team Leads",
+      "title": "Maintain Codebase Quality Standards",
+      "description": "Ensure AI-assisted contributions meet team style guidelines before merging to main branch"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Branch Cleanup",
+      "scenario": "Clean up current branch",
+      "prompt": "Use the deslop skill to clean up this branch. Review the diff against main and remove all AI-generated slop."
+    },
+    {
+      "title": "Remove Comments Only",
+      "scenario": "Strip excessive comments",
+      "prompt": "Use deslop to remove only the extra comments from this branch. Keep defensive checks and try-catch blocks."
+    },
+    {
+      "title": "Full Slop Removal",
+      "scenario": "Complete cleanup",
+      "prompt": "Run deslop with full scope. Remove comments, defensive checks, type casts to any, and inline imports from my branch."
+    },
+    {
+      "title": "Report Only Mode",
+      "scenario": "Review without changes",
+      "prompt": "Use deslop to identify all slop patterns in this branch. Report what should be removed without making any changes."
+    }
+  ],
+  "bestPractices": [
+    "Review slop removal suggestions before accepting changes to ensure legitimate code is preserved",
+    "Run deslop after AI code generation but before committing to keep diffs clean and reviewable",
+    "Use deslop during code review phase to maintain consistent codebase style across team contributions"
+  ],
+  "antiPatterns": [
+    "Applying deslop to branches with unrelated changes from multiple contributors without coordination",
+    "Running deslop without reviewing what will be removed first and blindly accepting all suggestions",
+    "Expecting deslop to fix logic bugs, improve algorithmic efficiency, or handle security vulnerabilities"
+  ],
+  "faq": [
+    {
+      "question": "Does deslop work with all git workflows?",
+      "answer": "Yes. Deslop works with any git-based workflow. It uses git diff main...HEAD by default to compare changes."
+    },
+    {
+      "question": "What specific patterns does deslop remove?",
+      "answer": "Excessive comments, unnecessary defensive checks, type casts to any, inline imports, and other AI-generated style inconsistencies."
+    },
+    {
+      "question": "Can deslop integrate with CI/CD pipelines?",
+      "answer": "Deslop is an AI skill for interactive use, not a standalone CI tool. Use it during development or code review phases."
+    },
+    {
+      "question": "Is my code safe when using deslop?",
+      "answer": "Deslop only provides guidelines to the AI platform. All code changes require your explicit approval before being applied."
+    },
+    {
+      "question": "Why are my legitimate changes being flagged for removal?",
+      "answer": "Deslop may misinterpret some patterns as slop. Always review suggestions carefully and restore any legitimate code manually."
+    },
+    {
+      "question": "How does deslop differ from traditional linters?",
+      "answer": "Linters enforce syntax and style rules. Deslop targets AI-specific code patterns and context that linters cannot detect."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code cleanup",
+    "Codex slop removal",
+    "AI generated code cleanup",
+    "git diff cleanup",
+    "remove unnecessary comments",
+    "code quality automation",
+    "Claude AI tools",
+    "Claude Code assistant",
+    "AI code review",
+    "code style consistency"
+  ],
+  "sourceUrl": "https://github.com/getsentry/skills/tree/main/plugins/sentry-skills/skills/deslop",
+  "sourceType": "community",
+  "dependencies": []
+}

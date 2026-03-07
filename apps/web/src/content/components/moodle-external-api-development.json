@@ -1,0 +1,140 @@
+{
+  "name": "moodle-external-api-development",
+  "type": "skill",
+  "description": "Create custom external web service APIs for Moodle LMS. Use when implementing web services for course management, user tracking, quiz operations, or custom plugin functionality. Covers parameter validation, database operations, error handling, service registration, and Moodle coding standards.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "Moodle web services",
+  "quality": 5,
+  "qualityReason": "Specific LMS integration",
+  "bundleHints": [
+    "lms-api",
+    "education-tech"
+  ],
+  "tags": [
+    "api-development",
+    "course management",
+    "custom plugins",
+    "lms",
+    "moodle",
+    "parameter validation",
+    "php",
+    "quiz operations",
+    "user tracking",
+    "web-services"
+  ],
+  "capabilities": [
+    "Create external API class files following Moodle's three-method pattern (execute_parameters, execute, execute_returns)",
+    "Define input parameter structures with proper validation using Moodle's external_value types",
+    "Implement business logic with context validation and capability checks",
+    "Register web services with proper permissions and AJAX/REST access",
+    "Return structured data matching defined return specifications"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation/educational skill for Moodle external API development. Static analyzer flagged 127 potential issues, but evaluation confirms all are false positives. The detected patterns are: (1) Markdown backticks for code formatting flagged as shell commands, (2) Documentation URLs to moodledev.io, (3) Benign keywords in YAML frontmatter triggering false positives. No actual security risks present.",
+  "valueStatement": "Create secure custom web service APIs for Moodle LMS with proper parameter validation, capability checks, and service registration patterns.",
+  "userTitle": "Build Moodle External Web Services",
+  "limitations": [
+    "Does not cover Moodle admin configuration or server setup",
+    "Does not include authentication token management details",
+    "Does not provide pre-built complete plugins - only guidance"
+  ],
+  "useCases": [
+    {
+      "targetUser": "PHP developers building Moodle plugins",
+      "title": "Moodle Plugin Developer",
+      "description": "Build custom external APIs for your Moodle plugin to expose functionality to mobile apps or external systems"
+    },
+    {
+      "targetUser": "EdTech integrators and system administrators",
+      "title": "LMS Integration Specialist",
+      "description": "Create web service endpoints to integrate Moodle with student information systems or CRM platforms"
+    },
+    {
+      "targetUser": "Mobile developers building educational apps",
+      "title": "Mobile App Backend Developer",
+      "description": "Develop Moodle-backed REST APIs for custom mobile applications accessing course data"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic API Structure",
+      "prompt": "Show me how to create a basic external API class in Moodle with the three-method pattern"
+    },
+    {
+      "title": "Parameter Definition",
+      "prompt": "How do I define input parameters with validation for a Moodle external API? Include examples for integer, text, and boolean parameters"
+    },
+    {
+      "title": "Business Logic Implementation",
+      "prompt": "Write example business logic for a Moodle external API that retrieves course progress, including context validation and capability checks"
+    },
+    {
+      "title": "Service Registration",
+      "prompt": "How do I register a Moodle external web service? Show the services.php file structure with capabilities and AJAX access"
+    }
+  ],
+  "bestPractices": [
+    "Always validate parameters using validate_parameters() before processing",
+    "Use context validation and capability checks to enforce permissions",
+    "Use parameterized queries ($DB->get_records_sql) to prevent SQL injection",
+    "Document all parameter types and return structures clearly"
+  ],
+  "antiPatterns": [
+    "Skipping parameter validation - always use validate_parameters()",
+    "Using raw SQL without parameterized queries - use $DB methods with bound parameters",
+    "Omitting capability checks - always verify user permissions",
+    "Returning inconsistent data structures - match execute_returns() definition exactly"
+  ],
+  "faq": [
+    {
+      "question": "What is the three-method pattern for Moodle external APIs?",
+      "answer": "Moodle external APIs require three methods: execute_parameters() defines input structure, execute() contains business logic, and execute_returns() defines the output structure."
+    },
+    {
+      "question": "How do I secure my Moodle external API?",
+      "answer": "Use context validation (validate_context), capability checks (require_capability), and proper parameter validation (validate_parameters) to secure your API."
+    },
+    {
+      "question": "Can I use my external API with the Moodle mobile app?",
+      "answer": "Yes, include MOODLE_OFFICIAL_MOBILE_SERVICE in your service registration to enable mobile access."
+    },
+    {
+      "question": "What parameter types does Moodle support?",
+      "answer": "Moodle supports PARAM_INT, PARAM_TEXT, PARAM_RAW, PARAM_BOOL, PARAM_FLOAT, PARAM_ALPHANUMEXT, and more for external API parameters."
+    },
+    {
+      "question": "How do I prevent SQL injection in external APIs?",
+      "answer": "Use Moodle's database API ($DB) with parameterized queries using named placeholders like :userid instead of string concatenation."
+    },
+    {
+      "question": "What is the difference between read and write service types?",
+      "answer": "Read type is for SELECT operations that only retrieve data. Write type is for INSERT, UPDATE, or DELETE operations that modify data."
+    }
+  ],
+  "seoKeywords": [
+    "moodle api",
+    "moodle web services",
+    "moodle external api",
+    "claude code",
+    "codex",
+    "moodle plugin development",
+    "rest api moodle",
+    "moodle lms",
+    "php api",
+    "moodle custom functions"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/moodle-external-api-development",
+  "sourceType": "community",
+  "dependencies": []
+}

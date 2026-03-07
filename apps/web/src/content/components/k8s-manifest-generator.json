@@ -1,0 +1,146 @@
+{
+  "name": "k8s-manifest-generator",
+  "type": "skill",
+  "description": "Create production-ready Kubernetes manifests for Deployments, Services, ConfigMaps, and Secrets following best practices and security standards. Use when generating Kubernetes YAML manifests, creating K8s resources, or implementing production-grade Kubernetes configurations.",
+  "domain": "devops",
+  "subdomain": "containers",
+  "specialty": "Kubernetes manifests",
+  "quality": 5,
+  "qualityReason": "Production-grade specificity",
+  "bundleHints": [
+    "k8s-dev",
+    "container-ops",
+    "devops-toolkit"
+  ],
+  "tags": [
+    "best practices",
+    "configmaps",
+    "containers",
+    "deployments",
+    "devops",
+    "k8s",
+    "kubernetes",
+    "manifests",
+    "production",
+    "secrets",
+    "services"
+  ],
+  "capabilities": [
+    "Generate Deployment manifests with resource limits, health probes, and security contexts",
+    "Create Service definitions for ClusterIP, LoadBalancer, NodePort, and Headless services",
+    "Build ConfigMap templates for environment variables and configuration files",
+    "Design Secret resource structures for sensitive data management",
+    "Apply Kubernetes labeling conventions and annotation standards",
+    "Validate manifests against Kubernetes API specifications"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer detected 285 pattern matches across 7 files, but all findings are FALSE POSITIVES. This skill contains only YAML templates and Markdown documentation - no executable code. Shell scripts in ConfigMap templates are meant to be stored in Kubernetes, not executed by the skill. URLs and IPs are placeholder examples. No actual security risks exist.",
+  "valueStatement": "Creating secure Kubernetes manifests manually is error-prone and time-consuming. This skill provides templates and best practices for Deployments, Services, ConfigMaps, and Secrets that follow cloud-native standards.",
+  "userTitle": "Generate Production-Ready Kubernetes Manifests",
+  "limitations": [
+    "Generates YAML templates only - does not deploy to actual clusters",
+    "Requires user to provide application-specific values like image names and ports",
+    "Does not support advanced features like Operators or Custom Resource Definitions",
+    "Templates follow general best practices but may need customization for specific environments"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineer",
+      "title": "DevOps Engineer Deploying Microservices",
+      "description": "Generate consistent, secure manifests for multiple microservices with proper resource limits, health checks, and security contexts following organizational standards."
+    },
+    {
+      "targetUser": "Application Developer",
+      "title": "Developer Containerizing Applications",
+      "description": "Create initial Kubernetes manifests when migrating from Docker Compose or running applications locally, with guidance on probes, resources, and configuration."
+    },
+    {
+      "targetUser": "Platform Engineer",
+      "title": "Platform Team Building Reference Templates",
+      "description": "Generate standardized templates for internal developer platforms with pre-configured security policies, monitoring annotations, and logging configurations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Deployment Generation",
+      "prompt": "Create a Kubernetes Deployment manifest for a Node.js API running on port 3000 with the image myregistry/api:v1.2.0. Include basic resource limits and a health check endpoint at /health.",
+      "scenario": "Beginner - Simple stateless application"
+    },
+    {
+      "title": "Complete Application Stack",
+      "prompt": "Generate a complete Kubernetes manifest set for a Python web application including: Deployment with 3 replicas, ClusterIP Service, ConfigMap for environment variables (DATABASE_URL, LOG_LEVEL, CACHE_TTL), and Secret for database credentials. Include liveness and readiness probes.",
+      "scenario": "Intermediate - Full application deployment"
+    },
+    {
+      "title": "Production-Hardened Manifest",
+      "prompt": "Create a production-ready Kubernetes Deployment with: pod anti-affinity for high availability, pod disruption budget, network policy recommendations, security context running as non-root with dropped capabilities, resource quotas, and Prometheus monitoring annotations. Application is a Java Spring Boot service.",
+      "scenario": "Advanced - Enterprise deployment"
+    },
+    {
+      "title": "Multi-Environment Configuration",
+      "prompt": "Generate ConfigMap and Deployment manifests that support multiple environments (dev, staging, prod) with environment-specific values for replica count, resource limits, log levels, and feature flags. Use Kubernetes best practices for configuration separation.",
+      "scenario": "Advanced - Multi-environment setup"
+    }
+  ],
+  "bestPractices": [
+    "Always set resource requests and limits to prevent resource starvation and ensure predictable scheduling",
+    "Implement liveness, readiness, and startup probes to enable Kubernetes health management",
+    "Use specific image tags instead of latest to ensure reproducible deployments"
+  ],
+  "antiPatterns": [
+    "Using :latest image tags which causes unpredictable deployments and rollback issues",
+    "Running containers as root without security context, increasing privilege escalation risks",
+    "Hardcoding secrets directly in manifests instead of using Kubernetes Secret resources"
+  ],
+  "faq": [
+    {
+      "question": "What Kubernetes resources can this skill generate?",
+      "answer": "This skill generates manifests for Deployments, Services (ClusterIP, LoadBalancer, NodePort, Headless), ConfigMaps, Secrets, and PersistentVolumeClaims. It focuses on core resources commonly used for application deployments."
+    },
+    {
+      "question": "Does this skill deploy manifests to my cluster?",
+      "answer": "No, this skill only generates YAML manifest files. You must apply them to your cluster using kubectl apply or a GitOps tool like ArgoCD or Flux."
+    },
+    {
+      "question": "Are the generated manifests production-ready?",
+      "answer": "Yes, templates follow Kubernetes best practices including resource limits, health probes, security contexts, and proper labeling. However, always review and test in a non-production environment first."
+    },
+    {
+      "question": "Can I customize the templates for my organization?",
+      "answer": "Absolutely. The templates use placeholder values that you should replace. You can modify any field to match your organization's naming conventions, security policies, and infrastructure requirements."
+    },
+    {
+      "question": "Does this skill support Helm charts or Kustomize?",
+      "answer": "This skill generates raw YAML manifests. For Helm or Kustomize templating, use those tools separately or request manifest structures compatible with your templating approach."
+    },
+    {
+      "question": "What security features are included in the manifests?",
+      "answer": "Templates include security contexts for non-root users, dropped capabilities, read-only filesystems, and recommendations for Secret management. They follow Pod Security Standards baseline profile."
+    }
+  ],
+  "seoKeywords": [
+    "Kubernetes manifests",
+    "K8s YAML generator",
+    "Claude Code Kubernetes",
+    "Codex K8s templates",
+    "deployment manifests",
+    "service templates",
+    "ConfigMap generator",
+    "Kubernetes best practices",
+    "Claude Kubernetes skill",
+    "production-ready manifests"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/k8s-manifest-generator",
+  "sourceType": "community",
+  "dependencies": []
+}

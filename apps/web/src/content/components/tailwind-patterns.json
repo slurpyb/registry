@@ -1,0 +1,144 @@
+{
+  "name": "tailwind-patterns",
+  "type": "skill",
+  "description": "Quick reference for Tailwind CSS utility patterns, responsive design, and configuration. Triggers on: tailwind, utility classes, responsive design, tailwind config, dark mode css, tw classes.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "utility reference",
+  "quality": 4,
+  "qualityReason": "Useful quick lookup guide",
+  "bundleHints": [
+    "frontend-utilities",
+    "css-patterns"
+  ],
+  "tags": [
+    "config",
+    "css",
+    "dark-mode",
+    "design-system",
+    "frontend",
+    "quick-reference",
+    "responsive",
+    "tailwind",
+    "tw-classes",
+    "ui"
+  ],
+  "capabilities": [
+    "Provides responsive breakpoint references for all Tailwind screen sizes",
+    "Shows common layout patterns including containers, flexbox, grid, and stacked layouts",
+    "Documents state modifiers for hover, focus, active, disabled, and group interactions",
+    "Delivers ready-to-use component examples for cards, buttons, forms, navbars, and alerts",
+    "Includes dark mode implementation patterns with class strategy",
+    "Explains spacing scale and arbitrary value syntax"
+  ],
+  "author": "0xDarkMatter",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 77 static findings are false positives. The skill contains only markdown documentation with Tailwind CSS code examples. Backticks detected are markdown inline code formatting for utility class names, not shell execution. No executable code, network calls, or cryptographic operations exist in this documentation-only skill.",
+  "valueStatement": "Developers waste time searching Tailwind utility class documentation. This skill provides instant access to responsive breakpoints, component patterns, and configuration examples directly in your workflow.",
+  "userTitle": "Apply Tailwind CSS patterns instantly",
+  "limitations": [
+    "Does not generate custom Tailwind configurations",
+    "Does not install or configure Tailwind in projects",
+    "Does not validate existing Tailwind implementations",
+    "Limited to Tailwind CSS v3 and later syntax"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Quick CSS class lookup",
+      "description": "Instantly find the right utility class for padding, margins, colors, or responsive breakpoints without leaving your IDE."
+    },
+    {
+      "targetUser": "React and Vue developers",
+      "title": "Component pattern reference",
+      "description": "Copy pre-built navbar, card, form, or alert components with proper Tailwind classes for rapid UI development."
+    },
+    {
+      "targetUser": "Design systems engineers",
+      "title": "Responsive design guidance",
+      "description": "Learn proper responsive pattern implementation with mobile-first breakpoints and conditional class strategies."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic utility lookup",
+      "prompt": "Show me Tailwind classes for a centered layout with padding",
+      "scenario": "Looking for specific Tailwind utility combinations"
+    },
+    {
+      "title": "Responsive pattern request",
+      "prompt": "I need a navigation bar that shows a hamburger menu on mobile and a full menu on desktop. Show me the responsive Tailwind classes.",
+      "scenario": "Building responsive layouts"
+    },
+    {
+      "title": "Component from description",
+      "prompt": "Build a card component with shadow, rounded corners, and hover effects using Tailwind CSS. Include focus states and responsive variants.",
+      "scenario": "Creating custom UI components"
+    },
+    {
+      "title": "Dark mode implementation",
+      "prompt": "Show me how to implement a button with dark mode support using Tailwind CSS. Include the config setup and class usage.",
+      "scenario": "Adding dark theme support"
+    }
+  ],
+  "bestPractices": [
+    "Use mobile-first approach by applying base classes for small screens, then add responsive prefixes for larger viewports.",
+    "Leverage utility composition rather than custom CSS classes. Combine existing utilities for most styling needs.",
+    "Apply focus-visible instead of focus for interactive elements that should show focus only during keyboard navigation."
+  ],
+  "antiPatterns": [
+    "Avoid arbitrary values like w-[123px] when existing scale values can achieve the same result with consistency.",
+    "Do not use fixed widths exclusively. Prefer flexible layouts with max-w- constraints for better responsiveness.",
+    "Avoid excessive nesting of div elements just to apply spacing. Use gap on parent containers instead of margin on children."
+  ],
+  "faq": [
+    {
+      "question": "What versions of Tailwind does this skill support?",
+      "answer": "This skill focuses on Tailwind CSS v3 and later patterns and syntax. Some features like arbitrary values and dark mode with class strategy require v3."
+    },
+    {
+      "question": "Can I use these patterns with React, Vue, or plain HTML?",
+      "answer": "Yes. Tailwind utility classes are framework-agnostic. The patterns work identically in React components, Vue templates, or static HTML."
+    },
+    {
+      "question": "Does this skill install Tailwind in my project?",
+      "answer": "No. This skill provides reference patterns and code examples only. Use the official Tailwind CLI or framework integration guides for installation."
+    },
+    {
+      "question": "How do I customize colors beyond the default palette?",
+      "answer": "Extend the theme in tailwind.config.js with custom colors. The skill provides component patterns using default palette colors as examples."
+    },
+    {
+      "question": "Are these patterns accessible?",
+      "answer": "The patterns include focus states for keyboard navigation and use semantic HTML. Always test with screen readers and follow WCAG guidelines."
+    },
+    {
+      "question": "Can I copy and paste these examples directly?",
+      "answer": "Yes. All code examples are production-ready. Adjust spacing, colors, and sizes as needed for your specific design requirements."
+    }
+  ],
+  "seoKeywords": [
+    "Tailwind CSS",
+    "utility classes",
+    "responsive design",
+    "CSS framework",
+    "frontend development",
+    "Tailwind patterns",
+    "component library",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/0xDarkMatter/claude-mods/tree/main/skills/tailwind-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

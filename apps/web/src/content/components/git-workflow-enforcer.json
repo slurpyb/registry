@@ -1,0 +1,143 @@
+{
+  "name": "git-workflow-enforcer",
+  "type": "skill",
+  "description": "Ensures commits follow conventional commits, branch naming conventions, and PR templates. Use when creating commits, branches, or PRs, or when user mentions git workflow.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "workflow rules",
+  "quality": 5,
+  "qualityReason": "Enforces critical standards",
+  "bundleHints": [
+    "git-workflow",
+    "quality-gates"
+  ],
+  "tags": [
+    "automation",
+    "branch-naming",
+    "commits",
+    "conventional-commits",
+    "conventions",
+    "enforcement",
+    "git",
+    "pr-templates",
+    "standards",
+    "workflow"
+  ],
+  "capabilities": [
+    "Validates Conventional Commits format (type(scope): description)",
+    "Enforces branch naming conventions (feature/, bugfix/, hotfix/, release/)",
+    "Creates pull request templates with checklists",
+    "Generates pre-commit and commit-msg hooks",
+    "Detects existing conventions from project files",
+    "Creates git commit templates for consistent messages"
+  ],
+  "author": "CrazyDubya",
+  "icon": "🔀",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only SKILL.md with Git workflow guidance. The pre-computed static analysis flagged 67 pattern-based findings, but ALL are false positives after semantic evaluation. Shell script examples in documentation were misidentified as code execution; references to GPG signing and secret detection were misclassified as cryptographic operations and credential theft; git operations were flagged as reconnaissance. No network tools means no data exfiltration possible. The skill is safe for publication.",
+  "valueStatement": "Teams struggle with inconsistent commit messages and branch names that make tracking changes difficult. This skill validates Conventional Commits, branch naming patterns, and PR templates to keep your repository organized and automated changelog-ready.",
+  "userTitle": "Enforce Git Workflow Standards",
+  "limitations": [
+    "Does not automatically install git hooks on user systems",
+    "Does not modify remote repository settings",
+    "Does not enforce policies on team members",
+    "Only provides guidance; actual commit creation requires user action"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development Teams",
+      "title": "Standardize Team Workflows",
+      "description": "Ensure all team members follow the same commit conventions for cleaner history and automated releases"
+    },
+    {
+      "targetUser": "Open Source Maintainers",
+      "title": "Guide Contributors",
+      "description": "Provide clear commit and PR standards for external contributors through templates and validation"
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Automate Release Processes",
+      "description": "Enable automated changelog generation and semantic versioning from properly formatted commits"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Validate Current Commits",
+      "scenario": "Check existing commit history",
+      "prompt": "Check if our recent commits follow Conventional Commits format. Show me any commits that do not match the pattern and suggest corrected versions."
+    },
+    {
+      "title": "Create Feature Branch",
+      "scenario": "Start a new feature",
+      "prompt": "Create a branch name for adding user authentication with OAuth2 support. Then show the conventional commit format for the first commit."
+    },
+    {
+      "title": "Generate PR Template",
+      "scenario": "Set up PR guidelines",
+      "prompt": "Create a pull request template for our project. Include sections for description, type of change, testing, and checklist items."
+    },
+    {
+      "title": "Audit Git Hooks",
+      "scenario": "Review commit validation",
+      "prompt": "Generate a commit-msg hook script that validates Conventional Commits format before allowing the commit."
+    }
+  ],
+  "bestPractices": [
+    "Use imperative mood in commit messages (add, not added)",
+    "Keep subject lines under 50 characters",
+    "Reference issues with Closes #123 or Fixes #456"
+  ],
+  "antiPatterns": [
+    "Using generic messages like 'fix bug' or 'update code'",
+    "Skipping the scope in commit types when applicable",
+    "Creating large commits with unrelated changes"
+  ],
+  "faq": [
+    {
+      "question": "What tools support Conventional Commits?",
+      "answer": "standard-version, commitizen, commitlint, and semantic-release all work with Conventional Commits format."
+    },
+    {
+      "question": "What is the maximum commit subject length?",
+      "answer": "Keep subject lines under 50 characters. Many tools truncate longer messages."
+    },
+    {
+      "question": "How do I integrate with GitHub?",
+      "answer": "Place PULL_REQUEST_TEMPLATE.md in .github/ directory. GitHub automatically uses it for new PRs."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. This skill only reads files you specify and writes templates you request. No data leaves your system."
+    },
+    {
+      "question": "Why are my commits not generating a changelog?",
+      "answer": "Ensure commits follow the type prefix (feat:, fix:) exactly. Tools skip commits without proper format."
+    },
+    {
+      "question": "How does this compare to commitlint?",
+      "answer": "This skill provides guidance and templates. commitlint is an automated tool that rejects invalid commits."
+    }
+  ],
+  "seoKeywords": [
+    "git workflow",
+    "conventional commits",
+    "branch naming",
+    "pull request template",
+    "commit message format",
+    "claude code",
+    "claude",
+    "codex",
+    "git conventions"
+  ],
+  "sourceUrl": "https://github.com/CrazyDubya/claude-skills/tree/main/git-workflow-enforcer",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "architectural-forensics",
+  "type": "skill",
+  "description": "Master protocol for deconstructing agent frameworks to inform derivative system architecture. Use when (1) analyzing an agent framework's codebase comprehensively, (2) comparing multiple frameworks to select best practices, (3) designing a new agent system based on prior art, (4) documenting architectural decisions with evidence, or (5) conducting technical due diligence on AI agent implementations. This skill orchestrates sub-skills for data substrate, execution engine, cognitive architecture, and synthesis phases.",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "Framework deconstruction",
+  "quality": 5,
+  "qualityReason": "Deep framework analysis",
+  "bundleHints": [
+    "agent-framework",
+    "architecture-synthesis"
+  ],
+  "tags": [
+    "ai-agents",
+    "architecture",
+    "code-analysis",
+    "comparative-study",
+    "derivative-systems",
+    "framework-analysis",
+    "system-design"
+  ],
+  "capabilities": [
+    "Analyzes AI agent framework architectures through systematic documentation review",
+    "Extracts engineering patterns (data substrate, execution engine, component model)",
+    "Identifies cognitive architecture patterns (control loops, memory, tool interfaces)",
+    "Generates comparison matrices across multiple frameworks",
+    "Creates anti-pattern catalogs from framework analysis",
+    "Produces reference architecture specifications"
+  ],
+  "author": "Dowwie",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill consists entirely of markdown documentation files (SKILL.md and 7 reference files). No executable code exists. All 294 static findings are false positives caused by the scanner misinterpreting markdown documentation patterns as security issues. Documentation contains code examples and file path references but no actual code execution, filesystem access, or cryptographic operations.",
+  "valueStatement": "Understanding how existing AI agent frameworks work is crucial for building better systems. This skill provides a systematic methodology to analyze framework architectures, extract reusable patterns, and create reference implementations based on best practices from multiple frameworks.",
+  "userTitle": "Deconstruct AI Agent Frameworks for Architecture Insights",
+  "limitations": [
+    "Requires manual codebase mapping as prerequisite",
+    "Analysis based on documentation patterns, not runtime behavior",
+    "Dependent on quality of source code documentation",
+    "Framework must be written in Python for pattern recognition"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI Engineers",
+      "title": "Framework Selection",
+      "description": "Compare multiple agent frameworks to select the best foundation for your AI system based on architectural patterns and trade-offs."
+    },
+    {
+      "targetUser": "Technical Architects",
+      "title": "Custom Framework Design",
+      "description": "Design optimized agent frameworks by extracting best practices from existing implementations while avoiding common pitfalls."
+    },
+    {
+      "targetUser": "Development Teams",
+      "title": "Technical Due Diligence",
+      "description": "Evaluate agent framework codebases for production readiness, security patterns, and architectural soundness before adoption."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Assessment",
+      "scenario": "Single framework analysis",
+      "prompt": "Analyze the LangChain framework using the minimal path: codebase-mapping → execution-engine-analysis → control-loop-extraction → tool-interface-analysis. Focus on identifying core architectural patterns."
+    },
+    {
+      "title": "Multi-Framework",
+      "scenario": "Comparing frameworks",
+      "prompt": "Run full architectural forensics analysis on AutoGen, CrewAI, and LangGraph. Generate a comparison matrix highlighting their approaches to memory management and tool interfaces."
+    },
+    {
+      "title": "Custom Framework",
+      "scenario": "Building new framework",
+      "prompt": "Analyze 3-4 agent frameworks to extract best practices for building a new framework optimized for financial trading agents. Focus on error handling and state management."
+    },
+    {
+      "title": "Production Audit",
+      "scenario": "Security assessment",
+      "prompt": "Conduct comprehensive analysis focusing on resilience patterns, error propagation, sandboxing mechanisms, and security boundaries for production deployment."
+    }
+  ],
+  "bestPractices": [
+    "Run codebase mapping first to ensure comprehensive file discovery before analysis",
+    "Use cluster-based reading to understand cross-file architectural patterns rather than analyzing files in isolation",
+    "Focus on both engineering chassis (how it runs) and cognitive architecture (how it thinks) for complete understanding"
+  ],
+  "antiPatterns": [
+    "Don't skip the synthesis phase - generating comparison matrices and anti-pattern catalogs is crucial for actionable insights",
+    "Avoid analyzing frameworks in isolation - patterns become clearer when comparing multiple implementations",
+    "Don't ignore error handling and resilience patterns - these are critical for production readiness"
+  ],
+  "faq": [
+    {
+      "question": "Which frameworks can I analyze?",
+      "answer": "Any Python-based AI agent framework including LangChain, AutoGen, CrewAI, LangGraph, and custom implementations."
+    },
+    {
+      "question": "How long does full analysis take?",
+      "answer": "Single framework takes 5-10 minutes. Multi-framework comparisons may take 15-30 minutes depending on codebase size."
+    },
+    {
+      "question": "Can I analyze proprietary frameworks?",
+      "answer": "Yes, if you have local access to the source code. The skill works with any Python codebase regardless of license."
+    },
+    {
+      "question": "What outputs will I get?",
+      "answer": "Detailed analysis reports, comparison matrices, anti-pattern catalogs, and reference architecture specifications."
+    },
+    {
+      "question": "How do I resume an interrupted analysis?",
+      "answer": "The skill automatically tracks progress in state files. Re-run to resume from where it left off."
+    },
+    {
+      "question": "Can this analyze non-Python frameworks?",
+      "answer": "Currently optimized for Python frameworks. Some patterns may apply universally but analysis focuses on Python implementations."
+    }
+  ],
+  "seoKeywords": [
+    "AI agent frameworks",
+    "architecture analysis",
+    "Claude Code",
+    "framework comparison",
+    "agent design patterns",
+    "code analysis",
+    "system architecture",
+    "AI engineering",
+    "Claude",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/Dowwie/agent_framework_study/tree/main/.claude/skills/architectural-forensics",
+  "sourceType": "community",
+  "dependencies": []
+}

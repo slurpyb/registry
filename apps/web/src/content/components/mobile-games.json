@@ -1,0 +1,143 @@
+{
+  "name": "mobile-games",
+  "type": "skill",
+  "description": "Mobile game development principles. Touch input, battery, performance, app stores.",
+  "domain": "gaming",
+  "subdomain": "game-design",
+  "specialty": "mobile game principles",
+  "quality": 4,
+  "qualityReason": "Relevant constraints identified",
+  "bundleHints": [
+    "mobile-games",
+    "game-dev"
+  ],
+  "tags": [
+    "app stores",
+    "app-stores",
+    "battery optimization",
+    "game dev",
+    "game-development",
+    "mobile",
+    "mobile-games",
+    "performance",
+    "performance-optimization",
+    "touch controls",
+    "touch-controls"
+  ],
+  "capabilities": [
+    "Design touch-friendly interfaces with proper hit areas and gesture support",
+    "Implement thermal management strategies to prevent device overheating",
+    "Optimize battery usage through frame rate limiting and resource management",
+    "Navigate iOS App Store and Google Play submission requirements",
+    "Choose appropriate monetization models for mobile games",
+    "Implement responsive UI that supports multiple orientations"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill with no executable code. Static analysis false positives: 'LED' in 'OLED' misidentified as weak cryptography, and 'screen/screenshots' misidentified as system reconnaissance. The skill provides mobile game development guidance with no security risks.",
+  "valueStatement": "Mobile game development requires understanding platform constraints like touch input, battery life, and thermal management. This skill provides actionable principles for optimizing mobile games.",
+  "userTitle": "Build Mobile Games with Touch Controls",
+  "limitations": [
+    "Provides guidance only and does not generate game code or assets",
+    "Platform-specific requirements change frequently and may require verification",
+    "Does not cover game engine-specific implementation details",
+    "Touch control guidelines are general and may need adjustment for specific game genres"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Solo developer building mobile games",
+      "title": "Indie Game Developer",
+      "description": "Plan and optimize your first mobile game with proper touch controls and performance targets."
+    },
+    {
+      "targetUser": "Professional game development studio",
+      "title": "Game Studio Team",
+      "description": "Ensure your mobile game meets app store requirements and performance standards before launch."
+    },
+    {
+      "targetUser": "Developer migrating games to mobile",
+      "title": "Unity/Unreal Developer",
+      "description": "Apply mobile optimization principles when porting desktop games to mobile platforms."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Touch Controls",
+      "prompt": "What are the minimum touch target sizes and best practices for mobile game buttons?",
+      "scenario": "When designing initial mobile game UI"
+    },
+    {
+      "title": "Performance Optimization",
+      "prompt": "How should I manage frame rate and thermal throttling for a mobile action game?",
+      "scenario": "When optimizing game performance for mobile devices"
+    },
+    {
+      "title": "App Store Compliance",
+      "prompt": "What are the current iOS App Store and Google Play requirements for mobile games?",
+      "scenario": "When preparing game for app store submission"
+    },
+    {
+      "title": "Monetization Strategy",
+      "prompt": "What monetization model would work best for a casual puzzle game with daily content?",
+      "scenario": "When planning game revenue strategy"
+    }
+  ],
+  "bestPractices": [
+    "Design touch controls with large hit areas (minimum 44x44 points) to accommodate different finger sizes and screen densities",
+    "Monitor device thermal state and dynamically reduce quality or frame rate when the device becomes warm to prevent throttling",
+    "Support both portrait and landscape orientations unless your game has a specific reason to lock orientation"
+  ],
+  "antiPatterns": [
+    "Do not port desktop controls directly to mobile without redesigning for touch input and smaller screens",
+    "Do not run at maximum frame rate and quality settings continuously without considering battery drain and device thermals",
+    "Do not require constant network connectivity when offline play and cached data synchronization could improve user experience"
+  ],
+  "faq": [
+    {
+      "question": "What frame rate should I target for mobile games?",
+      "answer": "Thirty FPS is often sufficient for mobile games and significantly improves battery life. Reserve sixty FPS for fast-action games where it provides meaningful gameplay benefits."
+    },
+    {
+      "question": "Should I support both portrait and landscape orientations?",
+      "answer": "Support both orientations unless your game has a specific reason to lock one. Players have different preferences and device usage habits."
+    },
+    {
+      "question": "How do I handle device overheating in my game?",
+      "answer": "Monitor thermal state and reduce quality settings, limit frame rate, or pause non-essential effects when the device becomes warm. Prevent overheating rather than reacting to it."
+    },
+    {
+      "question": "What monetization model works best for mobile games?",
+      "answer": "Choose based on your game type: premium for quality games with loyal audiences, free with in-app purchases for casual progression games, ads for hyper-casual high-volume games, and subscriptions for games with regular content updates."
+    },
+    {
+      "question": "Do I need different screenshots for different device sizes?",
+      "answer": "Yes. iOS App Store requires screenshots for all device sizes. Prepare screenshots for each relevant iPhone and iPad screen size to meet submission requirements."
+    },
+    {
+      "question": "Should I use GPS or location services in my mobile game?",
+      "answer": "Only if location features are core to gameplay. GPS usage significantly drains battery and requires privacy disclosures. Minimize location updates and consider alternatives."
+    }
+  ],
+  "seoKeywords": [
+    "mobile games",
+    "game development",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "touch controls",
+    "mobile optimization",
+    "app store requirements"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/game-development/mobile-games",
+  "sourceType": "community",
+  "dependencies": []
+}

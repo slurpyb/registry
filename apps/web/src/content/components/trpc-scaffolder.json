@@ -1,0 +1,140 @@
+{
+  "name": "trpc-scaffolder",
+  "type": "skill",
+  "description": "Scaffolds tRPC routers, procedures, and Zod schemas with full type safety following DevPrep AI patterns",
+  "domain": "web-development",
+  "subdomain": "fullstack",
+  "specialty": "tRPC scaffolding",
+  "quality": 5,
+  "qualityReason": "Highly specific and useful",
+  "bundleHints": [
+    "typescript-stack",
+    "fullstack-patterns"
+  ],
+  "tags": [
+    "api",
+    "backend",
+    "scaffolding",
+    "trpc",
+    "type-safety",
+    "typescript",
+    "zod"
+  ],
+  "capabilities": [
+    "Create new tRPC router files with correct structure from templates",
+    "Add query and mutation procedures to existing routers with code snippets",
+    "Generate Zod validation schemas with type inference exports",
+    "Validate router registration and schema compliance automatically",
+    "Apply DevPrep AI naming conventions and best practices"
+  ],
+  "author": "ArieGoldkin",
+  "icon": "🏗️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill scaffolds tRPC routers and schemas using bash scripts with standard Unix utilities. All file operations are constrained to predefined project paths. Documentation backticks flagged as command execution are false positives. The '../..' patterns in scripts are controlled project-root navigation. No network calls or credential access. Safe for marketplace publication.",
+  "valueStatement": "Building tRPC routers and Zod schemas manually takes 20-30 minutes per endpoint with risk of type errors and missing exports. This skill scaffolds complete type-safe endpoints with validation schemas, example patterns, and automated registration checks.",
+  "userTitle": "Create type-safe tRPC endpoints",
+  "limitations": [
+    "Designed for Next.js projects with tRPC v11 and Zod",
+    "Operates within predefined project paths only",
+    "Does not implement business logic for endpoints",
+    "Scripts require bash shell and standard Unix utilities"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Add new API endpoints",
+      "description": "Quickly scaffold type-safe tRPC endpoints following project conventions for Next.js applications"
+    },
+    {
+      "targetUser": "Backend engineers",
+      "title": "Generate validation schemas",
+      "description": "Create Zod schemas with proper type inference for input and output validation"
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Enforce code standards",
+      "description": "Ensure all new endpoints follow consistent patterns with automated validation checks"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create new router",
+      "scenario": "Need a new API module",
+      "prompt": "Create a new tRPC router for user management. Use the trpc-scaffolder skill to generate the router file and Zod schemas."
+    },
+    {
+      "title": "Add procedure",
+      "scenario": "Extend existing endpoint",
+      "prompt": "Add a query procedure called getUserProfile to the existing userRouter. Use the add-procedure.sh script from trpc-scaffolder."
+    },
+    {
+      "title": "Generate schemas",
+      "scenario": "New validation needs",
+      "prompt": "Create Zod schemas for a notification entity. Use create-schema.sh to generate the schema file with input and output schemas."
+    },
+    {
+      "title": "Validate setup",
+      "scenario": "Check registration",
+      "prompt": "Run the tRPC validation script to check if all routers are properly registered in _app.ts and schemas export types correctly."
+    }
+  ],
+  "bestPractices": [
+    "Always run validate-trpc.sh after creating new endpoints to ensure proper registration",
+    "Export inferred types using z.infer<typeof schemaName> for full TypeScript type safety",
+    "Use query procedures for GET operations and mutation procedures for data modifications"
+  ],
+  "antiPatterns": [
+    "Skipping router registration in _app.ts - causes type errors at runtime",
+    "Forgetting to export inferred types - breaks TypeScript type inference",
+    "Using mutation for read operations - violates REST conventions and caching behavior"
+  ],
+  "faq": [
+    {
+      "question": "What tRPC versions are supported?",
+      "answer": "Designed for tRPC v11 with Next.js App Router. Works with Zod for validation."
+    },
+    {
+      "question": "Where can I use this skill?",
+      "answer": "Compatible with Claude, Codex, and Claude Code. Auto-triggers on tRPC and API-related keywords."
+    },
+    {
+      "question": "Does it modify existing files?",
+      "answer": "Scripts only create new files from templates. Validation script only reads files to check compliance."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Scripts operate within project directory only. No network calls. No external data transmission."
+    },
+    {
+      "question": "What if validation fails?",
+      "answer": "Check that router is imported and registered in _app.ts. Ensure schemas export types with z.infer."
+    },
+    {
+      "question": "How is this different from tRPC CLI?",
+      "answer": "Uses project-specific templates following DevPrep AI patterns. Includes validation and best practice enforcement."
+    }
+  ],
+  "seoKeywords": [
+    "Claude tRPC scaffolder",
+    "type-safe API TypeScript",
+    "Zod schema generator",
+    "tRPC router automation",
+    "Next.js API endpoints",
+    "Claude Code skill",
+    "API procedure scaffold",
+    "TypeScript validation schemas",
+    "trpc-scaffolder",
+    "tRPC v11"
+  ],
+  "sourceUrl": "https://github.com/ArieGoldkin/devPrepAi/tree/main/.claude/skills/trpc-scaffolder",
+  "sourceType": "community",
+  "dependencies": []
+}

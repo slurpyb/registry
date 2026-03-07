@@ -1,0 +1,140 @@
+{
+  "name": "azure-web-pubsub-ts",
+  "type": "skill",
+  "description": "Build real-time messaging applications using Azure Web PubSub SDKs for JavaScript (@azure/web-pubsub, @azure/web-pubsub-client). Use when implementing WebSocket-based real-time features, pub/sub messaging, group chat, or live notifications.",
+  "domain": "web-development",
+  "subdomain": "websockets",
+  "specialty": "Pub/Sub Messaging",
+  "quality": 5,
+  "qualityReason": "Real-time comms specialization",
+  "bundleHints": [
+    "realtime-stack",
+    "azure-web"
+  ],
+  "tags": [
+    "azure",
+    "messaging",
+    "pubsub",
+    "real-time",
+    "typescript",
+    "websocket"
+  ],
+  "capabilities": [
+    "Generate client access tokens with user authentication and custom roles",
+    "Send broadcast, user-targeted, and group-specific messages",
+    "Manage connection groups and handle WebSocket events",
+    "Implement Express middleware for real-time event handlers",
+    "Authenticate clients using Azure Entra ID or access keys",
+    "Handle connection lifecycle events (connected, disconnected, rejoin)"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains legitimate Azure Web PubSub SDK documentation. Static analyzer produced 35 false positive external_commands findings by misinterpreting markdown code block backticks as shell execution. Network and environment variable patterns are standard Azure SDK usage. No malicious intent detected.",
+  "valueStatement": "Implement WebSocket-based real-time messaging in your applications using Azure Web PubSub SDKs. This skill provides production-ready patterns for pub/sub messaging, group management, and connection handling with TypeScript.",
+  "userTitle": "Build Real-Time Apps with Azure Web PubSub",
+  "limitations": [
+    "Requires Azure Web PubSub resource and valid connection string or endpoint",
+    "Client-side code requires server-side negotiate endpoint implementation",
+    "Express handler requires Express.js framework integration",
+    "Does not cover advanced scaling or multi-region deployment patterns"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers building collaborative applications",
+      "title": "Real-Time Chat Application",
+      "description": "Build a multi-room chat system with user authentication, group messaging, and presence indicators using Azure Web PubSub groups and user-targeted messaging."
+    },
+    {
+      "targetUser": "Backend engineers implementing real-time data streaming",
+      "title": "Live Dashboard Updates",
+      "description": "Push real-time data updates to connected dashboards using broadcast messaging. Ideal for monitoring systems, analytics displays, or live metrics visualization."
+    },
+    {
+      "targetUser": "Game developers adding real-time multiplayer features",
+      "title": "Multiplayer Game Lobby",
+      "description": "Create game rooms with player matchmaking, in-game messaging, and session management using groups and connection management APIs."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Setup",
+      "prompt": "Set up Azure Web PubSub server-side client using the connection string from environment variables. Create a hub named 'chat' and generate a basic client access token.",
+      "scenario": "Getting started with Azure Web PubSub integration"
+    },
+    {
+      "title": "Authenticated Token Generation",
+      "prompt": "Generate a client access token for user 'user123' with roles for joining groups, sending to groups, and auto-join the 'chat-room' group. Set expiration to 60 minutes.",
+      "scenario": "Implementing user authentication with custom permissions"
+    },
+    {
+      "title": "Client-Side Connection",
+      "prompt": "Create a WebPubSubClient that connects via a negotiate endpoint. Register handlers for connected, group-message, and disconnected events. Join the 'chat-room' group after connection.",
+      "scenario": "Building a real-time client with event handling"
+    },
+    {
+      "title": "Express Event Handler",
+      "prompt": "Implement an Express middleware handler for the 'chat' hub with handleConnect validation, handleUserEvent processing, and onConnected logging. Include a negotiate endpoint that generates tokens for authenticated users.",
+      "scenario": "Production-ready server with authentication and event handling"
+    }
+  ],
+  "bestPractices": [
+    "Use DefaultAzureCredential for production instead of access keys for better security",
+    "Register all event handlers before calling client.start() to avoid missing initial events",
+    "Validate authentication in handleConnect to reject unauthorized connections early in the handshake"
+  ],
+  "antiPatterns": [
+    "Hardcoding connection strings or access keys directly in source code instead of using environment variables",
+    "Accessing process.env variables without TypeScript non-null assertion or fallback values",
+    "Sending messages before verifying client connection state is 'connected'"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between @azure/web-pubsub and @azure/web-pubsub-client?",
+      "answer": "@azure/web-pubsub is the server-side SDK for managing hubs, generating tokens, and sending messages. @azure/web-pubsub-client is the browser/Node.js client SDK for connecting to WebSocket endpoints and handling real-time messages."
+    },
+    {
+      "question": "How do I authenticate users with Azure Web PubSub?",
+      "answer": "Use either Azure Entra ID with DefaultAzureCredential (recommended for production) or generate tokens with userId and roles using the server SDK. Clients connect using the generated token URL."
+    },
+    {
+      "question": "What happens when a client disconnects unexpectedly?",
+      "answer": "Azure Web PubSub automatically attempts reconnection. Handle the 'disconnected' event for cleanup and 'rejoin-group-failed' to handle cases where group rejoin fails after reconnection."
+    },
+    {
+      "question": "Can I send messages to specific users versus all users?",
+      "answer": "Yes. Use sendToAll() for broadcast, sendToUser() for user-targeted messages (delivers to all their connections), or sendToConnection() for a specific connection ID."
+    },
+    {
+      "question": "How do groups work in Azure Web PubSub?",
+      "answer": "Groups are logical channels within a hub. Users can join/leave groups dynamically. Messages sent to a group reach all connections in that group. Useful for chat rooms, game lobbies, or topic-based subscriptions."
+    },
+    {
+      "question": "What is the negotiate endpoint pattern?",
+      "answer": "The negotiate endpoint is a server route that generates client access tokens. Clients call this endpoint to get a WebSocket URL with access token, then connect using that URL. This keeps credentials server-side."
+    }
+  ],
+  "seoKeywords": [
+    "Azure Web PubSub",
+    "WebSocket",
+    "real-time messaging",
+    "pub/sub",
+    "TypeScript",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Azure SDK",
+    "messaging API"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-web-pubsub-ts",
+  "sourceType": "community",
+  "dependencies": []
+}

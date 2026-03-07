@@ -1,0 +1,142 @@
+{
+  "name": "devops-troubleshooter",
+  "type": "skill",
+  "description": "Expert DevOps troubleshooter specializing in rapid incident",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "incident debugging",
+  "quality": 5,
+  "qualityReason": "Expert in advanced debugging",
+  "bundleHints": [
+    "devops-troubleshooting",
+    "observability",
+    "kubernetes"
+  ],
+  "tags": [
+    "devops",
+    "incident-response",
+    "kubernetes",
+    "log analysis",
+    "observability",
+    "performance optimization",
+    "troubleshooting"
+  ],
+  "capabilities": [
+    "Diagnose Kubernetes pod failures, OOMKills, and resource constraint issues",
+    "Analyze logs from ELK Stack, Loki, and cloud-native observability platforms",
+    "Debug distributed tracing issues across microservices with Jaeger, Zipkin, and OpenTelemetry",
+    "Troubleshoot network latency, DNS resolution, and load balancer problems",
+    "Investigate CI/CD pipeline failures and implement automated debugging workflows",
+    "Perform root cause analysis for database deadlocks and performance bottlenecks"
+  ],
+  "author": "sickn33",
+  "icon": "🔧",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Prompt-only skill with no executable code. Static analysis scanned 0 files (0 lines) and detected 0 security issues. This is a pure text-based skill that provides debugging guidance through structured prompts. No risk factors present.",
+  "valueStatement": "Rapidly diagnose and resolve production incidents with AI-guided debugging, log analysis, and systematic troubleshooting methodologies.",
+  "userTitle": "Debug Production Incidents Fast",
+  "limitations": [
+    "Cannot directly access external systems, logs, or monitoring dashboards",
+    "Cannot execute commands or scripts on infrastructure",
+    "Requires user to provide logs, metrics, and system context for accurate diagnosis",
+    "Cannot replace human judgment for critical production decisions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Site Reliability Engineers and DevOps Engineers",
+      "title": "Production Incident Response",
+      "description": "Get immediate guidance for diagnosing and resolving production outages, from initial assessment through root cause analysis."
+    },
+    {
+      "targetUser": "Platform Engineers and Kubernetes Administrators",
+      "title": "Kubernetes Cluster Debugging",
+      "description": "Troubleshoot pod failures, networking issues, service mesh problems, and resource constraints in Kubernetes environments."
+    },
+    {
+      "targetUser": "Application Developers and Performance Engineers",
+      "title": "Performance Optimization",
+      "description": "Identify performance bottlenecks through log analysis, distributed tracing correlation, and system profiling recommendations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Incident Triage",
+      "prompt": "My production service is experiencing [describe issue: high latency/errors/outage]. I have [describe available data: logs from X, metrics from Y]. Help me diagnose the root cause.",
+      "scenario": "Initial incident response with limited information"
+    },
+    {
+      "title": "Kubernetes Pod Debugging",
+      "prompt": "I have a Kubernetes pod in [CrashLoopBackOff/Running state] with the following events: [paste kubectl describe output]. The logs show: [paste relevant logs]. What should I investigate?",
+      "scenario": "Debugging specific Kubernetes pod issues"
+    },
+    {
+      "title": "Log Analysis Request",
+      "prompt": "I'm seeing this error pattern in my [ELK/Loki/cloud logs]: [paste error messages and timestamps]. The error started [when]. Help me correlate these logs and identify the root cause.",
+      "scenario": "Analyzing log patterns to identify issues"
+    },
+    {
+      "title": "Post-Mortem Analysis",
+      "prompt": "We had an incident where [describe incident]. Timeline: [paste timeline]. The following systems were affected: [list]. What systemic issues contributed to this failure and how can we prevent recurrence?",
+      "scenario": "Conducting blameless post-mortem analysis"
+    }
+  ],
+  "bestPractices": [
+    "Always gather logs, metrics, and system state before forming hypotheses to avoid misdiagnosis",
+    "Start with the simplest explanation and escalate to complex causes only when ruled out",
+    "Document all investigation steps and findings for postmortem and knowledge sharing"
+  ],
+  "antiPatterns": [
+    "Making changes to production systems without first reproducing the issue in a controlled environment",
+    "Ignoring error messages and symptoms that seem unrelated to the primary issue",
+    "Focusing on symptoms rather than root cause, leading to temporary fixes that fail later"
+  ],
+  "faq": [
+    {
+      "question": "Can this skill execute commands on my servers?",
+      "answer": "No. This is a prompt-based skill that provides guidance and recommendations. You must execute any commands yourself."
+    },
+    {
+      "question": "What observability platforms does this skill support?",
+      "answer": "It supports ELK Stack, Loki/Grafana, DataDog, New Relic, Jaeger, Zipkin, Prometheus, and OpenTelemetry among others."
+    },
+    {
+      "question": "Can I use this skill for security incident response?",
+      "answer": "Yes. The skill includes guidance for authentication debugging, certificate issues, and security log analysis."
+    },
+    {
+      "question": "Does this skill work with cloud platforms like AWS and Azure?",
+      "answer": "Yes. It covers AWS CloudWatch, Azure Monitor, GCP Cloud Logging, and multi-cloud troubleshooting scenarios."
+    },
+    {
+      "question": "How does this skill handle Kubernetes debugging?",
+      "answer": "It provides guidance for kubectl commands, pod troubleshooting, service mesh issues, networking, and storage problems."
+    },
+    {
+      "question": "Can this skill help with CI/CD pipeline issues?",
+      "answer": "Yes. It covers build failures, deployment problems, GitOps issues, and pipeline optimization."
+    }
+  ],
+  "seoKeywords": [
+    "devops troubleshooting",
+    "kubernetes debugging",
+    "incident response",
+    "log analysis",
+    "system reliability",
+    "Claude troubleshooting",
+    "Codex devops",
+    "Claude Code skill",
+    "observability tools",
+    "root cause analysis"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/devops-troubleshooter",
+  "sourceType": "community",
+  "dependencies": []
+}

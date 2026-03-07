@@ -1,0 +1,140 @@
+{
+  "name": "senior-rust-practices",
+  "type": "skill",
+  "description": "This skill should be used when the user asks about \"rust workspace\", \"rust best practices\", \"cargo workspace setup\", \"rust code organization\", \"rust dependency management\", \"rust testing strategy\", \"rust project\", \"scalable rust\", \"rust CI setup\", or needs guidance on senior-level Rust development patterns, workspace design, code organization strategies, or production-ready Rust architectures.",
+  "domain": "languages",
+  "subdomain": "rust",
+  "specialty": "code organization",
+  "quality": 5,
+  "qualityReason": "Specific Rust guidance",
+  "bundleHints": [
+    "rust-stack",
+    "systems-programming"
+  ],
+  "tags": [
+    "architecture",
+    "best-practices",
+    "cargo",
+    "dependency",
+    "rust",
+    "scaling",
+    "testing",
+    "workspaces"
+  ],
+  "capabilities": [
+    "Provides workspace structure patterns for multi-crate projects",
+    "Explains layered architecture with core, adapters, and app separation",
+    "Details dependency management and feature flag strategies",
+    "Outlines testing pyramids from unit to integration tests",
+    "Includes CI/CD quality gates and tooling recommendations"
+  ],
+  "author": "ClementWalter",
+  "icon": "🦀",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing Rust best practices guidance. No executable code, scripts, or network operations exist. The static analyzer flagged documentation patterns (shell syntax in examples, git commands, file paths) as security issues, but these are all benign references within documentation. All 103 detected patterns are FALSE POSITIVES - the skill is safe for publication.",
+  "valueStatement": "Struggling with Rust project organization? This skill provides battle-tested patterns for scalable workspace design, from prototype to production. Learn how senior developers structure large Rust codebases with clear boundaries and maintainable architecture.",
+  "userTitle": "Master Rust workspace architecture and best practices",
+  "limitations": [
+    "Focuses on workspace-level patterns, not basic Rust syntax",
+    "Assumes familiarity with Cargo and Rust fundamentals",
+    "Patterns may be overkill for simple single-crate projects"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Senior developers",
+      "title": "Design scalable Rust architecture",
+      "description": "Structure large Rust projects with clear crate boundaries and maintainable dependencies for teams."
+    },
+    {
+      "targetUser": "Tech leads",
+      "title": "Establish Rust coding standards",
+      "description": "Define workspace conventions, testing strategies, and quality gates for Rust projects."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Set up Rust CI/CD pipelines",
+      "description": "Implement automated testing, linting, and security checks for Rust workspaces."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Workspace structure",
+      "scenario": "Setting up a new Rust project",
+      "prompt": "I need to create a Rust workspace for a web service with core business logic, database layer, and API handlers. What's the recommended structure?"
+    },
+    {
+      "title": "Dependency management",
+      "scenario": "Managing crate versions",
+      "prompt": "How should I organize dependencies in a workspace to avoid version conflicts and keep builds fast?"
+    },
+    {
+      "title": "Testing strategy",
+      "scenario": "Implementing comprehensive tests",
+      "prompt": "What's the best testing approach for a Rust workspace with multiple crates? How do I balance unit, integration, and e2e tests?"
+    },
+    {
+      "title": "Production readiness",
+      "scenario": "Preparing for deployment",
+      "prompt": "What CI checks and quality gates should I implement for a production Rust service? Include tooling recommendations."
+    }
+  ],
+  "bestPractices": [
+    "Start with 2-5 crates maximum and split only when compile times become painful",
+    "Use workspace.dependencies to centralize version management across all crates",
+    "Keep async code at the edges - make core logic synchronous when possible"
+  ],
+  "antiPatterns": [
+    "Creating too many small crates creates unnecessary complexity and maintenance burden",
+    "Leaking implementation details from core to other architectural layers",
+    "Using unwrap() in library code instead of proper error handling with thiserror"
+  ],
+  "faq": [
+    {
+      "question": "When should I use a Rust workspace instead of a single crate?",
+      "answer": "Use workspaces when you have multiple crates that ship together, need shared CI/tooling, or have different dependency profiles."
+    },
+    {
+      "question": "How many crates should I have in my workspace?",
+      "answer": "Start with 2-5 crates maximum. Split only when compile times are painful or boundaries are well-defined."
+    },
+    {
+      "question": "Can I use async/await in my core domain logic?",
+      "answer": "Avoid async in core. Keep it synchronous and pure. Async should be at the edges where IO operations happen."
+    },
+    {
+      "question": "How do I manage dependencies across workspace crates?",
+      "answer": "Use workspace.dependencies in root Cargo.toml to centralize versions, then reference with workspace = true in each crate."
+    },
+    {
+      "question": "What testing approach works best for workspaces?",
+      "answer": "Use unit tests in each crate, integration tests at boundaries, and sparing e2e tests. Aim for a pyramid with most tests being unit tests."
+    },
+    {
+      "question": "How does this compare to other Rust architecture guides?",
+      "answer": "This focuses on practical production-tested patterns that emphasize keeping architectural boundaries hard and starting simple."
+    }
+  ],
+  "seoKeywords": [
+    "rust workspace",
+    "rust best practices",
+    "cargo workspace",
+    "rust architecture",
+    "rust testing",
+    "rust dependencies",
+    "rust code organization",
+    "claude rust",
+    "codex rust",
+    "claude code rust"
+  ],
+  "sourceUrl": "https://github.com/ClementWalter/rookie-marketplace/tree/main/rust-dev/skills/senior-rust-practices",
+  "sourceType": "community",
+  "dependencies": []
+}

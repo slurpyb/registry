@@ -1,0 +1,141 @@
+{
+  "name": "apscheduler",
+  "type": "skill",
+  "description": "Advanced Python Scheduler - Task scheduling and job queue system",
+  "domain": "languages",
+  "subdomain": "python",
+  "specialty": "Task scheduling",
+  "quality": 5,
+  "qualityReason": "Specific Python library use",
+  "bundleHints": [
+    "python-stack",
+    "automation-tools"
+  ],
+  "tags": [
+    "async",
+    "background-jobs",
+    "cron",
+    "job-queue",
+    "python",
+    "scheduling",
+    "task-queue"
+  ],
+  "capabilities": [
+    "Schedule Python functions with cron, interval, and date triggers",
+    "Run jobs synchronously or asynchronously with FastAPI integration",
+    "Persist schedules across application restarts with SQL databases",
+    "Distribute work across scheduler and worker nodes",
+    "Manage job results and handle job events",
+    "Configure thread pool and process pool executors"
+  ],
+  "author": "bossjones",
+  "icon": "⏰",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing code examples for the APScheduler Python library. All 82 static findings are FALSE POSITIVES. The analyzer misinterpreted markdown code fences (backticks) as shell command execution, placeholder URLs as hardcoded endpoints, standard Python keywords as cryptographic algorithms, and job scheduling patterns as system reconnaissance. No actual executable code, network calls, or file operations exist in this skill. It is safe for publication.",
+  "valueStatement": "Automate recurring tasks and background jobs in Python applications. APScheduler provides cron-style, interval-based, and date-based scheduling with support for async execution and multiple persistence backends.",
+  "userTitle": "Schedule background tasks with APScheduler",
+  "limitations": [
+    "Requires Python 3.9 or higher for async features",
+    "Memory-based scheduler loses jobs on application restart",
+    "Does not provide built-in task deduplication",
+    "Monitoring and metrics require custom implementation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Automated report generation",
+      "description": "Schedule daily, weekly, or monthly report generation jobs that run without manual intervention"
+    },
+    {
+      "targetUser": "API developers",
+      "title": "Periodic data sync",
+      "description": "Sync data from external APIs or databases at regular intervals with configurable triggers"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Health check monitoring",
+      "description": "Run background monitoring tasks that check system health and trigger alerts"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic scheduling",
+      "scenario": "Run a function every minute",
+      "prompt": "Use APScheduler to run my cleanup function every minute with an interval trigger"
+    },
+    {
+      "title": "Cron scheduling",
+      "scenario": "Schedule daily at specific time",
+      "prompt": "Schedule a function to run at 9 AM every weekday using cron trigger"
+    },
+    {
+      "title": "With persistence",
+      "scenario": "Save schedules across restarts",
+      "prompt": "Set up AsyncScheduler with PostgreSQL persistence so jobs survive application restarts"
+    },
+    {
+      "title": "Distributed workers",
+      "scenario": "Scale job execution",
+      "prompt": "Create a distributed APScheduler setup with separate scheduler and worker nodes using AsyncpgEventBroker"
+    }
+  ],
+  "bestPractices": [
+    "Use persistent data stores in production to survive application restarts",
+    "Set appropriate misfire_grace_time to handle system delays gracefully",
+    "Subscribe to job events for monitoring and alerting on job failures"
+  ],
+  "antiPatterns": [
+    "Storing credentials directly in job kwargs - use environment variables instead",
+    "Scheduling very short intervals without proper coalesce configuration",
+    "Ignoring job exceptions without error handling or retry policies"
+  ],
+  "faq": [
+    {
+      "question": "How does APScheduler compare to Celery?",
+      "answer": "APScheduler is lighter and simpler for single-application scheduling. Celery is better for complex distributed task queues."
+    },
+    {
+      "question": "Can I run APScheduler in FastAPI?",
+      "answer": "Yes, use the lifespan pattern with AsyncScheduler to run the scheduler alongside your FastAPI application."
+    },
+    {
+      "question": "What happens to jobs when the app restarts?",
+      "answer": "With in-memory storage, jobs are lost. Use SQLAlchemyDataStore or MongoDBDataStore to persist jobs across restarts."
+    },
+    {
+      "question": "How do I run jobs in the background?",
+      "answer": "Call scheduler.start_in_background() after adding your schedules. This runs the scheduler loop without blocking."
+    },
+    {
+      "question": "Can I pass arguments to scheduled functions?",
+      "answer": "Yes, use args for positional arguments and kwargs for named arguments in add_schedule or add_job."
+    },
+    {
+      "question": "What executors are available?",
+      "answer": "ThreadPoolExecutor (default, good for I/O tasks) and ProcessPoolExecutor (good for CPU-intensive tasks)."
+    }
+  ],
+  "seoKeywords": [
+    "APScheduler",
+    "Python task scheduler",
+    "cron scheduling",
+    "background jobs",
+    "periodic tasks",
+    "async scheduler",
+    "task queue",
+    "Claude Code",
+    "Claude",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/bossjones/logging-lab/tree/main/.claude/skills/apscheduler",
+  "sourceType": "community",
+  "dependencies": []
+}

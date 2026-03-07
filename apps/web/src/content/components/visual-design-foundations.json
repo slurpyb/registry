@@ -1,0 +1,145 @@
+{
+  "name": "visual-design-foundations",
+  "type": "skill",
+  "description": "Apply typography, color theory, spacing systems, and iconography principles to create cohesive visual designs. Use when establishing design tokens, building style guides, or improving visual hierarchy and consistency.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "visual principles",
+  "quality": 5,
+  "qualityReason": "Foundational design skill",
+  "bundleHints": [
+    "design-system",
+    "branding"
+  ],
+  "tags": [
+    "accessibility",
+    "color-theory",
+    "design-tokens",
+    "iconography",
+    "spacing",
+    "spacing-systems",
+    "style-guides",
+    "typography",
+    "visual-design"
+  ],
+  "capabilities": [
+    "Generate typography scales using modular ratio-based sizing",
+    "Create accessible color palettes with WCAG contrast compliance",
+    "Implement spacing systems based on 8-point grid principles",
+    "Build design token systems for CSS custom properties",
+    "Apply visual hierarchy principles to improve readability",
+    "Configure dark mode and theming support"
+  ],
+  "author": "wshobson",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 144 static findings are FALSE POSITIVES. The scanner misidentified CSS custom properties as shell commands, RegExp.exec() as Python exec(), and hex color codes as cryptographic hashes. This is documentation-only content with no executable code.",
+  "valueStatement": "Poor visual design leads to inconsistent user experiences and accessibility failures. This skill provides typography, color, spacing, and iconography foundations to build accessible, scalable visual systems.",
+  "userTitle": "Create Cohesive Visual Design Systems",
+  "limitations": [
+    "Does not generate actual design files or mockups",
+    "Does not evaluate existing designs against brand guidelines",
+    "Does not provide real-time accessibility auditing of live websites",
+    "Does not generate icon assets or SVG files"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers and designers starting new projects",
+      "title": "Establish Design Tokens for a New Project",
+      "description": "Generate a complete design token system including typography scales, color palettes, and spacing variables for a new application or design system."
+    },
+    {
+      "targetUser": "UI designers refactoring existing interfaces",
+      "title": "Improve Visual Hierarchy in Existing UI",
+      "description": "Analyze and restructure typography, color, and spacing to create clearer visual hierarchy and improve content readability across a user interface."
+    },
+    {
+      "targetUser": "Accessibility specialists and frontend developers",
+      "title": "Build Accessible Color Systems",
+      "description": "Create semantic color tokens with WCAG-compliant contrast ratios for text, backgrounds, and interactive states."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Design System Setup",
+      "prompt": "Create a design token system for [PROJECT TYPE] with typography scale, color palette, and spacing system. Include CSS custom properties.",
+      "scenario": "Starting a new project and need foundational design variables"
+    },
+    {
+      "title": "Color Palette Generation",
+      "prompt": "Generate an accessible [THEME] color palette with semantic tokens for primary, secondary, success, warning, error, and neutral colors. Include WCAG contrast compliance.",
+      "scenario": "Building color tokens for a theming system"
+    },
+    {
+      "title": "Typography Scale Creation",
+      "prompt": "Create a modular typography scale using [RATIO] ratio. Include font sizes, line heights, and letter spacing for headings, body text, and UI labels.",
+      "scenario": "Setting up type tokens for consistent text styling"
+    },
+    {
+      "title": "Complete Design System",
+      "prompt": "Build a comprehensive design system for [APP TYPE] including typography, color, spacing, and iconography guidelines. Reference best practices for [FRAMEWORK] implementation.",
+      "scenario": "Creating a full design system from scratch"
+    }
+  ],
+  "bestPractices": [
+    "Use modular scales for typography to create harmonious size relationships between text elements",
+    "Establish semantic color tokens (e.g., --color-action-primary) rather than hardcoded values to enable easy theming",
+    "Apply the 8-point grid system consistently for spacing, margins, and padding to create visual rhythm"
+  ],
+  "antiPatterns": [
+    "Using arbitrary pixel values instead of defined spacing tokens leads to inconsistent visual rhythm",
+    "Hardcoding colors directly in component styles prevents effective theming and dark mode support",
+    "Applying multiple font families or weights unnecessarily creates visual noise and maintenance burden"
+  ],
+  "faq": [
+    {
+      "question": "What modular scale ratio should I use?",
+      "answer": "Major Third (1.250) works well for most applications. Use Minor Third (1.200) for content-heavy sites and Perfect Fourth (1.333) for marketing pages with large headlines."
+    },
+    {
+      "question": "How do I ensure WCAG compliance for colors?",
+      "answer": "Maintain minimum 4.5:1 contrast ratio for normal text and 3:1 for large text. Use tools like WebAIM Contrast Checker to verify combinations before finalizing tokens."
+    },
+    {
+      "question": "Should I use pixels or rem units?",
+      "answer": "Use rem units for typography and spacing to respect user font size preferences. Base rem value should be 16px by default."
+    },
+    {
+      "question": "How many colors do I need in a palette?",
+      "answer": "Start with 5-9 neutral gray steps and 5-7 steps per accent color. This provides enough flexibility without overwhelming the design system."
+    },
+    {
+      "question": "What is the 8-point grid system?",
+      "answer": "All spacing, margins, and padding values are multiples of 8px (4px, 8px, 16px, 24px, 32px). This creates consistent visual rhythm and simplifies design decisions."
+    },
+    {
+      "question": "How do I structure design tokens for scalability?",
+      "answer": "Separate tokens into three tiers: primitive (raw values like #2563eb), semantic (meaning-based like --color-primary), and component (component-specific like --button-bg-primary)."
+    }
+  ],
+  "seoKeywords": [
+    "visual design",
+    "typography",
+    "color theory",
+    "spacing system",
+    "iconography",
+    "design tokens",
+    "CSS variables",
+    "accessibility",
+    "WCAG",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/visual-design-foundations/",
+  "sourceType": "community",
+  "dependencies": []
+}

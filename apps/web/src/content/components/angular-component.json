@@ -1,0 +1,147 @@
+{
+  "name": "angular-component",
+  "type": "skill",
+  "description": "Create modern Angular standalone components following v20+ best practices. Use for building UI components with signal-based inputs/outputs, OnPush change detection, host bindings, content projection, and lifecycle hooks. Triggers on component creation, refactoring class-based inputs to signals, adding host bindings, or implementing accessible interactive components.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Component creation",
+  "quality": 5,
+  "qualityReason": "Comprehensive component standards",
+  "bundleHints": [
+    "angular-components",
+    "ui-library",
+    "frontend-architecture"
+  ],
+  "tags": [
+    "angular",
+    "angular-components",
+    "components",
+    "content-projection",
+    "frontend",
+    "host-bindings",
+    "input-output",
+    "onpush",
+    "signals",
+    "web-development"
+  ],
+  "capabilities": [
+    "Create standalone Angular components with signal-based inputs and outputs",
+    "Implement OnPush change detection strategy for optimal performance",
+    "Use host bindings for component metadata without decorators",
+    "Build accessible components with ARIA attributes and keyboard support",
+    "Implement content projection with multi-slot support",
+    "Apply modern control flow syntax (@if, @for, @switch)"
+  ],
+  "author": "analogjs",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill contains legitimate Angular v20+ component documentation with signal-based inputs, outputs, host bindings, content projection, and lifecycle hooks. The 91 flagged patterns are markdown code fences for TypeScript examples, not actual shell commands or security vulnerabilities.",
+  "valueStatement": "Create high-performance Angular components with signal-based reactivity, OnPush change detection, and modern v20 patterns for optimal rendering performance.",
+  "userTitle": "Build Angular v20+ Standalone Components",
+  "limitations": [
+    "Does not generate complete application scaffolding",
+    "Does not include routing configuration",
+    "Does not provide state management solutions like NgRx",
+    "Requires Angular v17+ for signal-based APIs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers building design systems",
+      "title": "Build reusable UI component library",
+      "description": "Create a set of consistent, well-typed components following Angular best practices for use across multiple projects"
+    },
+    {
+      "targetUser": "Angular developers migrating to v17+",
+      "title": "Refactor legacy components to signals",
+      "description": "Convert class-based @Input/@Output to modern signal-based inputs/outputs for better performance"
+    },
+    {
+      "targetUser": "Accessibility-focused developers",
+      "title": "Implement accessible interactive components",
+      "description": "Build form controls and interactive elements with proper ARIA support and keyboard navigation"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create basic component",
+      "prompt": "Create an Angular standalone component called [ComponentName] with required input [inputName] of type [Type], optional input [optInput] with default value [default], and an output for [eventName].",
+      "scenario": "Generating a simple component with inputs and outputs"
+    },
+    {
+      "title": "Build form control component",
+      "prompt": "Create an Angular component with two-way binding using model() for [value]. Include validation, error messages, and accessibility attributes.",
+      "scenario": "Building reusable form control with validation"
+    },
+    {
+      "title": "Implement complex content projection",
+      "prompt": "Create a card component with header, body, and footer content projection slots. Use ng-content with selectors for each slot.",
+      "scenario": "Creating components with multiple projection areas"
+    },
+    {
+      "title": "Build lazy-loaded feature component",
+      "prompt": "Create a dashboard component that uses @defer to lazy-load a heavy chart component when it enters the viewport.",
+      "scenario": "Implementing deferred loading for performance"
+    }
+  ],
+  "bestPractices": [
+    "Use signal-based inputs and outputs instead of class-based @Input/@Output decorators",
+    "Always use OnPush change detection strategy for optimal performance",
+    "Use host object instead of @HostBinding and @HostListener decorators",
+    "Implement accessibility with proper ARIA attributes and keyboard support"
+  ],
+  "antiPatterns": [
+    "Do NOT use standalone: true in Angular v20+ (components are standalone by default)",
+    "Do NOT use *ngIf, *ngFor, *ngSwitch (use @if, @for, @switch control flow)",
+    "Do NOT use ngClass or ngStyle (use direct class and style bindings)",
+    "Do NOT use constructor injection (use inject() function instead)"
+  ],
+  "faq": [
+    {
+      "question": "What Angular version is required for this skill?",
+      "answer": "Angular v17 or later is required for signal-based APIs. Angular v20+ is recommended for the latest patterns."
+    },
+    {
+      "question": "Are the components SSR-compatible?",
+      "answer": "Yes, the skill includes afterNextRender and afterRender for SSR-safe DOM manipulation."
+    },
+    {
+      "question": "Can I use RxJS with these components?",
+      "answer": "Yes, use outputFromObservable for RxJS interop with signal outputs."
+    },
+    {
+      "question": "How do I handle two-way binding?",
+      "answer": "Use the model() function which creates both input and output for [(value)] syntax."
+    },
+    {
+      "question": "Do components support lazy loading?",
+      "answer": "Yes, use @defer blocks with triggers like on viewport, on idle, on interaction."
+    },
+    {
+      "question": "How do I query elements in the template?",
+      "answer": "Use viewChild and viewChildren for querying elements and components in the template."
+    }
+  ],
+  "seoKeywords": [
+    "Angular",
+    "Angular components",
+    "Angular signals",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "standalone components",
+    "OnPush change detection",
+    "Angular v20",
+    "signal inputs"
+  ],
+  "sourceUrl": "https://github.com/analogjs/angular-skills/tree/main/skills/angular-component/",
+  "sourceType": "community",
+  "dependencies": []
+}

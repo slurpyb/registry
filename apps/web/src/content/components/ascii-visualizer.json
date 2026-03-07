@@ -1,0 +1,143 @@
+{
+  "name": "ascii-visualizer",
+  "type": "skill",
+  "description": "Creates beautiful ASCII art visualizations for plans, architectures, workflows, and data. This skill should be used when explaining system architecture, creating implementation plans, showing workflows, visualizing comparisons, or documenting file structures. NOT for code syntax highlighting or markdown tables. User explicitly loves ASCII art - use liberally for visual communication.",
+  "domain": "data",
+  "subdomain": "visualization",
+  "specialty": "ASCII art diagrams",
+  "quality": 5,
+  "qualityReason": "Creative visualization method",
+  "bundleHints": [
+    "system-visualization",
+    "documentation-tools"
+  ],
+  "tags": [
+    "architecture",
+    "ascii",
+    "diagrams",
+    "documentation",
+    "text-art",
+    "visualization",
+    "workflow"
+  ],
+  "capabilities": [
+    "Create box diagrams with proper Unicode box-drawing characters",
+    "Generate file tree visualizations with nested structures",
+    "Build flow charts showing data and process paths",
+    "Design comparison tables with before/after metrics",
+    "Make progress bars with status indicators and emojis",
+    "Use consistent visual styling across all ASCII diagrams"
+  ],
+  "author": "ArieGoldkin",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown files with ASCII art pattern examples. No executable code, network requests, file system access, or external dependencies exist. All static findings are false positives from pattern-matching errors misidentifying markdown code blocks and Unicode box-drawing characters as security-relevant patterns.",
+  "valueStatement": "Complex systems and workflows are hard to explain with text alone. This skill generates clear ASCII diagrams for architecture, workflows, comparisons, and data structures to improve understanding and communication.",
+  "userTitle": "Create ASCII Visualizations for Architecture",
+  "limitations": [
+    "No code execution or syntax highlighting capabilities",
+    "Diagrams may exceed 80-100 columns on narrow terminal displays",
+    "Complex nested structures beyond 4-5 levels become hard to read",
+    "Does not generate graphics, images, or interactive diagrams"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Architects",
+      "title": "Explain System Design",
+      "description": "Visualize complex architectures for stakeholders and team members using clear ASCII diagrams"
+    },
+    {
+      "targetUser": "Technical Writers",
+      "title": "Document Project Structure",
+      "description": "Generate file tree and folder structure documentation that renders in any markdown viewer"
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Show Deployment Workflows",
+      "description": "Create flow charts for CI/CD pipelines and infrastructure deployment processes"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Architecture Overview",
+      "scenario": "Show system structure",
+      "prompt": "Use ascii-visualizer to show the architecture of [PROJECT/SYSTEM] including main components and how they connect"
+    },
+    {
+      "title": "File Organization",
+      "scenario": "Display project structure",
+      "prompt": "Use ascii-visualizer to create a file tree for [PROJECT] showing the folder structure"
+    },
+    {
+      "title": "Process Flow",
+      "scenario": "Visualize workflow",
+      "prompt": "Use ascii-visualizer to show the data flow for [PROCESS] from start to finish including all steps"
+    },
+    {
+      "title": "Comparison View",
+      "scenario": "Compare options",
+      "prompt": "Use ascii-visualizer to create a comparison table showing [OPTION A] vs [OPTION B] with key metrics"
+    }
+  ],
+  "bestPractices": [
+    "Keep diagrams within 80-100 columns for terminal compatibility",
+    "Use consistent box-drawing characters throughout each diagram",
+    "Add emojis for status indicators like done, progress, and blocked",
+    "Match the visualization type to the content (trees for files, flows for processes)"
+  ],
+  "antiPatterns": [
+    "Using ASCII art for code syntax highlighting instead of markdown code blocks",
+    "Creating nested diagrams deeper than 4-5 levels which become unreadable",
+    "Mixing different box-drawing character styles in a single diagram",
+    "Making diagrams wider than terminal width allows without wrapping consideration"
+  ],
+  "faq": [
+    {
+      "question": "What tools is this skill compatible with?",
+      "answer": "Works with Claude, Codex, and Claude Code. Any AI assistant that follows prompt-based skills."
+    },
+    {
+      "question": "What are the size limits for ASCII diagrams?",
+      "answer": "Keep width under 100 characters for terminal compatibility. Deep nesting beyond 5 levels becomes hard to read."
+    },
+    {
+      "question": "How do I activate this skill?",
+      "answer": "Announce at the start of your response: Use ascii-visualizer skill for visual diagram generation."
+    },
+    {
+      "question": "Does this skill access any files or data?",
+      "answer": "No. This is a pure prompt-based skill. It only generates text diagrams based on your descriptions."
+    },
+    {
+      "question": "Can I use this for database schemas?",
+      "answer": "Yes. Create table diagrams with box characters to show relationships between tables and entities."
+    },
+    {
+      "question": "How is this different from markdown tables?",
+      "answer": "ASCII diagrams show hierarchical relationships, flows, and architectural patterns that markdown tables cannot represent."
+    }
+  ],
+  "seoKeywords": [
+    "ASCII visualization",
+    "architecture diagram",
+    "system design",
+    "workflow visualization",
+    "ASCII art",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "documentation",
+    "technical diagrams"
+  ],
+  "sourceUrl": "https://github.com/ArieGoldkin/devPrepAi/tree/main/.claude/skills/ascii-visualizer",
+  "sourceType": "community",
+  "dependencies": []
+}

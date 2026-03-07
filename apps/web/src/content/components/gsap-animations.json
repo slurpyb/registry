@@ -1,0 +1,141 @@
+{
+  "name": "gsap-animations",
+  "type": "skill",
+  "description": "GSAP animation best practices for web design - scroll triggers, performance optimization, accessibility, responsive animations, and testing integration. Use when implementing or reviewing animations on WordPress or any web project.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "web animations",
+  "quality": 5,
+  "qualityReason": "Best practices covered",
+  "bundleHints": [
+    "animation-stack",
+    "frontend-experience"
+  ],
+  "tags": [
+    "accessibility",
+    "animation",
+    "gsap",
+    "performance",
+    "responsive",
+    "scroll-triggers",
+    "testing",
+    "web-design"
+  ],
+  "capabilities": [
+    "Provides GSAP animation code examples for fade-ins, parallax, and text reveals",
+    "Includes accessibility patterns for prefers-reduced-motion support",
+    "Offers WordPress integration examples with proper script enqueueing",
+    "Contains performance optimization techniques for 60fps animations",
+    "Provides testing integration for visual QA and Playwright"
+  ],
+  "author": "CrazySwami",
+  "icon": "🎬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing GSAP animation best practices. No executable code, network calls, or file system access. Pure educational content with code examples for implementing animations safely. All 103 static findings are false positives - the scanner incorrectly flagged markdown code formatting backticks as shell execution and legitimate CDN URLs as hardcoded endpoints.",
+  "valueStatement": "Web animations often fail accessibility tests and hurt performance. This skill provides production-ready GSAP patterns that respect user preferences and maintain 60fps.",
+  "userTitle": "Create smooth GSAP animations with accessibility",
+  "limitations": [
+    "Requires GSAP library installation via CDN or npm",
+    "Some advanced features need Club GreenSock membership",
+    "Code examples need adaptation to specific project structure",
+    "Performance testing requires actual device testing beyond DevTools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "WordPress developers",
+      "title": "Add scroll animations to themes",
+      "description": "Implement performant fade-ins and parallax effects in WordPress themes with proper script enqueueing and accessibility."
+    },
+    {
+      "targetUser": "Frontend developers",
+      "title": "Optimize existing GSAP animations",
+      "description": "Refactor animations to use GPU-accelerated properties only and add reduced motion support for better accessibility."
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Test animated websites consistently",
+      "description": "Use provided testing helpers to capture screenshots at animation completion for visual regression testing."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic fade animation",
+      "scenario": "Adding simple fade-in to elements",
+      "prompt": "Create a GSAP fade-in animation for elements with class 'fade-in' that triggers when they enter the viewport. Include accessibility support for reduced motion."
+    },
+    {
+      "title": "Scroll-triggered parallax",
+      "scenario": "Implementing parallax scrolling effect",
+      "prompt": "Show me how to create a subtle parallax effect on images that moves them 20% slower than scroll. Make it performant and mobile-friendly."
+    },
+    {
+      "title": "WordPress integration",
+      "scenario": "Enqueueing GSAP in WordPress properly",
+      "prompt": "Provide the complete WordPress PHP code to properly enqueue GSAP and ScrollTrigger from CDN with theme animations file."
+    },
+    {
+      "title": "Animation performance audit",
+      "scenario": "Reviewing animation code for performance issues",
+      "prompt": "Analyze this GSAP animation code and identify any performance issues or properties that might cause layout thrashing: [paste code]"
+    }
+  ],
+  "bestPractices": [
+    "Always check prefers-reduced-motion before animating and provide alternatives",
+    "Use transform properties (x, y, scale, rotation) instead of layout properties (width, height, top, left)",
+    "Test animations on real mobile devices, not just browser DevTools"
+  ],
+  "antiPatterns": [
+    "Animating width, height, or position properties that trigger layout recalculation",
+    "Using markers: true in production code - always remove debug markers",
+    "Creating animations without cleanup functions for single-page applications"
+  ],
+  "faq": [
+    {
+      "question": "Is this compatible with all browsers?",
+      "answer": "GSAP works in all modern browsers. For IE11 support, use GSAP 3.x with polyfills for modern JavaScript features."
+    },
+    {
+      "question": "Do I need a Club GreenSock membership?",
+      "answer": "Core GSAP is free. Premium plugins like SplitText require membership, but the skill provides CSS alternatives."
+    },
+    {
+      "question": "Can I use this with React or Vue?",
+      "answer": "Yes, but wrap animations in useEffect (React) or lifecycle hooks (Vue) and cleanup in unmount to prevent memory leaks."
+    },
+    {
+      "question": "How do I integrate with existing WordPress themes?",
+      "answer": "Use the provided wp_enqueue_script examples in your theme's functions.php file and enqueue from a child theme for updates."
+    },
+    {
+      "question": "Why are my animations janky on mobile?",
+      "answer": "Ensure you are animating transform properties only, not layout properties. Also test on actual devices as simulators do not show real performance."
+    },
+    {
+      "question": "How do I debug ScrollTrigger positions?",
+      "answer": "Enable markers: true temporarily to visualize trigger points. Use console.log to check element positions and viewport calculations."
+    }
+  ],
+  "seoKeywords": [
+    "GSAP animations",
+    "scroll trigger",
+    "web animation",
+    "Claude Code",
+    "accessibility",
+    "performance",
+    "GreenSock",
+    "WordPress animations",
+    "responsive design",
+    "60fps"
+  ],
+  "sourceUrl": "https://github.com/CrazySwami/wordpress-dev-skills/tree/main/skills/gsap-animations",
+  "sourceType": "community",
+  "dependencies": []
+}

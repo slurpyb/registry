@@ -1,0 +1,142 @@
+{
+  "name": "datadog-automation",
+  "type": "skill",
+  "description": "Automate Datadog tasks via Rube MCP (Composio): query metrics, search logs, manage monitors/dashboards, create events and downtimes. Always search tools first for current schemas.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "datadog tasks",
+  "quality": 5,
+  "qualityReason": "Comprehensive monitoring automation",
+  "bundleHints": [
+    "observability-stack",
+    "datadog-tools"
+  ],
+  "tags": [
+    "composio",
+    "dashboards",
+    "datadog",
+    "events",
+    "logs",
+    "mcp",
+    "metrics",
+    "monitoring",
+    "monitors",
+    "observability"
+  ],
+  "capabilities": [
+    "Query Datadog metrics with custom time ranges and tag filters",
+    "Search and analyze logs using Datadog query syntax",
+    "Create, update, mute, and manage alert monitors",
+    "List, view, update, and delete dashboards",
+    "Create events and schedule maintenance downtimes",
+    "List hosts and retrieve distributed traces"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is documentation-only (SKILL.md) describing workflows for Datadog automation via Rube MCP. All 116 static analysis findings are false positives: backtick detections are Markdown code formatting, not shell execution. The hardcoded URL is documentation for MCP server setup. No executable code present. Network and external command risks are managed through the Rube MCP intermediary service with user-authenticated Datadog connections.",
+  "valueStatement": "Managing Datadog monitoring operations manually is time-consuming and error-prone. This skill automates metrics queries, log searches, monitor management, and dashboard operations through Rube MCP integration.",
+  "userTitle": "Automate Datadog Monitoring and Observability Tasks",
+  "limitations": [
+    "Requires Rube MCP server connection to be configured separately",
+    "Users must authenticate their own Datadog account through official Datadog auth flow",
+    "Subject to Datadog API rate limits and data retention policies",
+    "Does not support Datadog features outside the Composio toolkit scope"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineer",
+      "title": "DevOps Engineer Incident Response",
+      "description": "Quickly query error logs and metrics during incidents, create monitors for new failure patterns, and mute alerts during planned maintenance windows."
+    },
+    {
+      "targetUser": "Site Reliability Engineer",
+      "title": "SRE Dashboard Management",
+      "description": "Create and maintain service health dashboards, set up alert monitors with appropriate thresholds, and manage downtime schedules for deployments."
+    },
+    {
+      "targetUser": "Platform Engineer",
+      "title": "Platform Team Observability Setup",
+      "description": "Automate initial monitoring setup for new services including metric queries, log indexes, baseline monitors, and team dashboards."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Metrics Query",
+      "prompt": "Query the average CPU usage for host web01 over the last 5 minutes using Datadog metrics.",
+      "scenario": "Beginner - Simple metric lookup"
+    },
+    {
+      "title": "Log Error Analysis",
+      "prompt": "Search for all error logs from the payment service in the last hour, sorted by most recent first, limit to 50 entries.",
+      "scenario": "Intermediate - Log investigation"
+    },
+    {
+      "title": "Monitor Creation",
+      "prompt": "Create a metric alert monitor named 'High Memory Usage' that triggers when avg memory usage exceeds 85% on production hosts. Send notifications to the ops-slack channel.",
+      "scenario": "Advanced - Alert configuration"
+    },
+    {
+      "title": "Maintenance Downtime",
+      "prompt": "Schedule a downtime for all hosts with tag env:staging from 2am to 4am UTC tomorrow with the message 'Scheduled deployment maintenance window'.",
+      "scenario": "Advanced - Operations management"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before executing workflows",
+    "Use specific tag filters in queries to reduce result noise and improve performance",
+    "Set explicit end times for downtimes to avoid indefinite alert suppression"
+  ],
+  "antiPatterns": [
+    "Do not create monitors without defining clear alert thresholds and notification messages",
+    "Avoid querying overly broad time ranges that exceed Datadog retention limits",
+    "Do not delete dashboards without confirming backup of widget configurations"
+  ],
+  "faq": [
+    {
+      "question": "How do I connect my Datadog account to this skill?",
+      "answer": "Use the RUBE_MANAGE_CONNECTIONS tool with toolkit 'datadog'. If not connected, follow the returned authentication link to complete Datadog OAuth. Confirm status shows ACTIVE before running workflows."
+    },
+    {
+      "question": "What timestamp format should I use for queries?",
+      "answer": "Most endpoints use Unix epoch seconds (not milliseconds). Some endpoints accept ISO 8601 format. Check the specific tool schema for each endpoint requirements."
+    },
+    {
+      "question": "Can I create custom monitors with this skill?",
+      "answer": "Yes, you can create metric alerts, log alerts, service checks, and query alerts. Ensure the monitor type matches your query type to avoid creation failures."
+    },
+    {
+      "question": "How do I handle pagination for large result sets?",
+      "answer": "Use the page and page_size parameters or offset-based pagination depending on the endpoint. Check the response for total count to determine if more pages exist."
+    },
+    {
+      "question": "What happens if I hit Datadog rate limits?",
+      "answer": "Implement exponential backoff on 429 responses. Batch operations where possible and use specific filters to reduce API call volume."
+    },
+    {
+      "question": "Can I mute a monitor without deleting it?",
+      "answer": "Yes, use the mute monitor function to temporarily silence notifications. The monitor continues evaluating but will not send alerts until unmuted."
+    }
+  ],
+  "seoKeywords": [
+    "Datadog automation",
+    "Claude MCP",
+    "Codex monitoring",
+    "Claude Code observability",
+    "Datadog metrics",
+    "log analysis",
+    "monitor alerts",
+    "Composio integration"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/datadog-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

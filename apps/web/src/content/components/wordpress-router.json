@@ -1,0 +1,137 @@
+{
+  "name": "wordpress-router",
+  "type": "skill",
+  "description": "Use when the user asks about WordPress codebases (plugins, themes, block themes, Gutenberg blocks, WP core checkouts) and you need to quickly classify the repo and route to the correct workflow/skill (blocks, theme.json, REST API, WP-CLI, performance, security, testing, release packaging).",
+  "domain": "web-development",
+  "subdomain": "cms",
+  "specialty": "codebase routing",
+  "quality": 4,
+  "qualityReason": "Useful routing logic",
+  "bundleHints": [
+    "wordpress-orchestration",
+    "cms-router"
+  ],
+  "tags": [
+    "cms",
+    "php",
+    "plugin",
+    "routing",
+    "theme",
+    "wordpress"
+  ],
+  "capabilities": [
+    "Classifies WordPress project types including plugin, theme, block theme, WP core, and Gutenberg",
+    "Routes tasks to specialized domain skills based on project kind and user intent",
+    "Detects available tooling such as Composer, Node, and @wordpress/scripts",
+    "Identifies test frameworks present including PHPUnit, Playwright, and wp-env"
+  ],
+  "author": "Automattic",
+  "icon": "🛣️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation-only skill containing markdown files that guide AI routing decisions. No executable code, scripts, network calls, or file system access. All 52 static findings are false positives: markdown backticks were misidentified as shell execution, source URLs as network exfiltration, and content hashes as weak cryptography.",
+  "valueStatement": "Users need help navigating complex WordPress project structures and selecting appropriate development workflows. This skill automatically classifies WordPress codebases and routes tasks to the correct domain-specific skills, ensuring proper handling of plugins, themes, blocks, and core development.",
+  "userTitle": "Route WordPress tasks to specialized workflows",
+  "limitations": [
+    "Does not execute code or modify files directly",
+    "Requires WP-Project-Triage script to be available for automated classification",
+    "Cannot route without clear project type detection"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Plugin Developers",
+      "title": "Plugin Development Routing",
+      "description": "Route plugin development tasks to wp-plugin-development skill for hooks, settings, and REST endpoints"
+    },
+    {
+      "targetUser": "Theme Developers",
+      "title": "Theme Development Routing",
+      "description": "Route theme tasks to wp-block-themes or wp-plugin-development based on classic or block theme approach"
+    },
+    {
+      "targetUser": "Core Contributors",
+      "title": "WP Core Contribution",
+      "description": "Route WordPress core contributions to wp-core workflows with proper PHPUnit and build tooling"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Routing",
+      "scenario": "Start WordPress task",
+      "prompt": "Use the wordpress-router skill to classify this WordPress project and tell me which skill to use for my request."
+    },
+    {
+      "title": "With Project Context",
+      "scenario": "Analyze existing project",
+      "prompt": "Run the WordPress router on this project to identify its type, available tooling, and route my request to the appropriate skill."
+    },
+    {
+      "title": "Intent-Based Routing",
+      "scenario": "Match intent to workflow",
+      "prompt": "Given my WordPress project type and intent to [specific task], use wordpress-router to determine the correct domain skill and approach."
+    },
+    {
+      "title": "Multi-Skill Workflow",
+      "scenario": "Complex WordPress task",
+      "prompt": "Use wordpress-router to analyze my [plugin/theme/core] project and create a workflow plan that may involve multiple specialized skills."
+    }
+  ],
+  "bestPractices": [
+    "Use this skill at the start of every WordPress task for proper routing",
+    "Verify detected versions and tooling before starting implementation",
+    "Follow the guardrails checklist before making any changes"
+  ],
+  "antiPatterns": [
+    "Skipping routing and directly using a domain skill without classification",
+    "Assuming project type without running triage detection",
+    "Ignoring version constraints that affect development approach"
+  ],
+  "faq": [
+    {
+      "question": "Which WordPress project types does this skill support?",
+      "answer": "Plugins, classic themes, block themes, block plugins, Gutenberg monorepo, WP core, and full site repos."
+    },
+    {
+      "question": "What workflows can this skill route to?",
+      "answer": "Interactivity API, Abilities API, block development, REST API, WP-CLI, testing, and performance optimization."
+    },
+    {
+      "question": "Is WP-CLI required to use this skill?",
+      "answer": "Some workflows require WP-CLI but basic routing works without it. The skill detects WP-CLI availability."
+    },
+    {
+      "question": "Does this skill access any files or data?",
+      "answer": "No. This is a prompt-based routing guide that describes what other skills should read for classification."
+    },
+    {
+      "question": "How does triage detection work?",
+      "answer": "The skill references an external wp-project-triage script and provides the decision tree for interpreting results."
+    },
+    {
+      "question": "Can this skill be used with other WordPress skills?",
+      "answer": "Yes. It is designed to route to specialized WordPress skills like wp-block-development, wp-plugin-development, and wp-testing."
+    }
+  ],
+  "seoKeywords": [
+    "wordpress router",
+    "wordpress development",
+    "claude code wordpress",
+    "wordpress plugin development",
+    "wordpress theme development",
+    "wordpress blocks",
+    "wp-cli",
+    "gutenberg development",
+    "wordpress cms",
+    "wordpress routing skill"
+  ],
+  "sourceUrl": "https://github.com/Automattic/agent-skills/tree/trunk/skills/wordpress-router",
+  "sourceType": "community",
+  "dependencies": []
+}

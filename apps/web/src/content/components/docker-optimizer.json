@@ -1,0 +1,143 @@
+{
+  "name": "docker-optimizer",
+  "type": "skill",
+  "description": "Reviews Dockerfiles for best practices, security issues, and image size optimizations including multi-stage builds and layer caching. Use when working with Docker, containers, or deployment.",
+  "domain": "devops",
+  "subdomain": "containers",
+  "specialty": "image optimization",
+  "quality": 5,
+  "qualityReason": "Actionable and performance-focused",
+  "bundleHints": [
+    "docker-optimization",
+    "containers",
+    "devops"
+  ],
+  "tags": [
+    "best practices",
+    "containers",
+    "devops",
+    "docker",
+    "dockerfile",
+    "layer caching",
+    "optimization",
+    "security",
+    "size optimization"
+  ],
+  "capabilities": [
+    "Analyzes Dockerfiles for security vulnerabilities and best practice violations",
+    "Recommends specific base image versions and multi-stage build patterns",
+    "Provides optimized .dockerignore templates to prevent sensitive data exposure",
+    "Suggests layer caching strategies to speed up builds",
+    "Generates production-ready Dockerfile examples with non-root users"
+  ],
+  "author": "CrazyDubya",
+  "icon": "🐳",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate Docker optimization documentation skill. All 52 static findings are false positives caused by misidentification: Dockerfile instructions (FROM, ENV, ARG) were flagged as cryptographic algorithms, Markdown backticks were flagged as shell execution, and standard Docker best practices were flagged as security vulnerabilities. The skill only reads and analyzes Dockerfiles using Read, Grep, Glob, Write, Edit tools with no network access or code execution capability.",
+  "valueStatement": "Docker images are often bloated and insecure. This skill analyzes your Dockerfiles and provides optimized versions with multi-stage builds, security hardening, and size reduction techniques.",
+  "userTitle": "Optimize Dockerfiles for Security and Performance",
+  "limitations": [
+    "Only analyzes Dockerfile syntax and structure, not runtime behavior",
+    "Requires manual implementation of recommended changes",
+    "Cannot scan existing Docker images for vulnerabilities",
+    "Limited to Node.js examples in provided templates"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Production Deployment Optimization",
+      "description": "Reduce Docker image sizes by 80% and improve security posture for production deployments with hardened configurations."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Development Workflow Enhancement",
+      "description": "Speed up local development with optimized layer caching and multi-stage builds that separate build dependencies from runtime."
+    },
+    {
+      "targetUser": "Security Teams",
+      "title": "Container Security Auditing",
+      "description": "Identify security anti-patterns in Dockerfiles like running as root, exposing secrets, or using vulnerable base images."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Dockerfile Review",
+      "scenario": "First-time Docker user needs guidance",
+      "prompt": "Review this Dockerfile and tell me what is wrong. I am new to Docker and want to follow best practices."
+    },
+    {
+      "title": "Image Size Optimization",
+      "scenario": "Large image slowing down deployments",
+      "prompt": "My Docker image is 2GB and takes forever to build. How can I make it smaller and faster?"
+    },
+    {
+      "title": "Security Hardening",
+      "scenario": "Production security requirements",
+      "prompt": "I need to secure this Dockerfile for production use. Please check for security issues and provide a hardened version."
+    },
+    {
+      "title": "Multi-Stage Build Conversion",
+      "scenario": "Complex application with build dependencies",
+      "prompt": "Convert this single-stage Dockerfile to use multi-stage builds to separate build dependencies from the runtime image."
+    }
+  ],
+  "bestPractices": [
+    "Always use specific base image tags instead of latest for reproducible builds",
+    "Implement multi-stage builds to keep production images minimal and secure",
+    "Create and use non-root users to limit container privileges"
+  ],
+  "antiPatterns": [
+    "Never hardcode secrets or API keys directly in Dockerfiles using ENV instructions",
+    "Avoid copying entire source directories when only specific files are needed",
+    "Do not run package managers without cleaning caches in the same layer"
+  ],
+  "faq": [
+    {
+      "question": "Which base images should I use?",
+      "answer": "Use Alpine variants for smaller sizes or distroless images for maximum security. Examples include node:18-alpine and python:3.11-alpine."
+    },
+    {
+      "question": "How much can this reduce my image size?",
+      "answer": "Typical reduction is 60-80% through multi-stage builds and Alpine base images. A 2GB Node.js image can become 200-400MB."
+    },
+    {
+      "question": "Does this work with all programming languages?",
+      "answer": "Yes, the optimization principles apply to all languages. Examples cover Node.js, Python, Go, Java, and Ruby Dockerfiles."
+    },
+    {
+      "question": "Is my code safe when using this skill?",
+      "answer": "Yes, this skill only reads and analyzes your Dockerfile. It does not execute code or make network calls."
+    },
+    {
+      "question": "What if my build breaks after optimization?",
+      "answer": "The skill provides gradual optimization steps. Test each change separately and keep your original Dockerfile as backup."
+    },
+    {
+      "question": "How does this compare to Docker best practices documentation?",
+      "answer": "This skill provides actionable recommendations based on your actual Dockerfile rather than generic guidelines."
+    }
+  ],
+  "seoKeywords": [
+    "docker optimization",
+    "dockerfile best practices",
+    "container security",
+    "multi-stage builds",
+    "docker image size",
+    "claude docker",
+    "codex containers",
+    "claude-code devops",
+    "docker layer caching",
+    "container optimization"
+  ],
+  "sourceUrl": "https://github.com/CrazyDubya/claude-skills/tree/main/docker-optimizer",
+  "sourceType": "community",
+  "dependencies": []
+}

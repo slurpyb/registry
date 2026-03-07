@@ -1,0 +1,137 @@
+{
+  "name": "codex-review",
+  "type": "skill",
+  "description": "Professional code review with auto CHANGELOG generation, integrated with Codex AI",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "automated review",
+  "quality": 5,
+  "qualityReason": "Specific and valuable automation",
+  "bundleHints": [
+    "code-quality-suite",
+    "codex-suite"
+  ],
+  "tags": [
+    "automation",
+    "changelog",
+    "code-review",
+    "codex",
+    "documentation",
+    "pull-request"
+  ],
+  "capabilities": [
+    "Analyzes code changes and provides professional review feedback",
+    "Generates CHANGELOG entries automatically from code modifications",
+    "Integrates with Codex AI for intelligent code understanding",
+    "Supports conventional commit message formatting",
+    "Handles large-scale refactoring reviews"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static analysis findings were false positives. The SKILL.md file is documentation-only markdown with no executable code. Referenced external commands (npx) and URLs are installation instructions and documentation links, not actual code execution or network calls. No cryptographic operations exist.",
+  "valueStatement": "Manual code reviews are time-consuming and changelogs are often neglected. This skill automates both using Codex AI, ensuring consistent quality and up-to-date documentation.",
+  "userTitle": "Automate Code Reviews and Changelogs with Codex",
+  "limitations": [
+    "Requires Codex CLI to be installed and configured",
+    "Needs CHANGELOG.md file in project root for updates",
+    "Review quality depends on code context availability",
+    "Cannot execute or test the reviewed code"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Solo developers",
+      "title": "Pre-commit Code Review",
+      "description": "Get automated feedback on code changes before committing to catch issues early"
+    },
+    {
+      "targetUser": "Open source maintainers",
+      "title": "Automated Changelog Maintenance",
+      "description": "Keep CHANGELOG.md updated automatically as code evolves without manual effort"
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Large Refactoring Analysis",
+      "description": "Review extensive code changes systematically to ensure nothing is overlooked"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Code Review",
+      "prompt": "Review my recent code changes and provide feedback on code quality, potential bugs, and improvements",
+      "scenario": "Quick review before committing"
+    },
+    {
+      "title": "Changelog Generation",
+      "prompt": "Analyze the modified files and generate appropriate CHANGELOG.md entries following conventional changelog format",
+      "scenario": "After completing a feature or fix"
+    },
+    {
+      "title": "Security-Focused Review",
+      "prompt": "Review this code with focus on security vulnerabilities, input validation, and potential attack vectors",
+      "scenario": "Handling sensitive data or user input"
+    },
+    {
+      "title": "Refactoring Analysis",
+      "prompt": "Review this large-scale refactoring and verify that functionality is preserved while code quality improves",
+      "scenario": "Major codebase restructuring"
+    }
+  ],
+  "bestPractices": [
+    "Keep CHANGELOG.md in your project root before using this skill",
+    "Use conventional commit messages for accurate changelog generation",
+    "Run reviews on feature branches before merging to main"
+  ],
+  "antiPatterns": [
+    "Do not skip review for small changes - bugs often hide in simple code",
+    "Avoid committing without reviewing security-sensitive changes",
+    "Do not rely solely on automated review for critical system changes"
+  ],
+  "faq": [
+    {
+      "question": "What is required to use this skill?",
+      "answer": "You need Codex CLI installed and configured, and a CHANGELOG.md file in your project root."
+    },
+    {
+      "question": "Can this skill execute my code?",
+      "answer": "No, this skill only analyzes and reviews code. It does not execute or test the code."
+    },
+    {
+      "question": "What commit format works best?",
+      "answer": "Conventional commits (feat:, fix:, chore:, etc.) provide the best results for changelog generation."
+    },
+    {
+      "question": "Does this work with private repositories?",
+      "answer": "Yes, the skill operates locally on your code and does not send code to external services."
+    },
+    {
+      "question": "How detailed are the code reviews?",
+      "answer": "Reviews cover code quality, potential bugs, style consistency, and improvement suggestions based on best practices."
+    },
+    {
+      "question": "Can I customize the changelog format?",
+      "answer": "The skill follows conventional changelog format by default. Refer to the repository for customization options."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Codex",
+    "code review automation",
+    "changelog generator",
+    "AI code analysis",
+    "developer productivity",
+    "automated documentation",
+    "code quality"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/codex-review",
+  "sourceType": "community",
+  "dependencies": []
+}

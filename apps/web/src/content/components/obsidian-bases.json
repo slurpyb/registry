@@ -1,0 +1,136 @@
+{
+  "name": "obsidian-bases",
+  "type": "skill",
+  "description": "Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries. Use when working with .base files, creating database-like views of notes, or when the user mentions Bases, table views, card views, filters, or formulas in Obsidian.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "Database views",
+  "quality": 5,
+  "qualityReason": "Specific feature focus",
+  "bundleHints": [
+    "obsidian-tools",
+    "knowledge-base",
+    "note-management"
+  ],
+  "tags": [
+    "bases",
+    "filters",
+    "formulas",
+    "knowledge-base",
+    "note-management",
+    "obsidian",
+    "productivity"
+  ],
+  "capabilities": [
+    "Create valid Obsidian .base files with proper YAML structure",
+    "Define table, cards, list, and map views for note collections",
+    "Write filters using logical operators (and/or/not) and property conditions",
+    "Create formulas with date arithmetic, string manipulation, and conditional logic",
+    "Configure custom summaries like Average, Min, Max, Sum, and Median",
+    "Embed bases in notes and reference specific views"
+  ],
+  "author": "ZhanlinCui",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer detected 259 patterns (233 external_commands, 4 network, 1 filesystem) but all are FALSE POSITIVES. The SKILL.md file is documentation-only describing YAML syntax for Obsidian Bases. Backticks are Markdown code formatting, not shell execution. URLs are reference links to Obsidian documentation. No executable code, network calls, or filesystem operations exist in this skill.",
+  "valueStatement": "Organize your Obsidian notes with dynamic database-like views. This skill enables you to create .base files with table, card, list, and map views, complete with filters, formulas, and custom summaries.",
+  "userTitle": "Create and Manage Obsidian Bases",
+  "limitations": [
+    "Only works with Obsidian Bases feature - requires Obsidian app installation",
+    "Cannot execute or render bases - only creates and edits the YAML files",
+    "Does not validate formulas against actual vault data",
+    "Map views require the Maps community plugin to function"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project managers and productivity enthusiasts",
+      "title": "Task Management Dashboard",
+      "description": "Create a base file that displays tasks from multiple notes in a unified table view with status grouping, priority labels, and due date calculations."
+    },
+    {
+      "targetUser": "Researchers and avid readers",
+      "title": "Reading List Library",
+      "description": "Build a card-view base showing books and articles with cover images, author information, reading status, and estimated reading time formulas."
+    },
+    {
+      "targetUser": "Team leads and documentation writers",
+      "title": "Project Notes Index",
+      "description": "Design a base that aggregates project notes with last-updated timestamps, link counts, and folder-based filtering for team knowledge bases."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a Simple Table View",
+      "prompt": "Create a .base file that shows all notes tagged with 'meeting' in a table view with columns for file name, date, and attendees."
+    },
+    {
+      "title": "Build a Task Tracker Base",
+      "prompt": "Create a task tracker base with two views: one table showing active tasks grouped by status, and another showing completed tasks. Include formulas for days until due and priority labels."
+    },
+    {
+      "title": "Design a Reading Library Card View",
+      "prompt": "Create a base file for my reading list with a cards view showing book covers, author, status icon, and estimated reading time. Filter out books marked as 'dropped'."
+    },
+    {
+      "title": "Advanced Project Dashboard with Summaries",
+      "prompt": "Create a comprehensive project dashboard base with global filters for the Projects folder, formulas for last updated relative time and link counts, groupBy status, and custom summary calculations for average links per project."
+    }
+  ],
+  "bestPractices": [
+    "Use single quotes for formula expressions containing double quotes to avoid YAML parsing issues",
+    "Start with global filters for conditions that apply to all views, then add view-specific filters for refinements",
+    "Test formulas incrementally - verify simple expressions before combining into complex calculations"
+  ],
+  "antiPatterns": [
+    "Do not create overly complex nested filters - break them into readable and/or/not blocks",
+    "Avoid using file paths directly in formulas - use file properties like file.folder instead",
+    "Do not forget to quote strings containing special characters or comparison operators"
+  ],
+  "faq": [
+    {
+      "question": "What is an Obsidian Base file?",
+      "answer": "A Base file (.base extension) is a YAML file that defines dynamic views of notes in your Obsidian vault. It can contain filters, formulas, and multiple view types like tables, cards, lists, or maps."
+    },
+    {
+      "question": "How do I view a Base file in Obsidian?",
+      "answer": "Embed the base file in any note using ![[filename.base]] syntax, or reference a specific view with ![[filename.base#View Name]]."
+    },
+    {
+      "question": "What is the difference between global filters and view filters?",
+      "answer": "Global filters apply to all views in the base file. View filters are defined within a specific view and only affect that view's results."
+    },
+    {
+      "question": "Can I use formulas in filters?",
+      "answer": "Formulas are defined separately in the formulas section and referenced by name. Filters use expressions that can reference formula properties using formula.formula_name syntax."
+    },
+    {
+      "question": "How do I group results in a table view?",
+      "answer": "Add a groupBy property to your view with the property name and direction (ASC or DESC). Results will be grouped by that property's values."
+    },
+    {
+      "question": "What summary formulas are available?",
+      "answer": "Built-in summaries include Average, Min, Max, Sum, Range, Median, Stddev for numbers; Earliest, Latest for dates; and Checked, Unchecked, Empty, Filled, Unique for any type."
+    }
+  ],
+  "seoKeywords": [
+    "Obsidian Bases",
+    "note management",
+    "Claude Code skill",
+    "Codex productivity",
+    "YAML views",
+    "knowledge base",
+    "Obsidian plugin",
+    "data organization"
+  ],
+  "sourceUrl": "https://github.com/ZhanlinCui/Ultimate-Agent-Skills-Collection/tree/main/obsidian-bases",
+  "sourceType": "community",
+  "dependencies": []
+}

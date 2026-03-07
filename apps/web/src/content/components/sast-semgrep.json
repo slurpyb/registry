@@ -1,0 +1,141 @@
+{
+  "name": "sast-semgrep",
+  "type": "skill",
+  "description": "Static application security testing (SAST) using Semgrep for vulnerability detection, security code review, and secure coding guidance with OWASP and CWE framework mapping. Use when: (1) Scanning code for security vulnerabilities across multiple languages, (2) Performing security code reviews with pattern-based detection, (3) Integrating SAST checks into CI/CD pipelines, (4) Providing remediation guidance with OWASP Top 10 and CWE mappings, (5) Creating custom security rules for organization-specific patterns, (6) Analyzing dependencies for known vulnerabilities.\n",
+  "domain": "security",
+  "subdomain": "devsecops",
+  "specialty": "SAST scanning",
+  "quality": 5,
+  "qualityReason": "Precise, framework-mapped",
+  "bundleHints": [
+    "devsecops",
+    "security-toolkit"
+  ],
+  "tags": [
+    "code-security",
+    "cwe",
+    "owasp",
+    "sast",
+    "security-review",
+    "semgrep",
+    "vulnerability-scanning"
+  ],
+  "capabilities": [
+    "Run Semgrep scans with curated security rulesets",
+    "Map findings to OWASP Top 10 2021 and CWE categories",
+    "Generate CI/CD pipeline configurations for GitHub Actions and GitLab",
+    "Create custom Semgrep rules for organization-specific patterns",
+    "Provide remediation guidance for common vulnerability types",
+    "Scan 30+ programming languages including Python, JavaScript, Java, and Go"
+  ],
+  "author": "AgentSecOps",
+  "icon": "🔍",
+  "version": "0.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill provides SAST security scanning documentation and tooling using Semgrep. All 338 flagged patterns are false positives - they are intentional educational examples showing vulnerable code patterns in documentation, Semgrep rule templates designed to detect those patterns, and standard CI/CD shell commands. No actual malicious code or security risks exist.",
+  "valueStatement": "Security vulnerabilities in code can lead to data breaches and system compromise. This skill provides comprehensive SAST scanning with Semgrep, mapping findings to OWASP Top 10 and CWE standards for prioritized remediation.",
+  "userTitle": "Scan Code for Security Vulnerabilities with Semgrep",
+  "limitations": [
+    "Semgrep must be installed locally or in CI environment",
+    "Cannot detect runtime vulnerabilities or business logic flaws",
+    "Custom rules require understanding of Semgrep pattern syntax",
+    "False positives may require manual triage for context-specific code"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security Engineer",
+      "title": "Implement Security Gates in CI/CD",
+      "description": "Configure automated security scanning in pull request workflows to catch vulnerabilities before code reaches production."
+    },
+    {
+      "targetUser": "Developer",
+      "title": "Fix Security Findings with Guidance",
+      "description": "Understand scan results and apply remediation patterns from the guide to resolve SQL injection, XSS, and other vulnerabilities."
+    },
+    {
+      "targetUser": "DevSecOps Lead",
+      "title": "Create Custom Security Rules",
+      "description": "Build organization-specific Semgrep rules to detect internal security anti-patterns and enforce coding standards."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Security Scan",
+      "scenario": "Scan a project for common vulnerabilities",
+      "prompt": "Run a Semgrep security scan on my codebase using the OWASP Top 10 ruleset and summarize the findings by severity."
+    },
+    {
+      "title": "CI/CD Integration",
+      "scenario": "Add security scanning to GitHub Actions",
+      "prompt": "Create a GitHub Actions workflow that runs Semgrep on pull requests, fails on HIGH severity findings, and uploads results to GitHub Security."
+    },
+    {
+      "title": "Vulnerability Remediation",
+      "scenario": "Fix a specific security finding",
+      "prompt": "I have a SQL injection finding in my Python code. Show me the vulnerable pattern and how to fix it using parameterized queries."
+    },
+    {
+      "title": "Custom Rule Development",
+      "scenario": "Detect organization-specific patterns",
+      "prompt": "Create a custom Semgrep rule to detect when our internal logging function is called with user input without sanitization."
+    }
+  ],
+  "bestPractices": [
+    "Start with HIGH and CRITICAL severity findings before addressing MEDIUM and LOW",
+    "Establish a baseline scan and track metrics over time to measure improvement",
+    "Combine SAST with DAST and dependency scanning for defense in depth"
+  ],
+  "antiPatterns": [
+    "Do not suppress findings with nosemgrep comments without documented justification",
+    "Do not run comprehensive rulesets on every commit as this slows CI pipelines",
+    "Do not rely solely on automated scanning without manual code review for critical systems"
+  ],
+  "faq": [
+    {
+      "question": "What languages does Semgrep support?",
+      "answer": "Semgrep supports 30+ languages including Python, JavaScript, TypeScript, Java, Go, Ruby, PHP, C, C++, Rust, Kotlin, Swift, Terraform, and Dockerfile."
+    },
+    {
+      "question": "How do I reduce false positives?",
+      "answer": "Use targeted rulesets, create .semgrepignore files, tune severity thresholds, and add nosemgrep comments with justification for confirmed false positives."
+    },
+    {
+      "question": "Can I scan only changed files in pull requests?",
+      "answer": "Yes. Use the --baseline-commit flag to scan only files changed since the base branch, reducing scan time and focusing on new code."
+    },
+    {
+      "question": "How do I map findings to compliance frameworks?",
+      "answer": "Semgrep rules include CWE and OWASP metadata. Use the owasp_cwe_mapping.md reference to map findings to specific compliance requirements."
+    },
+    {
+      "question": "What is the difference between p/security-audit and p/ci rulesets?",
+      "answer": "p/security-audit is comprehensive with more rules and potential false positives. p/ci is optimized for speed and low false positives in CI/CD pipelines."
+    },
+    {
+      "question": "How do I create custom rules for my organization?",
+      "answer": "Use the rule_template.yaml as a starting point. Define patterns, messages, severity, and metadata. Test rules with semgrep --test against sample code."
+    }
+  ],
+  "seoKeywords": [
+    "semgrep",
+    "SAST",
+    "static analysis",
+    "security scanning",
+    "OWASP",
+    "CWE",
+    "vulnerability detection",
+    "Claude",
+    "Claude Code",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/AgentSecOps/SecOpsAgentKit/tree/main/skills/appsec/sast-semgrep",
+  "sourceType": "community",
+  "dependencies": []
+}

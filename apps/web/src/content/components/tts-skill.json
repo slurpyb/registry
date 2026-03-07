@@ -1,0 +1,141 @@
+{
+  "name": "tts-skill",
+  "type": "skill",
+  "description": "Multi-engine text-to-speech skill. Supports Qwen3-TTS local voice cloning, VoiceCraft online TTS, and OpenAI TTS.",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "text-to-speech",
+  "quality": 5,
+  "qualityReason": "Multi-engine voice support",
+  "bundleHints": [
+    "audio-generation",
+    "voice-tools"
+  ],
+  "tags": [
+    "audio",
+    "openai tts",
+    "qwen3-tts",
+    "text-to-speech",
+    "tts",
+    "voice-cloning"
+  ],
+  "capabilities": [
+    "Convert text to speech using Qwen3-TTS local voice cloning",
+    "Generate speech with VoiceCraft online TTS engine",
+    "Create audio using OpenAI TTS API with multiple voice options",
+    "List available voices and engines for each TTS service",
+    "Read text from files and convert to audio output",
+    "Install and configure TTS environments automatically"
+  ],
+  "author": "tabortao",
+  "icon": "🔊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate multi-engine TTS skill with standard software practices. Static scanner flagged patterns common in legitimate applications: subprocess calls for engine invocation, network requests to cloud TTS services, and environment variable access for API credentials. All findings evaluated as false positives - no malicious intent detected.",
+  "valueStatement": "Converting text to speech manually requires complex setup and API keys. This skill provides a unified interface to multiple TTS engines including local voice cloning and cloud services.",
+  "userTitle": "Convert text to natural speech with multiple TTS engines",
+  "limitations": [
+    "Local voice cloning requires reference audio files in assets directory",
+    "Cloud TTS engines require API keys for OpenAI TTS",
+    "Qwen3-TTS requires micromamba environment setup",
+    "Voice quality depends on the selected engine and configuration"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content creators, YouTubers, podcast producers",
+      "title": "Content creators generating voiceovers",
+      "description": "Convert written scripts to natural speech for videos, podcasts, or presentations using voice cloning with reference audio samples."
+    },
+    {
+      "targetUser": "Accessibility advocates, educators, language learners",
+      "title": "Accessibility and reading assistance",
+      "description": "Transform articles, documents, or books into audio format for hands-free consumption by users with visual impairments or those who prefer listening."
+    },
+    {
+      "targetUser": "Software developers, DevOps engineers, AI practitioners",
+      "title": "Developers integrating TTS into workflows",
+      "description": "Add text-to-speech capabilities to automation pipelines, chatbots, or applications using a unified CLI interface."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic text to speech conversion",
+      "prompt": "Use the tts-skill to convert this text to speech: \"{your text here}\"",
+      "scenario": "Simple conversion using default voice and engine"
+    },
+    {
+      "title": "Voice cloning with custom reference",
+      "prompt": "Use tts-skill with qwen3-tts engine and voice \"寒冰射手\" to convert this text: \"{your text}\"",
+      "scenario": "Voice cloning using a specific reference audio from assets"
+    },
+    {
+      "title": "Cloud TTS with specific voice",
+      "prompt": "Use tts-skill with edge-tts and voice \"xiaoxiao\" to convert: \"{your text}\"",
+      "scenario": "Online TTS with specific cloud voice selection"
+    },
+    {
+      "title": "File-based conversion with custom output",
+      "prompt": "Use tts-skill to convert the text from file \"input/text.txt\" using qwen3-tts with voice \"赵信\" and save to \"output/custom.wav\"",
+      "scenario": "Batch conversion from file with custom output path"
+    }
+  ],
+  "bestPractices": [
+    "Prepare reference audio files in the assets directory for voice cloning with matching .txt transcript files",
+    "Configure API keys in engine config files before using cloud TTS services",
+    "Use the --list-voices command to explore available voices before generating audio",
+    "Test with short text first to verify voice and quality before processing longer content"
+  ],
+  "antiPatterns": [
+    "Do not use voice cloning without proper reference audio and transcript files in assets directory",
+    "Do not attempt to use cloud TTS engines without valid API keys configured",
+    "Do not skip environment setup for Qwen3-TTS - it requires specific Python version and dependencies"
+  ],
+  "faq": [
+    {
+      "question": "What TTS engines are supported?",
+      "answer": "The skill supports three engines: Qwen3-TTS (local voice cloning), VoiceCraft Edge TTS (online), and OpenAI TTS (cloud API). Each offers different voice options and quality levels."
+    },
+    {
+      "question": "How does voice cloning work?",
+      "answer": "Place reference audio files (.mp3, .wav) in the assets directory with matching .txt files containing the transcript. Use the voice name as the --voice argument."
+    },
+    {
+      "question": "Do I need API keys?",
+      "answer": "Qwen3-TTS and Edge TTS work without API keys. OpenAI TTS requires an OpenAI API key configured in the openai-tts.config file."
+    },
+    {
+      "question": "What audio formats are supported?",
+      "answer": "Output formats vary by engine: Qwen3-TTS produces WAV files, OpenAI TTS produces MP3, and Edge TTS supports multiple formats configured in settings."
+    },
+    {
+      "question": "Can I use this skill for commercial purposes?",
+      "answer": "Check the license terms of each engine. Qwen3-TTS and the skill itself are MIT licensed. OpenAI TTS usage is subject to OpenAI's terms of service."
+    },
+    {
+      "question": "How do I install the Qwen3-TTS environment?",
+      "answer": "Run the skill with --install flag or call install_qwen3_environment(). This uses micromamba to create a Python 3.12 environment and install required packages."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "text to speech",
+    "TTS",
+    "voice cloning",
+    "audio generation",
+    "Qwen3-TTS",
+    "OpenAI TTS",
+    "Edge TTS"
+  ],
+  "sourceUrl": "https://github.com/tabortao/tts-skill/tree/master/",
+  "sourceType": "community",
+  "dependencies": []
+}

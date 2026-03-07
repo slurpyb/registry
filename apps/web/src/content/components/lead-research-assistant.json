@@ -1,0 +1,143 @@
+{
+  "name": "lead-research-assistant",
+  "type": "skill",
+  "description": "Identifies high-quality leads for your product or service by analyzing",
+  "domain": "business",
+  "subdomain": "sales",
+  "specialty": "lead generation",
+  "quality": 5,
+  "qualityReason": "Actionable sales support",
+  "bundleHints": [
+    "sales-enablement",
+    "growth-tools",
+    "lead-generation"
+  ],
+  "tags": [
+    "actionable",
+    "analysis",
+    "business development",
+    "business-development",
+    "contact strategies",
+    "lead-generation",
+    "marketing",
+    "outreach",
+    "sales",
+    "target companies"
+  ],
+  "capabilities": [
+    "Analyze your product or service to understand value proposition",
+    "Identify target companies matching your ideal customer profile",
+    "Score and prioritize leads based on fit and relevance",
+    "Research decision-makers and gather contact context",
+    "Provide personalized outreach strategies for each lead"
+  ],
+  "author": "Joseph OBrien",
+  "icon": "🎯",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure prompt-based skill containing only documentation and markdown templates. No executable code, scripts, network calls, filesystem access, or command execution capabilities detected. All 48 static findings are false positives triggered by documentation patterns.",
+  "valueStatement": "Finding qualified leads takes hours of manual research. This skill analyzes your business, identifies matching companies, and provides personalized contact strategies so you can focus on outreach instead of research.",
+  "userTitle": "Find and qualify sales leads",
+  "limitations": [
+    "Does not access real-time company databases or APIs",
+    "Cannot verify current contact information accuracy",
+    "Cannot send emails or make calls directly",
+    "Results depend on information you provide and AI knowledge"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Sales professionals",
+      "title": "Build prospect lists",
+      "description": "Generate qualified lists of companies that match your ideal customer profile with prioritized contact strategies."
+    },
+    {
+      "targetUser": "Business developers",
+      "title": "Find partnership targets",
+      "description": "Identify companies for strategic partnerships by analyzing complementary products and market fit."
+    },
+    {
+      "targetUser": "Startup founders",
+      "title": "Launch go-to-market",
+      "description": "Quickly build initial outreach lists when entering new markets or launching new products."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick lead search",
+      "scenario": "Find companies for your product",
+      "prompt": "I sell [product description]. Find me 10 companies in [location/industry] that would benefit from this."
+    },
+    {
+      "title": "Analyze codebase",
+      "scenario": "Find leads from your code",
+      "prompt": "Look at what I am building in this repository and identify the top 10 companies in [location] that would benefit from this product."
+    },
+    {
+      "title": "Detailed profile",
+      "scenario": "Use full ICP criteria",
+      "prompt": "My product: [description]. Target: [industry], [size], [location]. Find 20 qualified leads with specific contact strategies."
+    },
+    {
+      "title": "Competitive analysis",
+      "scenario": "Analyze competitor customers",
+      "prompt": "My product competes with [competitor]. Identify their customers who would benefit from switching to my solution."
+    }
+  ],
+  "bestPractices": [
+    "Provide specific industry, location, and company size criteria for better results",
+    "Run the skill from your codebase directory when applicable for automatic context",
+    "Ask for follow-up research on top-ranked leads to deepen qualification"
+  ],
+  "antiPatterns": [
+    "Vague product descriptions that lack clear value proposition",
+    "Missing target market constraints leading to irrelevant results",
+    "Skipping the fit score review and going straight to outreach"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. All versions support the full lead research workflow."
+    },
+    {
+      "question": "How many leads can I find at once?",
+      "answer": "The skill can handle requests for 10-50 leads depending on specificity. More detailed criteria produces better results."
+    },
+    {
+      "question": "Can I integrate with my CRM?",
+      "answer": "The skill can format results as CSV for easy import into CRM tools like Salesforce or HubSpot."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes. This is a prompt-based skill with no code execution. No data leaves your session except what you share."
+    },
+    {
+      "question": "Why are some leads missing contact info?",
+      "answer": "The skill provides guidance based on available context. For verified contact data, combine with dedicated enrichment tools."
+    },
+    {
+      "question": "How is this different from paid lead databases?",
+      "answer": "This skill uses AI reasoning to find and qualify leads without subscription costs. Accuracy depends on provided criteria."
+    }
+  ],
+  "seoKeywords": [
+    "lead research",
+    "lead generation",
+    "sales leads",
+    "business development",
+    "prospecting",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "AI sales assistant"
+  ],
+  "sourceUrl": "https://github.com/89jobrien/steve/tree/main/steve/skills/lead-research-assistant",
+  "sourceType": "community",
+  "dependencies": []
+}

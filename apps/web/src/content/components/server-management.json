@@ -1,0 +1,145 @@
+{
+  "name": "server-management",
+  "type": "skill",
+  "description": "Server management principles and decision-making. Process management, monitoring strategy, and scaling decisions. Teaches thinking, not commands.",
+  "domain": "devops",
+  "subdomain": "cloud",
+  "specialty": "scaling decisions",
+  "quality": 4,
+  "qualityReason": "Conceptual guidance focus",
+  "bundleHints": [
+    "infrastructure-management",
+    "devops-strategy"
+  ],
+  "tags": [
+    "decision-making",
+    "devops",
+    "monitoring",
+    "principles",
+    "process",
+    "process-management",
+    "scaling",
+    "server",
+    "strategy"
+  ],
+  "capabilities": [
+    "Guides process management tool selection (PM2, systemd, Docker, Kubernetes)",
+    "Teaches monitoring strategy and key metrics prioritization",
+    "Explains log management principles and rotation strategies",
+    "Provides scaling decision frameworks for different scenarios",
+    "Defines health check implementation approaches",
+    "Outlines security principles for server access and updates"
+  ],
+  "author": "sickn33",
+  "icon": "🖥️",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged two instances of 'weak cryptographic algorithm' at SKILL.md lines 3 and 166. After manual review, these are FALSE POSITIVES. Line 3 contains only a description string in YAML frontmatter, and line 166 contains only instructional text. The file contains no cryptographic code, no network requests, no file system operations, no environment access, and no external command execution. This is purely educational content teaching server management concepts.",
+  "valueStatement": "Learn server management thinking and decision-making for production systems. This skill teaches process management, monitoring strategy, and scaling principles rather than memorized commands.",
+  "userTitle": "Server Management Principles",
+  "limitations": [
+    "Does not execute any server commands directly",
+    "Does not provide specific configuration files",
+    "Does not include installation or setup instructions",
+    "Focuses on principles rather than implementation code"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Junior developers, DevOps beginners",
+      "title": "DevOps Learning",
+      "description": "New developers learning server operations and production concepts"
+    },
+    {
+      "targetUser": "Software architects, team leads",
+      "title": "Architecture Decision Making",
+      "description": "Engineers making decisions about monitoring and scaling strategies"
+    },
+    {
+      "targetUser": "Support engineers, SREs",
+      "title": "System Troubleshooting",
+      "description": "Teams establishing troubleshooting workflows and priorities"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Process Management Basics",
+      "prompt": "What process manager should I use for a Node.js application in production?",
+      "scenario": "Learning about process management options"
+    },
+    {
+      "title": "Monitoring Strategy",
+      "prompt": "What key metrics should I monitor for a web application?",
+      "scenario": "Setting up monitoring for a new service"
+    },
+    {
+      "title": "Scaling Decisions",
+      "prompt": "When should I scale horizontally versus vertically?",
+      "scenario": "Planning infrastructure capacity"
+    },
+    {
+      "title": "Health Check Design",
+      "prompt": "What should a proper health check include?",
+      "scenario": "Implementing health endpoints"
+    }
+  ],
+  "bestPractices": [
+    "Start monitoring from day one rather than adding it later",
+    "Use structured logging (JSON format) for easier parsing and analysis",
+    "Implement auto-restart configurations to handle crashes automatically",
+    "Choose health check depth based on load balancer requirements"
+  ],
+  "antiPatterns": [
+    "Running services as root instead of non-root users",
+    "Ignoring logs or skipping log rotation setup",
+    "Manual restarts instead of configuring auto-restart",
+    "Skipping backups or not having a regular backup schedule"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill execute commands on my server?",
+      "answer": "No. This skill teaches principles and decision-making frameworks. It does not run any commands or modify any files."
+    },
+    {
+      "question": "What tools does this skill support?",
+      "answer": "This skill provides guidance for tools like PM2, systemd, Docker, Kubernetes, Grafana, and others mentioned in the principles."
+    },
+    {
+      "question": "Is this skill suitable for beginners?",
+      "answer": "Yes. It explains concepts in plain language with decision tables. It is designed for learners who want to understand thinking, not memorize commands."
+    },
+    {
+      "question": "Does this skill include configuration examples?",
+      "answer": "No. It focuses on principles and decision criteria. It does not provide specific configuration files or code snippets."
+    },
+    {
+      "question": "How is this skill different from server documentation?",
+      "answer": "Documentation tells you what commands to run. This skill teaches why to choose certain approaches and when to use them."
+    },
+    {
+      "question": "Can I use this for troubleshooting production issues?",
+      "answer": "Yes. The troubleshooting priority section provides a systematic approach: check process, logs, resources, network, then dependencies."
+    }
+  ],
+  "seoKeywords": [
+    "server management",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "process management",
+    "server monitoring",
+    "scaling decisions",
+    "log management",
+    "health checks",
+    "devops principles"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/server-management",
+  "sourceType": "community",
+  "dependencies": []
+}

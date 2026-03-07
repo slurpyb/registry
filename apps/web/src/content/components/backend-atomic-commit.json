@@ -1,0 +1,140 @@
+{
+  "name": "backend-atomic-commit",
+  "type": "skill",
+  "description": "Pedantic backend pre-commit and atomic commit Skill for Django/Optimo-style repos. Enforces local AGENTS.md / CLAUDE.md, pre-commit hooks, .security/* helpers, and Monty’s backend engineering taste – with no AI signatures in commit messages.\n",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "Pre-commit Enforcement",
+  "quality": 4,
+  "qualityReason": "Specific workflow enforcement",
+  "bundleHints": [
+    "django-workflow",
+    "code-quality"
+  ],
+  "tags": [
+    "backend",
+    "code-quality",
+    "django",
+    "engineering-standards",
+    "git",
+    "pre-commit"
+  ],
+  "capabilities": [
+    "Run Ruff formatting and linting fixes on changed Python files",
+    "Execute ty type checking scoped to modified files only",
+    "Run Django system checks and targeted pytest subsets",
+    "Enforce local AGENTS.md and CLAUDE.md repository rules",
+    "Detect and fix local imports, missing type hints, and logging patterns",
+    "Generate ticket-prefixed commit messages without AI signatures"
+  ],
+  "author": "DiversioTeam",
+  "icon": "🔒",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing instructions for an AI agent to run local development tools. All 275 static findings are false positives. The 'Ruby/shell backtick execution' detections are markdown code block syntax, not actual shell commands. The 'Weak cryptographic algorithm' findings trigger on markdown headings containing 'MD5' in context of banning insecure patterns. The '1Password data' and 'Environment file access' findings are documentation recommending AGAINST staging secrets. No executable code exists in this skill.",
+  "valueStatement": "Backend code often fails CI quality gates and contains non-atomic commits. This skill runs Ruff, ty, Django checks, and security scripts to fix issues and enforce commit standards without AI signatures.",
+  "userTitle": "Enforce backend coding standards and atomic commits",
+  "limitations": [
+    "Requires Django project structure with manage.py",
+    "Needs uv or local tool wrappers in .bin/ directory",
+    "Does not modify migration files or schema changes automatically",
+    "Falls back to generic Python checks for non-Django projects"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Django developers",
+      "title": "Auto-fix code before commit",
+      "description": "Run pre-commit mode to fix formatting, imports, type hints, and logging patterns in staged files before CI runs"
+    },
+    {
+      "targetUser": "Code review teams",
+      "title": "Enforce commit atomicity",
+      "description": "Verify staged changes represent one logical change and all quality gates pass before creating a commit"
+    },
+    {
+      "targetUser": "Platform engineers",
+      "title": "Standardize backend tooling",
+      "description": "Apply consistent Ruff, ty, and Django checks across all backend contributions with clear blocking issues"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Fix pre-commit issues",
+      "scenario": "Auto-fix code before staging",
+      "prompt": "Run /backend-atomic-commit:pre-commit on this repo and fix all files in git status to obey AGENTS.md and pre-commit hooks"
+    },
+    {
+      "title": "Prepare atomic commit",
+      "scenario": "Check staged changes for commit",
+      "prompt": "Use /backend-atomic-commit:atomic-commit to prepare an atomic commit for staged changes in backend/"
+    },
+    {
+      "title": "Strict mode fix",
+      "scenario": "Eliminate all style issues",
+      "prompt": "Run /backend-atomic-commit:pre-commit in strict mode: eliminate local imports, fix type hints, clean debug statements"
+    },
+    {
+      "title": "Verify commit readiness",
+      "scenario": "Auto mode quality check",
+      "prompt": "Run /backend-atomic-commit:atomic-commit --auto to enforce structured logging, verify tests, and report commit readiness"
+    }
+  ],
+  "bestPractices": [
+    "Run pre-commit mode before staging files to catch issues early and avoid CI failures",
+    "Always address [BLOCKING] items before attempting atomic commits",
+    "Use scoped ty check to catch type errors without triggering baseline errors in unmodified files"
+  ],
+  "antiPatterns": [
+    "Running atomic-commit mode without reviewing the proposed commit message first",
+    "Ignoring [SHOULD_FIX] items that accumulate over multiple commits",
+    "Using local imports to avoid cyclic import problems instead of refactoring"
+  ],
+  "faq": [
+    {
+      "question": "What tools does this skill require?",
+      "answer": "Requires uv, Ruff, ty type checker, and Django management commands. Looks for .bin/ wrappers first with uv run fallback."
+    },
+    {
+      "question": "Does this work with non-Django Python projects?",
+      "answer": "Falls back to generic Python pre-commit behavior if no manage.py or Django-style AGENTS.md is detected."
+    },
+    {
+      "question": "How does it handle pre-existing code issues?",
+      "answer": "Resolves ALL issues in files you modify, not just new ones. CI runs checks on modified files only."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Runs locally on your machine using only local tools. No data is sent anywhere. Git operations stay in your repo."
+    },
+    {
+      "question": "Why are my commits showing AI signatures?",
+      "answer": "This skill explicitly prevents AI signatures. Check your AI tool settings or other plugins that may add them."
+    },
+    {
+      "question": "How is this different from pre-commit hooks?",
+      "answer": "Runs the same checks as your hooks but also auto-fixes issues and enforces atomic commit structure."
+    }
+  ],
+  "seoKeywords": [
+    "django backend",
+    "pre-commit hook",
+    "code quality",
+    "atomic commit",
+    "ruff linting",
+    "type checking",
+    "claude code",
+    "openai codex",
+    "git commit standards",
+    "python linting"
+  ],
+  "sourceUrl": "https://github.com/DiversioTeam/agent-skills-marketplace/tree/main/plugins/backend-atomic-commit/skills/backend-atomic-commit",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,144 @@
+{
+  "name": "packmol",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"create a packmol input\", \"pack molecules with packmol\", \"solvate a protein\", \"build an initial configuration\", \"setup molecular dynamics\", or discusses molecular packing, solvation, or building simulation starting structures.",
+  "domain": "science",
+  "subdomain": "chemistry",
+  "specialty": "molecular dynamics",
+  "quality": 5,
+  "qualityReason": "Specific scientific application",
+  "bundleHints": [
+    "cheminformatics",
+    "molecular-simulation"
+  ],
+  "tags": [
+    "computational-chemistry",
+    "initial-configuration",
+    "molecular-dynamics",
+    "packmol",
+    "pdb",
+    "protein-setup",
+    "simulation",
+    "solvation"
+  ],
+  "capabilities": [
+    "Generate Packmol input files programmatically from Python",
+    "Validate input syntax before running Packmol",
+    "Solvate proteins with water and ions automatically",
+    "Check output PDB files for atomic overlaps",
+    "Analyze system density and composition",
+    "Verify Packmol execution success"
+  ],
+  "author": "Chenghao-Wu",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate scientific tool for molecular dynamics simulation preparation. Static analyzer flagged documentation examples and coordinate syntax as security issues. All findings are false positives: README command examples were misidentified as shell execution, molecular coordinates were flagged as path traversal, and the random seed parameter was misidentified as cryptography. No malicious intent, credential access, or data exfiltration detected.",
+  "valueStatement": "Building initial molecular structures for simulations requires precise spatial constraints. Packmol automates molecule placement with overlap prevention, supporting boxes, spheres, cylinders, and planes for diverse simulation needs.",
+  "userTitle": "Pack molecules for MD simulations",
+  "limitations": [
+    "Packmol software must be installed separately via pip",
+    "Requires existing molecule structure files (PDB, XYZ, or TINKER format)",
+    "Does not perform actual molecular dynamics simulation",
+    "Limited to predefined constraint types supported by Packmol"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Computational chemists",
+      "title": "Protein solvation setup",
+      "description": "Solvate biomolecules with water and ions for MD simulation preparation"
+    },
+    {
+      "targetUser": "MD simulation researchers",
+      "title": "Interface system building",
+      "description": "Create liquid-liquid or liquid-vapor interfaces using plane constraints"
+    },
+    {
+      "targetUser": "Chemistry students",
+      "title": "Molecular packing basics",
+      "description": "Learn to pack simple molecular boxes with multiple molecule types"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic box packing",
+      "scenario": "Create a simple water box",
+      "prompt": "Create a Packmol input file to pack 1000 water molecules in a 40x40x40 Angstrom box with 2.0 Angstrom tolerance"
+    },
+    {
+      "title": "Protein solvation",
+      "scenario": "Solvate a protein structure",
+      "prompt": "Generate a Packmol input file to solvate protein.pdb with 5000 water molecules, 10 Na+ ions, and 10 Cl- ions using 15 Angstrom solvent shell"
+    },
+    {
+      "title": "Interface system",
+      "scenario": "Build liquid interface",
+      "prompt": "Create an input file for a water/chloroform interface with PBC at z=-30 to 30, placing 1000 water below plane and 200 chloroform above plane"
+    },
+    {
+      "title": "Automated solvation",
+      "scenario": "Auto-calculate solvation parameters",
+      "prompt": "Use solvate_helper.py to generate a complete Packmol solvation input for my protein with 15 Angstrom shell, +4 charge, and 0.15 M salt concentration"
+    }
+  ],
+  "bestPractices": [
+    "Start with small test systems (10-50 molecules) before scaling up",
+    "Validate input files with validate_input.py before running Packmol",
+    "Set a random seed (e.g., seed 12345) for reproducible results",
+    "Check output for overlaps using check_overlaps.py after packing"
+  ],
+  "antiPatterns": [
+    "Running Packmol without validating input syntax first",
+    "Using a tolerance value smaller than 1.5 Angstrom for all-atom models",
+    "Skipping overlap checks on output structures before simulations",
+    "Creating very large systems without using restart files"
+  ],
+  "faq": [
+    {
+      "question": "Is Packmol installed with this skill?",
+      "answer": "No. Install separately with: pip install packmol"
+    },
+    {
+      "question": "What molecule file formats are supported?",
+      "answer": "PDB (recommended), XYZ, and TINKER formats"
+    },
+    {
+      "question": "How many molecules can Packmol handle?",
+      "answer": "Practical limit is around 100,000 atoms. Use restart files for larger systems."
+    },
+    {
+      "question": "Does this skill run Packmol or just generate inputs?",
+      "answer": "The skill generates input files. Run Packmol separately with: packmol < input.inp"
+    },
+    {
+      "question": "Can I check if my output has problems?",
+      "answer": "Use scripts like check_overlaps.py to verify atomic distances and analyze_density.py for density."
+    },
+    {
+      "question": "How is this different from other MD setup tools?",
+      "answer": "Packmol focuses on initial structure packing. Use with GROMACS or AMBER for force field setup and energy minimization."
+    }
+  ],
+  "seoKeywords": [
+    "packmol",
+    "molecular dynamics simulation",
+    "protein solvation",
+    "MD simulation setup",
+    "molecule packing",
+    "PDB file",
+    "computational chemistry",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/Chenghao-Wu/skill_packmol/tree/main/.claude/skills/packmol",
+  "sourceType": "community",
+  "dependencies": []
+}

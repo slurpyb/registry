@@ -1,0 +1,139 @@
+{
+  "name": "gmail-automation",
+  "type": "skill",
+  "description": "Automate Gmail tasks via Rube MCP (Composio): send/reply, search, labels, drafts, attachments. Always search tools first for current schemas.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "gmail mcp",
+  "quality": 5,
+  "qualityReason": "Full automation coverage",
+  "bundleHints": [
+    "gmail-tools",
+    "mcp-integrations"
+  ],
+  "tags": [
+    "attachments",
+    "automation",
+    "composio",
+    "drafts",
+    "email",
+    "gmail",
+    "labels",
+    "mcp",
+    "rube-mcp"
+  ],
+  "capabilities": [
+    "Send new emails and reply to existing threads",
+    "Search emails using Gmail query syntax (sender, date, labels, attachments)",
+    "Create, rename, and delete custom labels",
+    "Apply or remove labels on messages in bulk (up to 1000)",
+    "Create, edit, and send email drafts with attachments",
+    "Download attachments from existing messages"
+  ],
+  "author": "sickn33",
+  "icon": "📧",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation (SKILL.md - 276 lines of markdown). All 124 static analysis findings are FALSE POSITIVES: backtick patterns are markdown code formatting, not shell execution. The hardcoded URL is the legitimate Rube MCP endpoint. No executable code exists in this repository. Safe for publication.",
+  "valueStatement": "Stop manually managing your inbox. This skill enables AI assistants to send emails, search messages, manage labels, and handle drafts through Gmail's official API via Rube MCP.",
+  "userTitle": "Automate Gmail Tasks with AI",
+  "limitations": [
+    "Requires Rube MCP server connection and active Gmail OAuth authorization",
+    "Cannot send emails larger than 25MB (Gmail API limit)",
+    "Custom label operations require label IDs, not display names",
+    "Cannot modify immutable system labels (SENT, DRAFT, CHAT)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Business professionals and executives",
+      "title": "Executive Email Assistant",
+      "description": "Automate routine email responses, search for specific messages by sender or date, and organize inbox with custom labels for priority management."
+    },
+    {
+      "targetUser": "Customer support teams",
+      "title": "Customer Support Automation",
+      "description": "Search for customer inquiries by subject or sender, reply to support tickets, and apply labels to track issue status and categorization."
+    },
+    {
+      "targetUser": "Individual users managing high-volume inboxes",
+      "title": "Personal Inbox Manager",
+      "description": "Automatically label incoming emails, archive processed messages, create drafts for follow-ups, and search for important emails with attachments."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Send a Simple Email",
+      "prompt": "Send an email to john@example.com with subject 'Meeting Tomorrow' and body 'Hi John, are you available for a meeting at 2 PM tomorrow? Let me know. Thanks!'"
+    },
+    {
+      "title": "Search and Reply",
+      "prompt": "Find all unread emails from sarah@company.com from the last week. Show me the most recent one and help me draft a reply."
+    },
+    {
+      "title": "Label Management",
+      "prompt": "Create a new label called 'Q1-Projects' with a blue background. Then find all emails with 'Q1' in the subject from this month and apply this label to them."
+    },
+    {
+      "title": "Draft with Attachment",
+      "prompt": "Create a draft email to team@example.com with subject 'Weekly Report' and attach the file at /documents/report.pdf. Do not send yet, let me review first."
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before any Gmail operation",
+    "Use GMAIL_LIST_LABELS to resolve label names to IDs before applying labels to messages",
+    "For bulk operations, chunk message batches to stay under the 1000 message limit per API call"
+  ],
+  "antiPatterns": [
+    "Do not use web UI message IDs or UUIDs - Gmail API requires 15-16 character hex message IDs",
+    "Do not set subject parameter when replying to threads - it creates a new thread instead",
+    "Do not use label: prefix for system states - use is:unread, is:starred, is:snoozed instead"
+  ],
+  "faq": [
+    {
+      "question": "How do I connect my Gmail account to this skill?",
+      "answer": "Add the Rube MCP server (https://rube.app/mcp) to your client configuration. Then call RUBE_MANAGE_CONNECTIONS with toolkit 'gmail' and follow the OAuth link to authorize Google access."
+    },
+    {
+      "question": "Can I send emails with attachments?",
+      "answer": "Yes. First download the file to get an s3key, then include it in the attachment parameter with mimetype (e.g., 'application/pdf') and filename. Total size must be under 25MB."
+    },
+    {
+      "question": "How do I find a specific email?",
+      "answer": "Use GMAIL_FETCH_EMAILS with Gmail query syntax. Examples: 'from:alice subject:invoice', 'is:unread after:2024/01/01', or 'has:attachment label:work'."
+    },
+    {
+      "question": "What is the difference between thread_id and message_id?",
+      "answer": "thread_id groups related emails in a conversation (used for replies). message_id identifies a single email (used for fetching details or single-message operations)."
+    },
+    {
+      "question": "Can I automate sending emails without approval?",
+      "answer": "GMAIL_SEND_EMAIL sends immediately. For drafts requiring review, use GMAIL_CREATE_EMAIL_DRAFT first, then GMAIL_SEND_DRAFT only after explicit user confirmation."
+    },
+    {
+      "question": "Why can't I delete a label?",
+      "answer": "System labels (INBOX, SENT, DRAFT, SPAM) cannot be deleted. Also ensure you're using the label ID (e.g., 'Label_123'), not the display name, for delete operations."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Gmail automation",
+    "Codex email management",
+    "Claude Code Gmail",
+    "Rube MCP Gmail",
+    "AI email assistant",
+    "Gmail API automation",
+    "Composio Gmail tools",
+    "automated email replies",
+    "Gmail label management",
+    "AI inbox organizer"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gmail-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

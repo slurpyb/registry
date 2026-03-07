@@ -1,0 +1,142 @@
+{
+  "name": "clinpgx-database",
+  "type": "skill",
+  "description": "Access ClinPGx pharmacogenomics data (successor to PharmGKB). Query gene-drug interactions, CPIC guidelines, allele functions, for precision medicine and genotype-guided dosing decisions.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "pharmacogenomics",
+  "quality": 5,
+  "qualityReason": "Specific precision medicine focus",
+  "bundleHints": [
+    "genomics-stack",
+    "clinical-ai"
+  ],
+  "tags": [
+    "allele-function",
+    "clinical-decision-support",
+    "cpic",
+    "gene-drug",
+    "genomics",
+    "genotype",
+    "pharmacogenomics",
+    "precision-dosing",
+    "precision-medicine"
+  ],
+  "capabilities": [
+    "Query gene information for pharmacogenes like CYP2D6, CYP2C19, and TPMT",
+    "Retrieve drug information with pharmacogenomic annotations",
+    "Access CPIC clinical practice guidelines for gene-drug pairs",
+    "Get allele function, phenotype, and population frequency data",
+    "Query clinical annotations filtered by evidence level",
+    "Search drug labels for pharmacogenomic testing recommendations"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "DNA",
+  "version": "1.0.0",
+  "license": "CC-BY-SA-4.0",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 376 static findings are FALSE POSITIVES. The skill is a legitimate pharmacogenomics database API client accessing the public ClinPGx API (api.clinpgx.org). The static analyzer misidentified Markdown code fences (using backticks) as shell command execution, gene function descriptions as cryptographic algorithms, and clinical decision support tool references as system reconnaissance. Network calls are to a known public API, file writes are for caching API results, and there is no malicious code present.",
+  "valueStatement": "Access ClinPGx to retrieve pharmacogenomics data including gene-drug interactions, CPIC guidelines, and allele function information. This skill supports precision medicine by providing clinical decision support for genotype-guided medication dosing.",
+  "userTitle": "Query ClinPGx pharmacogenomics database",
+  "limitations": [
+    "Rate limited to 2 requests per second (enforced by API)",
+    "Authentication required for substantial API use (contact api@clinpgx.org)",
+    "Clinical decisions should always be verified against primary sources"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Clinical Pharmacists",
+      "title": "Review Patient Medications",
+      "description": "Check patient genotypes against prescribed medications to identify drug-gene interactions requiring dose adjustment."
+    },
+    {
+      "targetUser": "Medical Researchers",
+      "title": "Analyze Gene-Drug Evidence",
+      "description": "Query clinical annotations and CPIC guidelines to support pharmacogenomics research studies."
+    },
+    {
+      "targetUser": "Healthcare Developers",
+      "title": "Build PGx Applications",
+      "description": "Integrate ClinPGx API into electronic health records or clinical decision support systems."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Gene Lookup",
+      "scenario": "Get pharmacogene information",
+      "prompt": "Use the ClinPGx skill to find information about the CYP2D6 gene including its function and related drugs."
+    },
+    {
+      "title": "Drug Interactions",
+      "scenario": "Find gene-drug relationships",
+      "prompt": "Query ClinPGx for all gene-drug pairs involving clopidogrel and CYP2C19 with CPIC guideline information."
+    },
+    {
+      "title": "Clinical Guidelines",
+      "scenario": "Access CPIC recommendations",
+      "prompt": "Get the CPIC guideline recommendations for codeine prescribing based on CYP2D6 metabolizer status."
+    },
+    {
+      "title": "Allele Frequencies",
+      "scenario": "Compare population data",
+      "prompt": "Find allele frequency data for CYP2D6 across European, African, and East Asian populations."
+    }
+  ],
+  "bestPractices": [
+    "Always implement rate limiting (0.5 second delay) when making API calls to respect the 2 req/sec limit",
+    "Cache frequently accessed data locally to reduce API calls and improve performance",
+    "Verify clinical decisions against primary sources like CPIC guidelines and FDA drug labels"
+  ],
+  "antiPatterns": [
+    "Do not make clinical decisions based solely on API results without verifying against primary sources",
+    "Do not exceed the API rate limit as this will result in HTTP 429 errors",
+    "Do not hardcode sensitive credentials in client code when substantial API use requires authentication"
+  ],
+  "faq": [
+    {
+      "question": "What is ClinPGx?",
+      "answer": "ClinPGx is a comprehensive pharmacogenomics database that consolidates data from PharmGKB, CPIC, and PharmCAT for clinical use."
+    },
+    {
+      "question": "Is authentication required?",
+      "answer": "No authentication is required for basic API access. Contact api@clinpgx.org for substantial use."
+    },
+    {
+      "question": "What rate limits apply?",
+      "answer": "The API allows a maximum of 2 requests per second. Implement 500ms delay between requests."
+    },
+    {
+      "question": "What genes are covered?",
+      "answer": "Key pharmacogenes include CYP450 enzymes (CYP2D6, CYP2C19, CYP2C9), transporters (SLCO1B1), and others like TPMT and DPYD."
+    },
+    {
+      "question": "What evidence levels are available?",
+      "answer": "Evidence levels range from 1A (CPIC/FDA guideline) to Level 4 (case reports), with 1A being highest quality."
+    },
+    {
+      "question": "Can this be used for clinical decisions?",
+      "answer": "The skill provides data for research and decision support. Always verify clinical decisions against primary sources."
+    }
+  ],
+  "seoKeywords": [
+    "ClinPGx API",
+    "pharmacogenomics database",
+    "gene-drug interactions",
+    "CPIC guidelines",
+    "precision medicine",
+    "genotype-guided dosing",
+    "allele function lookup",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/clinpgx-database",
+  "sourceType": "community",
+  "dependencies": []
+}

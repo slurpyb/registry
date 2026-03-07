@@ -1,0 +1,144 @@
+{
+  "name": "avalonia-zafiro-development",
+  "type": "skill",
+  "description": "Mandatory skills, conventions, and behavioral rules for Avalonia UI development using the Zafiro toolkit.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "Zafiro Conventions",
+  "quality": 4,
+  "qualityReason": "Covers conventions and rules",
+  "bundleHints": [
+    "avalonia-stack",
+    "mvvm-patterns",
+    "ui-standards"
+  ],
+  "tags": [
+    "avalonia",
+    "csharp",
+    "development-rules",
+    "dotnet",
+    "dynamicdata",
+    "mvvm",
+    "reactive",
+    "ui-standards",
+    "zafiro"
+  ],
+  "capabilities": [
+    "Enforce functional-reactive MVVM architecture patterns using DynamicData and ReactiveUI",
+    "Provide naming and coding standards for consistent C# development",
+    "Guide validation patterns using Zafiro extensions and Result types",
+    "Offer shortcut references for common Rx and DynamicData operations",
+    "Define cross-platform UI development rules for Avalonia",
+    "Prevent common anti-patterns in reactive collection handling"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. This skill contains only markdown documentation for Avalonia UI development conventions. The flagged patterns (backtick execution, weak crypto, system reconnaissance) are triggered by markdown syntax and development terminology in documentation context, not actual executable code. No scripts, network calls, file system access, or environment variable usage present.",
+  "valueStatement": "This skill enforces mandatory conventions for Avalonia UI development with Zafiro toolkit, ensuring maintainable functional-reactive MVVM code that follows industry best practices.",
+  "userTitle": "Apply Avalonia Zafiro Development Conventions",
+  "limitations": [
+    "Does not execute code or provide runtime functionality",
+    "Requires existing knowledge of C# and MVVM patterns",
+    "Does not include Zafiro library implementation details",
+    "Focuses on conventions rather than complete implementation guides"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers new to Avalonia Zafiro development",
+      "title": "New Avalonia Project Setup",
+      "description": "Apply Zafiro conventions when starting a new Avalonia UI project to establish proper architecture from the beginning."
+    },
+    {
+      "targetUser": "Senior developers and tech leads",
+      "title": "Code Review and Refactoring",
+      "description": "Use the skill to review existing code against Zafiro patterns and identify areas needing refactoring."
+    },
+    {
+      "targetUser": "C# developers learning reactive programming",
+      "title": "Learning Reactive Patterns",
+      "description": "Reference the shortcuts and patterns when implementing DynamicData pipelines or reactive commands."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Apply Zafiro Conventions",
+      "prompt": "Apply the Avalonia Zafiro development conventions to review and improve this code. Focus on MVVM purity, DynamicData usage, and Zafiro helper methods.",
+      "scenario": "When you have C# code that needs to follow Zafiro patterns"
+    },
+    {
+      "title": "Fix Reactive Anti-Patterns",
+      "prompt": "Identify and fix reactive anti-patterns in this code using Zafiro best practices. Look for ad-hoc SourceList creation, logic in Subscribe, and improper operator usage.",
+      "scenario": "When refactoring existing reactive code"
+    },
+    {
+      "title": "Implement Validation",
+      "prompt": "Implement validation using Zafiro ValidationRule and extensions. Show the proper pattern for validating dynamic collections.",
+      "scenario": "When adding form or data validation"
+    },
+    {
+      "title": "Optimize Collection Handling",
+      "prompt": "Apply RefreshableCollection pattern and DynamicData operators to optimize collection handling in this code.",
+      "scenario": "When working with dynamic lists and collections"
+    }
+  ],
+  "bestPractices": [
+    "Prefer DynamicData operators over plain Rx operators when working with collections",
+    "Use Result types from CSharpFunctionalExtensions for error handling instead of exceptions",
+    "Keep ViewModels strictly Avalonia-independent for cross-platform compatibility"
+  ],
+  "antiPatterns": [
+    "Creating SourceList or SourceCache on the fly for local problems instead of using existing helpers",
+    "Placing business logic inside Subscribe blocks instead of in the reactive pipeline",
+    "Using plain System.Reactive operators when DynamicData equivalents exist"
+  ],
+  "faq": [
+    {
+      "question": "What is Zafiro in Avalonia development?",
+      "answer": "Zafiro is a toolkit that provides abstractions, helpers, and extension methods for Avalonia UI development, focusing on reactive patterns and clean architecture."
+    },
+    {
+      "question": "Why use DynamicData over plain Rx?",
+      "answer": "DynamicData provides specialized operators for collection management (Connect, Filter, Transform, Sort) that are more efficient and idiomatic for UI binding scenarios."
+    },
+    {
+      "question": "What does pure MVVM mean in this context?",
+      "answer": "ViewModels must not reference Avalonia types directly, ensuring they remain testable and platform-independent."
+    },
+    {
+      "question": "When should I use Result types?",
+      "answer": "Use Result types for expected error paths and flow control. Reserve exceptions for truly exceptional, unrecoverable situations."
+    },
+    {
+      "question": "What is RefreshableCollection?",
+      "answer": "A Zafiro pattern that manages refreshable lists with automatic loading, efficient updates via EditDiff, and ReadOnlyObservableCollection output for UI binding."
+    },
+    {
+      "question": "How do I handle errors in reactive pipelines?",
+      "answer": "Use Zafiro's HandleErrorsWith extension to pipe errors directly to the UI notification service instead of manual Subscribe error handling."
+    }
+  ],
+  "seoKeywords": [
+    "avalonia",
+    "zafiro",
+    "mvvm",
+    "reactive",
+    "dotnet",
+    "csharp",
+    "dynamicdata",
+    "claude",
+    "codex",
+    "claude code"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/avalonia-zafiro-development",
+  "sourceType": "community",
+  "dependencies": []
+}

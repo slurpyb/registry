@@ -1,0 +1,139 @@
+{
+  "name": "calculator",
+  "type": "skill",
+  "description": "执行数学计算，支持基本运算和复杂表达式",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "math calculations",
+  "quality": 3,
+  "qualityReason": "Generic functionality, widely available",
+  "bundleHints": [
+    "utility-tools"
+  ],
+  "tags": [
+    "arithmetic",
+    "calculation",
+    "calculator",
+    "claude code",
+    "expressions",
+    "math"
+  ],
+  "capabilities": [
+    "Evaluate basic arithmetic operations including addition, subtraction, multiplication, and division",
+    "Support for exponentiation using ** or ^ operators",
+    "Handle complex expressions with parentheses and operator precedence",
+    "Validate input to prevent code injection by restricting to mathematical operators only",
+    "Provide clear error messages for invalid expressions and division by zero",
+    "Return floating-point results for all calculations"
+  ],
+  "author": "AI Creator",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "medium",
+  "safeToPublish": true,
+  "securitySummary": "The skill uses Python eval() for mathematical expression evaluation, which is a high-risk pattern. However, the implementation includes input validation that restricts expressions to numbers and basic operators only, with an empty builtins dictionary to prevent code execution. The static findings for external_commands and network are false positives from documentation files containing example syntax and URLs. Overall risk is medium due to eval() usage, but the safeguards make it acceptable for publication with warnings.",
+  "valueStatement": "Many users need to perform quick mathematical calculations within their AI workflows. This skill provides a safe calculator that evaluates arithmetic expressions with proper input validation and error handling.",
+  "userTitle": "Perform Safe Mathematical Calculations",
+  "limitations": [
+    "Does not support mathematical functions like sin, cos, sqrt, or logarithms",
+    "Cannot handle variables or symbolic mathematics",
+    "Limited to expressions that can be represented with basic operators",
+    "Results are always returned as floating-point numbers, which may have precision limitations for very large or very small values"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Business analysts and financial professionals",
+      "title": "Quick Financial Calculations",
+      "description": "Calculate percentages, profit margins, or simple financial formulas without leaving your coding environment."
+    },
+    {
+      "targetUser": "Software developers",
+      "title": "Programming Constant Computation",
+      "description": "Compute numerical constants or verify mathematical expressions while writing code that requires specific numeric values."
+    },
+    {
+      "targetUser": "Data scientists and researchers",
+      "title": "Data Analysis Verification",
+      "description": "Double-check calculations or verify formula results when working with data analysis tasks or spreadsheet conversions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple Arithmetic",
+      "prompt": "Calculate 125 + 387",
+      "scenario": "Basic addition for quick verification of numbers"
+    },
+    {
+      "title": "Percentage Calculation",
+      "prompt": "What is 15% of 250? Calculate 250 * 0.15",
+      "scenario": "Computing percentages for discounts or proportions"
+    },
+    {
+      "title": "Complex Expression",
+      "prompt": "Calculate (100 + 50) * 0.85 - 25",
+      "scenario": "Multi-step calculation with parentheses and multiple operations"
+    },
+    {
+      "title": "Power and Division",
+      "prompt": "Calculate 2 ** 10 / 4",
+      "scenario": "Advanced operations combining exponentiation and division"
+    }
+  ],
+  "bestPractices": [
+    "Use parentheses to make operator precedence explicit in complex expressions",
+    "Verify expressions with known results first to ensure the calculator is working correctly",
+    "Remember that all results are floating-point numbers, so use appropriate rounding for display purposes"
+  ],
+  "antiPatterns": [
+    "Do not attempt to use mathematical functions like sqrt or sin, as they are not supported",
+    "Avoid trying to assign variables or use programming constructs, as only mathematical expressions are allowed",
+    "Do not rely on this for calculations requiring arbitrary precision arithmetic or symbolic math"
+  ],
+  "faq": [
+    {
+      "question": "Is this calculator safe to use with untrusted input?",
+      "answer": "Yes. The calculator validates all input using regex patterns to ensure only numbers and basic mathematical operators are allowed. It uses eval with an empty builtins dictionary to prevent code execution."
+    },
+    {
+      "question": "What operators are supported?",
+      "answer": "The calculator supports addition, subtraction, multiplication, division, exponentiation, and parentheses. Use + - * / for basic operations and ** or ^ for exponents."
+    },
+    {
+      "question": "Can I use mathematical functions like sine or cosine?",
+      "answer": "No. This calculator only supports basic arithmetic operators. Functions like sin, cos, sqrt, or log are not available."
+    },
+    {
+      "question": "How does it handle division by zero?",
+      "answer": "Division by zero is caught and returns a clear error message indicating the problem. The calculator will not crash or produce undefined results."
+    },
+    {
+      "question": "Why are results always decimal numbers?",
+      "answer": "All results are returned as floating-point numbers for consistency. Even integer calculations like 4 + 2 will return 6.0."
+    },
+    {
+      "question": "Can I use variables in calculations?",
+      "answer": "No. The calculator only evaluates static mathematical expressions. Variable assignment and reference are not supported for security reasons."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "calculator",
+    "math",
+    "arithmetic",
+    "calculation",
+    "expression evaluator",
+    "Python calculator",
+    "safe eval"
+  ],
+  "sourceUrl": "https://github.com/Decalogue/creator/tree/main/src/skills/calculator",
+  "sourceType": "community",
+  "dependencies": []
+}

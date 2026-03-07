@@ -1,0 +1,139 @@
+{
+  "name": "backend-hang-debug",
+  "type": "skill",
+  "description": "Diagnose and fix FastAPI hangs caused by blocking ThreadPoolExecutor shutdown in the news stream route; includes py-spy capture and non-blocking executor pattern.",
+  "domain": "testing",
+  "subdomain": "performance",
+  "specialty": "Threadpool Hang Fix",
+  "quality": 5,
+  "qualityReason": "Specific performance issue",
+  "bundleHints": [
+    "debugging-tools",
+    "performance-optimization"
+  ],
+  "tags": [
+    "debugging",
+    "fastapi",
+    "performance",
+    "py-spy",
+    "threadpool"
+  ],
+  "capabilities": [
+    "Detect event-loop hangs in FastAPI applications",
+    "Use py-spy to capture live stack dumps from running processes",
+    "Identify blocking ThreadPoolExecutor.shutdown calls in stream routes",
+    "Apply non-blocking executor pattern to prevent event loop blocking",
+    "Verify fixes with curl smoke tests and process checks",
+    "Debug multi-worker uvicorn deployments"
+  ],
+  "author": "BenderFendor",
+  "icon": "🐛",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing markdown instructions for debugging FastAPI hangs. The static analyzer flagged 74 pattern matches, but all are false positives: the skill contains no executable code, scripts, network operations, or filesystem access beyond reading its own file. The 'commands' flagged are documentation examples showing diagnostic commands users might run on their own systems. Pure informational content safe for publication.",
+  "valueStatement": "FastAPI applications can hang when ThreadPoolExecutor shutdown blocks the event loop, especially during SSE stream disconnects. This skill provides a repeatable triage workflow using py-spy to capture live stacks and apply non-blocking executor patterns to restore responsiveness.",
+  "userTitle": "Diagnose and fix FastAPI hangs",
+  "limitations": [
+    "Requires pre-installed py-spy with sudo permissions for stack capture",
+    "Cannot auto-fix code; provides patterns users must implement manually",
+    "Does not cover database connection pool issues or async I/O blocking",
+    "Assumes Linux environment with ss, procfs, and standard Linux tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developers",
+      "title": "Debug production hangs",
+      "description": "Diagnose why FastAPI app stops responding to health checks during active SSE stream connections"
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Triage event loop issues",
+      "description": "Use py-spy to capture blocking stack frames and identify ThreadPoolExecutor.shutdown as the root cause"
+    },
+    {
+      "targetUser": "Full-Stack Developers",
+      "title": "Fix stream disconnects",
+      "description": "Implement non-blocking executor pattern so aborting stream requests does not freeze the backend"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick hang diagnosis",
+      "scenario": "FastAPI app unresponsive",
+      "prompt": "My FastAPI app stopped responding to requests. How do I use py-spy to find what's blocking the event loop?"
+    },
+    {
+      "title": "Stack trace analysis",
+      "scenario": "py-spy output available",
+      "prompt": "I captured a py-spy dump and see ThreadPoolExecutor.shutdown in the frames. What does this mean and how do I fix it?"
+    },
+    {
+      "title": "Implement non-blocking executor",
+      "scenario": "Stream route identified",
+      "prompt": "Help me refactor my stream.py to use a non-blocking ThreadPoolExecutor pattern that does not block on shutdown."
+    },
+    {
+      "title": "Verify fix effectiveness",
+      "scenario": "Fix implemented",
+      "prompt": "I applied the non-blocking executor pattern. How do I verify with py-spy that the event loop is no longer blocked?"
+    }
+  ],
+  "bestPractices": [
+    "Always use shutdown(wait=False, cancel_futures=True) for executors in async contexts to prevent event loop blocking.",
+    "Capture py-spy stacks before restarting the service to preserve evidence of the blocking operation.",
+    "Test stream abort scenarios during development to catch hangs early before production deployment."
+  ],
+  "antiPatterns": [
+    "Using 'with ThreadPoolExecutor()' as context manager in async code - it calls shutdown(wait=True) which blocks.",
+    "Awaiting executor.shutdown() inside async functions - this synchronously blocks the event loop.",
+    "Ignoring client disconnects without cancelling pending futures - they can hold resources and cause resource leaks."
+  ],
+  "faq": [
+    {
+      "question": "Which Python versions support the non-blocking executor pattern?",
+      "answer": "Python 3.9+ supports shutdown(wait=False, cancel_futures=True). Earlier versions require workarounds like running shutdown in a thread."
+    },
+    {
+      "question": "What are reasonable timeouts for curl smoke tests?",
+      "answer": "Use -m 5 for quick health checks (5 second max). Increase to -m 30 for full stream tests to avoid false positives."
+    },
+    {
+      "question": "How do I integrate this with Docker deployments?",
+      "answer": "Install py-spy in the Docker image, then use docker exec to run stack captures. Ensure the container has CAP_SYS_PTRACE or run py-spy with appropriate capabilities."
+    },
+    {
+      "question": "Does this skill collect any data from my system?",
+      "answer": "No. This skill provides documentation only. It contains no executable code and makes no network calls or file system accesses."
+    },
+    {
+      "question": "Why does my app hang only during stream disconnects?",
+      "answer": "The context manager calls shutdown(wait=True), which blocks until all worker threads complete. If threads are stuck on network I/O, the event loop waits indefinitely."
+    },
+    {
+      "question": "How does this compare to using asyncio threads?",
+      "answer": "ThreadPoolExecutor with blocking I/O works but requires careful shutdown. asyncio.to_thread is simpler for fire-and-forget tasks but also benefits from non-blocking patterns when task cancellation is needed."
+    }
+  ],
+  "seoKeywords": [
+    "FastAPI hang debugging",
+    "ThreadPoolExecutor shutdown",
+    "py-spy stack capture",
+    "event loop blocking",
+    "SSE stream issues",
+    "FastAPI performance",
+    "Claude Code debugging",
+    "Python concurrency debugging",
+    "backend troubleshooting",
+    "FastAPI devops"
+  ],
+  "sourceUrl": "https://github.com/BenderFendor/Thesis/tree/main/.github/skills/backend-hang-debug",
+  "sourceType": "community",
+  "dependencies": []
+}

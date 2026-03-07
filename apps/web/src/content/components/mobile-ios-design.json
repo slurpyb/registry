@@ -1,0 +1,144 @@
+{
+  "name": "mobile-ios-design",
+  "type": "skill",
+  "description": "Master iOS Human Interface Guidelines and SwiftUI patterns for building native iOS apps. Use when designing iOS interfaces, implementing SwiftUI views, or ensuring apps follow Apple's design principles.",
+  "domain": "mobile",
+  "subdomain": "ios",
+  "specialty": "Human Interface Guidelines",
+  "quality": 5,
+  "qualityReason": "Specific to Apple's standards",
+  "bundleHints": [
+    "ios-stack",
+    "mobile-design"
+  ],
+  "tags": [
+    "apple",
+    "apple design",
+    "hig",
+    "human-interface-guidelines",
+    "interface patterns",
+    "ios",
+    "ios ui",
+    "mobile-design",
+    "native apps",
+    "swiftui"
+  ],
+  "capabilities": [
+    "Provide iOS Human Interface Guidelines principles for clarity, deference, and depth",
+    "Generate SwiftUI code for navigation patterns including NavigationStack, TabView, and NavigationSplitView",
+    "Create adaptive layouts for iPhone and iPad using size classes and grid systems",
+    "Implement SF Symbols, semantic colors, and Dynamic Type for platform-native appearance",
+    "Design accessible interfaces with VoiceOver support and accessibility modifiers",
+    "Build toolbar patterns, search integration, and haptic feedback implementations"
+  ],
+  "author": "wshobson",
+  "icon": "iphone",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing iOS design guidelines and SwiftUI code examples. All static findings are false positives: markdown code blocks (```swift) were misidentified as shell backticks, Swift code patterns triggered crypto/recon heuristics, and Apple documentation URLs were flagged as hardcoded URLs. No executable code, network calls, credential handling, or shell commands present.",
+  "valueStatement": "Building iOS apps requires following Apple Human Interface Guidelines and modern SwiftUI patterns. This skill provides comprehensive references for creating polished, accessible, and platform-native iOS interfaces.",
+  "userTitle": "Design Native iOS Interfaces",
+  "limitations": [
+    "Does not generate complete Xcode projects or iOS app scaffolding",
+    "Does not provide Swift coding beyond UI and design patterns",
+    "Does not integrate with Apple APIs or services beyond documentation references",
+    "Does not validate design decisions against app store review guidelines"
+  ],
+  "useCases": [
+    {
+      "targetUser": "iOS developers building new applications",
+      "title": "Build iOS App Interfaces",
+      "description": "Generate SwiftUI code for creating iOS app interfaces that follow Apple Human Interface Guidelines, including navigation, layouts, and system integration."
+    },
+    {
+      "targetUser": "Developers maintaining or upgrading iOS apps",
+      "title": "Refactor Existing UI Code",
+      "description": "Modernize legacy UIKit code to SwiftUI, or improve existing SwiftUI implementations to better follow platform conventions."
+    },
+    {
+      "targetUser": "Developers new to iOS or SwiftUI",
+      "title": "Learn iOS Design Patterns",
+      "description": "Study reference examples for common iOS design patterns including navigation, lists, forms, accessibility, and visual feedback."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Navigation Pattern",
+      "prompt": "Create a SwiftUI navigation pattern using NavigationStack for an iOS app that shows a list of items. Include programmatic navigation and state persistence.",
+      "scenario": "Building a navigation structure for an iOS app"
+    },
+    {
+      "title": "Design Adaptive Layout",
+      "prompt": "Create an adaptive SwiftUI layout that uses size classes to show a single-column grid on iPhone and a three-column grid on iPad. Include safe area handling.",
+      "scenario": "Building responsive layouts for multiple iOS device sizes"
+    },
+    {
+      "title": "Implement Accessible Components",
+      "prompt": "Create accessible SwiftUI components including VoiceOver support, Dynamic Type scaling, and semantic color usage for automatic dark mode.",
+      "scenario": "Ensuring iOS app accessibility compliance"
+    },
+    {
+      "title": "Build Form with Validation",
+      "prompt": "Create a settings form in SwiftUI with text fields, toggles, pickers, and custom validation. Include @AppStorage for persistence and proper iOS form styling.",
+      "scenario": "Building user preference screens in iOS apps"
+    }
+  ],
+  "bestPractices": [
+    "Use semantic colors (.primary, .secondary, .background) instead of hardcoded colors for automatic light/dark mode support",
+    "Apply semantic fonts (.body, .headline, .title) instead of fixed sizes to support Dynamic Type",
+    "Include accessibility modifiers (.accessibilityLabel, .accessibilityHint) on all interactive elements"
+  ],
+  "antiPatterns": [
+    "Using fixed frame sizes or hardcoded padding values instead of flexible layouts and safe area insets",
+    "Ignoring size classes when designing for both iPhone and iPad form factors",
+    "Skipping accessibility testing or using fixed text instead of semantic fonts"
+  ],
+  "faq": [
+    {
+      "question": "What iOS versions does this skill support?",
+      "answer": "The skill focuses on modern iOS patterns (iOS 16+) including NavigationStack, but also includes legacy patterns like NavigationLink for compatibility with earlier versions."
+    },
+    {
+      "question": "Does this skill generate complete app projects?",
+      "answer": "No. This skill provides design patterns, component examples, and guidelines. You will need to integrate the generated code into your own Xcode project."
+    },
+    {
+      "question": "How do I handle deep linking in iOS apps?",
+      "answer": "Use NavigationStack with NavigationPath to build deep linking support. Append destinations programmatically and handle URL schemes in your app delegate."
+    },
+    {
+      "question": "What accessibility features should I implement?",
+      "answer": "Include .accessibilityLabel(), .accessibilityHint(), .accessibilityValue() on interactive views. Support Dynamic Type with semantic fonts and test with VoiceOver enabled."
+    },
+    {
+      "question": "How do I support both iPhone and iPad layouts?",
+      "answer": "Use @Environment(\\.horizontalSizeClass) to detect compact vs regular size classes. Create different column counts and layouts for each class using GridItem with .adaptive or .flexible."
+    },
+    {
+      "question": "Does this skill cover UIKit or only SwiftUI?",
+      "answer": "This skill focuses on SwiftUI patterns. For UIKit patterns, you would need a separate skill or reference Apple's UIKit documentation."
+    }
+  ],
+  "seoKeywords": [
+    "iOS design",
+    "SwiftUI",
+    "Human Interface Guidelines",
+    "mobile app design",
+    "iOS UI components",
+    "Apple design patterns",
+    "iOS navigation",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/mobile-ios-design/",
+  "sourceType": "community",
+  "dependencies": []
+}

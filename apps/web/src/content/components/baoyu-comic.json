@@ -1,0 +1,139 @@
+{
+  "name": "baoyu-comic",
+  "type": "skill",
+  "description": "Knowledge comic creator supporting multiple styles (Logicomix/Ligne Claire, Ohmsha manga guide). Creates original educational comics with detailed panel layouts and sequential image generation. Use when user asks to create \"知识漫画\", \"教育漫画\", \"biography comic\", \"tutorial comic\", or \"Logicomix-style comic\".",
+  "domain": "ai-ml",
+  "subdomain": "computer-vision",
+  "specialty": "Educational Comics",
+  "quality": 5,
+  "qualityReason": "Original educational content",
+  "bundleHints": [
+    "content-creation",
+    "edtech"
+  ],
+  "tags": [
+    "comic",
+    "creative",
+    "education",
+    "image-generation",
+    "sequential-art",
+    "visual-storytelling"
+  ],
+  "capabilities": [
+    "Creates multi-page educational comics from text content",
+    "Supports multiple visual styles (Ligne Claire, manga, dramatic, tech, sepia)",
+    "Generates character designs and reference sheets",
+    "Produces storyboards with panel layouts and visual prompts",
+    "Merges generated pages into PDF documents",
+    "Auto-selects style and layout based on content type"
+  ],
+  "author": "JimLiu",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static scanner detected 168 patterns including external_commands, weak cryptographic algorithms, and C2 keywords. All findings are FALSE POSITIVES. The scanner misinterpreted markdown code block backticks as shell commands, color hex codes as cryptographic hashes, and color names as C2 indicators. The actual code is a benign PDF generation script with standard file operations and no network access.",
+  "valueStatement": "Transform complex topics into engaging visual comics. Generate multi-page educational comics with character designs, storyboards, and panel layouts in various artistic styles.",
+  "userTitle": "Create educational knowledge comics",
+  "limitations": [
+    "Requires image generation skill for actual image creation",
+    "Output quality depends on source content quality",
+    "Limited to supported aspect ratios (3:4, 4:3, 16:9)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Educators",
+      "title": "Create tutorial comics",
+      "description": "Transform educational content into visual learning materials for students"
+    },
+    {
+      "targetUser": "Content creators",
+      "title": "Make biography comics",
+      "description": "Turn historical figures or personal stories into illustrated narrative comics"
+    },
+    {
+      "targetUser": "Technical writers",
+      "title": "Generate explainer comics",
+      "description": "Convert complex technical topics into accessible visual explanations"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic comic",
+      "scenario": "Create a simple educational comic",
+      "prompt": "Create a knowledge comic about [TOPIC] with 5-8 pages using the classic style and standard layout."
+    },
+    {
+      "title": "Tutorial comic",
+      "scenario": "Create a how-to guide comic",
+      "prompt": "Create a tutorial comic about [TOPIC] using ohmsha style and webtoon layout for beginners."
+    },
+    {
+      "title": "Biography comic",
+      "scenario": "Create a biographical comic",
+      "prompt": "Create a biography comic about [HISTORICAL FIGURE] using classic style and mixed layout, covering their life from [START] to [END]."
+    },
+    {
+      "title": "Technical comic",
+      "scenario": "Create a technical explainer comic",
+      "prompt": "Create an educational comic explaining [CONCEPT] using tech style and dense layout, aimed at [AUDIENCE]."
+    }
+  ],
+  "bestPractices": [
+    "Provide rich source content with specific examples and vivid details for better visual storytelling",
+    "Choose style and layout that match your content type (biography, tutorial, technical)",
+    "Review and edit generated storyboards before image generation for best results"
+  ],
+  "antiPatterns": [
+    "Using overly technical jargon without context can result in confusing visual narratives",
+    "Skipping the storyboard review step may lead to misaligned panels and content",
+    "Ignoring aspect ratio recommendations can cause unexpected image compositions"
+  ],
+  "faq": [
+    {
+      "question": "What styles are available?",
+      "answer": "Classic, dramatic, warm, tech, sepia, vibrant, ohmsha, realistic, or custom description."
+    },
+    {
+      "question": "What layouts are supported?",
+      "answer": "Standard, cinematic, dense, splash, mixed, and webtoon layouts for different panel arrangements."
+    },
+    {
+      "question": "Can I use my own characters?",
+      "answer": "Yes, provide character descriptions or reference images. Default ohmsha style uses Doraemon characters."
+    },
+    {
+      "question": "How many pages can I create?",
+      "answer": "Short stories: 5-8 pages, medium: 9-15 pages, full biographies: 16-25 pages recommended."
+    },
+    {
+      "question": "What languages are supported?",
+      "answer": "Auto-detected from source, output can be in Chinese, English, Japanese, or other languages."
+    },
+    {
+      "question": "How do I modify pages after generation?",
+      "answer": "Edit the prompt file in prompts/ folder, regenerate the image, then run merge-to-pdf.ts again."
+    }
+  ],
+  "seoKeywords": [
+    "baoyu-comic",
+    "comic generator",
+    "knowledge comic",
+    "educational comic",
+    "visual storytelling",
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "image generation",
+    "manga style"
+  ],
+  "sourceUrl": "https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-comic/",
+  "sourceType": "community",
+  "dependencies": []
+}

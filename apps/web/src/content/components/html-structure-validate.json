@@ -1,0 +1,141 @@
+{
+  "name": "html-structure-validate",
+  "type": "skill",
+  "description": "Validate HTML5 structure and basic syntax. BLOCKING quality gate - stops pipeline if validation fails. Ensures deterministic output quality.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "HTML validation",
+  "quality": 5,
+  "qualityReason": "Blocking validation quality gate",
+  "bundleHints": [
+    "frontend-quality",
+    "ci-cd"
+  ],
+  "tags": [
+    "deterministic",
+    "html",
+    "html5",
+    "pipeline",
+    "quality-gate",
+    "structure",
+    "syntax",
+    "validation"
+  ],
+  "capabilities": [
+    "Validates HTML5 DOCTYPE declaration",
+    "Checks proper tag closure and nesting",
+    "Verifies required meta tags and title",
+    "Confirms CSS stylesheet link presence",
+    "Validates page container structure",
+    "Generates JSON validation report"
+  ],
+  "author": "AbeJitsu",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only SKILL.md and skill-report.json. No executable code, scripts, network calls, or file operations are present. The skill describes how to validate HTML structure using an external Python tool. Static scanner detected documentation patterns (code examples, file paths, hash values) that triggered false positive security rules.",
+  "valueStatement": "AI-generated HTML often contains structural errors that cause rendering issues. This quality gate validates HTML5 compliance, tag closure, and required elements before the pipeline continues.",
+  "userTitle": "Validate HTML5 Structure",
+  "limitations": [
+    "Does not validate CSS or JavaScript syntax",
+    "Does not check accessibility compliance",
+    "Requires external Python validate_html.py tool",
+    "Does not fix HTML errors automatically"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content creators",
+      "title": "HTML Quality Gate",
+      "description": "Ensures AI-generated book pages meet HTML structural standards before publishing"
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Pipeline Validation",
+      "description": "Validates generated HTML files as part of automated content processing pipelines"
+    },
+    {
+      "targetUser": "Technical writers",
+      "title": "Structural Compliance",
+      "description": "Checks that all pages contain required elements and proper HTML structure"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Validation",
+      "scenario": "Validate HTML structure",
+      "prompt": "Use the html-structure-validate skill to check 04_page_XX.html for HTML5 compliance and proper structure. Report any errors."
+    },
+    {
+      "title": "Strict Mode",
+      "scenario": "Validate with warnings",
+      "prompt": "Run html-structure-validate in strict mode on chapter_XX page HTML. Include warnings in the failure criteria."
+    },
+    {
+      "title": "Batch Validation",
+      "scenario": "Validate multiple pages",
+      "prompt": "Use html-structure-validate to check all generated pages in chapter_XX. Generate individual validation reports for each page."
+    },
+    {
+      "title": "CI Integration",
+      "scenario": "Pipeline quality gate",
+      "prompt": "Run html-structure-validate as a quality gate. Fail the pipeline if any page fails structure validation. Output results to validation_reports/."
+    }
+  ],
+  "bestPractices": [
+    "Run validation as the first quality gate before semantic analysis",
+    "Configure strict mode for production content pipelines",
+    "Review validation reports to identify patterns in AI-generated HTML issues"
+  ],
+  "antiPatterns": [
+    "Skipping validation and proceeding with malformed HTML",
+    "Ignoring warnings that accumulate across multiple pages",
+    "Using validation as a replacement for prompt engineering"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill fix HTML errors?",
+      "answer": "No. This skill validates and reports errors only. You must fix issues manually or regenerate with improved prompts."
+    },
+    {
+      "question": "What HTML elements are required?",
+      "answer": "Required: DOCTYPE, html, head, body, title, CSS link, page-container div, and main content area."
+    },
+    {
+      "question": "Can I skip validation?",
+      "answer": "Yes, but this is a blocking quality gate. Skipping may result in broken or non-compliant HTML in your output."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "This skill reads specified HTML files and generates local JSON reports. No data leaves your machine."
+    },
+    {
+      "question": "Why does validation fail sometimes?",
+      "answer": "Common causes: missing DOCTYPE, unclosed tags, missing title tag, no CSS link, or empty content areas."
+    },
+    {
+      "question": "How is this different from semantic validation?",
+      "answer": "Structure validation checks HTML syntax and required elements. Semantic validation checks meaning and context."
+    }
+  ],
+  "seoKeywords": [
+    "HTML5 validation",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "HTML structure",
+    "quality gate",
+    "tag validation",
+    "DOCTYPE validation",
+    "semantic HTML"
+  ],
+  "sourceUrl": "https://github.com/AbeJitsu/Game-Settings-Panel/tree/main/.claude/skills/calypso/html-structure-validate",
+  "sourceType": "community",
+  "dependencies": []
+}

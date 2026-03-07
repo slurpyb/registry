@@ -1,0 +1,143 @@
+{
+  "name": "wezterm",
+  "type": "skill",
+  "description": "Control WezTerm terminal emulator via CLI. Manage panes, tabs, workspaces, and execute commands in running terminals.",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "terminal control",
+  "quality": 5,
+  "qualityReason": "Specific CLI terminal control",
+  "bundleHints": [
+    "cli-tools",
+    "terminal-workflow"
+  ],
+  "tags": [
+    "automation",
+    "cli",
+    "multiplexer",
+    "panes",
+    "productivity",
+    "tabs",
+    "terminal",
+    "wezterm",
+    "workspaces"
+  ],
+  "capabilities": [
+    "List all WezTerm panes and clients in plain or JSON format",
+    "Split, move focus, and activate panes in any direction",
+    "Create, activate, and navigate tabs with absolute and relative indexing",
+    "Send text commands directly to specific panes",
+    "Manage workspaces and multiplexer domains (local, SSH)",
+    "Toggle zoom and control pane display states"
+  ],
+  "author": "Dicklesworthstone",
+  "icon": "🖥️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill providing WezTerm CLI reference material. No executable code, network calls, or file system access is included. The static scanner incorrectly flagged markdown documentation examples and hash values as security threats. All 72 findings are false positives.",
+  "valueStatement": "Managing terminal panes, tabs, and workspaces manually is repetitive and error-prone. This skill provides ready-to-use WezTerm CLI commands for automation and efficient terminal workflow management.",
+  "userTitle": "Control WezTerm Terminal from CLI",
+  "limitations": [
+    "Requires WezTerm to be installed on the system",
+    "CLI commands require WezTerm to be running or available in PATH",
+    "SSH domain connections require pre-configured SSH targets",
+    "Does not provide interactive terminal sessions within the skill"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Automate Terminal Layouts",
+      "description": "Create consistent multi-pane terminal layouts for monitoring and deployment tasks across sessions."
+    },
+    {
+      "targetUser": "Remote Workers",
+      "title": "Manage SSH Connections",
+      "description": "Organize and navigate between local and SSH terminal domains with simple CLI commands."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Streamline Development Workflows",
+      "description": "Send commands to running panes without leaving your editor, maintaining context and productivity."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List Panes",
+      "scenario": "Show all open panes",
+      "prompt": "Show me all WezTerm panes currently open in JSON format."
+    },
+    {
+      "title": "Split Terminal",
+      "scenario": "Create split pane layout",
+      "prompt": "Split the current pane horizontally and run htop in the new pane."
+    },
+    {
+      "title": "Navigate Tabs",
+      "scenario": "Switch between tabs",
+      "prompt": "Activate the next tab and then show me how to go back to the previous one."
+    },
+    {
+      "title": "Connect SSH domain",
+      "scenario": "Connect to SSH server",
+      "prompt": "How do I connect to an SSH domain called production-server using the WezTerm CLI?"
+    }
+  ],
+  "bestPractices": [
+    "Add WezTerm CLI to PATH for simpler command access across all contexts",
+    "Use JSON output format when piping to other tools or scripts",
+    "Combine pane and tab management commands for complex workflow automation"
+  ],
+  "antiPatterns": [
+    "Running commands without verifying pane IDs when targeting specific terminals",
+    "Using relative tab navigation without tracking current position",
+    "Sending untested commands to production panes without confirmation"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work on Windows and Linux?",
+      "answer": "WezTerm supports macOS, Linux, and Windows. The CLI works similarly across platforms with minor path differences."
+    },
+    {
+      "question": "What are the rate limits for CLI commands?",
+      "answer": "There are no rate limits for local CLI commands. Use standard shell best practices for rapid automation."
+    },
+    {
+      "question": "How do I integrate with other tools?",
+      "answer": "Use --format json output to pipe pane data to jq, grep, or other CLI tools for scripting."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "This skill only reads and displays terminal information. No data is transmitted externally."
+    },
+    {
+      "question": "Commands are not working, what should I check?",
+      "answer": "Verify WezTerm is installed, the CLI is in PATH, and WezTerm is running if using GUI features."
+    },
+    {
+      "question": "How does this compare to tmux or screen?",
+      "answer": "WezTerm provides similar multiplexing with a modern GUI. Commands differ but concepts overlap. Use both together."
+    }
+  ],
+  "seoKeywords": [
+    "WezTerm CLI",
+    "WezTerm terminal",
+    "terminal multiplexer",
+    "WezTerm panes",
+    "WezTerm tabs",
+    "WezTerm workspaces",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "terminal automation"
+  ],
+  "sourceUrl": "https://github.com/Dicklesworthstone/agent_flywheel_clawdbot_skills_and_integrations/tree/main/skills/wezterm",
+  "sourceType": "community",
+  "dependencies": []
+}

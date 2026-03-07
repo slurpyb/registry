@@ -1,0 +1,143 @@
+{
+  "name": "modal",
+  "type": "skill",
+  "description": "Run Python code in the cloud with serverless containers, GPUs, and autoscaling. Use when deploying ML models, running batch processing jobs, scheduling compute-intensive tasks, or serving APIs that require GPU acceleration or dynamic scaling.",
+  "domain": "devops",
+  "subdomain": "cloud",
+  "specialty": "serverless Python",
+  "quality": 5,
+  "qualityReason": "Clear use cases and platform",
+  "bundleHints": [
+    "cloud-ml",
+    "serverless-stack"
+  ],
+  "tags": [
+    "autoscaling",
+    "batch jobs",
+    "cloud compute",
+    "cloud-computing",
+    "gpu",
+    "machine-learning",
+    "ml deployment",
+    "python",
+    "serverless"
+  ],
+  "capabilities": [
+    "Deploy Python functions to serverless cloud containers with GPU support",
+    "Scale automatically from zero to thousands of parallel containers",
+    "Run scheduled cron jobs for periodic data processing and model retraining",
+    "Persist data across runs using distributed volumes for model weights and datasets",
+    "Securely manage API keys and credentials through Modal Secrets",
+    "Serve HTTP endpoints and APIs with automatic HTTPS and custom domains"
+  ],
+  "author": "davila7",
+  "icon": "☁️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing no executable code. All 566 static findings are false positives - the scanner misinterpreted markdown documentation examples as executable code. The skill contains only Markdown files explaining how to use the Modal cloud platform, with no Python files, scripts, or actual command execution capabilities.",
+  "valueStatement": "Running ML models and batch processing locally is slow and expensive. Modal lets you deploy Python functions to the cloud with automatic GPU access, containers that scale from zero to thousands, and pay-only-for-compute billing.",
+  "userTitle": "Deploy Python to cloud with GPUs and autoscaling",
+  "limitations": [
+    "Requires Modal account and authentication token for cloud access",
+    "Cloud resources incur costs based on compute usage beyond free credits",
+    "Limited to Python workloads; other languages require custom Docker images",
+    "Cold starts may cause latency on first request after idle periods"
+  ],
+  "useCases": [
+    {
+      "targetUser": "ML Engineers",
+      "title": "Deploy ML model inference",
+      "description": "Serve transformer models and custom ML models with GPU acceleration and automatic scaling"
+    },
+    {
+      "targetUser": "Data Scientists",
+      "title": "Run batch data processing",
+      "description": "Process large datasets in parallel across hundreds of containers without managing infrastructure"
+    },
+    {
+      "targetUser": "Researchers",
+      "title": "Schedule compute jobs",
+      "description": "Automate periodic tasks like model retraining, data pipelines, and report generation"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic model deployment",
+      "scenario": "Deploy a Python ML model to Modal",
+      "prompt": "Help me deploy a Hugging Face transformer model to Modal for inference. I want to use an L40S GPU and serve predictions via a web endpoint."
+    },
+    {
+      "title": "Batch processing",
+      "scenario": "Process large dataset in parallel",
+      "prompt": "Create a Modal script that processes 1000 CSV files in parallel across multiple containers using .map(). Each file needs CPU and memory resources."
+    },
+    {
+      "title": "Scheduled training",
+      "scenario": "Automate model retraining",
+      "prompt": "Set up a weekly scheduled job on Modal that retrains my model on new data every Sunday at 2 AM UTC. Include GPU access and checkpoint saving to a Volume."
+    },
+    {
+      "title": "Web API with secrets",
+      "scenario": "Create authenticated API endpoint",
+      "prompt": "Build a Modal web endpoint that uses FastAPI, requires bearer token authentication, and accesses external APIs using Modal Secrets for credentials."
+    }
+  ],
+  "bestPractices": [
+    "Pin package versions in image definitions for reproducible builds",
+    "Use Volumes to store model weights and avoid re-downloading on each run",
+    "Configure min_containers to reduce cold start latency for production APIs"
+  ],
+  "antiPatterns": [
+    "Hardcoding API keys in code instead of using Modal Secrets",
+    "Processing items one-by-one instead of using .map() for parallel execution",
+    "Forgetting to call volume.commit() after writing data that needs to persist"
+  ],
+  "faq": [
+    {
+      "question": "Is Modal free to use?",
+      "answer": "Modal offers $30/month in free credits for new accounts. Pay only for compute used beyond that."
+    },
+    {
+      "question": "What GPU types are available?",
+      "answer": "T4, L4, A10, A100 (40GB/80GB), L40S, H100, H200, and B200. L40S offers best value for inference."
+    },
+    {
+      "question": "How does Modal integrate with Claude Code?",
+      "answer": "Install the Modal skill, then write Python functions decorated with @app.function() to run code remotely."
+    },
+    {
+      "question": "Is my data safe on Modal?",
+      "answer": "Modal encrypts data at rest and in transit. Secrets are encrypted and not logged."
+    },
+    {
+      "question": "Why am I getting timeout errors?",
+      "answer": "Default function timeout is 5 minutes. Increase with @app.function(timeout=3600) for longer operations."
+    },
+    {
+      "question": "How does Modal compare to AWS Lambda?",
+      "answer": "Modal offers better GPU support, longer timeouts (up to 24 hours), and persistent storage via Volumes."
+    }
+  ],
+  "seoKeywords": [
+    "Modal cloud computing",
+    "Claude Code Modal skill",
+    "serverless Python GPU",
+    "cloud ML deployment",
+    "batch processing cloud",
+    "Modal autoscaling",
+    "Python serverless platform",
+    "GPU computing Claude",
+    "Modal cron scheduling",
+    "Modal secrets management"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/modal",
+  "sourceType": "community",
+  "dependencies": []
+}

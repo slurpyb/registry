@@ -1,0 +1,139 @@
+{
+  "name": "claude-opus-4-5-migration",
+  "type": "skill",
+  "description": "將提示詞和程式碼從 Claude Sonnet 4.0、Sonnet 4.5 或 Opus 4.1 遷移至 Opus 4.5。當使用者想要更新其程式碼庫、提示詞或 API 呼叫以使用 Opus 4.5 時使用。處理模型字串更新和針對已知 Opus 4.5 行為差異的提示詞調整。不會遷移 Haiku 4.5。",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "model migration",
+  "quality": 5,
+  "qualityReason": "Critical for model version updates",
+  "bundleHints": [
+    "claude-ecosystem",
+    "migration-tools"
+  ],
+  "tags": [
+    "api-integration",
+    "claude-opus",
+    "configuration",
+    "model-migration",
+    "prompt-adjustment",
+    "version-upgrade"
+  ],
+  "capabilities": [
+    "Search codebase for model strings and API calls across platforms",
+    "Update model strings to Opus 4.5 for Anthropic API, AWS Bedrock, Google Vertex AI, and Azure",
+    "Remove unsupported beta headers with explanatory comments",
+    "Add effort parameter configuration for optimal Opus 4.5 performance",
+    "Apply optional prompt adjustments for known behavioral differences",
+    "Provide detailed migration summary with all changes made"
+  ],
+  "author": "DennisLiuCk",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only instructions and reference guides for AI model migration. Static findings are all false positives triggered by markdown code formatting (backticks) and model version strings. No executable code, network operations, or security risks detected.",
+  "valueStatement": "Update your codebase from Claude Sonnet 4.0/4.5 or Opus 4.5 to Opus 4.5. This skill handles model string updates, beta header removal, and optional prompt adjustments for known behavioral differences.",
+  "userTitle": "Migrate Claude code to Opus 4.5",
+  "limitations": [
+    "Does not migrate Haiku 4.5 models",
+    "Does not modify user code beyond model string updates",
+    "Applies prompt fixes only when user explicitly requests or reports issues",
+    "Requires manual verification of third-party API compatibility"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers",
+      "title": "API integration updates",
+      "description": "Update all model strings in application code when migrating to Opus 4.5"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Infrastructure configuration",
+      "description": "Migrate cloud deployment configs across AWS Bedrock, Vertex AI, or Azure"
+    },
+    {
+      "targetUser": "AI engineers",
+      "title": "Prompt optimization",
+      "description": "Apply behavioral adjustments for Opus 4.5 differences when issues arise"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic migration",
+      "scenario": "Migrate codebase to Opus 4.5",
+      "prompt": "Use the claude-opus-4-5-migration skill to migrate my codebase from [claude-sonnet-4-20250514/claude-sonnet-4-5-20250929/claude-opus-4-1-20250422] to Opus 4.5."
+    },
+    {
+      "title": "Multi-platform migration",
+      "scenario": "Update configs for cloud platforms",
+      "prompt": "Migrate all model configurations in my project to Opus 4.5, including AWS Bedrock, Google Vertex AI, and Azure AI Foundry settings."
+    },
+    {
+      "title": "With effort parameter",
+      "scenario": "Enable high effort mode",
+      "prompt": "Migrate to Opus 4.5 and add the effort parameter set to high for optimal performance."
+    },
+    {
+      "title": "With prompt fixes",
+      "scenario": "Apply behavioral adjustments",
+      "prompt": "Migrate to Opus 4.5 and apply all relevant prompt adjustments for tool overtriggering and over-engineering prevention."
+    }
+  ],
+  "bestPractices": [
+    "Run migration on a feature branch and test thoroughly before merging",
+    "Apply prompt adjustments only after confirming specific issues in Opus 4.5 behavior",
+    "Review all changes and verify third-party service compatibility before deployment"
+  ],
+  "antiPatterns": [
+    "Migrating production code without testing in a staging environment",
+    "Applying all prompt fixes proactively without user-reported issues",
+    "Forgetting to update documentation after migration"
+  ],
+  "faq": [
+    {
+      "question": "Which Claude models can be migrated to Opus 4.5?",
+      "answer": "Supports Sonnet 4.0, Sonnet 4.5, and Opus 4.1. Does not migrate Haiku models."
+    },
+    {
+      "question": "What platforms are supported for migration?",
+      "answer": "Anthropic API (1P), AWS Bedrock, Google Vertex AI, and Azure AI Foundry."
+    },
+    {
+      "question": "What is the effort parameter?",
+      "answer": "Controls model token spending. High effort provides best performance for Opus 4.5."
+    },
+    {
+      "question": "Is my data safe during migration?",
+      "answer": "The skill only reads and modifies model string configurations. No data is sent externally."
+    },
+    {
+      "question": "Why keep default prompt adjustments?",
+      "answer": "Apply prompt fixes only when users report issues. Default Opus 4.5 behavior works well for most cases."
+    },
+    {
+      "question": "How is this different from other migration tools?",
+      "answer": "Provides platform-specific model strings, behavioral adjustments, and comprehensive documentation of all changes."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Opus 4.5 migration",
+    "Claude model upgrade",
+    "Claude API migration",
+    "Anthropic model strings",
+    "AWS Bedrock Claude",
+    "Google Vertex AI Claude",
+    "Claude Code migration",
+    "Claude Sonnet 4.5",
+    "Claude Opus 4.1"
+  ],
+  "sourceUrl": "https://github.com/DennisLiuCk/claude-plugin-marketplace/tree/main/plugins/claude-opus-4-5-migration/skills/claude-opus-4-5-migration",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,135 @@
+{
+  "name": "memory-orchestration",
+  "type": "skill",
+  "description": "Analyze context management, memory systems, and state continuity in agent frameworks. Use when (1) understanding how prompts are assembled, (2) evaluating eviction policies for context overflow, (3) mapping memory tiers (short-term/long-term), (4) analyzing token budget management, or (5) comparing context strategies across frameworks.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "State continuity",
+  "quality": 5,
+  "qualityReason": "Critical for agent design",
+  "bundleHints": [
+    "agent-framework",
+    "memory-system"
+  ],
+  "tags": [
+    "context",
+    "memory",
+    "state-management",
+    "token-budget"
+  ],
+  "capabilities": [
+    "Trace how prompts are assembled from system prompts, context, tools, history, and user input",
+    "Identify and evaluate eviction policies including FIFO, sliding window, summarization, and vector store swapping",
+    "Map memory tiers from working memory to persistent database storage",
+    "Analyze token counting strategies and budget allocation approaches"
+  ],
+  "author": "Dowwie",
+  "icon": "🧠",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only educational content about memory orchestration concepts. All 49 static findings are false positives: the analyzer misinterpreted memory management code snippets as cryptographic operations and markdown backticks as shell execution. No executable code, file access, network calls, or command execution capabilities exist.",
+  "valueStatement": "Agent frameworks struggle with context overflow and memory management. This skill provides systematic analysis of context assembly, eviction policies, and token budgeting strategies across different implementations.",
+  "userTitle": "Analyze context memory systems in agent frameworks",
+  "limitations": [
+    "Does not modify or execute code in target frameworks",
+    "Requires codebase-mapping skill to identify memory-related files first",
+    "Cannot access live running systems or their memory states"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI Researchers",
+      "title": "Compare memory strategies",
+      "description": "Evaluate how different agent frameworks handle context overflow and memory persistence"
+    },
+    {
+      "targetUser": "Framework Developers",
+      "title": "Design memory systems",
+      "description": "Learn patterns for implementing token budgeting and memory tier management"
+    },
+    {
+      "targetUser": "Technical Auditors",
+      "title": "Audit context handling",
+      "description": "Analyze prompt assembly order and memory tier mapping in existing implementations"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Framework Analysis",
+      "scenario": "Analyze memory system",
+      "prompt": "Analyze the memory orchestration patterns in [framework/repository]. Identify the context assembly order, eviction policy used, and memory tier structure."
+    },
+    {
+      "title": "Compare Eviction Policies",
+      "scenario": "Compare memory strategies",
+      "prompt": "Compare the eviction policies across [framework1] and [framework2]. Which approach is more effective for long conversations?"
+    },
+    {
+      "title": "Map Memory Tiers",
+      "scenario": "Map tier architecture",
+      "prompt": "Map the memory tiers in [framework]. How does data move from working memory to persistent storage? What triggers tier promotions?"
+    },
+    {
+      "title": "Token Budget Analysis",
+      "scenario": "Analyze token allocation",
+      "prompt": "Analyze the token management approach in [framework]. How are budgets allocated across system, tools, history, and input? What happens on overflow?"
+    }
+  ],
+  "bestPractices": [
+    "Always run codebase-mapping first to identify memory-related files before detailed analysis",
+    "Use the output template to standardize analysis reports across different frameworks",
+    "Combine with control-loop-extraction to understand scratchpad memory usage patterns"
+  ],
+  "antiPatterns": [
+    "Analyzing without first identifying memory files (use codebase-mapping skill)",
+    "Assuming all frameworks use the same context assembly order or eviction policy",
+    "Ignoring token counting accuracy differences between estimation methods"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. Each tool has different context window limits that affect memory strategy analysis."
+    },
+    {
+      "question": "What are the context window limits?",
+      "answer": "Context limits vary by model. Claude Code supports up to 200K tokens. Smaller windows require more aggressive eviction policies."
+    },
+    {
+      "question": "How does this integrate with other skills?",
+      "answer": "Run codebase-mapping first to find memory files. Feed findings into comparative-matrix for strategy comparisons. Combine with control-loop-extraction for scratchpad analysis."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only reads and analyzes code locally. No data is sent externally or persisted beyond the analysis session."
+    },
+    {
+      "question": "Why does memory management matter?",
+      "answer": "Poor memory handling causes context loss, repeated instructions, and degraded performance in long conversations. Understanding patterns helps build more capable agents."
+    },
+    {
+      "question": "How is this different from RAG?",
+      "answer": "RAG retrieves external documents. Memory orchestration manages conversation context and state continuity within the agent processing loop."
+    }
+  ],
+  "seoKeywords": [
+    "memory orchestration",
+    "context management",
+    "agent frameworks",
+    "token budget",
+    "Claude",
+    "Claude Code",
+    "context overflow",
+    "memory tiers",
+    "eviction policies",
+    "prompt assembly"
+  ],
+  "sourceUrl": "https://github.com/Dowwie/agent_framework_study/tree/main/.claude/skills/memory-orchestration",
+  "sourceType": "community",
+  "dependencies": []
+}

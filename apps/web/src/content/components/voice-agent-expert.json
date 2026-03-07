@@ -1,0 +1,140 @@
+{
+  "name": "voice-agent-expert",
+  "type": "skill",
+  "description": "This skill is a practical, 'use-it-while-debugging' reference for getting a LiveKit + Letta voice agent working reliably.",
+  "domain": "gaming",
+  "subdomain": "game-dev",
+  "specialty": "LiveKit + Letta",
+  "quality": 4,
+  "qualityReason": "Niche integration focus",
+  "bundleHints": [
+    "voice-agent",
+    "real-time-communication"
+  ],
+  "tags": [
+    "ai-voice",
+    "debugging",
+    "letta",
+    "livekit",
+    "real-time",
+    "troubleshooting",
+    "voice",
+    "voice-agent",
+    "webrtc"
+  ],
+  "capabilities": [
+    "Diagnose complete voice agent system health across all services",
+    "Generate LiveKit connection tokens automatically",
+    "Detect and kill duplicate voice agent processes",
+    "Start voice services with proper dependency checking",
+    "Validate environment variables and API keys"
+  ],
+  "author": "EGAdams",
+  "icon": "🎤",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate voice agent diagnostic and management skill. All static findings represent standard service administration patterns for local development. Scripts only access localhost services, read user-configured environment files, and generate tokens for the user's own session. No external data transmission or credential exfiltration detected.",
+  "valueStatement": "Voice conversations with AI agents often fail due to duplicate processes and mode mismatches. This skill provides instant diagnostics and automated fixes for Letta voice agent systems.",
+  "userTitle": "Fix voice agent issues instantly",
+  "limitations": [
+    "Requires specific Letta and LiveKit server setup",
+    "Scripts use hardcoded paths that need adjustment for your system",
+    "Only works with Python-based voice agents",
+    "Needs manual service startup for some components"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI developers",
+      "title": "Debug voice agent timeouts",
+      "description": "Quickly identify why your Letta voice agent is not responding or timing out during conversations."
+    },
+    {
+      "targetUser": "System administrators",
+      "title": "Automate voice service startup",
+      "description": "Start voice services in correct order with dependency checks and duplicate prevention."
+    },
+    {
+      "targetUser": "Voice AI users",
+      "title": "Fix audio cutting issues",
+      "description": "Resolve intermittent audio problems caused by duplicate voice agent processes."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic diagnostics",
+      "scenario": "Voice agent not responding",
+      "prompt": "Run a full diagnostic on my Letta voice agent system and tell me what is wrong"
+    },
+    {
+      "title": "Generate token",
+      "scenario": "Need connection token",
+      "prompt": "Generate a new LiveKit token for connecting to my voice agent"
+    },
+    {
+      "title": "Start services",
+      "scenario": "Services need restarting",
+      "prompt": "Start my voice agent system with all required services in the correct order"
+    },
+    {
+      "title": "Emergency restart",
+      "scenario": "Complete system failure",
+      "prompt": "Perform a complete restart of my voice agent system, killing any stuck processes"
+    }
+  ],
+  "bestPractices": [
+    "Always use dev mode for local testing, never start mode",
+    "Check for duplicate processes before troubleshooting",
+    "Use diagnostic script first to identify the root cause"
+  ],
+  "antiPatterns": [
+    "Starting voice agent directly without dependency checks",
+    "Using start mode for local development instead of dev mode",
+    "Ignoring duplicate process warnings in system logs"
+  ],
+  "faq": [
+    {
+      "question": "Is this compatible with all Letta versions?",
+      "answer": "Designed for Letta with LiveKit integration. Requires specific voice agent setup with WebRTC support."
+    },
+    {
+      "question": "What are the system requirements?",
+      "answer": "Requires Letta server on port 8283, LiveKit server on port 7880, and Python voice agent with proper environment variables."
+    },
+    {
+      "question": "Can I integrate this with my existing voice setup?",
+      "answer": "Scripts use hardcoded paths that need adjustment. Modify environment file locations for your system."
+    },
+    {
+      "question": "Is my API key data safe?",
+      "answer": "Scripts only read existing environment files. No data is transmitted or stored externally."
+    },
+    {
+      "question": "Voice still cuts out after using scripts",
+      "answer": "Check browser WebSocket connections and microphone permissions. Ensure single voice agent process is running."
+    },
+    {
+      "question": "How does this compare to manual troubleshooting?",
+      "answer": "Automates common fixes like duplicate detection and service startup order, saving hours of manual debugging."
+    }
+  ],
+  "seoKeywords": [
+    "voice agent",
+    "letta",
+    "livekit",
+    "webrtc",
+    "troubleshooting",
+    "claude code",
+    "ai voice",
+    "debugging",
+    "voice AI",
+    "Letta voice"
+  ],
+  "sourceUrl": "https://github.com/EGAdams/planner/tree/main/.claude/skills/voice-agent-expert",
+  "sourceType": "community",
+  "dependencies": []
+}

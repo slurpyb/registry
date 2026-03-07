@@ -1,0 +1,143 @@
+{
+  "name": "azure-resource-manager-redis-dotnet",
+  "type": "skill",
+  "description": "A skill for working with Azure Redis Cache using the Azure.ResourceManager.Redis .NET SDK. Provides guidance on creating, configuring, and managing Azure Redis instances through code, including best practices for connection strings, firewall rules, and clustering configurations.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "redis",
+  "quality": 5,
+  "qualityReason": "Clear Redis management guidance",
+  "bundleHints": [
+    "azure-databases",
+    "caching"
+  ],
+  "tags": [
+    "azure",
+    "azure-resource-manager",
+    "cache",
+    "caching",
+    "cloud",
+    "configuration",
+    "dotnet",
+    "management",
+    "redis"
+  ],
+  "capabilities": [
+    "Create new Azure Redis Cache instances with custom configurations",
+    "Configure Redis firewall rules and network settings",
+    "Set up Redis clustering and scaling options",
+    "Manage connection strings and access keys",
+    "Query Redis instance status and metrics",
+    "Configure persistence and backup settings"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only skill containing only documentation in SKILL.md (362 lines). No executable code was scanned. Static analysis found no suspicious patterns, dangerous code patterns, or risk factors. The skill provides guidance on Azure Redis Cache management using the .NET Azure SDK - a legitimate development tool.",
+  "valueStatement": "This skill helps .NET developers create and manage Azure Redis Cache instances programmatically using the Azure.ResourceManager.Redis SDK, eliminating manual portal configuration and enabling infrastructure-as-code practices.",
+  "userTitle": "Manage Azure Redis Cache in .NET",
+  "limitations": [
+    "Does not execute actual Azure operations - provides guidance only",
+    "Requires valid Azure subscription and credentials for real operations",
+    "Limited to features available in Azure.ResourceManager.Redis SDK",
+    "Does not cover Redis client-side implementation details"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Infrastructure Automation",
+      "description": "DevOps engineers automating Redis infrastructure provisioning in CI/CD pipelines"
+    },
+    {
+      "targetUser": ".NET Developers",
+      "title": "Application Development",
+      "description": "Developers integrating Azure Redis into .NET applications with proper configuration"
+    },
+    {
+      "targetUser": "Cloud Architects",
+      "title": "Cloud Migration",
+      "description": "Teams migrating from on-premise Redis to Azure Cloud Cache solutions"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Basic Redis Instance",
+      "prompt": "How do I create an Azure Redis Cache instance using the .NET Azure SDK with basic tier and default settings?",
+      "scenario": "Basic provisioning for new projects"
+    },
+    {
+      "title": "Configure Redis with Firewall Rules",
+      "prompt": "Show me how to create a Redis cache with custom firewall rules to allow specific IP addresses using Azure.ResourceManager.Redis.",
+      "scenario": "Securing Redis access"
+    },
+    {
+      "title": "Set Up Redis Clustering",
+      "prompt": "How do I configure Redis clustering with premium tier using the .NET SDK? Include cluster configuration and shard settings.",
+      "scenario": "High availability setup"
+    },
+    {
+      "title": "Manage Redis Keys and Connections",
+      "prompt": "What is the proper way to regenerate Redis access keys and get connection strings using the Azure SDK for .NET?",
+      "scenario": "Key rotation and connection management"
+    }
+  ],
+  "bestPractices": [
+    "Use Managed Identity for authentication instead of connection strings when possible",
+    "Always enable SSL/TLS for Redis connections in production environments",
+    "Configure appropriate TTL values for cached data to prevent stale data issues"
+  ],
+  "antiPatterns": [
+    "Hardcoding Redis connection strings in source code - use Azure Key Vault instead",
+    "Using basic tier for production workloads requiring high availability",
+    "Ignoring Redis maxmemory policy settings leading to eviction issues"
+  ],
+  "faq": [
+    {
+      "question": "What Azure SDK package do I need?",
+      "answer": "Install the Azure.ResourceManager.Redis NuGet package in your .NET project."
+    },
+    {
+      "question": "Which Redis tier should I choose?",
+      "answer": "Basic for development, Standard for production with replication, Premium for clustering and high availability."
+    },
+    {
+      "question": "How do I handle connection string security?",
+      "answer": "Store connection strings in Azure Key Vault and reference them via Managed Identity."
+    },
+    {
+      "question": "Can I resize my Redis cache after creation?",
+      "answer": "Yes, you can scale up or down within the same tier family using the Update operation."
+    },
+    {
+      "question": "What is the difference between Basic and Premium tier?",
+      "answer": "Basic is single node, Premium adds clustering, persistence, and higher throughput."
+    },
+    {
+      "question": "How do I monitor Redis performance?",
+      "answer": "Use Azure Monitor metrics for memory, CPU, connected clients, and cache hits/misses."
+    }
+  ],
+  "seoKeywords": [
+    "Azure Redis",
+    ".NET Redis SDK",
+    "Azure Cache for Redis",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Azure Resource Manager",
+    "Redis clustering",
+    "dotnet azure",
+    "cloud caching"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-resource-manager-redis-dotnet",
+  "sourceType": "community",
+  "dependencies": []
+}

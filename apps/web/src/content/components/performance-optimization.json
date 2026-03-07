@@ -1,0 +1,147 @@
+{
+  "name": "performance-optimization",
+  "type": "skill",
+  "description": "Full-stack performance analysis, optimization patterns, and monitoring strategies",
+  "domain": "performance",
+  "subdomain": "optimization",
+  "specialty": "full-stack patterns",
+  "quality": 4,
+  "qualityReason": "Broad but well-defined scope",
+  "bundleHints": [
+    "performance-stack"
+  ],
+  "tags": [
+    "best-practices",
+    "bundle",
+    "caching",
+    "core web vitals",
+    "full-stack",
+    "latency",
+    "latency-reduction",
+    "monitoring-strategies",
+    "optimization",
+    "performance",
+    "profiling",
+    "speed",
+    "speed-optimization",
+    "throughput",
+    "tuning"
+  ],
+  "capabilities": [
+    "Diagnose performance bottlenecks across database, API, and frontend layers",
+    "Implement cache-aside patterns with Redis and in-memory memoization",
+    "Optimize database queries including N+1 fixes and cursor pagination",
+    "Configure Prometheus metrics for performance monitoring",
+    "Apply React optimization patterns including virtualization and memoization",
+    "Set performance budgets and Core Web Vitals targets"
+  ],
+  "author": "ArieGoldkin",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation and code templates for performance optimization. All static findings are false positives: network URLs are repository/documentation links, external commands are example CLI commands in code blocks, cryptographic references are standard MD5 for ETags, and reconnaissance patterns are SQL diagnostic queries. The skill has no execution capability.",
+  "valueStatement": "Slow applications frustrate users and hurt business metrics. This skill provides proven patterns and templates to diagnose bottlenecks, implement caching strategies, and achieve optimal performance across frontend, backend, and database layers.",
+  "userTitle": "Optimize application performance across the stack",
+  "limitations": [
+    "Does not execute code or make changes to user projects automatically",
+    "Requires user to apply suggested optimizations manually",
+    "Does not access external monitoring services or APIs",
+    "Templates are examples that need adaptation to specific codebases"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developers",
+      "title": "Optimize database queries",
+      "description": "Fix slow queries, implement connection pooling, and add proper indexing"
+    },
+    {
+      "targetUser": "Frontend Developers",
+      "title": "Improve page load speed",
+      "description": "Reduce bundle size, implement code splitting, and optimize Core Web Vitals"
+    },
+    {
+      "targetUser": "Full-Stack Engineers",
+      "title": "Build caching strategy",
+      "description": "Design multi-tier caching with Redis, memoization, and CDN integration"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Database Performance Check",
+      "scenario": "Analyze slow database queries",
+      "prompt": "Analyze the following database queries for performance issues. Identify N+1 patterns, missing indexes, and slow queries. Suggest optimizations with SQL examples."
+    },
+    {
+      "title": "API Response Time",
+      "scenario": "Improve API speed",
+      "prompt": "Review this API endpoint code. Suggest optimizations including compression, ETags, field selection, and pagination improvements."
+    },
+    {
+      "title": "Frontend Bundle Size",
+      "scenario": "Reduce JavaScript bundle",
+      "prompt": "Analyze this frontend codebase. Recommend code splitting strategies, tree shaking improvements, and lazy loading patterns to reduce bundle size."
+    },
+    {
+      "title": "Performance Budget",
+      "scenario": "Set performance targets",
+      "prompt": "Create a performance budget for a React application. Include targets for Core Web Vitals, bundle sizes, and API response times."
+    }
+  ],
+  "bestPractices": [
+    "Profile before optimizing to identify actual bottlenecks rather than assumed issues",
+    "Set measurable performance targets and budgets before making changes",
+    "Use cursor pagination instead of offset-based pagination for large datasets"
+  ],
+  "antiPatterns": [
+    "Premature optimization without measurement wastes development time",
+    "Loading all records into memory instead of using pagination",
+    "Skipping cache invalidation strategies leads to stale data issues"
+  ],
+  "faq": [
+    {
+      "question": "Which tools work with this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. Templates use TypeScript patterns applicable to any JavaScript runtime."
+    },
+    {
+      "question": "What performance targets should I aim for?",
+      "answer": "Target LCP under 2.5s, INP under 200ms, and API responses under 100ms for simple reads."
+    },
+    {
+      "question": "How do I measure frontend performance?",
+      "answer": "Use Lighthouse CI in your pipeline, Chrome DevTools Performance tab, and track Core Web Vitals with RUM."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill contains only documentation and templates. It never accesses files, networks, or executes code on your system."
+    },
+    {
+      "question": "Why are my database queries still slow after adding indexes?",
+      "answer": "Check query patterns. Avoid SELECT *, use covered indexes, and verify with EXPLAIN ANALYZE that Index Scans are used."
+    },
+    {
+      "question": "How is this different from other optimization tools?",
+      "answer": "This skill provides patterns and guidance rather than automated tools. It helps you understand and implement optimizations correctly."
+    }
+  ],
+  "seoKeywords": [
+    "performance optimization",
+    "Claude performance tuning",
+    "Codex speed optimization",
+    "caching patterns",
+    "Core Web Vitals",
+    "database optimization",
+    "API performance",
+    "bundle optimization",
+    "performance monitoring"
+  ],
+  "sourceUrl": "https://github.com/ArieGoldkin/ai-agent-hub/tree/main/skills/performance-optimization",
+  "sourceType": "community",
+  "dependencies": []
+}

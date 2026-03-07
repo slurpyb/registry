@@ -1,0 +1,139 @@
+{
+  "name": "incident-runbook-templates",
+  "type": "skill",
+  "description": "Create structured incident response runbooks with step-by-step procedures, escalation paths, and recovery actions. Use when building runbooks, responding to incidents, or establishing incident response procedures.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "runbook creation",
+  "quality": 5,
+  "qualityReason": "Clear structured output",
+  "bundleHints": [
+    "sre-toolkit",
+    "incident-response-suite"
+  ],
+  "tags": [
+    "devops",
+    "escalation",
+    "incident-response",
+    "oncall",
+    "recovery",
+    "runbooks",
+    "sre"
+  ],
+  "capabilities": [
+    "Provide a structured incident runbook outline with required sections",
+    "Define incident severity levels with impact and response time guidance",
+    "Offer a service outage runbook with triage and mitigation steps",
+    "Offer a database incident runbook with SQL checks and actions",
+    "Provide escalation matrix and communication template examples"
+  ],
+  "author": "wshobson",
+  "icon": "🚨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only static markdown templates. No executable code, no file system access, no network calls. All 70 static findings are false positives: markdown code blocks were misidentified as Ruby/shell backticks, example URLs were flagged as hardcoded network addresses, and SQL/YAML content was misidentified as weak cryptographic algorithms. The skill generates text templates only.",
+  "valueStatement": "Teams struggle to document consistent incident response steps during pressure. This skill delivers structured runbook templates with triage, mitigation, and communication sections.",
+  "userTitle": "Build incident runbooks quickly",
+  "limitations": [
+    "Does not execute commands or verify results",
+    "Assumes Kubernetes and PostgreSQL in examples",
+    "Requires customization for your services and contacts",
+    "Does not provide monitoring or alerting setup"
+  ],
+  "useCases": [
+    {
+      "targetUser": "On call engineer",
+      "title": "Handle a live outage",
+      "description": "Follow structured triage and mitigation steps while keeping stakeholders informed."
+    },
+    {
+      "targetUser": "SRE lead",
+      "title": "Standardize runbooks",
+      "description": "Create consistent runbook structure and severity levels across teams."
+    },
+    {
+      "targetUser": "New team member",
+      "title": "Learn incident flow",
+      "description": "Study templates to understand escalation paths and recovery procedures."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Runbook outline",
+      "scenario": "Create a basic template",
+      "prompt": "Create a concise incident runbook outline for a SaaS API service with detection, triage, mitigation, verification, and communication sections."
+    },
+    {
+      "title": "Service outage guide",
+      "scenario": "Draft outage procedures",
+      "prompt": "Draft a service outage runbook for a payments API. Include triage steps, rollback actions, and escalation contacts."
+    },
+    {
+      "title": "Database incident guide",
+      "scenario": "Cover database failures",
+      "prompt": "Create a database incident runbook for PostgreSQL with connection exhaustion, replication lag, and disk space issues."
+    },
+    {
+      "title": "Advanced playbook",
+      "scenario": "Add tailored metrics",
+      "prompt": "Extend a runbook with specific alerts, dashboards, and verification metrics for a microservice on Kubernetes."
+    }
+  ],
+  "bestPractices": [
+    "Customize commands, dashboards, and contacts before use",
+    "Order steps by urgency and verify each action",
+    "Review and update templates after incidents"
+  ],
+  "antiPatterns": [
+    "Leaving placeholders without owners or contacts",
+    "Including steps that require undocumented tribal knowledge",
+    "Skipping verification and rollback guidance"
+  ],
+  "faq": [
+    {
+      "question": "Is it compatible with Claude, Codex, and Claude Code?",
+      "answer": "Yes. The content is plain text templates that work in Claude, Codex, and Claude Code."
+    },
+    {
+      "question": "What are the limits of this skill?",
+      "answer": "It provides guidance only and does not execute commands or monitor systems."
+    },
+    {
+      "question": "Can I integrate it with our incident tools?",
+      "answer": "Yes. Replace placeholders with your PagerDuty, Slack, and dashboard links."
+    },
+    {
+      "question": "Does it access or store sensitive data?",
+      "answer": "No. It is static content and does not read files or send data."
+    },
+    {
+      "question": "What if the steps do not match our stack?",
+      "answer": "Edit the commands and sections to match your services and tooling."
+    },
+    {
+      "question": "How does this compare to incident platforms?",
+      "answer": "It offers templates only, while platforms add automation and live coordination."
+    }
+  ],
+  "seoKeywords": [
+    "incident runbook templates",
+    "incident response",
+    "SRE runbook",
+    "on call playbook",
+    "Kubernetes outage",
+    "database incident",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/wshobson/agents/tree/main/plugins/incident-response/skills/incident-runbook-templates",
+  "sourceType": "community",
+  "dependencies": []
+}

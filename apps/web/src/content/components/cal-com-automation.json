@@ -1,0 +1,136 @@
+{
+  "name": "cal-com-automation",
+  "type": "skill",
+  "description": "Automate Cal.com tasks via Rube MCP (Composio): manage bookings, check availability, configure webhooks, and handle teams. Always search tools first for current schemas.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "scheduling automation",
+  "quality": 5,
+  "qualityReason": "Precise integration with tooling",
+  "bundleHints": [
+    "productivity-automation",
+    "mcp-tools"
+  ],
+  "tags": [
+    "automation",
+    "bookings",
+    "cal.com",
+    "calendar",
+    "scheduling",
+    "webhooks"
+  ],
+  "capabilities": [
+    "List and filter bookings by status, date range, and other criteria",
+    "Create new bookings by finding available slots and submitting requests",
+    "Check calendar availability and busy time blocks for date ranges",
+    "Configure webhooks for booking events like creation, rescheduling, and cancellation",
+    "Manage teams including creation, retrieval, and team event types",
+    "Retrieve organization ID for org-level operations"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation file (SKILL.md) that describes how to use Cal.com automation via Rube MCP. All 64 static analyzer findings are false positives: markdown backticks used for code formatting were incorrectly flagged as Ruby shell execution, documentation URLs were flagged as network access, and parameter descriptions were flagged as environment access. No executable code is present in this file.",
+  "valueStatement": "Managing Cal.com bookings manually is time-consuming. This skill automates booking management, availability checking, webhook configuration, and team operations through Rube MCP.",
+  "userTitle": "Automate Cal.com scheduling and bookings",
+  "limitations": [
+    "Requires active Rube MCP connection with Cal.com toolkit configured",
+    "Cannot bypass Cal.com API rate limits or authentication requirements",
+    "Team and organization operations require appropriate permissions",
+    "Does not work with personal Cal.com accounts that lack organization features"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Executive assistants and coordinators managing multiple schedules",
+      "title": "Automated Booking Assistant",
+      "description": "Help users find available meeting slots and create bookings without manual calendar checking."
+    },
+    {
+      "targetUser": "Developers integrating Cal.com with CRM or notification systems",
+      "title": "Webhook Integration Setup",
+      "description": "Configure Cal.com webhooks to trigger notifications in external systems when bookings change."
+    },
+    {
+      "targetUser": "Team leads and HR managers organizing team events",
+      "title": "Team Scheduling Management",
+      "description": "Create and manage team event types for group bookings and collaborative scheduling."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "View upcoming bookings",
+      "prompt": "List all my upcoming Cal.com bookings for the next two weeks."
+    },
+    {
+      "title": "Find available meeting slots",
+      "prompt": "Check available slots for event type [ID] between [start date] and [end date] in [timezone]."
+    },
+    {
+      "title": "Create a new booking",
+      "prompt": "Book a meeting for [attendee name] at [email] on [date] at [time] for event type [ID]."
+    },
+    {
+      "title": "Set up booking notifications",
+      "prompt": "Configure a webhook to send notifications to [URL] when bookings are created or cancelled."
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before executing workflows",
+    "Verify Rube MCP connection status is ACTIVE before running any Cal.com operations",
+    "Specify timezone explicitly in all date/time parameters to avoid scheduling confusion"
+  ],
+  "antiPatterns": [
+    "Do not create bookings without first checking available slots for the event type",
+    "Do not use date ranges spanning months for availability checks as results may be inaccurate",
+    "Do not assume team or organization access - verify permissions before operations"
+  ],
+  "faq": [
+    {
+      "question": "What do I need to set up before using this skill?",
+      "answer": "You need Rube MCP configured with an active Cal.com connection. Add https://rube.app/mcp as an MCP server, then authenticate Cal.com through RUBE_MANAGE_CONNECTIONS."
+    },
+    {
+      "question": "How do I find my event type ID?",
+      "answer": "Use CAL_GET_AVAILABLE_SLOTS_INFO or check your Cal.com dashboard. Event type IDs are numeric integers that identify specific meeting configurations."
+    },
+    {
+      "question": "Can I use this with a personal Cal.com account?",
+      "answer": "Basic booking operations work with personal accounts. However, team and organization management features require a Cal.com organization plan."
+    },
+    {
+      "question": "What date formats should I use?",
+      "answer": "Use ISO 8601 format with timezone for booking times (2024-01-15T09:00:00Z) and YYYY-MM-DD format for availability date ranges."
+    },
+    {
+      "question": "How do webhook notifications work?",
+      "answer": "Webhooks send HTTP POST requests to your endpoint when specified events occur. You need a publicly accessible HTTPS URL to receive notifications."
+    },
+    {
+      "question": "What happens if I hit Cal.com API rate limits?",
+      "answer": "Cal.com returns 429 status on rate limit. The skill should implement exponential backoff and retry after the specified delay."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Cal.com automation",
+    "scheduling assistant",
+    "booking management",
+    "Composio",
+    "Rube MCP",
+    "calendar integration",
+    "webhook setup"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cal-com-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

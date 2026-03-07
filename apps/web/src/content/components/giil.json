@@ -1,0 +1,140 @@
+{
+  "name": "giil",
+  "type": "skill",
+  "description": "Get Image [from] Internet Link - Zero-setup CLI for downloading full-resolution images from iCloud, Dropbox, Google Photos, and Google Drive share links. Four-tier capture strategy, browser automation, HEIC conversion, album support. Node.js/Playwright.",
+  "domain": "tools",
+  "subdomain": "browser",
+  "specialty": "image download",
+  "quality": 5,
+  "qualityReason": "Zero-setup, multi-service image fetch",
+  "bundleHints": [
+    "browser-automation",
+    "scraping-tools",
+    "image-tools"
+  ],
+  "tags": [
+    "automation",
+    "cloud-storage",
+    "image-download",
+    "remote-debugging",
+    "screenshot"
+  ],
+  "capabilities": [
+    "Downloads images from iCloud share links using browser automation",
+    "Extracts full-resolution images from Google Photos and Drive",
+    "Converts HEIC/HEIF images to standard formats automatically",
+    "Downloads entire photo albums with indexed filenames",
+    "Provides JSON output for AI tool integration",
+    "Uses four-tier capture strategy for maximum reliability"
+  ],
+  "author": "Dicklesworthstone",
+  "icon": "🖼️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation for the giil CLI tool. The static scanner flagged 226 patterns in documentation, but all are false positives. Patterns like 'pipe to shell' and 'command substitution' are standard shell scripting examples for software installation and usage, not malicious code. The skill is pure documentation with no executable components.",
+  "valueStatement": "Stop struggling to get screenshots to your remote AI sessions. giil downloads full-resolution images from iCloud, Dropbox, Google Photos, and Drive share links with one simple command.",
+  "userTitle": "Download Images from Cloud Share Links",
+  "limitations": [
+    "Requires internet connection to cloud services",
+    "First run downloads about 200MB Chromium browser",
+    "Some links require public sharing enabled by owner",
+    "Linux users need to install HEIC conversion libraries manually"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Remote developers",
+      "title": "Debug UI issues remotely",
+      "description": "SSH into servers and download iPhone screenshots directly to your remote AI coding session"
+    },
+    {
+      "targetUser": "AI assistant users",
+      "title": "Share visual context instantly",
+      "description": "Paste cloud photo links to Claude Code for immediate visual analysis without file transfers"
+    },
+    {
+      "targetUser": "Content creators",
+      "title": "Batch download photo albums",
+      "description": "Download entire shared albums from family events or work projects with organized filenames"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic image download",
+      "scenario": "Download a single image",
+      "prompt": "Use giil to download this image: https://share.icloud.com/photos/xxx"
+    },
+    {
+      "title": "JSON output mode",
+      "scenario": "Get structured data for scripts",
+      "prompt": "Download this image with JSON metadata: giil \"URL\" --json"
+    },
+    {
+      "title": "Album download",
+      "scenario": "Download entire photo album",
+      "prompt": "Download all photos from this album to ~/Downloads: giil \"URL\" --all --output ~/Downloads"
+    },
+    {
+      "title": "Debug mode",
+      "scenario": "Troubleshoot download issues",
+      "prompt": "Debug why this image will not download: giil \"URL\" --debug --verbose"
+    }
+  ],
+  "bestPractices": [
+    "Use --json flag for reliable parsing in scripts and AI workflows",
+    "Enable --debug mode when troubleshooting failed downloads",
+    "Install HEIC support on Linux before processing Apple photos"
+  ],
+  "antiPatterns": [
+    "Do not use giil for private links without public sharing enabled",
+    "Avoid downloading copyrighted content you do not have rights to",
+    "Do not rely on viewport screenshots for quality-critical work"
+  ],
+  "faq": [
+    {
+      "question": "Is giil compatible with Claude Code?",
+      "answer": "Yes, giil outputs JSON that Claude Code can parse for image analysis workflows."
+    },
+    {
+      "question": "What are the download limits?",
+      "answer": "No hard limits exist, but cloud services may rate-limit bulk downloads. Use polite delays."
+    },
+    {
+      "question": "Can I integrate giil with my scripts?",
+      "answer": "Yes, use --json flag for structured output and --output to specify directories."
+    },
+    {
+      "question": "Is my data safe with giil?",
+      "answer": "Processing happens locally. No data is sent anywhere except to cloud services you specify."
+    },
+    {
+      "question": "Why am I getting Auth required errors?",
+      "answer": "The link is not publicly shared. Ask the owner to enable public access in their cloud settings."
+    },
+    {
+      "question": "How does giil compare to wget or curl?",
+      "answer": "giil handles JavaScript-heavy cloud services that wget and curl cannot, with automatic quality optimization."
+    }
+  ],
+  "seoKeywords": [
+    "image downloader",
+    "icloud photos",
+    "google drive download",
+    "dropbox images",
+    "screenshot sharing",
+    "remote debugging",
+    "Claude Code",
+    "AI assistant",
+    "cloud storage",
+    "HEIC converter"
+  ],
+  "sourceUrl": "https://github.com/Dicklesworthstone/agent_flywheel_clawdbot_skills_and_integrations/tree/main/skills/giil",
+  "sourceType": "community",
+  "dependencies": []
+}

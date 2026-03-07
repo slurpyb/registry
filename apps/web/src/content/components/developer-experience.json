@@ -1,0 +1,140 @@
+{
+  "name": "developer-experience",
+  "type": "skill",
+  "description": "Developer Experience specialist for tooling, setup, and workflow optimization.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "workflow optimization",
+  "quality": 5,
+  "qualityReason": "Improves developer efficiency",
+  "bundleHints": [
+    "developer-workflow",
+    "productivity-suite"
+  ],
+  "tags": [
+    "automation",
+    "developer-workflow",
+    "friction-reduction",
+    "onboarding",
+    "setup",
+    "tooling"
+  ],
+  "capabilities": [
+    "Analyzes existing development workflows and identifies friction points",
+    "Creates setup scripts for project onboarding under 5 minutes",
+    "Configures IDE settings, ESLint, Prettier, and VS Code settings",
+    "Sets up git hooks for pre-commit linting and testing",
+    "Generates npm scripts, Makefiles, and shell aliases for common tasks",
+    "Creates developer onboarding guides and troubleshooting documentation"
+  ],
+  "author": "Joseph OBrien",
+  "icon": "⚡",
+  "version": "1.0.1",
+  "license": "UNLICENSED",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based documentation skill with no executable code. Contains only guidance, examples, and templates for developer experience optimization. No scripts, network calls, filesystem access, or code execution capabilities. Static findings are false positives triggered by shell script examples in documentation and template placeholders.",
+  "valueStatement": "Developer experience friction slows down teams and frustrates new contributors. This skill analyzes workflows and creates automation scripts, tooling configurations, and documentation to make development faster, clearer, and more enjoyable.",
+  "userTitle": "Optimize developer workflows and tooling",
+  "limitations": [
+    "Cannot execute generated scripts - users must run them manually",
+    "Cannot modify files on the filesystem directly",
+    "Cannot access project-specific secrets or credentials",
+    "Depends on the AI tool having access to the project codebase"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Tech Leads",
+      "title": "Standardize project setup",
+      "description": "Create consistent onboarding scripts and tooling configurations across all team projects."
+    },
+    {
+      "targetUser": "New Developers",
+      "title": "Faster onboarding",
+      "description": "Set up development environment and understand project structure in less time."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Automate repetitive tasks",
+      "description": "Generate automation scripts for builds, tests, deployments, and database operations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Analyze workflow",
+      "scenario": "Review current development process",
+      "prompt": "Analyze the current development workflow in this project and identify repetitive tasks, bottlenecks, and opportunities for automation."
+    },
+    {
+      "title": "Create setup script",
+      "scenario": "Generate onboarding automation",
+      "prompt": "Create a setup.sh script that automates environment setup including dependency installation, environment validation, and database migrations."
+    },
+    {
+      "title": "Configure git hooks",
+      "scenario": "Add quality gates",
+      "prompt": "Set up git pre-commit hooks using husky that run linting and tests before commits are accepted."
+    },
+    {
+      "title": "Generate npm scripts",
+      "scenario": "Define common tasks",
+      "prompt": "Add helpful npm scripts to package.json for development, testing, linting, formatting, and database operations."
+    }
+  ],
+  "bestPractices": [
+    "Keep setup scripts idempotent so they can be run multiple times safely",
+    "Include clear error messages that guide users toward resolution",
+    "Validate dependencies before attempting installation to fail fast"
+  ],
+  "antiPatterns": [
+    "Skipping dependency version checks that lead to cryptic runtime errors",
+    "Missing validation steps that cause setup to fail silently",
+    "Creating scripts without documentation on what each command does"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "Compatible with Claude, Codex, and Claude Code. Works in any conversational AI environment."
+    },
+    {
+      "question": "What types of automation can this skill create?",
+      "answer": "Setup scripts, npm/yarn scripts, Makefiles, shell aliases, git hooks, and IDE configurations."
+    },
+    {
+      "question": "Does this skill modify my project files?",
+      "answer": "No. The skill generates suggestions and code examples. Users must manually apply changes."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This is a prompt-only skill with no code execution or network access. No data leaves your environment."
+    },
+    {
+      "question": "What if generated scripts do not work?",
+      "answer": "Review the script output for error messages. The skill creates clear documentation and troubleshooting steps."
+    },
+    {
+      "question": "How is this different from DevOps tools?",
+      "answer": "This skill focuses on local developer experience. DevOps tools handle deployment and infrastructure. Both can work together."
+    }
+  ],
+  "seoKeywords": [
+    "developer experience",
+    "workflow optimization",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "developer productivity",
+    "automation scripts",
+    "tooling setup",
+    "onboarding automation",
+    "dev workflow"
+  ],
+  "sourceUrl": "https://github.com/89jobrien/steve/tree/main/steve/skills/developer-experience",
+  "sourceType": "community",
+  "dependencies": []
+}

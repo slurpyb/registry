@@ -1,0 +1,140 @@
+{
+  "name": "monorepo-management",
+  "type": "skill",
+  "description": "Master monorepo management with Turborepo, Nx, and pnpm workspaces to build efficient, scalable multi-package repositories with optimized builds and dependency management. Use when setting up monorepos, optimizing builds, or managing shared dependencies.",
+  "domain": "devops",
+  "subdomain": "iac",
+  "specialty": "monorepo optimization",
+  "quality": 5,
+  "qualityReason": "Clear tooling and goals",
+  "bundleHints": [
+    "monorepo-stack",
+    "devops-tooling"
+  ],
+  "tags": [
+    "dependency management",
+    "monorepo",
+    "nx",
+    "optimized builds",
+    "pnpm",
+    "scalable repos",
+    "turborepo",
+    "workspaces"
+  ],
+  "capabilities": [
+    "Set up Turborepo monorepos with optimal pipeline configuration",
+    "Configure pnpm workspaces with proper dependency management",
+    "Implement Nx monorepo structures with affected project detection",
+    "Create shared TypeScript and ESLint configurations across packages",
+    "Set up CI/CD pipelines for monorepo builds and deployments",
+    "Configure remote caching for faster build times"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains documentation-only markdown files with instructional code examples. Static analysis flagged 60 patterns (external commands, network URLs, filesystem references, environment variables) but all are false positives - they appear in markdown code blocks as examples, not executable code. No security threats detected after manual review.",
+  "valueStatement": "Managing multiple packages across separate repositories creates complexity and inconsistency. This skill provides proven patterns for monorepo setup with Turborepo, Nx, and pnpm workspaces to enable code sharing and efficient builds.",
+  "userTitle": "Build and manage scalable monorepos with Turborepo and pnpm",
+  "limitations": [
+    "Focuses on JavaScript and TypeScript monorepos only",
+    "Does not cover Bazel or Gradle-based monorepos",
+    "Assumes Node.js 18 or later environment",
+    "Best practices are specific to Turborepo, Nx, and pnpm ecosystems"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Engineering teams scaling from single repo to platform",
+      "title": "Startup building a multi-app platform",
+      "description": "A startup needs to share UI components and utilities between their web app, mobile app, and documentation site while maintaining consistent tooling."
+    },
+    {
+      "targetUser": "Enterprise architects managing multiple related services",
+      "title": "Enterprise consolidating microservices",
+      "description": "An enterprise wants to consolidate related microservices into a monorepo for easier cross-service refactoring and shared type definitions."
+    },
+    {
+      "targetUser": "Open source maintainers publishing multiple packages",
+      "title": "Open source library maintainer",
+      "description": "A maintainer wants to split a large library into multiple focused packages while keeping them in a single repository for easier coordination."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick monorepo setup",
+      "prompt": "Help me create a new monorepo using Turborepo and pnpm. I need two apps (web and docs) and one shared UI package. Provide the initial folder structure and key configuration files.",
+      "scenario": "Starting a new monorepo from scratch"
+    },
+    {
+      "title": "Migrate existing projects to monorepo",
+      "prompt": "I have three separate repositories: a Next.js app, a React component library, and a shared utilities package. Guide me through migrating them into a single pnpm workspace with Turborepo.",
+      "scenario": "Consolidating existing projects"
+    },
+    {
+      "title": "Optimize build performance",
+      "prompt": "My monorepo builds are taking 15 minutes. Analyze my turbo.json configuration and suggest improvements for caching, parallelization, and remote cache setup to reduce build times.",
+      "scenario": "Performance optimization for large monorepos"
+    },
+    {
+      "title": "Set up CI/CD pipeline",
+      "prompt": "Create a GitHub Actions workflow for my Turborepo monorepo that runs lint, test, and build on pull requests, and deploys only affected apps on merge to main.",
+      "scenario": "Automating monorepo workflows"
+    }
+  ],
+  "bestPractices": [
+    "Lock dependency versions at the root level and use workspace protocol for internal packages",
+    "Configure Turborepo inputs and outputs precisely to maximize cache hits while ensuring correctness",
+    "Use changesets for coordinated versioning and publishing of multiple packages"
+  ],
+  "antiPatterns": [
+    "Importing packages without declaring them in package.json dependencies",
+    "Creating circular dependencies between packages in the monorepo",
+    "Configuring cache outputs too broadly, causing stale builds from uncached files"
+  ],
+  "faq": [
+    {
+      "question": "Should I use Turborepo or Nx for my monorepo?",
+      "answer": "Turborepo is simpler and works well for most JavaScript monorepos. Nx offers more features like dependency graphs, generators, and affected project detection but has a steeper learning curve. Start with Turborepo unless you need Nx-specific features."
+    },
+    {
+      "question": "How do I share TypeScript types between packages?",
+      "answer": "Create a dedicated types package (packages/types) that exports all shared interfaces and types. Other packages import from this package using the workspace protocol. This ensures type consistency across your monorepo."
+    },
+    {
+      "question": "Can I deploy only changed apps in CI?",
+      "answer": "Yes. Use the affected command with Nx or configure Turborepo with proper branch comparison. GitHub Actions can detect changed packages and deploy only affected apps, reducing deployment time and cost."
+    },
+    {
+      "question": "How do I handle different Node.js versions across packages?",
+      "answer": "Use the engines field in package.json to specify version requirements. Configure CI to test against your minimum supported version. Consider using volta or nvm to manage Node versions per package if needed."
+    },
+    {
+      "question": "What is the workspace protocol and when should I use it?",
+      "answer": "The workspace protocol (workspace:*) links packages within your monorepo instead of fetching from npm. Use it for all internal package dependencies to ensure you always use the local version during development and builds."
+    },
+    {
+      "question": "How do I publish packages from a monorepo?",
+      "answer": "Use Changesets to manage versioning and publishing. Run changeset to create version change files, then changeset version and changeset publish. This coordinates version bumps and publishes only changed packages."
+    }
+  ],
+  "seoKeywords": [
+    "Claude monorepo",
+    "Codex workspace",
+    "Claude Code Turborepo",
+    "pnpm workspaces",
+    "Nx monorepo",
+    "multi-package repository",
+    "build optimization",
+    "code sharing"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/monorepo-management",
+  "sourceType": "community",
+  "dependencies": []
+}

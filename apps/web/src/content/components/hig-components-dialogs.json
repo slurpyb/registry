@@ -1,0 +1,145 @@
+{
+  "name": "hig-components-dialogs",
+  "type": "skill",
+  "description": "Apple HIG guidance for presentation components including alerts, action sheets, popovers, sheets, and digit entry views. Use this skill when the user says 'should I use an alert or a sheet,' 'how do I show a confirmation dialog,' 'when should I use a popover,' 'my modals are annoying users,' or asks about alert design, action sheet, popover, sheet, modal, dialog, digit entry, confirmation dialog, warning dialog, modal presentation, non-modal content, destructive action confirmation, or overlay UI patterns. Cross-references: hig-components-menus, hig-components-controls, hig-components-search, hig-patterns.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "modal patterns",
+  "quality": 5,
+  "qualityReason": "Platform-specific guidance",
+  "bundleHints": [
+    "apple-design",
+    "ui-components"
+  ],
+  "tags": [
+    "action-sheets",
+    "alerts",
+    "apple",
+    "design-system",
+    "dialogs",
+    "digit-entry",
+    "human-interface-guidelines",
+    "popovers",
+    "sheets",
+    "ui-components"
+  ],
+  "capabilities": [
+    "Recommend alert vs sheet vs action sheet based on use case",
+    "Provide button ordering and labeling guidelines per Apple HIG",
+    "Explain dismiss behavior for each presentation type",
+    "Show platform-specific differences (iPhone vs iPad vs Mac vs watchOS)",
+    "Guide destructive action confirmation patterns",
+    "Suggest alternatives to modals (inline feedback, undo)"
+  ],
+  "author": "sickn33",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill contains Apple's Human Interface Guidelines documentation for UI presentation components. The flagged patterns (backticks, URLs, generic English words) are legitimate documentation elements, not security threats.",
+  "valueStatement": "Get Apple Human Interface Guidelines for alerts, sheets, popovers, and action sheets. Choose the right modal pattern for each platform and avoid common UX mistakes with user-interrupting dialogs.",
+  "userTitle": "Apple HIG: Dialogs & Modals",
+  "limitations": [
+    "Does not provide working code examples",
+    "Does not implement UI components",
+    "Does not cover Android or Web platform guidelines",
+    "Focused only on presentation components, not other HIG areas"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Mobile app developer building iOS apps",
+      "title": "Choosing confirmation dialog type",
+      "description": "User wants to confirm a destructive action (delete, erase, remove). Skill recommends alert vs action sheet based on platform and provides button styling guidance."
+    },
+    {
+      "targetUser": "Cross-platform developer working on Apple platforms",
+      "title": "Modal presentation decision",
+      "description": "User asks 'should I use a sheet or a popover?' Skill explains when sheets maintain context better and when popovers work on iPad/Mac."
+    },
+    {
+      "targetUser": "UX-conscious developer improving app flow",
+      "title": "Reducing alert fatigue",
+      "description": "User complains about too many modals in their app. Skill suggests inline alternatives, undo patterns, and when to avoid interrupting the user."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic component guidance",
+      "prompt": "Should I use an alert or an action sheet for [use case]?",
+      "scenario": "Choosing between alert and action sheet for a specific interaction"
+    },
+    {
+      "title": "Platform-specific behavior",
+      "prompt": "How does [component] behave differently on iPhone vs iPad?",
+      "scenario": "Understanding platform variations for modal presentations"
+    },
+    {
+      "title": "Button and text guidelines",
+      "prompt": "What are the best practices for alert button labels and ordering?",
+      "scenario": "Writing clear, actionable button text for dialogs"
+    },
+    {
+      "title": "Alternative patterns",
+      "prompt": "What are alternatives to using a modal for [scenario]?",
+      "scenario": "Reducing modal usage and improving user flow"
+    }
+  ],
+  "bestPractices": [
+    "Use alerts sparingly and only for critical situations requiring immediate attention",
+    "Provide specific, actionable button labels (Delete, Save) instead of generic OK/Cancel",
+    "Always include a Cancel button for destructive action confirmations"
+  ],
+  "antiPatterns": [
+    "Using alerts for informative messages that could be shown inline",
+    "Placing destructive actions as the default button",
+    "Using the same component for all modal scenarios without considering alternatives"
+  ],
+  "faq": [
+    {
+      "question": "When should I use an alert vs a sheet?",
+      "answer": "Use alerts for critical interruptions requiring immediate response. Use sheets for focused tasks where maintaining context with the underlying content is helpful."
+    },
+    {
+      "question": "Can I use the same design across iPhone and iPad?",
+      "answer": "Not always. Action sheets appear as popovers on iPad. Sheets adapt differently. Always test on target platforms."
+    },
+    {
+      "question": "How many buttons should an alert have?",
+      "answer": "Up to three buttons maximum. Use one button for simple acknowledgment, two for confirm/cancel, three when a destructive option exists."
+    },
+    {
+      "question": "What is the cancel button placement?",
+      "answer": "Place Cancel at the bottom of action sheets (iOS) or leading side (macOS). On watchOS, place in upper-left corner."
+    },
+    {
+      "question": "Should I use OK or specific button labels?",
+      "answer": "Always prefer specific labels like Delete, Save, or Confirm. Use OK only for purely informational alerts."
+    },
+    {
+      "question": "How do I make modals accessible?",
+      "answer": "Ensure voiceover announces the title, message, and all button options. Support keyboard navigation for macOS modals."
+    }
+  ],
+  "seoKeywords": [
+    "Apple HIG",
+    "human interface guidelines",
+    "alert design",
+    "action sheet",
+    "modal dialog",
+    "sheet UI",
+    "popover",
+    "confirmation dialog",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome_skills/tree/main/skills/hig-components-dialogs",
+  "sourceType": "community",
+  "dependencies": []
+}

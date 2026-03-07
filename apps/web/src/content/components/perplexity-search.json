@@ -1,0 +1,141 @@
+{
+  "name": "perplexity-search",
+  "type": "skill",
+  "description": "Perform AI-powered web searches with real-time information using Perplexity models via LiteLLM and OpenRouter. This skill should be used when conducting web searches for current information, finding recent scientific literature, getting grounded answers with source citations, or accessing information beyond the model knowledge cutoff. Provides access to multiple Perplexity models including Sonar Pro, Sonar Pro Search (advanced agentic search), and Sonar Reasoning Pro through a single OpenRouter API key.",
+  "domain": "tools",
+  "subdomain": "search",
+  "specialty": "real-time web search",
+  "quality": 5,
+  "qualityReason": "Clear real-time information use",
+  "bundleHints": [
+    "research-tools",
+    "ai-search"
+  ],
+  "tags": [
+    "ai-models",
+    "ai-powered",
+    "current-information",
+    "litemll",
+    "literature",
+    "openrouter",
+    "perplexity",
+    "perplexity-models",
+    "research",
+    "web-search"
+  ],
+  "capabilities": [
+    "Perform web searches using Perplexity AI models through OpenRouter",
+    "Access multiple models including Sonar Pro, Sonar Pro Search, and Sonar Reasoning Pro",
+    "Save search results to JSON files for further analysis",
+    "Get source citations for all search results"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate web search API client. Static scanner flagged 362 patterns as potential issues, but ALL are false positives. The skill performs standard API client operations: reading user-provided API keys from environment variables, making HTTPS requests to OpenRouter API, and saving search results. The credential access + network pattern is expected and legitimate for any authenticated API client. No data exfiltration, no unauthorized access, no malicious behavior.",
+  "valueStatement": "This skill enables AI-powered web searches to find current information, recent scientific research, and grounded answers with source citations. It provides access to multiple Perplexity models through a single OpenRouter API key.",
+  "userTitle": "Search the web with Perplexity AI",
+  "limitations": [
+    "Requires a valid OpenRouter API key with sufficient credits",
+    "Searches are billed per token usage based on model selected",
+    "Does not execute code or perform computations directly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Researchers",
+      "title": "Find recent publications",
+      "description": "Search for latest scientific papers and research findings beyond your knowledge cutoff"
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Get technical answers",
+      "description": "Find current technical documentation and solutions with verified source links"
+    },
+    {
+      "targetUser": "Students",
+      "title": "Research current events",
+      "description": "Access up-to-date information on any topic with reliable source citations"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Search",
+      "scenario": "Find current information",
+      "prompt": "Search for the latest developments in {topic} from 2024"
+    },
+    {
+      "title": "Scientific Query",
+      "scenario": "Research academic papers",
+      "prompt": "Find recent peer-reviewed studies on {topic} published in {year}"
+    },
+    {
+      "title": "Comparative Analysis",
+      "scenario": "Compare technologies",
+      "prompt": "Compare {technology_1} versus {technology_2} including pros and cons"
+    },
+    {
+      "title": "Deep Research",
+      "scenario": "Comprehensive investigation",
+      "prompt": "Conduct a comprehensive analysis of {topic} including current state, recent advances, and future directions"
+    }
+  ],
+  "bestPractices": [
+    "Use specific search terms with time constraints for best results",
+    "Choose appropriate model based on query complexity",
+    "Monitor OpenRouter usage to manage costs effectively"
+  ],
+  "antiPatterns": [
+    "Do not use for simple calculations or logic problems",
+    "Do not commit API keys to version control",
+    "Do not exceed rate limits without proper delays between requests"
+  ],
+  "faq": [
+    {
+      "question": "Do I need a separate Perplexity account?",
+      "answer": "No. This skill uses OpenRouter to access Perplexity models with a single API key."
+    },
+    {
+      "question": "How much do searches cost?",
+      "answer": "Costs vary by model from $0.001 to $0.05 per query. Check OpenRouter for current pricing."
+    },
+    {
+      "question": "Which model should I choose?",
+      "answer": "Start with sonar-pro for most queries. Use sonar for simple facts and sonar-pro-search for complex analysis."
+    },
+    {
+      "question": "How do I get an API key?",
+      "answer": "Visit openrouter.ai/keys to create an account and generate an API key."
+    },
+    {
+      "question": "Can I save search results?",
+      "answer": "Yes. Use the --output flag to save results to a JSON file for later analysis."
+    },
+    {
+      "question": "Is this skill secure?",
+      "answer": "Yes. Your API key is stored locally in environment variables and never shared with third parties."
+    }
+  ],
+  "seoKeywords": [
+    "Perplexity search",
+    "Claude web search",
+    "AI research tool",
+    "real-time information",
+    "scientific literature search",
+    "source citations",
+    "Perplexity models",
+    "OpenRouter API",
+    "Claude Code web search",
+    "Codex web search"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/perplexity-search",
+  "sourceType": "community",
+  "dependencies": []
+}

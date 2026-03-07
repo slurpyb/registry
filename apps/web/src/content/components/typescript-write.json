@@ -1,0 +1,144 @@
+{
+  "name": "typescript-write",
+  "type": "skill",
+  "description": "Write TypeScript and JavaScript code following Metabase coding standards and best practices. Use when developing or refactoring TypeScript/JavaScript code.",
+  "domain": "design",
+  "subdomain": "branding",
+  "specialty": "typographic design",
+  "quality": 4,
+  "qualityReason": "Fundamental design skill",
+  "bundleHints": [
+    "ui-ux",
+    "branding"
+  ],
+  "tags": [
+    "aesthetics",
+    "best-practices",
+    "coding-standards",
+    "design",
+    "development",
+    "fonts",
+    "javascript",
+    "readability",
+    "typescript",
+    "typography",
+    "ui"
+  ],
+  "capabilities": [
+    "Provides TypeScript and JavaScript coding guidelines following Metabase standards",
+    "Documents ESLint commands for code quality checks",
+    "References Prettier formatting commands for code consistency",
+    "Includes TypeScript type-checking command references",
+    "Documents test commands for JavaScript and ClojureScript",
+    "Defines autonomous development workflow with test-driven approach"
+  ],
+  "author": "metabase",
+  "icon": "📘",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing markdown guidelines and JSON metadata. No executable code, network calls, file operations, or cryptographic operations exist in this skill. The static scanner produced false positives by misinterpreting metadata fields as security patterns. All 20 findings are dismissed as the skill poses no security risk.",
+  "valueStatement": "Developers need consistent TypeScript and JavaScript code that follows project conventions. This skill provides coding guidelines, linting commands, and testing workflows for writing maintainable code in Metabase projects.",
+  "userTitle": "Write TypeScript with Metabase Standards",
+  "limitations": [
+    "Does not execute code or run commands directly",
+    "Does not modify files without explicit user approval",
+    "Does not access project files outside the Metabase codebase"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Write frontend TypeScript",
+      "description": "Create new TypeScript components and modules following Metabase frontend patterns and conventions"
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Refactor JavaScript code",
+      "description": "Modernize legacy JavaScript code to TypeScript with proper type annotations and project standards"
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Run test suites",
+      "description": "Execute targeted unit tests and linting to validate code changes before submission"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Add new feature",
+      "scenario": "Create a TypeScript component",
+      "prompt": "Write a new TypeScript component following Metabase coding standards. Include proper types, tests, and follow the project development workflow."
+    },
+    {
+      "title": "Fix bug",
+      "scenario": "Debug and fix TypeScript errors",
+      "prompt": "Fix the TypeScript errors in the codebase. First add a failing test, then implement the fix following Metabase standards."
+    },
+    {
+      "title": "Refactor code",
+      "scenario": "Modernize JavaScript to TypeScript",
+      "prompt": "Convert this JavaScript file to TypeScript with proper type annotations. Ensure it passes linting and type checking."
+    },
+    {
+      "title": "Review code",
+      "scenario": "Validate code quality",
+      "prompt": "Review this code change for Metabase coding standards compliance. Check that linting passes and tests are added for new functionality."
+    }
+  ],
+  "bestPractices": [
+    "Add failing tests before implementing new functionality to ensure test-driven development",
+    "Run linting and type checking continuously during development to catch issues early",
+    "Understand existing patterns in the codebase before implementing new features"
+  ],
+  "antiPatterns": [
+    "Writing code without adding corresponding tests first",
+    "Skipping linting checks before committing changes",
+    "Implementing features without reviewing existing patterns and conventions"
+  ],
+  "faq": [
+    {
+      "question": "Which tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It provides guidelines that help AI agents write TypeScript following Metabase standards."
+    },
+    {
+      "question": "What commands are available?",
+      "answer": "Available commands include yarn lint-eslint-pure for ESLint, yarn prettier for formatting, yarn type-check-pure for TypeScript checking."
+    },
+    {
+      "question": "Can this skill modify my files?",
+      "answer": "The skill provides guidelines and documentation. It does not execute code or modify files directly."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. This skill only reads its own markdown documentation files. It does not access credentials, environment variables, or make network requests."
+    },
+    {
+      "question": "Why are no tests running?",
+      "answer": "This skill documents test commands but does not execute them. The AI agent using this skill can run tests when requested."
+    },
+    {
+      "question": "How is this different from other TypeScript skills?",
+      "answer": "This skill is specific to Metabase coding standards, development workflow, and project-specific commands."
+    }
+  ],
+  "seoKeywords": [
+    "typescript development",
+    "javascript coding standards",
+    "metabase development",
+    "typescript best practices",
+    "claude code typescript",
+    "eslint typescript",
+    "prettier formatting",
+    "claude typescript",
+    "codex typescript",
+    "frontend development"
+  ],
+  "sourceUrl": "https://github.com/metabase/metabase/tree/master/.claude/skills/typescript-write",
+  "sourceType": "community",
+  "dependencies": []
+}

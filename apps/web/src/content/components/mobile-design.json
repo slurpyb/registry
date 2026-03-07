@@ -1,0 +1,143 @@
+{
+  "name": "mobile-design",
+  "type": "skill",
+  "description": "Mobile-first design and engineering doctrine for iOS and Android apps. Covers touch interaction, performance, platform conventions, offline behavior, and mobile-specific decision-making. Teaches principles and constraints, not fixed layouts. Use for React Native, Flutter, or native mobile apps.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "mobile-first design",
+  "quality": 4,
+  "qualityReason": "Broad but relevant principles",
+  "bundleHints": [
+    "mobile-design",
+    "ux-doctrine"
+  ],
+  "tags": [
+    "android",
+    "flutter",
+    "ios",
+    "mobile",
+    "offline behavior",
+    "performance",
+    "platform conventions",
+    "react-native",
+    "touch interaction"
+  ],
+  "capabilities": [
+    "Apply mobile-first design principles to prevent desktop-thinking in app development",
+    "Evaluate feature feasibility using the Mobile Feasibility and Risk Index (MFRI)",
+    "Implement platform-appropriate navigation patterns for iOS and Android",
+    "Optimize React Native and Flutter performance with memoization and FlatList patterns",
+    "Design accessible touch targets meeting iOS (44pt) and Android (48dp) guidelines",
+    "Apply Fitts Law and thumb zone principles for touch-friendly interfaces"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a legitimate mobile design and engineering doctrine. All 758 static scanner detections are false positives: backtick characters in markdown documentation, mentions of security terms (Keychain, SAM) in educational context about secure coding practices, and references to cryptographic algorithms in warnings against weak crypto. The included mobile_audit.py is a genuine React Native/Flutter code analysis tool for mobile-specific performance and security issues.",
+  "valueStatement": "Mobile apps fail when developers apply desktop thinking. This skill teaches mobile-first design principles, touch psychology, performance optimization, and platform-specific conventions for iOS and Android.",
+  "userTitle": "Build Mobile Apps with Design Best Practices",
+  "limitations": [
+    "Does not write application code - provides design guidance and decision frameworks",
+    "Does not cover backend API implementation details",
+    "Does not include visual design assets or component libraries",
+    "Requires manual application of principles to specific project contexts"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers building mobile applications",
+      "title": "Mobile App Architecture Decisions",
+      "description": "Use the framework decision tree and MFRI to evaluate whether to build with React Native, Flutter, or native frameworks based on project requirements."
+    },
+    {
+      "targetUser": "Mobile developers optimizing app performance",
+      "title": "Performance Optimization Review",
+      "description": "Apply the mobile performance doctrine to audit existing React Native or Flutter code for common performance sins like ScrollView abuse, missing memoization, and console.log in production."
+    },
+    {
+      "targetUser": "UI/UX designers working on cross-platform apps",
+      "title": "Cross-Platform Design Validation",
+      "description": "Use the platform unification matrix to decide which elements should be unified across iOS and Android versus platform-specific implementations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New Feature Feasibility Check",
+      "prompt": "Using the MFRI framework from the mobile-design skill, evaluate this feature request for a [platform] app: [describe feature]. What is the feasibility score and what considerations must be addressed?",
+      "scenario": "Evaluating a new mobile feature before implementation"
+    },
+    {
+      "title": "Code Review for Performance",
+      "prompt": "Review this React Native/Flutter code snippet for mobile performance issues. Check for: ScrollView vs FlatList, React.memo usage, useCallback for renderItem, keyExtractor with stable IDs, and console.log statements that should be removed:\n\n```\n[paste code here]\n```",
+      "scenario": "Auditing mobile code for performance anti-patterns"
+    },
+    {
+      "title": "Platform-Specific UI Decision",
+      "prompt": "For a cross-platform mobile app, determine which UI elements should DIVERGE between iOS and Android based on the mobile-design skill platform matrix. Example element: [navigation pattern]. Provide recommendations with rationale.",
+      "scenario": "Deciding on platform-specific vs unified UI approaches"
+    },
+    {
+      "title": "Touch Accessibility Audit",
+      "prompt": "Audit this mobile screen for touch accessibility: Check touch target sizes (minimum 44pt iOS, 48dp Android), thumb zone placement for primary CTAs, gesture alternatives for swipe actions, and haptic feedback on important actions.",
+      "scenario": "Evaluating mobile screen for touch accessibility compliance"
+    }
+  ],
+  "bestPractices": [
+    "Always assess feature feasibility with MFRI before implementation - scores below 3 require redesign",
+    "Read platform-specific files (platform-ios.md, platform-android.md) before designing any mobile UI",
+    "Apply the Mandatory Mobile Checkpoint before writing any code - document platform, framework, and design principles"
+  ],
+  "antiPatterns": [
+    "Applying desktop web patterns to mobile (scrollable divs, hover states, large typography)",
+    "Ignoring platform conventions - iOS and Android have different navigation, gestures, and component patterns",
+    "Skipping offline consideration - mobile users frequently lose connectivity and expect graceful degradation"
+  ],
+  "faq": [
+    {
+      "question": "What is the MFRI score threshold for proceeding with a feature?",
+      "answer": "MFRI scores of 6-10 are safe to proceed normally. Scores of 3-5 require additional performance and UX validation. Scores of 0-2 require simplifying the interactions or architecture. Scores below 0 mean the feature should be redesigned before implementation."
+    },
+    {
+      "question": "When should I choose React Native over Flutter?",
+      "answer": "Choose React Native when: you need OTA updates without app store review, your team has existing React experience, or you want to share code with a web application. Choose Flutter when you need pixel-perfect custom UI across platforms or maximum performance for graphics-intensive apps."
+    },
+    {
+      "question": "What is the minimum touch target size for mobile?",
+      "answer": "iOS requires minimum 44pt touch targets, Android requires 48dp, and WCAG accessibility standard requires 44px. Always aim for at least 48px to satisfy all platforms and accessibility requirements."
+    },
+    {
+      "question": "How do I handle offline functionality in mobile apps?",
+      "answer": "Mobile backend must be designed for unreliable networks. Use offline-first design with sync queues, implement NetInfo for connection status detection, cache API responses appropriately, and design for interrupted sessions with token-based authentication and refresh tokens."
+    },
+    {
+      "question": "Why should I avoid AsyncStorage for sensitive data?",
+      "answer": "AsyncStorage stores data in plain text and can be easily accessed on jailbroken devices or through app data extraction. For sensitive data like auth tokens, use platform-specific secure storage: iOS Keychain (SecureStore) or Android EncryptedSharedPreferences."
+    },
+    {
+      "question": "What makes mobile testing different from web testing?",
+      "answer": "Mobile requires testing on real devices (not just simulators), E2E testing with Detox or Maestro, accessibility testing with screen readers, and performance profiling on low-end devices. The mobile audit script included in this skill checks for 50+ mobile-specific issues."
+    }
+  ],
+  "seoKeywords": [
+    "mobile design",
+    "react native",
+    "flutter",
+    "ios design",
+    "android design",
+    "mobile app development",
+    "Claude Code",
+    "Codex",
+    "mobile UX",
+    "touch interaction"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/mobile-design",
+  "sourceType": "community",
+  "dependencies": []
+}

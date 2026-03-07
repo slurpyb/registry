@@ -1,0 +1,141 @@
+{
+  "name": "remotion-best-practices",
+  "type": "skill",
+  "description": "Best practices for Remotion - Video creation in React",
+  "domain": "gaming",
+  "subdomain": "game-dev",
+  "specialty": "React video",
+  "quality": 4,
+  "qualityReason": "Useful guidance for creators",
+  "bundleHints": [
+    "video-tools",
+    "animation-stack"
+  ],
+  "tags": [
+    "animation",
+    "best-practices",
+    "composition",
+    "motion-design",
+    "react",
+    "remotion",
+    "video",
+    "video-creation"
+  ],
+  "capabilities": [
+    "Guide users on Remotion composition patterns including Sequence, AbsoluteFill, and Still components",
+    "Explain animation techniques using useCurrentFrame(), spring(), and interpolation",
+    "Provide best practices for importing and handling media assets like videos, audio, images, and fonts",
+    "Demonstrate advanced patterns for 3D content, charts, captions, and transitions",
+    "Show how to calculate metadata and dynamically set composition properties"
+  ],
+  "author": "remotion-dev",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 555 patterns that are all false positives. The backtick patterns are markdown code fences in documentation files, not shell execution. The crypto warnings hit YAML frontmatter fields. Network findings are documentation URLs and example code. This is a documentation-only skill with no executable code that poses security risks.",
+  "valueStatement": "Building videos programmatically requires understanding Remotion's composition system, animation patterns, and media handling. This skill provides domain-specific best practices for creating professional videos using React components and Remotion APIs.",
+  "userTitle": "Create Programmatic Videos with Remotion and React",
+  "limitations": [
+    "Does not execute Remotion code or render videos directly",
+    "Cannot access external Remotion documentation beyond provided knowledge",
+    "Does not validate video file formats or codec compatibility",
+    "Cannot troubleshoot rendering issues that require system-specific debugging"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content creators and social media managers",
+      "title": "Social Media Video Creation",
+      "description": "Create automated video content for social platforms with consistent branding, captions, and animations using Remotion compositions"
+    },
+    {
+      "targetUser": "Data analysts and business intelligence teams",
+      "title": "Data Visualization Videos",
+      "description": "Generate explainer videos with animated charts, graphs, and data visualizations that update dynamically from JSON data sources"
+    },
+    {
+      "targetUser": "Educators and e-learning developers",
+      "title": "Educational Content Production",
+      "description": "Build tutorial videos with synchronized captions, code highlights, and step-by-step animations for online courses"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Composition Setup",
+      "prompt": "Help me create a Remotion composition that displays a title card with animated text. I need the composition to be 1920x1080 at 30fps for 5 seconds.",
+      "scenario": "Beginner setting up their first Remotion project"
+    },
+    {
+      "title": "Animation with Easing",
+      "prompt": "Show me how to animate an element fading in and sliding up using spring animation in Remotion. Include the useCurrentFrame and spring configuration.",
+      "scenario": "Developer learning Remotion animation patterns"
+    },
+    {
+      "title": "Media Asset Integration",
+      "prompt": "I need to import a video file and overlay text captions on it. Show me the proper way to use the Video component and sync captions with the timeline.",
+      "scenario": "Creating videos with multiple media layers"
+    },
+    {
+      "title": "Advanced Sequencing",
+      "prompt": "Explain how to sequence multiple scenes with transitions between them. Include trim, offset, and duration control for complex video compositions.",
+      "scenario": "Building multi-scene professional videos"
+    }
+  ],
+  "bestPractices": [
+    "Always drive animations with useCurrentFrame() to ensure deterministic rendering during video export",
+    "Use Sequence components with proper layout props when nesting elements to avoid rendering artifacts",
+    "Preload fonts and assets before rendering to prevent flickering or missing content in output videos"
+  ],
+  "antiPatterns": [
+    "Do not use useFrame() from React Three Fiber inside Remotion compositions as it causes non-deterministic rendering",
+    "Avoid inline object styles for complex animations as they cause unnecessary re-renders",
+    "Never assume browser APIs are available as Remotion renders in a headless environment"
+  ],
+  "faq": [
+    {
+      "question": "What video formats does Remotion support?",
+      "answer": "Remotion supports formats that your browser can decode, typically MP4 (H.264), WebM, and MOV. Use the can-decode utility to verify format compatibility before rendering."
+    },
+    {
+      "question": "How do I optimize Remotion rendering performance?",
+      "answer": "Use memo() for components, avoid inline functions in JSX, preload assets, and use layout='none' on Sequence components when appropriate to reduce layout calculations."
+    },
+    {
+      "question": "Can I use Remotion with TypeScript?",
+      "answer": "Yes, Remotion has excellent TypeScript support with built-in type definitions. All hooks and components are fully typed for better developer experience."
+    },
+    {
+      "question": "How do I handle different video aspect ratios?",
+      "answer": "Use useVideoConfig() to access composition dimensions, and calculate responsive values based on width and height. Consider using AbsoluteFill for full-coverage layouts."
+    },
+    {
+      "question": "What is the difference between Sequence and AbsoluteFill?",
+      "answer": "Sequence controls timing and layering on the timeline, while AbsoluteFill positions elements to fill the entire composition. They serve different purposes and are often used together."
+    },
+    {
+      "question": "How do I add subtitles or captions to my video?",
+      "answer": "Use the @remotion/captions package with importSrt() to parse SRT files, then map caption data to rendered text elements synchronized with useCurrentFrame()."
+    }
+  ],
+  "seoKeywords": [
+    "Remotion",
+    "React video",
+    "programmatic video",
+    "video composition",
+    "React animation",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "motion graphics",
+    "video rendering"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/remotion-best-practices",
+  "sourceType": "community",
+  "dependencies": []
+}

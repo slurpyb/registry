@@ -1,0 +1,142 @@
+{
+  "name": "pinia",
+  "type": "skill",
+  "description": "Pinia official Vue state management library, type-safe and extensible. Use when defining stores, working with state/getters/actions, or implementing store patterns in Vue apps.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "vue state management",
+  "quality": 5,
+  "qualityReason": "Specific framework integration",
+  "bundleHints": [
+    "vue-stack",
+    "frontend-frameworks"
+  ],
+  "tags": [
+    "extensible",
+    "pinia",
+    "state-management",
+    "store-patterns",
+    "type-safe",
+    "typescript",
+    "vue",
+    "vue-composition-api"
+  ],
+  "capabilities": [
+    "Define stores using Options API or Composition API syntax",
+    "Manage state, getters, and actions with full TypeScript support",
+    "Compose multiple stores together for modular architecture",
+    "Extend stores with custom plugins for shared functionality",
+    "Test stores with @pinia/testing utilities",
+    "Implement SSR state hydration and Nuxt integration"
+  ],
+  "author": "antfu",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 292 static findings are false positives. This skill contains only markdown documentation with code examples for Pinia (official Vue state management library). No executable code, network operations, file system access, or command execution. Scanner misinterpreted markdown code blocks as shell commands and function names like defineStore as cryptographic functions.",
+  "valueStatement": "Building Vue applications requires predictable state management across components. Pinia provides a type-safe, intuitive API for defining stores with state, getters, and actions. This skill provides comprehensive references for building scalable Vue state management patterns.",
+  "userTitle": "Define Vue stores with Pinia",
+  "limitations": [
+    "Does not provide runtime code execution or file operations",
+    "Does not install or configure Pinia in Vue projects",
+    "Does not generate boilerplate code automatically",
+    "Does not include Vue component examples beyond store usage"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Vue developers building authenticated applications",
+      "title": "Building user authentication stores",
+      "description": "Create Pinia stores to manage user sessions, authentication state, and permissions across Vue applications."
+    },
+    {
+      "targetUser": "Frontend developers working on e-commerce platforms",
+      "title": "Implementing cart and checkout flows",
+      "description": "Design stores for e-commerce functionality including shopping cart state, product catalogs, and order processing."
+    },
+    {
+      "targetUser": "Library authors and component developers",
+      "title": "Creating shared UI state libraries",
+      "description": "Develop reusable Pinia plugins and composable stores for theme management, modal dialogs, and notification systems."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic store creation",
+      "prompt": "How do I define a Pinia store for managing user preferences like theme and language settings? Show both Options API and Composition API approaches.",
+      "scenario": "Learning store definition basics"
+    },
+    {
+      "title": "Getters and computed state",
+      "prompt": "Create a Pinia store for a shopping cart that uses getters to calculate subtotal, tax, and total. Show how to access these computed values in components.",
+      "scenario": "Implementing computed store values"
+    },
+    {
+      "title": "Store actions with TypeScript",
+      "prompt": "Write a Pinia store for handling async API calls with proper TypeScript typing for actions, payload, and return values. Include error handling patterns.",
+      "scenario": "Building typed async store actions"
+    },
+    {
+      "title": "Cross-store communication",
+      "prompt": "How can I compose multiple Pinia stores together? Show a pattern where an auth store provides user data that a cart store uses for personalization.",
+      "scenario": "Composing stores for modular architecture"
+    }
+  ],
+  "bestPractices": [
+    "Use setup stores for complex logic with composables, watchers, and advanced TypeScript patterns",
+    "Return all state properties from setup stores to ensure Pinia tracks reactivity properly",
+    "Use storeToRefs() when destructuring state or getters to preserve reactivity"
+  ],
+  "antiPatterns": [
+    "Destructuring state directly without storeToRefs (breaks reactivity)",
+    "Calling stores at module scope instead of inside functions (causes SSR issues)",
+    "Storing components or non-serializable objects in state (prevents hydration)"
+  ],
+  "faq": [
+    {
+      "question": "What is Pinia and why should I use it?",
+      "answer": "Pinia is the official state management library for Vue.js. It provides a simpler, type-safe API compared to Vuex with better TypeScript support, smaller bundle size, and a more intuitive composition-based approach."
+    },
+    {
+      "question": "How does Pinia differ from Vuex?",
+      "answer": "Pinia eliminates mutations (actions directly modify state), uses a simpler API, provides better TypeScript inference, has no required modules, and supports Vue DevTools 6+ with a more modern plugin system."
+    },
+    {
+      "question": "Can I use Pinia with Options API and Composition API?",
+      "answer": "Yes, Pinia supports both approaches. Option Stores resemble Vuex with state, getters, and actions objects. Setup Stores use composition function syntax returning reactive state and methods."
+    },
+    {
+      "question": "How do I test Pinia stores?",
+      "answer": "Use @pinia/testing package with createTestingPinia(). This provides mocked stores for unit tests that work with Vue Test Utils. You can stub actions, set initial state, and assert on store behavior."
+    },
+    {
+      "question": "Does Pinia work with server-side rendering?",
+      "answer": "Yes, Pinia includes built-in SSR support. Use pinia.state.value to serialize state for hydration and deserialize it on the client. Nuxt has first-class integration with auto-imports."
+    },
+    {
+      "question": "How do I persist Pinia state across page reloads?",
+      "answer": "Create a Pinia plugin that watches state changes and writes to localStorage or a cookie. On initialization, read from storage and hydrate state. Popular community plugins like pinia-plugin-persistedstate automate this pattern."
+    }
+  ],
+  "seoKeywords": [
+    "Pinia",
+    "Vue state management",
+    "Vue store",
+    "Vue Composition API",
+    "Vue reactive state",
+    "Vuex alternative",
+    "TypeScript Vue",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/antfu/skills/tree/main/skills/pinia/",
+  "sourceType": "community",
+  "dependencies": []
+}

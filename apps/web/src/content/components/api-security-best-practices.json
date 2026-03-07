@@ -1,0 +1,141 @@
+{
+  "name": "api-security-best-practices",
+  "type": "skill",
+  "description": "Implement secure API design patterns including authentication, authorization, input validation, rate limiting, and protection against common API vulnerabilities",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "secure design",
+  "quality": 5,
+  "qualityReason": "Comprehensive and critical security guidance",
+  "bundleHints": [
+    "security-toolkit",
+    "appsec",
+    "api-security"
+  ],
+  "tags": [
+    "api-security",
+    "authentication",
+    "input-validation",
+    "jwt",
+    "owasp",
+    "rate-limiting"
+  ],
+  "capabilities": [
+    "Guide implementation of JWT-based authentication with refresh tokens",
+    "Show how to prevent SQL injection and XSS through input validation",
+    "Demonstrate rate limiting and DDoS protection strategies",
+    "Explain role-based access control (RBAC) implementation",
+    "Provide security checklist based on OWASP API Top 10",
+    "Show secure error handling that prevents information leakage"
+  ],
+  "author": "sickn33",
+  "icon": "🔒",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate educational skill about API security best practices. All 117 static findings are false positives: the backtick patterns are markdown code formatting, environment variable access demonstrates proper secret management, URLs are documentation links, and heuristic alerts fire because the skill comprehensively covers security topics together. No actual security risks detected.",
+  "valueStatement": "Build secure APIs that protect against authentication bypass, injection attacks, and DDoS by implementing JWT authentication, input validation, rate limiting, and OWASP-recommended security patterns.",
+  "userTitle": "Implement API Security Best Practices",
+  "limitations": [
+    "Does not provide working code that can be executed directly",
+    "Does not test or audit existing APIs for vulnerabilities",
+    "Does not generate security certificates or keys",
+    "Skill content is static reference material, not an interactive security tool"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building new APIs",
+      "title": "Secure New API Development",
+      "description": "Use this skill to guide secure design when building new REST, GraphQL, or WebSocket APIs from scratch"
+    },
+    {
+      "targetUser": "DevOps engineers and security-conscious developers",
+      "title": "Harden Existing APIs",
+      "description": "Review and improve security of existing APIs by implementing authentication, rate limiting, and input validation"
+    },
+    {
+      "targetUser": "Security engineers and technical leads",
+      "title": "Security Audit Preparation",
+      "description": "Prepare APIs for security audits by following OWASP Top 10 guidelines and implementing recommended protections"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Implement JWT Authentication",
+      "prompt": "Help me implement JWT authentication for my API. I need login, token verification middleware, and token refresh endpoints.",
+      "scenario": "User wants secure auth for their API"
+    },
+    {
+      "title": "Prevent SQL Injection",
+      "prompt": "Show me how to prevent SQL injection in my Node.js API. Include parameterized query examples and input validation.",
+      "scenario": "User needs to secure database queries"
+    },
+    {
+      "title": "Add Rate Limiting",
+      "prompt": "Implement rate limiting for my Express API. I want different limits for regular users versus authentication endpoints.",
+      "scenario": "User needs DDoS protection"
+    },
+    {
+      "title": "OWASP API Security Review",
+      "prompt": "Review my API against the OWASP API Security Top 10. What vulnerabilities should I check for and how do I fix them?",
+      "scenario": "User wants comprehensive security audit"
+    }
+  ],
+  "bestPractices": [
+    "Always use HTTPS and enforce TLS for all API traffic",
+    "Validate and sanitize all user input before processing",
+    "Implement defense in depth with multiple security layers"
+  ],
+  "antiPatterns": [
+    "Storing sensitive data in JWT payload (not encrypted)",
+    "Hardcoding secrets in source code",
+    "Exposing detailed error messages in production"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill test my API for vulnerabilities?",
+      "answer": "No, this skill provides guidance and code examples for implementing security. Use dedicated security testing tools for vulnerability scanning."
+    },
+    {
+      "question": "What authentication methods does this skill cover?",
+      "answer": "It covers JWT (JSON Web Tokens), OAuth 2.0 concepts, API keys, and session-based authentication with bcrypt password hashing."
+    },
+    {
+      "question": "Is this skill only for Node.js APIs?",
+      "answer": "The examples use Node.js/Express, but security principles apply to any framework or language. Concepts are language-agnostic."
+    },
+    {
+      "question": "Does this skill help with compliance?",
+      "answer": "It covers security controls aligned with OWASP Top 10 and common best practices, which support compliance efforts but does not guarantee compliance."
+    },
+    {
+      "question": "Can I use this for GraphQL APIs?",
+      "answer": "Yes, the authentication and input validation concepts apply to GraphQL. Additional GraphQL-specific topics like query depth limiting are not covered."
+    },
+    {
+      "question": "How often should I update my API security?",
+      "answer": "Review security regularly, update dependencies frequently, monitor for new vulnerabilities, and conduct periodic penetration testing."
+    }
+  ],
+  "seoKeywords": [
+    "API security best practices",
+    "JWT authentication",
+    "Claude Code API security",
+    "OWASP API Top 10",
+    "rate limiting implementation",
+    "input validation API",
+    "secure REST API",
+    "GraphQL security",
+    "Claude Codex security",
+    "API authentication patterns"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/api-security-best-practices",
+  "sourceType": "community",
+  "dependencies": []
+}

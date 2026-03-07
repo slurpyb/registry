@@ -1,0 +1,145 @@
+{
+  "name": "when-creating-presentations-use-pptx-generation",
+  "type": "skill",
+  "description": "Enterprise-grade PowerPoint deck generation using evidence-based prompting, workflow enforcement, constraint-based design",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "deck generation",
+  "quality": 4,
+  "qualityReason": "Enterprise-grade output",
+  "bundleHints": [
+    "presentation-tools",
+    "docs-automation"
+  ],
+  "tags": [
+    "accessibility",
+    "constraint-design",
+    "data-visualization",
+    "evidence-based",
+    "powerpoint",
+    "pptx",
+    "presentation",
+    "slides",
+    "wcag"
+  ],
+  "capabilities": [
+    "Generate PowerPoint presentations from structured content outlines",
+    "Apply consistent design systems with colors, fonts, and layouts",
+    "Create data visualizations including charts and tables",
+    "Ensure WCAG 2.1 AA accessibility compliance",
+    "Add speaker notes and alt text for screen readers",
+    "Export accessibility reports with quality metrics"
+  ],
+  "author": "DNYoussef",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 101 static findings are false positives from naive pattern matching. The scanner misidentified markdown code fences as Ruby backticks, keyword matches in documentation as weak cryptographic algorithms, and metadata fields as hidden file access. This is a legitimate presentation generation skill using pptxgenjs library with no malicious code or dangerous patterns.",
+  "valueStatement": "Create polished, accessible presentations with consistent branding, data visualizations, and WCAG 2.1 AA compliance. This skill automates slide generation for board decks, business reviews, and technical reports.",
+  "userTitle": "Generate Professional PowerPoint Presentations",
+  "limitations": [
+    "Requires pptxgenjs library dependency",
+    "Complex animations and transitions not supported",
+    "Template-based designs must be pre-defined",
+    "Image placement limited to basic positioning"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Executives and administrative assistants",
+      "title": "Board Deck Creation",
+      "description": "Generate executive-level board presentations with consistent branding, data-driven insights, and professional formatting for board meetings."
+    },
+    {
+      "targetUser": "Business analysts and managers",
+      "title": "Quarterly Business Reviews",
+      "description": "Create data-rich quarterly reviews with charts, metrics, and trend analysis visualizations that communicate business performance clearly."
+    },
+    {
+      "targetUser": "Technical writers and developers",
+      "title": "Technical Documentation Slides",
+      "description": "Convert technical documentation into accessible slide decks with code examples, architecture diagrams, and accessibility compliance."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Presentation Request",
+      "prompt": "Create a PowerPoint presentation about {topic} with {slide_count} slides. Include an executive summary, key points, and a conclusion.",
+      "scenario": "Simple presentation creation for a single topic"
+    },
+    {
+      "title": "Data-Driven Report",
+      "prompt": "Generate a presentation from the data in {data_file}. Create {n} slides with charts showing trends, a summary dashboard, and recommendations based on the analysis.",
+      "scenario": "Creating presentations from data files or datasets"
+    },
+    {
+      "title": "Board-Level Deck",
+      "prompt": "Build a professional board deck with {section_count} sections: agenda, executive summary, financial overview, strategic initiatives, risk assessment, and Q&A. Use corporate branding with WCAG 2.1 AA compliance.",
+      "scenario": "Creating formal board presentations with multiple sections"
+    },
+    {
+      "title": "Multi-Section Technical Report",
+      "prompt": "Transform the technical report at {doc_path} into a {slide_count}-slide presentation. Include title slide, agenda, executive summary, main sections with supporting data visualizations, conclusions, and speaker notes for each slide.",
+      "scenario": "Converting existing documents into structured presentations"
+    }
+  ],
+  "bestPractices": [
+    "Provide clear content outlines with designated slide types before generation",
+    "Define design system early including colors, fonts, and layout constraints",
+    "Review accessibility report after generation to ensure WCAG compliance",
+    "Add speaker notes for complex slides to guide presentation delivery"
+  ],
+  "antiPatterns": [
+    "Requesting complex animations or embedded videos that exceed pptxgenjs capabilities",
+    "Skipping the design system phase results in inconsistent visual quality",
+    "Generating more than 40 slides reduces audience engagement",
+    "Ignoring accessibility checks creates barriers for users with disabilities"
+  ],
+  "faq": [
+    {
+      "question": "What file formats does this skill output?",
+      "answer": "The primary output is a .pptx PowerPoint file. It also generates an accessibility-report.json with compliance metrics and documentation.md with generation details."
+    },
+    {
+      "question": "Does the generated presentation include speaker notes?",
+      "answer": "Yes, speaker notes are automatically added based on the slide content and can be customized in the content structure."
+    },
+    {
+      "question": "How is accessibility ensured?",
+      "answer": "The skill validates color contrast ratios (4.5:1 minimum), checks for alt text on images, verifies reading order, and generates an accessibility compliance report."
+    },
+    {
+      "question": "Can I use custom templates?",
+      "answer": "Yes, you can define custom design systems with specific colors, fonts, layouts, and slide templates that will be applied consistently across all slides."
+    },
+    {
+      "question": "What chart types are supported?",
+      "answer": "Common chart types including bar, line, pie, and scatter plots are supported through the pptxgenjs library."
+    },
+    {
+      "question": "Is there a limit on slide count?",
+      "answer": "The skill supports 30+ slides. For optimal audience engagement, presentations with 40 or fewer slides are recommended."
+    }
+  ],
+  "seoKeywords": [
+    "PowerPoint generation",
+    "PPT creation",
+    "slide deck builder",
+    "presentation automation",
+    "accessibility compliance",
+    "WCAG AA",
+    "data visualization",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/utilities/when-creating-presentations-use-pptx-generation",
+  "sourceType": "community",
+  "dependencies": []
+}

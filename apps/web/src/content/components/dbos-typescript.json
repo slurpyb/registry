@@ -1,0 +1,142 @@
+{
+  "name": "dbos-typescript",
+  "type": "skill",
+  "description": "DBOS TypeScript SDK for building reliable, fault-tolerant applications with durable workflows. Use this skill when writing TypeScript code with DBOS, creating workflows and steps, using queues, using DBOSClient from external applications, or building applications that need to be resilient to failures.",
+  "domain": "languages",
+  "subdomain": "typescript",
+  "specialty": "durable workflows",
+  "quality": 5,
+  "qualityReason": "Specific SDK use case",
+  "bundleHints": [
+    "typescript-stack",
+    "workflow-engine",
+    "fullstack-serverless"
+  ],
+  "tags": [
+    "dbos",
+    "durable-execution",
+    "fault-tolerance",
+    "reliability",
+    "sdk",
+    "typescript",
+    "workflows"
+  ],
+  "capabilities": [
+    "Guide DBOS workflow and step creation with proper patterns",
+    "Configure DBOS applications with lifecycle management",
+    "Implement queue-based concurrency with rate limiting",
+    "Set up workflow communication via events, messages, and streams",
+    "Apply idempotency and determinism patterns for reliable recovery",
+    "Test DBOS applications with proper mocking strategies"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate documentation skill for DBOS TypeScript SDK. Static findings are false positives triggered by markdown syntax (code blocks using backticks), standard configuration patterns (environment variables), and documentation keywords. No actual security vulnerabilities present.",
+  "valueStatement": "DBOS TypeScript SDK enables developers to build reliable applications with durable workflows that automatically recover from failures. The skill provides best practices for workflows, steps, queues, and communication patterns.",
+  "userTitle": "Build Fault-Tolerant DBOS Applications",
+  "limitations": [
+    "Does not include actual DBOS SDK runtime code",
+    "Does not provide database connection management",
+    "Does not cover deployment or infrastructure setup",
+    "Focuses on patterns rather than complete application examples"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building data-intensive applications",
+      "title": "Build resilient data processing pipelines",
+      "description": "Create workflows that reliably process data with automatic retry and recovery from failures"
+    },
+    {
+      "targetUser": "Microservices developers",
+      "title": "Implement reliable microservice communication",
+      "description": "Use DBOS events and messages for decoupled, fault-tolerant inter-service communication"
+    },
+    {
+      "targetUser": "Node.js developers seeking better reliability",
+      "title": "Add durability to existing Node.js applications",
+      "description": "Enhance TypeScript applications with durable workflow execution that survives crashes and restarts"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a basic DBOS workflow",
+      "prompt": "Create a DBOS workflow that fetches data from an API and processes it. Show how to use DBOS.runStep for the API call and register the workflow properly.",
+      "scenario": "Getting started with DBOS"
+    },
+    {
+      "title": "Implement workflow with retry logic",
+      "prompt": "Show how to configure step retries with exponential backoff for a DBOS workflow that calls an unreliable external service.",
+      "scenario": "Adding resilience to workflows"
+    },
+    {
+      "title": "Set up workflow queues",
+      "prompt": "Create a DBOS queue with concurrency limits and rate limiting for processing items. Show how to enqueue workflows and configure worker behavior.",
+      "scenario": "Building concurrent processing systems"
+    },
+    {
+      "title": "Implement workflow communication",
+      "prompt": "Demonstrate how to use DBOS events for inter-workflow communication. Show how one workflow can emit events and another can listen for them.",
+      "scenario": "Coordinating multiple workflows"
+    }
+  ],
+  "bestPractices": [
+    "Keep workflows deterministic - move all non-deterministic operations to steps",
+    "Always use DBOS.runStep for any operation that accesses external services or databases",
+    "Configure appropriate retry policies for steps that may fail transiently"
+  ],
+  "antiPatterns": [
+    "Calling workflows from within steps - this breaks the execution model",
+    "Using Math.random() or Date.now() directly in workflows - they cause non-determinism",
+    "Modifying global variables from workflows - this breaks replay capability"
+  ],
+  "faq": [
+    {
+      "question": "What is DBOS?",
+      "answer": "DBOS (Database-Oriented Operating System) is a framework that provides durable workflow execution for TypeScript applications, ensuring reliability and automatic recovery from failures."
+    },
+    {
+      "question": "How does DBOS ensure reliability?",
+      "answer": "DBOS checkpointing records workflow state, allowing automatic replay and recovery after crashes or restarts without data loss."
+    },
+    {
+      "question": "When should I use a step vs a workflow?",
+      "answer": "Use workflows for orchestration and decision-making. Use steps for operations that are non-deterministic, like API calls, file operations, or database queries."
+    },
+    {
+      "question": "Can I call external APIs from workflows?",
+      "answer": "No, external API calls must be wrapped in DBOS.runStep. Direct API calls in workflows break determinism and recovery."
+    },
+    {
+      "question": "How do I handle failures in DBOS?",
+      "answer": "Configure retry policies on steps using the retries option in runStep. Workflows automatically retry from the last checkpoint on failure."
+    },
+    {
+      "question": "Does DBOS work with any database?",
+      "answer": "DBOS supports PostgreSQL, MySQL, and SQLite databases through its transaction system."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "DBOS",
+    "TypeScript",
+    "fault-tolerant",
+    "durable workflows",
+    "workflow automation",
+    "application reliability",
+    "typescript sdk"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dbos-typescript",
+  "sourceType": "community",
+  "dependencies": []
+}

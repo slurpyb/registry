@@ -1,0 +1,140 @@
+{
+  "name": "create-subagent",
+  "type": "skill",
+  "description": "This skill should be used when creating custom subagents for Claude Code, configuring specialized AI assistants, or when the user asks about agent creation, agent configuration, or delegating tasks to subagents. Covers both file-based agents and Task tool invocation.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "subagent configuration",
+  "quality": 5,
+  "qualityReason": "Clear scope and strong use case",
+  "bundleHints": [
+    "agent-framework",
+    "ai-orchestration"
+  ],
+  "tags": [
+    "agent-design",
+    "ai-assistants",
+    "configuration",
+    "orchestration",
+    "subagents",
+    "task-dispatch"
+  ],
+  "capabilities": [
+    "Define file-based agents with YAML frontmatter configuration",
+    "Dispatch on-demand subagents using the Task tool",
+    "Configure agent tools, models, and permission modes",
+    "Create reusable agent templates for common workflows",
+    "Implement parallel agent execution patterns",
+    "Set up automatic agent invocation with trigger phrases"
+  ],
+  "author": "Cygnusfear",
+  "icon": "🤖",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown files. No executable code, network calls, file system access, or external command execution. Files contain guidance templates for configuring Claude Code subagents. All 157 static findings are false positives triggered by patterns inside markdown code blocks used as examples.",
+  "valueStatement": "Users need guidance on creating and configuring specialized AI assistants that can handle complex tasks. This skill provides templates, best practices, and step-by-step instructions for building effective subagents.",
+  "userTitle": "Create specialized subagents for Claude Code",
+  "limitations": [
+    "Does not execute code or modify files automatically",
+    "Provides templates and guidance only",
+    "Requires manual creation of agent files in correct locations",
+    "Does not integrate with external services or APIs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Team leads",
+      "title": "Standardize code review workflows",
+      "description": "Create specialized reviewer agents that run automatically after code changes for consistent quality checks."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Debug complex issues faster",
+      "description": "Dispatch debugger agents with structured workflows for root cause analysis across multiple files."
+    },
+    {
+      "targetUser": "Architects",
+      "title": "Parallel research and synthesis",
+      "description": "Launch multiple research agents simultaneously and synthesize findings into comprehensive architectural reports."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Agent Definition",
+      "scenario": "Create a simple file-based agent",
+      "prompt": "Help me create a file-based agent in .claude/agents/ for [task type]. Include name, description with PROACTIVELY trigger, and basic tool permissions."
+    },
+    {
+      "title": "Task Dispatch",
+      "scenario": "Dispatch an on-demand agent",
+      "prompt": "Show me how to use the Task tool to dispatch a [model] agent for [task]. What parameters do I need?"
+    },
+    {
+      "title": "Custom Agent Persona",
+      "scenario": "Define agent with constraints",
+      "prompt": "Create a complete agent definition for [role] including role definition, hard rules, workflow phases, and output format expectations."
+    },
+    {
+      "title": "Parallel Execution",
+      "scenario": "Run multiple agents at once",
+      "prompt": "Set up parallel execution of [number] [model] agents to analyze [component]. Include synthesis step to combine findings."
+    }
+  ],
+  "bestPractices": [
+    "Use the principle of least privilege when defining agent tools - only grant access to tools the agent truly needs",
+    "Include specific trigger conditions with PROACTIVELY in descriptions for automatic invocation",
+    "Structure agent prompts with role, constraints, workflow, and output format sections for clarity"
+  ],
+  "antiPatterns": [
+    "Granting all tools to every agent creates unnecessary security risk",
+    "Vague descriptions without trigger conditions prevent automatic invocation",
+    "Overly long prompts without structure confuse agent behavior"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between file-based agents and Task tool dispatch?",
+      "answer": "File-based agents persist across sessions and can be shared via version control. Task tool dispatch creates on-demand agents for one-off or dynamic workflows."
+    },
+    {
+      "question": "Where should I store project agents vs user agents?",
+      "answer": "Project agents go in .claude/agents/ within the project. User agents go in ~/.claude/agents/ for all projects."
+    },
+    {
+      "question": "How do I choose the right model for my agent?",
+      "answer": "Use haiku for simple tasks, sonnet for most development work, and opus for complex reasoning requiring deep analysis."
+    },
+    {
+      "question": "Is my data safe with subagents?",
+      "answer": "Yes. Agents run within the same secure environment. You control tools and permissions for each agent."
+    },
+    {
+      "question": "Why is my agent not being invoked automatically?",
+      "answer": "Check that the description includes PROACTIVELY and clear trigger conditions. Verify the file is in the correct location with valid frontmatter."
+    },
+    {
+      "question": "How do subagents compare to skills?",
+      "answer": "Subagents have isolated context windows and can have different tool permissions. Skills extend knowledge without isolation."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code subagents",
+    "create subagent",
+    "agent configuration",
+    "specialized AI assistants",
+    "Task tool",
+    "file-based agents",
+    "Claude AI",
+    "agent templates",
+    "subagent creation",
+    "multi-agent workflows"
+  ],
+  "sourceUrl": "https://github.com/Cygnusfear/claude-stuff/tree/main/skills/create-subagent",
+  "sourceType": "community",
+  "dependencies": []
+}

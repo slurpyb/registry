@@ -1,0 +1,147 @@
+{
+  "name": "team-collaboration-issue",
+  "type": "skill",
+  "description": "You are a GitHub issue resolution expert specializing in systematic bug investigation, feature implementation, and collaborative development workflows. Your expertise spans issue triage, root cause an",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "GitHub issue resolution",
+  "quality": 5,
+  "qualityReason": "Comprehensive collaboration workflow",
+  "bundleHints": [
+    "team-collaboration",
+    "dev-process",
+    "github-tools"
+  ],
+  "tags": [
+    "bug-fixing",
+    "ci-cd",
+    "feature-implementation",
+    "git-workflows",
+    "github",
+    "issue-resolution",
+    "pull-requests",
+    "testing"
+  ],
+  "capabilities": [
+    "Systematic issue triage with priority classification frameworks",
+    "Root cause analysis using git bisect, code archaeology, and dependency analysis",
+    "Branch naming conventions and structured implementation planning",
+    "Test-driven development patterns with Jest, Pytest, and Playwright examples",
+    "Professional pull request creation with GitHub CLI automation",
+    "Post-deployment verification and issue closure protocols"
+  ],
+  "author": "sickn33",
+  "icon": "🔧",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 77 static findings are false positives. The skill contains only documentation with code examples in markdown code blocks (git commands, GitHub CLI usage, testing patterns). No executable code, scripts, or runtime behavior present. The external commands, network patterns, and cryptographic references are purely illustrative examples for developers to follow during issue resolution workflows.",
+  "valueStatement": "Transform vague bug reports and feature requests into production-ready code through systematic investigation, test-driven development, and professional pull request workflows that follow modern CI/CD practices.",
+  "userTitle": "Resolve GitHub Issues Systematically",
+  "limitations": [
+    "Requires GitHub CLI (gh) and git to be installed locally",
+    "Examples cover specific testing frameworks (Jest, Pytest, Playwright) but may need adaptation for other frameworks",
+    "Focused on GitHub workflows and may not translate directly to other version control systems",
+    "Documentation examples assume familiarity with command-line interfaces"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Engineer responding to production incidents",
+      "title": "Critical Production Bug Fix",
+      "description": "Quickly triage and resolve P0 production issues affecting users through systematic root cause analysis using git bisect, implement hotfixes with comprehensive testing, and deploy with verification steps."
+    },
+    {
+      "targetUser": "Full-stack Developer implementing new features",
+      "title": "Feature Implementation from Issue",
+      "description": "Transform feature requests into production-ready code through structured task breakdown, test-driven development, and professional pull requests that follow team standards."
+    },
+    {
+      "targetUser": "Tech Lead establishing team best practices",
+      "title": "Code Quality and Process Improvement",
+      "description": "Establish consistent team workflows for issue resolution with proper branch management, comprehensive testing, and documentation that scales across development teams."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Issue Investigation",
+      "prompt": "Help me resolve GitHub issue [ISSUE_NUMBER]. Start by viewing the issue details and comments to understand the problem.",
+      "scenario": "First encounter with a new bug report or feature request"
+    },
+    {
+      "title": "Root Cause Analysis",
+      "prompt": "Issue [ISSUE_NUMBER] appears to be a regression. Help me use git bisect to identify which commit introduced the bug, starting from [BAD_COMMIT] as broken and [GOOD_COMMIT] as working.",
+      "scenario": "Investigating when a bug was introduced in the codebase"
+    },
+    {
+      "title": "Full Feature Implementation",
+      "prompt": "Implement the feature described in issue [ISSUE_NUMBER]. Create a feature branch, break down the implementation into phases, write tests first using TDD, and create a pull request with comprehensive documentation.",
+      "scenario": "Complete feature implementation from issue to merged PR"
+    },
+    {
+      "title": "PR Creation and Review",
+      "prompt": "Review my changes for issue [ISSUE_NUMBER] and help me create a professional pull request with a comprehensive description including testing approach, performance impact, and checklist.",
+      "scenario": "Preparing code changes for team review and merge"
+    }
+  ],
+  "bestPractices": [
+    "Always create feature branches from the main branch using descriptive naming like feature/issue-123-short-description",
+    "Write failing tests before implementing fixes (test-driven development) to ensure the fix resolves the actual issue",
+    "Use git bisect for systematic regression hunting when bugs were introduced in past commits",
+    "Create comprehensive pull requests that link to issues, describe changes, and include testing checklists",
+    "Verify fixes in production before closing issues and add resolution comments for future reference"
+  ],
+  "antiPatterns": [
+    "Skipping the investigation phase and jumping straight to code changes without understanding root cause",
+    "Making commits directly to main or master instead of using feature branches for issue work",
+    "Writing code without corresponding tests, which makes future regressions more likely",
+    "Creating pull requests without linking to issues or providing clear descriptions of what was changed",
+    "Closing issues immediately after merging PRs without verifying the fix actually resolves the reported problem"
+  ],
+  "faq": [
+    {
+      "question": "What tools do I need to use this skill effectively?",
+      "answer": "You need git installed locally and GitHub CLI (gh) authenticated to your account. The skill also assumes familiarity with command-line operations and your project's testing framework."
+    },
+    {
+      "question": "Can this skill help with issues in repositories other than GitHub?",
+      "answer": "This skill is specifically designed for GitHub workflows using GitHub CLI. For GitLab, Bitbucket, or other platforms, you would need to adapt the commands to equivalent tools."
+    },
+    {
+      "question": "What should I do if git bisect takes too long to find the bad commit?",
+      "answer": "If bisect is slow, narrow the range by starting with commits closer to when the issue was first reported. You can also automate bisect with a test script that reproduces the issue."
+    },
+    {
+      "question": "How do I handle issues that lack clear reproduction steps?",
+      "answer": "Start by adding comments to the issue requesting clarification. Use the triage framework to classify priority. If minimal information exists, label as 'needs triage' and seek more details from the reporter."
+    },
+    {
+      "question": "Should I always follow the four-phase implementation plan for simple fixes?",
+      "answer": "No, adapt the planning to the complexity. Simple one-line fixes may not need extensive task breakdown. Use the phases as a guideline and scale down for straightforward changes."
+    },
+    {
+      "question": "What if the tests I write for my fix keep failing?",
+      "answer": "Failing tests may indicate that the issue description is incomplete or that other bugs exist. Re-examine the issue, clarify requirements, and ensure your test accurately reflects the expected behavior described in the issue."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "GitHub issue resolution",
+    "bug investigation",
+    "test-driven development",
+    "pull request workflows",
+    "git bisect",
+    "CI/CD best practices",
+    "code review process"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/team-collaboration-issue",
+  "sourceType": "community",
+  "dependencies": []
+}

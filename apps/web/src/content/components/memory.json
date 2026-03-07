@@ -1,0 +1,138 @@
+{
+  "name": "memory",
+  "type": "skill",
+  "description": "Manages memory, SSOT files, and Plans.md operations. Use when user mentions メモリ, memory, SSOT, decisions.md, patterns.md, マージ, merge, Plans.md, 移行, migrate. Do NOT load for: 実装作業, レビュー, 一時的なメモ, セッション中の作業記録.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "SSOT management",
+  "quality": 4,
+  "qualityReason": "Core workflow coordination",
+  "bundleHints": [
+    "memory-system",
+    "workflow"
+  ],
+  "tags": [
+    "memory",
+    "merge",
+    "migrate",
+    "plans",
+    "ssot"
+  ],
+  "capabilities": [
+    "Initialize decisions.md, patterns.md, and session-log.md in .claude/memory/",
+    "Merge Plans.md while preserving all user tasks across sessions",
+    "Migrate AGENTS.md, CLAUDE.md, and Plans.md to new formats with user approval",
+    "Create automatic backups before making changes to workflow files",
+    "Extract and reorganize project-specific rules during migration"
+  ],
+  "author": "Chachamaru127",
+  "icon": "🧠",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Low-risk utility skill for memory management. All static findings are false positives: command patterns are documentation examples in markdown files, 'weak crypto' flags are YAML frontmatter and SHA256 hashes, and 'C2 keywords' are standard git terminology (merge, migrate). The skill operates within its documented tool permissions, accessing only .claude/ directories and using Bash only for backup creation.",
+  "valueStatement": "AI assistants lose context between sessions. This skill initializes and maintains Single Source of Truth files so every session starts with consistent project knowledge, decisions, and task tracking.",
+  "userTitle": "Manage project memory and SSOT files",
+  "limitations": [
+    "Does not modify source code or implementation files",
+    "Does not execute arbitrary commands beyond file operations",
+    "Does not access network resources or external APIs",
+    "Does not read environment variables or credentials"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project Maintainers",
+      "title": "Set up project memory",
+      "description": "Initialize SSOT files for a new project so all team members and AI assistants have consistent context"
+    },
+    {
+      "targetUser": "Long-term Users",
+      "title": "Preserve task history",
+      "description": "Merge Plans.md updates without losing task progress across multiple work sessions"
+    },
+    {
+      "targetUser": "Team Leads",
+      "title": "Migrate workflow configs",
+      "description": "Update existing workflow files to new formats while keeping important rules and task data intact"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Initialize memory",
+      "scenario": "Start a new project",
+      "prompt": "Initialize the project memory SSOT files using the memory skill. Create decisions.md, patterns.md, and session-log.md in .claude/memory/ if they do not exist."
+    },
+    {
+      "title": "Merge task list",
+      "scenario": "Update Plans.md safely",
+      "prompt": "Use merge-plans to update Plans.md. Preserve all existing tasks in the WIP, TODO, done, and archive sections while updating the template structure."
+    },
+    {
+      "title": "Migrate workflow files",
+      "scenario": "Update to new format",
+      "prompt": "Migrate our existing AGENTS.md, CLAUDE.md, and Plans.md to the new format. Show me the current content first and confirm before making any changes."
+    },
+    {
+      "title": "Backup and migrate",
+      "scenario": "Safe migration with rollback",
+      "prompt": "Help me migrate our workflow files to the new format. Create backups first in .claude-code-harness/backups/, then show me the diff before I approve the changes."
+    }
+  ],
+  "bestPractices": [
+    "Initialize memory SSOT before starting work on a new project",
+    "Use merge-plans instead of manually editing Plans.md to prevent task loss",
+    "Always review diffs before approving migration changes"
+  ],
+  "antiPatterns": [
+    "Manually editing Plans.md without using merge-plans (risks task loss)",
+    "Skipping backups before migrating workflow files",
+    "Loading this skill for implementation or code review tasks"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "This skill works with Claude Code, Claude, and Codex. It is optimized for Claude Code workflows."
+    },
+    {
+      "question": "What is the maximum Plans.md size?",
+      "answer": "There is no hard limit. The merge algorithm handles files of any size efficiently."
+    },
+    {
+      "question": "Does this integrate with version control?",
+      "answer": "Memory files are designed to be committed to git. Session logs should remain local."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes. All operations create backups first. No data is sent externally. All file access is within .claude/ directories."
+    },
+    {
+      "question": "Why is Plans.md not merging correctly?",
+      "answer": "Ensure the file follows the standard structure with section markers (🔴🟡🟢📦). Invalid structures will use template defaults."
+    },
+    {
+      "question": "How is this different from context management?",
+      "answer": "Memory SSOT provides persistent context that survives sessions. Context management handles the current session only."
+    }
+  ],
+  "seoKeywords": [
+    "memory management",
+    "SSOT",
+    "single source of truth",
+    "plans management",
+    "claude code",
+    "claude memory",
+    "codex memory",
+    "context preservation",
+    "task tracking",
+    "project documentation"
+  ],
+  "sourceUrl": "https://github.com/Chachamaru127/claude-code-harness/tree/main/skills/memory",
+  "sourceType": "community",
+  "dependencies": []
+}

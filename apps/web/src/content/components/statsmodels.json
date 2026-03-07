@@ -1,0 +1,143 @@
+{
+  "name": "statsmodels",
+  "type": "skill",
+  "description": "Statistical models library for Python. Use when you need specific model classes (OLS, GLM, mixed models, ARIMA) with detailed diagnostics, residuals, and inference. Best for econometrics, time series, rigorous inference with coefficient tables. For guided statistical test selection with APA reporting use statistical-analysis.",
+  "domain": "ai-ml",
+  "subdomain": "ml-ops",
+  "specialty": "Statistical models",
+  "quality": 5,
+  "qualityReason": "Detailed statistical modeling",
+  "bundleHints": [
+    "ml-ops",
+    "data-science"
+  ],
+  "tags": [
+    "data analysis",
+    "econometrics",
+    "inference",
+    "machine learning",
+    "python",
+    "statistics",
+    "time series"
+  ],
+  "capabilities": [
+    "Fit OLS, WLS, GLS, and quantile regression models with full inference",
+    "Build generalized linear models (logistic, Poisson, Gamma regressions)",
+    "Analyze time series with ARIMA, SARIMAX, and exponential smoothing",
+    "Estimate discrete choice models (binary, multinomial, count data)",
+    "Run comprehensive diagnostic tests (heteroskedasticity, normality, autocorrelation)",
+    "Generate publication-ready coefficient tables and statistical summaries"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "BSD-3-Clause license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing markdown files with Python code examples. Static scanner flagged 434 alerts but all are false positives. The skill contains no executable code - only documentation for the statsmodels statistical library. Scanner misinterpreted markdown backticks as shell commands, statistical terms (HC2, HC3) as C2 indicators, and common patterns as cryptographic algorithms.",
+  "valueStatement": "Perform rigorous statistical analysis using OLS, GLM, ARIMA, and discrete choice models. Get publication-ready results with full diagnostics, coefficient tables, and residual analysis.",
+  "userTitle": "Apply statistical models with statsmodels",
+  "limitations": [
+    "Requires user to prepare data in pandas DataFrames",
+    "Does not include automated model selection (manual specification required)",
+    "No built-in visualization - requires matplotlib integration",
+    "May require statistical knowledge for appropriate model selection"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data scientists",
+      "title": "Regression analysis",
+      "description": "Fit linear and generalized linear models with robust standard errors and diagnostic testing"
+    },
+    {
+      "targetUser": "Economists",
+      "title": "Econometric modeling",
+      "description": "Estimate causal effects with proper inference, hypothesis testing, and model comparison"
+    },
+    {
+      "targetUser": "Analysts",
+      "title": "Time series forecasting",
+      "description": "Build ARIMA models for forecasting with confidence intervals and residual diagnostics"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic regression",
+      "scenario": "Fit a simple linear model",
+      "prompt": "Fit an OLS regression model using statsmodels with robust standard errors. Show the coefficient summary and test for heteroskedasticity."
+    },
+    {
+      "title": "Logistic regression",
+      "scenario": "Binary outcome modeling",
+      "prompt": "Build a logistic regression model for a binary outcome. Calculate odds ratios, marginal effects, and classification metrics."
+    },
+    {
+      "title": "Time series",
+      "scenario": "ARIMA forecasting",
+      "prompt": "Analyze this time series data with ARIMA. Check stationarity, identify model order, fit the model, and generate 12-step forecasts with prediction intervals."
+    },
+    {
+      "title": "Model comparison",
+      "scenario": "Compare multiple models",
+      "prompt": "Compare several model specifications using AIC, BIC, and likelihood ratio tests. Recommend the best model with justification."
+    }
+  ],
+  "bestPractices": [
+    "Always add constant with sm.add_constant() unless excluding intercept deliberately",
+    "Test model assumptions (heteroskedasticity, normality, autocorrelation) after fitting",
+    "Use robust standard errors (HC0-HC3) when assumption violations are detected",
+    "Report confidence intervals alongside point estimates for inference"
+  ],
+  "antiPatterns": [
+    "Forgetting to add constant leads to biased intercept estimates",
+    "Ignoring heteroskedasticity invalidates inference",
+    "Using OLS for binary outcomes produces incorrect probabilities",
+    "Not checking for influential observations before interpretation"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between OLS and GLM?",
+      "answer": "OLS assumes normally distributed errors with constant variance. GLM extends this to non-normal outcomes using different distributions and link functions."
+    },
+    {
+      "question": "How do I choose between Logit and Probit?",
+      "answer": "Both work similarly for binary outcomes. Logit has fatter tails. Use Logit for easier interpretation (odds ratios) or Probit for theoretical reasons."
+    },
+    {
+      "question": "What order should I use for ARIMA?",
+      "answer": "Use ACF/PACF plots to identify p (AR order) and q (MA order). Use ADF test for stationarity to determine d (differencing)."
+    },
+    {
+      "question": "When should I use robust standard errors?",
+      "answer": "Use robust SEs when heteroskedasticity is present or when there's clustering in the data that induces correlation."
+    },
+    {
+      "question": "How do I compare nested models?",
+      "answer": "Use likelihood ratio test. For non-nested models, compare AIC or BIC values. Lower AIC/BIC indicates better fit."
+    },
+    {
+      "question": "What diagnostic tests should I run after fitting?",
+      "answer": "Test heteroskedasticity (Breusch-Pagan), normality (Jarque-Bera), autocorrelation (Durbin-Watson), and check influential observations (Cook's distance)."
+    }
+  ],
+  "seoKeywords": [
+    "statsmodels",
+    "statistical analysis",
+    "OLS regression",
+    "GLM models",
+    "ARIMA time series",
+    "Python statistics",
+    "econometrics",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/statsmodels",
+  "sourceType": "community",
+  "dependencies": []
+}

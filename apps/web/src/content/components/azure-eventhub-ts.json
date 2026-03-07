@@ -1,0 +1,144 @@
+{
+  "name": "azure-eventhub-ts",
+  "type": "skill",
+  "description": "Build event streaming applications using Azure Event Hubs SDK for JavaScript (@azure/event-hubs). Use when implementing high-throughput event ingestion, real-time analytics, IoT telemetry, or event-driven architectures with partitioned consumers.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "event streaming",
+  "quality": 5,
+  "qualityReason": "Clear SDK integration",
+  "bundleHints": [
+    "azure-events",
+    "ts-streaming",
+    "pipelines"
+  ],
+  "tags": [
+    "azure",
+    "event hubs",
+    "event streaming",
+    "event-hubs",
+    "iot",
+    "real-time analytics",
+    "realtime-analytics",
+    "streaming",
+    "typescript"
+  ],
+  "capabilities": [
+    "Create EventHubProducerClient and EventHubConsumerClient with DefaultAzureCredential authentication",
+    "Send events with batch operations and partition targeting",
+    "Receive events with consumer groups and checkpointing using Azure Blob Storage",
+    "Configure partition-specific event consumption with offset and time-based positions",
+    "Handle transient and fatal errors with appropriate retry and recovery strategies",
+    "Access Event Hub metadata including partition properties and sequence numbers"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains documentation for the official Azure Event Hubs SDK for TypeScript. Static analyzer flagged Markdown code block delimiters as shell commands (false positive). All code patterns are standard Azure SDK usage: environment variable configuration, DefaultAzureCredential authentication, and Azure Storage endpoints for checkpointing. No security concerns identified.",
+  "valueStatement": "Implement high-throughput event ingestion and real-time data processing with Azure Event Hubs. This skill provides TypeScript SDK patterns for producers, consumers, and checkpointing strategies.",
+  "userTitle": "Build Azure Event Hubs streaming applications",
+  "limitations": [
+    "Requires existing Azure Event Hubs namespace and event hub resources",
+    "Does not provision or manage Azure infrastructure",
+    "Supports JavaScript and TypeScript implementations only",
+    "Requires proper Azure IAM configuration for authentication"
+  ],
+  "useCases": [
+    {
+      "targetUser": "IoT Engineers",
+      "title": "IoT Telemetry Ingestion",
+      "description": "Stream sensor data from thousands of IoT devices to Azure Event Hubs for real-time processing and analytics."
+    },
+    {
+      "targetUser": "Data Engineers",
+      "title": "Real-Time Analytics Pipeline",
+      "description": "Build event-driven data pipelines that process streaming data with checkpointing for exactly-once semantics."
+    },
+    {
+      "targetUser": "Backend Developers",
+      "title": "Event-Driven Microservices",
+      "description": "Implement publish-subscribe patterns for decoupled microservices communication using consumer groups."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Event Producer Setup",
+      "prompt": "Create a TypeScript EventHubProducerClient that sends temperature sensor data to Azure Event Hubs using environment variables for configuration.",
+      "scenario": "Beginner - Simple event production"
+    },
+    {
+      "title": "Event Consumer with Logging",
+      "prompt": "Implement an EventHubConsumerClient that subscribes to events and logs each received event with partition ID and timestamp.",
+      "scenario": "Beginner - Basic event consumption"
+    },
+    {
+      "title": "Production Consumer with Checkpointing",
+      "prompt": "Create an event consumer that uses BlobCheckpointStore for checkpointing after processing each batch, with error handling for transient failures.",
+      "scenario": "Advanced - Production-ready pattern"
+    },
+    {
+      "title": "Partition-Aware Event Processing",
+      "prompt": "Design a solution that sends events with partition keys for device-specific ordering and consumes from specific partitions starting from a given timestamp.",
+      "scenario": "Advanced - Partition strategy"
+    }
+  ],
+  "bestPractices": [
+    "Always checkpoint after successful event processing to ensure exactly-once semantics",
+    "Use partition keys to maintain ordering for related events from the same source",
+    "Close EventHubProducerClient and EventHubConsumerClient when done to release resources"
+  ],
+  "antiPatterns": [
+    "Skipping checkpointing in production environments causes duplicate processing on restart",
+    "Not using partition keys when event ordering matters for business logic",
+    "Leaving producer or consumer clients open leads to resource leaks and connection exhaustion"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between partition ID and partition key?",
+      "answer": "Partition ID targets a specific partition directly. Partition key uses consistent hashing to route related events to the same partition for ordering guarantees."
+    },
+    {
+      "question": "When should I use checkpointing?",
+      "answer": "Use checkpointing in production to track processed events. It enables exactly-once processing and allows consumers to resume from the last successful position after restarts."
+    },
+    {
+      "question": "How do I handle message processing failures?",
+      "answer": "Do not checkpoint on processing failures. The events will be reprocessed on the next consumer start. Log the error and optionally implement retry logic."
+    },
+    {
+      "question": "What authentication methods are supported?",
+      "answer": "The skill uses DefaultAzureCredential which supports managed identity, environment credentials, Azure CLI, and Visual Studio credentials for flexible authentication."
+    },
+    {
+      "question": "How do I read events from a specific point in time?",
+      "answer": "Use the startPosition option with enqueuedOn set to a Date object, or use offset-based positioning with specific offset values or @earliest/@latest."
+    },
+    {
+      "question": "What is the purpose of consumer groups?",
+      "answer": "Consumer groups allow multiple independent applications to read the same event stream at their own pace. Each consumer group maintains its own checkpoint position."
+    }
+  ],
+  "seoKeywords": [
+    "Azure Event Hubs",
+    "event streaming",
+    "TypeScript SDK",
+    "real-time analytics",
+    "IoT telemetry",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Azure SDK",
+    "event-driven architecture"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-eventhub-ts",
+  "sourceType": "community",
+  "dependencies": []
+}

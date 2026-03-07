@@ -1,0 +1,143 @@
+{
+  "name": "picture-book-wizard",
+  "type": "skill",
+  "description": "A specialized skill for generating high-quality, consistent children's bilingual picture books using 'banana nano'. Supports 18 visual styles across 4 categories (7 core children's book styles, 5 atmospheric styles, 5 Chinese cultural styles, 1 specialized), 12 scenes (5 nature + 7 cultural), age-driven dynamic content system (ages 3-12), and expanded learning domains (science, math, history, psychology, etc.). Use when the user wants to create picture book stories, prompts, or learning materials.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "children's books",
+  "quality": 4,
+  "qualityReason": "Creative and well-scoped",
+  "bundleHints": [
+    "creative-tools",
+    "education-tech"
+  ],
+  "tags": [
+    "banana-nano",
+    "bilingual",
+    "children",
+    "consistent-art",
+    "education",
+    "picture-book",
+    "story-generation",
+    "storytelling",
+    "visual-styles"
+  ],
+  "capabilities": [
+    "Generate age-appropriate bilingual story content for children ages 3-12",
+    "Apply 18 visual styles across 4 categories for consistent illustrations",
+    "Create 12 scene types including nature and cultural themes",
+    "Structure stories with proper narrative arc and character development",
+    "Support expanded learning domains: science, math, history, psychology",
+    "Validate content for safety and age-appropriateness"
+  ],
+  "author": "kart-io",
+  "icon": "📚",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are FALSE POSITIVES. The 'Ruby/shell backtick' detections are in markdown template files describing output formats, not actual code execution. 'Windows SAM database' references are content descriptions in YAML configuration files. No actual command execution, network access, or credential exposure. This is a content generation skill for children's picture books.",
+  "valueStatement": "Creating engaging, educational picture books for children requires careful attention to visual consistency, age-appropriate content, and cultural relevance. This skill generates high-quality bilingual picture book content with 18 visual styles and 12 scene types, tailored for ages 3-12.",
+  "userTitle": "Create bilingual picture books for children",
+  "limitations": [
+    "Does not generate actual images - creates text prompts for image generation",
+    "Content is text-based; actual book rendering requires additional tools",
+    "Cannot access external APIs or databases for real-time content",
+    "Limited to pre-defined visual styles and scene configurations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Parents and educators seeking educational content",
+      "title": "Create educational bedtime stories",
+      "description": "Generate bilingual bedtime stories that teach children new concepts while entertaining them with age-appropriate narratives."
+    },
+    {
+      "targetUser": "Teachers and curriculum developers",
+      "title": "Develop cultural heritage learning materials",
+      "description": "Create picture books featuring Chinese cultural scenes and traditions for language and cultural education."
+    },
+    {
+      "targetUser": "Content creators and publishers",
+      "title": "Build custom story collections",
+      "description": "Develop themed picture book series for specific learning objectives or entertainment purposes."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple story request",
+      "prompt": "Create a short picture book story about [TOPIC] for a [AGE]-year-old child. Include [PAGE_COUNT] pages.",
+      "scenario": "Basic story generation"
+    },
+    {
+      "title": "Cultural theme story",
+      "prompt": "Write a bilingual picture book featuring [CULTURAL_THEME] for children ages [AGE_RANGE]. Include [NUMBER] scenes with [STYLE] visual style.",
+      "scenario": "Cultural education content"
+    },
+    {
+      "title": "Educational learning book",
+      "prompt": "Generate a picture book that teaches [SUBJECT] to [AGE]-year-olds using a [STYLE] art style. Include [PAGES] pages with learning objectives.",
+      "scenario": "Educational material creation"
+    },
+    {
+      "title": "Series development",
+      "prompt": "Create a series of [COUNT] connected picture books about [THEME]. Each book should have [PAGES] pages and feature consistent characters and visual style.",
+      "scenario": "Multi-book series creation"
+    }
+  ],
+  "bestPractices": [
+    "Specify the child's age range to ensure age-appropriate vocabulary and concepts",
+    "Include cultural context when requesting culturally-specific content",
+    "Request specific visual styles that match your intended audience"
+  ],
+  "antiPatterns": [
+    "Asking for graphic or frightening content for young children",
+    "Requesting complex themes without age specifications",
+    "Expecting the skill to generate actual images rather than text prompts"
+  ],
+  "faq": [
+    {
+      "question": "Can this skill create actual picture books with images?",
+      "answer": "No, this skill generates text content including story text, scene descriptions, and image prompts. You would use the generated prompts with an image generation tool to create the illustrations."
+    },
+    {
+      "question": "What age ranges are supported?",
+      "answer": "The skill supports children ages 3-12, with content automatically adjusted for vocabulary complexity, theme depth, and narrative structure."
+    },
+    {
+      "question": "How many languages are supported?",
+      "answer": "The skill is designed for bilingual content generation, commonly English and Chinese, but can be adapted for other language combinations."
+    },
+    {
+      "question": "Can I customize the visual styles?",
+      "answer": "Yes, 18 visual styles are available including children's book illustrations, atmospheric styles, and Chinese cultural art styles."
+    },
+    {
+      "question": "Does this skill work with other Claude tools?",
+      "answer": "Yes, this skill is compatible with Claude, Codex, and Claude Code for seamless integration into various workflows."
+    },
+    {
+      "question": "What learning domains are covered?",
+      "answer": "The skill supports content for science, mathematics, history, psychology, and other educational domains through age-appropriate storytelling."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "picture book",
+    "children's book",
+    "bilingual",
+    "education",
+    "story generation",
+    "kids learning",
+    "children's education"
+  ],
+  "sourceUrl": "https://github.com/kart-io/picture-skills/tree/master/",
+  "sourceType": "community",
+  "dependencies": []
+}

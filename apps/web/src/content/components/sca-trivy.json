@@ -1,0 +1,144 @@
+{
+  "name": "sca-trivy",
+  "type": "skill",
+  "description": "Software Composition Analysis (SCA) and container vulnerability scanning using Aqua Trivy for identifying CVE vulnerabilities in dependencies, container images, IaC misconfigurations, and license compliance risks. Use when: (1) Scanning container images and filesystems for vulnerabilities and misconfigurations, (2) Analyzing dependencies for known CVEs across multiple languages (Go, Python, Node.js, Java, etc.), (3) Detecting IaC security issues in Terraform, Kubernetes, Dockerfile, (4) Integrating vulnerability scanning into CI/CD pipelines with SARIF output, (5) Generating Software Bill of Materials (SBOM) in CycloneDX or SPDX format, (6) Prioritizing remediation by CVSS score and exploitability.\n",
+  "domain": "security",
+  "subdomain": "devsecops",
+  "specialty": "container SCA",
+  "quality": 5,
+  "qualityReason": "Multi-scan, essential tool",
+  "bundleHints": [
+    "devsecops",
+    "container-security"
+  ],
+  "tags": [
+    "container-security",
+    "cve",
+    "cvss",
+    "dependency-scanning",
+    "iac",
+    "iac-security",
+    "sbom",
+    "sca",
+    "trivy",
+    "vulnerability-scanning"
+  ],
+  "capabilities": [
+    "Scan container images for CVE vulnerabilities by severity level",
+    "Analyze project dependencies across multiple languages (Go, Python, Node.js, Java)",
+    "Detect IaC misconfigurations in Terraform, Kubernetes, and Dockerfiles",
+    "Generate Software Bill of Materials in CycloneDX or SPDX format",
+    "Create SARIF reports for GitHub Security tab integration",
+    "Prioritize vulnerabilities using CVSS scores and exploitability data"
+  ],
+  "author": "AgentSecOps",
+  "icon": "🛡️",
+  "version": "0.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing markdown guides for Trivy vulnerability scanner usage. No executable code present. This is a knowledge-base skill providing standardized workflows for identifying CVEs, generating SBOMs, and integrating security scanning into CI/CD pipelines. All 86 static findings are false positives - the analyzer misinterpreted documentation examples and legitimate security/compliance terminology as security threats.",
+  "valueStatement": "Manual dependency and container vulnerability scanning requires significant security expertise to interpret CVE reports and prioritize fixes. This skill provides standardized Trivy workflows for identifying CVEs, generating SBOMs, and integrating security scanning into CI/CD pipelines.",
+  "userTitle": "Scan containers and dependencies for vulnerabilities",
+  "limitations": [
+    "Does not install Trivy; users must install it separately",
+    "Does not execute scans automatically; provides command templates only",
+    "Does not fix vulnerabilities; only identifies and reports them",
+    "Does not integrate with private container registries without manual configuration"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security engineers",
+      "title": "Container security assessment",
+      "description": "Run comprehensive scans on container images to identify critical vulnerabilities before deployment to production"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "CI/CD pipeline security",
+      "description": "Integrate vulnerability scanning into GitHub Actions or GitLab CI pipelines with SARIF output and security gates"
+    },
+    {
+      "targetUser": "Compliance officers",
+      "title": "SBOM documentation",
+      "description": "Generate software bill of materials to meet regulatory requirements and track component provenance"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick image scan",
+      "scenario": "Scan a container image",
+      "prompt": "Scan the container image nginx:latest for vulnerabilities using Trivy and show findings by severity level"
+    },
+    {
+      "title": "Dependency audit",
+      "scenario": "Check project dependencies",
+      "prompt": "Run Trivy filesystem scan on my project to identify vulnerable dependencies with CVSS scores above 7.0"
+    },
+    {
+      "title": "IaC security scan",
+      "scenario": "Scan infrastructure code",
+      "prompt": "Scan my Terraform configurations in the infrastructure/ directory for security misconfigurations using Trivy"
+    },
+    {
+      "title": "Generate SBOM",
+      "scenario": "Create software bill of materials",
+      "prompt": "Generate a CycloneDX SBOM for my application and save it to sbom.json using Trivy"
+    }
+  ],
+  "bestPractices": [
+    "Run Trivy scans in CI/CD pipelines before deploying to production environments",
+    "Use severity filtering (CRITICAL,HIGH) to focus on actionable findings initially",
+    "Generate SBOMs during build time for supply chain transparency and incident response"
+  ],
+  "antiPatterns": [
+    "Scanning production images without first building and testing in staging environments",
+    "Ignoring false positive rates without documenting accepted risks in .trivyignore",
+    "Running scans without caching the vulnerability database for faster subsequent scans"
+  ],
+  "faq": [
+    {
+      "question": "Which languages does Trivy support for dependency scanning?",
+      "answer": "Trivy supports Go, Python, Node.js, Java, .NET, PHP, Ruby, Rust, and many other languages through package manifest files."
+    },
+    {
+      "question": "What is the minimum Trivy version required for SARIF output?",
+      "answer": "Trivy v0.31.0 or later supports SARIF format output for integration with GitHub Security tab."
+    },
+    {
+      "question": "How do I integrate Trivy scans into my existing CI/CD pipeline?",
+      "answer": "Use the aquasecurity/trivy-action for GitHub Actions or run trivy CLI directly in any CI system with JSON or SARIF output."
+    },
+    {
+      "question": "Is my scan data sent to external servers?",
+      "answer": "By default, Trivy downloads its vulnerability database from GitHub but scan results stay local. Configure offline mode for air-gapped environments."
+    },
+    {
+      "question": "Why am I seeing false positives in my scan results?",
+      "answer": "False positives occur when CVEs apply to different versions or contexts. Use .trivyignore files to suppress confirmed false positives with justification."
+    },
+    {
+      "question": "How does Trivy compare to other SCA tools like Snyk or OWASP Dependency-Check?",
+      "answer": "Trivy is open-source, fast, and covers containers, IaC, and dependencies. Snyk offers more integrations; Dependency-Check has broader language support but slower scans."
+    }
+  ],
+  "seoKeywords": [
+    "trivy sca",
+    "container vulnerability scanner",
+    "cve scanning",
+    "dependency vulnerability",
+    "sbom generation",
+    "claude code security",
+    "claude security scanning",
+    "codex vulnerability",
+    "iac security scanning",
+    "trivy ci cd"
+  ],
+  "sourceUrl": "https://github.com/AgentSecOps/SecOpsAgentKit/tree/main/skills/devsecops/sca-trivy",
+  "sourceType": "community",
+  "dependencies": []
+}

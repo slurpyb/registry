@@ -1,0 +1,144 @@
+{
+  "name": "releasing-versions",
+  "type": "skill",
+  "description": "Manages release preparation including validation, version bumping, documentation verification, and security checks.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "release validation",
+  "quality": 4,
+  "qualityReason": "Comprehensive pre-deploy checks",
+  "bundleHints": [
+    "ci-cd",
+    "release-automation"
+  ],
+  "tags": [
+    "deployment",
+    "deployment-prep",
+    "documentation-verification",
+    "release",
+    "release-process",
+    "security",
+    "security-checks",
+    "validation",
+    "version-bumping",
+    "versioning"
+  ],
+  "capabilities": [
+    "Validates all sprint tasks are complete before release",
+    "Runs test suites and checks code coverage thresholds",
+    "Performs security scans for secrets and vulnerabilities",
+    "Updates version strings across multiple files",
+    "Verifies CHANGELOG, README, and FEATURE_MATRIX are current",
+    "Prepares git commits and annotated tags for release"
+  ],
+  "author": "BPSAI",
+  "icon": "🚀",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is pure documentation (SKILL.md) with no executable code. Static findings are false positives: the analyzer misidentified markdown code blocks as Ruby/shell backticks and misinterpreted version-related field names as cryptographic algorithms. No scripts, network calls, or file operations exist in this skill.",
+  "valueStatement": "Managing software releases requires following many steps correctly. This skill provides a structured 8-phase workflow to validate tests, update versions, verify documentation, and prepare git commits for safe releases.",
+  "userTitle": "Prepare software releases with validation",
+  "limitations": [
+    "Does not execute builds or deployments directly",
+    "Does not push to remote repositories or publish to package registries",
+    "Requires manual confirmation before git push operations",
+    "Does not roll back releases or handle failed release recovery"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Standardized Release Process",
+      "description": "Follow consistent release procedures across all releases with built-in validation gates and security checks."
+    },
+    {
+      "targetUser": "Project Maintainers",
+      "title": "Version Management",
+      "description": "Automatically update version strings in pyproject.toml, __init__.py, and configuration files systematically."
+    },
+    {
+      "targetUser": "Development Teams",
+      "title": "Pre-Release Validation",
+      "description": "Verify tests pass, coverage meets targets, and no secrets exist before releasing to production."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start Release",
+      "scenario": "Begin a new release",
+      "prompt": "Use the releasing-versions skill to prepare release v{version}. Start from Phase 1 and validate everything."
+    },
+    {
+      "title": "Version Bump",
+      "scenario": "Update version numbers",
+      "prompt": "Help me bump the version from {current_version} to {new_version} using the releasing-versions workflow."
+    },
+    {
+      "title": "Pre-Release Check",
+      "scenario": "Validate release readiness",
+      "prompt": "Run the pre-release validation phase from releasing-versions. Check tests, coverage, and security scans."
+    },
+    {
+      "title": "Full Release Prep",
+      "scenario": "Complete release workflow",
+      "prompt": "Prepare a complete release using all 8 phases of the releasing-versions skill. Show me the summary report."
+    }
+  ],
+  "bestPractices": [
+    "Run the full 8-phase workflow sequentially without skipping validation steps",
+    "Review security scan results carefully before proceeding to git operations",
+    "Always confirm the git push commands manually before executing them"
+  ],
+  "antiPatterns": [
+    "Skipping pre-release validation to speed up the release process",
+    "Proceeding with release when tests fail or coverage is below threshold",
+    "Not reviewing stale documentation warnings before committing"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It provides workflow guidance for release preparation."
+    },
+    {
+      "question": "What version format should I use?",
+      "answer": "Use X.Y.Z format in files without v prefix and vX.Y.Z for git tags. Example: 2.9.0 in code, v2.9.0 as tag."
+    },
+    {
+      "question": "Does this skill push to remote repositories?",
+      "answer": "No. The skill prepares git commits and tags but requires manual confirmation before git push operations."
+    },
+    {
+      "question": "Is my data safe when using security scans?",
+      "answer": "Yes. Security scans run locally on your codebase. No data is sent to external services. Scans check for secrets and vulnerabilities."
+    },
+    {
+      "question": "What happens if tests fail during validation?",
+      "answer": "Tests failing is a blocking condition. The release cannot proceed. Fix failing tests and re-run from Phase 1."
+    },
+    {
+      "question": "How is this different from CI/CD tools?",
+      "answer": "This skill guides the AI through release procedures. CI/CD tools automate builds and deployments. Use both together for complete release automation."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code release workflow",
+    "version bumping automation",
+    "software release validation",
+    "release preparation checklist",
+    "security scanning before release",
+    "documentation verification",
+    "git release automation",
+    "CI/CD release management",
+    "Claude release skill",
+    "Codex deployment validation"
+  ],
+  "sourceUrl": "https://github.com/BPSAI/paircoder/tree/main/.claude/skills/releasing-versions",
+  "sourceType": "community",
+  "dependencies": []
+}

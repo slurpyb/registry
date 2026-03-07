@@ -1,0 +1,141 @@
+{
+  "name": "mcp-server-best-practices",
+  "type": "skill",
+  "description": "Production-ready patterns and best practices for MCP servers - architecture, security, performance, and maintenance",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "Production patterns",
+  "quality": 5,
+  "qualityReason": "Covers key production aspects",
+  "bundleHints": [
+    "mcp-toolkit",
+    "devops"
+  ],
+  "tags": [
+    "best-practices",
+    "mcp",
+    "protocol",
+    "rust",
+    "server-development"
+  ],
+  "capabilities": [
+    "Provide architecture patterns for MCP server implementation including layered and hexagonal architectures",
+    "Guide on security best practices such as input validation, authentication, and SQL injection prevention",
+    "Recommend performance optimization techniques including connection pooling and caching strategies",
+    "Explain error handling patterns and comprehensive error type design for production systems",
+    "Detail testing strategies including unit testing with mocks and integration testing with containers",
+    "Cover observability practices including structured logging, metrics, and monitoring setup"
+  ],
+  "author": "EmilLindfors",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing Rust code examples for MCP server best practices. Static scanner flagged pattern-based false positives triggered by code block syntax and legitimate security-related keywords. All findings evaluated as false positives - this is educational content, not executable code with security implications.",
+  "valueStatement": "Building MCP servers for production requires careful attention to architecture, security, and performance. This skill provides expert guidance on proven patterns for creating maintainable and secure MCP server implementations.",
+  "userTitle": "Build production-ready MCP servers",
+  "limitations": [
+    "Does not provide executable code or implementation templates",
+    "Focuses on Rust implementations - patterns may need adaptation for other languages",
+    "Does not cover specific transport layer implementations beyond architectural guidance",
+    "Does not include deployment or infrastructure configuration examples"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software architects designing MCP server implementations",
+      "title": "Design new MCP server architecture",
+      "description": "Architects designing a new MCP server can use this skill to select appropriate patterns, understand trade-offs between layered and hexagonal approaches, and establish a maintainable code organization structure."
+    },
+    {
+      "targetUser": "Security engineers conducting code reviews",
+      "title": "Review MCP server security posture",
+      "description": "Security engineers can use this skill to evaluate existing MCP server implementations against established security patterns, identify gaps in authentication, authorization, and input validation implementations."
+    },
+    {
+      "targetUser": "Backend developers optimizing production systems",
+      "title": "Optimize MCP server performance",
+      "description": "Backend developers can use this skill to identify performance bottlenecks in their MCP server implementations, apply connection pooling, caching strategies, and async best practices for improved throughput."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Getting started with architecture",
+      "prompt": "I am building an MCP server in Rust. What are the recommended architecture patterns for organizing the codebase? Should I use a layered architecture or hexagonal architecture? What are the trade-offs between these approaches?",
+      "scenario": "When a developer needs initial guidance on structuring their MCP server project"
+    },
+    {
+      "title": "Implementing authentication",
+      "prompt": "How should I implement authentication and authorization in my MCP server? What are the best practices for handling auth tokens, validating permissions, and protecting sensitive endpoints? Show me example code patterns.",
+      "scenario": "When a developer needs guidance on implementing security features"
+    },
+    {
+      "title": "Error handling design",
+      "prompt": "What error handling patterns do you recommend for production MCP servers? How should I structure error types, handle different error categories, and provide meaningful error messages to clients?",
+      "scenario": "When designing error handling strategies for reliability"
+    },
+    {
+      "title": "Performance optimization",
+      "prompt": "What performance optimizations should I implement in my MCP server? Include guidance on database connection pooling, caching strategies, async operation patterns, and handling external service calls efficiently.",
+      "scenario": "When optimizing for production performance and scalability"
+    }
+  ],
+  "bestPractices": [
+    "Use parameterized queries for all database operations to prevent SQL injection attacks",
+    "Implement comprehensive input validation at service boundaries using validation libraries",
+    "Design error types that provide actionable information while avoiding information leakage in production",
+    "Apply connection pooling for database connections and implement caching for frequently accessed data"
+  ],
+  "antiPatterns": [
+    "Avoid string concatenation for building SQL queries - always use parameterized queries",
+    "Do not expose internal error details to clients in production - log internally but return generic errors",
+    "Avoid blocking async operations with synchronous calls - use proper async patterns throughout",
+    "Do not skip authentication or authorization checks on any endpoint - apply consistent security across all operations"
+  ],
+  "faq": [
+    {
+      "question": "What architecture pattern should I use for my MCP server?",
+      "answer": "For most MCP servers, hexagonal architecture (ports and adapters) provides the best flexibility. It separates core business logic from external dependencies, making it easy to test and swap implementations. Layered architecture works for simpler applications with fewer external integrations."
+    },
+    {
+      "question": "How should I handle authentication in my MCP server?",
+      "answer": "Use JWT tokens with appropriate validation. Decode tokens using a secret key, validate expiration, and check user roles for authorization. Implement a context object that wraps token claims and provides helper methods for permission checks."
+    },
+    {
+      "question": "What testing strategies work best for MCP servers?",
+      "answer": "Use unit tests with mock dependencies (like mockall in Rust) for testing business logic in isolation. Use integration tests with test containers for testing database interactions. Aim for fast unit tests for development and slower integration tests for critical paths."
+    },
+    {
+      "question": "How do I implement proper error handling?",
+      "answer": "Define an enum that covers all error cases, implement the Error trait with Display for user messages, add error codes for categorization, and include a method to determine if an error is retryable for resilience patterns."
+    },
+    {
+      "question": "What performance optimizations should I prioritize?",
+      "answer": "Start with connection pooling for databases, implement caching for frequently accessed data, use concurrent operations with try_join_all for batch fetches, and add timeouts for all external service calls to prevent resource exhaustion."
+    },
+    {
+      "question": "How do I make my MCP server observable?",
+      "answer": "Use structured logging with contextual information (like user IDs in log fields), implement metrics with counters and histograms for request tracking, and add tracing spans for performance profiling in production environments."
+    }
+  ],
+  "seoKeywords": [
+    "MCP server",
+    "Model Context Protocol",
+    "Rust MCP",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "server architecture",
+    "best practices",
+    "protocol server",
+    "MCP development"
+  ],
+  "sourceUrl": "https://github.com/EmilLindfors/claude-marketplace/tree/main/plugins/rust-mcp-server/skills/mcp-best-practices",
+  "sourceType": "community",
+  "dependencies": []
+}

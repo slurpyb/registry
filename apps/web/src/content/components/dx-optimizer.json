@@ -1,0 +1,141 @@
+{
+  "name": "dx-optimizer",
+  "type": "skill",
+  "description": "Developer Experience specialist. Improves tooling, setup, and",
+  "domain": "devops",
+  "subdomain": "workflow",
+  "specialty": "dev experience",
+  "quality": 5,
+  "qualityReason": "Proactive and valuable focus",
+  "bundleHints": [
+    "dev-experience",
+    "tooling-stack"
+  ],
+  "tags": [
+    "developer-experience",
+    "devops",
+    "friction",
+    "onboarding",
+    "setup",
+    "tooling",
+    "workflow-optimization"
+  ],
+  "capabilities": [
+    "Analyze current development workflows and identify pain points",
+    "Create automated setup scripts and onboarding guides under 5 minutes",
+    "Configure IDE settings, git hooks, and project-specific CLI commands",
+    "Optimize build times, test execution, and hot reload feedback loops",
+    "Generate package.json improvements and Makefile configurations",
+    "Provide actionable checklists for continuous DX improvement"
+  ],
+  "author": "sickn33",
+  "icon": "🛠️",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only skill with no executable code. The static analyzer scanned 0 files (0 lines) and detected 0 potential security issues. The skill provides AI-generated guidance on developer experience optimization through text-based instructions only. No suspicious patterns were detected. This is a safe, community-contributed skill that helps developers improve their tooling and workflows.",
+  "valueStatement": "Development friction slows teams down. This skill provides AI-powered guidance to streamline onboarding, automate workflows, and enhance tooling for a better developer experience.",
+  "userTitle": "Optimize Developer Experience and Tooling",
+  "limitations": [
+    "Does not execute code or modify files directly - provides guidance only",
+    "Cannot access external tools or APIs to measure actual performance",
+    "Results depend on the quality of input about current workflows",
+    "May require manual verification of proposed changes"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Team leads and DevOps engineers",
+      "title": "New Project Onboarding",
+      "description": "Reduce time-to-productivity for new developers by creating automated setup scripts and intelligent defaults"
+    },
+    {
+      "targetUser": "Engineering managers and senior developers",
+      "title": "Development Workflow Audit",
+      "description": "Identify repetitive tasks and bottlenecks in existing development processes"
+    },
+    {
+      "targetUser": "Individual developers and small teams",
+      "title": "Tooling Configuration",
+      "description": "Set up IDE configurations, git hooks, and custom commands for project-specific needs"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick DX Assessment",
+      "prompt": "Assess the developer experience of our current project setup. What are the main pain points and what could be improved?",
+      "scenario": "When you notice friction in daily development"
+    },
+    {
+      "title": "Onboarding Setup Guide",
+      "prompt": "Create a step-by-step onboarding guide for new developers joining our project. Include setup scripts and expected timeline.",
+      "scenario": "When setting up new team members"
+    },
+    {
+      "title": "Workflow Automation",
+      "prompt": "Identify repetitive tasks in our development workflow and suggest automation solutions using package.json scripts or Makefile.",
+      "scenario": "When looking to reduce manual steps"
+    },
+    {
+      "title": "IDE Configuration",
+      "prompt": "Recommend IDE settings and extensions that would improve productivity for our JavaScript/TypeScript project.",
+      "scenario": "When configuring development environment"
+    }
+  ],
+  "bestPractices": [
+    "Start with measuring current state before proposing changes",
+    "Implement improvements incrementally and validate each step",
+    "Document all changes so team members understand the setup"
+  ],
+  "antiPatterns": [
+    "Adding complex tooling without team buy-in or training",
+    "Optimizing prematurely without profiling actual bottlenecks",
+    "Creating setup scripts that fail silently without clear error messages"
+  ],
+  "faq": [
+    {
+      "question": "What is Developer Experience (DX) optimization?",
+      "answer": "DX optimization focuses on reducing friction in development workflows, improving tooling, and making the development process more enjoyable and productive."
+    },
+    {
+      "question": "Can this skill modify my project files?",
+      "answer": "No, this skill provides guidance and recommendations only. You will need to apply any suggested changes manually."
+    },
+    {
+      "question": "What languages and frameworks does this support?",
+      "answer": "The skill is framework-agnostic and provides general best practices that apply to any programming language or toolchain."
+    },
+    {
+      "question": "How long does it take to see improvements?",
+      "answer": "Simple improvements like alias creation can be immediate. Larger changes like automated onboarding may take a few hours to implement."
+    },
+    {
+      "question": "Do I need special permissions to use this skill?",
+      "answer": "No special permissions required. This skill works with any Claude Code or Claude account."
+    },
+    {
+      "question": "Can this help with CI/CD pipelines?",
+      "answer": "Yes, the skill can suggest improvements for CI/CD configuration, test execution, and deployment workflows."
+    }
+  ],
+  "seoKeywords": [
+    "developer experience",
+    "DX optimization",
+    "dev workflow",
+    "Claude Code",
+    "tooling setup",
+    "developer productivity",
+    "onboarding automation",
+    "CI/CD optimization",
+    "IDE configuration",
+    "developer tooling"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dx-optimizer",
+  "sourceType": "community",
+  "dependencies": []
+}

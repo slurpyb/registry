@@ -1,0 +1,142 @@
+{
+  "name": "stack-analyzer",
+  "type": "skill",
+  "description": "Analyze project stack and recommend skills. Auto-detects frameworks, activates generic ai-dev-kit skills, and optionally scaffolds project-specific skills in the target repo.",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "Stack detection",
+  "quality": 5,
+  "qualityReason": "Actionable project insights",
+  "bundleHints": [
+    "ai-dev-kit",
+    "project-setup"
+  ],
+  "tags": [
+    "ai-assisted-development",
+    "frameworks",
+    "project-analysis",
+    "scaffolding",
+    "skill-recommendation",
+    "stack-detection"
+  ],
+  "capabilities": [
+    "Auto-detects project technologies from files and dependencies",
+    "Recommends framework-generic skills from ai-dev-kit plugin",
+    "Scaffolds project-specific skills with customizable templates",
+    "Generates detailed markdown reports with recommendations",
+    "Integrates with library-detection skill for accurate analysis",
+    "Creates manifest tracking all generated skills"
+  ],
+  "author": "Consiliency",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 110 static findings are FALSE POSITIVES. The stack-analyzer skill is a documentation-only meta-skill containing no executable code. It operates by reading project configuration files and generating markdown documentation. The static scanner flagged documentation examples (shell command examples, file paths with dots) as security patterns, but these are standard documentation practices for describing legitimate file operations and CLI workflows. No actual command execution, network operations, or cryptographic code exists in this skill.",
+  "valueStatement": "Stop manually configuring AI development skills for each project. Stack-analyzer automatically detects your technology stack and recommends the perfect skills for AI-assisted development.",
+  "userTitle": "Analyze Your Tech Stack and Get AI Skill Recommendations",
+  "limitations": [
+    "Requires library-detection skill for stack analysis",
+    "Cannot analyze closed-source or proprietary frameworks",
+    "Project-specific skills need manual customization after scaffolding",
+    "Generic skills may need tuning for unique project requirements"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development teams setting up AI assistance",
+      "title": "Automate AI Skill Configuration",
+      "description": "Automatically configure appropriate AI skills when onboarding new projects, eliminating manual setup and ensuring consistency across team members."
+    },
+    {
+      "targetUser": "DevOps engineers managing multiple projects",
+      "title": "Standardize AI Tooling Across Projects",
+      "description": "Maintain consistent AI development tooling across multiple repositories with automatic skill recommendations based on each project technology stack."
+    },
+    {
+      "targetUser": "AI tool administrators",
+      "title": "Optimize AI Assistant Performance",
+      "description": "Ensure AI assistants have the right context and patterns for each project by automatically activating relevant skills for detected frameworks."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Stack Analysis",
+      "scenario": "New project setup",
+      "prompt": "Run stack-analyzer to detect my project technologies and recommend AI skills"
+    },
+    {
+      "title": "Auto-activate Skills",
+      "scenario": "Quick project onboarding",
+      "prompt": "Analyze my stack and automatically activate all recommended generic skills"
+    },
+    {
+      "title": "Scaffold Project Skills",
+      "scenario": "Custom project patterns",
+      "prompt": "Detect my stack and scaffold project-specific skills for my domain models and testing patterns"
+    },
+    {
+      "title": "Full Integration",
+      "scenario": "Complete setup",
+      "prompt": "Run complete stack analysis with auto-activation and scaffolding, then generate detailed report"
+    }
+  ],
+  "bestPractices": [
+    "Review recommendations before activation to ensure they match your project needs",
+    "Customize scaffolded skills with project-specific patterns and vocabulary",
+    "Keep the generated manifest for tracking and cleanup purposes",
+    "Run stack-analyzer after major framework changes to update recommendations"
+  ],
+  "antiPatterns": [
+    "Activating all recommended skills without reviewing their purpose",
+    "Scaffolding project-specific skills without customization",
+    "Ignoring the generated manifest and losing track of created skills",
+    "Assuming generic skills will work perfectly without any tuning"
+  ],
+  "faq": [
+    {
+      "question": "Is stack-analyzer compatible with all project types?",
+      "answer": "Stack-analyzer works with any project that has detectable files or dependencies. It supports all major languages and frameworks through pattern matching."
+    },
+    {
+      "question": "What are the detection limits?",
+      "answer": "Detection relies on file patterns and package dependencies. It may miss custom or proprietary frameworks without standard indicators."
+    },
+    {
+      "question": "How does integration with ai-dev-kit work?",
+      "answer": "Stack-analyzer runs automatically during /ai-dev-kit:setup and can be invoked manually with /ai-dev-kit:recommend-skills command."
+    },
+    {
+      "question": "Is my project data safe during analysis?",
+      "answer": "Yes, stack-analyzer only reads file names and dependency lists. No source code content is analyzed or transmitted."
+    },
+    {
+      "question": "How do I troubleshoot if no skills are recommended?",
+      "answer": "Check that your project has recognizable files or dependencies. Run library-detection skill separately to verify stack detection."
+    },
+    {
+      "question": "How does this compare to manual skill configuration?",
+      "answer": "Stack-analyzer automates detection and provides consistent recommendations across projects, saving time and ensuring comprehensive coverage."
+    }
+  ],
+  "seoKeywords": [
+    "stack analyzer",
+    "AI skill recommendations",
+    "Claude Code skills",
+    "technology detection",
+    "project analysis",
+    "ai-dev-kit",
+    "Claude skills",
+    "Codex integration",
+    "development automation",
+    "framework detection"
+  ],
+  "sourceUrl": "https://github.com/Consiliency/treesitter-chunker/tree/main/.ai-dev-kit/skills/stack-analyzer",
+  "sourceType": "community",
+  "dependencies": []
+}

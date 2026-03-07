@@ -1,0 +1,141 @@
+{
+  "name": "reverse-engineer",
+  "type": "skill",
+  "description": "Expert reverse engineer specializing in binary analysis,",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "binary analysis",
+  "quality": 5,
+  "qualityReason": "Expert-level security specialization",
+  "bundleHints": [
+    "security-research",
+    "pentesting-toolkit"
+  ],
+  "tags": [
+    "binary-analysis",
+    "ctf",
+    "decompilation",
+    "disassembly",
+    "malware-analysis",
+    "reverse-engineering",
+    "security-research"
+  ],
+  "capabilities": [
+    "Guide through systematic binary analysis workflows including reconnaissance, static analysis, and dynamic analysis phases",
+    "Explain code patterns like string obfuscation, anti-debugging techniques, and API hashing commonly found in binaries",
+    "Recommend appropriate reverse engineering tools such as IDA Pro, Ghidra, radare2, x64dbg, and scripting frameworks",
+    "Provide methodology for CTF challenge solving, library analysis, and protocol extraction",
+    "Document findings including function signatures, data structures, and algorithm behavior",
+    "Apply security and ethical guidelines ensuring analysis is conducted for authorized purposes only"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only skill providing guidance on reverse engineering workflows. Static analysis scanned 0 files with 0 lines, detecting no suspicious patterns and computing a risk score of 0/100. The skill contains only documentation and educational content with explicit ethical guidelines requiring authorized use only.",
+  "valueStatement": "Reverse engineering complex binaries requires expertise in multiple tools and methodologies. This skill provides structured guidance for binary analysis, disassembly, and security research workflows.",
+  "userTitle": "Analyze binaries and reverse engineer software",
+  "limitations": [
+    "Cannot directly execute or interact with binary files - provides guidance only",
+    "Requires user to have appropriate reverse engineering tools installed locally",
+    "Cannot perform actual dynamic analysis or debugging - explains methodologies for users to follow",
+    "Analysis depth depends on user providing sufficient context and binary information"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security competition participants and CTF players",
+      "title": "CTF Challenge Solver",
+      "description": "Guides through reverse engineering CTF challenges with systematic approaches for finding passwords, understanding encryption, and bypassing protections"
+    },
+    {
+      "targetUser": "Security analysts and defensive security researchers",
+      "title": "Security Researcher",
+      "description": "Assists with authorized malware analysis, vulnerability research, and understanding undocumented software behavior for defensive security purposes"
+    },
+    {
+      "targetUser": "Developers working with proprietary systems and APIs",
+      "title": "Software Interoperability Engineer",
+      "description": "Helps analyze closed-source libraries and APIs to enable legitimate interoperability and integration work"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Beginner: Binary Type Identification",
+      "prompt": "I have a binary file I need to analyze. What commands should I run first to identify its type, architecture, and basic properties? What information should I look for in the initial triage?",
+      "scenario": "First steps in reverse engineering an unknown binary"
+    },
+    {
+      "title": "Beginner: Finding the Main Function",
+      "prompt": "I loaded a binary into Ghidra and see many functions. How do I identify the entry point and main function? What patterns should I look for?",
+      "scenario": "Navigating a disassembled binary in IDA Pro or Ghidra"
+    },
+    {
+      "title": "Intermediate: CTF Password Challenge",
+      "prompt": "I have a CTF binary that prompts for a password. What analysis approach should I take? Should I focus on static analysis to find string comparisons, or use dynamic analysis with breakpoints? Walk me through the methodology.",
+      "scenario": "Solving a password-check CTF reverse engineering challenge"
+    },
+    {
+      "title": "Advanced: Anti-Debugging Detection",
+      "prompt": "I suspect this binary has anti-debugging protections. What techniques should I look for like IsDebuggerPresent checks, timing checks, or exception-based detection? How do I bypass them safely in a controlled analysis environment?",
+      "scenario": "Analyzing malware or protected software with anti-analysis techniques"
+    }
+  ],
+  "bestPractices": [
+    "Always work in an isolated virtual machine environment when analyzing unknown or potentially malicious binaries",
+    "Document findings systematically including function purposes, parameter meanings, and data structure layouts as you analyze",
+    "Validate analysis results through multiple approaches combining static disassembly and dynamic debugging"
+  ],
+  "antiPatterns": [
+    "Running unknown binaries directly on your host system without proper isolation and safety measures",
+    "Assuming decompiler output is always correct without verifying against disassembly and runtime behavior",
+    "Analyzing binaries without clear authorization which may violate laws or terms of service"
+  ],
+  "faq": [
+    {
+      "question": "What tools do I need to get started with reverse engineering?",
+      "answer": "For beginners, start with Ghidra (free from NSA) or IDA Free for disassembly, x64dbg for dynamic debugging on Windows, and radare2 for command-line analysis. Add GDB with GEF or Pwndbg for Linux binary debugging."
+    },
+    {
+      "question": "Is reverse engineering legal?",
+      "answer": "Reverse engineering legality depends on jurisdiction and purpose. It is generally legal for security research, interoperability, and CTF competitions with proper authorization. Never analyze software you do not have rights to examine or for unauthorized access purposes."
+    },
+    {
+      "question": "How do I learn to read assembly code?",
+      "answer": "Start by understanding calling conventions, common instruction patterns, and control flow structures. Practice with simple CTF challenges, follow along with disassembled code while reading source, and use resources like Practical Reverse Engineering or LiveOverflow tutorials."
+    },
+    {
+      "question": "What is the difference between static and dynamic analysis?",
+      "answer": "Static analysis examines the binary without executing it, using disassemblers and decompilers to understand code structure. Dynamic analysis runs the binary in a controlled environment with debuggers to observe actual behavior, memory changes, and API calls."
+    },
+    {
+      "question": "How do I handle packed or obfuscated binaries?",
+      "answer": "Use packer detection tools like PEiD or Exeinfo PE first. For unpacking, either find existing unpackers for known packers, or dump the binary from memory after it unpacks itself using tools like Scylla or manual dumping in x64dbg."
+    },
+    {
+      "question": "Can this skill analyze binaries directly?",
+      "answer": "No, this skill provides guidance and methodology for reverse engineering workflows. You must run analysis tools locally on your own systems. The skill helps you understand what to look for and how to interpret findings from your tools."
+    }
+  ],
+  "seoKeywords": [
+    "reverse engineering",
+    "binary analysis",
+    "IDA Pro",
+    "Ghidra",
+    "malware analysis",
+    "CTF challenges",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "security research"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/reverse-engineer",
+  "sourceType": "community",
+  "dependencies": []
+}

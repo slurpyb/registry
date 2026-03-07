@@ -1,0 +1,144 @@
+{
+  "name": "agent-workflow",
+  "type": "skill",
+  "description": "Multi-agent development workflow system. Load when orchestrating development tasks, spawning subagents, or managing workflow phases.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "development workflow",
+  "quality": 5,
+  "qualityReason": "Clear use case and scope",
+  "bundleHints": [
+    "agent-workflow",
+    "multi-agent",
+    "dev-orchestration"
+  ],
+  "tags": [
+    "development",
+    "multi-agent",
+    "orchestration",
+    "phases",
+    "project-management",
+    "subagents",
+    "task-orchestration",
+    "workflow"
+  ],
+  "capabilities": [
+    "Manages multi-phase development workflows from requirements to delivery",
+    "Spawns specialized subagents for different tasks (PM, Architect, Executor, QA, Reflector)",
+    "Coordinates parallel work across multiple agents",
+    "Handles workflow phase transitions and blockers",
+    "Supports both custom Dotagent system agents and built-in Claude Code agents"
+  ],
+  "author": "Clouder0",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. Network access is legitimate source URL metadata. Hash values flagged as C2 keywords are standard SHA256 content verification. Documentation examples showing Task tool syntax were misidentified as shell execution. The skill is a legitimate multi-agent workflow orchestration system with no malicious code.",
+  "valueStatement": "Managing complex software projects across multiple phases and specialized agents is challenging. This skill provides a structured framework for orchestrating development workflows with tiered agents for requirements, architecture, implementation, verification, and reflection.",
+  "userTitle": "Orchestrate Multi-Agent Development Workflows",
+  "limitations": [
+    "Does not execute code directly, only orchestrates other agents",
+    "Requires the Task tool to spawn and manage subagents",
+    "Does not persist state between sessions without external memory management",
+    "Cannot modify project files without additional tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers working on complex features requiring multiple specialized tasks",
+      "title": "Complex Feature Development",
+      "description": "Lead a multi-agent team through the complete development cycle for a new feature, from requirements gathering to implementation and verification."
+    },
+    {
+      "targetUser": "Developers onboarding to unfamiliar codebases or conducting initial analysis",
+      "title": "Codebase Exploration and Analysis",
+      "description": "Use the Explorer agent to quickly understand a new codebase, then spawn Implementers to make changes based on findings."
+    },
+    {
+      "targetUser": "Engineering teams undertaking significant architectural changes",
+      "title": "System Refactoring Projects",
+      "description": "Coordinate Architects for design, Executors for implementation, and Verifiers for testing across a large-scale refactoring effort."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start New Development Task",
+      "prompt": "I need to develop a new feature: [feature description]. Please load the agent-workflow skill and guide me through the full workflow. Start with the REQUIREMENTS phase by having the PM agent gather and clarify the requirements. Then proceed through ARCHITECTURE, IMPLEMENTATION, and VERIFICATION phases.",
+      "scenario": "Starting a new development task with full workflow guidance"
+    },
+    {
+      "title": "Parallel Agent Spawning",
+      "prompt": "For this task: [task description], I want to work in parallel. Please spawn an architect agent to design the solution while simultaneously spawning an explorer agent to understand the existing codebase. Use the Executor agent to coordinate both and synthesize their outputs.",
+      "scenario": "Running parallel work streams with multiple agents"
+    },
+    {
+      "title": "Handle Blocked Task",
+      "prompt": "My current task [describe task] is blocked because [explain blocker]. Please use the Contract Resolver agent to identify options for resolving this blocker, then guide me on how to proceed once the blocker is resolved.",
+      "scenario": "Resolving blockers and getting unstuck"
+    },
+    {
+      "title": "Post-Implementation Review",
+      "prompt": "We have completed implementation of [feature/project]. Please use the QA agent to verify the implementation, then use the Reflector agent to capture learnings and the Evolver agent to suggest improvements for future iterations.",
+      "scenario": "Conducting verification and capturing learnings after delivery"
+    }
+  ],
+  "bestPractices": [
+    "Start with clear requirements before spawning specialized agents",
+    "Use the appropriate agent model (haiku for exploration, sonnet for implementation, opus for complex design)",
+    "Complete one phase before moving to the next for focused results",
+    "Use the Reflector agent after project completion to capture learnings"
+  ],
+  "antiPatterns": [
+    "Spawning too many agents simultaneously without coordination",
+    "Skipping the requirements phase and starting implementation too early",
+    "Not using the Contract Resolver when encountering blockers",
+    "Forgetting the verification and reflection phases after implementation"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between custom Dotagent agents and built-in Claude Code agents?",
+      "answer": "Custom Dotagent agents (pm, architect, executor, etc.) are specialized for the workflow system with defined roles. Built-in agents (Explore, Plan, general-purpose) are standard Claude Code agents that can be used alongside or within the workflow."
+    },
+    {
+      "question": "Can I use this skill for small, simple tasks?",
+      "answer": "For simple tasks, using the full workflow may be overkill. Consider using specific agents directly (like just the Explorer or Implementer) or starting with a simpler approach and escalating to the full workflow if needed."
+    },
+    {
+      "question": "How do I persist workflow state between sessions?",
+      "answer": "The skill references memory files like @memory/state/phase.json. You can implement external state management by reading and writing these files or using a shared storage solution."
+    },
+    {
+      "question": "What models should I use for each agent type?",
+      "answer": "Exploration and testing tasks work well with haiku. Implementation and coordination tasks work well with sonnet. Complex architectural design and synthesis tasks benefit from opus."
+    },
+    {
+      "question": "How do I handle conflicts between agents working on the same files?",
+      "answer": "Use the Contract Resolver agent to identify conflicts. Establish clear boundaries for each agent, serialize access to shared files, or implement a merge strategy."
+    },
+    {
+      "question": "Can I customize the workflow phases for my team?",
+      "answer": "The skill provides a default workflow structure. You can modify the workflow definitions or add custom phases by editing the workflow configuration files referenced in SKILL.md."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "multi-agent",
+    "workflow",
+    "orchestration",
+    "development",
+    "project management",
+    "subagent",
+    "agent system"
+  ],
+  "sourceUrl": "https://github.com/Clouder0/dotagent/tree/main/.claude/skills/agent-workflow",
+  "sourceType": "community",
+  "dependencies": []
+}

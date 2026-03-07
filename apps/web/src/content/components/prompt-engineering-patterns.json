@@ -1,0 +1,142 @@
+{
+  "name": "prompt-engineering-patterns",
+  "type": "skill",
+  "description": "Master advanced prompt engineering techniques to maximize LLM performance, reliability, and controllability in production. Use when optimizing prompts, improving LLM outputs, or designing production prompt templates.",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "prompt optimization",
+  "quality": 5,
+  "qualityReason": "Highly specific with clear use cases",
+  "bundleHints": [
+    "llm-toolkit",
+    "ai-productivity",
+    "prompt-engineering"
+  ],
+  "tags": [
+    "controllability",
+    "few-shot",
+    "llm",
+    "optimization",
+    "patterns",
+    "production",
+    "prompting",
+    "reliability",
+    "templates"
+  ],
+  "capabilities": [
+    "Apply chain-of-thought prompting for step-by-step reasoning tasks",
+    "Build effective few-shot learning systems with example selection strategies",
+    "Create reusable prompt templates with variable interpolation",
+    "Implement A/B testing workflows to measure and improve prompt performance",
+    "Design system prompts that constrain model behavior and output format"
+  ],
+  "author": "wshobson",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-focused skill containing markdown guides and a local Python utility script for prompt optimization. The 228 static findings are false positives triggered by documentation patterns: backticks in Python code examples misinterpreted as shell commands, cryptographic terminology (SHA, MD5) mentioned in text, and references to API keys and file paths. The skill makes no network calls, has no sensitive filesystem access, and does not execute external commands. The optimize-prompt.py script uses a mock LLM client for local testing only.",
+  "valueStatement": "LLMs produce inconsistent results with poorly crafted prompts. This skill provides battle-tested patterns and templates for chain-of-thought reasoning, few-shot learning, and systematic prompt optimization to improve output quality.",
+  "userTitle": "Master Prompt Engineering for Better AI Results",
+  "limitations": [
+    "Requires understanding of your specific LLM API and integration",
+    "Does not provide hosted prompt execution or API access",
+    "Templates require customization for your specific use case"
+  ],
+  "useCases": [
+    {
+      "targetUser": "ML Engineers",
+      "title": "Optimize Production Prompts",
+      "description": "Systematically test and refine prompts for production LLM applications using A/B testing frameworks."
+    },
+    {
+      "targetUser": "Content Developers",
+      "title": "Build Template Libraries",
+      "description": "Create reusable prompt templates with variable interpolation for consistent content generation."
+    },
+    {
+      "targetUser": "Research Teams",
+      "title": "Apply Advanced Techniques",
+      "description": "Implement chain-of-thought and self-consistency patterns for complex reasoning tasks."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple Classification",
+      "scenario": "Basic text categorization",
+      "prompt": "Classify this text into one of these categories: Positive, Negative, Neutral.\n\nText: {text}\n\nCategory:"
+    },
+    {
+      "title": "Few-Shot Extraction",
+      "scenario": "Structured data extraction",
+      "prompt": "Extract information in JSON format.\n\nExample:\nText: Apple CEO Tim Cook announced new iPhone.\nOutput: {\"persons\":[\"Tim Cook\"],\"organizations\":[\"Apple\"],\"products\":[\"iPhone\"]}\n\nText: {text}\n\nOutput:"
+    },
+    {
+      "title": "Chain-of-Thought",
+      "scenario": "Math reasoning",
+      "prompt": "Solve this step by step.\n\nProblem: {problem}\n\nStep 1: Identify what we know\nStep 2: Determine the approach\nStep 3: Calculate\nStep 4: Verify\n\nAnswer:"
+    },
+    {
+      "title": "Self-Consistency",
+      "scenario": "Multiple reasoning paths",
+      "prompt": "Solve this problem three different ways. Then identify which answer appears most frequently.\n\nProblem: {problem}\n\nApproach 1:\nResult:\n\nApproach 2:\nResult:\n\nApproach 3:\nResult:\n\nFinal Answer (most common):"
+    }
+  ],
+  "bestPractices": [
+    "Be specific about format, length, and style requirements rather than relying on implied instructions",
+    "Use few-shot examples to demonstrate the exact output format you need, especially for structured data",
+    "Test prompts on edge cases and diverse inputs before deploying to production"
+  ],
+  "antiPatterns": [
+    "Overloading prompts with too many examples, causing token limits to reduce space for actual input",
+    "Using vague instructions like 'be helpful' or 'be accurate' that different models interpret differently",
+    "Skipping verification steps for factual or logical outputs that require validation"
+  ],
+  "faq": [
+    {
+      "question": "Which LLMs work with these patterns?",
+      "answer": "Patterns work with Claude, GPT-4, Claude Code, and most instruction-tuned models. Some techniques like chain-of-thought work best on reasoning-capable models."
+    },
+    {
+      "question": "What is the optimal number of few-shot examples?",
+      "answer": "Most tasks perform well with 3 to 5 examples. More examples can dilute focus and consume token budget. Test different counts for your specific use case."
+    },
+    {
+      "question": "How do I integrate with my existing codebase?",
+      "answer": "The skill provides template systems and Python utilities. Adapt the PromptTemplate classes to your LLM client. The optimize-prompt.py script shows a testing workflow."
+    },
+    {
+      "question": "Is my data sent anywhere?",
+      "answer": "No. This skill runs locally. The reference materials and utility scripts operate entirely on your machine. No external network calls are made by any component."
+    },
+    {
+      "question": "Why do my prompts work differently across models?",
+      "answer": "Models have different training and capabilities. Test and adjust templates per model. Chain-of-thought works better on reasoning models. Some models need more explicit format instructions."
+    },
+    {
+      "question": "How does this compare to other prompting skills?",
+      "answer": "This skill focuses on production-ready patterns with systematic optimization workflows. It covers template systems, A/B testing, and evaluation metrics for real-world deployment."
+    }
+  ],
+  "seoKeywords": [
+    "Claude prompt engineering",
+    "ChatGPT prompting",
+    "LLM optimization",
+    "few-shot examples",
+    "chain-of-thought",
+    "prompt templates",
+    "Claude Code",
+    "OpenAI prompting",
+    "AI instruction design",
+    "prompt patterns"
+  ],
+  "sourceUrl": "https://github.com/wshobson/agents/tree/main/plugins/llm-application-dev/skills/prompt-engineering-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "learn-on",
+  "type": "skill",
+  "description": "Enable continuous learning mode for automatic insight extraction",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "enable learning",
+  "quality": 4,
+  "qualityReason": "Clear trigger and use",
+  "bundleHints": [
+    "learning-mode",
+    "agent-config"
+  ],
+  "tags": [
+    "automation",
+    "continuous-learning",
+    "documentation",
+    "insights",
+    "knowledge",
+    "knowledge-management",
+    "learning"
+  ],
+  "capabilities": [
+    "Enables continuous learning mode for automatic insight extraction",
+    "Reads and updates knowledge/state.json to track learning state",
+    "Sets extraction trigger thresholds of 10 queries or 30 minutes",
+    "Confirms activation status with clear output to user",
+    "Persists learning mode across session until disabled or session ends"
+  ],
+  "author": "0xrdan",
+  "icon": "🧠",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 15 static findings are FALSE POSITIVES. This is a pure prompt-based skill with no executable code. It only reads/writes to its own local knowledge/state.json file within the skill directory. No network calls, no command execution, no external dependencies. The static scanner misidentified Markdown code formatting and JSON metadata as security patterns.",
+  "valueStatement": "Manually triggering insight extraction during long sessions is easy to forget. This skill activates automatic learning mode where insights are captured every 10 queries or 30 minutes without manual intervention.",
+  "userTitle": "Enable Continuous Learning Mode",
+  "limitations": [
+    "Only operates within the skill own knowledge directory",
+    "Does not extract insights itself only enables the automatic trigger",
+    "Resets on new sessions must be re-enabled each session",
+    "Does not modify or read the actual learning content files"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Enterprise developers",
+      "title": "Capture Patterns Automatically",
+      "description": "Document code patterns and solutions as you work without breaking flow or remembering to run extraction commands."
+    },
+    {
+      "targetUser": "Knowledge workers",
+      "title": "Track Insights Over Time",
+      "description": "Build a knowledge base of learnings automatically during extended sessions with clients or complex projects."
+    },
+    {
+      "targetUser": "Research teams",
+      "title": "Document Discoveries Continuously",
+      "description": "Automatically capture research insights and decisions as they emerge during long investigation sessions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Enable Learning",
+      "scenario": "Start a learning session",
+      "prompt": "Enable continuous learning mode"
+    },
+    {
+      "title": "Check Status",
+      "scenario": "View current learning state",
+      "prompt": "What is the current learning mode status"
+    },
+    {
+      "title": "Manual Extract",
+      "scenario": "Force immediate extraction",
+      "prompt": "Run manual insight extraction now"
+    },
+    {
+      "title": "Disable Mode",
+      "scenario": "Turn off automatic learning",
+      "prompt": "Disable continuous learning mode"
+    }
+  ],
+  "bestPractices": [
+    "Enable learning mode at the start of long working sessions to capture the most insights.",
+    "Combine with /learn for manual extraction when you reach a natural stopping point.",
+    "Use /knowledge to verify learning status before assuming automatic extraction is active."
+  ],
+  "antiPatterns": [
+    "Enabling learning mode mid-session and expecting retroactive capture of earlier insights.",
+    "Assuming learning mode persists across separate sessions it resets on new sessions.",
+    "Disabling learning mode expecting automatic extraction to continue it stops immediately."
+  ],
+  "faq": [
+    {
+      "question": "Does learning mode persist across Claude restarts?",
+      "answer": "No. Learning mode resets when Claude restarts or begins a new session. Re-enable it each session."
+    },
+    {
+      "question": "What triggers automatic insight extraction?",
+      "answer": "Automatic extraction triggers after 10 queries or 30 minutes of continuous activity, whichever comes first."
+    },
+    {
+      "question": "Can I use manual extraction while learning mode is active?",
+      "answer": "Yes. You can run /learn at any time for manual extraction. This does not disable automatic mode."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. This skill only reads and writes to its own local state file within the skill directory. No external access."
+    },
+    {
+      "question": "Why are my insights not appearing in the knowledge base?",
+      "answer": "This skill enables automatic triggers but does not perform extraction itself. Ensure /learn-on ran successfully and thresholds were reached."
+    },
+    {
+      "question": "How does this compare to manual /learn command?",
+      "answer": "/learn performs immediate extraction. This skill enables automatic extraction at set intervals without manual intervention during sessions."
+    }
+  ],
+  "seoKeywords": [
+    "claude router learning mode",
+    "automatic insight extraction",
+    "knowledge base automation",
+    "claude code learning",
+    "continuous learning mode",
+    "ai session insights",
+    "pattern documentation",
+    "claude knowledge management",
+    "automatic documentation tool",
+    "ai workflow automation"
+  ],
+  "sourceUrl": "https://github.com/0xrdan/claude-router/tree/main/.claude-plugin/skills/learn-on",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "python-executor",
+  "type": "skill",
+  "description": "Run Python code in a sandboxed inference.sh environment with common data, web, and media libraries.",
+  "domain": "languages",
+  "subdomain": "python",
+  "specialty": "sandboxed execution",
+  "quality": 5,
+  "qualityReason": "Actionable with clear use case",
+  "bundleHints": [
+    "ai-sandbox",
+    "data-pipeline"
+  ],
+  "tags": [
+    "automation",
+    "code-execution",
+    "data-processing",
+    "inference",
+    "python",
+    "sandbox",
+    "web-scraping"
+  ],
+  "capabilities": [
+    "Execute Python 3.10 code through the infsh app runner.",
+    "Use preinstalled libraries for data analysis, scraping, and visualization.",
+    "Perform HTTP requests with common Python HTTP clients.",
+    "Write files to outputs/ and return them in responses.",
+    "Select the high_memory variant and configure execution timeout."
+  ],
+  "author": "inference-sh",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "medium",
+  "safeToPublish": true,
+  "securitySummary": "Documentation includes shell command examples for installing and running the CLI, including a pipe to shell installer. These are instructional and not executed by the skill itself, but they warrant caution. Network and crypto related flags appear to be documentation references without malicious intent.",
+  "valueStatement": "Running Python safely across data, web, and media tasks is difficult when environments differ. This skill runs code in a managed sandbox with common libraries and file outputs.",
+  "userTitle": "Run Python tasks in a secure sandbox",
+  "limitations": [
+    "CPU only execution with no GPU acceleration or ML runtimes.",
+    "Non interactive execution that requires saving plots to files.",
+    "Execution time is limited to the configured timeout window.",
+    "Requires access to the inference.sh CLI to run the app."
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data analyst",
+      "title": "Analyze small datasets",
+      "description": "Create tables and charts and return files for review."
+    },
+    {
+      "targetUser": "Researcher",
+      "title": "Validate scraping logic",
+      "description": "Fetch a page and extract specific fields for a report."
+    },
+    {
+      "targetUser": "Product marketer",
+      "title": "Generate demo assets",
+      "description": "Produce images or short clips for product demos."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Run a simple check",
+      "prompt": "Execute Python to print the pandas version and return stdout only.",
+      "scenario": "Beginner validation of the environment"
+    },
+    {
+      "title": "Scrape a page title",
+      "prompt": "Fetch https://example.com and return the page title as plain text.",
+      "scenario": "Basic web scraping"
+    },
+    {
+      "title": "Create a chart file",
+      "prompt": "Build a small bar chart from sample data and save it to outputs/chart.png.",
+      "scenario": "Data visualization output"
+    },
+    {
+      "title": "Process a large dataset",
+      "prompt": "Use the high_memory variant, read a CSV, summarize key metrics, and save outputs/summary.csv.",
+      "scenario": "Advanced batch processing"
+    }
+  ],
+  "bestPractices": [
+    "Describe inputs, outputs, and file names explicitly.",
+    "Write artifacts to outputs/ so they are returned automatically.",
+    "Keep network requests limited to trusted domains."
+  ],
+  "antiPatterns": [
+    "Requesting interactive plots or GUI output.",
+    "Running jobs that exceed the timeout window.",
+    "Asking to install new system packages inside the sandbox."
+  ],
+  "faq": [
+    {
+      "question": "What Python version does the app use?",
+      "answer": "The app runs Python 3.10 in a sandboxed environment."
+    },
+    {
+      "question": "Can it access the internet?",
+      "answer": "Yes, the examples show HTTP requests using Python libraries."
+    },
+    {
+      "question": "How do I return files?",
+      "answer": "Save files to the outputs/ directory and they will be returned."
+    },
+    {
+      "question": "Is there a high memory option?",
+      "answer": "Yes, use the high_memory variant for larger workloads."
+    },
+    {
+      "question": "Can it run long interactive sessions?",
+      "answer": "No, execution is non interactive and limited by the timeout setting."
+    },
+    {
+      "question": "Which libraries are available?",
+      "answer": "The documentation lists many preinstalled libraries for data, web, and media tasks."
+    }
+  ],
+  "seoKeywords": [
+    "Python executor",
+    "sandboxed Python",
+    "data analysis",
+    "web scraping",
+    "automation scripts",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "inference.sh",
+    "Python CLI"
+  ],
+  "sourceUrl": "https://github.com/inference-sh/skills/tree/main/skills/python-executor/",
+  "sourceType": "community",
+  "dependencies": []
+}

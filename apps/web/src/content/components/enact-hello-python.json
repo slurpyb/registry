@@ -1,0 +1,139 @@
+{
+  "name": "enact-hello-python",
+  "type": "skill",
+  "description": "A simple Python greeting tool",
+  "domain": "languages",
+  "subdomain": "python",
+  "specialty": "greeting with metadata",
+  "quality": 3,
+  "qualityReason": "Simple demo, educational only",
+  "bundleHints": [
+    "python-examples",
+    "enact-tools"
+  ],
+  "tags": [
+    "cli",
+    "example",
+    "greeting",
+    "hello-world",
+    "python",
+    "timestamp",
+    "version"
+  ],
+  "capabilities": [
+    "Prints personalized greetings with a name argument",
+    "Displays current timestamp in ISO format",
+    "Shows Python version information",
+    "Uses default name 'World' when no argument provided"
+  ],
+  "author": "EnactProtocol",
+  "icon": "📦",
+  "version": "1.0.3",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The code executes a simple Python script that accepts a name argument and prints a greeting. No command injection risk exists as the framework controls execution. Scanner incorrectly flagged markdown code fences as shell backticks and YAML description fields as cryptographic algorithms.",
+  "valueStatement": "This skill provides a simple Python greeting utility that displays personalized messages with timestamp and version information for testing and demonstration purposes.",
+  "userTitle": "Run Python Greeting Tool",
+  "limitations": [
+    "Single greeting per invocation",
+    "No support for custom message content",
+    "No persistence or state management",
+    "Limited to Python 3 runtime environment"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers setting up their environment",
+      "title": "Quick Test Tool",
+      "description": "Use this skill to quickly test that your Enact environment is working correctly and responding to inputs."
+    },
+    {
+      "targetUser": "Skill developers learning Enact",
+      "title": "Learning Example",
+      "description": "Study this skill as a reference implementation for creating your own Python-based skills with proper input handling."
+    },
+    {
+      "targetUser": "QA engineers and automation developers",
+      "title": "Automated Greetings",
+      "description": "Integrate this tool into workflows that need simple greeting outputs for testing message routing or notification systems."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Greeting",
+      "prompt": "Use the enact/hello-python skill to greet me.",
+      "scenario": "Simple invocation with default name"
+    },
+    {
+      "title": "Personalized Greeting",
+      "prompt": "Use the enact/hello-python skill to greet Alice.",
+      "scenario": "Greeting with a specific name parameter"
+    },
+    {
+      "title": "Custom Name Greeting",
+      "prompt": "Use the enact/hello-python skill to greet someone named ${name}.",
+      "scenario": "Dynamic name substitution from context"
+    },
+    {
+      "title": "Testing Skill Chain",
+      "prompt": "First use enact/hello-python to greet Bob, then use another skill to process the greeting output.",
+      "scenario": "Multi-step workflow testing"
+    }
+  ],
+  "bestPractices": [
+    "Use default name 'World' when no specific name is provided",
+    "Check Python version compatibility before running in production",
+    "Parse timestamp from output for logging or timing purposes"
+  ],
+  "antiPatterns": [
+    "Do not use this skill for production greeting services",
+    "Do not rely on this skill for time-sensitive operations",
+    "Do not pass sensitive data as the name parameter"
+  ],
+  "faq": [
+    {
+      "question": "What inputs does this skill accept?",
+      "answer": "The skill accepts a single 'name' parameter which is a string. If no name is provided, it defaults to 'World'."
+    },
+    {
+      "question": "What does the output include?",
+      "answer": "Output includes a personalized greeting with timestamp in ISO format and the Python version string."
+    },
+    {
+      "question": "Can I use special characters in the name?",
+      "answer": "Yes, but the framework handles escaping. Test with simple names first for troubleshooting."
+    },
+    {
+      "question": "What Python version is required?",
+      "answer": "This skill runs on Python 3.12 or later as specified in the container base image."
+    },
+    {
+      "question": "Is this skill suitable for production use?",
+      "answer": "No, this is a demonstration skill for testing and learning. Use dedicated greeting services for production."
+    },
+    {
+      "question": "How do I integrate this into other workflows?",
+      "answer": "Use the output from this skill as input to other skills by extracting the greeting from the printed lines."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Python",
+    "greeting",
+    "hello world",
+    "enact",
+    "enactprotocol",
+    "skill",
+    "example"
+  ],
+  "sourceUrl": "https://github.com/EnactProtocol/enact/tree/main/examples/hello-python",
+  "sourceType": "community",
+  "dependencies": []
+}

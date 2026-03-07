@@ -1,0 +1,145 @@
+{
+  "name": "pytest-recording",
+  "type": "skill",
+  "description": "Work with pytest-recording (VCR.py) for recording and replaying HTTP interactions in tests. Use when writing VCR tests, managing cassettes, configuring VCR options, filtering sensitive data, or debugging recorded HTTP responses.",
+  "domain": "testing",
+  "subdomain": "e2e",
+  "specialty": "HTTP recording",
+  "quality": 5,
+  "qualityReason": "Reliable HTTP test recording",
+  "bundleHints": [
+    "e2e-testing",
+    "integration-testing"
+  ],
+  "tags": [
+    "cassettes",
+    "filtering",
+    "http",
+    "http interactions",
+    "mocking",
+    "pytest",
+    "replay",
+    "testing",
+    "vcr",
+    "vcr.py"
+  ],
+  "capabilities": [
+    "Record HTTP interactions as YAML cassettes for deterministic test replay",
+    "Configure VCR options for filtering sensitive authentication headers",
+    "Manage different recording modes including once, rewrite, and new_episodes",
+    "Debug cassette mismatches and request matching issues",
+    "Filter API keys and tokens from recorded cassettes for secure CI/CD"
+  ],
+  "author": "bossjones",
+  "icon": "🎬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill for pytest-recording (VCR.py), a widely-used Python testing library. All 67 static findings are false positives. The 'external commands' are example pytest/shell commands in documentation code blocks, 'hardcoded IP addresses' are localhost examples for configuring VCR ignore_hosts, and 'API keys' are demonstrating how to filter sensitive authentication headers from recordings. The skill teaches security best practices for protecting credentials, not exploiting them.",
+  "valueStatement": "Testing external APIs is unreliable and slow due to network dependencies and rate limits. pytest-recording captures HTTP interactions as reusable YAML cassettes for fast, deterministic tests. Use this skill to mock API calls, filter sensitive credentials, and debug VCR configuration issues.",
+  "userTitle": "Record and replay HTTP interactions in Python tests",
+  "limitations": [
+    "Only works with pytest testing framework",
+    "Requires understanding of HTTP request matching for advanced use",
+    "Cassettes may require periodic updates when external APIs change",
+    "Cannot record WebSocket or non-HTTP protocols"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Python developers",
+      "title": "Mock external API calls",
+      "description": "Replace live API calls with recorded responses for reliable, fast test execution without rate limits or network dependencies."
+    },
+    {
+      "targetUser": "Test engineers",
+      "title": "Create deterministic tests",
+      "description": "Ensure tests produce consistent results by replaying exact HTTP responses, eliminating flaky tests from API changes."
+    },
+    {
+      "targetUser": "DevOps teams",
+      "title": "Secure CI/CD testing",
+      "description": "Run tests in CI/CD pipelines without exposing API credentials by filtering sensitive data from recorded cassettes."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic VCR test setup",
+      "scenario": "Adding VCR to existing API test",
+      "prompt": "Convert this test to use pytest-recording: [paste test code]. Show me the decorator and needed imports."
+    },
+    {
+      "title": "Filter sensitive headers",
+      "scenario": "Securing API credentials in tests",
+      "prompt": "Create a vcr_config fixture that filters authorization headers and API keys for OpenAI and Anthropic APIs."
+    },
+    {
+      "title": "Debug cassette issues",
+      "scenario": "Test fails with cassette not found",
+      "prompt": "My test cannot find the cassette file. Walk me through debugging steps including file paths and recording modes."
+    },
+    {
+      "title": "Advanced VCR configuration",
+      "scenario": "Custom request matching and response processing",
+      "prompt": "Show me how to configure VCR to match requests by method and path only, and sanitize response headers before recording."
+    }
+  ],
+  "bestPractices": [
+    "Always filter authentication headers and API keys before recording cassettes",
+    "Use descriptive test names as they become cassette file names automatically",
+    "Review cassette files in pull requests to ensure no secrets are committed",
+    "Delete and re-record cassettes periodically to catch API changes early"
+  ],
+  "antiPatterns": [
+    "Recording cassettes with real API credentials without filtering sensitive data",
+    "Committing large cassette files with unnecessary HTTP interactions",
+    "Using --vcr-record=all in CI/CD which overwrites working cassettes",
+    "Ignoring cassette merge conflicts instead of re-recording properly"
+  ],
+  "faq": [
+    {
+      "question": "Why is my test still making live API calls?",
+      "answer": "Check if VCR is disabled with --disable-recording flag or if cassette exists for your test name."
+    },
+    {
+      "question": "How do I update cassettes when APIs change?",
+      "answer": "Delete specific cassette files and re-run tests with --vcr-record=once or use --vcr-record=rewrite for all."
+    },
+    {
+      "question": "Can I use VCR with async tests?",
+      "answer": "Yes, pytest-recording works with both sync and async test functions using standard pytest-asyncio."
+    },
+    {
+      "question": "Where are cassette files stored?",
+      "answer": "By default in tests/cassettes/ organized by test module name. You can customize paths in vcr_config."
+    },
+    {
+      "question": "How do I filter custom authentication headers?",
+      "answer": "Add header names to filter_headers list in your vcr_config fixture, like x-custom-api-key."
+    },
+    {
+      "question": "What does request mismatch error mean?",
+      "answer": "VCR cannot match the current request to any recorded interaction. Check match_on criteria in vcr_config."
+    }
+  ],
+  "seoKeywords": [
+    "pytest-recording",
+    "VCR.py",
+    "HTTP mocking",
+    "Python testing",
+    "API testing",
+    "test cassettes",
+    "Claude",
+    "Claude Code",
+    "pytest",
+    "HTTP recording"
+  ],
+  "sourceUrl": "https://github.com/bossjones/logging-lab/tree/main/.claude/skills/pytest-recording",
+  "sourceType": "community",
+  "dependencies": []
+}

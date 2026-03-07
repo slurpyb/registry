@@ -1,0 +1,140 @@
+{
+  "name": "nft-standards",
+  "type": "skill",
+  "description": "Implement NFT standards (ERC-721, ERC-1155) with proper metadata handling, minting strategies, and marketplace integration. Use when creating NFT contracts, building NFT marketplaces, or implementing digital asset systems.",
+  "domain": "blockchain",
+  "subdomain": "smart-contracts",
+  "specialty": "NFT implementation",
+  "quality": 4,
+  "qualityReason": "Specific blockchain standard",
+  "bundleHints": [
+    "nft-development",
+    "web3"
+  ],
+  "tags": [
+    "erc1155",
+    "erc721",
+    "marketplace",
+    "metadata",
+    "minting",
+    "nft",
+    "smart-contracts"
+  ],
+  "capabilities": [
+    "Explain ERC-721 and ERC-1155 standard differences",
+    "Provide Solidity examples for minting and supply limits",
+    "Describe off-chain and on-chain metadata schemas",
+    "Outline EIP-2981 royalty patterns",
+    "Show patterns for soulbound, dynamic, and ERC721A NFTs"
+  ],
+  "author": "wshobson",
+  "icon": "🖼️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only markdown documentation (SKILL.md) and JSON configuration files (skill-report.json). No executable code, scripts, network calls, filesystem access beyond its own files, or environment variable reads are present. All 50 static findings are false positives triggered by example Solidity code blocks in documentation. The flagged patterns (C2 keywords, weak crypto, dynamic require, shell backticks) are standard blockchain terminology and documentation formatting, not security threats. Users are not exposed to any data theft, code execution, or privacy risks.",
+  "valueStatement": "NFT builders need clear guidance on standards, metadata, and minting. This skill gives practical patterns for ERC-721, ERC-1155, and marketplace readiness.",
+  "userTitle": "Implement NFT standards with ERC-721 and ERC-1155",
+  "limitations": [
+    "Does not deploy contracts or run blockchain transactions",
+    "Does not upload assets to IPFS or manage pinning",
+    "Does not perform security audits of custom contracts",
+    "Does not integrate with marketplace APIs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Smart contract developer",
+      "title": "Select a token standard",
+      "description": "Compare ERC-721 and ERC-1155 for a new collection and choose the right model."
+    },
+    {
+      "targetUser": "Marketplace builder",
+      "title": "Design metadata schema",
+      "description": "Define fields that display correctly across major NFT marketplaces and wallets."
+    },
+    {
+      "targetUser": "Game studio",
+      "title": "Plan multi-token items",
+      "description": "Set ERC-1155 item IDs, supplies, and mint rules for game assets."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Choose ERC standard",
+      "scenario": "Planning a new NFT collection",
+      "prompt": "Recommend ERC-721 or ERC-1155 for a 5,000 item art drop and explain tradeoffs."
+    },
+    {
+      "title": "Metadata checklist",
+      "scenario": "Preparing IPFS metadata",
+      "prompt": "List required and optional metadata fields for NFT JSON and note best practices for images and attributes."
+    },
+    {
+      "title": "Royalties policy",
+      "scenario": "Secondary sale revenue",
+      "prompt": "Explain how to implement EIP-2981 royalties and suggest a safe fee cap."
+    },
+    {
+      "title": "Dynamic NFT design",
+      "scenario": "Evolving on-chain traits",
+      "prompt": "Outline a dynamic NFT approach that updates metadata based on on-chain state changes."
+    }
+  ],
+  "bestPractices": [
+    "Use OpenZeppelin base contracts for standards compliance",
+    "Keep metadata consistent and pinned on IPFS",
+    "Document mint limits and royalty settings"
+  ],
+  "antiPatterns": [
+    "Mixing ERC-721 and ERC-1155 without a clear need",
+    "Changing metadata without a disclosure policy",
+    "Storing large assets fully on-chain without cost justification"
+  ],
+  "faq": [
+    {
+      "question": "Is this compatible with Claude, Codex, and Claude Code?",
+      "answer": "Yes. It provides guidance and examples that work with Claude, Codex, and Claude Code."
+    },
+    {
+      "question": "What are the limits of this skill?",
+      "answer": "It does not deploy contracts, run transactions, or audit your code."
+    },
+    {
+      "question": "Does it integrate with marketplace APIs?",
+      "answer": "No. It explains standards and metadata, but it does not call marketplace services."
+    },
+    {
+      "question": "Does it access my files or keys?",
+      "answer": "No. It is static guidance and does not access local files or credentials."
+    },
+    {
+      "question": "How do I troubleshoot missing metadata display?",
+      "answer": "Verify tokenURI format, JSON fields, and IPFS pinning status."
+    },
+    {
+      "question": "How does it compare to a full audit tool?",
+      "answer": "It offers design guidance only, not automated testing or formal security review."
+    }
+  ],
+  "seoKeywords": [
+    "NFT standards",
+    "ERC-721",
+    "ERC-1155",
+    "EIP-2981",
+    "NFT metadata",
+    "NFT marketplace",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Solidity NFT"
+  ],
+  "sourceUrl": "https://github.com/wshobson/agents/tree/main/plugins/blockchain-web3/skills/nft-standards",
+  "sourceType": "community",
+  "dependencies": []
+}

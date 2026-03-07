@@ -1,0 +1,142 @@
+{
+  "name": "web-ai-prompt-api",
+  "type": "skill",
+  "description": "Chrome's built-in Prompt API implementation guide. Use Gemini Nano locally in browser for AI features - session management, multimodal input, structured output, streaming, Chrome Extensions. Reference for all Prompt API development.",
+  "domain": "tools",
+  "subdomain": "browser",
+  "specialty": "Prompt API",
+  "quality": 5,
+  "qualityReason": "Cutting-edge, specific API",
+  "bundleHints": [
+    "browser-ai",
+    "on-device",
+    "chrome"
+  ],
+  "tags": [
+    "browser-ai",
+    "chrome",
+    "documentation",
+    "gemini-nano",
+    "multimodal",
+    "on-device-ai",
+    "session"
+  ],
+  "capabilities": [
+    "Check Chrome Prompt API availability and model parameters",
+    "Create and manage AI sessions with custom temperature and topK settings",
+    "Process multimodal input including text, images, and audio files",
+    "Generate structured JSON output with JSON Schema response constraints",
+    "Stream responses for long-form content generation",
+    "Clone and restore sessions for parallel conversations with shared context"
+  ],
+  "author": "AJV009",
+  "icon": "🤖",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing reference material for Chrome's Prompt API. All 93 static findings are false positives from pattern matching on documentation text. The skill contains no executable code, makes no network requests, accesses no files, and executes no commands.",
+  "valueStatement": "Build on-device AI features using Chrome's built-in Prompt API with Gemini Nano. Process text, images, and audio locally in the browser for privacy-sensitive applications without external server calls.",
+  "userTitle": "Implement Chrome Prompt API with Gemini Nano",
+  "limitations": [
+    "Desktop Chrome only - no mobile Android or iOS support",
+    "Requires 22 GB storage for Gemini Nano model download",
+    "Output is text-only even with multimodal input capabilities",
+    "No Web Workers support due to permission policy restrictions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Chrome Extension Developers",
+      "title": "Build AI-Powered Extensions",
+      "description": "Create browser extensions with on-device AI for content analysis, classification, and intelligent search without server costs."
+    },
+    {
+      "targetUser": "Privacy-Focused Web Developers",
+      "title": "Process Sensitive Data Locally",
+      "description": "Build web applications that analyze medical records, financial data, or personal information locally without external API calls."
+    },
+    {
+      "targetUser": "Offline Application Developers",
+      "title": "Enable AI Without Internet",
+      "description": "Add AI features that work offline for field workers, travelers, or users with unreliable internet connections."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Check API Support",
+      "scenario": "Verify browser compatibility",
+      "prompt": "Check if the Chrome Prompt API is available in my browser. Show me the availability status and what model parameters are supported."
+    },
+    {
+      "title": "Create Basic Session",
+      "scenario": "Start simple AI conversation",
+      "prompt": "Create a LanguageModel session with default parameters. Generate a haiku about coding."
+    },
+    {
+      "title": "Extract Structured Data",
+      "scenario": "Parse content into JSON",
+      "prompt": "Set up a session with JSON Schema constraints to extract product name, price, and rating from this product description. Return valid JSON."
+    },
+    {
+      "title": "Analyze Images Locally",
+      "scenario": "Process images with AI",
+      "prompt": "Configure a multimodal session for image input. Analyze this uploaded screenshot and describe the UI elements you see."
+    }
+  ],
+  "bestPractices": [
+    "Keep one empty session alive to prevent model unloading and reloading delays",
+    "Use AbortController with signal parameter to let users cancel long-running generations",
+    "Clone sessions instead of recreating when you need parallel conversations with shared context"
+  ],
+  "antiPatterns": [
+    "Creating new sessions for every request instead of reusing (model reload is expensive)",
+    "Ignoring inputUsage and inputQuota limits until the session fails",
+    "Assuming the Prompt API is available without checking before creating sessions"
+  ],
+  "faq": [
+    {
+      "question": "What Chrome version supports the Prompt API?",
+      "answer": "Chrome 138+ for extensions in stable channel. Web apps require origin trial registration. Check chrome://on-device-internals for model status."
+    },
+    {
+      "question": "How much storage does Gemini Nano require?",
+      "answer": "The model needs 22 GB free storage for download. Chrome automatically removes it if available storage drops below 10 GB after installation."
+    },
+    {
+      "question": "Can I use this API in Chrome extensions?",
+      "answer": "Yes. The Prompt API is available in Chrome 138+ stable for extensions without origin trial permissions. Remove expired aiLanguageModelOriginTrial permission."
+    },
+    {
+      "question": "Is my data sent to external servers when using Gemini Nano?",
+      "answer": "No. Gemini Nano runs completely on-device. All processing happens locally in the browser without any external network requests."
+    },
+    {
+      "question": "Why is the model unavailable even with Chrome 138 installed?",
+      "answer": "Check: 22 GB free storage, 4+ GB GPU VRAM or 16 GB RAM, supported OS version, and enable chrome://flags/#prompt-api-for-gemini-nano-multimodal-input."
+    },
+    {
+      "question": "How does on-device AI compare to cloud APIs like Claude?",
+      "answer": "On-device offers privacy and zero latency but smaller context windows and less capability. Best for privacy-sensitive or offline scenarios."
+    }
+  ],
+  "seoKeywords": [
+    "Chrome Prompt API",
+    "Gemini Nano",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "on-device AI",
+    "browser AI",
+    "multimodal input",
+    "structured output",
+    "streaming responses"
+  ],
+  "sourceUrl": "https://github.com/AJV009/ajv009.github.io/tree/main/.claude/skills/web_ai_prompt_api",
+  "sourceType": "community",
+  "dependencies": []
+}

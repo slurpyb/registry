@@ -1,0 +1,147 @@
+{
+  "name": "pitfalls-express-api",
+  "type": "skill",
+  "description": "Express API conventions and storage patterns. Use when building REST APIs, defining routes, or implementing storage interfaces. Triggers on: Express, router, API route, status code, storage interface.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "express patterns",
+  "quality": 5,
+  "qualityReason": "Clear framework and use cases",
+  "bundleHints": [
+    "node-stack",
+    "backend-frameworks"
+  ],
+  "tags": [
+    "api",
+    "backend",
+    "conventions",
+    "error-handling",
+    "express",
+    "rest",
+    "rest-api",
+    "route-definition",
+    "status-codes",
+    "storage-interfaces",
+    "typescript"
+  ],
+  "capabilities": [
+    "Verifies REST route conventions for Express APIs",
+    "Checks correct HTTP status codes for each operation",
+    "Validates request body middleware implementation",
+    "Provides storage interface abstraction patterns",
+    "Documents background job cleanup and overlap handling",
+    "Reviews Express API code for common pitfalls"
+  ],
+  "author": "BarisSozen",
+  "icon": "🛣️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only TypeScript code examples in markdown. The static scanner triggered on markdown code block backticks and function naming conventions that have no security implications. All 41 findings are false positives caused by the scanner misinterpreting documentation syntax as code patterns.",
+  "valueStatement": "Express API development often leads to inconsistent routes, wrong status codes, and tightly coupled storage logic. This skill provides proven patterns for RESTful routes, HTTP status codes, storage interfaces, and background job management.",
+  "userTitle": "Build Express APIs with proper REST patterns",
+  "limitations": [
+    "Does not generate API code automatically",
+    "Does not connect to databases or external services",
+    "Does not validate running API implementations",
+    "Focuses on patterns, not framework-specific implementations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developers",
+      "title": "Build consistent APIs",
+      "description": "Apply REST conventions and status code patterns when creating new Express routes and endpoints."
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Review API implementations",
+      "description": "Verify existing Express APIs follow best practices for route structure and error handling."
+    },
+    {
+      "targetUser": "Full-Stack Engineers",
+      "title": "Design storage interfaces",
+      "description": "Create abstracted storage layers that support different backends and enable easy testing."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New API Route",
+      "scenario": "Creating a new endpoint",
+      "prompt": "Create a new Express route for [resource] following REST conventions. Include validation, proper status codes, and error handling."
+    },
+    {
+      "title": "Review Routes",
+      "scenario": "Checking existing routes",
+      "prompt": "Review these Express routes for REST compliance, correct status codes, and missing validation. Point out any anti-patterns."
+    },
+    {
+      "title": "Storage Pattern",
+      "scenario": "Designing data layer",
+      "prompt": "Design a TypeScript storage interface for [entity] with create, read, update, delete operations. Include an in-memory implementation for testing."
+    },
+    {
+      "title": "Background Job",
+      "scenario": "Adding async tasks",
+      "prompt": "Add a background job to my Express app that runs every 5 minutes. Include proper cleanup on process exit and overlap protection."
+    }
+  ],
+  "bestPractices": [
+    "Separate public and admin routes with appropriate auth middleware",
+    "Always validate request bodies before processing with middleware",
+    "Define storage interfaces to abstract database implementation details",
+    "Clean up background job intervals on process termination signals"
+  ],
+  "antiPatterns": [
+    "Using inconsistent HTTP status codes across similar operations",
+    "Skipping input validation on create and update endpoints",
+    "Implementing storage logic directly in route handlers",
+    "Running overlapping background job executions without protection"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with Express v5?",
+      "answer": "Yes. The patterns are version-agnostic and apply to both Express v4 and v5."
+    },
+    {
+      "question": "What status codes does this skill recommend?",
+      "answer": "GET: 200/404, POST: 201/400, PATCH: 200/404/400, DELETE: 204/404."
+    },
+    {
+      "question": "Can I use these patterns with other frameworks?",
+      "answer": "Route and status code patterns apply to any REST API. Storage interfaces work with any backend."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only provides guidance patterns. It never accesses files or sends data externally."
+    },
+    {
+      "question": "Why are my routes failing validation?",
+      "answer": "Ensure validateBody middleware is defined and called before your route handler. Check schema definitions."
+    },
+    {
+      "question": "How is this different from documentation?",
+      "answer": "This skill provides ready-to-use patterns, checklists, and code examples tailored for Claude and Codex."
+    }
+  ],
+  "seoKeywords": [
+    "Express API patterns",
+    "REST API best practices",
+    "Express router conventions",
+    "HTTP status codes",
+    "storage interface pattern",
+    "Claude Code Express",
+    "TypeScript API development",
+    "Express background jobs",
+    "API route structure",
+    "input validation middleware"
+  ],
+  "sourceUrl": "https://github.com/BarisSozen/claude/tree/main/.claude/skills/pitfalls-express-api",
+  "sourceType": "community",
+  "dependencies": []
+}

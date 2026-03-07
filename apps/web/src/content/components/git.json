@@ -1,0 +1,140 @@
+{
+  "name": "git",
+  "type": "skill",
+  "description": "Basic git operations for repository inspection. Use for git diff, git log, git status, git remote, and other read-only git commands.",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "read-only ops",
+  "quality": 5,
+  "qualityReason": "Essential, safe read operations",
+  "bundleHints": [
+    "git-tools",
+    "version-control",
+    "dev-basics"
+  ],
+  "tags": [
+    "git",
+    "inspection",
+    "read-only",
+    "repository-inspection",
+    "version-control"
+  ],
+  "capabilities": [
+    "View repository status and current branch",
+    "Show unstaged and staged changes with git diff",
+    "Display commit history with configurable output",
+    "Inspect file history and blame information",
+    "List remote URLs to detect platform type"
+  ],
+  "author": "ETeissonniere",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 33 static findings are false positives. The scanner misidentified markdown code blocks (git command examples) as shell execution and git terminology (diff, log) as cryptographic algorithms. This skill only performs read-only git operations with hardcoded arguments.",
+  "valueStatement": "This skill provides read-only git commands for inspecting repository state. It allows viewing changes, history, and branch information without modifying any data.",
+  "userTitle": "Inspect Git Repository State",
+  "limitations": [
+    "Read-only operations only, no commit or push capability",
+    "Limited to git commands listed in the skill documentation",
+    "Does not handle complex git operations like rebase or merge"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers reviewing their own changes",
+      "title": "Review Code Changes",
+      "description": "View all uncommitted changes before creating a commit. Shows diffs with statistics for quick review."
+    },
+    {
+      "targetUser": "Engineers investigating issues",
+      "title": "Debug Production Issues",
+      "description": "Examine commit history and file changes to trace when a bug was introduced."
+    },
+    {
+      "targetUser": "New team members onboarding",
+      "title": "Understand Codebase Structure",
+      "description": "List tracked files and view file history to understand how code is organized."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Show Uncommitted Changes",
+      "prompt": "Use the git skill to show me all unstaged changes in the current repository.",
+      "scenario": "Quick check of modified files"
+    },
+    {
+      "title": "View Recent Commit History",
+      "prompt": "Use the git skill to display the last 10 commits with one-line summaries.",
+      "scenario": "Review recent activity"
+    },
+    {
+      "title": "Compare Branch Changes",
+      "prompt": "Use the git skill to show what commits are on the current branch but not on main.",
+      "scenario": "Review branch differences"
+    },
+    {
+      "title": "Check File History",
+      "prompt": "Use the git skill to show the commit history for a specific file.",
+      "scenario": "Trace when code was added"
+    }
+  ],
+  "bestPractices": [
+    "Use --oneline and -n flags to limit output to essential information",
+    "Run git status first to understand the repository state before detailed inspection",
+    "Use git diff --stat for a quick summary before viewing full diffs"
+  ],
+  "antiPatterns": [
+    "Avoid using this skill for write operations like commit, push, or merge",
+    "Do not rely on this skill for complex git operations requiring user interaction",
+    "Avoid running git commands without understanding the current branch context"
+  ],
+  "faq": [
+    {
+      "question": "Can this skill make changes to my repository?",
+      "answer": "No. This skill only provides read-only git operations. It cannot commit, push, merge, or modify any repository data."
+    },
+    {
+      "question": "What git commands are supported?",
+      "answer": "This skill supports git status, diff, log, branch, remote, show, blame, and ls-files. See SKILL.md for the complete command reference."
+    },
+    {
+      "question": "How do I see changes in a specific file?",
+      "answer": "Use git diff to see unstaged changes or git diff HEAD to see all changes including staged ones."
+    },
+    {
+      "question": "Can I use this skill with GitLab repositories?",
+      "answer": "Yes. The skill can detect remote URLs to determine if the repository is on GitHub or GitLab."
+    },
+    {
+      "question": "How do I limit the commit history output?",
+      "answer": "Use the -n flag with git log to limit the number of commits shown. For example, git log --oneline -n 10."
+    },
+    {
+      "question": "Is this skill safe to use in production?",
+      "answer": "Yes. Since all operations are read-only, there is no risk of accidentally modifying repository state."
+    }
+  ],
+  "seoKeywords": [
+    "git",
+    "git commands",
+    "git diff",
+    "git log",
+    "git status",
+    "version control",
+    "repository inspection",
+    "commit history",
+    "branch information",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/ETeissonniere/dotfiles/tree/master/config/claude/skills/git",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,138 @@
+{
+  "name": "crewai",
+  "type": "skill",
+  "description": "Expert in CrewAI - the leading role-based multi-agent framework used by 60% of Fortune 500 companies. Covers agent design with roles and goals, task definition, crew orchestration, process types (sequential, hierarchical, parallel), memory systems, and flows for complex workflows. Essential for building collaborative AI agent teams. Use when: crewai, multi-agent team, agent roles, crew of agents, role-based agents.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "multi-agent framework",
+  "quality": 5,
+  "qualityReason": "Specific, widely-used framework",
+  "bundleHints": [
+    "agent-framework",
+    "python-stack"
+  ],
+  "tags": [
+    "ai-agents",
+    "crewai",
+    "multi-agent",
+    "orchestration",
+    "python"
+  ],
+  "capabilities": [
+    "Design agent roles with specific goals and backstories",
+    "Define tasks with expected outputs and dependencies",
+    "Configure crew orchestration (sequential, hierarchical)",
+    "Set up memory and tool integration for agents",
+    "Implement planning features for complex workflows"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged potential issues (external_commands, weak_crypto) but all are false positives. The file is a markdown documentation skill using markdown code block delimiters (backticks) which were misidentified as shell execution. No executable code, network calls, or security risks present. Safe for publication.",
+  "valueStatement": "Creating collaborative AI agent teams requires understanding CrewAI framework patterns. This skill provides expert guidance on agent design, task definition, and crew orchestration for building production-ready multi-agent systems.",
+  "userTitle": "Build Multi-Agent AI Systems with CrewAI",
+  "limitations": [
+    "Python-only framework (no other language support)",
+    "Best suited for structured, predictable workflows",
+    "Can be verbose for simple automation tasks",
+    "Flows feature is relatively new and evolving"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content teams, researchers, marketing professionals",
+      "title": "Research and Content Creation Pipeline",
+      "description": "Create a crew with researcher, writer, and editor agents to automate research and content production workflows"
+    },
+    {
+      "targetUser": "Data scientists, analysts, business intelligence teams",
+      "title": "Data Analysis Team",
+      "description": "Build specialized analyst agents for data collection, processing, and visualization tasks"
+    },
+    {
+      "targetUser": "Software developers, DevOps engineers, technical writers",
+      "title": "Code Review and Documentation",
+      "description": "Automate code review, documentation generation, and quality assurance with specialized agent crews"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Crew Setup",
+      "prompt": "Create a simple CrewAI crew with a researcher agent and a writer agent. The researcher should find information on {topic} and the writer should create a blog post from the research.",
+      "scenario": "Getting started with CrewAI for simple two-agent workflows"
+    },
+    {
+      "title": "Hierarchical Process",
+      "prompt": "Set up a hierarchical CrewAI process with a manager agent that coordinates three worker agents: a data collector, an analyst, and a reporter. Use gpt-4o as the manager LLM.",
+      "scenario": "Building coordinated multi-agent systems with oversight"
+    },
+    {
+      "title": "Task Dependencies",
+      "prompt": "Create a crew where task B depends on the output of task A. Task A should gather data and task B should analyze that data and produce a summary report.",
+      "scenario": "Implementing sequential task dependencies"
+    },
+    {
+      "title": "Planning-Enabled Crew",
+      "prompt": "Configure a CrewAI crew with planning enabled. Create three agents: planner, executor, and validator. Enable planning so the crew generates an execution plan before running tasks.",
+      "scenario": "Using CrewAI planning feature for complex workflows"
+    }
+  ],
+  "bestPractices": [
+    "Define specific, focused agent roles rather than generic ones - use titles like 'Senior Research Analyst' instead of 'Researcher'",
+    "Always specify expected_output for tasks to ensure consistent, usable results",
+    "Start with 3-5 agents and add more only when coordination overhead is justified"
+  ],
+  "antiPatterns": [
+    "Creating vague agent roles without clear expertise areas leads to poor task delegation",
+    "Skipping expected_output definition causes inconsistent results and hard-to-chain tasks",
+    "Using too many agents creates coordination overhead and slower execution without proportional benefit"
+  ],
+  "faq": [
+    {
+      "question": "What is CrewAI?",
+      "answer": "CrewAI is a Python framework for building multi-agent AI systems where agents have defined roles, goals, and backstories, and can collaborate on complex tasks through orchestrated workflows."
+    },
+    {
+      "question": "Do I need Python experience?",
+      "answer": "Yes, CrewAI is a Python-only framework. You should be comfortable with Python syntax, YAML configuration, and basic OOP concepts to use it effectively."
+    },
+    {
+      "question": "What are the main process types?",
+      "answer": "CrewAI supports sequential (tasks run in order) and hierarchical (manager coordinates workers) processes. Sequential is simpler; hierarchical is better for complex coordination."
+    },
+    {
+      "question": "Can I use this with Claude or GPT models?",
+      "answer": "Yes, CrewAI works with any LLM that has an OpenAI-compatible API, including GPT-4, Claude, and open-source models through various providers."
+    },
+    {
+      "question": "How is this different from LangChain?",
+      "answer": "CrewAI focuses specifically on multi-agent orchestration with role-based agents, while LangChain provides broader LLM tooling. CrewAI abstracts the agent coordination pattern."
+    },
+    {
+      "question": "What are the limitations?",
+      "answer": "CrewAI is Python-only, works best with structured workflows, can be verbose for simple tasks, and the Flows feature is still maturing."
+    }
+  ],
+  "seoKeywords": [
+    "crewai",
+    "multi-agent AI",
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "AI agent framework",
+    "agent orchestration",
+    "Python agents",
+    "role-based agents",
+    "multi-agent system"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/crewai",
+  "sourceType": "community",
+  "dependencies": []
+}

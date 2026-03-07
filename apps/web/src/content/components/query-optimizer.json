@@ -1,0 +1,141 @@
+{
+  "name": "query-optimizer",
+  "type": "skill",
+  "description": "Analyze and optimize SQL queries for better performance and efficiency.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "SQL performance tuning",
+  "quality": 5,
+  "qualityReason": "Specific optimization focus",
+  "bundleHints": [
+    "database-stack",
+    "performance"
+  ],
+  "tags": [
+    "database",
+    "execution-plan",
+    "indexing",
+    "optimization",
+    "performance",
+    "sql",
+    "tuning"
+  ],
+  "capabilities": [
+    "Analyze SQL queries using EXPLAIN and EXPLAIN ANALYZE output",
+    "Identify missing indexes and performance bottlenecks in queries",
+    "Suggest query rewrites to improve execution efficiency",
+    "Recommend proper indexing strategies for different databases",
+    "Detect N+1 query problems and suggest eager loading fixes",
+    "Optimize pagination and JOIN operations for better performance"
+  ],
+  "author": "CuriousLearner",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only SQL optimization guidance. No executable code, no file system access, no network calls. Static findings are false positives: scanner misidentified markdown code blocks as Ruby/shell commands and flagged standard SQL keywords as security threats.",
+  "valueStatement": "Slow database queries impact application performance and user experience. This skill provides expert guidance on analyzing query execution plans, identifying performance bottlenecks, and implementing optimizations like proper indexing and query restructuring.",
+  "userTitle": "Optimize SQL queries for better performance",
+  "limitations": [
+    "Cannot directly execute queries or modify database schema",
+    "Cannot access user databases or query live systems",
+    "Cannot install or configure database software",
+    "Provides recommendations only; requires user to implement changes"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Improve application queries",
+      "description": "Analyze and optimize database queries in web applications to reduce response times and improve scalability."
+    },
+    {
+      "targetUser": "Database administrators",
+      "title": "Audit database performance",
+      "description": "Review execution plans and identify slow queries that need indexing or rewriting to maintain database health."
+    },
+    {
+      "targetUser": "Data engineers",
+      "title": "Optimize data pipelines",
+      "description": "Improve the performance of ETL queries and data transformation operations for faster processing."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Explain query plan",
+      "scenario": "Understanding execution",
+      "prompt": "Analyze this EXPLAIN output and tell me what the query is doing: [paste EXPLAIN output]"
+    },
+    {
+      "title": "Find missing indexes",
+      "scenario": "Performance investigation",
+      "prompt": "This query is slow. Check if there are missing indexes: SELECT * FROM [table] WHERE [condition]"
+    },
+    {
+      "title": "Fix N+1 queries",
+      "scenario": "ORM optimization",
+      "prompt": "Help me rewrite this code to avoid N+1 queries: [paste code with loop-based queries]"
+    },
+    {
+      "title": "Design indexing strategy",
+      "scenario": "Schema optimization",
+      "prompt": "Suggest indexes for these tables and queries: [paste CREATE TABLE and SELECT statements]"
+    }
+  ],
+  "bestPractices": [
+    "Always run EXPLAIN before and after optimization to measure improvements",
+    "Add indexes on foreign keys, WHERE clauses, JOIN conditions, and ORDER BY columns",
+    "Avoid SELECT * and use only columns needed for the application"
+  ],
+  "antiPatterns": [
+    "Using SELECT * on large tables increases memory usage and network transfer",
+    "Applying functions to indexed columns prevents index usage",
+    "Using OFFSET for pagination on deep pages causes performance degradation"
+  ],
+  "faq": [
+    {
+      "question": "Which databases are supported?",
+      "answer": "Supports PostgreSQL, MySQL, MariaDB, SQL Server, and SQLite with database-specific optimization advice."
+    },
+    {
+      "question": "What is the maximum query size?",
+      "answer": "The skill can analyze queries of any size but works best with queries under 500 lines."
+    },
+    {
+      "question": "How to integrate with existing tools?",
+      "answer": "Use @query-optimizer prefix in any prompt. Combine with other skills like schema-analyzer for complete database help."
+    },
+    {
+      "question": "Is data safe when using this skill?",
+      "answer": "Yes. This skill only provides text-based recommendations. It never accesses or stores your database data."
+    },
+    {
+      "question": "Why is my query still slow after adding indexes?",
+      "answer": "Index effectiveness depends on data distribution, query patterns, and table size. The skill can suggest alternative approaches."
+    },
+    {
+      "question": "How does this compare to database monitoring tools?",
+      "answer": "This skill provides optimization guidance based on query structure. Use pg_stat_statements or slow query logs for real-time monitoring."
+    }
+  ],
+  "seoKeywords": [
+    "SQL optimization",
+    "query performance",
+    "PostgreSQL",
+    "MySQL",
+    "database indexing",
+    "EXPLAIN ANALYZE",
+    "slow query",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/CuriousLearner/devkit/tree/main/skills/query-optimizer",
+  "sourceType": "community",
+  "dependencies": []
+}

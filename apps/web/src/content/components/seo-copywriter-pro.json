@@ -1,0 +1,143 @@
+{
+  "name": "seo-copywriter-pro",
+  "type": "skill",
+  "description": "Agente especializado em criação massiva de conteúdo SEO seguindo a metodologia James/Diesel Dudes. Use para criar 50+ páginas otimizadas rapidamente, gerar artigos em batch, traduzir para múltiplos idiomas, e rankear no Google em 30 dias. Ideal para sites de serviços locais, profissionais liberais, médicos, advogados, e qualquer negócio que precise dominar SEO local. Triggers: criar páginas SEO, gerar conteúdo em massa, rankear no Google, SEO local, criar artigos batch.\n",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "mass content",
+  "quality": 4,
+  "qualityReason": "Niche methodology focus",
+  "bundleHints": [
+    "content-creation",
+    "seo-copywriting"
+  ],
+  "tags": [
+    "batch-generation",
+    "content",
+    "copywriting",
+    "diesel-dudes",
+    "james-method",
+    "marketing",
+    "multi-language",
+    "seo",
+    "translation"
+  ],
+  "capabilities": [
+    "Generate 50+ SEO-optimized pages using proven methodology",
+    "Create keyword research tables by intent category (emergency, service, problem, location, authority)",
+    "Build complete page templates with meta tags, H1 structure, and internal linking",
+    "Validate pages against SEO checklist (title length, description, content length, FAQ, schema)"
+  ],
+  "author": "1bertogit",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All 379 static findings are FALSE POSITIVES. MD5 hashing is used for legitimate duplicate content detection, markdown code blocks are incorrectly flagged as shell execution, keyword research tables are misidentified as system reconnaissance, and API key handling is standard configuration for PageSpeed integration. This is a legitimate SEO copywriting skill with no security risks.",
+  "valueStatement": "Create 50+ SEO-optimized pages quickly for local businesses, medical practices, and service providers. This agent follows proven SEO methodologies to help rank in Google within 30 days.",
+  "userTitle": "Generate SEO-optimized content at scale",
+  "limitations": [
+    "Requires user input for business-specific content and copy",
+    "Does not perform live keyword volume analysis",
+    "Does not automatically submit pages to search engines",
+    "Does not generate images or visual content"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Local business owners",
+      "title": "Local service pages",
+      "description": "Generate location-specific service pages for multi-location businesses"
+    },
+    {
+      "targetUser": "Medical professionals",
+      "title": "Procedure content",
+      "description": "Create detailed procedure pages for medical and cosmetic services"
+    },
+    {
+      "targetUser": "Content agencies",
+      "title": "Bulk article generation",
+      "description": "Produce large volumes of SEO blog content efficiently"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic service page",
+      "scenario": "Create a single service page",
+      "prompt": "Create an SEO page for /servicos/[service-name]/ with keyword [main keyword], targeting [audience]. Include H1, meta description under 160 chars, FAQ section with 5 questions, and MedicalProcedure schema."
+    },
+    {
+      "title": "Location pages",
+      "scenario": "Generate multiple location pages",
+      "prompt": "Generate location pages for [city-1], [city-2], [city-3] for [service name]. Use the batch generator template with brand [brand name], service [service], and CTAs for /contato/"
+    },
+    {
+      "title": "Blog articles",
+      "scenario": "Create long-form blog content",
+      "prompt": "Create a 2000+ word blog article about [topic] with keyword [primary keyword]. Include H2s for [secondary keywords], internal links to /servicos/, and FAQ schema."
+    },
+    {
+      "title": "Full site audit",
+      "scenario": "Validate existing SEO pages",
+      "prompt": "Run the Pele SEO auditor on ./src/app directory. Generate an HTML report with all issues, duplicate content detection, and orphan page analysis."
+    }
+  ],
+  "bestPractices": [
+    "Use high-intent keywords where users are ready to take action",
+    "Create unique content per location instead of copying templates",
+    "Include 5-7 FAQ questions per page with schema markup",
+    "Maintain consistent internal linking across all pages"
+  ],
+  "antiPatterns": [
+    "Do not duplicate content across multiple pages without canonical tags",
+    "Do not use thin content under 1500 words for service pages",
+    "Do not forget alt text on images or canonical URLs",
+    "Do not skip hreflang tags for multilingual content"
+  ],
+  "faq": [
+    {
+      "question": "How many pages can this skill generate?",
+      "answer": "The batch generator can create unlimited pages from a JSON configuration file."
+    },
+    {
+      "question": "Does it create content automatically?",
+      "answer": "It generates page structure and templates. You provide the specific copy and business details."
+    },
+    {
+      "question": "What SEO elements are included?",
+      "answer": "Title, meta description, H1-H2 structure, internal links, FAQ schema, and canonical URLs."
+    },
+    {
+      "question": "Can I validate existing pages?",
+      "answer": "Yes, use pele-seo-auditor.py to validate pages against SEO checklist and generate reports."
+    },
+    {
+      "question": "Does it support multiple languages?",
+      "answer": "Yes, templates support PT-BR, EN, and ES with hreflang configuration."
+    },
+    {
+      "question": "What frameworks does it support?",
+      "answer": "Primary support for Astro 5.x with React, also works with generic HTML/JSX projects."
+    }
+  ],
+  "seoKeywords": [
+    "seo copywriting",
+    "seo content",
+    "keyword research",
+    "meta tags",
+    "schema markup",
+    "claude seo",
+    "claude code seo",
+    "codex seo",
+    "local seo",
+    "content optimization"
+  ],
+  "sourceUrl": "https://github.com/1bertogit/modern-face-definitive/tree/main/.claude/skills/seo-copywriter-pro",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,139 @@
+{
+  "name": "micro-skill-creator",
+  "type": "skill",
+  "description": "Rapidly creates atomic, focused skills optimized with evidence-based prompting, specialist agents, and systematic testing. Each micro-skill does one thing exceptionally well using self-consistency, program-of-thought, and plan-and-solve patterns. Enhanced with agent-creator principles and functionality-audit validation. Perfect for building composable workflow components.",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "Atomic skills",
+  "quality": 5,
+  "qualityReason": "Meta skill creation",
+  "bundleHints": [
+    "agent-framework",
+    "skill-architecture"
+  ],
+  "tags": [
+    "atomic",
+    "evidence-based",
+    "modular",
+    "skill-creation",
+    "specialist-agents",
+    "tier-1"
+  ],
+  "capabilities": [
+    "Create atomic skills with single responsibility using structured templates",
+    "Design specialist agents with evidence-based prompting patterns (self-consistency, program-of-thought, plan-and-solve)",
+    "Define explicit input/output contracts for reliable composition",
+    "Set up validation test cases and failure mode handling",
+    "Enable neural training integration for continuous improvement",
+    "Compose skills into cascade workflows and slash commands"
+  ],
+  "author": "DNYoussef",
+  "icon": "🛠️",
+  "version": "2.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown templates and guidelines for creating micro-skills. No executable code, no file system access, no network calls, no external command execution. Contains only evidence-based prompting methodology documentation. All 67 static findings are false positives caused by pattern matching on documentation text.",
+  "valueStatement": "Building composable AI skills requires structured methodology and evidence-based patterns. This skill provides templates and workflows for creating focused micro-skills that spawn specialist agents optimized for specific tasks using validated techniques.",
+  "userTitle": "Create atomic AI skills with specialist agents",
+  "limitations": [
+    "This is a skill creation tool, not an executor - it generates skill definitions for you to use",
+    "Created skills require integration with Claude Code or compatible platform",
+    "Specialist agent behavior depends on the AI model and implementation details"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Enterprise teams",
+      "title": "Build reusable skill libraries",
+      "description": "Create standardized micro-skills for consistent quality across projects and teams"
+    },
+    {
+      "targetUser": "AI developers",
+      "title": "Design domain-specific agents",
+      "description": "Build specialist agents optimized for specific domains like data extraction or validation"
+    },
+    {
+      "targetUser": "Workflow engineers",
+      "title": "Compose cascade pipelines",
+      "description": "Chain atomic skills into sequential, parallel, or conditional workflows"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic extraction skill",
+      "scenario": "Create a simple data extraction skill",
+      "prompt": "Create a micro-skill that extracts structured data from unstructured documents using self-consistency checking"
+    },
+    {
+      "title": "API validation skill",
+      "scenario": "Build a validation micro-skill",
+      "prompt": "Create a validation micro-skill that validates API responses against OpenAPI schemas using program-of-thought decomposition"
+    },
+    {
+      "title": "Code generation skill",
+      "scenario": "Design a code generation skill",
+      "prompt": "Create a generation micro-skill that produces code artifacts using plan-and-solve framework with comprehensive error handling"
+    },
+    {
+      "title": "Analysis pipeline",
+      "scenario": "Build an analysis skill chain",
+      "prompt": "Create an analysis micro-skill that combines program-of-thought and self-consistency for security scanning with training integration"
+    }
+  ],
+  "bestPractices": [
+    "Keep each micro-skill to a single responsibility with a clear one-sentence purpose",
+    "Define explicit input/output contracts with validation rules and quality standards",
+    "Include failure mode awareness with detection and mitigation strategies"
+  ],
+  "antiPatterns": [
+    "Creating skills with multiple unrelated responsibilities (violates atomic design principle)",
+    "Over-engineering with excessive abstraction layers that reduce clarity",
+    "Building tightly coupled skills that cannot function independently"
+  ],
+  "faq": [
+    {
+      "question": "What is a micro-skill versus a regular skill?",
+      "answer": "Micro-skills are atomic, single-responsibility skills optimized for composition. They spawn specialist agents using evidence-based patterns."
+    },
+    {
+      "question": "Which platforms support this skill?",
+      "answer": "This skill works with Claude Code, Claude, and Codex platforms that support skill definitions with YAML frontmatter."
+    },
+    {
+      "question": "How complex can a micro-skill be?",
+      "answer": "Keep skills focused on one task. Complex workflows should be composed from multiple simple micro-skills working together."
+    },
+    {
+      "question": "How long does it take to create a micro-skill?",
+      "answer": "Using the provided templates, basic micro-skills can be defined in minutes. Complex skills with validation may take longer."
+    },
+    {
+      "question": "How do I integrate created skills?",
+      "answer": "Skills are saved to the skills directory and become available to Claude Code. Use slash-command-encoder for command access."
+    },
+    {
+      "question": "How does this differ from agent-creator?",
+      "answer": "Agent-creator creates standalone agents. Micro-skill-creator creates composable skill units optimized for cascade workflows."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code skill creation",
+    "micro-skills",
+    "specialist agents",
+    "evidence-based prompting",
+    "self-consistency pattern",
+    "plan-and-solve",
+    "atomic skills",
+    "workflow automation",
+    "skill builder",
+    "modular AI"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/micro-skill-creator",
+  "sourceType": "community",
+  "dependencies": []
+}

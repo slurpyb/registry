@@ -1,0 +1,144 @@
+{
+  "name": "firmware-analyst",
+  "type": "skill",
+  "description": "Expert firmware analyst specializing in embedded systems, IoT",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "embedded security",
+  "quality": 5,
+  "qualityReason": "Expert-level specialization",
+  "bundleHints": [
+    "iot-security",
+    "pentesting-suite"
+  ],
+  "tags": [
+    "embedded systems",
+    "firmware",
+    "firmware-extraction",
+    "hardware",
+    "hardware hacking",
+    "iot",
+    "iot security",
+    "reverse engineering",
+    "reverse-engineering",
+    "vulnerability"
+  ],
+  "capabilities": [
+    "Guide firmware extraction from devices via vendor downloads, UART, JTAG, or flash memory dumping",
+    "Provide systematic firmware analysis workflow covering identification, extraction, filesystem analysis, and binary analysis",
+    "Identify common vulnerability classes including hardcoded credentials, command injection, memory corruption, and information disclosure",
+    "Recommend appropriate tools for firmware analysis including binwalk, Ghidra, QEMU emulation, and hardware interfaces",
+    "Assist with setting up firmware emulation using QEMU and Firmadyne for dynamic analysis",
+    "Support creation of security assessment reports with findings, severity ratings, and remediation guidance"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only skill containing only documentation in SKILL.md with no executable code. The skill provides educational content for firmware security analysis including extraction methods, analysis workflows, vulnerability classes, and ethical guidelines. Static analysis scanned 0 files and detected 0 issues. The skill includes clear ethical boundaries specifying appropriate use (authorized security audits, bug bounty, academic research) versus prohibited activities (unauthorized access, creating malicious firmware).",
+  "valueStatement": "This skill helps security professionals extract, analyze, and identify vulnerabilities in embedded firmware for routers, IoT devices, and industrial control systems through systematic analysis workflows.",
+  "userTitle": "Analyze Firmware for Security Vulnerabilities",
+  "limitations": [
+    "Cannot execute or analyze actual firmware files directly - provides guidance only",
+    "Does not have access to physical hardware interfaces or device access",
+    "Cannot guarantee vulnerability detection - findings require manual verification",
+    "Does not provide exploit code or attack payloads"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security consultants and penetration testers",
+      "title": "IoT Security Audit",
+      "description": "Conduct security assessment of a smart home device firmware to identify vulnerabilities before deployment"
+    },
+    {
+      "targetUser": "Security researchers and academics",
+      "title": "Embedded Systems Research",
+      "description": "Analyze firmware from industrial control systems to understand architecture and identify security weaknesses"
+    },
+    {
+      "targetUser": "Bug bounty hunters and ethical hackers",
+      "title": "Bug Bounty Investigation",
+      "description": "Investigate firmware vulnerabilities in consumer devices as part of authorized bug bounty programs"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Getting Started with Firmware Analysis",
+      "prompt": "Help me understand the firmware analysis process. I have a firmware binary and need to identify its architecture, extract the filesystem, and find potential security issues. What are the key steps?",
+      "scenario": "Beginner exploring firmware analysis for the first time"
+    },
+    {
+      "title": "Extracting Firmware from Device",
+      "prompt": "What methods are available for extracting firmware from an IoT device? I need to analyze a smart router and want to understand the options from software extraction to hardware methods like UART.",
+      "scenario": "Analyst needing to acquire firmware for analysis"
+    },
+    {
+      "title": "Identifying Vulnerabilities in Firmware",
+      "prompt": "What are the most common security vulnerabilities found in embedded firmware? Walk me through how to identify hardcoded credentials, command injection points, and insecure configurations in a extracted filesystem.",
+      "scenario": "Intermediate analyst focusing on vulnerability discovery"
+    },
+    {
+      "title": "Dynamic Analysis with Emulation",
+      "prompt": "How can I set up QEMU to emulate firmware binaries for dynamic analysis? I want to test network services and identify vulnerabilities without physical hardware.",
+      "scenario": "Advanced analyst wanting to perform dynamic testing"
+    }
+  ],
+  "bestPractices": [
+    "Always verify you have authorization before analyzing firmware from devices you do not own",
+    "Document your analysis process thoroughly including tools used, findings, and methodology for credible security reports",
+    "Use entropy analysis early to identify encrypted or compressed regions that may require additional techniques"
+  ],
+  "antiPatterns": [
+    "Running extracted binaries directly on your host system without proper isolation or emulation",
+    "Assuming firmware is harmless - always treat it as potentially malicious and analyze in isolated environments",
+    "Skipping the ethical verification step - ensure your analysis falls within authorized security research boundaries"
+  ],
+  "faq": [
+    {
+      "question": "Can this skill help me extract firmware from a specific device?",
+      "answer": "This skill provides guidance on extraction methods including vendor downloads, UART, JTAG, and flash dumping. The specific method depends on your target device. Always ensure you have authorization to extract firmware from any device."
+    },
+    {
+      "question": "What programming architectures can this skill analyze?",
+      "answer": "The skill covers common embedded architectures including ARM, MIPS, x86, and PowerPC. Ghidra supports these and many more architectures for disassembly and reverse engineering."
+    },
+    {
+      "question": "Do I need special hardware for firmware analysis?",
+      "answer": "Basic analysis can be done entirely with software using extracted firmware files. Hardware tools like UART adapters, JTAG debuggers, or logic analyzers are only needed for physical firmware extraction from devices."
+    },
+    {
+      "question": "How do I analyze encrypted firmware?",
+      "answer": "Encrypted firmware typically shows high entropy throughout. Look for decrypted sections in memory during emulation, check for hardware security module interactions, or investigate if the device decrypts firmware at boot time."
+    },
+    {
+      "question": "Can this skill help me set up firmware emulation?",
+      "answer": "Yes, the skill provides guidance on QEMU user-mode emulation with chroot and full system emulation using Firmadyne. Emulation allows dynamic analysis of firmware binaries without physical hardware."
+    },
+    {
+      "question": "What ethical guidelines should I follow?",
+      "answer": "Only analyze firmware you own, have authorization to test, or is covered by bug bounty programs. Never use findings for unauthorized access, create malicious firmware, or engage in industrial espionage. Always follow responsible disclosure practices."
+    }
+  ],
+  "seoKeywords": [
+    "firmware analysis",
+    "IoT security",
+    "embedded systems",
+    "firmware extraction",
+    "binwalk",
+    "firmware reverse engineering",
+    "hardware security",
+    "Cl Claude Code",
+    "Codex firmware analysis",
+    "Cl Code"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/firmware-analyst",
+  "sourceType": "community",
+  "dependencies": []
+}

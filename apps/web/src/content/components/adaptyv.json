@@ -1,0 +1,142 @@
+{
+  "name": "adaptyv",
+  "type": "skill",
+  "description": "Cloud laboratory platform for automated protein testing and validation. Use when designing proteins and needing experimental validation including binding assays, expression testing, thermostability measurements, enzyme activity assays, or protein sequence optimization. Also use for submitting experiments via API, tracking experiment status, downloading results, optimizing protein sequences for better expression using computational tools (NetSolP, SoluProt, SolubleMPNN, ESM), or managing protein design workflows with wet-lab validation.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "protein validation",
+  "quality": 5,
+  "qualityReason": "Highly specific lab platform use",
+  "bundleHints": [
+    "bioinformatics-suite",
+    "cloud-lab"
+  ],
+  "tags": [
+    "binding-assays",
+    "bioinformatics",
+    "cloud-lab",
+    "cloud-laboratory",
+    "experimental",
+    "experimental-validation",
+    "expression-testing",
+    "protein-engineering",
+    "scientific",
+    "thermostability"
+  ],
+  "capabilities": [
+    "Submit protein sequences for binding, expression, thermostability, and enzyme activity assays",
+    "Track experiment status and receive webhook notifications upon completion",
+    "Download experimental results including KD, kon, koff, yield, and quality metrics",
+    "Integrate with computational tools like NetSolP, SolubleMPNN, and ESM for sequence optimization",
+    "Search target catalog and request custom antigens for binding experiments"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All 304 static findings are FALSE POSITIVES. The skill is legitimate scientific software for protein research. Scanner patterns triggered on: FASTA format headers (protein sequences in markdown code blocks), API calls to official platform endpoints, environment variable usage for API keys (recommended practice), and scientific notation (e.g., binding affinity values like 1.2e-9). No malicious behavior confirmed.",
+  "valueStatement": "Protein design requires experimental validation. Adaptyv provides API access to a cloud laboratory for automated testing of binding affinity, expression levels, thermostability, and enzyme activity. Get experimental results in approximately 21 days.",
+  "userTitle": "Submit protein sequences for cloud lab validation",
+  "limitations": [
+    "Results typically take 21 days turnaround time from submission",
+    "API access requires registration and API key from adaptyvbio.com",
+    "Not all platform features are available via API during alpha/beta phase"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Protein engineers",
+      "title": "Antibody affinity testing",
+      "description": "Submit antibody variants to measure binding affinity against target antigens and identify high-affinity candidates."
+    },
+    {
+      "targetUser": "Computational biologists",
+      "title": "Sequence optimization validation",
+      "description": "Use computational tools to design protein variants, then experimentally validate expression and stability predictions."
+    },
+    {
+      "targetUser": "Enzyme engineers",
+      "title": "Catalytic activity screening",
+      "description": "Screen enzyme variants for improved turnover, substrate affinity, and inhibitor sensitivity."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Submit binding assay",
+      "scenario": "Test protein binding",
+      "prompt": "Submit my antibody sequences to Adaptyv for binding assays against human PD-L1. The sequences are in FASTA format and I want to measure KD values."
+    },
+    {
+      "title": "Check experiment status",
+      "scenario": "Monitor progress",
+      "prompt": "Check the status of experiment exp_abc123xyz and tell me the current stage and estimated completion date."
+    },
+    {
+      "title": "Download results",
+      "scenario": "Get experimental data",
+      "prompt": "Download the results from experiment exp_abc123xyz and parse the binding measurements into a table showing sequence, KD, kon, and koff values."
+    },
+    {
+      "title": "Run optimization pipeline",
+      "scenario": "Full workflow",
+      "prompt": "Optimize my protein sequences using NetSolP and SolubleMPNN, then submit the top 50 candidates to Adaptyv for expression testing with webhook notification."
+    }
+  ],
+  "bestPractices": [
+    "Pre-screen sequences with computational tools (NetSolP, ESM) before experimental submission to reduce costs",
+    "Use webhooks instead of polling for experiment completion notifications",
+    "Include wild-type or reference sequences as controls in every batch submission"
+  ],
+  "antiPatterns": [
+    "Submitting sequences without validation - always run computational screening first",
+    "Polling for status instead of using webhooks - wastes API quota and adds delay",
+    "Ignoring FASTA format requirements - validate sequences locally before submission"
+  ],
+  "faq": [
+    {
+      "question": "How long does it take to get results?",
+      "answer": "Most experiments deliver results in approximately 21 days from submission."
+    },
+    {
+      "question": "How do I get API access?",
+      "answer": "Contact support@adaptyvbio.com to request access during the alpha/beta period."
+    },
+    {
+      "question": "What experiment types are supported?",
+      "answer": "Binding assays (BLI), expression testing, thermostability (DSF), and enzyme activity assays."
+    },
+    {
+      "question": "Can I test binding against custom targets?",
+      "answer": "Yes, use the POST /targets/request endpoint to request custom antigens not in the catalog."
+    },
+    {
+      "question": "How many sequences can I submit?",
+      "answer": "Up to 1000 experiments per day per organization with batch submissions recommended."
+    },
+    {
+      "question": "How are results delivered?",
+      "answer": "Results are available via API download with raw data URLs and quality metrics including confidence scores."
+    }
+  ],
+  "seoKeywords": [
+    "adaptyv",
+    "protein testing",
+    "binding assay",
+    "protein validation",
+    "cloud laboratory",
+    "Claude",
+    "Codex",
+    "Clade Code",
+    "biotech automation",
+    "FASTA sequences"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/adaptyv",
+  "sourceType": "community",
+  "dependencies": []
+}

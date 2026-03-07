@@ -1,0 +1,141 @@
+{
+  "name": "sql-optimization-patterns",
+  "type": "skill",
+  "description": "Master SQL query optimization, indexing strategies, and EXPLAIN analysis to dramatically improve database performance and eliminate slow queries. Use when debugging slow queries, designing database schemas, or optimizing application performance.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "performance tuning",
+  "quality": 5,
+  "qualityReason": "High-performance SQL tuning",
+  "bundleHints": [
+    "database",
+    "performance",
+    "sql-stack"
+  ],
+  "tags": [
+    "database",
+    "explain",
+    "indexing",
+    "optimization",
+    "performance",
+    "sql"
+  ],
+  "capabilities": [
+    "Analyze EXPLAIN query plans to identify performance bottlenecks",
+    "Design appropriate index strategies for specific query patterns",
+    "Transform N+1 queries into efficient JOINs or batch operations",
+    "Implement cursor-based pagination for large datasets",
+    "Optimize aggregate queries using covering indexes and materialized views",
+    "Refactor correlated subqueries into efficient JOINs or CTEs"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 103 potential issues that are all false positives. The 'external_commands' findings are markdown code fence backticks in documentation, not shell execution. The 'weak cryptographic algorithm' findings reference SQL examples, not actual crypto code. The 'filesystem' finding is a PostgreSQL COPY command syntax example in documentation. This skill contains only markdown documentation with SQL optimization patterns and examples - no executable code or security risks.",
+  "valueStatement": "Slow database queries frustrate users and increase infrastructure costs. This skill provides systematic patterns to analyze query plans, design effective indexes, and transform sluggish SQL into high-performance operations.",
+  "userTitle": "Optimize SQL queries and database performance",
+  "limitations": [
+    "Provides general optimization patterns - actual performance depends on specific database engine and data distribution",
+    "Cannot directly execute queries or access your database - provides guidance only",
+    "Index recommendations require manual review before implementation in production",
+    "Does not replace database-specific monitoring and profiling tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers managing high-traffic database applications",
+      "title": "E-commerce Platform Optimization",
+      "description": "A development team struggles with slow product search and order history queries during peak traffic. The skill helps them analyze slow query logs, identify missing indexes on frequently filtered columns, and refactor N+1 patterns in order loading to reduce API response times from seconds to milliseconds."
+    },
+    {
+      "targetUser": "Data engineers building analytics and reporting systems",
+      "title": "Analytics Dashboard Performance",
+      "description": "A data engineer needs to speed up aggregation queries for real-time dashboards displaying sales metrics. The skill guides implementation of materialized views for expensive calculations, covering indexes for index-only scans, and efficient GROUP BY patterns to achieve sub-second dashboard refresh rates."
+    },
+    {
+      "targetUser": "Senior developers and architects improving existing systems",
+      "title": "Legacy Application Modernization",
+      "description": "A senior developer inherits an application with dozens of slow queries causing timeout errors. The skill provides a systematic approach: capture slow queries with pg_stat_statements, analyze execution plans, prioritize high-impact optimizations, and implement proper indexing to eliminate 90% of performance issues without application rewrites."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Query Analysis",
+      "prompt": "I have a slow SQL query that takes over 5 seconds to run. Here is the query and table structure: [paste query and schema]. Can you analyze what might be causing the slowness and suggest specific indexes to create?",
+      "scenario": "Getting started with query optimization for a specific slow query"
+    },
+    {
+      "title": "EXPLAIN Plan Interpretation",
+      "prompt": "I ran EXPLAIN ANALYZE on my query and got this output: [paste EXPLAIN output]. Please explain what each operation means, identify the performance bottlenecks, and recommend specific optimizations.",
+      "scenario": "Understanding query execution plans and their performance implications"
+    },
+    {
+      "title": "Index Strategy Design",
+      "prompt": "I have a table with columns [list columns] and my most common queries are: [list queries]. What indexing strategy should I use? Consider composite indexes, partial indexes, and covering indexes where appropriate.",
+      "scenario": "Designing an optimal indexing strategy for known query patterns"
+    },
+    {
+      "title": "N+1 Query Refactoring",
+      "prompt": "My application executes hundreds of similar queries in a loop: [describe pattern or show code]. This is causing performance issues. Help me refactor this using JOINs, batch loading, or other techniques to reduce the number of database round-trips.",
+      "scenario": "Eliminating N+1 query anti-patterns in application code"
+    }
+  ],
+  "bestPractices": [
+    "Always use EXPLAIN ANALYZE to understand actual query execution before optimizing",
+    "Create indexes on columns used in WHERE, JOIN, and ORDER BY clauses - but avoid over-indexing as each index slows write operations",
+    "Fetch only required columns instead of SELECT *, and filter data as early as possible in the query"
+  ],
+  "antiPatterns": [
+    "Using functions on indexed columns in WHERE clauses without corresponding functional indexes",
+    "Pagination with large OFFSET values on big tables instead of cursor-based approaches",
+    "Executing queries in application loops (N+1 pattern) instead of batch loading or JOINs"
+  ],
+  "faq": [
+    {
+      "question": "How do I identify which queries to optimize first?",
+      "answer": "Focus on queries with high total impact: frequent queries with moderate slowness often matter more than rare very-slow queries. Use pg_stat_statements (PostgreSQL) or slow query logs to find queries by total execution time and call count."
+    },
+    {
+      "question": "Will adding more indexes always improve performance?",
+      "answer": "No. Indexes speed up reads but slow down INSERT, UPDATE, and DELETE operations. Each index consumes storage and must be maintained. Focus on indexes that support your most critical queries and avoid indexing low-cardinality columns."
+    },
+    {
+      "question": "What is the difference between EXPLAIN and EXPLAIN ANALYZE?",
+      "answer": "EXPLAIN shows the estimated query plan based on table statistics. EXPLAIN ANALYZE actually executes the query and reports real timing and row counts, revealing gaps between estimates and reality that often indicate stale statistics or parameter sniffing issues."
+    },
+    {
+      "question": "When should I use a composite index versus separate indexes?",
+      "answer": "Use composite indexes when queries filter on multiple columns together. Order columns by selectivity (most selective first) and consider your query patterns. A composite index on (A, B) supports queries filtering on A alone or A+B together, but not B alone."
+    },
+    {
+      "question": "How do I know if my index is being used?",
+      "answer": "Query pg_stat_user_indexes (PostgreSQL) to check idx_scan counts. If an index shows zero or very few scans despite relevant queries, it may not be usable or the optimizer chose a different plan. Use EXPLAIN to verify index usage for specific queries."
+    },
+    {
+      "question": "What is cursor-based pagination and when should I use it?",
+      "answer": "Cursor-based pagination uses a WHERE clause with the last seen value (e.g., WHERE created_at < last_cursor) instead of OFFSET. It maintains consistent performance regardless of page depth, unlike OFFSET which must scan and discard all preceding rows."
+    }
+  ],
+  "seoKeywords": [
+    "SQL optimization",
+    "database performance",
+    "query tuning",
+    "indexing strategies",
+    "EXPLAIN analysis",
+    "Claude SQL assistant",
+    "Codex database optimization",
+    "Claude Code SQL patterns",
+    "PostgreSQL optimization",
+    "query performance"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/sql-optimization-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

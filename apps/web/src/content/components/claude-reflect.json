@@ -1,0 +1,138 @@
+{
+  "name": "claude-reflect",
+  "type": "skill",
+  "description": "Self-learning system that captures corrections during sessions and reminds users to run /reflect to update CLAUDE.md. Use when discussing learnings, corrections, or when the user mentions remembering something for future sessions.",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "self-improvement",
+  "quality": 5,
+  "qualityReason": "Essential for agent learning",
+  "bundleHints": [
+    "self-learning-system",
+    "meta-cognition"
+  ],
+  "tags": [
+    "claude.md",
+    "corrections",
+    "feedback-loop",
+    "learning",
+    "memory",
+    "self-improvement",
+    "session-review"
+  ],
+  "capabilities": [
+    "Detects correction patterns during sessions using regex and semantic analysis",
+    "Queues learnings to ~/.claude/learnings-queue.json for later review",
+    "Scans past sessions with --scan-history to find missed corrections",
+    "Applies approved learnings to CLAUDE.md and AGENTS.md with human review",
+    "Supports global (all projects) and project-specific learning scopes"
+  ],
+  "author": "BayramAnnakov",
+  "icon": "brain",
+  "version": "2.1.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate self-learning system with no malicious intent. All static findings are false positives: shell commands are documentation examples, hidden file access targets the standard ~/.claude/ directory for Claude configuration, and credential references are guidance documentation, not actual access. The critical heuristic alert incorrectly flagged local file operations as dangerous.",
+  "valueStatement": "Users often correct Claude Code during sessions but lose those learnings between sessions. This skill automatically detects corrections, queues them, and helps you apply them to CLAUDE.md so Claude remembers your preferences in future sessions.",
+  "userTitle": "Capture corrections to remember in CLAUDE.md",
+  "limitations": [
+    "Requires human review - learnings are never auto-applied without approval",
+    "Cannot capture non-verbal corrections or contextual feedback",
+    "First-time use requires --scan-history to discover past session learnings"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Individual developers",
+      "title": "Remember model preferences",
+      "description": "Capture corrections like 'use gpt-5.1 not gpt-5' so Claude remembers your model preferences across sessions."
+    },
+    {
+      "targetUser": "Development teams",
+      "title": "Build project conventions",
+      "description": "Store project-specific coding standards and tool preferences that apply to everyone using the shared CLAUDE.md."
+    },
+    {
+      "targetUser": "Power users",
+      "title": "Create persistent memory",
+      "description": "Build a comprehensive memory of your workflow preferences that persists between Claude Code sessions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Process queued learnings",
+      "scenario": "Review captured corrections",
+      "prompt": "Run /reflect to process my queued learnings from this session."
+    },
+    {
+      "title": "Find past corrections",
+      "scenario": "First-time setup or cold start",
+      "prompt": "Run /reflect --scan-history to find corrections I made in past sessions."
+    },
+    {
+      "title": "Review before applying",
+      "scenario": "Check confidence scores",
+      "prompt": "Run /reflect --review to see my queued learnings with confidence scores before processing."
+    },
+    {
+      "title": "Consolidate duplicates",
+      "description": "Clean up similar entries",
+      "prompt": "Run /reflect --dedupe to find and consolidate similar entries in my CLAUDE.md files."
+    }
+  ],
+  "bestPractices": [
+    "Use 'remember:' prefix for important corrections to ensure high-confidence capture",
+    "Run /reflect after git commits to capture work-related learnings",
+    "Review and edit learnings before applying to ensure clarity and accuracy"
+  ],
+  "antiPatterns": [
+    "Skipping /reflect regularly causes corrections to be lost between sessions",
+    "Applying learnings without review allows low-confidence noise into CLAUDE.md",
+    "Forgetting --scan-history on new machines loses learnings from past sessions"
+  ],
+  "faq": [
+    {
+      "question": "Does this send my data externally?",
+      "answer": "No. All processing happens locally on your machine using your Claude configuration files only."
+    },
+    {
+      "question": "Can I remove a learning after applying it?",
+      "answer": "Yes. Edit ~/.claude/CLAUDE.md or project CLAUDE.md directly to remove or modify entries."
+    },
+    {
+      "question": "Does it work with other AI tools?",
+      "answer": "Yes. It syncs to AGENTS.md which works with Codex, Cursor, Aider, Jules, Zed, and Factory."
+    },
+    {
+      "question": "What happens to my queue if I don't run /reflect?",
+      "answer": "Learnings stay queued until you run /reflect. They are flagged as stale after 90 days of decay."
+    },
+    {
+      "question": "Can I use this without internet?",
+      "answer": "Yes. The skill uses local file operations and optional Claude CLI for semantic analysis."
+    },
+    {
+      "question": "Is my data secure?",
+      "answer": "Yes. The skill only reads your Claude session files and writes to your CLAUDE.md files."
+    }
+  ],
+  "seoKeywords": [
+    "claude-reflect",
+    "CLAUDE.md",
+    "claude code",
+    "self-learning",
+    "memory",
+    "corrections",
+    "preferences",
+    "persistent learning",
+    "claude",
+    "codex"
+  ],
+  "sourceUrl": "https://github.com/BayramAnnakov/claude-reflect/tree/main/",
+  "sourceType": "community",
+  "dependencies": []
+}

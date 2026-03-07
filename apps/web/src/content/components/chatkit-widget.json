@@ -1,0 +1,145 @@
+{
+  "name": "chatkit-widget",
+  "type": "skill",
+  "description": "Use when integrating OpenAI/ChatKit chat widgets into Next.js/React applications. Triggers for: embedding chat widgets, configuring widget appearance, implementing event handlers, setting up authenticated chat access, or customizing widget branding. NOT for: building custom chat UIs from scratch or backend AI model configuration.",
+  "domain": "devops",
+  "subdomain": "databases",
+  "specialty": "Flyway validation",
+  "quality": 5,
+  "qualityReason": "Critical database change safety",
+  "bundleHints": [
+    "database-workflow",
+    "devops-tooling"
+  ],
+  "tags": [
+    "chat-integration",
+    "chat-widget",
+    "chatkit",
+    "database",
+    "flyway",
+    "migration",
+    "nextjs",
+    "openai",
+    "react",
+    "sql-syntax",
+    "validation"
+  ],
+  "capabilities": [
+    "Generate complete ChatKit widget components with TypeScript type safety and React hooks",
+    "Create secure API proxy routes that validate endpoints and protect secret keys from client exposure",
+    "Implement role-based chat access control with session management and conditional rendering",
+    "Configure custom branding themes with color schemes, positioning, and dark mode support",
+    "Set up lazy loading and SSR-safe dynamic imports for optimal performance",
+    "Generate event handlers for chat analytics and conversation tracking"
+  ],
+  "author": "Awais68",
+  "icon": "💬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is an instructional documentation skill for ChatKit widget integration. Static analyzer flagged 109 potential issues, but all are false positives from misinterpreting markdown code blocks and documentation content. The verify.py script is a legitimate validation tool using regex. No actual security risks identified.",
+  "valueStatement": "ChatKit widget integration can be complex with configuration, security, and performance concerns. This skill provides complete setup guides for embedding chat widgets with secure API proxies, role-based access control, and custom branding.",
+  "userTitle": "Integrate ChatKit Widgets into Next.js Applications",
+  "limitations": [
+    "Does not build custom chat UIs from scratch, focuses on ChatKit and OpenAI widget integration only",
+    "Does not configure backend AI models or train chatbots, only handles frontend integration",
+    "Requires existing ChatKit or OpenAI account with valid API credentials",
+    "Generated code assumes Next.js 13+ with App Router or Pages Router architecture"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Educational institutions building student portals",
+      "title": "School ERP Support Chat",
+      "description": "Embed a support chat widget into a school management system for students and parents to ask about grades, fees, and attendance. Role-based access ensures different welcome messages for admins, teachers, students, and parents."
+    },
+    {
+      "targetUser": "SaaS developers adding customer support features",
+      "title": "SaaS Product Help Widget",
+      "description": "Add an AI-powered help widget to a SaaS application with custom branding matching company colors. Includes secure API proxy to hide secret keys and analytics tracking for conversation metrics."
+    },
+    {
+      "targetUser": "E-commerce teams enhancing customer experience",
+      "title": "E-commerce Shopping Assistant",
+      "description": "Integrate a shopping assistant chat widget on an e-commerce site that appears on product pages but hides on checkout. Supports authenticated users with order history context and guest browsing."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Widget Integration",
+      "prompt": "Add a ChatKit widget to my Next.js app with the project ID chatkit-prod-123 and position it in the bottom right corner",
+      "scenario": "First-time setup with minimal configuration"
+    },
+    {
+      "title": "Role-Based Access Control",
+      "prompt": "Create a chat widget that only shows for logged-in users with admin or support roles, and displays different welcome messages based on their role",
+      "scenario": "Enterprise application requiring access restrictions"
+    },
+    {
+      "title": "Custom Branding and Theme",
+      "prompt": "Configure the chat widget with my brand colors primary #8B0000 and secondary #FFD700, use rounded corners, and add dark mode support that switches themes automatically",
+      "scenario": "White-label application requiring brand consistency"
+    },
+    {
+      "title": "Secure API Proxy Setup",
+      "prompt": "Set up a secure backend API proxy for ChatKit that validates allowed endpoints, prevents SSRF attacks, and keeps my secret key hidden from the browser",
+      "scenario": "Production deployment requiring security hardening"
+    }
+  ],
+  "bestPractices": [
+    "Always use environment variables for API keys with NEXT_PUBLIC_ prefix only for public keys that can be exposed to browsers",
+    "Implement lazy loading with dynamic imports and ssr: false to prevent hydration issues and improve initial page load performance",
+    "Create a secure API proxy route to handle backend ChatKit calls so secret keys never reach the client and SSRF attacks are prevented by endpoint validation"
+  ],
+  "antiPatterns": [
+    "Avoid hardcoding API keys directly in component files, as this exposes secrets in client-side bundles that anyone can inspect in browser DevTools",
+    "Do not skip role-based access checks if widget contains sensitive support data, implement proper authentication middleware and conditional rendering",
+    "Never load widget on every page without lazy loading, this blocks initial render and hurts Core Web Vitals scores for pages that do not need chat"
+  ],
+  "faq": [
+    {
+      "question": "Can this skill integrate with OpenAI Chat API directly?",
+      "answer": "Yes, the architecture works for both ChatKit and OpenAI Chat API. The secure proxy route can be adapted to call OpenAI endpoints instead, and the widget component supports custom initialization for different chat providers."
+    },
+    {
+      "question": "How do I prevent the widget from showing on mobile devices?",
+      "answer": "Add a media query check in the shouldShow function or use CSS display: none for mobile breakpoints. The configuration already includes mobileBottom and mobileRight positioning that you can set to hide the widget on small screens."
+    },
+    {
+      "question": "Does the widget work with Next.js Pages Router or only App Router?",
+      "answer": "Both are supported. The skill provides examples for App Router in app/layout.tsx and Pages Router in pages/_app.tsx. The component code is identical, only the integration point differs."
+    },
+    {
+      "question": "How do I track analytics events when users send messages?",
+      "answer": "Use the onMessage callback in the ChatKit init config to send events to your analytics provider. The skill includes examples with useChatEvents hook that you can connect to Google Analytics, PostHog, or custom tracking."
+    },
+    {
+      "question": "Can I customize the chat bubble icon and colors?",
+      "answer": "Yes, the theme object in chatkit.config.ts controls all colors including primaryColor, secondaryColor, and textColor. The widget component renders a custom button with SVG icons that you can replace with your own design or icon library."
+    },
+    {
+      "question": "Is the API proxy necessary or can I call ChatKit directly from the browser?",
+      "answer": "The proxy is strongly recommended for production. Without it, your CHATKIT_SECRET_KEY must be exposed to the browser where anyone can extract it from network requests. The proxy keeps secrets server-side and adds endpoint validation to prevent abuse."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "ChatKit",
+    "OpenAI chat",
+    "Next.js widget",
+    "React chat",
+    "chat integration",
+    "widget configuration",
+    "chat API proxy"
+  ],
+  "sourceUrl": "https://github.com/Awais68/hackathon-2-phase-ii-full-stack-web-app/tree/main/.claude/skills/chatkit-widget",
+  "sourceType": "community",
+  "dependencies": []
+}

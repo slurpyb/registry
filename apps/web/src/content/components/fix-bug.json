@@ -1,0 +1,140 @@
+{
+  "name": "fix-bug",
+  "type": "skill",
+  "description": "バグ修正統合スキル（原因調査→修正→テスト→レビュー→QA→PR作成の全工程自動化）",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "bug resolution",
+  "quality": 5,
+  "qualityReason": "End-to-end clarity",
+  "bundleHints": [
+    "devops-pipeline",
+    "quality-engineering"
+  ],
+  "tags": [
+    "automation",
+    "bug-fix",
+    "debugging",
+    "full-stack",
+    "pr-creation",
+    "qa",
+    "testing"
+  ],
+  "capabilities": [
+    "Automated bug investigation using log analysis and code search",
+    "Backend and frontend bug fix implementation with minimal changes",
+    "Automatic test case generation for bug reproduction",
+    "Server startup verification for fix confirmation",
+    "Architecture review integration for code quality",
+    "QA check and Pull Request creation workflow"
+  ],
+  "author": "Crearize",
+  "icon": "🐛",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing markdown prompts for bug-fixing workflows. No executable code, network calls, file access primitives, or external command execution. Static findings are false positives triggered by documentation text patterns. Approved for marketplace publication.",
+  "valueStatement": "Bug fixing requires multiple steps across investigation, implementation, testing, and review. This skill automates the entire process from root cause analysis to PR creation, ensuring consistent quality and comprehensive test coverage.",
+  "userTitle": "Fix bugs end-to-end with full workflow automation",
+  "limitations": [
+    "Requires issue description and suspected files for accurate targeting",
+    "Cannot fix architectural design issues or fundamental design flaws",
+    "Manual intervention needed for environment-specific or deployment issues"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Automated debugging workflow",
+      "description": "Fix production bugs quickly with systematic investigation and comprehensive test coverage"
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Bug reproduction automation",
+      "description": "Create reliable test cases that prevent bug regression in future releases"
+    },
+    {
+      "targetUser": "Tech leads",
+      "title": "Standardized fix process",
+      "description": "Ensure consistent bug fix quality across the team with automated reviews and checks"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic bug report",
+      "scenario": "Simple bug fix request",
+      "prompt": "/fix-bug bug_description=\"Login page shows error when user enters valid credentials\" target=\"frontend\""
+    },
+    {
+      "title": "Backend API issue",
+      "scenario": "API error investigation",
+      "prompt": "/fix-bug bug_description=\"User registration fails with 500 error when email contains special characters\" target=\"backend\""
+    },
+    {
+      "title": "Complex full-stack bug",
+      "scenario": "Multi-component debugging",
+      "prompt": "/fix-bug bug_description=\"Order confirmation email not sent after successful payment\" target=\"both\" issue_number=\"123\""
+    },
+    {
+      "title": "Performance regression",
+      "scenario": "Slow query investigation",
+      "prompt": "/fix-bug bug_description=\"Dashboard loads in 30 seconds instead of 3 seconds\" suspected_files=\"backend/src/main/java/com/api/OrderRepository.java\" target=\"backend\""
+    }
+  ],
+  "bestPractices": [
+    "Provide suspected files when you have hints about the problematic area to speed up investigation",
+    "Include issue numbers in bug descriptions to link fixes to tracking systems",
+    "Review the generated test cases to ensure they cover edge cases and boundary conditions"
+  ],
+  "antiPatterns": [
+    "Using this skill for feature development instead of bug fixes wastes workflow automation",
+    "Skipping the architecture review step may allow bugs to reach production",
+    "Modifying unrelated code during bug fixes introduces new bugs and breaks existing functionality"
+  ],
+  "faq": [
+    {
+      "question": "What platforms does this skill support?",
+      "answer": "This skill works with Claude, Codex, and Claude Code for bug fixing workflows."
+    },
+    {
+      "question": "What is the maximum bug complexity this skill can handle?",
+      "answer": "The skill handles single-component bugs efficiently. Multi-component bugs work best when suspected files are specified."
+    },
+    {
+      "question": "Does this skill integrate with CI/CD pipelines?",
+      "answer": "The skill integrates with qa-check and review-architecture skills, which can connect to your CI/CD validation steps."
+    },
+    {
+      "question": "Does this skill access or store my codebase data?",
+      "answer": "The skill only reads files needed for investigation. No code or data is stored externally or transmitted anywhere."
+    },
+    {
+      "question": "What if the skill cannot identify the bug cause?",
+      "answer": "The skill will report investigation limitations and suggest providing additional information or narrowing the suspected files."
+    },
+    {
+      "question": "How is this skill different from manual debugging?",
+      "answer": "The skill ensures consistent quality through automated testing, review checkpoints, and comprehensive documentation of the fix."
+    }
+  ],
+  "seoKeywords": [
+    "Claude bug fix skill",
+    "debug automation",
+    "bug reproduction testing",
+    "full-stack debugging",
+    "error fixing workflow",
+    "software bug repair",
+    "code debugging skill",
+    "quality assurance automation",
+    "CI bug fix workflow",
+    "developer debugging tool"
+  ],
+  "sourceUrl": "https://github.com/Crearize/ProjectTemplate/tree/main/.claude/skills/fix-bug",
+  "sourceType": "community",
+  "dependencies": []
+}

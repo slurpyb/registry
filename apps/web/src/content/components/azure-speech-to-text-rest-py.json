@@ -1,0 +1,141 @@
+{
+  "name": "azure-speech-to-text-rest-py",
+  "type": "skill",
+  "description": "Use Azure Speech to Text REST API for transcribing short audio files up to 60 seconds. This skill provides Python code examples and integration patterns for speech recognition without the Speech SDK. Includes authentication, audio format requirements, error handling, and async support.",
+  "domain": "ai-ml",
+  "subdomain": "nlp",
+  "specialty": "transcription",
+  "quality": 4,
+  "qualityReason": "Specific REST-based transcription",
+  "bundleHints": [
+    "speech-processing",
+    "nlp"
+  ],
+  "tags": [
+    "audio",
+    "azure",
+    "python",
+    "rest-api",
+    "short-files",
+    "speech-to-text",
+    "transcription"
+  ],
+  "capabilities": [
+    "Transcribe short audio files (up to 60 seconds) using Azure REST API",
+    "Handle authentication with subscription keys or bearer tokens",
+    "Support WAV PCM and OGG OPUS audio formats",
+    "Implement chunked transfer for lower latency",
+    "Process simple and detailed response formats",
+    "Handle errors and recognition status codes"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only documentation skill that provides guidance for integrating with Azure Speech to Text REST API. Static analysis found no suspicious patterns, no executable code, and no risk factors. The skill consists of documentation and code examples for legitimate API integration. No security concerns identified.",
+  "valueStatement": "Transcribe short audio files (up to 60 seconds) using Azure Speech to Text REST API without installing the Speech SDK. This skill provides ready-to-use Python code for authentication, audio formatting, and error handling.",
+  "userTitle": "Transcribe Audio with Azure Speech to Text REST API",
+  "limitations": [
+    "Maximum audio duration is 60 seconds",
+    "No real-time streaming support",
+    "No partial or interim results available",
+    "Does not support speech translation or custom models"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Professionals who record voice notes and need quick transcription",
+      "title": "Transcribe Voice Memos",
+      "description": "Convert short voice recordings to text for note-taking and documentation"
+    },
+    {
+      "targetUser": "Customer support teams and sales organizations",
+      "title": "Automated Call Transcription",
+      "description": "Transcribe short phone call recordings for analysis and records"
+    },
+    {
+      "targetUser": "Content creators and localization teams",
+      "title": "Multilingual Content Transcription",
+      "description": "Transcribe audio content in multiple languages using Azure language support"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Audio Transcription",
+      "prompt": "Use the Azure Speech to Text REST API skill to transcribe the audio file at path [AUDIO_FILE_PATH] to text. Use language [LANGUAGE_CODE] (e.g., en-US).",
+      "scenario": "Transcribe a short audio file with default settings"
+    },
+    {
+      "title": "Detailed Transcription with Confidence",
+      "prompt": "Use the Azure Speech to Text REST API skill to transcribe [AUDIO_FILE_PATH] using detailed format to get confidence scores. Language: [LANGUAGE]. Handle errors gracefully.",
+      "scenario": "Get detailed results including confidence scores for each transcription"
+    },
+    {
+      "title": "Async Transcription for Performance",
+      "prompt": "Use the Azure Speech to Text REST API skill to transcribe [AUDIO_FILE_PATH] asynchronously. Show how to implement the async version with aiohttp for better performance.",
+      "scenario": "Implement async transcription for lower latency"
+    },
+    {
+      "title": "Custom Error Handling",
+      "prompt": "Use the Azure Speech to Text REST API skill to write a transcription function that handles all RecognitionStatus values (Success, NoMatch, InitialSilenceTimeout, BabbleTimeout, Error) with appropriate responses.",
+      "scenario": "Implement comprehensive error handling for production use"
+    }
+  ],
+  "bestPractices": [
+    "Use WAV PCM format at 16kHz mono for best recognition accuracy",
+    "Cache bearer tokens for 9 minutes to avoid repeated authentication",
+    "Enable chunked transfer encoding for lower latency on larger files"
+  ],
+  "antiPatterns": [
+    "Do not send audio files longer than 60 seconds - use Batch Transcription API instead",
+    "Do not use this for real-time streaming - use Speech SDK streaming",
+    "Do not hardcode API keys in source code - use environment variables"
+  ],
+  "faq": [
+    {
+      "question": "What audio formats does Azure Speech to Text REST API support?",
+      "answer": "Azure Speech to Text REST API supports WAV with PCM codec at 16kHz mono (recommended) and OGG OPUS codec. The audio must be no longer than 60 seconds."
+    },
+    {
+      "question": "Do I need to install the Azure Speech SDK to use this skill?",
+      "answer": "No, this skill uses the REST API directly with the requests library. No SDK installation is required. Simply install the requests package."
+    },
+    {
+      "question": "How do I get Azure Speech to Text credentials?",
+      "answer": "Create an Azure subscription, then create a Speech resource in the Azure Portal. Go to the resource Keys and Endpoint page to get your API key and region."
+    },
+    {
+      "question": "What is the difference between simple and detailed response format?",
+      "answer": "Simple format returns just the DisplayText. Detailed format returns confidence scores, lexical form, ITN (inverse text normalization), and masked ITN for each result."
+    },
+    {
+      "question": "Can I transcribe audio in languages other than English?",
+      "answer": "Yes, Azure Speech to Text supports many languages. Specify the language using the language query parameter (e.g., de-DE for German, fr-FR for French)."
+    },
+    {
+      "question": "How do I handle authentication errors?",
+      "answer": "Check that your API key is correct and has not expired. Ensure the region in your URL matches your resource region. Use bearer tokens for production to avoid key exposure."
+    }
+  ],
+  "seoKeywords": [
+    "azure speech to text",
+    "speech recognition",
+    "rest api transcription",
+    "audio to text",
+    "python speech api",
+    "claude code",
+    "codex",
+    "claude",
+    "speech-to-text",
+    "azure stt"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-speech-to-text-rest-py",
+  "sourceType": "community",
+  "dependencies": []
+}

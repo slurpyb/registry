@@ -1,0 +1,144 @@
+{
+  "name": "db-handler",
+  "type": "skill",
+  "description": "Manage database schemas, Drizzle ORM, migrations, and data modeling. Use when creating tables, modifying columns, or planning database changes.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "schema management",
+  "quality": 4,
+  "qualityReason": "Good for schema changes and modeling",
+  "bundleHints": [
+    "sqlite-tools",
+    "drizzle-stack"
+  ],
+  "tags": [
+    "columns",
+    "crud",
+    "data",
+    "data-management",
+    "database",
+    "drizzle",
+    "modeling",
+    "sql",
+    "sqlite",
+    "tables"
+  ],
+  "capabilities": [
+    "Execute SELECT queries to retrieve data from SQLite databases",
+    "Perform INSERT, UPDATE, and DELETE operations on database tables",
+    "Create and modify database table structures and schemas",
+    "Generate SQL queries from natural language descriptions",
+    "Handle database connections and transaction management",
+    "Retrieve and format query results for analysis"
+  ],
+  "author": "AayushBaniya2006",
+  "icon": "🗄️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 46 patterns but most are false positives. The Ruby backtick patterns are in markdown code examples showing PostgreSQL syntax, not executable code. The weak cryptography findings are in skill-report.json metadata, not actual code. No malicious intent or dangerous operations found in the skill implementation.",
+  "valueStatement": "Database operations require complex SQL syntax and connection management. This skill translates natural language requests into SQLite operations for seamless data interaction.",
+  "userTitle": "Manage SQLite databases with natural language queries",
+  "limitations": [
+    "Only supports SQLite database format, not MySQL or PostgreSQL",
+    "Cannot perform complex multi-database joins across different database files",
+    "Does not include built-in backup or replication features",
+    "Requires existing database file or explicit instruction to create new one"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Web developers",
+      "title": "Manage application user data",
+      "description": "Query and update user records, authentication data, and session information in web application databases"
+    },
+    {
+      "targetUser": "Data analysts",
+      "title": "Extract insights from local datasets",
+      "description": "Run analytical queries on SQLite data files to generate reports and identify trends without manual SQL writing"
+    },
+    {
+      "targetUser": "Mobile app developers",
+      "title": "Test and debug mobile app databases",
+      "description": "Inspect and modify SQLite databases used in iOS and Android applications during development and testing"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "View table contents",
+      "scenario": "Beginner - inspect data",
+      "prompt": "Show me all records from the users table"
+    },
+    {
+      "title": "Filter specific records",
+      "scenario": "Intermediate - conditional query",
+      "prompt": "Find all orders from the last 30 days where the total amount is greater than 100 dollars"
+    },
+    {
+      "title": "Update multiple records",
+      "scenario": "Advanced - batch modification",
+      "prompt": "Update the status to active for all users who registered in 2024 and have verified email addresses"
+    },
+    {
+      "title": "Create summary statistics",
+      "scenario": "Expert - analytical query",
+      "prompt": "Calculate the average order value and total revenue grouped by customer region for the current quarter"
+    }
+  ],
+  "bestPractices": [
+    "Always back up your database file before performing UPDATE or DELETE operations on production data",
+    "Use specific table and column names in your requests to ensure accurate query generation",
+    "Review generated queries before execution when working with critical business data"
+  ],
+  "antiPatterns": [
+    "Avoid vague requests like 'fix the database' without specifying which table or issue needs attention",
+    "Do not request deletion of data without specifying clear conditions or filters",
+    "Avoid assuming table structures exist without first confirming the schema or requesting table inspection"
+  ],
+  "faq": [
+    {
+      "question": "Can this skill work with MySQL or PostgreSQL databases?",
+      "answer": "No, this skill is specifically designed for SQLite databases. MySQL and PostgreSQL require different connection methods and are not supported."
+    },
+    {
+      "question": "Will this skill create a database if one does not exist?",
+      "answer": "Yes, the skill can create a new SQLite database file if you explicitly request it. Otherwise, it expects an existing database file path."
+    },
+    {
+      "question": "How does the skill handle SQL injection risks?",
+      "answer": "The skill generates parameterized queries to prevent SQL injection. Always review generated queries before execution for additional safety."
+    },
+    {
+      "question": "Can I use this skill to migrate data between databases?",
+      "answer": "Basic data export and import operations are supported. Complex migrations with schema transformations may require manual query specification."
+    },
+    {
+      "question": "What happens if a query fails or returns an error?",
+      "answer": "The skill will report the error message and suggest corrections. You can then modify your request or query based on the feedback provided."
+    },
+    {
+      "question": "Can this skill optimize slow database queries?",
+      "answer": "The skill can suggest index creation and query structure improvements when you describe performance issues, but manual optimization may still be needed."
+    }
+  ],
+  "seoKeywords": [
+    "sqlite database",
+    "claude database tool",
+    "sql query generator",
+    "claude code database",
+    "data management",
+    "database operations",
+    "codex sql helper",
+    "crud operations",
+    "claude sqlite",
+    "database assistant"
+  ],
+  "sourceUrl": "https://github.com/AayushBaniya2006/blinkfund/tree/main/.claude/skills/db-handler",
+  "sourceType": "community",
+  "dependencies": []
+}

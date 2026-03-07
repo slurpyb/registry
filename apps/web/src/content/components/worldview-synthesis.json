@@ -1,0 +1,140 @@
+{
+  "name": "worldview-synthesis",
+  "type": "skill",
+  "description": "This skill should be used when someone wants to articulate, explore, or document their personal worldview, values, or philosophy. Triggers on \"articulate my values\", \"figure out what I believe\", \"document my philosophy\", \"write a manifesto\", \"define my leadership philosophy\", \"explore my beliefs\". Surfaces beliefs through systematic interrogation, identifies tensions, and generates narrative outputs.",
+  "domain": "business",
+  "subdomain": "legal",
+  "specialty": "personal philosophy",
+  "quality": 3,
+  "qualityReason": "Generic personal development",
+  "bundleHints": [
+    "self-growth",
+    "personal-dev"
+  ],
+  "tags": [
+    "articulation",
+    "belief-system",
+    "personal-development",
+    "philosophy",
+    "self-reflection",
+    "values"
+  ],
+  "capabilities": [
+    "Guide users through 6 rounds of structured questions across 20 life domains",
+    "Identify tensions and productive paradoxes in personal beliefs",
+    "Generate narratives at ascending scales from mission statements to full essays",
+    "Apply YAML schema to organize beliefs as a structured knowledge graph",
+    "Provide ready-to-use interrogation questions for systematic self-reflection",
+    "Help users distinguish between hard ethical lines and softer truths"
+  ],
+  "author": "2389-research",
+  "icon": "🧭",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure prompt-based skill containing only documentation, methodology instructions, and philosophical questioning templates. No executable code, file access, network calls, or external command execution. All 62 static findings are false positives: YAML type annotations and markdown syntax were misidentified as cryptographic code and shell commands. The skill is fundamentally a personal reflection tool with no security implications.",
+  "valueStatement": "People struggle to clearly express their core beliefs, values, and contradictions. This skill guides users through systematic questioning across 20 life domains to surface hidden assumptions, identify productive paradoxes, and generate shareable narratives from mission statements to full essays.",
+  "userTitle": "Explore and articulate your personal worldview",
+  "limitations": [
+    "Does not execute code or access files on your system",
+    "Does not connect to external APIs or services",
+    "Output quality depends on user engagement and honest self-reflection",
+    "Cannot replace therapy or professional guidance for deep psychological work"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Leaders and executives",
+      "title": "Define leadership philosophy",
+      "description": "Articulate core values to shape team culture and create consistent decision-making frameworks"
+    },
+    {
+      "targetUser": "Writers and content creators",
+      "title": "Write authentic manifestos",
+      "description": "Create mission statements and manifestos that sound genuinely like you, not generic platitudes"
+    },
+    {
+      "targetUser": "Founders and entrepreneurs",
+      "title": "Clarify company values",
+      "description": "Document personal beliefs that should shape company culture, ethics, and hiring practices"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick values check",
+      "scenario": "Quickly identify core values",
+      "prompt": "Help me quickly identify my top 5 core values using the AskUserQuestion tool with 2 options each."
+    },
+    {
+      "title": "Full exploration",
+      "scenario": "Complete worldview session",
+      "prompt": "Guide me through a complete worldview synthesis session. Start by asking about my influences, then run 4-6 rounds of interrogation questions, capture tensions, and generate a mission statement."
+    },
+    {
+      "title": "Company values",
+      "scenario": "Define team culture",
+      "prompt": "Help me articulate my personal values to define company culture. Use questions about leadership, ethics, and decision-making to extract my core beliefs."
+    },
+    {
+      "title": "Tension surfacing",
+      "scenario": "Find contradictions",
+      "prompt": "Run interrogation rounds focused on money, competition, trust, and conflict. Help me identify where my beliefs contradict each other and name those tensions clearly."
+    }
+  ],
+  "bestPractices": [
+    "Start with sources (books, people, experiences) before diving into direct questions about beliefs",
+    "Push past comfort zones to explore death, money, conflict, and ethics directly",
+    "Name tensions explicitly rather than trying to resolve contradictions away"
+  ],
+  "antiPatterns": [
+    "Accepting vague should beliefs without probing for actual behavior and real actions",
+    "Allowing users to claim they have no worldview (everyone has one, even if unexamined)",
+    "Resolving tensions instead of naming and embracing productive paradoxes as authentic"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "Works with Claude, Codex, and Claude Code for structured reflection sessions using the AskUserQuestion tool."
+    },
+    {
+      "question": "How long does a full session take?",
+      "answer": "A complete worldview synthesis takes 60-90 minutes including 4-6 interrogation rounds across 20 life domains."
+    },
+    {
+      "question": "Can I use this for team alignment?",
+      "answer": "Yes, run individual sessions and compare outputs to find common values and productive tensions across team members."
+    },
+    {
+      "question": "Is my data stored anywhere?",
+      "answer": "No, this skill only provides prompts and structure. Your answers stay in the conversation and are not stored externally."
+    },
+    {
+      "question": "Why are tensions important?",
+      "answer": "Tensions reveal where you hold multiple valid truths simultaneously. They make your worldview authentic rather than oversimplified."
+    },
+    {
+      "question": "How is this different from regular values exercises?",
+      "answer": "It treats worldview as a graph with tensions, not a flat list of values. It explicitly surfaces and names contradictions."
+    }
+  ],
+  "seoKeywords": [
+    "worldview exploration",
+    "values clarification",
+    "personal philosophy",
+    "mission statement generator",
+    "belief articulation",
+    "self-reflection tool",
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "personal development"
+  ],
+  "sourceUrl": "https://github.com/2389-research/claude-plugins/tree/main/worldview-synthesis/skills",
+  "sourceType": "community",
+  "dependencies": []
+}

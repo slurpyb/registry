@@ -1,0 +1,138 @@
+{
+  "name": "mcp-prompts-guide",
+  "type": "skill",
+  "description": "Create powerful MCP prompts that guide AI interactions with templates, arguments, and context injection",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "Prompt templates",
+  "quality": 4,
+  "qualityReason": "Good specificity on prompts",
+  "bundleHints": [
+    "prompt-engineering",
+    "mcp-toolkit"
+  ],
+  "tags": [
+    "context-injection",
+    "mcp",
+    "prompt-engineering",
+    "rust",
+    "templates"
+  ],
+  "capabilities": [
+    "Design prompt structures with arguments and descriptions",
+    "Create parameterized prompts for dynamic AI interactions",
+    "Implement multi-turn conversation patterns",
+    "Build context-rich prompts with project information",
+    "Add examples and few-shot learning to prompts",
+    "Test and validate MCP prompt implementations"
+  ],
+  "author": "EmilLindfors",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 23 external_commands patterns and 28 weak_crypto patterns. Evaluation reveals all are FALSE POSITIVES. The scanner misidentified Rust string formatting (format!) as shell backticks and string operations (to_string, unwrap) as cryptographic functions. This is documentation containing example Rust code for creating MCP prompts. No actual command execution, network access, file system operations, or cryptographic code exists.",
+  "valueStatement": "Building MCP servers requires well-designed prompts to guide AI interactions. This skill provides patterns and examples for creating reusable, parameterized prompts using the rmcp Rust crate.",
+  "userTitle": "Create MCP prompts for AI guidance",
+  "limitations": [
+    "Skill focuses on prompt creation patterns, not prompt optimization techniques",
+    "Does not cover prompt injection defenses or security hardening",
+    "Examples use Rust rmcp crate; other languages not addressed",
+    "Does not include runtime prompt management or versioning"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Rust developers building MCP servers",
+      "title": "MCP Server Developer",
+      "description": "Learn to implement prompt services for MCP servers with structured arguments, validation, and error handling following Rust patterns."
+    },
+    {
+      "targetUser": "AI Interaction Designer",
+      "title": "AI Interaction Designer",
+      "description": "Design reusable prompt templates that accept dynamic arguments for different AI tasks like code review, API design, and learning."
+    },
+    {
+      "targetUser": "Documentation Writer",
+      "title": "Documentation Writer",
+      "description": "Document prompt patterns and provide examples for teams adopting MCP protocol in their AI-powered applications."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Code Analysis Prompt",
+      "prompt": "Create an MCP prompt that analyzes code in a specific programming language. The prompt should accept 'language' (required) and 'focus' (optional: performance, security, style) arguments. Return structured review guidance.",
+      "scenario": "Setting up a code analysis tool for your MCP server"
+    },
+    {
+      "title": "API Design Assistant",
+      "prompt": "Design an MCP prompt for creating REST APIs. Include arguments for api_type (REST, GraphQL, gRPC) and domain (e.g., e-commerce, messaging). The prompt should guide AI to produce complete API specifications."
+    },
+    {
+      "title": "Contextual Learning Prompt",
+      "prompt": "Create a learning-focused MCP prompt that accepts topic and difficulty level (beginner, intermediate, advanced). The prompt should adapt explanations based on the level provided."
+    },
+    {
+      "title": "Project Task Prompt",
+      "prompt": "Build a context-rich prompt that injects project information (name, language, framework, dependencies) and accepts a task description. The AI should consider project context when generating responses."
+    }
+  ],
+  "bestPractices": [
+    "Define clear argument schemas with required and optional parameters",
+    "Provide meaningful descriptions for prompts and arguments",
+    "Include context and examples to improve AI response quality",
+    "Test prompts with various argument combinations"
+  ],
+  "antiPatterns": [
+    "Creating prompts without argument validation, leading to runtime errors",
+    "Omitting descriptions that help users understand prompt purpose",
+    "Failing to handle missing optional arguments with sensible defaults",
+    "Using prompts without testing edge cases and error conditions"
+  ],
+  "faq": [
+    {
+      "question": "What is MCP (Model Context Protocol)?",
+      "answer": "MCP is a protocol that allows servers to provide prompts, resources, and tools to AI assistants. Prompts are predefined templates that guide AI interactions with specific context and structure."
+    },
+    {
+      "question": "What is the rmcp crate?",
+      "answer": "Rmcp is a Rust implementation of the Model Context Protocol. It provides types and traits for building MCP servers including PromptService, PromptInfo, and PromptResponse."
+    },
+    {
+      "question": "How do arguments work in MCP prompts?",
+      "answer": "Prompts define arguments using PromptArgument with name, description, and required flag. Users provide arguments as key-value pairs when selecting prompts. The server validates and uses these values to customize prompt content."
+    },
+    {
+      "question": "What are the different message roles?",
+      "answer": "MCP prompts support three roles: System sets AI behavior and expertise, User provides the main request, Assistant shows example responses for few-shot learning."
+    },
+    {
+      "question": "How do I test MCP prompts?",
+      "answer": "Test prompts by calling list_prompts to verify structure, get_prompt with various argument combinations to check validation, and integration tests that verify the complete prompt flow."
+    },
+    {
+      "question": "Can prompts include dynamic context?",
+      "answer": "Yes. Prompts can receive additional context objects like ProjectContext and inject that information into prompt messages using format strings or template composition."
+    }
+  ],
+  "seoKeywords": [
+    "MCP prompts",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "prompt engineering",
+    "rmcp",
+    "Rust MCP",
+    "context injection",
+    "prompt templates",
+    "AI interaction design"
+  ],
+  "sourceUrl": "https://github.com/EmilLindfors/claude-marketplace/tree/main/plugins/rust-mcp-server/skills/mcp-prompts-guide",
+  "sourceType": "community",
+  "dependencies": []
+}

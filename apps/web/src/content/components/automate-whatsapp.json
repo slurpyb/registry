@@ -1,0 +1,147 @@
+{
+  "name": "automate-whatsapp",
+  "type": "skill",
+  "description": "Build WhatsApp automations with Kapso workflows: configure WhatsApp triggers, edit workflow graphs, manage executions, deploy functions, and use databases/integrations for state. Use when automating WhatsApp conversations and event handling.",
+  "domain": "tools",
+  "subdomain": "automation",
+  "specialty": "Kapso Workflows",
+  "quality": 5,
+  "qualityReason": "Actionable with specific tool",
+  "bundleHints": [
+    "automation-suite",
+    "messaging-tools",
+    "workflow-stack"
+  ],
+  "tags": [
+    "automation",
+    "function-deployment",
+    "kapso",
+    "messaging",
+    "messaging-automation",
+    "state-management",
+    "whatsapp",
+    "workflow",
+    "workflow-automation"
+  ],
+  "capabilities": [
+    "Create and manage WhatsApp workflow definitions with visual graph editing",
+    "Configure inbound message triggers for WhatsApp phone numbers",
+    "Deploy and invoke custom functions within workflow nodes",
+    "Query and manage D1 database tables for persistent state storage",
+    "Set up app integrations with external services via OAuth",
+    "Monitor execution history and debug workflow runs"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 137 patterns in SKILL.md documentation file, but all are false positives. The detected 'external_commands' are markdown code examples showing Node.js script usage, not actual shell execution. Network and env_access flags reference documentation content (GitHub URL and configuration examples), not runtime behavior. No malicious intent detected - this is legitimate workflow automation documentation for the Kapso platform.",
+  "valueStatement": "Build sophisticated WhatsApp automations without manual coding. Configure workflow triggers, manage executions, and integrate with external services through the Kapso platform.",
+  "userTitle": "Automate WhatsApp Messaging Workflows",
+  "limitations": [
+    "Requires valid Kapso platform account and API credentials",
+    "WhatsApp Business API approval needed for production messaging",
+    "Cannot execute raw SQL queries - limited to provided database operations",
+    "Variable management blocked - Platform API does not support variable CRUD operations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Support team leads managing high-volume customer communications",
+      "title": "Customer Support Automation",
+      "description": "Build automated customer support flows that handle common inquiries, collect user information, and route complex cases to human agents via WhatsApp."
+    },
+    {
+      "targetUser": "E-commerce store owners using WhatsApp for customer updates",
+      "title": "E-commerce Order Notifications",
+      "description": "Create workflows that send order confirmations, shipping updates, and delivery notifications automatically when triggered by e-commerce platform events."
+    },
+    {
+      "targetUser": "Market researchers gathering customer insights via messaging",
+      "title": "Interactive Survey Collection",
+      "description": "Design interactive button-based surveys that collect customer feedback through WhatsApp with conditional branching based on responses."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Simple Notification Workflow",
+      "prompt": "Create a WhatsApp workflow that sends a welcome message when a user first contacts the business. Include a start node and a message node with the welcome text.",
+      "scenario": "Beginner - Basic linear workflow with single message"
+    },
+    {
+      "title": "Build Decision-Based Routing",
+      "prompt": "Create a workflow with a decide node that routes users based on their message content. If message contains 'support', route to support team. If message contains 'sales', route to sales team. Otherwise, send a general inquiry response.",
+      "scenario": "Intermediate - Conditional branching based on message analysis"
+    },
+    {
+      "title": "Integrate External API for Data Lookup",
+      "prompt": "Build a workflow that looks up customer order status by phone number. Create a function node that queries the orders database, then send a personalized message with the order details to the customer.",
+      "scenario": "Advanced - Function integration with database queries"
+    },
+    {
+      "title": "Multi-Step Conversation with State Management",
+      "prompt": "Create an interactive survey workflow using button nodes. Collect user responses across multiple messages, store answers in execution context variables, and generate a summary at the end. Handle timeout scenarios if user stops responding.",
+      "scenario": "Expert - Stateful multi-turn conversation with timeout handling"
+    }
+  ],
+  "bestPractices": [
+    "Always fetch the workflow graph before editing to get the current lock_version and avoid conflicts",
+    "Use file paths for graph definitions and function code instead of inline JSON for better maintainability",
+    "Validate workflow graphs locally before submitting updates to catch structural errors early",
+    "Test trigger configurations in a development workflow before deploying to production phone numbers",
+    "Store sensitive credentials like API keys in environment variables, never in workflow definitions"
+  ],
+  "antiPatterns": [
+    "Changing existing node IDs in a workflow graph - this breaks execution history and references",
+    "Using export statements or arrow functions in function code - Kapso requires standard function handler syntax",
+    "Creating workflows with multiple start nodes - exactly one start node with id 'start' is required",
+    "Referencing variables without initializing them in the execution context first"
+  ],
+  "faq": [
+    {
+      "question": "What do I need before using this skill?",
+      "answer": "You need a Kapso platform account, WhatsApp Business API access, and environment variables KAPSO_API_BASE_URL and KAPSO_API_KEY configured."
+    },
+    {
+      "question": "Can I modify workflow graphs while they have active executions?",
+      "answer": "Yes, but use the lock_version mechanism. Fetch the graph first, make changes, then update with the expected lock_version to prevent conflicts."
+    },
+    {
+      "question": "What programming languages work for custom functions?",
+      "answer": "Functions use JavaScript with a specific handler signature: async function handler(request, env). The code runs in Kapso's serverless runtime."
+    },
+    {
+      "question": "How do I connect to external services like Slack or Google Sheets?",
+      "answer": "Use app integrations. Search for the app, get the action_id, create an integration with OAuth credentials, then reference it in agent nodes."
+    },
+    {
+      "question": "Can I store data between workflow executions?",
+      "answer": "Yes, use D1 database tables for persistent storage or the KV store for simple key-value data accessible via env.KV and env.DB in functions."
+    },
+    {
+      "question": "What happens if a workflow execution fails?",
+      "answer": "Failed executions can be inspected using get-execution and list-execution-events scripts. You can resume certain executions or force status updates for debugging."
+    }
+  ],
+  "seoKeywords": [
+    "WhatsApp automation",
+    "Claude Code skills",
+    "Kapso workflows",
+    "messaging bot",
+    "workflow automation",
+    "Claude agent",
+    "Codex integration",
+    "WhatsApp Business API",
+    "no-code automation",
+    "AI workflow builder"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/automate-whatsapp",
+  "sourceType": "community",
+  "dependencies": []
+}

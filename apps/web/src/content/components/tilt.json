@@ -1,0 +1,145 @@
+{
+  "name": "tilt",
+  "type": "skill",
+  "description": "Manages Tilt development environments via CLI and Tiltfile authoring. Must use when working with Tilt or Tiltfiles.",
+  "domain": "devops",
+  "subdomain": "containers",
+  "specialty": "Tilt environments",
+  "quality": 5,
+  "qualityReason": "Essential tool for Kubernetes development",
+  "bundleHints": [
+    "devops",
+    "kubernetes",
+    "local-development"
+  ],
+  "tags": [
+    "cli",
+    "container-orchestration",
+    "containers",
+    "dev-workflow",
+    "development",
+    "development-environments",
+    "devops",
+    "kubernetes",
+    "tilt",
+    "tiltfile"
+  ],
+  "capabilities": [
+    "Run and manage tilt up in tmux sessions for persistent development",
+    "Query resource status via tilt get uiresources with JSON output",
+    "Retrieve and filter logs using tilt logs with time and pattern filters",
+    "Trigger manual updates and wait for resource readiness",
+    "Author Tiltfiles with docker_build, k8s_yaml, and local_resource functions",
+    "Configure live update steps for fast container synchronization"
+  ],
+  "author": "0xBigBoss",
+  "icon": "⏯",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only Markdown reference files. All 224 static findings are false positives triggered by documentation context (markdown code blocks showing CLI examples, not executable code). No executable code, network calls, file system access, or command execution capabilities.",
+  "valueStatement": "Tilt accelerates Kubernetes development with live reloading and unified workflows. This skill provides essential CLI commands and Tiltfile API references for efficient container-based development.",
+  "userTitle": "Manage Tilt development environments",
+  "limitations": [
+    "Does not install or configure Tilt itself",
+    "Does not manage Kubernetes clusters directly",
+    "Does not build or push container images",
+    "Reference-only skill - does not execute commands on user systems"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Kubernetes developers",
+      "title": "Accelerate local development",
+      "description": "Set up live-reloading development environments that sync code changes to containers without full rebuilds"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Configure build workflows",
+      "description": "Define Tiltfiles with docker builds, k8s resources, and custom commands for multi-service applications"
+    },
+    {
+      "targetUser": "CI/CD pipeline authors",
+      "title": "Run tilt ci for automation",
+      "description": "Execute batch builds that wait for all resources to reach steady state before exiting"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start Tilt session",
+      "scenario": "Initialize Tilt development",
+      "prompt": "Start tilt up in a tmux session for this project"
+    },
+    {
+      "title": "Check resource status",
+      "scenario": "Monitor deployment progress",
+      "prompt": "Show me the status of all Tilt resources and identify any that are errored"
+    },
+    {
+      "title": "Retrieve application logs",
+      "scenario": "Debug running services",
+      "prompt": "Get the last 50 lines of logs from the api resource"
+    },
+    {
+      "title": "Create Tiltfile",
+      "scenario": "Configure new project",
+      "prompt": "Write a Tiltfile that builds a docker image, applies k8s manifests, and sets up port forwarding"
+    }
+  ],
+  "bestPractices": [
+    "Always run tilt up in tmux to survive Claude Code session reloads",
+    "Use live_update steps for fast synchronization instead of full rebuilds",
+    "Verify updates propagated by checking tilt logs after saving files"
+  ],
+  "antiPatterns": [
+    "Manually restarting tilt up after every file change - let live reload handle it",
+    "Running tilt up directly in foreground without tmux",
+    "Using TRIGGER_MODE_MANUAL for all resources when auto mode would work better"
+  ],
+  "faq": [
+    {
+      "question": "Which operating systems support Tilt?",
+      "answer": "Tilt runs on macOS, Linux, and Windows via WSL. Requires Docker and Kubernetes access."
+    },
+    {
+      "question": "How many resources can Tilt manage?",
+      "answer": "Tilt handles dozens of resources. Use labels for grouping and update_settings to control parallelism."
+    },
+    {
+      "question": "Can Tilt integrate with existing CI pipelines?",
+      "answer": "Yes, use tilt ci for batch mode that exits when all resources are ready or on error."
+    },
+    {
+      "question": "Is data from my Tiltfiles sent externally?",
+      "answer": "Tilt runs locally and only communicates with your configured Kubernetes cluster. No external data collection."
+    },
+    {
+      "question": "Why is my resource not auto-reloading?",
+      "answer": "Check if live_update is configured, ensure trigger_mode is AUTO, and verify file paths in deps are correct."
+    },
+    {
+      "question": "How does Tilt compare to Skaffold or Garden?",
+      "answer": "Tilt focuses on unified workflows with strong live-update capabilities and a web UI for real-time feedback."
+    }
+  ],
+  "seoKeywords": [
+    "tilt",
+    "kubernetes development",
+    "claude code skill",
+    "docker development",
+    "container workflows",
+    "tiltfile",
+    "live reload",
+    "k8s development",
+    "devops tools",
+    "claude code"
+  ],
+  "sourceUrl": "https://github.com/0xBigBoss/claude-code/tree/main/.claude/skills/tilt",
+  "sourceType": "community",
+  "dependencies": []
+}

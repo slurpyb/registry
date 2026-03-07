@@ -1,0 +1,141 @@
+{
+  "name": "whatsapp-automation",
+  "type": "skill",
+  "description": "Automate WhatsApp Business tasks via Rube MCP (Composio): send messages, manage templates, upload media, and handle contacts. Always search tools first for current schemas.",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "messaging automation",
+  "quality": 4,
+  "qualityReason": "Clear business use case",
+  "bundleHints": [
+    "customer-engagement",
+    "messaging-automation"
+  ],
+  "tags": [
+    "business automation",
+    "composio",
+    "customer communication",
+    "media upload",
+    "messaging",
+    "rube mcp",
+    "whatsapp"
+  ],
+  "capabilities": [
+    "Send text messages to WhatsApp contacts using business phone numbers",
+    "Send pre-approved template messages for outbound communication",
+    "Upload and send media files including images, documents, audio, and video",
+    "Reply to incoming messages within the 24-hour conversation window",
+    "Manage business profile and message templates",
+    "Share contact cards with name, phone, and email details"
+  ],
+  "author": "sickn33",
+  "icon": "💬",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 45 external command patterns and 1 network reference, but all findings are FALSE POSITIVES. The scanned file (SKILL.md) is documentation only - tool references like WHATSAPP_SEND_MESSAGE are MCP tool identifiers in instructional text, not executable shell commands. The URL reference is the MCP server endpoint in setup instructions. No actual code execution, cryptographic operations, or system reconnaissance exists. Low risk assigned due to external API integration nature requiring user-provided credentials.",
+  "valueStatement": "Businesses waste hours on manual WhatsApp customer communication. This skill automates message sending, template management, and media sharing through WhatsApp Business API via Rube MCP.",
+  "userTitle": "Automate WhatsApp Business messaging and templates",
+  "limitations": [
+    "Requires WhatsApp Business API account, not regular WhatsApp",
+    "Must maintain active connection via RUBE_MANAGE_CONNECTIONS before use",
+    "Messages outside 24-hour window require pre-approved template messages",
+    "Media uploads have size limits and temporary media IDs expire"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Online store owners managing customer order communications",
+      "title": "E-commerce Order Notifications",
+      "description": "Automatically send order confirmations, shipping updates, and delivery notifications to customers via WhatsApp template messages."
+    },
+    {
+      "targetUser": "Small business customer service teams",
+      "title": "Customer Support Automation",
+      "description": "Handle customer inquiries by sending quick replies, product information, and support documents through WhatsApp messaging."
+    },
+    {
+      "targetUser": "Service providers like salons, clinics, and consultants",
+      "title": "Appointment Reminders",
+      "description": "Send automated appointment reminders and rescheduling notifications to clients using approved message templates."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Text Message",
+      "prompt": "Send a WhatsApp message to +14155551234 with the text: Your order 12345 has been confirmed and will ship within 2 business days.",
+      "scenario": "Sending a simple order confirmation message to a customer"
+    },
+    {
+      "title": "Template Message with Variables",
+      "prompt": "Send the order_confirmation template to +442071234567 in English with variables: customer_name=John Smith, order_number=67890, total_amount=$149.99",
+      "scenario": "Using a pre-approved template for personalized order notifications"
+    },
+    {
+      "title": "Media Document Sharing",
+      "prompt": "Upload the product catalog PDF from https://example.com/catalog.pdf and send it to +919876543210 with caption: Here is our latest product catalog as requested.",
+      "scenario": "Sharing product documentation with potential customers"
+    },
+    {
+      "title": "Reply to Customer Inquiry",
+      "prompt": "Reply to message ID wamid.HBgMOTEyMzQ1Njc4OTA with: Thank you for contacting us. Our team will respond within 24 hours.",
+      "scenario": "Acknowledging customer messages within the conversation window"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before executing workflows",
+    "Verify connection status is ACTIVE via RUBE_MANAGE_CONNECTIONS before running any WhatsApp operations",
+    "Format all phone numbers in E.164 international format with country code and no spaces or dashes"
+  ],
+  "antiPatterns": [
+    "Do not attempt to send messages outside the 24-hour window without using approved templates",
+    "Do not use media IDs after they expire - upload media fresh for each send operation",
+    "Do not send messages without first verifying the recipient number format and business phone ID"
+  ],
+  "faq": [
+    {
+      "question": "What is the 24-hour messaging window?",
+      "answer": "When a customer messages your business, a 24-hour window opens during which you can send free-form messages. After 24 hours, only pre-approved template messages can be sent until the customer replies again."
+    },
+    {
+      "question": "Do I need API keys to use this skill?",
+      "answer": "No API keys are needed for Rube MCP. Simply add https://rube.app/mcp as an MCP server endpoint in your client configuration and the connection works automatically."
+    },
+    {
+      "question": "What types of media can I send?",
+      "answer": "You can send images (JPEG, PNG up to 5MB), videos (MP4, 3GPP up to 16MB), documents (PDF and others up to 100MB), audio files, and stickers (WebP format, 512x512 pixels)."
+    },
+    {
+      "question": "How long does template approval take?",
+      "answer": "Template review by Meta can take up to 24 hours. Plan ahead when creating new templates for time-sensitive campaigns."
+    },
+    {
+      "question": "Can I send messages to any WhatsApp number?",
+      "answer": "You can send messages to any WhatsApp number, but business-initiated conversations outside the 24-hour window require approved templates. Customers must message you first to open free-form messaging."
+    },
+    {
+      "question": "What happens if my media upload fails?",
+      "answer": "Media uploads may fail due to size limits, unsupported formats, or network issues. Check the file size and format match WhatsApp requirements, ensure the URL is publicly accessible HTTPS, then retry the upload."
+    }
+  ],
+  "seoKeywords": [
+    "WhatsApp automation",
+    "WhatsApp Business API",
+    "Claude Code WhatsApp",
+    "Codex messaging skill",
+    "customer communication automation",
+    "Composio WhatsApp integration",
+    "Rube MCP WhatsApp",
+    "business messaging Claude",
+    "template message automation",
+    "WhatsApp media upload"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/whatsapp-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

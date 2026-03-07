@@ -1,0 +1,142 @@
+{
+  "name": "planning-action",
+  "type": "skill",
+  "description": "Use when the user asks for a roadmap, timeline, phased plan, or execution sequence.",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "execution planning",
+  "quality": 5,
+  "qualityReason": "Clear trigger and actionable",
+  "bundleHints": [
+    "project-management-toolkit",
+    "agile-stack"
+  ],
+  "tags": [
+    "execution",
+    "execution-strategy",
+    "phased-plan",
+    "planning",
+    "project-management",
+    "roadmap",
+    "roadmaps",
+    "task-sequencing",
+    "timeline"
+  ],
+  "capabilities": [
+    "Define project scope and explicit non-scope boundaries",
+    "Break complex goals into logical phases with milestones",
+    "Identify dependencies between tasks and phases",
+    "Analyze risks and define contingency approaches",
+    "Structure validation checkpoints for progress verification"
+  ],
+  "author": "BellaBe",
+  "icon": "📋",
+  "version": "1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only YAML frontmatter and markdown documentation describing when and how to use the planning action. No executable code, no file I/O, no network calls, no command execution. Pure metadata and documentation file.",
+  "valueStatement": "Users struggle to break down complex goals into actionable steps with clear timelines. This skill transforms any objective into a structured phased plan with milestones, dependencies, and risk contingencies.",
+  "userTitle": "Create Execution Roadmaps and Phased Plans",
+  "limitations": [
+    "Does not execute or track progress after plan creation",
+    "Does not integrate with project management tools",
+    "Does not provide estimates for effort or duration",
+    "Does not assign resources or responsibilities"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product Managers",
+      "title": "Product Launch Roadmap",
+      "description": "Transform feature ideas into phased rollout plans with milestones and dependency mapping for cross-functional teams."
+    },
+    {
+      "targetUser": "Engineering Leads",
+      "title": "Technical Migration Plan",
+      "description": "Break down system migrations into safe phases with rollback contingencies and validation checkpoints."
+    },
+    {
+      "targetUser": "Founders",
+      "title": "Go-to-Market Strategy",
+      "description": "Convert business objectives into execution timelines with clear scope boundaries and risk mitigation steps."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Roadmap",
+      "scenario": "User wants a simple plan",
+      "prompt": "Create a phased roadmap for achieving [GOAL] with [CONSTRAINTS]. Include scope, non-scope, phases, dependencies, and risks."
+    },
+    {
+      "title": "Detailed Timeline",
+      "scenario": "User needs timeline with milestones",
+      "prompt": "Build a detailed execution timeline for [PROJECT] with milestones, validation checkpoints, and contingency plans for [RISKS]."
+    },
+    {
+      "title": "Risk-Focused Plan",
+      "scenario": "User concerned about risks",
+      "prompt": "Plan [INITIATIVE] with emphasis on risk identification. For each phase, specify what could go wrong and how to respond."
+    },
+    {
+      "title": "Multi-Stakeholder Plan",
+      "scenario": "User has multiple stakeholders",
+      "prompt": "Create an execution plan for [GOAL] that addresses constraints from [STAKEHOLDER_1] and [STAKEHOLDER_2] with clear scope boundaries."
+    }
+  ],
+  "bestPractices": [
+    "Always restate the goal and constraints at the start to ensure alignment before planning",
+    "Define explicit non-scope to prevent scope creep and manage stakeholder expectations",
+    "Include validation checkpoints after each phase to verify progress before continuing"
+  ],
+  "antiPatterns": [
+    "Creating a plan without first confirming the actual goal and constraints with the user",
+    "Skipping scope definition, leading to unclear boundaries and endless feature additions",
+    "Failing to identify dependencies, causing blockers that could have been avoided"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "This skill works with Claude, OpenAI Codex, and Claude Code. It is compatible with any LLM that supports structured reasoning."
+    },
+    {
+      "question": "How detailed should plans be?",
+      "answer": "Keep plans at milestone level initially. Deeper detail can be added iteratively for specific phases as work begins."
+    },
+    {
+      "question": "Can I integrate with Jira or Asana?",
+      "answer": "This skill generates plans as text output. You can copy the plan to your project management tool manually."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "This skill only processes text input. No data is stored, sent externally, or used for training purposes."
+    },
+    {
+      "question": "What if plans become outdated?",
+      "answer": "Regenerate plans as needed. The skill can adapt existing plans when constraints or goals change."
+    },
+    {
+      "question": "How is this different from procedural actions?",
+      "answer": "Planning actions create new roadmaps. Procedural actions execute repeatable SOPs. Use planning for unique initiatives."
+    }
+  ],
+  "seoKeywords": [
+    "Claude planning skill",
+    "roadmap generator",
+    "project planning",
+    "timeline creation",
+    "execution plan",
+    "phased rollout",
+    "milestone tracking",
+    "action planning",
+    "Claude Code",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/BellaBe/lean-os/tree/main/.claude/skills/action-planning",
+  "sourceType": "community",
+  "dependencies": []
+}

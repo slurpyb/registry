@@ -1,0 +1,141 @@
+{
+  "name": "deployment-management",
+  "type": "skill",
+  "description": "Track and manage UniFi deployments across your infrastructure. Monitor deployment status, configuration, and progress for coordinated infrastructure updates.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "UniFi tracking",
+  "quality": 3,
+  "qualityReason": "Niche product focus, limited reuse",
+  "bundleHints": [
+    "network-devops",
+    "infrastructure-suite"
+  ],
+  "tags": [
+    "coordination",
+    "deployment",
+    "infrastructure",
+    "monitoring",
+    "network",
+    "status-tracking",
+    "unifi"
+  ],
+  "capabilities": [
+    "List all deployments across all UniFi sites",
+    "Get detailed information for specific deployments",
+    "Monitor deployment status and progress in real-time",
+    "Track deployment configuration and changes",
+    "Analyze deployment health and metrics",
+    "Generate deployment status reports"
+  ],
+  "author": "DataKnifeAI",
+  "icon": "🚀",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill consists entirely of documentation (SKILL.md) with no executable code. The static analysis summary claiming 24 findings is inconsistent with the actual skill-report.json which shows zero risk factors, no critical/high/medium/low findings, and explicitly marks risk_level as 'safe'. SKILL.md is pure markdown describing UniFi deployment management capabilities - no scripts, network calls, filesystem access, environment variable reads, or external command executions exist.",
+  "valueStatement": "Managing multiple UniFi deployments across sites is complex and error-prone. This skill provides centralized visibility into all deployments with status tracking, configuration details, and progress monitoring.",
+  "userTitle": "Track and manage UniFi deployments",
+  "limitations": [
+    "Requires UniFi network infrastructure to be accessible",
+    "Does not modify or execute deployment actions",
+    "Limited to read-only deployment visibility",
+    "Does not manage rollback or recovery operations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Network administrators",
+      "title": "Multi-site deployment oversight",
+      "description": "Monitor all UniFi deployments across distributed sites from a single interface"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Infrastructure change tracking",
+      "description": "Track and document configuration changes during planned deployment windows"
+    },
+    {
+      "targetUser": "IT managers",
+      "title": "Deployment status reporting",
+      "description": "Generate reports on deployment progress and health for stakeholder communication"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List all deployments",
+      "scenario": "Quick status check",
+      "prompt": "Show me all active UniFi deployments"
+    },
+    {
+      "title": "Check specific deployment",
+      "scenario": "Investigate a deployment",
+      "prompt": "Get details on the deployment named [deployment-name]"
+    },
+    {
+      "title": "Find failed deployments",
+      "scenario": "Troubleshoot issues",
+      "prompt": "Are there any failed or stalled deployments in the current infrastructure"
+    },
+    {
+      "title": "Generate status report",
+      "scenario": "Weekly reporting",
+      "prompt": "Generate a comprehensive deployment status report with health metrics and configuration summary"
+    }
+  ],
+  "bestPractices": [
+    "Review deployment status daily during active update windows",
+    "Document configuration changes before initiating deployments",
+    "Cross-reference deployment health with network performance metrics"
+  ],
+  "antiPatterns": [
+    "Assuming deployment success without checking status",
+    "Making changes during active deployment without coordination",
+    "Ignoring warning indicators on deployment health checks"
+  ],
+  "faq": [
+    {
+      "question": "Which UniFi platforms are supported?",
+      "answer": "This skill works with UniFi Network deployments. Check your UniFi Network version for compatibility."
+    },
+    {
+      "question": "How many deployments can I monitor at once?",
+      "answer": "The skill can track all deployments across your connected UniFi sites without specific limits."
+    },
+    {
+      "question": "How do I connect this skill to my UniFi controller?",
+      "answer": "Configure your UniFi credentials in the skill settings. The skill uses the UniFi API to access deployment data."
+    },
+    {
+      "question": "Does this skill modify my network configuration?",
+      "answer": "No. This skill provides read-only access to deployment information and does not make any changes."
+    },
+    {
+      "question": "Why is a deployment showing as stalled?",
+      "answer": "Stalled deployments may indicate connectivity issues, conflicts, or needing manual intervention. Check the details for specific error information."
+    },
+    {
+      "question": "How is this different from the UniFi console?",
+      "answer": "This skill provides AI-powered summarization and quick access to deployment data through conversational queries."
+    }
+  ],
+  "seoKeywords": [
+    "UniFi deployment management",
+    "infrastructure monitoring",
+    "deployment tracking",
+    "network deployment",
+    "Claude deployment skill",
+    "Codex DevOps skill",
+    "Claude Code infrastructure",
+    "UniFi network management",
+    "deployment status",
+    "configuration tracking"
+  ],
+  "sourceUrl": "https://github.com/DataKnifeAI/unifi-manager-mcp/tree/main/.github/skills/deployment-management",
+  "sourceType": "community",
+  "dependencies": []
+}

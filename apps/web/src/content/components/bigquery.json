@@ -1,0 +1,143 @@
+{
+  "name": "bigquery",
+  "type": "skill",
+  "description": "Comprehensive guide for using BigQuery CLI (bq) to query and inspect tables in Monzo's BigQuery projects, with emphasis on data sensitivity and INFORMATION_SCHEMA queries.",
+  "domain": "data",
+  "subdomain": "analytics",
+  "specialty": "CLI querying",
+  "quality": 5,
+  "qualityReason": "Specific CLI and data context",
+  "bundleHints": [
+    "data-analytics",
+    "bigquery-stack"
+  ],
+  "tags": [
+    "bigquery",
+    "bq",
+    "cli",
+    "data-analytics",
+    "data-sensitivity",
+    "gcp",
+    "information-schema",
+    "inspection",
+    "monzo",
+    "sql"
+  ],
+  "capabilities": [
+    "Inspect table schemas using INFORMATION_SCHEMA queries",
+    "Check table row counts safely without exposing data",
+    "List tables and find tables by naming patterns",
+    "Export column schemas to files for programmatic use",
+    "Validate table structures before running dbt models",
+    "Apply data sensitivity guidelines for safe querying"
+  ],
+  "author": "BfdCampos",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only Markdown guidance for BigQuery CLI usage. All detected patterns are false positives: bash command examples in documentation, repository URLs in metadata, and file paths in safe query patterns. The skill explicitly promotes safe data practices including INFORMATION_SCHEMA queries and data sensitivity guidelines.",
+  "valueStatement": "This skill provides safe BigQuery CLI patterns for exploring tables and schemas without accessing sensitive data. It includes INFORMATION_SCHEMA queries, row count checks, and data sensitivity guidelines for responsible data analysis.",
+  "userTitle": "Query BigQuery tables securely with CLI guidance",
+  "limitations": [
+    "Skill does not execute queries directly - provides guidance for bq CLI usage",
+    "Targeted at Monzo's BigQuery projects specifically",
+    "Does not handle authentication or credential management"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data Analysts",
+      "title": "Explore table schemas",
+      "description": "Query column names, types, and table structures using safe INFORMATION_SCHEMA patterns."
+    },
+    {
+      "targetUser": "Data Engineers",
+      "title": "Validate source tables",
+      "description": "Verify table existence, row counts, and metadata before building data pipelines."
+    },
+    {
+      "targetUser": "Analytics Engineers",
+      "title": "Debug dbt models",
+      "description": "Investigate data issues by inspecting source table structures and column types."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Check table schema",
+      "scenario": "Inspect column structure",
+      "prompt": "Show me the schema for table TABLE_NAME in dataset DATASET using INFORMATION_SCHEMA."
+    },
+    {
+      "title": "Count table rows",
+      "scenario": "Check table size",
+      "prompt": "How many rows are in TABLE_NAME? Use a safe query that does not expose data."
+    },
+    {
+      "title": "Find related tables",
+      "scenario": "Discover tables by name",
+      "prompt": "Find all tables in dataset DATASET that contain 'customer' in the name."
+    },
+    {
+      "title": "Validate dbt source",
+      "scenario": "Verify source structure",
+      "prompt": "Check if columns in my dbt source model match the actual BigQuery table schema."
+    }
+  ],
+  "bestPractices": [
+    "Use INFORMATION_SCHEMA queries first to explore schemas without accessing actual data",
+    "Run COUNT(*) to check table size before running expensive queries",
+    "Apply dry-run flag for cost estimation on complex queries"
+  ],
+  "antiPatterns": [
+    "Querying actual rows from people, staff, or PII-containing tables",
+    "Running full table scans without checking row counts first",
+    "Omitting --project_id flag which can lead to wrong project queries"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. The bq CLI must be installed locally."
+    },
+    {
+      "question": "What are the BigQuery query limits?",
+      "answer": "Default query results are limited to 10GB of processed data per day. Use dry-run to estimate costs."
+    },
+    {
+      "question": "How does this skill integrate with dbt?",
+      "answer": "Use it to inspect source table schemas before creating import models and verify source tables exist with expected structure."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. The skill promotes INFORMATION_SCHEMA queries that only return metadata, not actual data content."
+    },
+    {
+      "question": "How does authentication work?",
+      "answer": "Authentication is handled by the installed bq CLI through gcloud SDK. The skill does not access credentials."
+    },
+    {
+      "question": "How is this different from BigQuery console?",
+      "answer": "This skill provides CLI patterns for automation and scripting. The console offers visual query execution."
+    }
+  ],
+  "seoKeywords": [
+    "bigquery cli",
+    "bq command",
+    "bigquery query",
+    "INFORMATION_SCHEMA",
+    "claude code",
+    "claude",
+    "codex",
+    "data analytics",
+    "gcp bigquery",
+    "sql"
+  ],
+  "sourceUrl": "https://github.com/BfdCampos/dotfiles/tree/main/claude/skills/bigquery",
+  "sourceType": "community",
+  "dependencies": []
+}

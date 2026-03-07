@@ -1,0 +1,143 @@
+{
+  "name": "email-sequence",
+  "type": "skill",
+  "description": "When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions \"email sequence,\" \"drip campaign,\" \"nurture sequence,\" \"onboarding emails,\" \"welcome sequence,\" \"re-engagement emails,\" \"email automation,\" or \"lifecycle emails.\" For in-app onboarding, see onboarding-cro.",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "drip campaign design",
+  "quality": 5,
+  "qualityReason": "Specific marketing workflow",
+  "bundleHints": [
+    "marketing-automation",
+    "email-marketing"
+  ],
+  "tags": [
+    "automation",
+    "customer engagement",
+    "drip campaigns",
+    "email marketing",
+    "lifecycle",
+    "nurturing"
+  ],
+  "capabilities": [
+    "Design complete email sequences from trigger to conversion",
+    "Create welcome and onboarding sequences for new users",
+    "Build lead nurture campaigns for pre-sale engagement",
+    "Develop re-engagement and win-back sequences for churned users",
+    "Structure email copy with proven frameworks and templates",
+    "Define optimal timing and frequency for different sequence types"
+  ],
+  "author": "coreyhaines31",
+  "icon": "📧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 17 static findings evaluated as false positives. External commands detection flagged documentation template placeholders (bracket notation). Cryptographic algorithm flags detected marketing terminology only. System/network reconnaissance flags identified standard email marketing vocabulary. Skill contains no executable code.",
+  "valueStatement": "Email sequences drive customer engagement and conversions but designing effective automated flows requires expertise in timing, copy, and segmentation. This skill provides comprehensive frameworks for building welcome sequences, lead nurture campaigns, onboarding flows, re-engagement series, and win-back campaigns.",
+  "userTitle": "Create email sequences that convert",
+  "limitations": [
+    "Does not send emails or connect to email service providers",
+    "Does not create graphics or visual email designs",
+    "Does not provide analytics or performance data",
+    "Does not manage subscriber lists or segments directly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "marketers building new user onboarding flows",
+      "title": "Build a welcome email series for new signups",
+      "description": "Create a 5-7 email welcome sequence that delivers immediate value, builds trust, and drives users toward their first success moment."
+    },
+    {
+      "targetUser": "marketing teams nurturing leads before sales outreach",
+      "title": "Design a lead nurture sequence for prospects",
+      "description": "Develop a 6-10 email nurture campaign that educates prospects, addresses objections, and prepares them for a sales offer."
+    },
+    {
+      "targetUser": "customer success teams reducing churn",
+      "title": "Create win-back campaign for inactive users",
+      "description": "Build a 3-4 email re-engagement sequence that reminds inactive users of value delivered and offers incentives to return."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create welcome sequence",
+      "prompt": "Create a welcome email sequence for [product type] users who just signed up for [offer/lead magnet]. The sequence should have 5 emails over 14 days. Include subject lines, preview text, and body copy for each email. Focus on [specific goal like activation/conversion/value demonstration].",
+      "scenario": "Onboarding new users after signup"
+    },
+    {
+      "title": "Design nurture campaign",
+      "prompt": "Design a lead nurture sequence for [target audience] who downloaded [lead magnet]. We have a [product type] that helps them [key benefit]. Create an 8-email sequence over 21 days. Include the email goals, timing, subject line approach, and key copy points for each email.",
+      "scenario": "Nurturing leads before sales conversion"
+    },
+    {
+      "title": "Build re-engagement sequence",
+      "prompt": "Create a re-engagement email sequence for users who have been inactive for [time period]. They previously [action completed]. Design 4 emails over 14 days that remind them of value, ask for feedback, and offer [incentive if applicable] to return.",
+      "scenario": "Winning back inactive customers"
+    },
+    {
+      "title": "Audit existing email program",
+      "prompt": "Audit our current email program against best practices. We currently send [list of email types] to [audience segments]. Review our sequence strategy, timing, segmentation, and copy approach. Identify gaps and provide specific recommendations for improvement.",
+      "scenario": "Improving existing email marketing"
+    }
+  ],
+  "bestPractices": [
+    "Start with a clear goal and single CTA per email to maintain focus and drive measurable conversions.",
+    "Lead with value before making asks to build trust and earn the right to pitch products or services.",
+    "Test one variable at a time including subject lines, send times, and CTA placement to optimize performance.",
+    "Segment audiences based on behavior, engagement, and stage to deliver relevant, personalized content."
+  ],
+  "antiPatterns": [
+    "Sending too many emails too quickly which leads to fatigue, higher unsubscribe rates, and damage to sender reputation.",
+    "Using vague, clever subject lines that mislead readers about email content, breaking trust and reducing open rates.",
+    "Neglecting mobile formatting since majority of emails are read on mobile devices with smaller screens.",
+    "Including multiple competing CTAs in a single email which dilutes focus and reduces conversion on any single action."
+  ],
+  "faq": [
+    {
+      "question": "How many emails should be in a sequence?",
+      "answer": "Sequence length depends on the goal and complexity. Welcome sequences work well with 3-7 emails over 7-14 days. Lead nurture sequences typically need 5-10 emails spread over 2-3 weeks. Re-engagement sequences can be shorter at 3-4 emails over 10-14 days. Focus on value over volume."
+    },
+    {
+      "question": "What is the best timing between emails?",
+      "answer": "Welcome emails should be immediate. Early sequence emails work best 1-2 days apart. Nurture sequences can space emails 2-4 days apart. Long-term sequences may go weekly or bi-weekly. B2B audiences typically prefer avoiding weekends while B2C may see success with weekend sends."
+    },
+    {
+      "question": "How do I know if my email sequence is working?",
+      "answer": "Track open rates (benchmark 20-40%), click rates (benchmark 2-5%), unsubscribe rate (keep under 0.5%), and conversion rate tied to your sequence goal. Test subject lines against benchmarks and iterate based on performance data. A/B test one variable at a time for clear results."
+    },
+    {
+      "question": "Should every email in a sequence have a CTA?",
+      "answer": "Yes, but each email should have one primary CTA. Secondary actions can be in-text links. The CTA should be clear about what to do next and what outcome to expect. Avoid competing CTAs that split reader attention."
+    },
+    {
+      "question": "How do I segment email audiences?",
+      "answer": "Segment by behavior (openers, clickers, inactive), stage (trial vs. paid, new vs. long-term), and profile (industry, role, company size). Use merge fields for personalization and triggered sends based on specific actions or milestones."
+    },
+    {
+      "question": "Can this skill help with email copy writing?",
+      "answer": "Yes, this skill provides frameworks for email structure, tone, and persuasion. It includes templates for subject lines, preview text, and body copy. It also covers tone guidelines, formatting best practices, and how to write effective CTAs."
+    }
+  ],
+  "seoKeywords": [
+    "email sequence",
+    "email automation",
+    "drip campaign",
+    "marketing automation",
+    "welcome emails",
+    "onboarding sequence",
+    "lead nurture",
+    "customer retention",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/coreyhaines31/marketingskills/tree/main/skills/email-sequence",
+  "sourceType": "community",
+  "dependencies": []
+}

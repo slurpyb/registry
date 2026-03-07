@@ -1,0 +1,141 @@
+{
+  "name": "when-validating-code-works-use-functionality-audit",
+  "type": "skill",
+  "description": "Validates that code actually works through sandbox testing, execution verification, and systematic debugging. Use this skill after code generation or modification to ensure functionality is genuine rather than assumed. The skill creates isolated test environments, executes code with realistic inputs, identifies bugs through systematic analysis, and applies best practices to fix issues without breaking existing functionality.",
+  "domain": "testing",
+  "subdomain": "e2e",
+  "specialty": "execution verification",
+  "quality": 5,
+  "qualityReason": "Ensures real functionality",
+  "bundleHints": [
+    "testing-suite",
+    "code-validation"
+  ],
+  "tags": [
+    "code-execution",
+    "debugging",
+    "quality-assurance",
+    "sandbox testing",
+    "systematic",
+    "testing",
+    "validation"
+  ],
+  "capabilities": [
+    "Creates isolated sandbox environments for safe code execution testing",
+    "Executes test suites using Jest, pytest, and other testing frameworks",
+    "Performs systematic debugging with root cause analysis",
+    "Validates fixes and checks for regressions before deployment",
+    "Generates comprehensive audit reports with coverage metrics",
+    "Provides workflow templates for 5-phase testing methodology"
+  ],
+  "author": "DNYoussef",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation and workflow template for testing code functionality. Static analysis detected 372 pattern matches (command execution, filesystem access, network operations), but all findings are false positives. The detected patterns are bash code examples in markdown documentation showing users how to set up test environments, not executable malicious code. The skill provides instructional templates for legitimate testing workflows using standard tools like Jest, pytest, and npm. No actual security risks identified.",
+  "valueStatement": "Ensures your code actually works by creating isolated test environments and executing code with realistic inputs. This skill moves beyond static analysis to verify genuine functionality through systematic testing, debugging, and validation workflows.",
+  "userTitle": "Validate Code Through Sandbox Testing and Execution",
+  "limitations": [
+    "Requires users to have testing frameworks already installed in their environment",
+    "Documentation provides templates that must be customized for specific projects",
+    "Cannot automatically fix all code issues without human review",
+    "Workflow examples assume Node.js or Python development environments"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI-assisted developers",
+      "title": "Post-Generation Code Validation",
+      "description": "After AI generates new code, use this skill to verify the code actually executes correctly in a sandbox environment with realistic test data."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Pre-Deployment Quality Assurance",
+      "description": "Before merging pull requests or deploying to production, run comprehensive functionality audits to catch runtime issues that static analysis might miss."
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Debugging Reported Issues",
+      "description": "When users report unexpected behavior, use the systematic debugging workflow to isolate root causes and validate fixes without introducing regressions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Functionality Audit",
+      "prompt": "Run a complete functionality audit on my authentication module to verify it works correctly",
+      "scenario": "Validate a single module after modifications"
+    },
+    {
+      "title": "Pre-Deployment Validation",
+      "prompt": "Audit my API endpoints with production-mode validation before I deploy to staging",
+      "scenario": "Quality gate before deployment"
+    },
+    {
+      "title": "Targeted Test Scope",
+      "prompt": "Quick validation of the payment processor module focusing on transaction handling",
+      "scenario": "Fast validation of critical component"
+    },
+    {
+      "title": "Comprehensive Coverage Audit",
+      "prompt": "Run full functionality audit on data layer with 90% coverage threshold and generate detailed report",
+      "scenario": "Thorough testing with high coverage requirements"
+    }
+  ],
+  "bestPractices": [
+    "Always run functionality audits in isolated sandbox environments to prevent affecting production code or data",
+    "Use realistic test inputs that mirror actual production data patterns to catch edge cases early",
+    "Validate that fixes do not introduce regressions by running full test suites after each change"
+  ],
+  "antiPatterns": [
+    "Skipping sandbox setup and testing directly in production environments risks data corruption and system instability",
+    "Assuming code works based on appearance without execution testing leads to runtime failures in production",
+    "Making fixes without regression testing can break existing functionality while solving the immediate issue"
+  ],
+  "faq": [
+    {
+      "question": "What testing frameworks does this skill support?",
+      "answer": "The skill provides workflow templates for Jest and Mocha for Node.js projects, and pytest for Python projects. The templates can be adapted for other testing frameworks."
+    },
+    {
+      "question": "How long does a complete functionality audit take?",
+      "answer": "A typical audit takes 30-60 minutes across 5 phases: setup (10-15 min), execution (5-10 min), debugging (10-20 min), validation (5-10 min), and reporting (5 min). Quick validations can complete in 10-15 minutes."
+    },
+    {
+      "question": "Can this skill automatically fix bugs it finds?",
+      "answer": "The skill provides systematic debugging workflows and fix strategies, but fixes require human review and approval. It identifies root causes and suggests corrections rather than automatically modifying code."
+    },
+    {
+      "question": "What is the difference between this and static code analysis?",
+      "answer": "Static analysis examines code without executing it. This skill actually runs your code with test inputs to verify it works correctly at runtime, catching issues that static analysis cannot detect."
+    },
+    {
+      "question": "Do I need Docker to use this skill?",
+      "answer": "Docker is optional. The skill can create sandboxes using temporary directories and virtual environments. Docker provides additional isolation but is not required for basic functionality audits."
+    },
+    {
+      "question": "How does this integrate with CI/CD pipelines?",
+      "answer": "The workflow templates include CI/CD integration examples using hooks and automation commands. You can incorporate the audit steps into your existing pipeline stages for automated quality gates."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Claude Code",
+    "Codex",
+    "code testing",
+    "functionality validation",
+    "sandbox testing",
+    "execution verification",
+    "test automation",
+    "debugging workflow",
+    "quality assurance"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/testing-quality/when-validating-code-works-use-functionality-audit",
+  "sourceType": "community",
+  "dependencies": []
+}

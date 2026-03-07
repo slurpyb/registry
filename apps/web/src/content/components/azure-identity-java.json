@@ -1,0 +1,144 @@
+{
+  "name": "azure-identity-java",
+  "type": "skill",
+  "description": "Azure Identity Java SDK for authentication with Azure services. Use when implementing DefaultAzureCredential, managed identity, service principal, or any Azure authentication pattern in Java applications.",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "azure auth",
+  "quality": 5,
+  "qualityReason": "Clear SDK integration",
+  "bundleHints": [
+    "azure-security",
+    "java-auth",
+    "appsec"
+  ],
+  "tags": [
+    "authentication",
+    "azure",
+    "azure-identity",
+    "defaultazurecredential",
+    "java",
+    "managed-identity",
+    "security"
+  ],
+  "capabilities": [
+    "Implement DefaultAzureCredential for automatic authentication across development and production environments",
+    "Configure Managed Identity for Azure App Service, Functions, AKS, and VMs without storing secrets",
+    "Set up Service Principal authentication with client secrets or certificates",
+    "Use Azure CLI credential for local development with az login",
+    "Implement workload identity for Kubernetes (AKS) authentication",
+    "Configure token caching for improved performance and reduced auth calls"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation file for Microsoft's Azure Identity Java SDK. All static analysis findings are false positives: backtick characters in placeholder values, Azure service URLs in code examples, standard Kubernetes secret paths, and documented environment variables are all legitimate usage patterns. No malicious intent detected.",
+  "valueStatement": "This skill provides comprehensive documentation for Microsoft's Azure Identity Java SDK, enabling Claude Code to implement secure authentication patterns including managed identity, service principals, and DefaultAzureCredential for Azure services.",
+  "userTitle": "Authenticate Java Apps with Azure",
+  "limitations": [
+    "This is a documentation skill - it provides reference information but does not execute code",
+    "Does not include runtime credential validation or testing capabilities",
+    "Does not provide Azure resource provisioning or management features",
+    "Requires existing Azure subscription and proper role assignments"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Java developers building applications that access Azure services",
+      "title": "Add Azure Authentication to Java App",
+      "description": "Implement secure Azure authentication in new or existing Java applications using DefaultAzureCredential for seamless dev-to-prod transitions."
+    },
+    {
+      "targetUser": "DevOps engineers and security-conscious developers",
+      "title": "Migrate to Managed Identity",
+      "description": "Replace hardcoded service principal credentials with Azure Managed Identity for improved security and automatic credential rotation."
+    },
+    {
+      "targetUser": "Kubernetes administrators and cloud-native developers",
+      "title": "Configure AKS Workload Identity",
+      "description": "Set up workload identity authentication for Java applications running on Azure Kubernetes Service."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Azure Auth Setup",
+      "prompt": "How do I authenticate a Java application with Azure services using DefaultAzureCredential? Show me the Maven dependency and basic code example.",
+      "scenario": "Getting started with Azure authentication in Java"
+    },
+    {
+      "title": "Managed Identity Configuration",
+      "prompt": "How do I configure Managed Identity authentication for a Java app running on Azure App Service?",
+      "scenario": "Setting up passwordless authentication for Azure-hosted apps"
+    },
+    {
+      "title": "Service Principal with Certificate",
+      "prompt": "Show me how to authenticate using a service principal with a certificate in Java using ClientCertificateCredential.",
+      "scenario": "Enterprise authentication with certificate-based credentials"
+    },
+    {
+      "title": "Workload Identity for AKS",
+      "prompt": "How do I configure WorkloadIdentityCredential for a Java application running on Azure Kubernetes Service?",
+      "scenario": "Kubernetes-native Azure authentication"
+    }
+  ],
+  "bestPractices": [
+    "Always prefer DefaultAzureCredential - it automatically selects the best authentication method for each environment",
+    "Use Managed Identity in production - eliminates secret management and provides automatic credential rotation",
+    "Implement proper error handling for CredentialUnavailableException to handle cases when no credential is available",
+    "Use token caching (enabled by default) to reduce authentication overhead and improve performance"
+  ],
+  "antiPatterns": [
+    "Do not hardcode client secrets in source code - use environment variables or Managed Identity instead",
+    "Avoid using InteractiveBrowserCredential in server-side applications or CI/CD environments",
+    "Do not grant overly broad permissions to service principals - follow least privilege principle",
+    "Avoid excluding all credential types in DefaultAzureCredential unless you have a specific reason"
+  ],
+  "faq": [
+    {
+      "question": "What is DefaultAzureCredential?",
+      "answer": "DefaultAzureCredential is a chain of credentials that tries multiple authentication methods in order: Environment variables, Workload Identity, Managed Identity, Azure CLI, Azure PowerShell, and Azure Developer CLI. It automatically selects the first available method, making it ideal for applications that run in different environments."
+    },
+    {
+      "question": "How do I switch from dev to production authentication?",
+      "answer": "Use DefaultAzureCredential in both environments. Locally it will use Azure CLI (run 'az login'), while in Azure it automatically uses Managed Identity. No code changes required."
+    },
+    {
+      "question": "What is Managed Identity?",
+      "answer": "Managed Identity is an Azure feature that provides automatically managed identity for resources running in Azure. It eliminates the need to store credentials - Azure automatically creates and rotates the identity. Use it for App Service, Functions, AKS, VMs, and other Azure services."
+    },
+    {
+      "question": "How do I debug authentication issues?",
+      "answer": "Enable account identifier logging with enableAccountIdentifierLogging() on the credential builder. You can also set AZURE_LOG_LEVEL=verbose environment variable. Check that your Azure role assignments include the required permissions for the resources you're accessing."
+    },
+    {
+      "question": "Can I use this with sovereign clouds?",
+      "answer": "Yes, configure the authority host for sovereign clouds like Azure Government or Azure China using AzureAuthorityHosts.AZURE_GOVERNMENT or AzureAuthorityHosts.AZURE_CHINA when building credentials."
+    },
+    {
+      "question": "What credentials should I use for CI/CD?",
+      "answer": "Use EnvironmentCredential with service principal credentials stored as secure environment variables. This is the recommended approach for pipelines. Ensure the service principal has only the permissions required for the pipeline operations."
+    }
+  ],
+  "seoKeywords": [
+    "Azure authentication Java",
+    "DefaultAzureCredential",
+    "Azure managed identity Java",
+    "Azure service principal Java",
+    "Azure credentials SDK",
+    "Azure AD authentication Java",
+    "Claude Azure",
+    "Codex Azure Java",
+    "Claude Code Azure authentication",
+    "Azure Identity Java SDK"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-identity-java",
+  "sourceType": "community",
+  "dependencies": []
+}

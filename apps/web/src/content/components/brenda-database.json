@@ -1,0 +1,139 @@
+{
+  "name": "brenda-database",
+  "type": "skill",
+  "description": "Access BRENDA enzyme database via SOAP API. Retrieve kinetic parameters (Km, kcat), reaction equations, organism data, and substrate-specific enzyme information for biochemical research and metabolic pathway analysis.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "enzyme data access",
+  "quality": 5,
+  "qualityReason": "Specific scientific database access",
+  "bundleHints": [
+    "bioinformatics-tools",
+    "research-data"
+  ],
+  "tags": [
+    "bioinformatics",
+    "database",
+    "enzymes",
+    "kinetics",
+    "metabolic-pathways",
+    "research"
+  ],
+  "capabilities": [
+    "Retrieve Michaelis constant (Km) and kcat values for any enzyme by EC number",
+    "Get reaction equations, substrates, and products for enzymatic reactions",
+    "Compare enzyme properties across different organisms",
+    "Find optimal pH, temperature, and cofactor requirements for enzymes",
+    "Export kinetic data to CSV or JSON formats"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "enzyme",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "The brenda-database skill is a legitimate scientific tool for accessing enzyme data from the BRENDA database. All 436 static findings are false positives triggered by documentation formatting (backtick characters for code blocks), legitimate BRENDA API authentication (SHA-256 password hashing), and biochemical terminology (NAD+, ATP as cofactors, not C2 commands). The codebase performs authorized SOAP API queries to a public scientific database and exports research data. No malicious behavior, data exfiltration, or unauthorized access patterns were found.",
+  "valueStatement": "Access comprehensive enzyme kinetic data from the worlds largest enzyme database. Find Km values, reaction equations, organism-specific parameters, and substrate specificity data for biochemical research and metabolic engineering.",
+  "userTitle": "Query enzyme data from BRENDA database",
+  "limitations": [
+    "Requires BRENDA account and API credentials for access",
+    "Rate limited to approximately 1 request per second",
+    "Only includes enzyme data from the official BRENDA SOAP API",
+    "Does not include protein sequence or structure data"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Biochemists",
+      "title": "Enzyme kinetic analysis",
+      "description": "Retrieve Km and kcat values to characterize enzyme behavior and compare across organisms."
+    },
+    {
+      "targetUser": "Metabolic engineers",
+      "title": "Pathway design",
+      "description": "Find enzymes for specific reactions and optimize conditions for metabolic pathway construction."
+    },
+    {
+      "targetUser": "Researchers",
+      "title": "Literature data extraction",
+      "description": "Extract enzyme parameters from published BRENDA data for computational modeling and analysis."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic query",
+      "scenario": "Get kinetic data",
+      "prompt": "Get Km values for alcohol dehydrogenase (EC 1.1.1.1) from BRENDA."
+    },
+    {
+      "title": "Organism filter",
+      "scenario": "Find enzyme data by organism",
+      "prompt": "Find Km values for EC 1.1.1.1 in Escherichia coli and Homo sapiens."
+    },
+    {
+      "title": "Reaction search",
+      "scenario": "Search reactions",
+      "prompt": "Find all reactions involving glucose and their enzyme EC numbers."
+    },
+    {
+      "title": "Pathway builder",
+      "scenario": "Design metabolic pathway",
+      "prompt": "Find the enzymatic pathway to produce lactate from pyruvate including all required cofactors."
+    }
+  ],
+  "bestPractices": [
+    "Store BRENDA credentials in environment variables for secure authentication",
+    "Add rate limiting delays (0.5-1 second) between API calls to avoid rate limits",
+    "Use specific EC numbers and organism filters to reduce data volume and improve response times"
+  ],
+  "antiPatterns": [
+    "Making concurrent API requests without delays will trigger rate limiting",
+    "Using wildcards for broad searches without limiting results can return massive datasets",
+    "Not caching results for repeated queries wastes API quota and slows performance"
+  ],
+  "faq": [
+    {
+      "question": "Do I need a BRENDA account?",
+      "answer": "Yes, you must register at brenda-enzymes.org to get API credentials."
+    },
+    {
+      "question": "What is an EC number?",
+      "answer": "Enzyme Commission numbers classify enzymes (e.g., 1.1.1.1 for alcohol dehydrogenase)."
+    },
+    {
+      "question": "What does Km represent?",
+      "answer": "The Michaelis constant - the substrate concentration at half-maximal reaction velocity."
+    },
+    {
+      "question": "How many requests can I make?",
+      "answer": "BRENDA recommends 1 request per second for sustained usage."
+    },
+    {
+      "question": "What data formats are supported?",
+      "answer": "Export to CSV, JSON, or Excel formats for downstream analysis."
+    },
+    {
+      "question": "Can I search by organism?",
+      "answer": "Yes, filter queries by organism name for species-specific enzyme data."
+    }
+  ],
+  "seoKeywords": [
+    "BRENDA database",
+    "enzyme kinetics",
+    "Km values",
+    "metabolic pathway",
+    "biochemical research",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "enzyme database",
+    "kinetic parameters"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/brenda-database",
+  "sourceType": "community",
+  "dependencies": []
+}

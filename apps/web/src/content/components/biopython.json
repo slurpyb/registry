@@ -1,0 +1,142 @@
+{
+  "name": "biopython",
+  "type": "skill",
+  "description": "Comprehensive molecular biology toolkit. Use for sequence manipulation, file parsing (FASTA/GenBank/PDB), phylogenetics, and programmatic NCBI/PubMed access (Bio.Entrez). Best for batch processing, custom bioinformatics pipelines, BLAST automation. For quick lookups use gget; for multi-service integration use bioservices.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "molecular toolkit",
+  "quality": 5,
+  "qualityReason": "Comprehensive bio toolkit",
+  "bundleHints": [
+    "bioinformatics-python",
+    "ncbi-tools"
+  ],
+  "tags": [
+    "batch-processing",
+    "bioinformatics",
+    "blast",
+    "fasta",
+    "genbank",
+    "molecular-biology",
+    "ncbi",
+    "sequence",
+    "sequence-analysis"
+  ],
+  "capabilities": [
+    "Read and write biological sequence files in FASTA, GenBank, FASTQ, and PDB formats",
+    "Access NCBI databases programmatically via Bio.Entrez (PubMed, GenBank, Protein, Gene)",
+    "Run BLAST searches and parse results using Bio.Blast module",
+    "Perform pairwise and multiple sequence alignments with Bio.Align",
+    "Analyze protein 3D structures from PDB files using Bio.PDB",
+    "Build and manipulate phylogenetic trees with Bio.Phylo"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🧬",
+  "version": "1.85",
+  "license": "BSD-3-Clause",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 546 static findings are FALSE POSITIVES. This skill contains only markdown documentation files with Python code examples for Biopython. The scanner misidentified markdown code block delimiters as shell commands, Biopython module names (Bio.Align, Bio.Phylo) as cryptographic algorithms, and documentation placeholders as real secrets. No executable code exists. This is a legitimate scientific documentation skill.",
+  "valueStatement": "Process DNA, RNA, and protein sequences efficiently using Biopython. Access NCBI databases programmatically, perform sequence alignments, and automate complex bioinformatics pipelines for research applications.",
+  "userTitle": "Analyze biological sequences with Biopython",
+  "limitations": [
+    "Does not include GUI tools or interactive visualization",
+    "Local BLAST requires separate BLAST+ installation",
+    "Does not perform de novo genome assembly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Research Scientists",
+      "title": "Batch sequence processing",
+      "description": "Process large FASTA files, calculate GC content, translate sequences, and prepare data for downstream analysis."
+    },
+    {
+      "targetUser": "Bioinformatics Developers",
+      "title": "Build analysis pipelines",
+      "description": "Create automated workflows for sequence retrieval, alignment, phylogenetics, and results parsing."
+    },
+    {
+      "targetUser": "Students and Educators",
+      "title": "Learn bioinformatics",
+      "description": "Explore sequence operations, database access, and structural bioinformatics through practical examples."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Read sequence files",
+      "scenario": "Load FASTA data",
+      "prompt": "Show me how to read a FASTA file and extract sequence records using Bio.SeqIO."
+    },
+    {
+      "title": "NCBI database access",
+      "scenario": "Search publications",
+      "prompt": "Write code to search PubMed using Bio.Entrez and fetch the top 10 results for a query about protein kinase."
+    },
+    {
+      "title": "Sequence alignment",
+      "scenario": "Compare sequences",
+      "prompt": "Perform a pairwise global alignment between two DNA sequences using Bio.Align and show me the alignment score."
+    },
+    {
+      "title": "Protein structure",
+      "scenario": "Parse PDB file",
+      "prompt": "Load a PDB file and calculate the distance between two alpha carbon atoms in a protein chain."
+    }
+  ],
+  "bestPractices": [
+    "Always set Entrez.email when accessing NCBI databases to comply with their usage policy",
+    "Use iterators like SeqIO.parse() for large files to avoid loading everything into memory",
+    "Cache downloaded sequences to avoid redundant network requests and respect rate limits"
+  ],
+  "antiPatterns": [
+    "Do not hardcode API keys in scripts; use environment variables instead",
+    "Do not skip error handling for network operations which can fail due to connectivity issues",
+    "Do not process large alignments without checking memory requirements first"
+  ],
+  "faq": [
+    {
+      "question": "What file formats does Biopython support?",
+      "answer": "FASTA, GenBank, FASTQ, EMBL, SwissProt, PDB, mmCIF, and many more alignment formats."
+    },
+    {
+      "question": "How do I access NCBI databases?",
+      "answer": "Use Bio.Entrez with your email set. Search with esearch, fetch with efetch, and parse results with Entrez.read."
+    },
+    {
+      "question": "Can Biopython run local BLAST searches?",
+      "answer": "Yes, but requires NCBI BLAST+ installed separately. Use Bio.Blast.Applications for command-line execution."
+    },
+    {
+      "question": "How do I calculate sequence properties?",
+      "answer": "Use Bio.SeqUtils for GC content, molecular weight, melting temperature, and protein analysis."
+    },
+    {
+      "question": "What is the difference between parse and read?",
+      "answer": "parse() returns an iterator for multiple records; read() expects exactly one record in the file."
+    },
+    {
+      "question": "How do I handle rate limits with NCBI?",
+      "answer": "Set Entrez.api_key for 10 requests per second, or use 3 per second without a key. Add delays between requests."
+    }
+  ],
+  "seoKeywords": [
+    "Biopython",
+    "bioinformatics",
+    "sequence analysis",
+    "NCBI Entrez",
+    "BLAST search",
+    "protein structure",
+    "phylogenetics",
+    "DNA analysis",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/biopython",
+  "sourceType": "community",
+  "dependencies": []
+}

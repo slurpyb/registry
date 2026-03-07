@@ -1,0 +1,142 @@
+{
+  "name": "web-fetch",
+  "type": "skill",
+  "description": "Fetches web content with intelligent content extraction, converting HTML to clean markdown. Use for documentation, articles, and reference pages http/https URLs.",
+  "domain": "tools",
+  "subdomain": "search",
+  "specialty": "content extraction",
+  "quality": 5,
+  "qualityReason": "Specific, intelligent extraction",
+  "bundleHints": [
+    "research",
+    "content",
+    "fetching"
+  ],
+  "tags": [
+    "cleaning",
+    "content-extraction",
+    "documentation",
+    "fetch",
+    "html",
+    "markdown",
+    "web"
+  ],
+  "capabilities": [
+    "Fetch any HTTP/HTTPS URL and extract its main content",
+    "Use CSS selectors to target specific page elements",
+    "Convert HTML to clean, readable markdown automatically",
+    "Handle common site patterns like MDN, GitHub docs, and Anthropic docs",
+    "Remove navigation, headers, footers, and other noise",
+    "Preserve code blocks with proper language highlighting"
+  ],
+  "author": "0xBigBoss",
+  "icon": "🌐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate web content fetching utility. Makes network requests to URLs provided by users, parses HTML, and converts to markdown. No filesystem access beyond skill directory, no credential access, no persistence mechanisms. All 50 static findings are false positives: template literals were misidentified as shell commands, and documentation references were misidentified as actual crypto/filesystem/network threats. Purpose matches capabilities.",
+  "valueStatement": "Converting web pages to markdown is time-consuming and error-prone. This skill uses intelligent content extraction with CSS selectors to fetch any URL and produce clean, readable markdown output for documentation, articles, and reference pages.",
+  "userTitle": "Fetch web content as clean markdown",
+  "limitations": [
+    "Cannot extract client-rendered JavaScript content",
+    "Requires URL as input parameter",
+    "May not work with sites requiring authentication",
+    "Depends on site structure for content detection"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Documentation writers",
+      "title": "Fetch technical documentation",
+      "description": "Pull documentation from MDN, Anthropic, or GitHub docs and convert to markdown for offline reading or embedding."
+    },
+    {
+      "targetUser": "Researchers",
+      "title": "Extract article content",
+      "description": "Convert blog posts, news articles, and reference pages to clean markdown for summarization and analysis."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Capture code examples",
+      "description": "Extract code blocks from documentation with proper syntax highlighting for use in projects."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic fetch",
+      "scenario": "Fetch a simple URL",
+      "prompt": "Use the web-fetch skill to get the content from {URL} and convert it to markdown."
+    },
+    {
+      "title": "With selector",
+      "scenario": "Target specific content",
+      "prompt": "Fetch {URL} and extract only the main article content using the appropriate CSS selector."
+    },
+    {
+      "title": "Documentation site",
+      "scenario": "Fetch from known sites",
+      "prompt": "Get the documentation from {URL} using the platform.claude.com or docs.anthropic.com selector pattern."
+    },
+    {
+      "title": "Unknown site",
+      "scenario": "Auto-detect content",
+      "prompt": "Fetch {URL} using the Bun script to auto-detect the main content area and convert to clean markdown."
+    }
+  ],
+  "bestPractices": [
+    "Use site-specific selectors when available for cleaner output",
+    "Verify the selector matches the intended content before full extraction",
+    "Check for authentication requirements on protected sites"
+  ],
+  "antiPatterns": [
+    "Using generic selectors on sites with complex layouts",
+    "Expecting JavaScript-rendered content to appear",
+    "Fetching large pages without targeting specific sections"
+  ],
+  "faq": [
+    {
+      "question": "What platforms are supported?",
+      "answer": "Works with Claude, Codex, and Claude Code. Run via skill invocation or bun ~/.claude/skills/web-fetch/fetch.ts <url>."
+    },
+    {
+      "question": "What are the rate limits?",
+      "answer": "No built-in limits. Respect target servers by not making excessive requests in short timeframes."
+    },
+    {
+      "question": "Can I use this with authenticated pages?",
+      "answer": "The skill makes unauthenticated requests. Sites requiring login or tokens will return error pages."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "The skill only fetches URLs you provide. No data is stored or sent to third-party servers beyond the target URL."
+    },
+    {
+      "question": "Why is the output empty?",
+      "answer": "The CSS selector may not match any elements. Try broader selectors like main or article, or use the Bun script."
+    },
+    {
+      "question": "How is this different from curl?",
+      "answer": "curl fetches raw HTML. This skill parses the HTML, extracts main content, removes noise, and outputs clean markdown."
+    }
+  ],
+  "seoKeywords": [
+    "web fetch",
+    "markdown conversion",
+    "html to markdown",
+    "content extraction",
+    "curl html2markdown",
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "web scraping",
+    "documentation fetcher"
+  ],
+  "sourceUrl": "https://github.com/0xBigBoss/claude-code/tree/main/.claude/skills/web-fetch",
+  "sourceType": "community",
+  "dependencies": []
+}

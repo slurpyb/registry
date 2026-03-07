@@ -1,0 +1,143 @@
+{
+  "name": "cookbook-audit",
+  "type": "skill",
+  "description": "Audit an Anthropic Cookbook notebook based on a rubric. Use whenever a notebook review or audit is requested.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "notebook review",
+  "quality": 5,
+  "qualityReason": "Clear audit use case",
+  "bundleHints": [
+    "documentation",
+    "quality-assurance",
+    "notebook-tools"
+  ],
+  "tags": [
+    "anthropic",
+    "audit",
+    "notebook",
+    "quality assurance",
+    "quality-assurance",
+    "rubric",
+    "style guide",
+    "style-guide"
+  ],
+  "capabilities": [
+    "Run automated validation checks on Jupyter notebooks",
+    "Detect hardcoded API keys and secrets using detect-secrets",
+    "Convert notebooks to markdown for easier review",
+    "Check for introduction, prerequisites, and conclusion sections",
+    "Validate code quality patterns and variable naming",
+    "Generate comprehensive audit reports with scoring"
+  ],
+  "author": "anthropics",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Quality assurance tool for auditing Cookbook notebooks. Uses trusted subprocess tools (uv, jupyter nbconvert, detect-secrets) for automated validation. All static findings are false positives triggered by documentation keywords and legitimate development patterns. No credential access, data exfiltration, or malicious behavior detected.",
+  "valueStatement": "Cookbook notebooks need consistent quality standards to ensure users can learn effectively. This skill provides automated validation checks and a comprehensive rubric for reviewing notebook quality, narrative flow, code quality, and technical accuracy.",
+  "userTitle": "Audit Cookbook notebooks with standardized rubric",
+  "limitations": [
+    "Only reviews Jupyter notebook files (.ipynb)",
+    "Does not execute notebook code to verify correctness",
+    "Automated checks supplement but do not replace manual review",
+    "Requires uv and detect-secrets to be available"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Cookbook maintainers",
+      "title": "Quality checks before publishing",
+      "description": "Validate new cookbooks meet style guidelines and contain no secrets before publication."
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Automated notebook review",
+      "description": "Use as first-pass review to catch common issues and standardize feedback across reviews."
+    },
+    {
+      "targetUser": "Content creators",
+      "title": "Self-review before submission",
+      "description": "Check your own notebooks against the rubric to improve quality before sharing."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick audit",
+      "scenario": "Run basic notebook validation",
+      "prompt": "Run cookbook-audit on [notebook_path] to check for issues."
+    },
+    {
+      "title": "Full review",
+      "scenario": "Complete audit with report",
+      "prompt": "Audit [notebook_path] using the cookbook-audit skill. Run automated checks, review against style_guide.md rubric, and provide a complete audit report."
+    },
+    {
+      "title": "Focused check",
+      "scenario": "Check specific aspect",
+      "prompt": "Check [notebook_path] for hardcoded secrets and verify the introduction section follows the cookbook style guidelines."
+    },
+    {
+      "title": "Comparison",
+      "scenario": "Audit multiple notebooks",
+      "prompt": "Audit both [notebook_1] and [notebook_2] using cookbook-audit. Compare their scores and provide specific recommendations for each."
+    }
+  ],
+  "bestPractices": [
+    "Always run automated checks before manual review to catch technical issues first",
+    "Reference style_guide.md for specific examples of good and bad notebook patterns",
+    "Provide specific, actionable feedback with line references rather than vague comments"
+  ],
+  "antiPatterns": [
+    "Accepting notebooks without checking for hardcoded API keys or secrets",
+    "Skipping the automated validation step and going straight to manual review",
+    "Providing generic feedback without specific examples from the notebook"
+  ],
+  "faq": [
+    {
+      "question": "What file types does this skill support?",
+      "answer": "Only Jupyter notebooks (.ipynb files) are supported. The skill validates notebook structure and content."
+    },
+    {
+      "question": "What models does this skill work with?",
+      "answer": "The skill validates notebook code uses valid Anthropic model names: claude-sonnet-4-5, claude-haiku-4-5, or claude-opus-4-5."
+    },
+    {
+      "question": "Does this skill modify my notebook?",
+      "answer": "No. The skill creates a read-only markdown version in the tmp/ folder for easier review. Your original notebook remains unchanged."
+    },
+    {
+      "question": "Is my notebook data safe?",
+      "answer": "Yes. The skill only reads your notebook and outputs a markdown review file. No data is sent externally beyond trusted tools like detect-secrets."
+    },
+    {
+      "question": "What if detect-secrets is not installed?",
+      "answer": "The skill falls back to basic regex pattern matching for common secret formats. Install detect-secrets for more comprehensive scanning."
+    },
+    {
+      "question": "How does this compare to manual review?",
+      "answer": "Automated checks catch technical issues like secrets and formatting. Manual review evaluates narrative quality, pedagogical effectiveness, and clarity."
+    }
+  ],
+  "seoKeywords": [
+    "Cookbook audit",
+    "notebook quality assurance",
+    "Anthropic Cookbook",
+    "Jupyter notebook review",
+    "claude code",
+    "notebook validation",
+    "style guide compliance",
+    "code review automation",
+    "documentation quality",
+    "notebook rubric"
+  ],
+  "sourceUrl": "https://github.com/anthropics/claude-cookbooks/tree/main/.claude/skills/cookbook-audit",
+  "sourceType": "community",
+  "dependencies": []
+}

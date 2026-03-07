@@ -1,0 +1,140 @@
+{
+  "name": "building-multiagent-systems",
+  "type": "skill",
+  "description": "This skill should be used when designing or implementing systems with multiple AI agents that coordinate to accomplish tasks. Triggers on \"multi-agent\", \"orchestrator\", \"sub-agent\", \"coordination\", \"delegation\", \"parallel agents\", \"sequential pipeline\", \"fan-out\", \"map-reduce\", \"spawn agents\", \"agent hierarchy\".",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "multi-agent design",
+  "quality": 5,
+  "qualityReason": "Comprehensive multi-agent focus",
+  "bundleHints": [
+    "agent-systems",
+    "orchestration"
+  ],
+  "tags": [
+    "architecture",
+    "coordination",
+    "multi-agent",
+    "orchestration",
+    "patterns",
+    "system-design"
+  ],
+  "capabilities": [
+    "Ask six discovery questions to understand requirements before architecting",
+    "Recommend one of seven coordination patterns based on use case: fan-out/fan-in, pipeline, delegation, work-stealing, map-reduce, peer collaboration, or MAKER",
+    "Guide implementation of four-layer architecture (reasoning, orchestration, tool bus, deterministic adapters)",
+    "Provide cascading stop pattern to prevent orphaned agents",
+    "Show cost tracking across agent hierarchies using hierarchical IDs",
+    "Design tool coordination with permission inheritance, resource locking, and rate limiting"
+  ],
+  "author": "2389-research",
+  "icon": "agent",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown files with TypeScript pseudocode examples. No executable code, network calls, file system access, or external commands. All 118 static findings are false positives from the scanner misinterpreting documentation context. TypeScript template literals were flagged as shell backticks, and architectural terms triggered cryptographic/reconnaissance heuristics. The skill provides only educational architectural guidance.",
+  "valueStatement": "Building systems with multiple coordinating AI agents requires careful architecture. This skill provides seven battle-tested coordination patterns and four-layer architecture guidance to design robust, scalable multi-agent systems that handle cleanup, cost tracking, and error recovery.",
+  "userTitle": "Design production-ready multi-agent AI systems",
+  "limitations": [
+    "Provides architectural guidance only; does not generate complete working code",
+    "Language-agnostic patterns require implementation in your chosen language",
+    "Assumes basic familiarity with agentic AI concepts and tool use",
+    "Does not integrate with specific agent frameworks or platforms"
+  ],
+  "useCases": [
+    {
+      "targetUser": "System architects",
+      "title": "Choose coordination pattern",
+      "description": "Select the right pattern for your workload by answering six discovery questions about scale, state, and constraints"
+    },
+    {
+      "targetUser": "ML engineers",
+      "title": "Implement agent lifecycle",
+      "description": "Build cascading stop, orphan detection, and checkpointing for reliable multi-agent systems that survive crashes"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Track costs at scale",
+      "description": "Aggregate costs across agent hierarchies and implement rate limiting to prevent budget overruns"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic architecture",
+      "scenario": "First multi-agent system",
+      "prompt": "I need to build a multi-agent system. What patterns should I consider and what questions should I ask before starting?"
+    },
+    {
+      "title": "Pattern selection",
+      "scenario": "Choosing coordination approach",
+      "prompt": "I have 100 files that need analysis. Each analysis is independent but results need synthesis. Which pattern fits best?"
+    },
+    {
+      "title": "Production hardening",
+      "scenario": "Making systems reliable",
+      "prompt": "My multi-agent system keeps leaving orphaned agents. How do I implement cascading stop and orphan detection?"
+    },
+    {
+      "title": "Cost optimization",
+      "scenario": "Managing budget",
+      "prompt": "I want to use different models for different tasks to reduce costs. How do I implement map-reduce with cheap mappers and smart reducers?"
+    }
+  ],
+  "bestPractices": [
+    "Implement four-layer architecture: keep tools deterministic (no LLM calls below Layer 1) for testability",
+    "Use hierarchical IDs to track costs and delegate depth; prevent infinite recursion with max-depth limits",
+    "Always stop children before stopping parent (cascading stop) to prevent orphaned agents consuming resources"
+  ],
+  "antiPatterns": [
+    "Placing LLM calls inside tool implementations breaks determinism and makes testing impossible",
+    "Missing cascading stop leads to orphaned agents when the orchestrator crashes or exits",
+    "No permission inheritance allows sub-agents to escalate privileges beyond what the parent has access to"
+  ],
+  "faq": [
+    {
+      "question": "What languages does this skill support?",
+      "answer": "Language-agnostic. Patterns apply to TypeScript, Python, Go, Rust, and other languages with agent frameworks."
+    },
+    {
+      "question": "How many agents can this handle?",
+      "answer": "Patterns scale from 2-5 agents (small) to 10-50 (medium) to 100+ (large). Choose pattern based on your scale."
+    },
+    {
+      "question": "Can I integrate with existing agent frameworks?",
+      "answer": "Yes. The skill provides pattern guidance that works with any framework implementing agent spawning and lifecycle management."
+    },
+    {
+      "question": "Is data safe with multi-agent systems?",
+      "answer": "This skill emphasizes permission inheritance (children inherit subset of parent permissions) to prevent privilege escalation."
+    },
+    {
+      "question": "Why are agents getting orphaned?",
+      "answer": "Missing cascading stop pattern. Always stop children before stopping parent. Implement heartbeat monitoring to detect orphans."
+    },
+    {
+      "question": "How is this different from simple parallel processing?",
+      "answer": "Multi-agent systems involve AI reasoning at each step. Coordination patterns address agent-specific challenges like cost tracking, error recovery, and cleanup."
+    }
+  ],
+  "seoKeywords": [
+    "multi-agent systems",
+    "agent orchestration",
+    "coordination patterns",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "fan-out fan-in",
+    "map-reduce",
+    "agent hierarchy",
+    "cascading stop"
+  ],
+  "sourceUrl": "https://github.com/2389-research/claude-plugins/tree/main/building-multiagent-systems/skills",
+  "sourceType": "community",
+  "dependencies": []
+}

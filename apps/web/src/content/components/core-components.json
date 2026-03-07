@@ -1,0 +1,141 @@
+{
+  "name": "core-components",
+  "type": "skill",
+  "description": "Core component library and design system patterns. Use when building UI, using design tokens, or working with the component library.",
+  "domain": "design",
+  "subdomain": "design-systems",
+  "specialty": "component library",
+  "quality": 5,
+  "qualityReason": "Core design system focus",
+  "bundleHints": [
+    "design-system",
+    "ui-library",
+    "react-stack"
+  ],
+  "tags": [
+    "design-system",
+    "library",
+    "patterns",
+    "react",
+    "tokens",
+    "ui-components"
+  ],
+  "capabilities": [
+    "Apply spacing, color, and typography design tokens",
+    "Use core layout components like Box, HStack, and VStack",
+    "Build screen layouts with consistent structure",
+    "Create accessible form layouts with proper spacing",
+    "Implement Button variants for different action types",
+    "Avoid anti-patterns like hard-coded values and inline styles"
+  ],
+  "author": "ChrisWiles",
+  "icon": "🧩",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is purely documentation containing design system patterns and code examples. All 95 static findings are false positives caused by pattern matching against Markdown formatting (backticks), design token names ($md, $sm, $lg), and metadata fields. No executable code, network access, or security risks present.",
+  "valueStatement": "Building interfaces without design standards leads to inconsistent styling and maintenance problems. This skill provides component patterns and design tokens for unified, maintainable user interfaces.",
+  "userTitle": "Build consistent UI with design system patterns",
+  "limitations": [
+    "Provides patterns only, does not generate runnable component code",
+    "Does not integrate with specific CSS frameworks automatically",
+    "Does not include runtime component library implementation",
+    "Requires adaptation to your specific design token values"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend Developers",
+      "title": "Build consistent UI components",
+      "description": "Apply design tokens and component patterns to create unified interfaces across your React application"
+    },
+    {
+      "targetUser": "Design System Maintainers",
+      "title": "Document component standards",
+      "description": "Use these patterns as templates for your own design system documentation and component guidelines"
+    },
+    {
+      "targetUser": "React Native Developers",
+      "title": "Create mobile UI layouts",
+      "description": "Apply cross-platform component patterns with Box, HStack, and VStack for consistent mobile interfaces"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Component Usage",
+      "scenario": "Create a styled button",
+      "prompt": "Show me how to create a Button using design tokens with solid and outline variants"
+    },
+    {
+      "title": "Layout Structure",
+      "scenario": "Build a screen layout",
+      "prompt": "Create a screen layout with header, scrollable content, and consistent padding using VStack and design tokens"
+    },
+    {
+      "title": "Form with Validation",
+      "scenario": "Build a login form",
+      "prompt": "Build a form with Input components, proper spacing tokens, and error state handling using statusError token"
+    },
+    {
+      "title": "Custom Card Component",
+      "scenario": "Create reusable component",
+      "prompt": "Create a Card component with elevated and outlined variants using Box and design tokens for padding and border radius"
+    }
+  ],
+  "bestPractices": [
+    "Always use design tokens instead of hard-coded values for colors, spacing, and typography",
+    "Import core components from your component library instead of raw platform components",
+    "Use semantic color tokens like $textPrimary and $statusError for theme-aware styling"
+  ],
+  "antiPatterns": [
+    "Hard-coding pixel values or hex colors instead of design tokens",
+    "Using raw View and Text from react-native instead of Box and Text from core",
+    "Applying inline styles with the style prop instead of token-based props"
+  ],
+  "faq": [
+    {
+      "question": "What platforms support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code for React and React Native component guidance."
+    },
+    {
+      "question": "What design tokens are available?",
+      "answer": "Spacing tokens $1 through $8, semantic color tokens, and typography tokens from $xs to $2xl."
+    },
+    {
+      "question": "How do I adapt these patterns to my codebase?",
+      "answer": "Replace the example imports with your component library exports. The token naming and patterns remain the same."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill contains only documentation and patterns. No code is executed and no data is transmitted."
+    },
+    {
+      "question": "Why use design tokens instead of hard-coded values?",
+      "answer": "Tokens ensure consistent styling, enable theme switching, and make design changes easier to maintain."
+    },
+    {
+      "question": "Does this work with CSS-in-JS libraries?",
+      "answer": "Yes. The patterns and tokens work with styled-components, Emotion, or any CSS-in-JS approach."
+    }
+  ],
+  "seoKeywords": [
+    "design system",
+    "UI components",
+    "design tokens",
+    "React patterns",
+    "component library",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "styled components",
+    "frontend development"
+  ],
+  "sourceUrl": "https://github.com/ChrisWiles/claude-code-showcase/tree/main/.claude/skills/core-components",
+  "sourceType": "community",
+  "dependencies": []
+}

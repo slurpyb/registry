@@ -1,0 +1,145 @@
+{
+  "name": "airflow-dag-patterns",
+  "type": "skill",
+  "description": "Build production Apache Airflow DAGs with best practices for operators, sensors, testing, and deployment. Use when creating data pipelines, orchestrating workflows, or scheduling batch jobs.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "DAG best practices",
+  "quality": 5,
+  "qualityReason": "Production-grade pipeline patterns",
+  "bundleHints": [
+    "data-engineering",
+    "etl-pipelines",
+    "workflow-orchestration"
+  ],
+  "tags": [
+    "airflow",
+    "apache-airflow",
+    "batch-jobs",
+    "dag",
+    "data-pipelines",
+    "data-workflows",
+    "etl",
+    "orchestration",
+    "production-dags",
+    "scheduling"
+  ],
+  "capabilities": [
+    "Generate DAG structures with proper task dependencies and scheduling",
+    "Implement custom operators and sensors for specific data sources",
+    "Apply error handling patterns with callbacks and retry logic",
+    "Create testable DAG code with unit and integration test templates",
+    "Design branching pipelines with conditional task execution",
+    "Configure sensors for external dependencies and file availability"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 41 patterns but all are false positives. Backtick characters are markdown formatting for code blocks, not shell execution. globals() usage is standard Airflow pattern for dynamic DAG generation. URLs are documentation references. This is educational documentation with no executable security risks.",
+  "valueStatement": "Creating production-ready Airflow DAGs requires understanding operators, sensors, and error handling patterns. This skill provides battle-tested templates and best practices for data pipeline orchestration.",
+  "userTitle": "Build Apache Airflow DAGs with production patterns",
+  "limitations": [
+    "Requires Apache Airflow to be installed and configured in your environment",
+    "Does not provide cloud-specific connection configurations (AWS, GCP, Azure)",
+    "Code examples are templates that require customization for your data sources",
+    "Does not handle Airflow deployment or infrastructure setup"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data engineers implementing production ETL workflows",
+      "title": "Data Engineering Teams Building ETL Pipelines",
+      "description": "Create scheduled data pipelines that extract from sources, transform data, and load to warehouses with proper error handling and monitoring."
+    },
+    {
+      "targetUser": "Analytics engineers managing reporting pipelines",
+      "title": "Analytics Teams Orchestrating Report Generation",
+      "description": "Schedule automated report generation tasks with dependencies on data availability and upstream processing completion."
+    },
+    {
+      "targetUser": "ML engineers automating model retraining workflows",
+      "title": "ML Engineers Training Models on Schedule",
+      "description": "Orchestrate machine learning training pipelines with data validation, model training, and deployment stages."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic DAG Creation",
+      "prompt": "Create an Airflow DAG that runs daily at 6 AM to extract data from a CSV file, transform it, and load it to a database. Include basic error handling with retries.",
+      "scenario": "Beginner: Starting a simple ETL pipeline"
+    },
+    {
+      "title": "Dynamic DAG Generation",
+      "prompt": "Generate multiple similar DAGs from a configuration list for processing different data sources. Each DAG should have the same structure but different schedules and source paths.",
+      "scenario": "Intermediate: Scaling to multiple similar pipelines"
+    },
+    {
+      "title": "Branching Pipeline with Data Quality Checks",
+      "prompt": "Create a DAG that checks data quality metrics and branches to different processing paths based on the quality score. Include proper join logic after branching.",
+      "scenario": "Advanced: Conditional workflow execution"
+    },
+    {
+      "title": "Sensor-Based External Dependencies",
+      "prompt": "Build a DAG that waits for files to arrive in S3, depends on another DAG completing, and monitors an API health endpoint before processing. Use reschedule mode for sensors.",
+      "scenario": "Advanced: Complex external dependencies"
+    }
+  ],
+  "bestPractices": [
+    "Use the TaskFlow API for cleaner code and automatic XCom passing between tasks",
+    "Design all tasks to be idempotent so retries do not cause data duplication",
+    "Set appropriate timeouts on tasks and use reschedule mode for sensors to free worker resources"
+  ],
+  "antiPatterns": [
+    "Using depends_on_past=True which creates unnecessary bottlenecks and blocks parallel execution",
+    "Hardcoding dates or values instead of using Airflow macros like {{ ds }} for execution dates",
+    "Placing heavy business logic directly in DAG files instead of importing from separate modules"
+  ],
+  "faq": [
+    {
+      "question": "How do I test my DAGs before deploying to production?",
+      "answer": "Use the DagBag class to load and validate DAGs in unit tests. Test individual task functions separately with pytest. Run DAGs in a local Airflow instance with catchup=False to verify execution flow."
+    },
+    {
+      "question": "What is the difference between operators and sensors?",
+      "answer": "Operators perform actions like running Python code or executing queries. Sensors are special operators that wait for external conditions like file availability, API responses, or other DAG completions before proceeding."
+    },
+    {
+      "question": "How do I pass data between tasks in Airflow?",
+      "answer": "Use XCom for small data by returning values from task functions. The TaskFlow API handles XCom automatically. For large data, store in external storage like S3 and pass references between tasks."
+    },
+    {
+      "question": "Why are my tasks not retrying on failure?",
+      "answer": "Ensure retries and retry_delay are set in default_args or individual task definitions. Check that the task is not failing during the scheduling phase. Verify retry_exponential_backoff for progressive delay increases."
+    },
+    {
+      "question": "How do I handle DAG dependencies on other DAGs?",
+      "answer": "Use ExternalTaskSensor to wait for specific tasks in upstream DAGs to complete. Configure execution_date_fn to match the correct execution dates between dependent DAGs."
+    },
+    {
+      "question": "What trigger rule should I use for cleanup tasks?",
+      "answer": "Use TriggerRule.ALL_DONE for cleanup that must run regardless of upstream success or failure. Use TriggerRule.ALL_SUCCESS for tasks that should only run if all upstream tasks succeeded."
+    }
+  ],
+  "seoKeywords": [
+    "Apache Airflow",
+    "DAG patterns",
+    "data pipeline",
+    "workflow orchestration",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "ETL",
+    "airflow operators",
+    "airflow sensors"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/airflow-dag-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

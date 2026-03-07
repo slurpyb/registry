@@ -1,0 +1,143 @@
+{
+  "name": "fal-upscale",
+  "type": "skill",
+  "description": "Upscale and enhance image and video resolution using AI",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "model chaining",
+  "quality": 5,
+  "qualityReason": "Actionable workflow generation",
+  "bundleHints": [
+    "fal-stack",
+    "agent-orchestration"
+  ],
+  "tags": [
+    "ai models",
+    "ai-enhancement",
+    "chaining",
+    "fal-ai",
+    "fal.ai",
+    "image",
+    "json-generation",
+    "orchestration",
+    "upscaling",
+    "video",
+    "workflow"
+  ],
+  "capabilities": [
+    "Upscale low-resolution images to higher resolutions using AI models",
+    "Enhance video quality with intelligent frame improvement",
+    "Process multiple image formats for upscaling workflows",
+    "Integrate fal.ai upscaling APIs into Claude workflows",
+    "Provide upscaling recommendations based on source media"
+  ],
+  "author": "sickn33",
+  "icon": "🖼️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 4 patterns that are all false positives. The 2 URL findings are documentation metadata links in frontmatter and reference section. The 2 weak crypto findings are text descriptions, not actual cryptographic code. No executable code present in SKILL.md - pure documentation file.",
+  "valueStatement": "Low-resolution media limits professional use. This skill enhances image and video quality using fal.ai's AI upscaling models.",
+  "userTitle": "Upscale images and videos with AI",
+  "limitations": [
+    "Requires network access to fal.ai external API services",
+    "API usage may incur costs based on fal.ai pricing tiers",
+    "Cannot process media files without internet connectivity",
+    "Output quality depends on source media condition"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Photographers and archivists",
+      "title": "Photo restoration",
+      "description": "Enhance old or low-quality photos to modern resolution standards for archival or printing purposes"
+    },
+    {
+      "targetUser": "Video editors and content creators",
+      "title": "Video content enhancement",
+      "description": "Upscale legacy video content to HD or 4K resolution for streaming platforms"
+    },
+    {
+      "targetUser": "Graphic designers and marketing teams",
+      "title": "Design asset preparation",
+      "description": "Prepare small images for large-format displays by intelligently increasing resolution"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic image upscaling",
+      "prompt": "Upscale this image to 4x resolution while preserving details and minimizing artifacts."
+    },
+    {
+      "title": "Batch image enhancement",
+      "prompt": "Process these 10 product photos and upscale each to 2048x2048 pixels for our e-commerce catalog.",
+      "scenario": "E-commerce product photography"
+    },
+    {
+      "title": "Video resolution boost",
+      "prompt": "Enhance this 480p video clip to 1080p using AI upscaling suitable for YouTube upload.",
+      "scenario": "Content creator workflow"
+    },
+    {
+      "title": "Quality comparison analysis",
+      "prompt": "Upscale this image using different AI models and provide a comparison so I can select the best result.",
+      "scenario": "Professional photo editing"
+    }
+  ],
+  "bestPractices": [
+    "Always review upscaled results before using in production workflows",
+    "Start with 2x upscaling before attempting higher magnifications for best quality",
+    "Keep original files as backup before applying AI enhancement"
+  ],
+  "antiPatterns": [
+    "Do not rely on upscaling to fix severely damaged or corrupted images",
+    "Avoid upscaling text-heavy images as AI may distort character shapes",
+    "Do not use AI upscaling when authentic original resolution is required for verification"
+  ],
+  "faq": [
+    {
+      "question": "What image formats does fal-upscale support?",
+      "answer": "The skill supports common formats including JPEG, PNG, WebP, and GIF. RAW formats may require conversion first."
+    },
+    {
+      "question": "How much does it cost to use fal.ai upscaling?",
+      "answer": "Costs depend on fal.ai's current pricing model. Check their official documentation for per-image or subscription rates."
+    },
+    {
+      "question": "Can this skill upscale videos in real-time?",
+      "answer": "No, upscaling is processed batch-style through the API. Real-time video enhancement requires dedicated hardware solutions."
+    },
+    {
+      "question": "What is the maximum resolution this skill can output?",
+      "answer": "Maximum output depends on fal.ai model limits, typically up to 4K for most use cases."
+    },
+    {
+      "question": "Does the upscaled image contain watermarks?",
+      "answer": "No, fal.ai upscaling does not add watermarks to output images. You retain full rights to enhanced content."
+    },
+    {
+      "question": "Can I use this skill offline?",
+      "answer": "No, the skill requires network connectivity to access fal.ai's API services for AI processing."
+    }
+  ],
+  "seoKeywords": [
+    "Claude AI",
+    "Codex skills",
+    "Claude Code",
+    "image upscaling",
+    "video enhancement",
+    "AI upscaler",
+    "fal.ai",
+    "resolution boost",
+    "media enhancement",
+    "AI image tools"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/web-app/public/skills/fal-upscale",
+  "sourceType": "community",
+  "dependencies": []
+}

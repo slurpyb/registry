@@ -1,0 +1,142 @@
+{
+  "name": "fastapi-app",
+  "type": "skill",
+  "description": "Use when creating FastAPI backend applications - route handlers, dependencies, CORS config, or Pydantic models.\nNOT when frontend logic, non-Python backends, or unrelated server-side code.\nTriggers: \"FastAPI\", \"student endpoint\", \"API route\", \"dependency injection\", \"CORS\", \"Pydantic model\".\n",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "async APIs",
+  "quality": 4,
+  "qualityReason": "Strong async API coverage",
+  "bundleHints": [
+    "python-stack",
+    "fastapi-suite"
+  ],
+  "tags": [
+    "api",
+    "async",
+    "backend",
+    "endpoints",
+    "fastapi",
+    "pydantic",
+    "python",
+    "validation"
+  ],
+  "capabilities": [
+    "Generate FastAPI application structure with lifespan context manager and logging",
+    "Create APIRouter endpoints with CRUD operations for students, fees, and attendance",
+    "Implement JWT authentication with role-based access control",
+    "Configure CORS middleware for frontend origins and credentials",
+    "Build Pydantic v2 models with Field validation and ORM compatibility"
+  ],
+  "author": "Awais68",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill provides legitimate FastAPI development guidance. Pattern detections (C2 keywords, weak crypto, command execution) are misidentifications of standard code examples and documentation URLs in the SKILL.md file.",
+  "valueStatement": "FastAPI skills help developers create robust Python web APIs with automatic documentation, validation, and dependency injection. This skill provides expert guidance for building production-ready FastAPI applications with route handlers, CORS configuration, and Pydantic v2 models.",
+  "userTitle": "Build FastAPI Backend Applications",
+  "limitations": [
+    "Does not generate database migrations or schema changes",
+    "Does not create frontend React or Vue components",
+    "Does not set up deployment infrastructure like Docker or CI/CD",
+    "Does not write unit tests or integration tests"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building ERP or educational platform APIs",
+      "title": "Backend API Development",
+      "description": "Create new FastAPI endpoints for student management, fee tracking, or attendance systems with proper authentication and validation."
+    },
+    {
+      "targetUser": "Developers implementing authentication and authorization",
+      "title": "API Security Implementation",
+      "description": "Add JWT authentication, role-based access control, and secure CORS configuration to existing FastAPI applications."
+    },
+    {
+      "targetUser": "API designers setting up data validation layers",
+      "title": "Data Validation Setup",
+      "description": "Define Pydantic v2 models with field validation, email patterns, and ORM compatibility for API request and response schemas."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create FastAPI App Structure",
+      "prompt": "Create a FastAPI application with lifespan events, CORS middleware allowing localhost:3000 and localhost:5173, and include routers for /api/v1/auth, /api/v1/students, and /api/v1/fees with proper tags and dependencies.",
+      "scenario": "Initializing a new FastAPI backend project"
+    },
+    {
+      "title": "Build CRUD Endpoints",
+      "prompt": "Generate APIRouter with GET, POST, PUT, and DELETE endpoints for a student resource. Include pagination with skip/limit, response models using Pydantic, and dependency injection for database session and current user authentication.",
+      "scenario": "Building RESTful CRUD operations for a resource"
+    },
+    {
+      "title": "Add JWT Authentication",
+      "prompt": "Create dependencies for JWT authentication including create_access_token function, get_current_user dependency with HTTPBearer, and get_admin_user for role-based access control. Use HS256 algorithm and environment variables for secrets.",
+      "scenario": "Implementing authentication and authorization"
+    },
+    {
+      "title": "Define Pydantic Schemas",
+      "prompt": "Create Pydantic v2 models for a student entity including StudentBase, StudentCreate, StudentUpdate, and StudentResponse. Include Field validators for name length, EmailStr for email, and ConfigDict for ORM compatibility.",
+      "scenario": "Defining data validation and serialization schemas"
+    }
+  ],
+  "bestPractices": [
+    "Use async SQLAlchemy sessions with context managers to prevent connection leaks",
+    "Always return appropriate HTTP status codes (200, 201, 204, 400, 401, 403, 404) for API responses",
+    "Store secrets in environment variables using os.getenv() with sensible defaults for development"
+  ],
+  "antiPatterns": [
+    "Do not hardcode secrets or passwords directly in source code files",
+    "Do not use synchronous database calls in async FastAPI route handlers",
+    "Do not disable Pydantic validation or omit response models in endpoints"
+  ],
+  "faq": [
+    {
+      "question": "What FastAPI features does this skill support?",
+      "answer": "This skill supports FastAPI app initialization, APIRouter for modular routes, dependency injection with Depends(), CORS middleware configuration, Pydantic v2 models, and async SQLAlchemy integration."
+    },
+    {
+      "question": "Does this skill generate authentication code?",
+      "answer": "Yes, it generates JWT authentication using python-jose with HS256 algorithm, including token creation, validation dependencies, and role-based access control decorators."
+    },
+    {
+      "question": "Can this skill create database models?",
+      "answer": "The skill provides guidance on SQLAlchemy async engine setup and session management. For database models, it generates Pydantic schemas for request/response validation rather than ORM model definitions."
+    },
+    {
+      "question": "What validation does Pydantic v2 support?",
+      "answer": "Pydantic v2 supports Field validators for min/max length, EmailStr for email validation, pattern matching with regex, gt/lt for numeric values, and ConfigDict for ORM compatibility."
+    },
+    {
+      "question": "How does CORS configuration work?",
+      "answer": "The skill configures CORSMiddleware with allow_origins for specific frontend URLs, allow_credentials for cookies/auth headers, and allow_methods/allow_headers for cross-origin requests."
+    },
+    {
+      "question": "Does this skill handle deployment or Docker?",
+      "answer": "No, this skill focuses on application code generation. For deployment, it provides basic uvicorn run commands but does not generate Dockerfiles, docker-compose, or CI/CD configurations."
+    }
+  ],
+  "seoKeywords": [
+    "FastAPI",
+    "Python API",
+    "REST API",
+    "Pydantic validation",
+    "API development",
+    "FastAPI routing",
+    "dependency injection",
+    "CORS configuration",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/Awais68/hackathon-2-phase-ii-full-stack-web-app/tree/main/.claude/skills/fastapi-app",
+  "sourceType": "community",
+  "dependencies": []
+}

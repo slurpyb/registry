@@ -1,0 +1,140 @@
+{
+  "name": "linear-milestones-read",
+  "type": "skill",
+  "description": "List Linear project milestones via CLI (read-only operations)",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "milestones read",
+  "quality": 4,
+  "qualityReason": "Specific read functionality",
+  "bundleHints": [
+    "linear-tools",
+    "project-tracking"
+  ],
+  "tags": [
+    "cli",
+    "linear",
+    "milestones",
+    "project-management",
+    "project-tracking",
+    "read-only"
+  ],
+  "capabilities": [
+    "List milestones for a specific Linear project by name",
+    "List all milestones across all projects in the workspace",
+    "Filter results by configurable limit (default: 25)",
+    "Output milestone data as JSON for scripting",
+    "Filter projects using partial case-insensitive matching",
+    "Read Linear API key from environment or .env file"
+  ],
+  "author": "Bind",
+  "icon": "🎯",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate read-only Linear API integration. Accesses LINEAR_API_KEY for authentication and makes authenticated requests to Linear's official API endpoints. No code execution paths, no suspicious network destinations, no filesystem access beyond standard .env configuration. All 40 static findings are false positives triggered by documentation patterns and legitimate credential handling.",
+  "valueStatement": "Track project deadlines and milestones across Linear workspaces. Fetch milestone data directly from Linear API with flexible filtering by project name or list all milestones organization-wide.",
+  "userTitle": "List Linear project milestones",
+  "limitations": [
+    "Requires LINEAR_API_KEY to be set in environment",
+    "Only reads data; cannot create, update, or delete milestones",
+    "Does not support filtering by date range or milestone status",
+    "No built-in caching; each call queries the Linear API"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project managers",
+      "title": "Weekly milestone reviews",
+      "description": "Quickly list upcoming milestones across all projects to prepare for sprint planning meetings"
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Deadline awareness",
+      "description": "Check upcoming milestone dates for assigned projects without opening the Linear web interface"
+    },
+    {
+      "targetUser": "Technical leads",
+      "title": "Portfolio progress tracking",
+      "description": "Export milestone data as JSON to build custom dashboards tracking delivery timelines"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List project milestones",
+      "scenario": "Check milestones for a specific project",
+      "prompt": "List the milestones for the {project_name} project in Linear"
+    },
+    {
+      "title": "Show all milestones",
+      "scenario": "View all workspace milestones",
+      "prompt": "Show me all milestones across all Linear projects"
+    },
+    {
+      "title": "Export milestones as JSON",
+      "scenario": "Get data for external processing",
+      "prompt": "List all Linear milestones in JSON format so I can process them with jq"
+    },
+    {
+      "title": "Limit results",
+      "scenario": "View recent milestones only",
+      "prompt": "Show the last 10 milestones from Linear in JSON format"
+    }
+  ],
+  "bestPractices": [
+    "Store LINEAR_API_KEY securely in environment variables, never hardcode credentials in prompts",
+    "Use the --json flag when you need to process milestone data programmatically",
+    "Combine with jq for powerful filtering: bun list-milestones.js --all --json | jq '.[] | select(.state == \"planned\")'"
+  ],
+  "antiPatterns": [
+    "Do not use this skill to create or modify milestones; it is read-only",
+    "Avoid requesting milestone data without specifying --project or --all to prevent errors",
+    "Do not share your LINEAR_API_KEY in prompts or with other users"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "Works with Claude, Codex, and Claude Code. Requires bun runtime installed on your system."
+    },
+    {
+      "question": "What are the rate limits for Linear API?",
+      "answer": "Linear has standard API rate limits. The skill defaults to 25 results to stay within limits."
+    },
+    {
+      "question": "Can I integrate this with other tools?",
+      "answer": "Yes, use --json output and pipe to jq or other CLI tools for processing and integration."
+    },
+    {
+      "question": "Is my Linear data safe with this skill?",
+      "answer": "Yes. This is a read-only skill. It only fetches data using your API key and displays it."
+    },
+    {
+      "question": "Why is my API key not working?",
+      "answer": "Ensure LINEAR_API_KEY is set in your environment or .env file at git root. Get it from Linear Settings > API."
+    },
+    {
+      "question": "How is this different from the Linear web app?",
+      "answer": "This skill provides CLI access for automation and quick lookups without opening a browser."
+    }
+  ],
+  "seoKeywords": [
+    "linear milestones",
+    "linear project tracking",
+    "claude linear integration",
+    "codex linear milestones",
+    "claude-code linear",
+    "project milestone tracker",
+    "linear cli tool",
+    "agile milestones",
+    "sprint planning",
+    "linear api"
+  ],
+  "sourceUrl": "https://github.com/Bind/skillz.sh/tree/main/docs/registry/skills/linear-milestones-read",
+  "sourceType": "community",
+  "dependencies": []
+}

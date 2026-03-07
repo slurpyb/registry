@@ -1,0 +1,141 @@
+{
+  "name": "jadx",
+  "type": "skill",
+  "description": "Android APK decompiler that converts DEX bytecode to readable Java source code. Use when you need to decompile APK files, analyze app logic, search for vulnerabilities, find hardcoded credentials, or understand app behavior through readable source code.",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "APK decompilation",
+  "quality": 5,
+  "qualityReason": "Powerful reverse tool",
+  "bundleHints": [
+    "mobile-security",
+    "reverse-engineering"
+  ],
+  "tags": [
+    "android",
+    "apk",
+    "decompiler",
+    "dex",
+    "java-source",
+    "reverse-engineering",
+    "security-analysis"
+  ],
+  "capabilities": [
+    "Convert APK DEX bytecode to readable Java source code",
+    "Apply deobfuscation to restore meaningful class and method names",
+    "Search decompiled code for hardcoded credentials and API keys",
+    "Identify security vulnerabilities like SQL injection and weak crypto",
+    "Extract API endpoints and authentication mechanisms from apps",
+    "Export decompiled code as Gradle projects for further analysis"
+  ],
+  "author": "BrownFineSecurity",
+  "icon": "📱",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only instructional content for using jadx decompiler. No executable code, scripts, network calls, or file system access. All static findings are false positives - grep patterns teach finding credentials in analyzed apps, shell commands show legitimate jadx CLI usage, and keywords appear in standard documentation context.",
+  "valueStatement": "Android apps hide their code in DEX bytecode. This skill provides complete guidance for using jadx to convert APK files into readable Java source code. Analyze app logic, find vulnerabilities, and extract hardcoded credentials with expert techniques.",
+  "userTitle": "Decompile Android APKs for security analysis",
+  "limitations": [
+    "Requires jadx to be installed on your system",
+    "Cannot analyze heavily obfuscated or protected apps",
+    "Decompiled code is approximate, not exact original source",
+    "Java Runtime Environment (JRE) is required"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security researchers",
+      "title": "Find vulnerabilities in apps",
+      "description": "Search for insecure crypto, SQL injection points, and hardcoded secrets in Android applications."
+    },
+    {
+      "targetUser": "IoT security analysts",
+      "title": "Analyze companion app APIs",
+      "description": "Extract API endpoints and authentication logic from IoT device companion applications."
+    },
+    {
+      "targetUser": "App developers",
+      "title": "Understand competitor apps",
+      "description": "Study how other apps implement features and handle security in your codebase."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic decompile",
+      "scenario": "Decompile an APK file",
+      "prompt": "Decompile [app-name].apk using jadx with deobfuscation to [output-directory]"
+    },
+    {
+      "title": "Search secrets",
+      "scenario": "Find hardcoded credentials",
+      "prompt": "Search the decompiled code for API keys, passwords, and hardcoded credentials. Report all findings."
+    },
+    {
+      "title": "Vulnerability scan",
+      "scenario": "Find security issues",
+      "prompt": "Analyze the decompiled code for common vulnerabilities including: weak encryption (MD5, DES), SQL injection risks, insecure storage (MODE_WORLD_READABLE), and WebView issues."
+    },
+    {
+      "title": "API discovery",
+      "scenario": "Extract API endpoints",
+      "prompt": "Extract all API endpoints, base URLs, and authentication mechanisms from the decompiled Android app. List each endpoint with its HTTP method."
+    }
+  ],
+  "bestPractices": [
+    "Always enable deobfuscation (--deobf) when analyzing production apps",
+    "Use multi-threading (-j) to speed up decompilation of large APKs",
+    "Combine static analysis (jadx) with dynamic analysis for complete results"
+  ],
+  "antiPatterns": [
+    "Skipping deobfuscation on obfuscated apps produces unreadable code",
+    "Analyzing without checking for anti-decompilation protection mechanisms",
+    "Trusting decompiled code as exact original source without verification"
+  ],
+  "faq": [
+    {
+      "question": "What operating systems support jadx?",
+      "answer": "Jadx works on Windows, macOS, and Linux. Requires Java 8 or higher installed on your system."
+    },
+    {
+      "question": "Can jadx decompile all Android apps?",
+      "answer": "Most apps decompile successfully. Apps with heavy obfuscation or commercial protection may have limited results."
+    },
+    {
+      "question": "How does jadx compare to apktool?",
+      "answer": "Jadx produces readable Java code while apktool produces smali. Use jadx for code analysis, apktool for resource extraction."
+    },
+    {
+      "question": "Is decompiled code safe to use?",
+      "answer": "Decompiled code is for analysis only. Never use decompiled code in your own projects due to licensing and copyright."
+    },
+    {
+      "question": "Why does decompiled code look different from original?",
+      "answer": "Decompilation is an approximation. Compilers optimize code and remove comments, so output differs from original source."
+    },
+    {
+      "question": "Can jadx extract strings and resources?",
+      "answer": "Yes, jadx can export resources separately or as a complete Gradle project with all assets and strings included."
+    }
+  ],
+  "seoKeywords": [
+    "jadx",
+    "android decompiler",
+    "apk decompile",
+    "dex to java",
+    "android reverse engineering",
+    "security analysis",
+    "vulnerability research",
+    "claude code",
+    "codex",
+    "claude"
+  ],
+  "sourceUrl": "https://github.com/BrownFineSecurity/iothackbot/tree/master/skills/jadx",
+  "sourceType": "community",
+  "dependencies": []
+}

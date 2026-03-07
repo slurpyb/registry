@@ -1,0 +1,138 @@
+{
+  "name": "azure-deploy",
+  "type": "skill",
+  "description": "Execute deployment to Azure. Final step after preparation and validation. Runs azd up, azd deploy, or infrastructure provisioning commands. USE FOR: run azd up, run azd deploy, execute deployment, provision infrastructure, push to production, go live, ship it, deploy web app, deploy container app, deploy static site, deploy Azure Functions, bicep deploy, terraform apply. DO NOT USE FOR: creating or building apps (use azure-prepare), validating before deploy (use azure-validate).",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "deployment execution",
+  "quality": 5,
+  "qualityReason": "Final deployment step",
+  "bundleHints": [
+    "azure-devops",
+    "ci-cd",
+    "deployment"
+  ],
+  "tags": [
+    "azd",
+    "azure",
+    "cloud",
+    "deployment",
+    "devops",
+    "infrastructure",
+    "provisioning"
+  ],
+  "capabilities": [
+    "Execute azd up or azd deploy commands to provision and deploy to Azure",
+    "Deploy infrastructure using Bicep templates with proper error handling",
+    "Deploy infrastructure using Terraform with state management",
+    "Verify deployment success by checking endpoints and resource status",
+    "Handle common deployment errors with documented remediation steps",
+    "Integrate with CI/CD pipelines using GitHub Actions or Azure DevOps"
+  ],
+  "author": "microsoft",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate Microsoft Azure deployment skill. Static findings are false positives - all detections are documentation examples of Azure CLI commands, standard Azure project paths, Azure documentation URLs, and OIDC authentication patterns in CI/CD workflows. The skill includes proper safety guardrails requiring prerequisite validation and user confirmation for destructive actions.",
+  "valueStatement": "This skill automates Azure deployments using azd, Bicep, or Terraform. It ensures deployments only proceed after proper validation, reducing failed deployments and cloud costs.",
+  "userTitle": "Deploy to Azure",
+  "limitations": [
+    "Requires azure-prepare skill to run first to generate the deployment plan",
+    "Requires azure-validate skill to run first and pass validation",
+    "Cannot modify the plan status to bypass validation checks",
+    "Does not create or build applications - only deploys pre-built artifacts"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers deploying web apps to Azure",
+      "title": "Deploy web application to Azure",
+      "description": "Deploy a containerized web application to Azure Container Apps with a public endpoint"
+    },
+    {
+      "targetUser": "DevOps engineers managing Azure infrastructure",
+      "title": "Provision infrastructure with Bicep",
+      "description": "Deploy Azure infrastructure using Bicep templates with proper RBAC configuration"
+    },
+    {
+      "targetUser": "Platform engineers setting up deployment pipelines",
+      "title": "Set up CI/CD deployment pipeline",
+      "description": "Configure automated deployments using GitHub Actions with Azure OIDC authentication"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Azure deployment",
+      "prompt": "Deploy my application to Azure using azd. The plan is already validated."
+    },
+    {
+      "title": "Deploy with specific recipe",
+      "prompt": "Deploy using the Bicep recipe. Confirm the subscription and location with me first."
+    },
+    {
+      "title": "Deploy and handle errors",
+      "prompt": "Deploy to Azure. If there are errors, check the troubleshooting guide and suggest fixes."
+    },
+    {
+      "title": "Production deployment with confirmation",
+      "prompt": "I need to deploy to production. Run the pre-deploy checklist, confirm destructive actions, and deploy using Terraform."
+    }
+  ],
+  "bestPractices": [
+    "Always run azure-prepare before azure-deploy to generate a valid deployment plan",
+    "Always run azure-validate before azure-deploy to catch configuration errors early",
+    "Use ask_user confirmation for destructive actions like deleting resource groups"
+  ],
+  "antiPatterns": [
+    "Skipping azure-validate to save time - this causes deployment failures",
+    "Manually updating the plan status to bypass validation checks",
+    "Assuming the subscription or location without confirming with the user"
+  ],
+  "faq": [
+    {
+      "question": "What prerequisites are required before deploying?",
+      "answer": "You must run azure-prepare to generate .azure/plan.md, then run azure-validate to verify the plan is valid with status 'Validated'."
+    },
+    {
+      "question": "Can I skip the validation step?",
+      "answer": "No. The skill is designed to require validation. You cannot manually set the plan status to bypass this check."
+    },
+    {
+      "question": "What deployment methods are supported?",
+      "answer": "The skill supports Azure Developer CLI (azd), Bicep templates, and Terraform. The method is specified in your deployment plan."
+    },
+    {
+      "question": "How do I confirm destructive actions?",
+      "answer": "Use ask_user to get explicit confirmation before deleting resources, overwriting files, or making irreversible changes."
+    },
+    {
+      "question": "What should I do if deployment fails?",
+      "answer": "Check the recipe-specific errors.md file for common issues. The troubleshooting guide has solutions for authentication, quota, and configuration errors."
+    },
+    {
+      "question": "Can I use this skill for CI/CD pipelines?",
+      "answer": "Yes. The skill includes examples for GitHub Actions and Azure DevOps with OIDC authentication using service principals."
+    }
+  ],
+  "seoKeywords": [
+    "azure deploy",
+    "azd",
+    "bicep",
+    "terraform",
+    "azure deployment",
+    "claude code",
+    "codex",
+    "claude",
+    "cloud deployment",
+    "azure devops"
+  ],
+  "sourceUrl": "https://github.com/microsoft/github-copilot-for-azure/tree/main/plugin/skills/azure-deploy/",
+  "sourceType": "community",
+  "dependencies": []
+}

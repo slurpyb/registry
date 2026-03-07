@@ -1,0 +1,144 @@
+{
+  "name": "fal-workflow",
+  "type": "skill",
+  "description": "Generate workflow JSON files for chaining AI models",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "FastAPI setup",
+  "quality": 4,
+  "qualityReason": "Good backend API focus",
+  "bundleHints": [
+    "python-stack",
+    "fastapi-suite"
+  ],
+  "tags": [
+    "ai models",
+    "api",
+    "automation",
+    "backend",
+    "chaining",
+    "fal.ai",
+    "fastapi",
+    "pydantic",
+    "python",
+    "routes",
+    "workflow"
+  ],
+  "capabilities": [
+    "Generate workflow JSON structures for fal.ai model chaining",
+    "Define sequential AI model execution pipelines",
+    "Configure input/output mappings between model steps",
+    "Create reusable workflow templates for common patterns",
+    "Document workflow dependencies and execution order"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill with no executable code. Static analysis produced false positives: URLs are markdown links (not network calls) and 'cryptographic algorithm' detections matched description text (not actual crypto code). No security risks identified.",
+  "valueStatement": "Build complex AI pipelines by chaining multiple models in sequence. Generate structured workflow JSON configurations for fal.ai model orchestration.",
+  "userTitle": "Generate AI Model Workflow JSON",
+  "limitations": [
+    "Requires fal.ai API access and credentials",
+    "Only supports fal.ai-compatible models",
+    "Workflow design requires manual planning",
+    "JSON format knowledge is helpful"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content creators building automated production pipelines",
+      "title": "Multi-Step Content Pipeline",
+      "description": "Chain text generation, image creation, and refinement models in a single automated workflow"
+    },
+    {
+      "targetUser": "AI developers evaluating model performance",
+      "title": "AI Model Testing Framework",
+      "description": "Execute the same input across multiple models and compare outputs systematically"
+    },
+    {
+      "targetUser": "Data engineers automating ML workflows",
+      "title": "Data Processing Workflow",
+      "description": "Orchestrate models for data transformation, analysis, and visualization in sequence"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Workflow Definition",
+      "prompt": "Create a workflow JSON file that chains two AI models: first generate text content, then create an image based on that text output.",
+      "scenario": "Starting a simple two-step workflow"
+    },
+    {
+      "title": "Multi-Model Sequence",
+      "prompt": "Generate a workflow configuration for three sequential models: text summarization, sentiment analysis, and report generation. Map outputs to inputs between each step.",
+      "scenario": "Building a data processing pipeline"
+    },
+    {
+      "title": "Conditional Workflow Branching",
+      "prompt": "Create a workflow JSON with conditional branching: if sentiment analysis returns negative, route to apology generation model; otherwise route to thank you message model.",
+      "scenario": "Implementing decision logic in workflows"
+    },
+    {
+      "title": "Parallel Model Execution",
+      "prompt": "Design a workflow that runs three different image generation models in parallel from the same text prompt, then aggregates all outputs.",
+      "scenario": "Comparing multiple model outputs simultaneously"
+    }
+  ],
+  "bestPractices": [
+    "Define clear input/output schemas for each model step to ensure compatibility",
+    "Include error handling and fallback configurations for production workflows",
+    "Document workflow purpose and each model's role for maintainability"
+  ],
+  "antiPatterns": [
+    "Creating circular dependencies between workflow steps",
+    "Hardcoding API credentials in workflow JSON files",
+    "Skipping validation of intermediate outputs before passing to next model"
+  ],
+  "faq": [
+    {
+      "question": "What is fal.ai workflow JSON?",
+      "answer": "A structured configuration format that defines how multiple AI models execute in sequence, including input/output mappings and execution order."
+    },
+    {
+      "question": "Can I use this skill without a fal.ai account?",
+      "answer": "You can generate workflow JSON structures, but executing the workflows requires an active fal.ai account with API access."
+    },
+    {
+      "question": "How many models can I chain in one workflow?",
+      "answer": "fal.ai supports multiple sequential models. Practical limits depend on API rate limits and your specific use case requirements."
+    },
+    {
+      "question": "Can workflows run models in parallel?",
+      "answer": "Yes, workflow JSON can define parallel execution branches that run simultaneously and aggregate results."
+    },
+    {
+      "question": "How do I handle errors in a workflow?",
+      "answer": "Include error handling configurations in your workflow JSON with fallback models or termination conditions for each step."
+    },
+    {
+      "question": "Is workflow JSON reusable across projects?",
+      "answer": "Yes, workflow configurations are portable. You can version control them and adapt for different projects with minor parameter changes."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "fal.ai",
+    "workflow automation",
+    "AI pipeline",
+    "model chaining",
+    "JSON workflow",
+    "AI orchestration",
+    "multi-model workflow"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/web-app/public/skills/fal-workflow",
+  "sourceType": "community",
+  "dependencies": []
+}

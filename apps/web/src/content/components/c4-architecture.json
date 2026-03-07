@@ -1,0 +1,140 @@
+{
+  "name": "c4-architecture",
+  "type": "skill",
+  "description": "Generate architecture documentation using C4 model Mermaid diagrams. Use when asked to create architecture diagrams, document system architecture, visualize software structure, create C4 diagrams, or generate context/container/component/deployment diagrams. Triggers include \"architecture diagram\", \"C4 diagram\", \"system context\", \"container diagram\", \"component diagram\", \"deployment diagram\", \"document architecture\", \"visualize architecture\".",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "C4 diagrams",
+  "quality": 5,
+  "qualityReason": "Specific architecture modeling",
+  "bundleHints": [
+    "architecture-tools",
+    "design-docs"
+  ],
+  "tags": [
+    "architecture",
+    "c4-model",
+    "diagrams",
+    "documentation",
+    "mermaid",
+    "software-design"
+  ],
+  "capabilities": [
+    "Generate C4 Context diagrams showing system scope and external actors",
+    "Create Container diagrams displaying apps, databases, and services",
+    "Build Component diagrams for internal code structure",
+    "Produce Deployment diagrams for infrastructure visualization",
+    "Design Dynamic diagrams showing request flows with numbered steps",
+    "Adapt diagram detail level based on target audience"
+  ],
+  "author": "softaworks",
+  "icon": "📐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 388 pattern matches, but all are false positives. The 'external_commands' and 'network' patterns match Mermaid diagram syntax (e.g., Person(), Container()) and documentation URLs, not actual code execution. This is a pure documentation skill with no scripts, no executable code, and no security risks.",
+  "valueStatement": "Communicate software architecture clearly with professional C4 model diagrams. This skill generates Mermaid-based documentation at the right abstraction level for any audience, from executives to developers.",
+  "userTitle": "Create C4 Architecture Diagrams",
+  "limitations": [
+    "Generates Mermaid syntax only, does not render images directly",
+    "Requires understanding of the codebase to create accurate diagrams",
+    "Complex systems may need multiple diagrams to remain readable",
+    "Cannot automatically discover architecture without code analysis"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers and architects",
+      "title": "Document Existing Systems",
+      "description": "Software teams use this skill to create architecture documentation for legacy systems. The skill analyzes code structure and generates diagrams that help onboard new developers."
+    },
+    {
+      "targetUser": "Technical leads and architects",
+      "title": "Design Review Presentations",
+      "description": "Technical leads generate audience-appropriate diagrams for design reviews. Context diagrams for executives, container diagrams for technical stakeholders."
+    },
+    {
+      "targetUser": "DevOps engineers and platform teams",
+      "title": "Microservices Documentation",
+      "description": "Teams document complex microservices architectures with proper boundaries and relationships. The skill handles event-driven patterns and inter-service communication."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Architecture Overview",
+      "prompt": "Create architecture diagrams for my [project name]. Include a system context diagram and a container diagram.",
+      "scenario": "Getting started with documentation"
+    },
+    {
+      "title": "Document Microservices",
+      "prompt": "Generate C4 diagrams for our microservices architecture. We have [list services] that communicate via [message broker/API]. Create container diagrams showing each service with its database.",
+      "scenario": "Documenting distributed systems"
+    },
+    {
+      "title": "Show Request Flow",
+      "prompt": "Create a dynamic diagram showing the [feature name] flow. Number the steps from user action through all services involved.",
+      "scenario": "Explaining complex workflows"
+    },
+    {
+      "title": "Production Deployment",
+      "prompt": "Generate a deployment diagram for our [AWS/Azure/GCP] infrastructure. Show the regions, clusters, and how services are deployed.",
+      "scenario": "Infrastructure documentation"
+    }
+  ],
+  "bestPractices": [
+    "Always start with Level 1 Context diagrams to establish system scope before diving into containers",
+    "Keep diagrams under 20 elements by splitting complex systems into multiple focused diagrams",
+    "Label relationships with action verbs and technology (e.g., \"Reads from\", \"JSON/HTTPS\")"
+  ],
+  "antiPatterns": [
+    "Do not use bidirectional arrows - they create ambiguity about data flow direction",
+    "Avoid modeling shared libraries as containers - containers must be deployable units",
+    "Do not skip the Context diagram - it is essential for non-technical stakeholders"
+  ],
+  "faq": [
+    {
+      "question": "What is the C4 model?",
+      "answer": "The C4 model is a simple visual language for describing software architecture. It has four levels: Context (system scope), Container (deployable units), Component (internal structure), and Code (implementation details). Most teams only need the first two levels."
+    },
+    {
+      "question": "How do I view the generated diagrams?",
+      "answer": "The skill generates Mermaid syntax in markdown files. You can view these in any tool that supports Mermaid: GitHub, GitLab, VS Code with extensions, or the Mermaid Live Editor online."
+    },
+    {
+      "question": "Which diagram level should I use?",
+      "answer": "Use Context diagrams for executives and non-technical stakeholders. Use Container diagrams for technical teams. Component diagrams are only needed when internal structure adds value. Deployment diagrams are for DevOps and infrastructure discussions."
+    },
+    {
+      "question": "Can I customize the diagram styling?",
+      "answer": "Yes. The skill supports Mermaid C4 styling functions like UpdateElementStyle and UpdateRelStyle. You can customize colors, fonts, and relationship offsets to improve readability."
+    },
+    {
+      "question": "How do I document microservices?",
+      "answer": "For single-team ownership, model microservices as containers within a system boundary. For multi-team ownership, promote each microservice to a system in the Context diagram. Always show databases and message queues as separate containers."
+    },
+    {
+      "question": "What is a Dynamic diagram?",
+      "answer": "Dynamic diagrams show runtime behavior with numbered steps. Use them to document request flows, transaction processing, or event propagation through your system. They help explain complex interactions that static diagrams cannot capture."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "C4 model",
+    "architecture diagrams",
+    "Mermaid diagrams",
+    "system documentation",
+    "software architecture",
+    "technical documentation",
+    "visualization"
+  ],
+  "sourceUrl": "https://github.com/softaworks/agent-toolkit/tree/main/skills/c4-architecture/",
+  "sourceType": "community",
+  "dependencies": []
+}

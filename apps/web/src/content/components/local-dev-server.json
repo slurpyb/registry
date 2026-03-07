@@ -1,0 +1,141 @@
+{
+  "name": "local-dev-server",
+  "type": "skill",
+  "description": "Zero-friction local development server management for Empathy Ledger using PM2",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "PM2 server",
+  "quality": 4,
+  "qualityReason": "Specific to one project",
+  "bundleHints": [
+    "devops-setup",
+    "local-server"
+  ],
+  "tags": [
+    "development",
+    "devops",
+    "local-development",
+    "local-server",
+    "pm2",
+    "process-manager",
+    "zero-friction"
+  ],
+  "capabilities": [
+    "Start local development server with PM2 process manager",
+    "Stop, restart, and monitor running server processes",
+    "Resolve port conflicts and address already in use errors",
+    "View centralized logs for multiple projects",
+    "Manage full ACT ecosystem with single commands",
+    "Auto-restart servers after crashes"
+  ],
+  "author": "Acurioustractor",
+  "icon": "🖥️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown documentation. No executable code exists. All 154 static findings are false positives: the scanner misidentified SHA-256 hashes as weak crypto/C2 keywords, markdown code blocks as Ruby backticks, and legitimate PM2/lsof/xargs commands as dangerous external commands. This skill only provides guidance for using standard development tools.",
+  "valueStatement": "Address already in use errors and server crashes disrupt development workflow. This skill provides PM2 commands to start, stop, and restart local development servers with auto-recovery and centralized logging.",
+  "userTitle": "Start and manage local development servers",
+  "limitations": [
+    "Requires PM2 to be installed globally via npm",
+    "Designed for macOS with specific path configurations",
+    "Does not install dependencies automatically",
+    "Does not configure PM2 ecosystem files automatically"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Start multiple projects",
+      "description": "Start all ACT ecosystem projects with a single command for comprehensive local development environment"
+    },
+    {
+      "targetUser": "Backend developers",
+      "title": "Fix port conflicts",
+      "description": "Resolve address already in use errors by killing processes and restarting servers cleanly"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Monitor server health",
+      "description": "View centralized logs and auto-restart crashed servers to maintain development continuity"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start server",
+      "scenario": "Need dev server running",
+      "prompt": "Start the local development server for Empathy Ledger"
+    },
+    {
+      "title": "Fix port error",
+      "scenario": "Address already in use",
+      "prompt": "Port 3030 is busy. Kill the existing process and restart the server."
+    },
+    {
+      "title": "Restart after changes",
+      "scenario": "Code changes deployed",
+      "prompt": "I updated the schema. Restart the dev server to pick up the changes."
+    },
+    {
+      "title": "Full ecosystem",
+      "scenario": "Start all projects",
+      "prompt": "Start all ACT ecosystem projects so I can work on the full platform."
+    }
+  ],
+  "bestPractices": [
+    "Use ecosystem script to start all projects for consistent environment",
+    "Check server status with pm2 list before running tests",
+    "Save PM2 process list with pm2 save for session persistence"
+  ],
+  "antiPatterns": [
+    "Using npm run dev directly for production-like testing",
+    "Ignoring repeated server crashes without checking error logs",
+    "Leaving servers running overnight without pm2 save"
+  ],
+  "faq": [
+    {
+      "question": "How do I stop the server?",
+      "answer": "Run pm2 stop empathy-ledger-solo to stop, then pm2 delete to remove from process list."
+    },
+    {
+      "question": "What ports does this skill use?",
+      "answer": "Empathy Ledger uses port 3030 standalone or 3001 in ecosystem mode. Other ACT projects use ports 3002-3005 and 3999."
+    },
+    {
+      "question": "Does this work on Linux?",
+      "answer": "PM2 commands are cross-platform. You will need to update paths in scripts from macOS to Linux format."
+    },
+    {
+      "question": "Is my data safe with PM2?",
+      "answer": "Yes. PM2 only manages process lifecycle. It does not access, modify, or store your application data."
+    },
+    {
+      "question": "Why does my server keep crashing?",
+      "answer": "Check logs with pm2 logs empathy-ledger --lines 50. Common causes are code errors, memory limits, or database connection issues."
+    },
+    {
+      "question": "How is this different from npm run dev?",
+      "answer": "npm run dev is for active development with hot reload. PM2 provides persistence, auto-restart, and centralized logging for stable testing."
+    }
+  ],
+  "seoKeywords": [
+    "PM2",
+    "local development server",
+    "process manager",
+    "Claude Code",
+    "server management",
+    "devops",
+    "Next.js development",
+    "Empathy Ledger",
+    "process monitoring",
+    "auto-restart"
+  ],
+  "sourceUrl": "https://github.com/Acurioustractor/empathy-ledger-v2/tree/main/.claude/skills/local/local-dev-server",
+  "sourceType": "community",
+  "dependencies": []
+}

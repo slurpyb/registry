@@ -1,0 +1,140 @@
+{
+  "name": "benchmark-kernel",
+  "type": "skill",
+  "description": "Guide for benchmarking FlashInfer kernels with CUPTI timing",
+  "domain": "ai-ml",
+  "subdomain": "ml-ops",
+  "specialty": "GPU timing",
+  "quality": 5,
+  "qualityReason": "Precise technical benchmarking",
+  "bundleHints": [
+    "ml-performance",
+    "gpu-optimization"
+  ],
+  "tags": [
+    "benchmarking",
+    "cuda",
+    "cupti",
+    "flashinfer",
+    "gpu",
+    "kernel",
+    "performance",
+    "profiling"
+  ],
+  "capabilities": [
+    "Provides tutorial for CUPTI hardware-level GPU profiling",
+    "Includes command-line examples for FlashInfer benchmarks",
+    "Shows Python API usage with bench_gpu_time() function",
+    "Documents timing accuracy differences between CUPTI and CUDA events",
+    "Explains how to compare multiple backend implementations"
+  ],
+  "author": "flashinfer-ai",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing tutorial instructions for GPU kernel benchmarking. No executable code, network calls, or file system access. Static findings are false positives caused by the analyzer incorrectly flagging documentation strings and bash command examples as security vulnerabilities.",
+  "valueStatement": "Accurate GPU kernel benchmarking is challenging due to measurement overhead. This skill provides step-by-step instructions for using CUPTI hardware profiling to get precise kernel execution times. Compare different backends like FlashAttention and cuDNN to find the fastest implementation for your workload.",
+  "userTitle": "Benchmark GPU kernels with CUPTI timing",
+  "limitations": [
+    "Requires CUDA 13+ for CUPTI installation",
+    "Documentation only - no automated execution",
+    "Specific to FlashInfer kernel library"
+  ],
+  "useCases": [
+    {
+      "targetUser": "GPU kernel developers",
+      "title": "Measure kernel performance accurately",
+      "description": "Use CUPTI hardware profiling to get precise GPU execution times without host overhead"
+    },
+    {
+      "targetUser": "ML performance engineers",
+      "title": "Compare attention kernel backends",
+      "description": "Benchmark different attention implementations to find the fastest for your workload"
+    },
+    {
+      "targetUser": "CUDA optimization specialists",
+      "title": "Profile FP8 GEMM operations",
+      "description": "Measure performance of mixed-precision matrix multiplication kernels"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic kernel timing",
+      "scenario": "Timing a simple kernel",
+      "prompt": "Help me benchmark my CUDA kernel using bench_gpu_time() with 30 iterations and 5 warmup runs"
+    },
+    {
+      "title": "Compare backends",
+      "scenario": "Testing multiple implementations",
+      "prompt": "Show me how to benchmark BatchDecodeWithPagedKVCacheWrapper with fa2, cudnn, and cutlass backends"
+    },
+    {
+      "title": "Batch benchmarks",
+      "scenario": "Running multiple configurations",
+      "prompt": "Create a test list file to benchmark different batch sizes and sequence lengths"
+    },
+    {
+      "title": "Custom Python benchmarking",
+      "scenario": "Integrating into research code",
+      "prompt": "Write a Python script that benchmarks my custom attention kernel with CUPTI timing"
+    }
+  ],
+  "bestPractices": [
+    "Install CUPTI for hardware-level accuracy when possible",
+    "Use reference checking to verify kernel correctness during benchmarking",
+    "Run sufficient iterations (30+) for statistical significance"
+  ],
+  "antiPatterns": [
+    "Benchmarking without warmup iterations",
+    "Using only CUDA events when CUPTI is available",
+    "Comparing backends without verifying output correctness"
+  ],
+  "faq": [
+    {
+      "question": "Do I need CUPTI installed?",
+      "answer": "No, the framework automatically falls back to CUDA events if CUPTI is unavailable"
+    },
+    {
+      "question": "What is the minimum CUDA version?",
+      "answer": "CUPTI requires CUDA 13+, but CUDA events work with any CUDA version"
+    },
+    {
+      "question": "Can I benchmark non-FlashInfer kernels?",
+      "answer": "Yes, use bench_gpu_time() with any CUDA kernel function in your Python code"
+    },
+    {
+      "question": "Is my data safe during benchmarking?",
+      "answer": "Yes, benchmarking only measures execution time without accessing your input data"
+    },
+    {
+      "question": "Why are my benchmark results inconsistent?",
+      "answer": "Increase warmup and measurement iterations, and check for thermal throttling on your GPU"
+    },
+    {
+      "question": "How accurate is CUPTI compared to CUDA events?",
+      "answer": "CUPTI is more accurate for fast kernels under 50 microseconds, difference is negligible for longer kernels"
+    }
+  ],
+  "seoKeywords": [
+    "GPU benchmarking",
+    "CUPTI profiling",
+    "CUDA performance",
+    "FlashInfer kernels",
+    "Claude Code",
+    "kernel timing",
+    "hardware profiling",
+    "GPU optimization",
+    "attention kernels",
+    "performance profiling"
+  ],
+  "sourceUrl": "https://github.com/flashinfer-ai/flashinfer/tree/main/.claude/skills/benchmark-kernel",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,138 @@
+{
+  "name": "mermaid-diagramming",
+  "type": "skill",
+  "description": "Create Mermaid diagrams in Obsidian including flowcharts, sequence diagrams, class diagrams, and more. Use when visualizing processes, system architectures, workflows, or any structured relationships in Obsidian notes.",
+  "domain": "design",
+  "subdomain": "visualization",
+  "specialty": "Obsidian diagrams",
+  "quality": 4,
+  "qualityReason": "Specific to Obsidian use",
+  "bundleHints": [
+    "knowledge-management",
+    "visualization"
+  ],
+  "tags": [
+    "diagrams",
+    "documentation",
+    "mermaid",
+    "obsidian",
+    "visualization"
+  ],
+  "capabilities": [
+    "Create 17 diagram types: flowcharts, sequence, class, state, Gantt, gitgraph, mindmap, pie, ER, journey, timeline, quadrant, sankey, xychart, block, and architecture",
+    "Apply node shapes, styling, colors, and custom classes to diagrams",
+    "Define diagram direction, relationships, and complex layouts",
+    "Add accessibility titles and descriptions to diagrams",
+    "Configure themes and custom styling with CSS-like syntax"
+  ],
+  "author": "BitYoungjae",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing markdown files with Mermaid syntax examples. No executable code, network calls, file system access, or environment variable reads. All 2487 static findings are FALSE POSITIVES triggered by documentation patterns, not actual security risks.",
+  "valueStatement": "Add visual diagrams to your Obsidian notes without external tools. This skill provides complete syntax reference for 17 diagram types including flowcharts, sequence diagrams, class diagrams, Gantt charts, and more.",
+  "userTitle": "Create Mermaid diagrams in Obsidian",
+  "limitations": [
+    "Requires Obsidian's built-in Mermaid support (some cutting-edge features may not render)",
+    "JavaScript callbacks and click events are disabled for security",
+    "PDF export converts diagrams to raster images",
+    "Very large diagrams with 50+ nodes may slow rendering"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developers",
+      "title": "Document System Architecture",
+      "description": "Create sequence diagrams, class diagrams, and architecture layouts to document code systems."
+    },
+    {
+      "targetUser": "Project Managers",
+      "title": "Visualize Project Timelines",
+      "description": "Build Gantt charts, timelines, and journey diagrams to track progress and workflows."
+    },
+    {
+      "targetUser": "Technical Writers",
+      "title": "Add Visual Documentation",
+      "description": "Embed flowcharts and ER diagrams directly in documentation notes without external tools."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple Flowchart",
+      "scenario": "Basic process flow",
+      "prompt": "Create a mermaid flowchart showing a simple decision process where [input] leads to [action] or [alternative]."
+    },
+    {
+      "title": "API Sequence",
+      "scenario": "API interaction diagram",
+      "prompt": "Create a mermaid sequence diagram showing [service] calling [endpoint] and receiving response from [database]."
+    },
+    {
+      "title": "Database Schema",
+      "scenario": "ER diagram",
+      "prompt": "Create a mermaid ER diagram for [entity] with relationships to [related entities] including primary keys and foreign keys."
+    },
+    {
+      "title": "Project Timeline",
+      "scenario": "Gantt chart",
+      "prompt": "Create a mermaid Gantt chart for [project] with phases [phase names] and dependencies between tasks."
+    }
+  ],
+  "bestPractices": [
+    "Use explicit hex colors in style commands for consistent appearance across Obsidian themes",
+    "Split large diagrams (50+ nodes) into multiple smaller diagrams for better performance",
+    "Add accessibility titles with accTitle and accDescr for screen reader support"
+  ],
+  "antiPatterns": [
+    "Using click events or JavaScript callbacks (disabled in Obsidian)",
+    "Skipping accessibility titles for complex diagrams",
+    "Creating single-point charts that require Mermaid 10.3+ features"
+  ],
+  "faq": [
+    {
+      "question": "What Mermaid versions does Obsidian support?",
+      "answer": "Obsidian includes a recent Mermaid version. Some beta features like architecture-beta may not be available in older versions."
+    },
+    {
+      "question": "Can I export diagrams from Obsidian?",
+      "answer": "PDF export converts diagrams to images. For external sharing, capture diagrams as PNG or SVG using your device's screenshot tools."
+    },
+    {
+      "question": "Why do colors look different between themes?",
+      "answer": "Obsidian themes affect diagram colors. Use explicit hex color values in style commands for consistent appearance."
+    },
+    {
+      "question": "Is this skill safe to use?",
+      "answer": "Yes. This skill contains only documentation with Mermaid syntax examples. No code execution, network access, or file system changes occur."
+    },
+    {
+      "question": "How many diagram types are supported?",
+      "answer": "The skill documents 17 diagram types: flowchart, sequence, class, state, Gantt, gitgraph, mindmap, pie, ER, journey, timeline, quadrant, sankey, xychart, block, and architecture."
+    },
+    {
+      "question": "Can I use Mermaid outside of Obsidian?",
+      "answer": "Yes. Mermaid syntax is standard across many tools. Diagrams created here work in GitHub, GitLab, Notion, and other Mermaid-supported platforms."
+    }
+  ],
+  "seoKeywords": [
+    "mermaid diagram obsidian",
+    "mermaid syntax",
+    "create diagrams in obsidian",
+    "flowchart markdown",
+    "sequence diagram",
+    "class diagram",
+    "mermaid js",
+    "obsidian visualization",
+    "claude mermaid",
+    "codex mermaid"
+  ],
+  "sourceUrl": "https://github.com/BitYoungjae/marketplace/tree/main/plugins/obsidian-blocks/skills/mermaid-diagramming",
+  "sourceType": "community",
+  "dependencies": []
+}

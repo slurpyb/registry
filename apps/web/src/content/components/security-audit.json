@@ -1,0 +1,141 @@
+{
+  "name": "security-audit",
+  "type": "skill",
+  "description": "Security review or audit of code, architecture, or infrastructure - Threat modeling sessions - Reviewing PRs for security implications",
+  "domain": "security",
+  "subdomain": "compliance",
+  "specialty": "Security review",
+  "quality": 5,
+  "qualityReason": "Clear scope and expert activities defined",
+  "bundleHints": [
+    "compliance-audit",
+    "security-review"
+  ],
+  "tags": [
+    "audit",
+    "blockchain-security",
+    "code-review",
+    "compliance",
+    "security-audit",
+    "threat-modeling",
+    "vulnerability-assessment"
+  ],
+  "capabilities": [
+    "Conduct security reviews using industry frameworks (NIST, OWASP, CIS Controls)",
+    "Apply threat modeling with STRIDE methodology for each trust boundary",
+    "Audit web applications against OWASP Top 10 and ASVS checklists",
+    "Review smart contracts for reentrancy, access control, and economic attacks",
+    "Assess ZK circuits for constraint soundness and transcript binding",
+    "Verify supply chain integrity using SLSA and OpenSSF Scorecard"
+  ],
+  "author": "ClementWalter",
+  "icon": "🛡️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing markdown security checklists and frameworks. All 51 static findings are FALSE POSITIVES - pattern matches on legitimate security guidance content. The skill documents vulnerabilities and defenses (e.g., 'No eval() with user input', 'No deprecated crypto like MD5') rather than implementing attack code. This is a reference tool for security professionals conducting audits.",
+  "valueStatement": "Security reviews require structured guidance to identify vulnerabilities consistently. This skill provides comprehensive checklists and frameworks like NIST, OWASP, and MITRE ATT&CK for thorough security assessments.",
+  "userTitle": "Conduct Security Audits with Frameworks",
+  "limitations": [
+    "Does not execute code or run automated security scanning tools",
+    "Cannot access external systems, APIs, or vulnerability databases",
+    "Provides guidance only; does not replace manual expert security audits",
+    "Limited to checklist-based review without dynamic analysis capabilities"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developers",
+      "title": "Review Pull Requests",
+      "description": "Use security checklists to identify vulnerabilities before merging code changes"
+    },
+    {
+      "targetUser": "Security Engineers",
+      "title": "Conduct Threat Models",
+      "description": "Apply STRIDE methodology to analyze trust boundaries and potential attack vectors"
+    },
+    {
+      "targetUser": "Smart Contract Auditors",
+      "title": "Audit DeFi Protocols",
+      "description": "Review smart contracts for reentrancy, oracle manipulation, and economic attack vectors"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Code Review",
+      "scenario": "Quick security check",
+      "prompt": "Review this code for security issues using the security-audit skill. Check for injection vulnerabilities, access control weaknesses, and cryptographic misconfigurations."
+    },
+    {
+      "title": "Threat Modeling",
+      "scenario": "Architecture analysis",
+      "prompt": "Conduct a threat model for this architecture using STRIDE. Identify trust boundaries, authentication strategies, and potential attack paths."
+    },
+    {
+      "title": "Smart Contract Audit",
+      "scenario": "DeFi protocol review",
+      "prompt": "Audit this smart contract for security vulnerabilities. Check reentrancy patterns, access control, oracle dependencies, and economic attack vectors."
+    },
+    {
+      "title": "Supply Chain Review",
+      "scenario": "Dependency assessment",
+      "prompt": "Assess this repository supply chain security using SLSA and OpenSSF Scorecard guidelines. Check dependency pinning, build integrity, and CI/CD controls."
+    }
+  ],
+  "bestPractices": [
+    "Always start with threat modeling before deep-diving into specific vulnerabilities",
+    "Use the STRIDE framework to systematically identify potential attack vectors",
+    "Document findings with severity levels and reference relevant framework controls"
+  ],
+  "antiPatterns": [
+    "Skipping access control checks because endpoints are internal only",
+    "Using client-side validation as the sole protection against injection attacks",
+    "Assuming cryptographic implementations are secure without verifying algorithm choices"
+  ],
+  "faq": [
+    {
+      "question": "What frameworks does this skill reference?",
+      "answer": "NIST CSF 2.0, CIS Controls v8, NIST SSDF, OWASP ASVS, OWASP Top 10, MITRE ATT&CK, SLSA, and OpenSSF Scorecard."
+    },
+    {
+      "question": "Can this skill scan my codebase automatically?",
+      "answer": "No, this skill provides checklists and guidance for manual review. It does not execute code or run automated scanners."
+    },
+    {
+      "question": "Does it work with all programming languages?",
+      "answer": "Yes, the frameworks are language-agnostic. Checklists cover general security principles applicable to any codebase."
+    },
+    {
+      "question": "Is my code data sent to external services?",
+      "answer": "No, this skill operates entirely within your AI session. No code or data leaves your environment."
+    },
+    {
+      "question": "How does it handle smart contract audits?",
+      "answer": "It references smart-contract-checklist.md covering reentrancy, access control, oracles, upgradeability, and economic attack vectors."
+    },
+    {
+      "question": "Should I use this instead of a professional audit?",
+      "answer": "No, this skill complements but does not replace professional security audits. Use it for preliminary reviews and ongoing security checks."
+    }
+  ],
+  "seoKeywords": [
+    "security audit",
+    "code review",
+    "vulnerability assessment",
+    "threat modeling",
+    "OWASP Top 10",
+    "NIST CSF",
+    "MITRE ATT&CK",
+    "smart contract audit",
+    "supply chain security",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/ClementWalter/rookie-marketplace/tree/main/security-researcher/skills/security-audit",
+  "sourceType": "community",
+  "dependencies": []
+}

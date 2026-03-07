@@ -1,0 +1,144 @@
+{
+  "name": "aws-solution-architect",
+  "type": "skill",
+  "description": "Expert AWS solution architecture for startups focusing on serverless, scalable, and cost-effective cloud infrastructure with modern DevOps practices and infrastructure-as-code",
+  "domain": "devops",
+  "subdomain": "cloud",
+  "specialty": "Startup Architecture",
+  "quality": 5,
+  "qualityReason": "Expert-level, focused on startups",
+  "bundleHints": [
+    "cloud-architecture",
+    "aws-ops",
+    "startup-stack"
+  ],
+  "tags": [
+    "aws",
+    "cloud-architecture",
+    "cloud-design",
+    "cost-effective",
+    "cost-optimization",
+    "devops",
+    "iac",
+    "infrastructure-as-code",
+    "scalable",
+    "serverless"
+  ],
+  "capabilities": [
+    "Generate architecture patterns for serverless, microservices, and three-tier applications",
+    "Create production-ready CloudFormation, AWS CDK, and Terraform templates",
+    "Analyze AWS spending and recommend cost optimization strategies",
+    "Design multi-region high availability and disaster recovery architectures",
+    "Provide compliance guidance for HIPAA, SOC 2, and GDPR requirements"
+  ],
+  "author": "alirezarezvani",
+  "icon": "🏗️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill generates AWS infrastructure templates locally without network calls or external commands. Detected patterns are standard AWS terminology (Cognito service), IAM policy version dates, and documentation examples for CLI tools. No credential exfiltration, no command injection, no malicious behavior.",
+  "valueStatement": "Design production-ready AWS architectures with serverless patterns, cost optimization strategies, and infrastructure-as-code templates. Generate CloudFormation, CDK, and Terraform configurations for deployment.",
+  "userTitle": "Design scalable AWS serverless architectures",
+  "limitations": [
+    "Does not execute or deploy infrastructure - generates templates only",
+    "Requires AWS account and manual deployment by the user",
+    "Cannot access real AWS resources or billing data without user input",
+    "Recommendations are based on best practices, not live resource analysis"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Startup Founders",
+      "title": "Design MVP architecture",
+      "description": "Create cost-effective serverless architecture for launch with auto-scaling and minimal operational overhead"
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Generate IaC templates",
+      "description": "Produce CloudFormation, CDK, or Terraform configurations for production deployment pipelines"
+    },
+    {
+      "targetUser": "CTOs",
+      "title": "Optimize cloud costs",
+      "description": "Analyze spending patterns and receive actionable recommendations to reduce AWS bills by 20-40%"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Architecture",
+      "scenario": "Design simple serverless API",
+      "prompt": "Design a serverless API backend for a mobile app with 100k users using Lambda, API Gateway, and DynamoDB"
+    },
+    {
+      "title": "Cost Optimization",
+      "scenario": "Reduce monthly spending",
+      "prompt": "Analyze my AWS setup and recommend ways to reduce costs by 30%. I am currently spending $2000/month on EC2 and RDS"
+    },
+    {
+      "title": "Infrastructure as Code",
+      "scenario": "Generate IaC templates",
+      "prompt": "Generate a CloudFormation template for a three-tier web application with auto-scaling, RDS, and ElastiCache"
+    },
+    {
+      "title": "Event-Driven Architecture",
+      "scenario": "Build microservices platform",
+      "prompt": "Design an event-driven microservices architecture using EventBridge, Step Functions, and SQS for an e-commerce platform"
+    }
+  ],
+  "bestPractices": [
+    "Start with serverless patterns for MVPs to minimize costs and operational overhead",
+    "Use infrastructure-as-code (CloudFormation, CDK, or Terraform) for all deployments",
+    "Implement multi-layer security: VPC isolation, IAM least privilege, encryption at rest and in transit"
+  ],
+  "antiPatterns": [
+    "Avoid over-engineering early - do not build for 10M users when you have 100",
+    "Do not use On-Demand pricing for predictable workloads - use Savings Plans or Reserved Instances",
+    "Never hardcode credentials - use IAM roles and AWS Secrets Manager instead"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill deploy resources to my AWS account?",
+      "answer": "No. The skill generates infrastructure-as-code templates that you manually deploy using AWS CLI or console."
+    },
+    {
+      "question": "What AWS services are supported?",
+      "answer": "Lambda, API Gateway, DynamoDB, S3, CloudFront, Cognito, RDS, ECS Fargate, EventBridge, Step Functions, and 20+ other services."
+    },
+    {
+      "question": "Can this analyze my current AWS spending?",
+      "answer": "Yes, provide your resource inventory and monthly spend, and the skill will recommend specific cost optimizations."
+    },
+    {
+      "question": "Does this work with multi-cloud setups?",
+      "answer": "Primarily AWS-focused. Terraform templates can be adapted for Azure or GCP with manual modifications."
+    },
+    {
+      "question": "What compliance frameworks are covered?",
+      "answer": "HIPAA for healthcare, SOC 2 for security, GDPR for EU data residency, and PCI-DSS for payments."
+    },
+    {
+      "question": "How do I deploy the generated templates?",
+      "answer": "Use AWS CLI for CloudFormation, npm/CDK CLI for CDK stacks, or Terraform CLI. Each template includes instructions."
+    }
+  ],
+  "seoKeywords": [
+    "aws solution architect",
+    "claude code skill",
+    "serverless architecture",
+    "cloudformation template",
+    "terraform aws",
+    "aws cdk",
+    "cost optimization aws",
+    "claude aws",
+    "codex aws",
+    "lambda architecture"
+  ],
+  "sourceUrl": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/aws-solution-architect",
+  "sourceType": "community",
+  "dependencies": []
+}

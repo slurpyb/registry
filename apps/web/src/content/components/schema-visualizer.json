@@ -1,0 +1,140 @@
+{
+  "name": "schema-visualizer",
+  "type": "skill",
+  "description": "Generate database schema diagrams, ERDs, and documentation from database schemas.",
+  "domain": "data",
+  "subdomain": "visualization",
+  "specialty": "ERD generation",
+  "quality": 5,
+  "qualityReason": "Visual, documentation aid",
+  "bundleHints": [
+    "data-visualization",
+    "db-toolkit"
+  ],
+  "tags": [
+    "database",
+    "diagrams",
+    "documentation",
+    "erd",
+    "schema",
+    "visualization"
+  ],
+  "capabilities": [
+    "Generate Mermaid ERD diagrams from database schemas",
+    "Parse Prisma, TypeORM, and SQLAlchemy models",
+    "Create schema documentation in Markdown, JSON, and YAML formats",
+    "Detect table relationships and cardinality",
+    "Suggest missing indexes and normalization improvements",
+    "Export diagrams for PlantUML and dbdiagram.io"
+  ],
+  "author": "CuriousLearner",
+  "icon": "🗄️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 187 static findings are FALSE POSITIVES. This is a pure documentation skill containing only markdown text and example code snippets. The scanner incorrectly flagged documentation patterns (bcrypt mentions, command examples, database terms) as security issues. No executable code, network access, filesystem access, or external command execution exists. The pre-computed report correctly assessed this as safe.",
+  "valueStatement": "Understanding complex database schemas takes time and can lead to mistakes. This skill helps you generate professional ERDs, Mermaid diagrams, and documentation from any database schema source instantly.",
+  "userTitle": "Generate database schema diagrams and ERDs",
+  "limitations": [
+    "Does not connect to live databases directly",
+    "Cannot execute queries or modify database data",
+    "Visualization quality depends on schema information provided",
+    "Cannot generate diagrams from binary database files"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developers",
+      "title": "Document existing databases",
+      "description": "Generate complete documentation for legacy databases to onboard new team members quickly."
+    },
+    {
+      "targetUser": "Data Architects",
+      "title": "Design and share schemas",
+      "description": "Create clear ERDs from ORM models to communicate database designs with stakeholders."
+    },
+    {
+      "targetUser": "Technical Writers",
+      "title": "Create schema documentation",
+      "description": "Produce readable database documentation in Markdown or JSON format for technical docs."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic ERD Generation",
+      "scenario": "Generate diagram from Prisma schema",
+      "prompt": "@schema-visualizer --from-prisma schema.prisma --format mermaid"
+    },
+    {
+      "title": "Analyze Relationships",
+      "scenario": "Show table connections",
+      "prompt": "@schema-visualizer --analyze-relationships --format mermaid"
+    },
+    {
+      "title": "Generate Documentation",
+      "scenario": "Create markdown docs",
+      "prompt": "@schema-visualizer --format markdown --include-indexes --include-constraints"
+    },
+    {
+      "title": "Compare Schemas",
+      "scenario": "Diff two database versions",
+      "prompt": "@schema-visualizer --compare production-schema.sql staging-schema.sql --format markdown"
+    }
+  ],
+  "bestPractices": [
+    "Provide complete schema information for accurate relationship detection",
+    "Use --include-indexes flag to show performance considerations in diagrams",
+    "Export to multiple formats to share with different stakeholders"
+  ],
+  "antiPatterns": [
+    "Assuming the skill can connect to live databases and query data",
+    "Providing partial schema information and expecting complete diagrams",
+    "Using generated diagrams as the only database documentation"
+  ],
+  "faq": [
+    {
+      "question": "Which database systems are supported?",
+      "answer": "Any database system. The skill works with schema definitions, not specific database engines."
+    },
+    {
+      "question": "What input formats are accepted?",
+      "answer": "Prisma schemas, TypeORM entities, SQLAlchemy models, SQL dumps, and CREATE TABLE statements."
+    },
+    {
+      "question": "Does this skill access my database?",
+      "answer": "No. You must provide the schema definition. The skill does not connect to any databases."
+    },
+    {
+      "question": "Can I generate diagrams from multiple ORM formats together?",
+      "answer": "Yes. Combine multiple schema sources in your prompt for a unified diagram."
+    },
+    {
+      "question": "What output formats are available?",
+      "answer": "Mermaid ERD, PlantUML, dbdiagram.io DBML, Markdown tables, and JSON schema."
+    },
+    {
+      "question": "How does this compare to SchemaSpy or DBeaver?",
+      "answer": "This skill generates text-based diagrams through AI. Use SchemaSpy or DBeaver for automated database introspection."
+    }
+  ],
+  "seoKeywords": [
+    "database schema",
+    "ERD generator",
+    "Mermaid diagrams",
+    "schema documentation",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "database visualization",
+    "ORM models",
+    "Prisma schema"
+  ],
+  "sourceUrl": "https://github.com/CuriousLearner/devkit/tree/main/skills/schema-visualizer",
+  "sourceType": "community",
+  "dependencies": []
+}

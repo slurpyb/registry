@@ -1,0 +1,141 @@
+{
+  "name": "infrastructure-reporting",
+  "type": "skill",
+  "description": "Generate comprehensive network infrastructure reports including health status, performance analysis, security audits, and capacity planning recommendations.",
+  "domain": "data",
+  "subdomain": "analytics",
+  "specialty": "network reporting",
+  "quality": 4,
+  "qualityReason": "Comprehensive reporting",
+  "bundleHints": [
+    "network-ops",
+    "analytics-dashboards"
+  ],
+  "tags": [
+    "audit",
+    "capacity-planning",
+    "infrastructure",
+    "monitoring",
+    "network",
+    "reporting",
+    "security-audit"
+  ],
+  "capabilities": [
+    "Generate network health and status reports across all sites",
+    "Create performance analysis reports with device and client metrics",
+    "Produce security audit and compliance documentation",
+    "Build device inventory reports with hardware details",
+    "Develop capacity planning recommendations with upgrade timelines",
+    "Compare metrics and performance across multiple sites"
+  ],
+  "author": "DataKnifeAI",
+  "icon": "network_report",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only a SKILL.md markdown file. No executable code, scripts, network calls, file system access, or command execution capabilities exist. All 33 static findings are FALSE POSITIVES - the scanner misidentified markdown documentation content as executable code. The skill describes MCP tools for network infrastructure reporting but contains no actual code.",
+  "valueStatement": "Network administrators spend hours manually compiling health, performance, and security reports across multiple sites. This skill automates comprehensive infrastructure reporting by gathering data from network tools and producing executive summaries with actionable recommendations.",
+  "userTitle": "Generate Network Infrastructure Reports",
+  "limitations": [
+    "Requires access to UniFi network MCP tools to function",
+    "Cannot access network devices directly without MCP tool integration",
+    "Reports depend on data quality from connected network infrastructure",
+    "Cannot modify network configurations or settings"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Network Administrators",
+      "title": "Weekly Health Monitoring",
+      "description": "Generate weekly health check reports across all sites to identify issues before they become outages."
+    },
+    {
+      "targetUser": "IT Managers",
+      "title": "Executive Reporting",
+      "description": "Create executive dashboards summarizing network performance and security posture for stakeholder meetings."
+    },
+    {
+      "targetUser": "Compliance Officers",
+      "title": "Security Audits",
+      "description": "Document network security posture with firewall rules and access control reviews for compliance requirements."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Weekly Health Report",
+      "scenario": "Regular network status check",
+      "prompt": "Generate a weekly health report for all sites. Include device status, client connections, and any alerts or issues."
+    },
+    {
+      "title": "Performance Analysis",
+      "scenario": "Monthly performance review",
+      "prompt": "Create a monthly performance report. Analyze device utilization, client bandwidth usage, and identify slow spots."
+    },
+    {
+      "title": "Security Audit",
+      "scenario": "Compliance documentation",
+      "prompt": "Generate a security audit report covering firewall zones, ACL rules, and network segmentation compliance."
+    },
+    {
+      "title": "Capacity Planning",
+      "scenario": "Infrastructure growth planning",
+      "prompt": "Perform capacity planning analysis. Review current device utilization, predict growth needs, and recommend upgrades."
+    }
+  ],
+  "bestPractices": [
+    "Run health reports weekly to establish baseline metrics and detect anomalies early",
+    "Use security audit reports before compliance reviews to identify and address gaps",
+    "Combine performance and capacity reports when planning infrastructure upgrades"
+  ],
+  "antiPatterns": [
+    "Do not rely on reports for real-time incident response without verifying current data",
+    "Do not ignore recommendations that span multiple reporting periods without investigation",
+    "Do not share sensitive network details from reports without proper access controls"
+  ],
+  "faq": [
+    {
+      "question": "What UniFi network tools are required?",
+      "answer": "This skill works with the UniFi Network MCP tools including get_site_health, get_network_devices, and related endpoints."
+    },
+    {
+      "question": "How many sites can the report cover?",
+      "answer": "Reports can cover all sites configured in your UniFi controller. Performance may vary with very large deployments."
+    },
+    {
+      "question": "Can I export reports to PDF or other formats?",
+      "answer": "The skill generates formatted text and markdown suitable for export or integration with documentation systems."
+    },
+    {
+      "question": "Is my network data sent externally?",
+      "answer": "No external data transmission occurs. All data remains within your network infrastructure and AI environment."
+    },
+    {
+      "question": "Why do some reports show incomplete data?",
+      "answer": "Report completeness depends on data collected by your UniFi controller. Offline devices or limited monitoring may affect results."
+    },
+    {
+      "question": "How does this compare to UniFi Network UI reports?",
+      "answer": "This skill provides AI-generated summaries with recommendations beyond the standard UniFi dashboard views."
+    }
+  ],
+  "seoKeywords": [
+    "infrastructure reporting",
+    "network health report",
+    "network monitoring",
+    "performance analysis",
+    "security audit",
+    "capacity planning",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "network automation"
+  ],
+  "sourceUrl": "https://github.com/DataKnifeAI/unifi-network-mcp/tree/main/.github/skills/infrastructure-reporting",
+  "sourceType": "community",
+  "dependencies": []
+}

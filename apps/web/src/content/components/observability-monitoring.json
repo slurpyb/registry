@@ -1,0 +1,142 @@
+{
+  "name": "observability-monitoring",
+  "type": "skill",
+  "description": "Structured logging, metrics, distributed tracing, and alerting strategies",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "Metrics & tracing",
+  "quality": 5,
+  "qualityReason": "Core monitoring triad",
+  "bundleHints": [
+    "observability-stack",
+    "monitoring-tools",
+    "sre-toolkit"
+  ],
+  "tags": [
+    "alerting",
+    "alerts",
+    "logging",
+    "metrics",
+    "monitoring",
+    "observability",
+    "opentelemetry",
+    "prometheus",
+    "tracing"
+  ],
+  "capabilities": [
+    "Configure structured JSON logging with Winston and request correlation",
+    "Set up Prometheus metrics with HTTP, database, and cache instrumentation",
+    "Implement OpenTelemetry distributed tracing with manual spans",
+    "Create health check endpoints for Kubernetes liveness, readiness, and startup probes",
+    "Define Prometheus alerting rules with severity-based thresholds"
+  ],
+  "author": "ArieGoldkin",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains standard observability templates using legitimate libraries (Winston, Prometheus, OpenTelemetry). All static findings are false positives: 'weak cryptographic algorithm' detections are misidentified Prometheus query expressions; 'C2 keywords' and 'system reconnaissance' are legitimate monitoring terms; 'backtick execution' in SKILL.md are markdown code delimiters. All network calls are to configurable OTLP endpoints, all file access is for logging purposes.",
+  "valueStatement": "Applications lack visibility into production issues. This skill provides templates for structured logging, metrics collection, distributed tracing, and alerting to achieve full observability across your stack.",
+  "userTitle": "Add production monitoring and observability",
+  "limitations": [
+    "Does not include dashboard configurations or visualization setup",
+    "Requires external observability infrastructure (Prometheus, Jaeger, etc.)",
+    "Does not provide log aggregation or metric storage solutions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Add monitoring to API",
+      "description": "Add structured logging, metrics middleware, and health endpoints to Express API for production visibility."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Configure alerting rules",
+      "description": "Create Prometheus alerting rules for service downtime, error rates, latency thresholds, and resource usage."
+    },
+    {
+      "targetUser": "SRE teams",
+      "title": "Implement distributed tracing",
+      "description": "Set up OpenTelemetry auto-instrumentation for HTTP, PostgreSQL, and Redis with manual span support."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Add basic logging",
+      "scenario": "Need structured logging in Express API",
+      "prompt": "Add structured JSON logging to my Express API using the observability-monitoring skill. Include request correlation IDs and log levels configurable via environment variables."
+    },
+    {
+      "title": "Create metrics endpoint",
+      "scenario": "Expose Prometheus metrics",
+      "prompt": "Create a /metrics endpoint with Prometheus instrumentation for HTTP request duration, status codes, and database query metrics using the observability-monitoring skill."
+    },
+    {
+      "title": "Set up tracing",
+      "scenario": "Enable distributed tracing",
+      "prompt": "Configure OpenTelemetry distributed tracing for my Node.js service. Auto-instrument Express and PostgreSQL. Export traces to OTLP endpoint configurable via environment variable."
+    },
+    {
+      "title": "Define alert rules",
+      "scenario": "Create production alerts",
+      "prompt": "Create Prometheus alerting rules for critical issues: service down (up == 0), high error rate (5xx > 5%), high latency (p95 > 2s), and database connection pool exhaustion."
+    }
+  ],
+  "bestPractices": [
+    "Use structured JSON logging with correlation IDs to trace requests across services",
+    "Implement the RED method (Rate, Errors, Duration) for service-level metrics",
+    "Configure alert severity levels with appropriate response time targets"
+  ],
+  "antiPatterns": [
+    "Avoid string interpolation in logs - use structured key-value pairs",
+    "Do not expose sensitive data in log attributes or span attributes",
+    "Avoid alerting on symptoms rather than root causes"
+  ],
+  "faq": [
+    {
+      "question": "What observability tools are supported?",
+      "answer": "The skill supports Prometheus for metrics, OpenTelemetry for tracing, and Winston for logging. Works with any OTLP-compatible backend."
+    },
+    {
+      "question": "What are the latency overhead costs?",
+      "answer": "Metrics collection adds minimal overhead. Tracing has 1-3% latency impact with sampling. Logging overhead depends on volume."
+    },
+    {
+      "question": "How do I integrate with existing monitoring?",
+      "answer": "Configure endpoint URLs via environment variables. The templates use standard libraries that integrate with most observability platforms."
+    },
+    {
+      "question": "Is my log data sent to external services?",
+      "answer": "No. Logs write to local files or stdout. Configure transports to send data to your preferred observability backend."
+    },
+    {
+      "question": "How do I troubleshoot missing metrics?",
+      "answer": "Check the /metrics endpoint returns data. Verify metrics middleware is applied to routes. Ensure registry is initialized before collecting."
+    },
+    {
+      "question": "How does this compare to cloud monitoring services?",
+      "answer": "This provides self-hosted observability using open standards. You maintain infrastructure but avoid vendor lock-in and per-metric costs."
+    }
+  ],
+  "seoKeywords": [
+    "observability monitoring",
+    "structured logging",
+    "Prometheus metrics",
+    "OpenTelemetry tracing",
+    "alerting rules",
+    "health checks",
+    "distributed tracing",
+    "Claude Code",
+    "Claude",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/ArieGoldkin/ai-agent-hub/tree/main/skills/observability-monitoring",
+  "sourceType": "community",
+  "dependencies": []
+}

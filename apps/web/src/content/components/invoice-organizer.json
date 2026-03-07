@@ -1,0 +1,140 @@
+{
+  "name": "invoice-organizer",
+  "type": "skill",
+  "description": "Automatically organizes invoices and receipts for tax preparation by reading messy files, extracting key information, renaming them consistently, and sorting them into logical folders. Turns hours of manual bookkeeping into minutes of automated organization.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "tax preparation",
+  "quality": 5,
+  "qualityReason": "High-impact automation",
+  "bundleHints": [
+    "finance-automation",
+    "productivity-tools"
+  ],
+  "tags": [
+    "automation",
+    "bookkeeping",
+    "extraction",
+    "file-management",
+    "organization",
+    "sorting",
+    "tax-preparation"
+  ],
+  "capabilities": [
+    "Reads PDF invoices and image receipts to extract vendor names, dates, and amounts",
+    "Renames files to standardized format: YYYY-MM-DD Vendor - Invoice - Description.pdf",
+    "Organizes documents into folders by vendor, category, date period, or tax type",
+    "Creates CSV spreadsheets with all invoice details for accountants",
+    "Handles multiple file formats including PDF, JPG, PNG, and screenshots",
+    "Identifies duplicates and flags files with missing information for review"
+  ],
+  "author": "davila7",
+  "icon": "📑",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill (SKILL.md only) with no executable code. All 81 static findings are FALSE POSITIVES: backticks are markdown formatting, 'ransomware' keywords are ordinary business terms, and 'cryptographic' flags are triggered by words like 'invoice'. The skill uses standard Claude Code file operations for legitimate invoice organization.",
+  "valueStatement": "Manually sorting invoices and receipts takes hours of tedious bookkeeping. This skill automatically reads your files, extracts key information like dates and vendors, renames everything consistently, and sorts documents into logical folders.",
+  "userTitle": "Organize invoices for tax season",
+  "limitations": [
+    "Cannot process password-protected or encrypted PDF files",
+    "Image recognition quality depends on document clarity and scan quality",
+    "Does not connect to accounting software APIs for automatic import"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Freelancers and small business owners",
+      "title": "Tax preparation made simple",
+      "description": "Turn a messy downloads folder into organized, accountant-ready records in minutes instead of hours."
+    },
+    {
+      "targetUser": "Bookkeepers and accountants",
+      "title": "Client document processing",
+      "description": "Quickly organize scattered invoices from multiple clients into consistent, standardized filing structures."
+    },
+    {
+      "targetUser": "Anyone with receipts to track",
+      "title": "Personal expense management",
+      "description": "Keep track of personal and business expenses by automatically categorizing receipts by type and date."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic organization",
+      "scenario": "Quick invoice sort",
+      "prompt": "Organize these invoices. Read all files, rename them to YYYY-MM-DD Vendor - Invoice format, and organize by vendor."
+    },
+    {
+      "title": "Tax preparation",
+      "scenario": "Tax-ready sorting",
+      "prompt": "Prepare these invoices for tax season. Extract dates, amounts, and vendors. Sort into Deductible/ and Personal/ folders. Create a CSV summary."
+    },
+    {
+      "title": "Monthly expenses",
+      "scenario": "Expense reconciliation",
+      "prompt": "Organize last month's receipts by category (Software, Office, Travel). Calculate totals per category and export to CSV."
+    },
+    {
+      "title": "Archive cleanup",
+      "scenario": "Multi-year archive",
+      "prompt": "I have five years of mixed invoices. Create a structure by Year/Category/Vendor. Rename all files consistently and flag any duplicates."
+    }
+  ],
+  "bestPractices": [
+    "Keep original files backed up before reorganization, especially for important tax documents",
+    "Use consistent naming and folder structures that match your accounting software requirements",
+    "Review the generated CSV summary before sharing with your accountant"
+  ],
+  "antiPatterns": [
+    "Do not use for sensitive financial documents without first verifying extraction accuracy",
+    "Avoid processing documents with personal information in shared or public folders",
+    "Do not rely solely on automated extraction for audit-critical tax documents without manual verification"
+  ],
+  "faq": [
+    {
+      "question": "What file formats does this skill support?",
+      "answer": "The skill works with PDF invoices, scanned receipts (JPG, PNG), email attachments, screenshots, and bank statement exports."
+    },
+    {
+      "question": "Can this skill process encrypted PDFs?",
+      "answer": "No. Password-protected and encrypted PDFs cannot be read. You will need to provide unencrypted versions."
+    },
+    {
+      "question": "Does this skill integrate with QuickBooks or Xero?",
+      "answer": "The skill creates CSV files compatible with most accounting software, but does not connect directly to APIs."
+    },
+    {
+      "question": "Is my financial data safe?",
+      "answer": "The skill only reads files you specify and processes everything locally. No data is sent to external servers."
+    },
+    {
+      "question": "What happens if information cannot be read?",
+      "answer": "Files with unclear information are flagged and moved to a Needs-Review folder for manual handling."
+    },
+    {
+      "question": "How is this different from manual organization?",
+      "answer": "The skill reads document content to extract actual dates, amounts, and vendors rather than relying on confusing filenames."
+    }
+  ],
+  "seoKeywords": [
+    "invoice organizer",
+    "receipt management",
+    "tax preparation",
+    "Claude Code",
+    "automated bookkeeping",
+    "document organization",
+    "expense tracking",
+    "file management automation",
+    "financial document sorting",
+    "accounting workflow"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/productivity/invoice-organizer",
+  "sourceType": "community",
+  "dependencies": []
+}

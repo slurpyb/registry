@@ -1,0 +1,142 @@
+{
+  "name": "foundations-market-intelligence",
+  "type": "skill",
+  "description": "Market analysis and competitive intelligence for startups. Use when analyzing market opportunities, sizing TAM, profiling segments, or mapping competition.",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "market analysis",
+  "quality": 5,
+  "qualityReason": "Strategic business insight",
+  "bundleHints": [
+    "startup-tools",
+    "market-research"
+  ],
+  "tags": [
+    "business strategy",
+    "competition",
+    "competitive intelligence",
+    "market analysis",
+    "opportunity",
+    "segmentation",
+    "startup",
+    "tam"
+  ],
+  "capabilities": [
+    "Calculate TAM, SAM, and SOM using top-down, bottom-up, and value theory methods",
+    "Map competitive landscape including direct, indirect, and future threats",
+    "Profile target customer segments with demographics, psychographics, and behavioral data",
+    "Assess market timing, growth trends, and disruption signals",
+    "Score market opportunities with weighted criteria for go/no-go recommendations",
+    "Generate structured output templates for market intelligence reports"
+  ],
+  "author": "BellaBe",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing markdown frameworks for market intelligence. No executable code, scripts, network calls, or filesystem access. All 57 static findings are false positives from business terminology being misidentified as security patterns (e.g., 'SAM' acronym misclassified as Windows SAM database).",
+  "valueStatement": "Startups often struggle to validate market opportunities with data-backed insights. This skill provides structured frameworks for TAM/SAM/SOM analysis, competitive mapping, and customer profiling to inform go/no-go decisions.",
+  "userTitle": "Analyze Markets and Competition",
+  "limitations": [
+    "Does not access real-time market data or industry reports automatically",
+    "Cannot verify competitor funding or latest company information without external research",
+    "Outputs depend on user-provided inputs and assumptions",
+    "Cannot conduct primary research such as customer interviews"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Early-stage founders",
+      "title": "Validate Market Entry",
+      "description": "Analyze a new market before committing resources to validate opportunity size and competitive threats."
+    },
+    {
+      "targetUser": "Product managers",
+      "title": "Segment Target Customers",
+      "description": "Profile ideal customer profiles and personas to inform product roadmap and messaging decisions."
+    },
+    {
+      "targetUser": "Strategy teams",
+      "title": "Quarterly Market Refresh",
+      "description": "Update competitive analysis and market sizing to inform quarterly planning and strategic positioning."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Market Analysis",
+      "scenario": "New market entry assessment",
+      "prompt": "Analyze the market for [product_idea] targeting [target_geography] in the [industry_vertical] sector. Calculate TAM, SAM, and SOM. Identify the top 3 customer segments."
+    },
+    {
+      "title": "Competitive Mapping",
+      "scenario": "Competitive landscape review",
+      "prompt": "Map the competitive landscape for [product_idea]. Include direct competitors, indirect competitors, and potential future threats. Identify key differentiation opportunities."
+    },
+    {
+      "title": "Customer Intelligence",
+      "scenario": "ICP and persona development",
+      "prompt": "Create detailed customer profiles for [product_idea]. Define the ideal customer profile including firmographics, demographics, and buying behavior. Build 2-3 primary personas."
+    },
+    {
+      "title": "Opportunity Scoring",
+      "scenario": "Go/no-go recommendation",
+      "prompt": "Score the market opportunity for [product_idea] using weighted criteria: market attractiveness, competitive position, and execution fit. Provide a go/no-go recommendation with confidence level and next actions."
+    }
+  ],
+  "bestPractices": [
+    "Always validate market size estimates using multiple methods (top-down AND bottom-up)",
+    "Focus competitive analysis on the top 5 most relevant competitors to maintain focus",
+    "Document every assumption with sources to enable future validation and updates"
+  ],
+  "antiPatterns": [
+    "Using TAM as if it is achievable without applying serviceability constraints",
+    "Analyzing too many competitors which dilutes insights and wastes time",
+    "Asking customers if they would buy something instead of observing behavior"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. It is compatible with any LLM that follows system instructions."
+    },
+    {
+      "question": "How accurate are the market size estimates?",
+      "answer": "Accuracy depends on input quality and assumptions. Cross-validate multiple methods and update quarterly for best results."
+    },
+    {
+      "question": "Can this skill integrate with my CRM or data sources?",
+      "answer": "This skill does not access external systems. Provide your own data as input for customized analysis."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill runs entirely within your AI conversation. No data is sent to external services or stored anywhere."
+    },
+    {
+      "question": "Why does my market sizing differ from industry reports?",
+      "answer": "Differences are expected. This skill uses bottom-up calculations which often differ from top-down industry estimates. Both approaches are valuable."
+    },
+    {
+      "question": "How does this compare to hiring a market research firm?",
+      "answer": "This skill provides faster, cost-effective initial analysis. For definitive numbers, combine AI insights with primary research and industry reports."
+    }
+  ],
+  "seoKeywords": [
+    "market analysis",
+    "competitive intelligence",
+    "TAM SAM SOM",
+    "market sizing",
+    "startup strategy",
+    "customer segmentation",
+    "market opportunity",
+    "Claude Code",
+    "Claude",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/BellaBe/lean-os/tree/main/.claude/skills/foundations-market-intelligence",
+  "sourceType": "community",
+  "dependencies": []
+}

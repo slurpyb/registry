@@ -1,0 +1,146 @@
+{
+  "name": "javascript-testing-patterns",
+  "type": "skill",
+  "description": "Implement comprehensive testing strategies using Jest, Vitest, and Testing Library for unit tests, integration tests, and end-to-end testing with mocking, fixtures, and test-driven development. Use when writing JavaScript/TypeScript tests, setting up test infrastructure, or implementing TDD/BDD workflows.",
+  "domain": "testing",
+  "subdomain": "unit",
+  "specialty": "Jest & Vitest",
+  "quality": 5,
+  "qualityReason": "Comprehensive and specific",
+  "bundleHints": [
+    "testing-workflow",
+    "javascript-stack",
+    "frontend-testing"
+  ],
+  "tags": [
+    "end-to-end",
+    "fixtures",
+    "integration-tests",
+    "javascript",
+    "jest",
+    "mocking",
+    "tdd",
+    "testing",
+    "testing-library",
+    "typescript",
+    "vitest"
+  ],
+  "capabilities": [
+    "Generate unit tests for functions, classes, and async code using Jest or Vitest",
+    "Create integration tests for APIs and databases with proper setup and teardown",
+    "Write frontend component tests using React Testing Library and Vue Test Utils",
+    "Implement mocking patterns for external dependencies, APIs, and modules",
+    "Set up test fixtures and factories for consistent test data generation",
+    "Configure test coverage reporting and CI/CD integration"
+  ],
+  "author": "sickn33",
+  "icon": "🧪",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 145 static findings are false positives. The detected patterns exist only in code examples within markdown documentation files, not in executable code. The skill provides educational content about testing patterns with code samples demonstrating legitimate testing practices including mock setup, API testing, email service testing, and database integration testing. No executable code, no security risks.",
+  "valueStatement": "Writing tests is hard. This skill provides proven patterns and examples for unit, integration, and end-to-end testing using Jest, Vitest, and Testing Library so you can build reliable test suites quickly.",
+  "userTitle": "Master JavaScript Testing Patterns",
+  "limitations": [
+    "Only supports JavaScript/TypeScript testing frameworks (Jest, Vitest, Testing Library)",
+    "Cannot execute tests directly - only generates test code and configuration",
+    "Does not provide test runner infrastructure or CI/CD pipeline setup beyond configuration examples",
+    "Limited to documented patterns - may not cover all edge cases or custom testing scenarios"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developer starting a new project",
+      "title": "New Project Test Setup",
+      "description": "Developers starting a new JavaScript/TypeScript project who need to establish test infrastructure from scratch with proper framework configuration, directory structure, and CI/CD integration."
+    },
+    {
+      "targetUser": "Software engineer working on legacy code",
+      "title": "Add Tests to Existing Codebase",
+      "description": "Teams maintaining legacy or untested applications who need to gradually introduce testing for existing functions, APIs, and components without breaking existing functionality."
+    },
+    {
+      "targetUser": "Senior developer or tech lead",
+      "title": "Improve Test Coverage",
+      "description": "Developers seeking to increase code coverage and improve test quality by learning advanced mocking patterns, fixture factories, and integration testing strategies."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Unit Test",
+      "prompt": "Write unit tests for a function that [describe what function does]. Include tests for success cases and error handling.",
+      "scenario": "Starting with simple function testing"
+    },
+    {
+      "title": "Component Test with Testing Library",
+      "prompt": "Create React Testing Library tests for a component that [describe component behavior]. Test user interactions, form submissions, and error states.",
+      "scenario": "Testing React or Vue frontend components"
+    },
+    {
+      "title": "API Integration Test",
+      "prompt": "Write integration tests for a REST API endpoint that [describe endpoint functionality]. Include database setup, authentication, and cleanup using supertest.",
+      "scenario": "Testing backend API endpoints with database"
+    },
+    {
+      "title": "Mock External Dependencies",
+      "prompt": "Create tests for [service/class] that mock external dependencies including [list dependencies]. Use dependency injection and vi.mock patterns.",
+      "scenario": "Testing code with external API or service calls"
+    }
+  ],
+  "bestPractices": [
+    "Follow the Arrange-Act-Assert (AAA) pattern in every test for clear structure and readability",
+    "Test behavior and user interactions rather than implementation details to make tests resilient to refactoring",
+    "Use beforeEach and afterEach hooks for setup and teardown to keep tests isolated and prevent pollution"
+  ],
+  "antiPatterns": [
+    "Testing implementation details like internal function calls or component state instead of observable behavior",
+    "Writing brittle tests that break when code is refactored but behavior remains unchanged",
+    "Creating overly complex test setups with too many mocks that make tests hard to understand and maintain"
+  ],
+  "faq": [
+    {
+      "question": "Should I use Jest or Vitest?",
+      "answer": "Vitest is faster and works better with Vite projects. Jest is more mature and has wider adoption. Choose Vitest if you use Vite, otherwise Jest is a safe choice."
+    },
+    {
+      "question": "How do I test code that uses external APIs?",
+      "answer": "Mock the external API calls using vi.mock() or dependency injection. This keeps tests fast, reliable, and independent of external services."
+    },
+    {
+      "question": "What test coverage should I aim for?",
+      "answer": "Aim for 80% coverage as a general target. Focus on covering critical business logic and error paths rather than chasing 100% coverage."
+    },
+    {
+      "question": "Should I test private methods?",
+      "answer": "No. Test public behavior only. If private methods need testing, consider refactoring them into separate, testable units."
+    },
+    {
+      "question": "How do I handle database tests?",
+      "answer": "Use a separate test database and clean data between tests using beforeEach. Consider using transactions for faster rollback instead of truncating tables."
+    },
+    {
+      "question": "What is the difference between unit and integration tests?",
+      "answer": "Unit tests isolate individual functions or classes. Integration tests verify multiple components work together, including databases and APIs."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "JavaScript testing",
+    "TypeScript testing",
+    "Jest testing",
+    "Vitest testing",
+    "Testing Library",
+    "unit testing",
+    "integration testing"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/javascript-testing-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

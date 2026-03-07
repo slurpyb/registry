@@ -1,0 +1,139 @@
+{
+  "name": "azure-ai-contentunderstanding-py",
+  "type": "skill",
+  "description": "Multimodal AI service that extracts semantic content from documents, video, audio, and image files for RAG and automated workflows.",
+  "domain": "ai-ml",
+  "subdomain": "computer-vision",
+  "specialty": "Multimodal Extraction",
+  "quality": 5,
+  "qualityReason": "Rich multimodal use case",
+  "bundleHints": [
+    "rag-pipeline",
+    "computer-vision",
+    "azure-ai"
+  ],
+  "tags": [
+    "azure",
+    "content-extraction",
+    "document-analysis",
+    "media-processing",
+    "multimodal-ai",
+    "python",
+    "rag",
+    "semantic-content"
+  ],
+  "capabilities": [
+    "Extract markdown content from PDF and image documents using prebuilt-documentSearch analyzer",
+    "Transcribe audio files with timestamped phrases using prebuilt-audioSearch analyzer",
+    "Analyze video content for transcripts, key frames, and summaries using prebuilt-videoSearch analyzer",
+    "Create custom analyzers with field schemas for domain-specific data extraction",
+    "Support both synchronous and asynchronous client patterns for different throughput needs",
+    "Authenticate using Azure DefaultAzureCredential for managed identity support"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains documentation for the Azure AI Content Understanding SDK, an official Microsoft Azure service. Static analysis scanned 0 files with 0 security issues detected (risk score: 0/100). The SKILL.md file provides usage examples for document, image, audio, and video analysis using legitimate Azure SDK methods. No executable code, network calls, or dangerous patterns present.",
+  "valueStatement": "Transform unstructured media files into structured, searchable content for RAG applications and automated workflows. Use prebuilt analyzers or create custom field extraction models with the Azure AI Content Understanding SDK.",
+  "userTitle": "Extract content from documents, images, audio, and video with Azure AI",
+  "limitations": [
+    "Requires Azure Content Understanding resource endpoint and valid credentials",
+    "Analysis operations are long-running and may take minutes for video or large files",
+    "File inputs must be accessible via URL or require separate upload handling",
+    "Custom analyzers must be created before use and count against resource quotas"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI engineers building knowledge base chatbots",
+      "title": "RAG Document Indexing",
+      "description": "Convert PDF documents, research papers, and technical manuals into markdown format for retrieval-augmented generation systems."
+    },
+    {
+      "targetUser": "Productivity teams automating meeting documentation",
+      "title": "Meeting Intelligence",
+      "description": "Transcribe recorded meetings and webinars with speaker timestamps for searchable meeting notes and action item extraction."
+    },
+    {
+      "targetUser": "Finance teams streamlining accounts payable workflows",
+      "title": "Invoice Processing Automation",
+      "description": "Extract vendor names, invoice totals, and line items from supplier invoices using custom field extraction models."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Document Analysis",
+      "prompt": "Analyze this PDF document using the prebuilt-documentSearch analyzer and return the extracted markdown content. Document URL: {url}"
+    },
+    {
+      "title": "Audio Transcription with Timestamps",
+      "prompt": "Transcribe this audio file and provide all phrases with their start and end timestamps. Audio URL: {url}. Format output as: [start - end]: text"
+    },
+    {
+      "title": "Video Content Summary",
+      "prompt": "Analyze this video to extract key frames, transcript phrases, and generate a summary. Video URL: {url}. Return: 1) Key frame descriptions with timestamps, 2) Full transcript, 3) Executive summary"
+    },
+    {
+      "title": "Custom Field Extraction",
+      "prompt": "Create a custom analyzer with fields: {field_schema}. Then analyze this document: {url} and extract values for each defined field. Return results as structured JSON with field names and extracted values."
+    }
+  ],
+  "bestPractices": [
+    "Use begin_analyze with AnalyzeInput for all analysis operations and await poller.result() for completion",
+    "Access extracted content via result.contents[0] and check the content.kind property for type-specific handling",
+    "Prefer async client with azure.identity.aio for high-throughput scenarios requiring concurrent analysis jobs"
+  ],
+  "antiPatterns": [
+    "Do not call analyze() directly - always use begin_analyze() which returns a poller for long-running operations",
+    "Avoid accessing result.fields without first verifying the analyzer was configured with a field_schema",
+    "Do not use sync client for batch processing workflows that require analyzing multiple files concurrently"
+  ],
+  "faq": [
+    {
+      "question": "What file formats does Content Understanding support?",
+      "answer": "Documents: PDF, images (JPEG, PNG), Office docs. Audio: MP3, WAV, M4A. Video: MP4, MOV. The prebuilt analyzers are optimized for specific content types."
+    },
+    {
+      "question": "How long do analysis operations take?",
+      "answer": "Documents typically complete in seconds. Audio and video analysis are long-running operations that may take several minutes depending on media length and complexity."
+    },
+    {
+      "question": "Can I use this skill with local files?",
+      "answer": "The examples show URL-based inputs. For local files, you must upload to accessible storage (Azure Blob Storage recommended) and provide the URL to the analyzer."
+    },
+    {
+      "question": "What is the difference between sync and async clients?",
+      "answer": "Sync client uses blocking calls suitable for scripts and low-throughput scenarios. Async client (aio) enables concurrent operations and is recommended for high-throughput batch processing."
+    },
+    {
+      "question": "How do I create a custom analyzer?",
+      "answer": "Use client.create_analyzer() with an analyzer_id, description, base_analyzer_id, and field_schema defining the fields to extract. The custom analyzer persists for repeated use."
+    },
+    {
+      "question": "What authentication methods are supported?",
+      "answer": "DefaultAzureCredential supports managed identity, service principal, CLI credentials, and environment-based authentication. Configure CONTENTUNDERSTANDING_ENDPOINT environment variable with your resource URL."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Azure AI Content Understanding",
+    "document extraction",
+    "multimodal analysis",
+    "video transcription",
+    "image analysis",
+    "audio transcription",
+    "RAG pipeline"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-ai-contentunderstanding-py",
+  "sourceType": "community",
+  "dependencies": []
+}

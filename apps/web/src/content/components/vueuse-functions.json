@@ -1,0 +1,142 @@
+{
+  "name": "vueuse-functions",
+  "type": "skill",
+  "description": "Apply VueUse composables where appropriate to build concise, maintainable Vue.js / Nuxt features.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "VueUse composables",
+  "quality": 5,
+  "qualityReason": "High utility, concise patterns",
+  "bundleHints": [
+    "vue-stack",
+    "frontend",
+    "productivity"
+  ],
+  "tags": [
+    "composables",
+    "frontend",
+    "reusability",
+    "utility",
+    "vue",
+    "vuejs",
+    "vueuse"
+  ],
+  "capabilities": [
+    "Maps Vue.js requirements to appropriate VueUse composables",
+    "Applies correct invocation patterns (AUTO, EXTERNAL, EXPLICIT_ONLY)",
+    "Provides implementation guidance for state management, element interactions, and browser APIs",
+    "References detailed documentation for 200+ VueUse functions",
+    "Suggests composable-based solutions over custom code",
+    "Supports Vue 3 and Nuxt 3 projects"
+  ],
+  "author": "antfu",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are FALSE POSITIVES. The scanner misidentified TypeScript code examples in markdown documentation as shell commands and legitimate API documentation as credential access. This is a legitimate Vue.js development guide containing VueUse composable documentation. No malicious code, prompt injection attempts, or actual security risks detected. Safe for publication.",
+  "valueStatement": "Building Vue.js features from scratch leads to complex, hard-to-maintain code. This skill maps requirements to VueUse composables, applying correct patterns to keep implementations concise, performant, and maintainable.",
+  "userTitle": "Apply VueUse Composables for Vue.js",
+  "limitations": [
+    "Requires Vue 3 or Nuxt 3 project to use suggested composables",
+    "Does not install VueUse - user must have it installed or accepts explicit request",
+    "External dependency functions only used if user already has the dependency installed",
+    "Does not provide runtime code execution or file modifications"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers building Vue 3 applications",
+      "title": "State Management in Vue 3 Apps",
+      "description": "Implement reactive state using VueUse composables like useLocalStorage, useSessionStorage, createGlobalState, and useStorage for persistent, syncable state across components."
+    },
+    {
+      "targetUser": "Web developers implementing browser-based features",
+      "title": "Browser API Integration",
+      "description": "Add browser feature access such as clipboard, geolocation, media devices, and storage using documented VueUse composables with proper permission handling."
+    },
+    {
+      "targetUser": "UI developers building interactive components",
+      "title": "Element Interaction Features",
+      "description": "Create draggable elements, detect visibility, track mouse position, and handle resize observers using VueUse element composables for interactive UIs."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic State Implementation",
+      "prompt": "Implement a counter component in Vue 3 that persists its value to localStorage. Use VueUse composables where appropriate to keep the code concise.",
+      "scenario": "User wants a simple persisted counter"
+    },
+    {
+      "title": "Browser Feature Integration",
+      "prompt": "Create a Vue 3 component that allows users to copy text to clipboard using the Clipboard API. Include error handling for browsers that do not support the API.",
+      "scenario": "Implementing clipboard functionality"
+    },
+    {
+      "title": "Element Interaction",
+      "prompt": "Build a modal dialog that closes when clicking outside of it. Use VueUse to detect clicks outside the modal element.",
+      "scenario": "Creating a modal with click-outside detection"
+    },
+    {
+      "title": "Complex Feature with Multiple Composables",
+      "prompt": "Create a dark mode toggle for a Nuxt 3 application. Use VueUse to persist user preference, detect system preference, and animate the transition.",
+      "scenario": "Implementing dark mode with persistence"
+    }
+  ],
+  "bestPractices": [
+    "Always check VueUse documentation for the most current API details before implementation, as composables may evolve across versions.",
+    "Prefer AUTO invocation composables for common patterns like state, elements, and browser APIs to reduce boilerplate.",
+    "Use EXTERNAL composables only when the required dependency is already installed, or explicitly request installation from the user."
+  ],
+  "antiPatterns": [
+    "Avoid writing custom event listeners when useEventListener provides cross-browser compatible, properly cleaned-up handlers.",
+    "Do not manually synchronize localStorage with refs - use useStorage which handles reactivity and persistence automatically.",
+    "Avoid imperative DOM manipulation for common patterns; use element composables like useElementBounding instead."
+  ],
+  "faq": [
+    {
+      "question": "Does this skill install VueUse?",
+      "answer": "No. This skill provides guidance on using VueUse composables. For AUTO invocation functions, it assumes VueUse is available. For EXTERNAL functions, it suggests installation only if truly needed."
+    },
+    {
+      "question": "What Vue versions are supported?",
+      "answer": "This skill targets Vue 3 and Nuxt 3 projects. VueUse version 10+ requires Vue 3. For Vue 2 projects, use VueUse version 9.x."
+    },
+    {
+      "question": "How do I use a composable not listed here?",
+      "answer": "This skill documents commonly used composables. For additional functions, consult the official VueUse documentation at vueuse.org. The same principles apply - check invocation type and follow reference examples."
+    },
+    {
+      "question": "Can I use these composables in script setup?",
+      "answer": "Yes. All VueUse composables are designed for Composition API and work seamlessly with script setup. They return refs that can be used directly in templates without .value."
+    },
+    {
+      "question": "How does this skill handle SSR (Server-Side Rendering)?",
+      "answer": "Some composables have SSR considerations. The documentation notes when Nuxt 3 has built-in alternatives (like useStorage vs Nitro useStorage). Always check the reference notes for SSR caveats."
+    },
+    {
+      "question": "What happens if a browser does not support a feature?",
+      "answer": "Most VueUse composables return nullable refs or have options for fallback behavior. Check the specific composable documentation for graceful degradation patterns and feature detection."
+    }
+  ],
+  "seoKeywords": [
+    "VueUse",
+    "Vue.js",
+    "Vue 3",
+    "Nuxt 3",
+    "composables",
+    "frontend development",
+    "reactive",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/antfu/skills/tree/main/skills/vueuse-functions/",
+  "sourceType": "community",
+  "dependencies": []
+}

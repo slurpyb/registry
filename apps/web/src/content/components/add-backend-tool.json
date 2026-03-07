@@ -1,0 +1,140 @@
+{
+  "name": "add-backend-tool",
+  "type": "skill",
+  "description": "Add a new tool to the backend OpenAI function calling system. Use when user mentions \"new tool\", \"add tool\", \"backend function\", \"agent capability\", or wants to extend what the AI agent can do.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "tool integration",
+  "quality": 5,
+  "qualityReason": "Clear purpose and technical scope",
+  "bundleHints": [
+    "agent-tools",
+    "backend-integration"
+  ],
+  "tags": [
+    "agent-capability",
+    "api",
+    "backend",
+    "extension",
+    "function-calling",
+    "openai",
+    "tools"
+  ],
+  "capabilities": [
+    "Read existing tool patterns in backend/main.py",
+    "Create new helper functions with proper error handling",
+    "Add tool definitions to the tools list",
+    "Implement tool invocation handlers in WebSocket message loop",
+    "Configure mode restrictions for chat versus agent mode"
+  ],
+  "author": "AppleLamps",
+  "icon": "🔧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only instructions and guidance. No executable code, no file operations, no network calls, no command execution. All 23 static findings are false positives from pattern-matching on documentation code examples. The scanner misidentified YAML front matter, JSON metadata fields, markdown code blocks, and security documentation as security vulnerabilities.",
+  "valueStatement": "Extending AI agent capabilities requires understanding backend tool patterns. This skill provides step-by-step instructions for adding new tools to the OpenAI function calling system, including helper functions, tool definitions, and security guardrails.",
+  "userTitle": "Add Backend Tools for AI Agents",
+  "limitations": [
+    "Does not modify files automatically - provides instructions only",
+    "Does not access external APIs directly",
+    "Requires manual implementation of tool logic",
+    "Does not validate security implications of new tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Extend agent capabilities",
+      "description": "Add new backend tools to enable AI agents to perform custom operations like file processing or API calls."
+    },
+    {
+      "targetUser": "AI engineers",
+      "title": "Integrate external services",
+      "description": "Create tools that connect AI agents to external services, databases, or APIs for agent interactions."
+    },
+    {
+      "targetUser": "System architects",
+      "title": "Design tool frameworks",
+      "description": "Establish patterns and security guardrails for tool development across teams or organizations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic tool addition",
+      "scenario": "Add a simple file listing tool",
+      "prompt": "Add a tool to list directory contents"
+    },
+    {
+      "title": "Git integration",
+      "scenario": "Create git operation tools",
+      "prompt": "Create a tool for git operations"
+    },
+    {
+      "title": "Web scraping",
+      "scenario": "Add web scraping capability",
+      "prompt": "Add web scraping capability"
+    },
+    {
+      "title": "Custom backend tool",
+      "scenario": "Implement complex backend integration",
+      "prompt": "Add a tool that connects to my PostgreSQL database and runs read-only queries"
+    }
+  ],
+  "bestPractices": [
+    "Always include try-except error handling in helper functions",
+    "Add timeouts for long-running operations to prevent agent hanging",
+    "Document the tool purpose clearly in the function docstring"
+  ],
+  "antiPatterns": [
+    "Hardcoding API keys or secrets in tool implementations",
+    "Adding tools without reviewing security implications for Chat mode",
+    "Skipping error handling for external service calls"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with all Claude versions?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. Tool patterns may vary slightly between versions."
+    },
+    {
+      "question": "What are the limits on tool complexity?",
+      "answer": "Tools should be focused and single-purpose. Complex operations should be broken into multiple tools."
+    },
+    {
+      "question": "How do I integrate with existing MCP tools?",
+      "answer": "Review backend/main.py for existing MCP integration patterns. Follow the same structure for consistency."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "This skill only provides instructions. It does not access files, execute code, or send data externally."
+    },
+    {
+      "question": "Why is my new tool not working?",
+      "answer": "Check that you added both the helper function and the tool definition. Verify the handler in WebSocket loop."
+    },
+    {
+      "question": "How is this different from MCP tools?",
+      "answer": "This skill adds backend tools to the function calling system. MCP tools are separate plugin-like integrations."
+    }
+  ],
+  "seoKeywords": [
+    "add backend tool",
+    "OpenAI function calling",
+    "Claude Code tools",
+    "agent capabilities",
+    "backend integration",
+    "tool definition",
+    "function calling system",
+    "API tool creation",
+    "agent tool development",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/AppleLamps/web-term/tree/main/.claude/skills/add-backend-tool",
+  "sourceType": "community",
+  "dependencies": []
+}

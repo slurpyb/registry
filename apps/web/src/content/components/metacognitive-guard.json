@@ -1,0 +1,139 @@
+{
+  "name": "metacognitive-guard",
+  "type": "skill",
+  "description": "Monitors Claude's responses for struggle signals and suggests escalation to deep-thinking agents when complexity exceeds comfortable reasoning capacity.",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "Response monitoring",
+  "quality": 5,
+  "qualityReason": "Ensures reasoning quality",
+  "bundleHints": [
+    "reasoning",
+    "agent-safety"
+  ],
+  "tags": [
+    "agents",
+    "escalation",
+    "metacognitive",
+    "quality",
+    "reasoning"
+  ],
+  "capabilities": [
+    "Monitor responses for struggle signals like hedging, deflection, and contradictions",
+    "Provide a self-assessment checklist before responding to complex questions",
+    "Suggest proactive escalation to deep-thinking agents based on complexity indicators",
+    "Guide users on crafting effective escalation prompts with context and constraints",
+    "Help identify high-complexity situations requiring multi-domain synthesis",
+    "Track and improve personal struggle detection awareness over time"
+  ],
+  "author": "ANcpLua",
+  "icon": "🧠",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 18 static findings are false positives. Scanner misinterpreted markdown code formatting (backticks) as command execution, GitHub URLs as network endpoints, and metacognitive terms as security threats. This is a benign metacognitive guidance skill with no actual security risks.",
+  "valueStatement": "Claude sometimes struggles with highly complex problems that require deep analysis. This skill monitors your responses for struggle signals and recommends proactive escalation to deep-thinking agents before quality degrades.",
+  "userTitle": "Escalate Complex Problems to Deep-Thinking Agents",
+  "limitations": [
+    "Cannot automatically trigger agent escalation without user permission",
+    "Does not access external tools or files for analysis",
+    "Struggle detection is based on pattern recognition, not perfect understanding",
+    "Cannot replace human judgment on when escalation is truly necessary"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software architects and senior developers",
+      "title": "Architectural Decision Support",
+      "description": "When facing complex system design decisions with competing constraints across performance, maintainability, and cost dimensions, escalate to deep-thinking agents for structured analysis."
+    },
+    {
+      "targetUser": "Full-stack developers and technical leads",
+      "title": "Multi-Domain Problem Solving",
+      "description": "When problems span multiple technology areas without obvious integration patterns, use the skill to recognize the need for specialized deep analysis."
+    },
+    {
+      "targetUser": "Users new to Claude and AI assistants",
+      "title": "Quality Response Calibration",
+      "description": "New Claude users learning to recognize when their responses lack confidence or clarity can use this skill to improve response quality through self-assessment."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Struggle Check",
+      "prompt": "I'm about to respond to a user question. Help me check if I should escalate: Can I give a concrete recommendation with high confidence? Is this answerable without multiple follow-ups? Would structured analysis help?",
+      "scenario": "Quick self-assessment before responding"
+    },
+    {
+      "title": "Complexity Evaluation",
+      "prompt": "Analyze this problem for escalation indicators: Does it involve architectural decisions with competing constraints? Are requirements ambiguous? Does it require multi-domain synthesis? Does it need edge case analysis?",
+      "scenario": "Evaluating problem complexity"
+    },
+    {
+      "title": "Crafting Escalation Prompt",
+      "prompt": "Help me create an effective escalation prompt for the deep-think-partner agent. Include: system context, specific constraints, success criteria, and the core question needing analysis.",
+      "scenario": "Preparing escalation to deep-thinking agent"
+    },
+    {
+      "title": "Post-Escalation Synthesis",
+      "prompt": "The deep-think-partner returned analysis on [topic]. Help me synthesize the key insight, present a clear recommendation, and offer an implementation plan for the user.",
+      "scenario": "Presenting deep-thinking results to users"
+    }
+  ],
+  "bestPractices": [
+    "Use the self-assessment checklist before responding to any complex question - answer honestly about your confidence level.",
+    "Escalate proactively when you detect ambiguity in requirements or multiple valid architectural approaches.",
+    "After receiving deep-thinking analysis, synthesize the key insight rather than pasting the full response."
+  ],
+  "antiPatterns": [
+    "Responding with 'it depends' without identifying the specific constraints that matter.",
+    "Continuing to struggle through a complex problem without considering escalation.",
+    "Pasting deep-thinking partner output verbatim without synthesizing for the user."
+  ],
+  "faq": [
+    {
+      "question": "Does this skill automatically escalate to other agents?",
+      "answer": "No. This skill provides guidance and recommendations but requires you to trigger escalation through the Task tool. You maintain full control over when to engage deep-thinking agents."
+    },
+    {
+      "question": "How does struggle detection work?",
+      "answer": "The skill identifies patterns like hedging language, deflection, contradictions, verbose responses without concrete output, and non-committal recommendations. Use the self-assessment checklist to catch these early."
+    },
+    {
+      "question": "What makes a problem complex enough to escalate?",
+      "answer": "Indicators include architectural decisions with competing constraints, ambiguous requirements, multi-domain synthesis needs, and edge case analysis requirements. The skill provides specific checklists for each category."
+    },
+    {
+      "question": "Can I use this with other thinking or reasoning skills?",
+      "answer": "Yes. This skill complements other reasoning tools by helping you recognize when deeper analysis would improve response quality. It does not replace structured thinking approaches."
+    },
+    {
+      "question": "How accurate is the struggle detector?",
+      "answer": "The detector relies on pattern recognition in your own responses. It may produce false positives or miss genuine struggles. Track your triggers over time to calibrate your personal patterns."
+    },
+    {
+      "question": "What should I include in an escalation prompt?",
+      "answer": "Include context about the system or codebase, specific constraints limiting the solution, clear success criteria, and the specific question or decision needing analysis. The skill provides templates for each element."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "metacognitive",
+    "self-escalation",
+    "reasoning",
+    "complex problems",
+    "deep thinking",
+    "agent collaboration",
+    "response quality"
+  ],
+  "sourceUrl": "https://github.com/ANcpLua/ancplua-claude-plugins/tree/main/plugins/metacognitive-guard/skills/metacognitive-guard",
+  "sourceType": "community",
+  "dependencies": []
+}

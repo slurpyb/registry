@@ -1,0 +1,140 @@
+{
+  "name": "ghostty",
+  "type": "skill",
+  "description": "Control Ghostty terminal emulator via CLI. Manage windows, tabs, splits, and configuration.",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "terminal control",
+  "quality": 5,
+  "qualityReason": "Specific terminal automation control",
+  "bundleHints": [
+    "cli-tools",
+    "terminal-automation",
+    "productivity-suite"
+  ],
+  "tags": [
+    "automation",
+    "cli",
+    "ghostty",
+    "productivity",
+    "terminal",
+    "workflow"
+  ],
+  "capabilities": [
+    "Create and manage terminal windows and tabs",
+    "Navigate between split panes in multiple directions",
+    "Increase, decrease, or reset font size",
+    "List available themes, fonts, and keybindings",
+    "Show current configuration and validate config files",
+    "Reload configuration without restarting Ghostty"
+  ],
+  "author": "Dicklesworthstone",
+  "icon": "🖥️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown documentation about Ghostty CLI commands. No executable code, scripts, network calls, or file system access beyond its own documentation file. All 54 static findings are false positives caused by the scanner misinterpreting documentation content as executable code.",
+  "valueStatement": "Managing terminal windows and tabs manually slows down workflow. This skill provides a complete reference for Ghostty terminal emulator CLI commands. It enables quick window creation, tab management, split navigation, and configuration control without memorizing syntax.",
+  "userTitle": "Control Ghostty terminal via CLI",
+  "limitations": [
+    "Ghostty terminal must be installed on the system",
+    "Only works on macOS with Ghostty installed at default location",
+    "Does not provide terminal automation within shell sessions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers",
+      "title": "Multi-pane development",
+      "description": "Create split terminal panes and navigate between them quickly for coding workflows"
+    },
+    {
+      "targetUser": "System administrators",
+      "title": "Terminal workspace setup",
+      "description": "Launch terminal with specific configurations, themes, and working directories"
+    },
+    {
+      "targetUser": "Power users",
+      "title": "Workflow optimization",
+      "description": "Manage multiple terminal sessions with keyboard shortcuts and CLI commands"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List available actions",
+      "scenario": "View Ghostty capabilities",
+      "prompt": "What actions are available in Ghostty terminal emulator?"
+    },
+    {
+      "title": "Create new window",
+      "scenario": "Open terminal window",
+      "prompt": "Create a new window in Ghostty terminal"
+    },
+    {
+      "title": "Navigate splits",
+      "scenario": "Move between panes",
+      "prompt": "Navigate to the split pane below in Ghostty"
+    },
+    {
+      "title": "Show configuration",
+      "scenario": "View current settings",
+      "prompt": "Show the current Ghostty configuration"
+    }
+  ],
+  "bestPractices": [
+    "Use IPC commands with the +action syntax to control a running Ghostty instance",
+    "List available actions with ghostty +list-actions to discover new features",
+    "Validate configuration files before reloading to catch syntax errors"
+  ],
+  "antiPatterns": [
+    "Running ghostty commands without Ghostty installed will fail silently",
+    "Using IPC actions when Ghostty is not running will not work",
+    "Forgetting to use the + prefix for actions will treat them as arguments instead"
+  ],
+  "faq": [
+    {
+      "question": "Where is Ghostty installed by default?",
+      "answer": "Ghostty is typically installed at /Applications/Ghostty.app/Contents/MacOS/ghostty on macOS."
+    },
+    {
+      "question": "What actions can I perform on a running Ghostty instance?",
+      "answer": "You can create windows, tabs, splits, navigate between them, toggle fullscreen, and reload config."
+    },
+    {
+      "question": "How do I list all available Ghostty themes?",
+      "answer": "Run ghostty +list-themes to see all available color themes."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only reads documentation. No data is collected or transmitted."
+    },
+    {
+      "question": "Why are my ghostty commands not working?",
+      "answer": "Ensure Ghostty is installed and running. IPC actions require a running Ghostty instance."
+    },
+    {
+      "question": "How is this different from other terminal skills?",
+      "answer": "This skill is specific to Ghostty and provides its unique IPC action system for window management."
+    }
+  ],
+  "seoKeywords": [
+    "ghostty terminal",
+    "ghostty cli",
+    "terminal automation",
+    "ghostty commands",
+    "terminal workflow",
+    "claude code",
+    "claude ai",
+    "codex",
+    "ghostty terminal emulator",
+    "terminal management"
+  ],
+  "sourceUrl": "https://github.com/Dicklesworthstone/agent_flywheel_clawdbot_skills_and_integrations/tree/main/skills/ghostty",
+  "sourceType": "community",
+  "dependencies": []
+}

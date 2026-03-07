@@ -1,0 +1,144 @@
+{
+  "name": "database",
+  "type": "skill",
+  "description": "Universal database operations skill for modern applications. Expert in SQLModel/SQLAlchemy patterns, async database operations, connection pooling, migrations, performance optimization, and multi-database support (PostgreSQL, MySQL, SQLite). Provides production-ready patterns for any database-driven application.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "universal operations",
+  "quality": 5,
+  "qualityReason": "Full-featured database operations expertise",
+  "bundleHints": [
+    "database-toolkit",
+    "python-db"
+  ],
+  "tags": [
+    "async",
+    "database",
+    "migrations",
+    "multi-db",
+    "performance",
+    "pooling",
+    "postgresql",
+    "sql",
+    "sqlalchemy",
+    "sqlmodel"
+  ],
+  "capabilities": [
+    "Design database schemas with SQLModel and SQLAlchemy",
+    "Implement async database operations with connection pooling",
+    "Create and manage database migrations with Alembic",
+    "Optimize queries and improve database performance",
+    "Build repository patterns for clean CRUD operations",
+    "Handle complex relationships and advanced queries"
+  ],
+  "author": "Azeem-2",
+  "icon": "🗄️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill is pure documentation (SKILL.md only) containing database best practices and code examples. Static findings are false positives - the scanner detects SQLAlchemy's session.exec() method as Python exec(), database URLs in documentation as credential exposure, and hardcoded example strings as malicious patterns. No executable code, no network calls, no file operations exist in this skill.",
+  "valueStatement": "Writing database code from scratch leads to connection leaks, slow queries, and migration headaches. This skill provides battle-tested patterns for async database operations, connection pooling, migrations, and performance optimization that work across PostgreSQL, MySQL, and SQLite.",
+  "userTitle": "Build Production-Ready Database Operations",
+  "limitations": [
+    "Does not execute database operations directly",
+    "Does not generate full application boilerplate",
+    "Requires user to implement patterns in their codebase",
+    "Database-specific optimizations may require adjustment"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developers",
+      "title": "Set up production database layer",
+      "description": "Configure async connections, connection pooling, and migrations for a new Python web application."
+    },
+    {
+      "targetUser": "Data Engineers",
+      "title": "Optimize query performance",
+      "description": "Analyze slow queries, add proper indexes, and implement caching strategies for large datasets."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Configure production databases",
+      "description": "Set up connection limits, monitoring, backup strategies, and security configurations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create database models",
+      "scenario": "New project model setup",
+      "prompt": "Create SQLModel models for a [entity name] with fields for [field descriptions], including timestamps, soft delete, and proper indexes."
+    },
+    {
+      "title": "Set up async connections",
+      "scenario": "Database connection configuration",
+      "prompt": "Set up async database connection with SQLAlchemy including connection pooling for [development/production] with pool size [number] and max overflow [number]."
+    },
+    {
+      "title": "Build repository pattern",
+      "scenario": "CRUD implementation",
+      "prompt": "Create a repository class for [model name] with methods for create, get, get_multi, update, remove, and count with proper async support."
+    },
+    {
+      "title": "Write migration script",
+      "scenario": "Schema changes",
+      "prompt": "Write an Alembic migration to [describe schema change] including upgrading and downgrading functions."
+    }
+  ],
+  "bestPractices": [
+    "Always use async sessions with expire_on_commit=False for better performance",
+    "Implement connection pooling with appropriate pool size based on expected concurrent users",
+    "Add indexes on foreign keys and frequently filtered columns to optimize queries"
+  ],
+  "antiPatterns": [
+    "Do not use synchronous database calls in async FastAPI or other async frameworks",
+    "Do not commit transactions manually when using context managers for sessions",
+    "Do not skip indexes on foreign key columns as this causes N+1 query problems"
+  ],
+  "faq": [
+    {
+      "question": "Which databases are supported?",
+      "answer": "PostgreSQL, MySQL, and SQLite are fully supported. Any database with a SQLAlchemy async driver works."
+    },
+    {
+      "question": "What is the maximum connection pool size?",
+      "answer": "Pool size depends on your database limits. Start with pool_size=30 and max_overflow=40 for medium workloads."
+    },
+    {
+      "question": "How does this integrate with FastAPI?",
+      "answer": "Use the async sessionmaker with FastAPI dependencies. Inject sessions into route handlers for proper lifecycle management."
+    },
+    {
+      "question": "Is my data safe when using these patterns?",
+      "answer": "Yes. These patterns include connection disposal, proper transaction handling, and security recommendations for production."
+    },
+    {
+      "question": "Why are my queries slow?",
+      "answer": "Check for missing indexes, N+1 query patterns, or missing eager loading. Use the query analyzer to identify bottlenecks."
+    },
+    {
+      "question": "How is this different from raw SQL?",
+      "answer": "SQLModel provides type safety, relationship handling, and migrations. Raw SQL is faster for bulk operations but harder to maintain."
+    }
+  ],
+  "seoKeywords": [
+    "Claude database skill",
+    "SQLModel patterns",
+    "SQLAlchemy async",
+    "PostgreSQL Python",
+    "connection pooling",
+    "database migrations",
+    "Python async database",
+    "SQLAlchemy performance",
+    "Claude Code database",
+    "SQLModel best practices"
+  ],
+  "sourceUrl": "https://github.com/Azeem-2/HackthonII/tree/master/.claude/skills/database",
+  "sourceType": "community",
+  "dependencies": []
+}

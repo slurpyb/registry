@@ -1,0 +1,137 @@
+{
+  "name": "subagent-development",
+  "type": "skill",
+  "description": "Execute plans using fresh subagent per task with code review between tasks. Use for high-quality iterative implementation.",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "Subagent workflow",
+  "quality": 5,
+  "qualityReason": "High-quality implementation",
+  "bundleHints": [
+    "agent-workflow",
+    "quality-gates"
+  ],
+  "tags": [
+    "code-review",
+    "development",
+    "fresh-context",
+    "iteration",
+    "methodology",
+    "quality"
+  ],
+  "capabilities": [
+    "Provides step-by-step methodology for task delegation to subagents",
+    "Includes code review checkpoints between each task implementation",
+    "Defines quality gate criteria for pass/fail decisions",
+    "Offers templates for subagent prompts and reviewer prompts",
+    "Establishes critical rules for safe implementation workflows"
+  ],
+  "author": "DMJGilbert",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is pure documentation containing methodology guidelines for using subagents in development workflows. Static scanner flagged 27 pattern matches, but all are false positives - the scanner mistook markdown code blocks and development terminology for security risks. The skill contains no executable code, no network calls, no file system access, and no security risks.",
+  "valueStatement": "Complex development plans often fail due to accumulated context errors and missing quality checks. This methodology ensures each task gets a fresh subagent with clean context, followed by mandatory code review before proceeding.",
+  "userTitle": "Implement complex plans with fresh subagents and code reviews",
+  "limitations": [
+    "Requires manual execution by the user - not automated",
+    "Depends on plan quality and task definition clarity",
+    "Adds overhead from frequent code reviews between tasks"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software architects",
+      "title": "Implement multi-component features",
+      "description": "Break down complex features into isolated tasks, each implemented by fresh subagents with quality reviews"
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Onboard new developers safely",
+      "description": "Use structured task delegation with built-in reviews to guide junior developers through complex implementations"
+    },
+    {
+      "targetUser": "Solo developers",
+      "title": "Maintain code quality alone",
+      "description": "Get external perspective through code reviewer subagents when working without human colleagues"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Task Implementation",
+      "scenario": "First task in a feature implementation",
+      "prompt": "Implement Task 1 from the plan: Create user authentication API. Follow TDD, write tests first, minimal code to pass. Output what was implemented and test results."
+    },
+    {
+      "title": "Code Review Request",
+      "scenario": "After completing a task implementation",
+      "prompt": "Review my implementation of user authentication API. Check if it matches requirements, code quality, test coverage. Identify any critical issues."
+    },
+    {
+      "title": "Final Integration Review",
+      "scenario": "All tasks completed, ready for merge",
+      "prompt": "Final review of complete user authentication feature. Verify plan compliance, architectural soundness, no regressions. Ready for production?"
+    },
+    {
+      "title": "Issue Resolution",
+      "scenario": "Addressing review feedback",
+      "prompt": "Fix the critical security issue identified in review: missing input validation. Update tests to cover edge cases. Re-review after fix."
+    }
+  ],
+  "bestPractices": [
+    "Always use fresh subagents for each task to avoid context contamination",
+    "Never skip code reviews - they are your quality safety net",
+    "Document deferred issues instead of forgetting them"
+  ],
+  "antiPatterns": [
+    "Running multiple implementation subagents in parallel loses isolation benefits",
+    "Skipping reviews to save time creates technical debt",
+    "Implementing without referencing the plan causes drift from requirements"
+  ],
+  "faq": [
+    {
+      "question": "Is this compatible with my existing development workflow?",
+      "answer": "Yes, it integrates with any workflow that uses task planning. You can adopt it gradually for complex features while keeping simple changes as-is."
+    },
+    {
+      "question": "How many tasks should I break my plan into?",
+      "answer": "Aim for 2-4 hour tasks that produce working, testable code. Smaller tasks give better isolation but add review overhead."
+    },
+    {
+      "question": "Can I integrate this with CI/CD pipelines?",
+      "answer": "The methodology is manual but produces commit-ready code. Each task completion creates a logical commit point for your pipeline."
+    },
+    {
+      "question": "Is my code safe during the review process?",
+      "answer": "Yes, reviews happen on completed code in your repository. The subagent only reads and comments, never modifies without permission."
+    },
+    {
+      "question": "What if the reviewer finds too many issues?",
+      "answer": "Fix critical issues immediately, high priority before next task. Medium/low issues can be batched if they do not block progress."
+    },
+    {
+      "question": "How does this compare to pair programming?",
+      "answer": "It provides similar quality benefits asynchronously. You get external perspective without scheduling coordination, though human pairs offer deeper context."
+    }
+  ],
+  "seoKeywords": [
+    "subagent development",
+    "Claude Code",
+    "code review",
+    "iterative development",
+    "quality gates",
+    "fresh context",
+    "task delegation",
+    "Claude",
+    "AI development",
+    "methodology"
+  ],
+  "sourceUrl": "https://github.com/DMJGilbert/.config/tree/main/users/darren/config/claude/skills/subagent-development",
+  "sourceType": "community",
+  "dependencies": []
+}

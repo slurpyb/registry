@@ -1,0 +1,140 @@
+{
+  "name": "clojure-write",
+  "type": "skill",
+  "description": "Guide Clojure and ClojureScript development using REPL-driven workflow, coding conventions, and best practices. Use when writing, developing, or refactoring Clojure/ClojureScript code.",
+  "domain": "languages",
+  "subdomain": "other",
+  "specialty": "REPL-driven development",
+  "quality": 4,
+  "qualityReason": "Strong development workflow",
+  "bundleHints": [
+    "clojure-stack",
+    "fp-development"
+  ],
+  "tags": [
+    "best-practices",
+    "clojure",
+    "clojurescript",
+    "development",
+    "functional-programming",
+    "refactoring",
+    "repl"
+  ],
+  "capabilities": [
+    "Guides REPL-driven development workflow from small functions to complex systems",
+    "Provides bottom-up development loop with file evaluation steps",
+    "Lists critical editing rules for Clojure syntax correctness",
+    "References Clojure style guide and command documentation",
+    "Prefers clojure-mcp tools over shell commands for REPL integration"
+  ],
+  "author": "metabase",
+  "icon": "🧪",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only development guidance for Clojure/ClojureScript. No executable code, scripts, network calls, or filesystem operations beyond reading its own documentation. Static findings are false positives from pattern matching on documentation references.",
+  "valueStatement": "Clojure development can feel unfamiliar without REPL-driven workflows and proper conventions. This skill provides step-by-step guidance for bottom-up development, functional programming patterns, and critical editing rules to write correct Clojure code.",
+  "userTitle": "Write Clojure with REPL-driven best practices",
+  "limitations": [
+    "Does not execute Clojure code directly - requires clojure-mcp tools or existing REPL",
+    "Does not provide project scaffolding or configuration",
+    "Does not include testing frameworks or test generation",
+    "References shared documentation files that must exist separately"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Clojure beginners",
+      "title": "Learn REPL workflow",
+      "description": "Start with fundamental functions, test in REPL, then integrate into source code gradually"
+    },
+    {
+      "targetUser": "Experienced developers",
+      "title": "Apply style conventions",
+      "description": "Follow established Metabase coding conventions and functional programming principles"
+    },
+    {
+      "targetUser": "Code editors",
+      "title": "Prevent syntax errors",
+      "description": "Use structural editing rules, verify readability, and maintain proper parentheses balance"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New function",
+      "scenario": "Creating a small Clojure function",
+      "prompt": "Write a Clojure function that [describe functionality]. Start by writing and testing it in the REPL with various inputs."
+    },
+    {
+      "title": "REPL workflow",
+      "scenario": "Developing bottom-up",
+      "prompt": "Help me develop [feature] using bottom-up REPL workflow. Start with fundamental functions, test each in the REPL, then compose them."
+    },
+    {
+      "title": "Style guide",
+      "scenario": "Applying coding conventions",
+      "prompt": "Review my Clojure code for style violations. Check against the style guide: proper function design, naming conventions, and formatting."
+    },
+    {
+      "title": "Edit safely",
+      "scenario": "Modifying existing code",
+      "prompt": "Help me edit [function/file] with proper Clojure syntax. Remember to verify readability after each change and check parentheses balance."
+    }
+  ],
+  "bestPractices": [
+    "Start with smallest functions and test thoroughly in REPL before composing",
+    "Use clojure-mcp tools for REPL integration instead of shell commands when available",
+    "Verify readability with -check-readable after every Clojure code change"
+  ],
+  "antiPatterns": [
+    "Writing large functions without REPL testing at each step",
+    "Ignoring parentheses balance or skipping readability checks",
+    "Falling back to shell commands when clojure-mcp tools are available"
+  ],
+  "faq": [
+    {
+      "question": "What tools does this skill require?",
+      "answer": "Requires clojure-mcp tools (clojure_eval, clojure_edit) or a running Clojure REPL for code execution."
+    },
+    {
+      "question": "What are the limits of this skill?",
+      "answer": "Provides guidance only - does not execute code, generate projects, or configure environments."
+    },
+    {
+      "question": "How do I integrate with existing projects?",
+      "answer": "Follow bottom-up workflow: test in REPL, integrate to namespaces, verify with -check-readable."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes - this is a prompt-only skill with no network calls or file writes outside of normal editing."
+    },
+    {
+      "question": "Why is my code not working after editing?",
+      "answer": "Check parentheses balance and run -check-readable. Common issues include missing brackets and formatting errors."
+    },
+    {
+      "question": "How is this different from other language skills?",
+      "answer": "Focuses on REPL-driven workflow, functional programming principles, and Metabase-specific Clojure conventions."
+    }
+  ],
+  "seoKeywords": [
+    "clojure development",
+    "clojurescript",
+    "repl-driven development",
+    "functional programming",
+    "claude code",
+    "claude",
+    "codex",
+    "metabase",
+    "lisp development",
+    "clojure coding conventions"
+  ],
+  "sourceUrl": "https://github.com/metabase/metabase/tree/master/.claude/skills/clojure-write",
+  "sourceType": "community",
+  "dependencies": []
+}

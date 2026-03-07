@@ -1,0 +1,141 @@
+{
+  "name": "building-native-ui",
+  "type": "skill",
+  "description": "Complete guide for building beautiful apps with Expo Router. Covers fundamentals, styling, components, navigation, animations, patterns, and native tabs.",
+  "domain": "mobile",
+  "subdomain": "cross-platform",
+  "specialty": "Expo UI",
+  "quality": 5,
+  "qualityReason": "Complete native UI guidance",
+  "bundleHints": [
+    "mobile-stack",
+    "react-native"
+  ],
+  "tags": [
+    "animations",
+    "expo",
+    "ios",
+    "mobile",
+    "react-native",
+    "router",
+    "ui"
+  ],
+  "capabilities": [
+    "Creates iOS-native tab navigation using NativeTabs with SF Symbols icons",
+    "Implements platform-specific UI patterns following Apple Human Interface Guidelines",
+    "Adds smooth animations with Reanimated including enter/exit and scroll-driven effects",
+    "Builds search integration with headerSearchBarOptions and useSearch hook",
+    "Configures native iOS controls like Switch, Slider, SegmentedControl, and DateTimePicker",
+    "Implements visual effects with expo-blur, liquid glass, and custom shadows"
+  ],
+  "author": "expo",
+  "icon": "📱",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 614 static findings are false positives. This is legitimate Expo documentation containing code examples for building native iOS apps. The scanner incorrectly flagged documentation patterns including CLI command examples (npx expo), CSS color values (rgba), and regex patterns as security issues. No malicious code present.",
+  "valueStatement": "Building iOS apps requires understanding native components, platform conventions, and Expo Router patterns. This skill provides comprehensive guidelines for creating polished, Apple-compliant interfaces using modern Expo patterns.",
+  "userTitle": "Build Native iOS UI with Expo Router",
+  "limitations": [
+    "Does not generate Android-specific UI patterns or Material Design components",
+    "Does not cover custom native module development outside Expo ecosystem",
+    "Does not provide backend API implementation or database schema design",
+    "Does not include accessibility audit or WCAG compliance verification"
+  ],
+  "useCases": [
+    {
+      "targetUser": "iOS developers building Expo apps who need platform-native navigation patterns",
+      "title": "Create iOS-native tab navigation",
+      "description": "Build polished iOS apps with NativeTabs, SF Symbols icons, and proper iOS 26 tab bar features like liquid glass backgrounds."
+    },
+    {
+      "targetUser": "Frontend developers adding motion design to React Native applications",
+      "title": "Add smooth animations and gestures",
+      "description": "Implement entering, exiting, layout, and scroll-driven animations with Reanimated for polished user experiences."
+    },
+    {
+      "targetUser": "Mobile developers building form interfaces requiring platform-specific components",
+      "title": "Integrate native iOS controls",
+      "description": "Add Switch, Slider, SegmentedControl, DateTimePicker, and other iOS-native form controls with proper platform styling."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create native tab navigation",
+      "prompt": "Create a new Expo Router app with native iOS tab navigation using NativeTabs and SF Symbols icons. Include a (home, search, profile) tab structure with proper navigation stacks inside each tab. Use liquid glass background effects for the tab bar.",
+      "scenario": "Setting up a new Expo iOS app with proper tab navigation"
+    },
+    {
+      "title": "Add search bar to stack header",
+      "prompt": "Add a search bar to the stack header in my Expo Router app. Use headerSearchBarOptions with proper configuration. Include filtering patterns with the useSearch hook to filter a list of items based on user input.",
+      "scenario": "Implementing search functionality in navigation headers"
+    },
+    {
+      "title": "Create animated list with gestures",
+      "prompt": "Create a FlatList with entering and exiting animations using Reanimated. Add swipe-to-delete gestures with haptic feedback. Use contentInsetAdjustmentBehavior=\"automatic\" for proper safe area handling.",
+      "scenario": "Building animated list interfaces with gesture interactions"
+    },
+    {
+      "title": "Build form sheet with native controls",
+      "prompt": "Create a modal presentation using formSheet presentation style. Include a native Switch component, Slider, and SegmentedControl. Add blur effect backdrop using expo-blur. Make the background liquid glass on iOS 26+.",
+      "scenario": "Building native iOS form interfaces with platform controls"
+    }
+  ],
+  "bestPractices": [
+    "Always use expo-symbols for icons and NativeTabs for iOS tab navigation to match platform conventions",
+    "Configure contentInsetAdjustmentBehavior=\"automatic\" on ScrollView, FlatList, and SectionList for proper safe area handling",
+    "Add entering and exiting animations for all state changes to create polished user experiences"
+  ],
+  "antiPatterns": [
+    "Never use intrinsic HTML elements like div or img in Expo Router - these only work in web views",
+    "Never use legacy React Native components like Picker, WebView, or SafeAreaView - use expo alternatives",
+    "Never skip Expo Go testing before creating custom native builds - custom builds add complexity and slower iteration"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between Expo Go and custom builds?",
+      "answer": "Expo Go is a sandbox that runs pre-built Expo apps instantly. Custom builds (npx expo run:ios/android) are full native projects needed only for local native modules, Apple targets, or third-party native libraries not in Expo Go."
+    },
+    {
+      "question": "How do I add icons to NativeTabs?",
+      "answer": "Use expo-symbols package with SF Symbols. Import Icon from expo-router/unstable-native-tabs and use NativeTabs.Trigger with sf prop for SF Symbol names like 'list.dash' or 'magnifyingglass'."
+    },
+    {
+      "question": "What animation library should I use?",
+      "answer": "Use Reanimated for all animations including entering, exiting, layout transitions, and scroll-driven animations. It runs animations on the UI thread for smooth 60fps performance."
+    },
+    {
+      "question": "How do I implement search in Expo Router?",
+      "answer": "Use headerSearchBarOptions in Stack.Screen options for built-in search bar. Use the useSearch hook to manage query state. Filter your data based on the search query for real-time filtering."
+    },
+    {
+      "question": "What controls are available for iOS?",
+      "answer": "Use native iOS controls from React Native and community packages: Switch, Slider, SegmentedControl, and DateTimePicker from @react-native-community/datetimepicker. Avoid legacy Picker component."
+    },
+    {
+      "question": "How do I achieve iOS 26 liquid glass effects?",
+      "answer": "Use expo-glass-effect for liquid glass backdrops. Set contentStyle with backgroundColor: 'transparent' on Stack.Screen or Sheet options. Use expo-blur for blur effect overlays."
+    }
+  ],
+  "seoKeywords": [
+    "Expo Router iOS UI",
+    "React Native native components",
+    "expo-symbols icons",
+    "NativeTabs iOS",
+    "expo-blur glass effects",
+    "Reanimated animations",
+    "Claude Code Expo skill",
+    "expo-media-library camera",
+    "expo-secure-store",
+    "iOS form sheets"
+  ],
+  "sourceUrl": "https://github.com/expo/skills/tree/main/plugins/expo-app-design/skills/building-native-ui/",
+  "sourceType": "community",
+  "dependencies": []
+}

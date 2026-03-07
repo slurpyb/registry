@@ -1,0 +1,143 @@
+{
+  "name": "chembl-database",
+  "type": "skill",
+  "description": "Query ChEMBL bioactive molecules and drug discovery data. Search compounds by structure/properties, retrieve bioactivity data (IC50, Ki), find inhibitors, perform SAR studies, for medicinal chemistry.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "drug discovery",
+  "quality": 5,
+  "qualityReason": "Highly specific with clear use cases",
+  "bundleHints": [
+    "bioinformatics-stack",
+    "drug-discovery-toolkit"
+  ],
+  "tags": [
+    "bioactivity",
+    "bioinformatics",
+    "cheminformatics",
+    "drug-discovery",
+    "ic50",
+    "medicinal-chemistry",
+    "molecules",
+    "research",
+    "sar"
+  ],
+  "capabilities": [
+    "Search molecules by name, SMILES structure, or physicochemical properties",
+    "Retrieve bioactivity data including IC50, Ki, EC50, and Kd values",
+    "Find similar compounds and perform substructure searches",
+    "Query drug information, mechanisms of action, and clinical indications",
+    "Identify bioactive compounds",
+    "kinase inhibitors and other",
+    "Export query results to pandas DataFrames for analysis"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🔬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 198 static findings are FALSE POSITIVES. The analyzer misidentified markdown code formatting (backticks) as shell command execution, SMILES chemical notation as shell operators, and documentation URLs as network endpoints. This is a legitimate scientific database integration skill containing only documentation for the ChEMBL Web Resource Client library. The Python example file contains only wrapper functions that call the official chembl_webresource_client library. No executable malicious code or dangerous functionality exists.",
+  "valueStatement": "Access the ChEMBL database to search compounds by structure and properties. Retrieve bioactivity measurements, find inhibitors, and perform structure-activity relationship studies for drug discovery research.",
+  "userTitle": "Query ChEMBL bioactive molecules and drug discovery data",
+  "limitations": [
+    "Rate limited by ChEMBL API fair usage policies",
+    "Cannot access local databases - only queries the ChEMBL web API",
+    "Data completeness depends on ChEMBL curation status"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Medicinal Chemists",
+      "title": "Find Inhibitors for Drug Targets",
+      "description": "Search for potent inhibitors of specific targets like EGFR or kinases by querying bioactivity measurements."
+    },
+    {
+      "targetUser": "Pharmacologists",
+      "title": "Analyze Drug-Target Interactions",
+      "description": "Retrieve drug mechanisms, indications, and activity profiles to understand compound-target relationships."
+    },
+    {
+      "targetUser": "Computational Chemists",
+      "title": "Structure-Activity Relationship Studies",
+      "description": "Find similar compounds and analyze molecular properties to identify structure-activity patterns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Find Molecule by ID",
+      "scenario": "Look up a specific compound",
+      "prompt": "Get information about molecule CHEMBL25 (aspirin) from ChEMBL"
+    },
+    {
+      "title": "Search by Properties",
+      "scenario": "Filter compounds by drug-likeness",
+      "prompt": "Find all molecules with molecular weight under 500, LogP under 5, and at most 10 hydrogen bond acceptors"
+    },
+    {
+      "title": "Query Bioactivity",
+      "scenario": "Find potent compounds for a target",
+      "prompt": "Find all EGFR inhibitors with IC50 values below 100 nM"
+    },
+    {
+      "title": "Structure Search",
+      "scenario": "Find similar chemical structures",
+      "prompt": "Find compounds similar to aspirin (CC(=O)Oc1ccccc1C(=O)O) with 85 percent similarity"
+    }
+  ],
+  "bestPractices": [
+    "Use caching to respect rate limits when making repeated queries",
+    "Apply molecular weight and LogP filters early to reduce result sets",
+    "Always check the data_validity_comment field for potential issues"
+  ],
+  "antiPatterns": [
+    "Making rapid consecutive requests without respecting rate limits",
+    "Ignoring the pchembl_value normalization when comparing activities",
+    "Assuming all compounds in ChEMBL are experimentally verified"
+  ],
+  "faq": [
+    {
+      "question": "What is ChEMBL?",
+      "answer": "ChEMBL is a manually curated database of bioactive molecules maintained by EBI, containing over 2 million compounds."
+    },
+    {
+      "question": "Does this skill require API keys?",
+      "answer": "No, ChEMBL is a free public database. No authentication is required for basic queries."
+    },
+    {
+      "question": "What activity values are available?",
+      "answer": "ChEMBL provides IC50, Ki, Kd, EC50, and other bioactivity measurements with standardized units."
+    },
+    {
+      "question": "Can I search by chemical structure?",
+      "answer": "Yes, use SMILES strings for similarity searches and substructure matching."
+    },
+    {
+      "question": "How are results returned?",
+      "answer": "Results are lazy-evaluated iterators. Convert to list() to force execution."
+    },
+    {
+      "question": "What are good property filters for drug-likeness?",
+      "answer": "MW under 500, LogP under 5, HBA under 10, HBD under 5 follow Lipinski's rule of 5."
+    }
+  ],
+  "seoKeywords": [
+    "ChEMBL database",
+    "drug discovery",
+    "bioactive molecules",
+    "molecular database",
+    "IC50 Ki EC50",
+    "cheminformatics",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "inhibitor search"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/chembl-database",
+  "sourceType": "community",
+  "dependencies": []
+}

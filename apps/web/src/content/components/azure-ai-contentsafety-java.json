@@ -1,0 +1,145 @@
+{
+  "name": "azure-ai-contentsafety-java",
+  "type": "skill",
+  "description": "Build content moderation applications with Azure AI Content Safety SDK for Java. Use when implementing text/image analysis, blocklist management, or harm detection for hate, violence, sexual content, and self-harm.",
+  "domain": "ai-ml",
+  "subdomain": "nlp",
+  "specialty": "Content Moderation",
+  "quality": 5,
+  "qualityReason": "Specific SDK and safety focus",
+  "bundleHints": [
+    "ai-safety",
+    "nlp-stack",
+    "content-moderation"
+  ],
+  "tags": [
+    "ai-safety",
+    "azure",
+    "content-moderation",
+    "harmful-content",
+    "image-analysis",
+    "java",
+    "sdk",
+    "text-analysis"
+  ],
+  "capabilities": [
+    "Analyze text for hate, violence, sexual, and self-harm content categories",
+    "Analyze images for harmful visual content with severity scoring",
+    "Create and manage custom blocklists for domain-specific terms",
+    "Configure output severity levels (0-7 scale for text, 0-6 for images)",
+    "Integrate with Azure DefaultAzureCredential for secure authentication",
+    "Handle API errors with detailed HTTP response information"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer produced false positives due to misinterpreting Markdown documentation. All 33 external_commands findings are Java code examples in Markdown fences, not shell execution. Network findings are example URLs for configuration. Environment variable access is standard Azure SDK pattern. No actual security issues detected.",
+  "valueStatement": "Moderate harmful content automatically in your applications. Azure AI Content Safety SDK for Java detects hate speech, violence, sexual content, and self-harm with configurable severity thresholds.",
+  "userTitle": "Build content moderation apps with Azure AI",
+  "limitations": [
+    "Requires Azure subscription and Content Safety resource provisioning",
+    "Blocklist changes take approximately 5 minutes to propagate",
+    "API calls incur Azure service costs based on volume",
+    "Image analysis requires image data or accessible blob URL"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building social features",
+      "title": "Social Platform Moderation",
+      "description": "Automatically screen user-generated posts and comments for harmful content before publication. Configure severity thresholds to match community guidelines."
+    },
+    {
+      "targetUser": "Customer service platform engineers",
+      "title": "Customer Support Filtering",
+      "description": "Detect abusive messages in support tickets and chat systems. Route flagged content to human reviewers while allowing legitimate messages through."
+    },
+    {
+      "targetUser": "E-commerce platform developers",
+      "title": "Marketplace Content Review",
+      "description": "Scan product listings, reviews, and images for policy violations. Maintain custom blocklists for brand-specific prohibited terms."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Text Analysis",
+      "prompt": "Analyze this text for harmful content using Azure AI Content Safety: [paste text]. Return severity scores for each category.",
+      "scenario": "Quick content check for a single text input"
+    },
+    {
+      "title": "Configured Category Analysis",
+      "prompt": "Analyze [text] for hate and violence categories only. Use 8 severity levels output. Stop if blocklist hit occurs.",
+      "scenario": "Targeted analysis with specific categories and blocklist enforcement"
+    },
+    {
+      "title": "Image Moderation from URL",
+      "prompt": "Check the image at [URL] for harmful content. Report categories with severity >= 4. Format results as a moderation decision.",
+      "scenario": "Remote image analysis with threshold-based filtering"
+    },
+    {
+      "title": "Blocklist Management Workflow",
+      "prompt": "Create a blocklist named [name] with description [desc]. Add these terms: [terms]. Then analyze [text] against this blocklist with halt on hit enabled.",
+      "scenario": "Complete workflow from blocklist creation to enforced analysis"
+    }
+  ],
+  "bestPractices": [
+    "Read Azure SDK documentation for authentication and client configuration before implementation",
+    "Set severity thresholds based on your risk tolerance - severity 4+ is typical for strict moderation",
+    "Allow 5 minutes for blocklist changes to propagate before testing new entries",
+    "Cache analysis results for repeated content to reduce API calls and latency"
+  ],
+  "antiPatterns": [
+    "Hardcoding credentials instead of using environment variables or DefaultAzureCredential",
+    "Requesting all harm categories when only specific ones are needed - increases latency and cost",
+    "Blocking severity 0 content - this creates false positives for borderline cases",
+    "Synchronous API calls in high-throughput scenarios - use async patterns for batch processing"
+  ],
+  "faq": [
+    {
+      "question": "What Azure subscription do I need for Content Safety?",
+      "answer": "You need an Azure subscription with a Content Safety resource provisioned. Free tier includes 5,000 transactions per month for testing."
+    },
+    {
+      "question": "How do I authenticate the SDK?",
+      "answer": "Use either API key authentication with KeyCredential or Azure AD authentication with DefaultAzureCredential for production environments."
+    },
+    {
+      "question": "Can I customize harm detection thresholds?",
+      "answer": "Yes, set outputType to 8 severity levels and apply your own threshold filtering. The SDK returns numeric severity scores you can evaluate."
+    },
+    {
+      "question": "How quickly do blocklist updates take effect?",
+      "answer": "Blocklist changes typically propagate within 5 minutes. Plan accordingly when adding newly discovered problematic terms."
+    },
+    {
+      "question": "Does the SDK support async operations?",
+      "answer": "Yes, the Azure SDK supports asynchronous patterns. Use async client methods for non-blocking operations in high-throughput applications."
+    },
+    {
+      "question": "What image formats are supported?",
+      "answer": "The API accepts common image formats including PNG, JPEG, and BMP. Images can be provided as binary data or accessible blob URLs."
+    }
+  ],
+  "seoKeywords": [
+    "Azure AI Content Safety",
+    "Java SDK",
+    "content moderation",
+    "harm detection",
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "text analysis",
+    "image moderation",
+    "blocklist management"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-ai-contentsafety-java",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "senior-frontend",
+  "type": "skill",
+  "description": "Comprehensive frontend development skill for building modern, performant web applications using ReactJS, NextJS, TypeScript, Tailwind CSS. Includes component scaffolding, performance optimization, bundle analysis, and UI best practices. Use when developing frontend features, optimizing performance, implementing UI/UX designs, managing state, or reviewing frontend code.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "React performance",
+  "quality": 5,
+  "qualityReason": "Specific tech stack focus",
+  "bundleHints": [
+    "react-stack",
+    "frontend-performance"
+  ],
+  "tags": [
+    "accessibility",
+    "bun",
+    "component-design",
+    "frontend",
+    "nextjs",
+    "react",
+    "tailwind",
+    "typescript",
+    "web-development"
+  ],
+  "capabilities": [
+    "Generate React and TypeScript components with proper structure, imports, and prop typing",
+    "Analyze frontend bundle size and identify optimization opportunities for code splitting",
+    "Scaffold new frontend projects with modern stack configuration including Next.js and Tailwind",
+    "Apply React patterns including hooks, compound components, and state management best practices",
+    "Optimize Next.js applications for performance, caching, and SEO improvements",
+    "Review frontend code for anti-patterns, accessibility issues, and code quality"
+  ],
+  "author": "alirezarezvani",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 137 static findings are false positives. The static analyzer misidentified markdown code fences as shell backtick execution, YAML frontmatter delimiters as cryptographic algorithms, and section headings as system reconnaissance. The three Python scripts are legitimate CLI utilities that perform standard file I/O for generating reports and documentation. No network access, no credential handling, no command injection vectors detected.",
+  "valueStatement": "Frontend development requires managing component architecture, performance optimization, and code organization at scale. This skill provides automated tooling and best practices for building production-ready React applications with TypeScript, Next.js, and Tailwind CSS.",
+  "userTitle": "Build modern web apps with React and Next.js",
+  "limitations": [
+    "Does not execute npm install or build commands directly on user systems",
+    "Does not access user environment variables or secrets",
+    "Does not modify production code without explicit user approval",
+    "Does not deploy applications to cloud platforms"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend Developers",
+      "title": "Scaffold React components",
+      "description": "Generate new React components with TypeScript, proper props, and styling following best practices"
+    },
+    {
+      "targetUser": "Fullstack Engineers",
+      "title": "Optimize bundle size",
+      "description": "Analyze frontend bundles and identify large dependencies for tree-shaking optimization"
+    },
+    {
+      "targetUser": "Technical Leads",
+      "title": "Enforce coding standards",
+      "description": "Generate consistent component patterns across team codebase with documentation"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Component",
+      "scenario": "Generate a new React component",
+      "prompt": "Create a new React component called Button in TypeScript. Include proper TypeScript interfaces for props, handle loading and error states, and use Tailwind CSS for styling variants."
+    },
+    {
+      "title": "Analyze Bundle",
+      "scenario": "Review bundle size",
+      "prompt": "Analyze the bundle size of my Next.js application. Identify the largest dependencies and suggest optimizations for code splitting to reduce initial load time."
+    },
+    {
+      "title": "Setup Project",
+      "scenario": "Initialize new frontend project",
+      "prompt": "Set up a new Next.js project with TypeScript, Tailwind CSS, and proper folder structure following modern React patterns and best practices."
+    },
+    {
+      "title": "Refactor Code",
+      "scenario": "Improve existing code",
+      "prompt": "Review my React component and refactor it to use proper hooks, memoization, and separate business logic from presentation for better performance."
+    }
+  ],
+  "bestPractices": [
+    "Use TypeScript interfaces for all component props to ensure type safety across the application",
+    "Separate business logic from presentation using custom hooks for reusable state management",
+    "Optimize bundle size by lazy loading routes and using dynamic imports for heavy components"
+  ],
+  "antiPatterns": [
+    "Avoid prop drilling through multiple component layers; use context or state management instead",
+    "Do not put all state in useState; prefer useReducer for complex state logic",
+    "Avoid inline function definitions in JSX render to prevent unnecessary re-renders"
+  ],
+  "faq": [
+    {
+      "question": "What React versions are supported?",
+      "answer": "Supports React 18 and newer with hooks-based patterns. Works with Next.js 13+ App Router and Pages Router."
+    },
+    {
+      "question": "Does this skill modify my code?",
+      "answer": "It generates new files and suggests improvements. All code modifications require explicit user approval before execution."
+    },
+    {
+      "question": "Can I customize component templates?",
+      "answer": "Yes, templates are configurable through script options. Custom templates can be added to the references directory."
+    },
+    {
+      "question": "What styling approaches are supported?",
+      "answer": "Tailwind CSS is primary. Can generate CSS Modules, styled-components, or plain CSS on request."
+    },
+    {
+      "question": "Does this work with React Native?",
+      "answer": "Core React patterns apply. Use the component generator with React Native project structure for mobile development."
+    },
+    {
+      "question": "How does bundle analysis work?",
+      "answer": "Scans build output to report chunk sizes, identifies large dependencies, and suggests tree-shaking and code splitting strategies."
+    }
+  ],
+  "seoKeywords": [
+    "Claude frontend development",
+    "Claude Code React skills",
+    "Next.js development tools",
+    "TypeScript component generator",
+    "React patterns",
+    "frontend bundle analyzer",
+    "Claude Code web development",
+    "frontend performance optimization",
+    "React scaffolding tool",
+    "Next.js best practices"
+  ],
+  "sourceUrl": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-frontend",
+  "sourceType": "community",
+  "dependencies": []
+}

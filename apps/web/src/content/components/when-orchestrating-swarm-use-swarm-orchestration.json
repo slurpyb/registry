@@ -1,0 +1,141 @@
+{
+  "name": "when-orchestrating-swarm-use-swarm-orchestration",
+  "type": "skill",
+  "description": "Complex multi-agent swarm orchestration with task decomposition, distributed execution, and result synthesis",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "swarm coordination",
+  "quality": 5,
+  "qualityReason": "Complex swarm control",
+  "bundleHints": [
+    "agent-swarm",
+    "orchestration-system"
+  ],
+  "tags": [
+    "coordination",
+    "distributed execution",
+    "orchestration",
+    "result synthesis",
+    "result-synthesis",
+    "swarm",
+    "task-decomposition"
+  ],
+  "capabilities": [
+    "Decompose complex tasks into hierarchical subtask trees",
+    "Initialize swarm infrastructure with optimal topology",
+    "Spawn and coordinate specialized agents (researcher, coder, reviewer, tester)",
+    "Monitor task execution progress and agent health",
+    "Handle task dependencies and rebalance workloads",
+    "Synthesize results from multiple agents into unified outputs"
+  ],
+  "author": "DNYoussef",
+  "icon": "🐝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing workflow documentation for Claude Flow. No executable code present. All bash examples are embedded documentation for npx claude-flow commands. Static scanner misinterpreted JSON metadata field names and documentation references as security threats.",
+  "valueStatement": "Complex multi-agent workflows become unmanageable when handled sequentially. This skill provides a structured approach to decompose tasks, coordinate distributed execution across specialized agents, and synthesize results into unified outputs.",
+  "userTitle": "Orchestrate multi-agent swarms",
+  "limitations": [
+    "Requires Claude Flow to be installed and configured",
+    "Cannot execute without network access to Claude Flow services",
+    "Does not handle agent failures beyond documented retry patterns",
+    "Limited to text-based workflows; cannot directly process binary files"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Engineering teams",
+      "title": "Build complex applications",
+      "description": "Coordinate full-stack development across multiple specialized agents with proper task dependencies"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Automate deployment pipelines",
+      "description": "Orchestrate infrastructure setup, testing, and deployment across distributed agent teams"
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Track large-scale projects",
+      "description": "Monitor progress across dozens of concurrent tasks and synthesize status reports automatically"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic swarm setup",
+      "scenario": "Simple task decomposition",
+      "prompt": "Use the swarm orchestration skill to decompose the task of building a REST API into subtasks and execute it with 3 agents"
+    },
+    {
+      "title": "Complex project",
+      "scenario": "Multi-phase development",
+      "prompt": "Orchestrate a full-stack web application build using hierarchical topology with 5 researcher, 8 coder, and 3 tester agents"
+    },
+    {
+      "title": "Monitoring focus",
+      "scenario": "Progress tracking",
+      "prompt": "Run swarm orchestration for feature development and monitor progress every 15 minutes until completion"
+    },
+    {
+      "title": "Custom workflow",
+      "scenario": "Integration with other tools",
+      "prompt": "Orchestrate the migration project using adaptive coordination, integrate with CI/CD pipeline, and archive results to storage"
+    }
+  ],
+  "bestPractices": [
+    "Break tasks into atomic units of less than 15 minutes of estimated work",
+    "Document all dependencies explicitly to enable proper execution ordering",
+    "Monitor agent utilization and rebalance workloads when any agent exceeds 90% capacity"
+  ],
+  "antiPatterns": [
+    "Creating tasks that span multiple responsibilities instead of breaking them down",
+    "Ignoring dependency relationships and executing tasks in arbitrary order",
+    "Spawning more agents than the swarm can coordinate efficiently (overhead increases dramatically beyond 15 agents)"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code. Claude Flow must be installed and configured."
+    },
+    {
+      "question": "What are the task limits?",
+      "answer": "Optimal performance is achieved with 45 or fewer tasks. Larger workloads should be broken into multiple orchestrations."
+    },
+    {
+      "question": "How do I integrate with existing tools?",
+      "answer": "Claude Flow MCP integration allows spawning agents programmatically. Results can be exported to CI/CD and project management tools."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "All execution happens through Claude Flow infrastructure. No data is stored beyond the current orchestration session."
+    },
+    {
+      "question": "What if an agent fails?",
+      "answer": "The adaptive coordinator attempts task reassignment. Persistent failures trigger alerts in the monitoring phase."
+    },
+    {
+      "question": "How is this different from parallel-swarm-implementation?",
+      "answer": "Swarm orchestration focuses on hierarchical coordination and result synthesis. Parallel swarm is optimized for concurrent execution without complex dependencies."
+    }
+  ],
+  "seoKeywords": [
+    "swarm orchestration",
+    "multi-agent coordination",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "task decomposition",
+    "distributed execution",
+    "agent coordination",
+    "workflow automation",
+    "swarm management"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/workflow/when-orchestrating-swarm-use-swarm-orchestration",
+  "sourceType": "community",
+  "dependencies": []
+}

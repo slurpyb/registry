@@ -1,0 +1,145 @@
+{
+  "name": "diffdock",
+  "type": "skill",
+  "description": "Diffusion-based molecular docking. Predict protein-ligand binding poses from PDB/SMILES, confidence scores, virtual screening, for structure-based drug design. Not for affinity prediction.",
+  "domain": "science",
+  "subdomain": "chemistry",
+  "specialty": "molecular docking",
+  "quality": 5,
+  "qualityReason": "Highly specific and scientific",
+  "bundleHints": [
+    "drug-discovery",
+    "bioinformatics",
+    "chemistry"
+  ],
+  "tags": [
+    "computational biology",
+    "computational-biology",
+    "diffusion-models",
+    "drug discovery",
+    "drug-discovery",
+    "molecular docking",
+    "molecular-docking",
+    "protein-ligand",
+    "virtual screening"
+  ],
+  "capabilities": [
+    "Predict 3D binding poses from protein structures (PDB) or amino acid sequences",
+    "Generate multiple ligand conformation samples with confidence scores",
+    "Process single complexes or batch virtual screening campaigns",
+    "Handle diverse ligand inputs: SMILES strings, SDF files, or MOL2 formats",
+    "Integrate with external scoring functions like GNINA for affinity estimation"
+  ],
+  "author": "davila7",
+  "icon": "🔬",
+  "version": "2.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 298 static findings are false positives. The scanner misinterprets scientific terminology (GFP protein sequences as 'SAM database', temperature parameters as 'cryptographic algorithms', markdown code formatting as 'shell execution'). This is a legitimate computational biology tool for molecular docking with no malicious capabilities.",
+  "valueStatement": "Predict 3D binding poses between proteins and small molecule ligands using state-of-the-art diffusion models. Generate confidence-scored predictions for structure-based drug discovery and virtual screening campaigns.",
+  "userTitle": "Predict protein-ligand binding poses with AI",
+  "limitations": [
+    "Does NOT predict binding affinity (Kd, ΔG) - only binding poses and confidence",
+    "Not designed for protein-protein docking or large peptides (>20 residues)",
+    "Covalent docking and membrane protein prediction require specialized tools",
+    "GPU strongly recommended - CPU processing is significantly slower"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Computational chemists",
+      "title": "Lead optimization",
+      "description": "Generate binding pose hypotheses for drug candidates and prioritize compounds for synthesis."
+    },
+    {
+      "targetUser": "Structural biologists",
+      "title": "Binding site analysis",
+      "description": "Predict how small molecules interact with protein targets and validate binding hypotheses."
+    },
+    {
+      "targetUser": "Drug discovery teams",
+      "title": "Virtual screening",
+      "description": "Screen compound libraries against protein targets to identify promising hit molecules."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic docking",
+      "scenario": "Single protein-ligand docking",
+      "prompt": "Dock this ligand [SMILES or file] to the protein at [PDB path]. Use default settings and show the top 3 predicted poses with confidence scores."
+    },
+    {
+      "title": "Batch screening",
+      "scenario": "Multiple ligand screening",
+      "prompt": "Run a virtual screen using the ligand list in [CSV file]. Generate 20 samples per complex and export results ranked by confidence to [output directory]."
+    },
+    {
+      "title": "Sequence-based",
+      "scenario": "Protein sequence input",
+      "prompt": "Predict binding poses for [ligand description] against the protein sequence [sequence]. Generate multiple conformations and report confidence levels."
+    },
+    {
+      "title": "Ensemble docking",
+      "scenario": "Multiple protein conformations",
+      "prompt": "Dock [ligand] to each protein conformation in [list of PDB files]. Compare results across conformations and identify consensus binding modes."
+    }
+  ],
+  "bestPractices": [
+    "Always validate protein structures before docking - resolve missing residues and remove distant water molecules",
+    "Generate multiple samples (10-40) for difficult cases and look for consensus in top predictions",
+    "Combine DiffDock poses with scoring functions (GNINA, MM/GBSA) for binding affinity estimation",
+    "Use confidence scores for initial ranking - high confidence indicates model certainty about pose geometry"
+  ],
+  "antiPatterns": [
+    "Using confidence scores as binding affinity measures - they indicate prediction certainty, not binding strength",
+    "Expecting accurate results for large peptides or protein-protein complexes without specialized tools",
+    "Running on CPU for large batch jobs - GPU acceleration provides 10-100x speedup",
+    "Ignoring visual inspection of predicted poses - always verify structural plausibility before downstream analysis"
+  ],
+  "faq": [
+    {
+      "question": "What does DiffDock actually predict?",
+      "answer": "DiffDock predicts 3D binding poses (ligand orientation in protein pocket) and confidence scores. It does NOT predict binding affinity."
+    },
+    {
+      "question": "Can I use this for protein-protein docking?",
+      "answer": "No. DiffDock is designed for small molecule ligands. For protein-protein docking, use AlphaFold-Multimer or DiffDock-PP."
+    },
+    {
+      "question": "How many samples should I generate?",
+      "answer": "Default is 10. Increase to 20-40 for difficult cases or when exploring multiple binding modes."
+    },
+    {
+      "question": "What do confidence scores mean?",
+      "answer": "Scores >0 indicate high confidence (reliable pose), -1.5 to 0 is moderate, < -1.5 is low confidence. Confidence = prediction certainty, NOT binding strength."
+    },
+    {
+      "question": "Do I need a GPU?",
+      "answer": "GPU is strongly recommended. CPU inference is 10-100x slower and impractical for batch processing."
+    },
+    {
+      "question": "How does this relate to binding affinity?",
+      "answer": "DiffDock predicts pose geometry. For affinity estimation, combine results with GNINA scoring or MM/GBSA calculations."
+    }
+  ],
+  "seoKeywords": [
+    "DiffDock",
+    "molecular docking",
+    "protein-ligand binding",
+    "Claude Code",
+    "drug discovery",
+    "computational chemistry",
+    "virtual screening",
+    "diffusion models",
+    "structure-based design",
+    "binding pose prediction"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/diffdock",
+  "sourceType": "community",
+  "dependencies": []
+}

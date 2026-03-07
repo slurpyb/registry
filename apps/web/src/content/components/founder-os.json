@@ -1,0 +1,140 @@
+{
+  "name": "founder-os",
+  "type": "skill",
+  "description": "Manages founder business portfolio, signals, vault, and snapshots. Tracks business health, stores credentials securely, and generates AI-powered business analytics and recommendations.",
+  "domain": "business",
+  "subdomain": "finance",
+  "specialty": "founder analytics",
+  "quality": 5,
+  "qualityReason": "Comprehensive founder tool",
+  "bundleHints": [
+    "founder-tools",
+    "business-analytics"
+  ],
+  "tags": [
+    "ai-recommendations",
+    "analytics",
+    "business",
+    "business-health",
+    "credentials",
+    "health-tracking",
+    "portfolio",
+    "strategy",
+    "vault"
+  ],
+  "capabilities": [
+    "Register and manage multiple businesses and ventures in one portfolio",
+    "Track business signals including revenue, growth, engagement, and health metrics",
+    "Generate AI-powered health snapshots with SWOT analysis and recommendations",
+    "Store credentials securely with encryption and audit logging",
+    "Provide strategic recommendations based on performance data",
+    "Analyze options and support major business decisions with decision frameworks"
+  ],
+  "author": "CleanExpo",
+  "icon": "💼",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains ONLY documentation (SKILL.md). All 48 static findings are false positives caused by the scanner misidentifying markdown documentation text as executable code patterns. The triple-backticks (```) flagged as 'Ruby backtick execution' are markdown code block delimiters. References to AES-256 encryption are documentation about the credential vault feature, not weak crypto implementations. The skill has no executable code, network calls, file access, or command execution.",
+  "valueStatement": "Founders struggle to monitor multiple ventures and metrics across businesses. Founder OS provides a unified command center to track signals, generate health snapshots, and make data-driven strategic decisions.",
+  "userTitle": "Track Business Health and Portfolio",
+  "limitations": [
+    "No real-time financial data integration with Stripe, AWS, or other services",
+    "No automated business actions without explicit founder approval",
+    "No competitor real-time monitoring or ML-based revenue forecasting"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Serial entrepreneurs",
+      "title": "Multi-venture portfolio tracking",
+      "description": "Monitor health and metrics across all registered businesses from one unified dashboard"
+    },
+    {
+      "targetUser": "First-time founders",
+      "title": "Strategic decision support",
+      "description": "Get data-driven analysis for hiring, fundraising, and market expansion decisions"
+    },
+    {
+      "targetUser": "Business operators",
+      "title": "Weekly health snapshots",
+      "description": "Generate regular snapshots identifying risks, opportunities, and recommended actions"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Register business",
+      "scenario": "Add a new venture",
+      "prompt": "Register my [business name] startup in the [industry] sector. Details: [stage], [team size], [target market], [website]"
+    },
+    {
+      "title": "Check health",
+      "scenario": "Review business status",
+      "prompt": "Generate a health snapshot for [business name] and show key metrics and trends from last month"
+    },
+    {
+      "title": "Strategic analysis",
+      "scenario": "Major decision",
+      "prompt": "Should we [major decision]? Analyze our options using our current metrics and provide recommendations with pros and cons"
+    },
+    {
+      "title": "Vault management",
+      "scenario": "Store credentials",
+      "prompt": "Store my [service] API key securely and set up automatic rotation every [time period]"
+    }
+  ],
+  "bestPractices": [
+    "Update metrics weekly for accurate health scoring and trend analysis",
+    "Use Extended Thinking for major strategic decisions like fundraising or pivots",
+    "Configure alerts for critical thresholds like runway under 6 months or churn spikes"
+  ],
+  "antiPatterns": [
+    "Relying solely on automated snapshots without manual review and founder judgment",
+    "Making automated business changes without explicit founder approval",
+    "Storing vault credentials without setting rotation schedules or audit logging"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "Currently optimized for Claude. Support for Codex and Claude Code planned for future releases."
+    },
+    {
+      "question": "How many businesses can I track?",
+      "answer": "No hard limit. All registered businesses appear in portfolio view with filtering and sorting options."
+    },
+    {
+      "question": "Does it integrate with my existing tools?",
+      "answer": "Currently supports email and Slack for alerts. API integrations planned for future releases."
+    },
+    {
+      "question": "How secure is the credential vault?",
+      "answer": "Uses AES-256 encryption with audit logging, time-limited access tokens, and automatic rotation."
+    },
+    {
+      "question": "Why does my health score change?",
+      "answer": "Health scores update when new signals are tracked. Review snapshot details for contributing factors."
+    },
+    {
+      "question": "How is this different from a spreadsheet?",
+      "answer": "Provides AI-powered analysis, automatic health scoring, trend detection, and strategic recommendations."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "founder",
+    "business portfolio",
+    "startup management",
+    "business health",
+    "strategic planning",
+    "venture tracking",
+    "revenue metrics",
+    "business analytics",
+    "startup dashboard"
+  ],
+  "sourceUrl": "https://github.com/CleanExpo/Unite-Hub/tree/main/.claude/skills/founder-os",
+  "sourceType": "community",
+  "dependencies": []
+}

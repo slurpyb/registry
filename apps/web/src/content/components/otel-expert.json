@@ -1,0 +1,142 @@
+{
+  "name": "otel-expert",
+  "type": "skill",
+  "description": "Use this when working with OpenTelemetry, telemetry, observability, traces, spans, metrics, logs, OTLP, semantic conventions, or instrumentation. Triggers on questions like \"what attributes should I use\", \"how do I configure the collector\", \"what's the semconv for X\".",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "OpenTelemetry",
+  "quality": 5,
+  "qualityReason": "Expert-level domain knowledge",
+  "bundleHints": [
+    "observability-suite",
+    "monitoring-expert"
+  ],
+  "tags": [
+    "collector",
+    "instrumentation",
+    "monitoring",
+    "observability",
+    "opentelemetry",
+    "semantic-conventions",
+    "telemetry",
+    "tracing"
+  ],
+  "capabilities": [
+    "Search semantic convention attributes across bundled OpenTelemetry documentation",
+    "Provide collector configuration examples for processors, exporters, and receivers",
+    "Generate .NET instrumentation code examples with ActivitySource, Meter, and Logger patterns",
+    "Lookup OTLP protocol specifications and export requirements",
+    "Reference INDEX.md and SYNC-REPORT.md for topic mapping and validation warnings",
+    "Cite exact documentation sources for all answers"
+  ],
+  "author": "ANcpLua",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation helper that provides OpenTelemetry guidance from bundled docs. Static analysis flagged 17 patterns but all are false positives: hash fields in metadata, empty JSON arrays, and documentation examples with template variables. No actual security risks detected.",
+  "valueStatement": "Struggling with OpenTelemetry semantic conventions, collector configuration, or instrumentation patterns? This skill provides instant answers from bundled OTel documentation, helping you implement proper traces, spans, metrics, and logs without searching through multiple docs.",
+  "userTitle": "Get OpenTelemetry Implementation Guidance",
+  "limitations": [
+    "Only covers latest stable semantic conventions, not deprecated attributes",
+    "Focused on .NET 10 patterns and OTLP export, not vendor-specific exporters",
+    "Requires bundled documentation at CLAUDE_PLUGIN_ROOT/docs/ to function",
+    "Cannot provide real-time answers about unreleased OTel features"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Backend Developer Adding Distributed Tracing",
+      "description": "A .NET developer needs to instrument their microservices with proper span attributes and activity sources following OpenTelemetry semantic conventions."
+    },
+    {
+      "targetUser": "Platform engineers",
+      "title": "Platform Engineer Configuring OTel Collector",
+      "description": "A DevOps engineer needs to configure processors and exporters in the OpenTelemetry collector to route telemetry data to their observability platform."
+    },
+    {
+      "targetUser": "Site reliability engineers",
+      "title": "SRE Implementing Observability Standards",
+      "description": "An SRE team is establishing telemetry standards across their organization and needs quick reference for metrics, logs, and trace attribute conventions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Find Semantic Convention Attributes",
+      "prompt": "What semantic convention attributes should I use for HTTP server spans?",
+      "scenario": "When you need to discover the correct attribute names and types for a specific telemetry scenario"
+    },
+    {
+      "title": "Configure Collector Component",
+      "prompt": "How do I configure a batch processor in the OpenTelemetry collector?",
+      "scenario": "When you need collector configuration syntax and parameter options"
+    },
+    {
+      "title": "Generate .NET Instrumentation Code",
+      "prompt": "Show me how to create custom spans with ActivitySource in .NET 10",
+      "scenario": "When you need code examples for manual instrumentation in your application"
+    },
+    {
+      "title": "Understand OTLP Protocol Details",
+      "prompt": "What are the OTLP exporter configuration options and how do I set compression?",
+      "scenario": "When you need protocol-level details for exporting telemetry data"
+    }
+  ],
+  "bestPractices": [
+    "Always check INDEX.md first to find the relevant documentation file for your question",
+    "Review SYNC-REPORT.md for any validation warnings about the bundled documentation before citing it",
+    "Use semantic convention attributes from the latest stable version to avoid deprecated patterns"
+  ],
+  "antiPatterns": [
+    "Do not assume vendor-specific exporter configurations apply to standard OTLP",
+    "Do not use deprecated semantic convention attributes without checking the current spec",
+    "Do not skip checking SYNC-REPORT.md warnings when providing answers from potentially outdated docs"
+  ],
+  "faq": [
+    {
+      "question": "What documentation is bundled with this skill?",
+      "answer": "The skill includes OpenTelemetry semantic conventions, collector configuration references, .NET instrumentation guides, and OTLP protocol specifications stored in the docs directory."
+    },
+    {
+      "question": "Does this work with programming languages other than .NET?",
+      "answer": "While the code examples focus on .NET 10 patterns, the semantic conventions and collector configuration apply to all languages. You can request language-agnostic attribute and configuration information."
+    },
+    {
+      "question": "How current is the bundled documentation?",
+      "answer": "The documentation includes only the latest stable semantic conventions. Check SYNC-REPORT.md for any validation warnings about the bundled docs."
+    },
+    {
+      "question": "Can this skill help me configure vendor-specific exporters?",
+      "answer": "This skill focuses on standard OTLP export configurations. For vendor-specific exporters like Jaeger or Prometheus, consult vendor documentation."
+    },
+    {
+      "question": "What tools does this skill use?",
+      "answer": "The skill uses Read, Grep, and Glob tools to search and retrieve information from the bundled OpenTelemetry documentation files. No network or external commands are executed."
+    },
+    {
+      "question": "How do I find specific semantic convention attributes?",
+      "answer": "Start by checking INDEX.md for topic mapping, then use Grep to search for specific attribute names in the docs/semantic-conventions directory. The skill will provide attribute tables with names, types, and descriptions."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "OpenTelemetry",
+    "observability",
+    "telemetry",
+    "semantic conventions",
+    "OTLP",
+    "distributed tracing",
+    "monitoring"
+  ],
+  "sourceUrl": "https://github.com/ANcpLua/ancplua-claude-plugins/tree/main/plugins/otelwiki/skills/otel-expert",
+  "sourceType": "community",
+  "dependencies": []
+}

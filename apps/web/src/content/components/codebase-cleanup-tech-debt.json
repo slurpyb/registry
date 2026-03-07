@@ -1,0 +1,142 @@
+{
+  "name": "codebase-cleanup-tech-debt",
+  "type": "skill",
+  "description": "You are a technical debt expert specializing in identifying, quantifying, and prioritizing technical debt in software projects. Analyze the codebase to uncover debt, assess its impact, and create acti",
+  "domain": "data",
+  "subdomain": "analytics",
+  "specialty": "technical debt",
+  "quality": 5,
+  "qualityReason": "Comprehensive and quantifiable approach",
+  "bundleHints": [
+    "codebase-health",
+    "tech-debt-dashboard"
+  ],
+  "tags": [
+    "architecture",
+    "code-quality",
+    "debt-audit",
+    "debt-reduction",
+    "metrics",
+    "prioritization",
+    "refactoring",
+    "roi-analysis",
+    "technical-debt"
+  ],
+  "capabilities": [
+    "Conduct comprehensive technical debt inventories across code, architecture, testing, documentation, and infrastructure categories",
+    "Calculate ROI and cost impact for each debt item using developer hourly rates and time savings",
+    "Create prioritized remediation roadmaps with quick wins, medium-term improvements, and long-term initiatives",
+    "Design automated quality gates and debt budgets to prevent accumulation of new debt",
+    "Generate stakeholder-ready reports with metrics, risks, and executive summaries"
+  ],
+  "author": "sickn33",
+  "icon": "📊",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 30 static findings evaluated as false positives. The skill is purely instructional content for technical debt analysis. Dollar amounts in examples ($150/hour) were misidentified as shell commands. Generic technical terms were misidentified as cryptographic algorithms. Prevention planning was misidentified as system reconnaissance. No actual security risks present.",
+  "valueStatement": "This skill helps development teams identify, quantify, and prioritize technical debt in their codebase. It provides structured methodologies for assessing debt impact, calculating ROI for remediation efforts, and creating actionable plans to improve code quality over time.",
+  "userTitle": "Analyze and Reduce Technical Debt",
+  "limitations": [
+    "Does not execute code changes - provides guidance only",
+    "Does not access external systems or perform network requests",
+    "Requires human judgment for final prioritization decisions",
+    "Metrics and calculations require manual verification for accuracy"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Tech leads and engineering managers seeking visibility into codebase health",
+      "title": "Initial Debt Assessment",
+      "description": "Run a comprehensive scan of an existing codebase to document all technical debt, categorize by type, and prioritize based on business impact."
+    },
+    {
+      "targetUser": "Development teams allocating time for debt reduction in sprints",
+      "title": "Sprint Planning Support",
+      "description": "Identify quick wins and high-ROI refactoring tasks to include in upcoming sprint planning sessions."
+    },
+    {
+      "targetUser": "Engineering directors and VPs making budget decisions",
+      "title": "Stakeholder Communication",
+      "description": "Generate executive summaries and ROI projections to justify technical debt remediation investments to business leadership."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Debt Scan",
+      "prompt": "Analyze my codebase for technical debt. Focus on finding: duplicated code patterns, high complexity functions, missing tests, and outdated dependencies. List the top 10 debt items with estimated remediation effort.",
+      "scenario": "Beginner user wanting a quick overview of debt hotspots"
+    },
+    {
+      "title": "Comprehensive Debt Audit",
+      "prompt": "Conduct a full technical debt audit of our codebase. Include: code debt (duplication, complexity, structure), architecture debt (design flaws, tech stack), testing debt (coverage, quality), documentation debt, and infrastructure debt. For each category, quantify the impact and create a prioritized remediation plan.",
+      "scenario": "Detailed analysis for strategic planning"
+    },
+    {
+      "title": "ROI-Focused Prioritization",
+      "prompt": "Calculate the ROI for our top 20 technical debt items. For each, estimate: developer time lost per month, bug rate impact, and onboarding delay. Rank by highest ROI opportunity and create a quarterly remediation roadmap.",
+      "scenario": "Data-driven prioritization for maximum impact"
+    },
+    {
+      "title": "Debt Prevention Strategy",
+      "prompt": "Design a debt prevention strategy for our team. Include: pre-commit hooks for code quality, CI pipeline gates, code review requirements, and a debt budget policy. Explain how to track compliance and measure success.",
+      "scenario": "Establishing processes to prevent future debt accumulation"
+    }
+  ],
+  "bestPractices": [
+    "Start with quick wins that show immediate ROI to build team buy-in for larger refactoring efforts",
+    "Always quantify debt impact in developer hours and currency to communicate with stakeholders effectively",
+    "Use feature flags for gradual refactoring to reduce risk and enable incremental value delivery"
+  ],
+  "antiPatterns": [
+    "Attempting to fix all debt at once - prioritize based on impact and effort for sustainable progress",
+    "Ignoring testing debt - low coverage compounds all other debt types and slows future changes",
+    "Not tracking debt over time - without metrics, teams cannot measure improvement or regression"
+  ],
+  "faq": [
+    {
+      "question": "What types of technical debt does this skill analyze?",
+      "answer": "The skill analyzes five main categories: code debt (duplication, complexity, structure), architecture debt (design flaws, technology stack), testing debt (coverage gaps, test quality), documentation debt (missing docs, outdated guides), and infrastructure debt (deployment issues, monitoring gaps)."
+    },
+    {
+      "question": "Does this skill make changes to my codebase?",
+      "answer": "No. This skill provides analysis, recommendations, and guidance. It does not execute any code changes. All refactoring work must be performed manually or with other tools."
+    },
+    {
+      "question": "How does the skill calculate ROI for debt remediation?",
+      "answer": "ROI is calculated by estimating the time saved per month from fixing the debt, multiplied by the developer hourly rate, compared to the effort required to implement the fix. Default rate is $150/hour but can be adjusted."
+    },
+    {
+      "question": "Can this skill work with any programming language?",
+      "answer": "Yes. The skill provides a framework for analyzing debt that is language-agnostic. The specific metrics and tools mentioned can be adapted to any technology stack."
+    },
+    {
+      "question": "How often should we run technical debt analysis?",
+      "answer": "Teams should conduct comprehensive analysis quarterly, with monthly quick scans to track progress. After major releases or significant refactoring, additional analysis helps identify new debt accumulation."
+    },
+    {
+      "question": "What is a debt budget and how do we implement one?",
+      "answer": "A debt budget limits how much new debt can be introduced per quarter (typically 2-5%). It requires teams to fix existing debt before adding new debt. Implementation uses automated tools to track complexity, duplication, and coverage metrics."
+    }
+  ],
+  "seoKeywords": [
+    "technical debt",
+    "codebase cleanup",
+    "tech debt analysis",
+    "debt reduction",
+    "code quality",
+    "refactoring",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "debt prioritization"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/codebase-cleanup-tech-debt",
+  "sourceType": "community",
+  "dependencies": []
+}

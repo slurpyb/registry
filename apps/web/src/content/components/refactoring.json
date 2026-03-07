@@ -1,0 +1,144 @@
+{
+  "name": "refactoring",
+  "type": "skill",
+  "description": "Systematic refactoring with small-step discipline. Use when user says 'refactor', 'clean up', 'restructure', 'extract', 'rename', 'simplify', or mentions code smells. Enforces one change → test → commit cycle. For structural improvements, NOT style/formatting (use /lint). NOT for adding features or fixing bugs.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "small-step discipline",
+  "quality": 5,
+  "qualityReason": "Disciplined, test-driven approach",
+  "bundleHints": [
+    "code-quality",
+    "tdd-practice"
+  ],
+  "tags": [
+    "clean-code",
+    "code-quality",
+    "code-smells",
+    "one-change",
+    "refactoring",
+    "restructure",
+    "simplify",
+    "software-craftsmanship",
+    "tdd",
+    "test-commit"
+  ],
+  "capabilities": [
+    "Guides systematic refactoring through 5 phases: Assess, Protect, Refactor, Verify, Iterate",
+    "Enforces one-change-at-a-time discipline with test-then-commit workflow",
+    "Identifies code smells including duplicated code, long functions, magic numbers, and dead code",
+    "Provides tiered refactoring catalog from safe Rename operations to complex Extract Class transformations",
+    "Creates characterization tests to capture current behavior before refactoring",
+    "Manages revert protocol when refactoring attempts fail"
+  ],
+  "author": "ArcadeAI",
+  "icon": "🔧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only guidance and code examples. No executable code, network calls, or filesystem operations. All 37 static findings are false positives: metadata URLs flagged as network reconnaissance, documentation trigger words flagged as weak crypto, and code examples flagged as command execution. The previous audit correctly identified zero risk factors.",
+  "valueStatement": "Codebases accumulate technical debt through unclear names, duplicated logic, and deep nesting. This skill provides a disciplined approach to improve code structure while preserving behavior through test-driven safety nets and incremental changes.",
+  "userTitle": "Refactor code systematically with safety",
+  "limitations": [
+    "Does not execute refactoring automatically; provides guidance for AI or developer to follow",
+    "Does not handle feature additions or bug fixes (redirects to other skills)",
+    "Does not perform code formatting or style fixes (redirects to /lint)",
+    "Requires existing tests or willingness to write characterization tests first"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developers",
+      "title": "Clean up legacy code",
+      "description": "Transform unclear variable names and duplicated logic into maintainable code with safety nets"
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Guide refactoring reviews",
+      "description": "Ensure refactoring changes follow disciplined process with proper test coverage"
+    },
+    {
+      "targetUser": "AI Coding Assistants",
+      "title": "Systematic improvement",
+      "description": "Apply consistent refactoring methodology when improving code structure"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple extraction",
+      "scenario": "Extract a function from long code",
+      "prompt": "Refactor this function by extracting a helper function for the repeated logic. Follow the systematic approach: first add characterization tests, then extract one piece at a time, run tests after each change, and commit when tests pass."
+    },
+    {
+      "title": "Rename variables",
+      "scenario": "Improve unclear naming",
+      "prompt": "Rename all unclear variables and functions in this file. For each rename: identify the rename, apply the change, run tests, commit with 'refactor: rename X to Y' message."
+    },
+    {
+      "title": "Reduce nesting",
+      "scenario": "Flatten deep conditionals",
+      "prompt": "Transform deeply nested conditionals into guard clauses. Apply one refactoring at a time: convert innermost branch, run tests, commit, then proceed to next level."
+    },
+    {
+      "title": "Extract class",
+      "scenario": "Split god classes",
+      "prompt": "Refactor this god class by extracting cohesive methods into a new class. Do this incrementally: move one method at a time, run tests after each move, commit each successful move."
+    }
+  ],
+  "bestPractices": [
+    "Always run tests after each individual refactoring step before committing",
+    "Write characterization tests first when test coverage is missing or partial",
+    "Stop and ask the user after two failed refactoring attempts"
+  ],
+  "antiPatterns": [
+    "Batching multiple refactorings into one change before running tests",
+    "Attempting to fix a failed refactoring instead of reverting and trying smaller steps",
+    "Refactoring without any test coverage or safety net"
+  ],
+  "faq": [
+    {
+      "question": "What tools does this skill support?",
+      "answer": "Compatible with Claude, Codex, and Claude Code. Works with any testing framework like Jest, pytest, or Go test."
+    },
+    {
+      "question": "What are the limits of refactoring?",
+      "answer": "This skill improves structure only. It does not add features, fix bugs, or handle API migrations requiring behavior changes."
+    },
+    {
+      "question": "How does it integrate with version control?",
+      "answer": "After each green test, commit with conventional prefix 'refactor: description'. Uses git checkout to revert failed attempts."
+    },
+    {
+      "question": "Is my code safe during refactoring?",
+      "answer": "Yes. The discipline requires tests before changes, one change at a time, and immediate revert if tests fail."
+    },
+    {
+      "question": "What if tests fail during refactoring?",
+      "answer": "Immediately revert with 'git checkout -- file'. Analyze if the step was too large. Try smaller step or ask user for guidance."
+    },
+    {
+      "question": "How is this different from a linter?",
+      "answer": "Linters fix style and formatting automatically. This skill handles structural improvements requiring judgment and incremental steps."
+    }
+  ],
+  "seoKeywords": [
+    "refactoring",
+    "code refactoring",
+    "clean code",
+    "code smells",
+    "extract function",
+    "rename variable",
+    "technical debt",
+    "Claude Code",
+    "Codex",
+    "software craftsmanship"
+  ],
+  "sourceUrl": "https://github.com/ArcadeAI/dexa/tree/main/.claude/skills/safeword-refactoring",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,136 @@
+{
+  "name": "linear-issues-read",
+  "type": "skill",
+  "description": "List and get Linear issues via CLI (read-only operations)",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "read-only CLI",
+  "quality": 4,
+  "qualityReason": "Narrow but clear use",
+  "bundleHints": [
+    "linear-tools",
+    "read-only-suite"
+  ],
+  "tags": [
+    "cli",
+    "issues",
+    "linear",
+    "read-only",
+    "task-management"
+  ],
+  "capabilities": [
+    "List all issues with optional filters by team, project, assignee, or status",
+    "Get detailed information for a specific issue by ID or UUID",
+    "Output results as formatted tables or JSON for scripting",
+    "Resolve team names, user names, and labels to IDs automatically",
+    "Limit the number of results returned"
+  ],
+  "author": "Bind",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Read-only Linear API client using official SDK. Accesses LINEAR_API_KEY for authentication and makes network calls only to Linear's official API. All static findings are false positives - credential access is legitimate for API authentication, network calls go to intended Linear endpoints, and code execution uses only the official SDK.",
+  "valueStatement": "Quickly view and filter Linear issues without leaving your terminal. Access issue details, search by team or assignee, and get structured output for further processing.",
+  "userTitle": "Read Linear issues from command line",
+  "limitations": [
+    "Read-only operations only - cannot create, update, or delete issues",
+    "Requires valid LINEAR_API_KEY environment variable",
+    "Does not support custom issue views or saved searches"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project managers",
+      "title": "Check issue status",
+      "description": "Quickly see all open issues for your team without opening the Linear web interface"
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Find specific issues",
+      "description": "Look up issue details by identifier to understand context before starting work"
+    },
+    {
+      "targetUser": "Automation engineers",
+      "title": "Script issue workflows",
+      "description": "Pipe JSON output to other tools for custom reporting or integration workflows"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List team issues",
+      "scenario": "Get all issues for Engineering team",
+      "prompt": "Use linear-issues-read to list issues for team Engineering"
+    },
+    {
+      "title": "Filter by status",
+      "scenario": "Find issues in progress",
+      "prompt": "Use linear-issues-read to show all issues with status In Progress"
+    },
+    {
+      "title": "Get issue details",
+      "scenario": "Look up specific issue",
+      "prompt": "Use linear-issues-read to get details for issue ENG-123"
+    },
+    {
+      "title": "Export for report",
+      "scenario": "Generate JSON output",
+      "prompt": "Use linear-issues-read to list 50 issues as JSON for reporting"
+    }
+  ],
+  "bestPractices": [
+    "Store LINEAR_API_KEY securely in environment variables or .env files, never in source code",
+    "Use --json flag when piping output to other command-line tools for reliable parsing",
+    "Combine multiple filters like --team and --assignee to narrow down results quickly"
+  ],
+  "antiPatterns": [
+    "Using this skill for write operations - it is read-only and will fail silently",
+    "Hardcoding API keys in scripts or sharing them in chat contexts",
+    "Assuming issue IDs are always in ENG-XXX format - some teams use different prefixes"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code for reading Linear issues via command line."
+    },
+    {
+      "question": "What is the maximum number of issues I can retrieve?",
+      "answer": "You can retrieve up to 100 issues by using --limit 100. The default is 25 issues."
+    },
+    {
+      "question": "How do I set up the Linear API key?",
+      "answer": "Get your key from Linear Settings > API > Personal API Keys and set it as LINEAR_API_KEY in your environment."
+    },
+    {
+      "question": "Is my Linear data safe with this skill?",
+      "answer": "Yes. This is a read-only skill that only calls Linear official API with your credentials. No data stored or transmitted elsewhere."
+    },
+    {
+      "question": "Why am I getting an unknown team error?",
+      "answer": "Team names are case-insensitive but must match exactly. Use the exact team name from Linear Settings > Teams."
+    },
+    {
+      "question": "How does this compare to using the Linear web app?",
+      "answer": "This skill provides faster access for common queries and enables scripting. The web app offers more features like drag-and-drop boards."
+    }
+  ],
+  "seoKeywords": [
+    "linear issues cli",
+    "list linear issues",
+    "linear issue tracker",
+    "claude linear integration",
+    "codex linear skill",
+    "claude code linear",
+    "task management cli",
+    "issue filtering command line",
+    "linear api read"
+  ],
+  "sourceUrl": "https://github.com/Bind/skillz.sh/tree/main/docs/registry/skills/linear-issues-read",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "ai-agent-development",
+  "type": "skill",
+  "description": "AI agent development workflow for building autonomous agents, multi-agent systems, and agent orchestration with CrewAI, LangGraph, and custom agents.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "agent workflow",
+  "quality": 5,
+  "qualityReason": "Clear framework integration",
+  "bundleHints": [
+    "ai-agents",
+    "agent-development",
+    "orchestration"
+  ],
+  "tags": [
+    "ai-agents",
+    "autonomous",
+    "autonomous-agents",
+    "crewai",
+    "custom-agents",
+    "langgraph",
+    "multi-agent-systems",
+    "orchestration"
+  ],
+  "capabilities": [
+    "Design agent architecture with defined purpose, capabilities, and success metrics",
+    "Implement single agents using frameworks like CrewAI and LangGraph",
+    "Build multi-agent systems with role definitions and task delegation",
+    "Create agent orchestration workflows with state management and conditional branches",
+    "Integrate tools into agents with proper error handling",
+    "Implement agent memory systems including short-term, long-term, and entity memory"
+  ],
+  "author": "sickn33",
+  "icon": "🤖",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 42 potential issues (32 external_commands, 10 weak_crypto). After evaluation, all findings are FALSE POSITIVES. The external_commands detections are markdown backticks used for skill references (e.g., `ai-agents-architect`), not shell execution. The weak_crypto detections are keyword false positives on common words like 'design', 'memory', 'tool'. This is a documentation-only skill with no executable code.",
+  "valueStatement": "This workflow guides you through building autonomous AI agents, from single-agent implementation to multi-agent systems with orchestration using CrewAI and LangGraph frameworks.",
+  "userTitle": "Build AI Agents with CrewAI and LangGraph",
+  "limitations": [
+    "This is a workflow guide, not executable code - users must implement the actual agents",
+    "Does not include pre-built agents or templates",
+    "Requires knowledge of Python and AI/ML frameworks",
+    "Does not cover deployment or production infrastructure"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers building AI-powered customer service applications",
+      "title": "Build a Customer Support Agent",
+      "description": "Create an autonomous agent that handles customer inquiries, accesses knowledge bases, and escalates complex issues to human agents."
+    },
+    {
+      "targetUser": "Data scientists and researchers needing automated research workflows",
+      "title": "Develop Multi-Agent Research Team",
+      "description": "Build a team of specialized AI agents that collaborate on research tasks, with separate agents for data gathering, analysis, and reporting."
+    },
+    {
+      "targetUser": "Engineers building conversational AI systems with memory",
+      "title": "Create Stateful Agent Workflows",
+      "description": "Design persistent agent workflows that maintain state across conversations and can make decisions based on workflow history."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start Agent Design",
+      "prompt": "I want to build an AI agent. Use the @ai-agent-development workflow to guide me through the process. Start with Phase 1: Agent Design. Help me define the agent purpose, capabilities, tool integration needs, and success metrics.",
+      "scenario": "Beginning a new AI agent project"
+    },
+    {
+      "title": "Implement Single Agent",
+      "prompt": "Following the @ai-agent-development workflow Phase 2, help me implement a single autonomous agent. I want to use [CrewAI/LangGraph] as my framework. Guide me through implementing the agent logic, adding tool integration, and configuring memory.",
+      "scenario": "Building a single agent with a specific framework"
+    },
+    {
+      "title": "Build Multi-Agent System",
+      "prompt": "I need to create a multi-agent system. Using Phase 3 of @ai-agent-development, help me define agent roles, set up communication between agents, configure task delegation, and test coordination.",
+      "scenario": "Creating a system with multiple collaborating agents"
+    },
+    {
+      "title": "Add Memory and Tools",
+      "prompt": "My agent needs memory and tools. Following Phases 5 and 6 of @ai-agent-development, help me design the memory structure (short-term, long-term, entity) and implement the tools the agent will use.",
+      "scenario": "Adding memory and tool capabilities to an existing agent"
+    }
+  ],
+  "bestPractices": [
+    "Start with clear agent purpose and defined success metrics before implementation",
+    "Use the phased workflow systematically - complete each phase before moving to the next",
+    "Test agent behavior at each phase with real-world scenarios before adding complexity"
+  ],
+  "antiPatterns": [
+    "Skipping the design phase and jumping directly to implementation",
+    "Adding too many tools and capabilities before verifying basic functionality",
+    "Ignoring memory system design - agents without memory lose context quickly"
+  ],
+  "faq": [
+    {
+      "question": "What frameworks does this workflow support?",
+      "answer": "This workflow supports CrewAI, LangGraph, and custom agent implementations. The phases are framework-agnostic but include specific guidance for each framework."
+    },
+    {
+      "question": "Do I need to know Python to use this workflow?",
+      "answer": "Yes, implementing AI agents typically requires Python knowledge and familiarity with AI/ML libraries. This is a technical workflow for developers."
+    },
+    {
+      "question": "Can I use this for commercial projects?",
+      "answer": "Yes, this workflow provides guidance for building agents. The resulting agents can be used in commercial products subject to the licenses of the frameworks used."
+    },
+    {
+      "question": "How long does it take to build an agent following this workflow?",
+      "answer": "Timeline varies based on agent complexity. A simple single-agent might take a few hours. Complex multi-agent systems with orchestration can take several days to weeks."
+    },
+    {
+      "question": "Does this include pre-built agent code?",
+      "answer": "No, this is a workflow and guidance document. You will need to implement the actual agent code based on the architectural decisions made in each phase."
+    },
+    {
+      "question": "What happens if my agent fails the evaluation phase?",
+      "answer": "The workflow includes iteration - return to earlier phases to refine agent design, improve tool integration, adjust memory systems, or modify orchestration logic based on evaluation results."
+    }
+  ],
+  "seoKeywords": [
+    "Claude AI agent development",
+    "autonomous AI agents",
+    "multi-agent systems",
+    "CrewAI tutorial",
+    "LangGraph workflow",
+    "agent orchestration",
+    "AI agent architecture",
+    "Claude Code agents",
+    "agent memory systems",
+    "tool integration AI"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ai-agent-development",
+  "sourceType": "community",
+  "dependencies": []
+}

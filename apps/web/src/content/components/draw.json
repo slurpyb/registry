@@ -1,0 +1,143 @@
+{
+  "name": "draw",
+  "type": "skill",
+  "description": "Vector graphics and diagram creation, format conversion (ODG/SVG/PDF) with LibreOffice Draw.",
+  "domain": "tools",
+  "subdomain": "graphics",
+  "specialty": "vector diagram creation",
+  "quality": 4,
+  "qualityReason": "Specific tool and format use",
+  "bundleHints": [
+    "diagram-tools",
+    "graphics-suite"
+  ],
+  "tags": [
+    "diagram",
+    "format-conversion",
+    "libreoffice",
+    "odg",
+    "pdf",
+    "pdf-conversion",
+    "svg",
+    "vector-graphics"
+  ],
+  "capabilities": [
+    "Create new ODG drawings from templates",
+    "Convert ODG files to SVG, PDF, PNG, and JPG formats",
+    "Convert SVG and PDF files to ODG format",
+    "Batch convert multiple graphics files",
+    "Automate diagram creation with command-line tools",
+    "Generate flowcharts and technical drawings"
+  ],
+  "author": "sickn33",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation skill for LibreOffice Draw. Static findings flagged external commands, network URLs, and weak crypto patterns, but evaluation confirms these are all false positives. The skill contains only documentation and example commands for using LibreOffice's legitimate graphics tools - no actual code execution, no malicious behavior, and no security risks.",
+  "valueStatement": "Convert diagrams between ODG, SVG, PDF, and PNG formats using LibreOffice Draw command-line tools for automated graphics workflows.",
+  "userTitle": "Create Vector Graphics with LibreOffice Draw",
+  "limitations": [
+    "Requires LibreOffice installed on the system",
+    "Does not support real-time interactive editing via skill",
+    "Limited to formats supported by LibreOffice Draw",
+    "Some complex vector effects may not convert perfectly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Technical writers and documentation teams",
+      "title": "Automate Diagram Format Conversion",
+      "description": "Convert exported diagrams from ODG to web-friendly SVG or PDF for documentation"
+    },
+    {
+      "targetUser": "Designers managing large graphic libraries",
+      "title": "Batch Process Graphics Files",
+      "description": "Convert multiple ODG files to PNG or PDF in bulk for distribution"
+    },
+    {
+      "targetUser": "Engineers and technical professionals",
+      "title": "Generate Technical Drawings",
+      "description": "Create flowcharts and technical diagrams from templates using CLI automation"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Convert Diagram to PDF",
+      "prompt": "Convert my diagram file diagram.odg to PDF format using LibreOffice Draw",
+      "scenario": "Converting a single ODG file to PDF"
+    },
+    {
+      "title": "Batch Convert to SVG",
+      "prompt": "Convert all ODG files in the current folder to SVG format",
+      "scenario": "Batch converting multiple files to SVG"
+    },
+    {
+      "title": "Create Flowchart from Template",
+      "prompt": "Create a flowchart using the template at template.odg and export to PNG",
+      "scenario": "Creating and exporting a flowchart"
+    },
+    {
+      "title": "Export High-Resolution PNG",
+      "prompt": "Export my drawing.odg to PNG at 2048x2048 resolution",
+      "scenario": "Exporting graphics at specific resolution"
+    }
+  ],
+  "bestPractices": [
+    "Keep ODG source files for editing and export to other formats as needed",
+    "Use templates for recurring diagram types to maintain consistency",
+    "Test conversions with complex vector graphics before batch processing",
+    "Export to SVG for web use and PDF for print-ready documents"
+  ],
+  "antiPatterns": [
+    "Do not attempt to edit complex drawings interactively through command line",
+    "Avoid converting raster images to vector expecting perfect results",
+    "Do not skip testing conversions before processing large batches"
+  ],
+  "faq": [
+    {
+      "question": "What is ODG format?",
+      "answer": "ODG is the OpenDocument Graphics format used by LibreOffice Draw. It is an open standard for vector graphics."
+    },
+    {
+      "question": "Does this skill require LibreOffice installed?",
+      "answer": "Yes, LibreOffice must be installed on the system for the command-line tools to work."
+    },
+    {
+      "question": "Can I convert SVG to ODG?",
+      "answer": "Yes, you can convert SVG files to ODG format using the --convert-to odg command."
+    },
+    {
+      "question": "How do I batch convert multiple files?",
+      "answer": "Use a shell loop or script to iterate through files and apply the soffice --convert-to command to each."
+    },
+    {
+      "question": "What is the best format for web graphics?",
+      "answer": "SVG is best for web graphics as it scales without quality loss and has small file sizes."
+    },
+    {
+      "question": "Can I control output resolution for PNG export?",
+      "answer": "Yes, use the --filterData parameter with Width and Height values to specify resolution."
+    }
+  ],
+  "seoKeywords": [
+    "LibreOffice Draw",
+    "vector graphics",
+    "ODG to SVG",
+    "ODG to PDF",
+    "diagram conversion",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "libreoffice command line",
+    "graphics automation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/libreoffice/draw",
+  "sourceType": "community",
+  "dependencies": []
+}

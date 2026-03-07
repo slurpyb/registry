@@ -1,0 +1,141 @@
+{
+  "name": "fastapi-development",
+  "type": "skill",
+  "description": "Build async APIs with FastAPI, including endpoints, dependency injection, validation, and testing. Use when creating REST APIs, web backends, or microservices.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "full API stack",
+  "quality": 5,
+  "qualityReason": "Comprehensive FastAPI coverage",
+  "bundleHints": [
+    "python-stack",
+    "fastapi-suite"
+  ],
+  "tags": [
+    "api",
+    "async",
+    "authentication",
+    "deployment",
+    "fastapi",
+    "python",
+    "rest-api",
+    "web-development"
+  ],
+  "capabilities": [
+    "Create FastAPI endpoints with path, query, and body parameters",
+    "Implement dependency injection for database connections and shared logic",
+    "Define Pydantic models for automatic request and response validation",
+    "Handle errors with HTTPException and custom status codes",
+    "Write tests using FastAPI TestClient for endpoint verification",
+    "Generate OpenAPI documentation automatically at /docs endpoint"
+  ],
+  "author": "bossjones",
+  "icon": "🚀",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 56 static findings are false positives. The analyzer misidentified markdown code fences (```) as Ruby backtick execution, Python syntax as cryptographic algorithms, and input validation logic as system reconnaissance. This skill contains only legitimate FastAPI documentation and code examples.",
+  "valueStatement": "FastAPI is a modern Python web framework for building APIs with automatic validation and documentation. This skill provides ready-to-use code patterns for endpoints, dependency injection, and testing so you can create production-ready APIs faster.",
+  "userTitle": "Build async APIs with FastAPI",
+  "limitations": [
+    "Does not cover database integration with SQLAlchemy or async ORM setup",
+    "Does not include authentication or authorization patterns",
+    "Does not address deployment to production servers or containers"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "REST API development",
+      "description": "Build CRUD APIs with automatic validation, documentation, and async support for high-concurrency applications."
+    },
+    {
+      "targetUser": "Data engineers",
+      "title": "Data service endpoints",
+      "description": "Create fast data access endpoints that return validated JSON responses from database queries."
+    },
+    {
+      "targetUser": "Full-stack developers",
+      "title": "Microservices architecture",
+      "description": "Build lightweight, independent services that communicate via REST with clear contracts and documentation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic endpoint",
+      "scenario": "Create a simple API endpoint",
+      "prompt": "Create a FastAPI endpoint at /hello that returns a JSON message with a name query parameter"
+    },
+    {
+      "title": "CRUD operations",
+      "scenario": "Build a resource API",
+      "prompt": "Create a FastAPI API for managing items with Create, Read, Update, and Delete endpoints using Pydantic models"
+    },
+    {
+      "title": "Database integration",
+      "scenario": "Add database dependency",
+      "prompt": "Add a database dependency to my FastAPI app using async context manager for connection cleanup"
+    },
+    {
+      "title": "Advanced validation",
+      "scenario": "Implement complex validation",
+      "prompt": "Create a FastAPI endpoint with path validation using Path(gt=0), query validation using Query(max_length=50), and response models"
+    }
+  ],
+  "bestPractices": [
+    "Use async def for I/O-bound operations to handle concurrent requests efficiently",
+    "Define Pydantic models for all request and response data to enable automatic validation",
+    "Use response_model parameter to control exactly what data is returned to clients"
+  ],
+  "antiPatterns": [
+    "Do not use sync blocking calls in async endpoints without moving them to background tasks",
+    "Do not return sensitive fields like passwords in response models without explicit opt-out",
+    "Do not skip input validation by not defining Pydantic models for complex request bodies"
+  ],
+  "faq": [
+    {
+      "question": "How do I run my FastAPI application in development?",
+      "answer": "Use uvicorn with --reload flag: uvicorn main:app --reload. This auto-restarts on code changes."
+    },
+    {
+      "question": "What is the difference between Path and Query parameters?",
+      "answer": "Path parameters are part of the URL route like /items/{item_id}. Query parameters come after ? like ?skip=0."
+    },
+    {
+      "question": "How does FastAPI handle validation errors?",
+      "answer": "FastAPI automatically returns 422 Unprocessable Entity with error details when request data fails validation."
+    },
+    {
+      "question": "Can I use FastAPI without async?",
+      "answer": "Yes, define endpoints with regular def functions. Use async def for I/O operations like database queries."
+    },
+    {
+      "question": "How do I add custom exception handling?",
+      "answer": "Create exception handlers with @app.exception_handler(ExceptionType) decorator and register custom response logic."
+    },
+    {
+      "question": "Where is the automatic API documentation?",
+      "answer": "Access Swagger UI at /docs or ReDoc at /redoc when your FastAPI application is running."
+    }
+  ],
+  "seoKeywords": [
+    "fastapi",
+    "python api",
+    "claude code",
+    "fastapi development",
+    "async python",
+    "rest api",
+    "python web framework",
+    "fastapi tutorial",
+    "pydantic validation",
+    "claude"
+  ],
+  "sourceUrl": "https://github.com/bossjones/logging-lab/tree/main/.claude/skills/fastapi",
+  "sourceType": "community",
+  "dependencies": []
+}

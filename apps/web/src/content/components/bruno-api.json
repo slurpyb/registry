@@ -1,0 +1,140 @@
+{
+  "name": "bruno-api",
+  "type": "skill",
+  "description": "Generate comprehensive API endpoint documentation from Bruno (.bru) files by mapping requests to a Django4Lyfe/Diversio-style backend implementation (Django REST Framework or Django Ninja), including auth/permissions, multi-tenant filtering, request/response schemas, and line-numbered code references. Use for single endpoints, directory scans of .bru files, or when writing docs to a specific output path.",
+  "domain": "web-development",
+  "subdomain": "documentation",
+  "specialty": "API documentation",
+  "quality": 5,
+  "qualityReason": "Specific API doc generation",
+  "bundleHints": [
+    "api-tools",
+    "documentation-suite"
+  ],
+  "tags": [
+    "api",
+    "backend-mapping",
+    "bruno",
+    "django",
+    "documentation",
+    "rest-api"
+  ],
+  "capabilities": [
+    "Parse Bruno test files to extract HTTP methods, URLs, headers, parameters, and request bodies",
+    "Map Bruno requests to Django REST Framework ViewSets and serializers with line-numbered code references",
+    "Map Bruno requests to Django Ninja routers and Pydantic schemas with precise file locations",
+    "Generate comprehensive documentation including authentication, permissions, multi-tenant filtering, request/response schemas, business logic, and frontend integration examples",
+    "Scan directories recursively to document multiple API endpoints in batch mode",
+    "Output documentation as markdown files or in-chat responses with structured sections"
+  ],
+  "author": "DiversioTeam",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation generator for Bruno API test files. All 56 static findings are false positives: C2 keywords and weak crypto patterns are markdown formatting artifacts, shell backticks are inline code syntax in documentation, and the hardcoded URL is the GitHub source reference. The skill uses only Read, Edit, Glob, Grep, and Bash tools for legitimate documentation generation purposes.",
+  "valueStatement": "Manual API documentation becomes outdated quickly and rarely captures authentication, permissions, and multi-tenant filtering details. This skill generates comprehensive, accurate API documentation by parsing Bruno test files and mapping them to Django backend implementation with line-numbered code references.",
+  "userTitle": "Generate API Documentation from Bruno Test Files",
+  "limitations": [
+    "Requires Bruno test files as input and cannot generate documentation from OpenAPI/Swagger specs or other formats",
+    "Optimized for Django4Lyfe/Diversio-style Django projects and may require customization for other Django architectures",
+    "Cannot execute or validate API endpoints, only generates documentation from static code analysis",
+    "Documentation accuracy depends on finding the correct backend implementation files through URL pattern matching"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers working on Django REST APIs",
+      "title": "Backend Developer Documentation Workflow",
+      "description": "A backend developer adds a new API endpoint with Bruno tests and needs to generate comprehensive documentation for the frontend team. They run the skill with the Bruno file path to automatically generate documentation including TypeScript types, React Query hooks, and testing examples."
+    },
+    {
+      "targetUser": "Team leads and technical writers",
+      "title": "API Audit and Knowledge Transfer",
+      "description": "A team lead needs to document existing API endpoints for new team members or external partners. They use scan mode to process all Bruno files in a directory, generating a complete API reference with authentication, permissions, and business logic details."
+    },
+    {
+      "targetUser": "Frontend developers integrating with Django APIs",
+      "title": "Frontend Integration Planning",
+      "description": "A frontend developer needs to understand how to integrate with a backend API endpoint. They generate documentation from the Bruno file to see exact TypeScript types, request/response schemas, error cases, and React Query hook examples."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Document Single Endpoint",
+      "prompt": "Generate documentation for the Bruno file at api-tests/auth/login.bru",
+      "scenario": "Basic usage for a single API endpoint"
+    },
+    {
+      "title": "Dry Run Analysis",
+      "prompt": "Analyze api-tests/users/create-user.bru with --dry-run to show me the documentation plan",
+      "scenario": "Preview what will be documented before generating full output"
+    },
+    {
+      "title": "Batch Documentation with Output File",
+      "prompt": "Scan all Bruno files in api-tests/v2/ and write documentation to docs/api-reference.md",
+      "scenario": "Generate comprehensive API reference from multiple endpoints"
+    },
+    {
+      "title": "Directory Scan with Custom Output",
+      "prompt": "Use --scan api-tests/pulse/ --output docs/pulse-api/ to document all Pulse API endpoints with separate files per endpoint",
+      "scenario": "Advanced usage with custom output directory structure"
+    }
+  ],
+  "bestPractices": [
+    "Run with --dry-run first to verify the skill correctly identifies endpoint implementations before generating full documentation",
+    "Use --scan mode for batch processing multiple endpoints and maintain documentation consistency across your API",
+    "Review generated documentation for accuracy as the skill relies on URL pattern matching to locate backend code"
+  ],
+  "antiPatterns": [
+    "Do not use this skill without Bruno test files as input, it cannot generate documentation from other API specification formats",
+    "Do not expect the skill to validate or execute API endpoints, it only performs static code analysis for documentation",
+    "Do not use for non-Django projects without customization, as the skill assumes Django REST Framework or Django Ninja patterns"
+  ],
+  "faq": [
+    {
+      "question": "What is a Bruno file and why do I need one?",
+      "answer": "Bruno files are API test definitions with .bru extension that specify HTTP requests including method, URL, headers, parameters, and body. This skill parses these files to understand the API contract and then searches your Django codebase to find the implementation and generate comprehensive documentation."
+    },
+    {
+      "question": "Does this work with Django REST Framework and Django Ninja?",
+      "answer": "Yes, the skill supports both frameworks. It identifies ViewSets, serializers, and permission classes for DRF endpoints, and routers, Pydantic schemas, and auth decorators for Django Ninja endpoints. Implementation details are tailored to each framework."
+    },
+    {
+      "question": "How does the skill find the backend implementation code?",
+      "answer": "The skill uses URL pattern matching conventions. For /api/v2/ endpoints it checks dashboardapp/v2_urls.py and dashboardapp/views/v2/. For /api/v2/pulse/ it checks pulse_iq/api/. For other paths it searches app-level urls.py files and uses Grep to find matching URL patterns."
+    },
+    {
+      "question": "Can I customize the documentation output format?",
+      "answer": "The skill generates markdown with a fixed structure including Overview, Request, Response, Implementation Details, Business Logic, Frontend Integration, Testing, and Notes sections. You can edit the output markdown file after generation to customize formatting or add additional sections."
+    },
+    {
+      "question": "What if the skill cannot find my endpoint implementation?",
+      "answer": "The skill will add a [BLOCKING] severity tag and explain what it searched for. You can help by ensuring your URL patterns follow Django conventions, or manually specify the view file location for the skill to analyze."
+    },
+    {
+      "question": "Does this skill work with Claude Code and OpenAI Codex?",
+      "answer": "Yes, the skill is compatible with both tools. Claude Code users install via /plugin install bruno-api@diversiotech and invoke with /bruno-api:docs. Codex users install via skill-installer with the DiversioTeam/agent-skills-marketplace repository path and invoke with $skill bruno-api."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "API documentation",
+    "Bruno",
+    "Django REST Framework",
+    "Django Ninja",
+    "API testing",
+    "documentation generator",
+    "backend documentation"
+  ],
+  "sourceUrl": "https://github.com/DiversioTeam/agent-skills-marketplace/tree/main/plugins/bruno-api/skills/bruno-api",
+  "sourceType": "community",
+  "dependencies": []
+}

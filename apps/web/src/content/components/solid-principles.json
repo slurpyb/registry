@@ -1,0 +1,141 @@
+{
+  "name": "solid-principles",
+  "type": "skill",
+  "description": "SOLID principles adapted for functional and TypeScript-first development.",
+  "domain": "languages",
+  "subdomain": "typescript",
+  "specialty": "design patterns",
+  "quality": 4,
+  "qualityReason": "Adapts SOLID to modern TS",
+  "bundleHints": [
+    "typescript-stack",
+    "architecture",
+    "design-patterns"
+  ],
+  "tags": [
+    "architecture",
+    "clean-code",
+    "design-patterns",
+    "functional",
+    "oop",
+    "solid",
+    "typescript"
+  ],
+  "capabilities": [
+    "Explains Single Responsibility Principle with practical examples",
+    "Demonstrates Open/Closed Principle for extensible code",
+    "Shows Liskov Substitution for proper inheritance design",
+    "Teaches Interface Segregation with focused abstractions",
+    "Illustrates Dependency Inversion with dependency injection",
+    "Provides before/after refactoring patterns"
+  ],
+  "author": "DoubleslashSE",
+  "icon": "🏗️",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation/educational skill containing only markdown explanations and TypeScript code examples demonstrating SOLID design principles. The static scanner misidentified TypeScript template literals as shell backticks, arithmetic operations as cryptographic algorithms, and code comments as system reconnaissance. No executable code, network calls, file system access, or environment variable access exists. Verified by reading SKILL.md (282 lines) and examples.md (387 lines) which contain only educational content.",
+  "valueStatement": "SOLID principles help you write maintainable software. This skill teaches you to build testable, extensible TypeScript applications that adapt to changing requirements.",
+  "userTitle": "Apply SOLID Principles to TypeScript Code",
+  "limitations": [
+    "Educational content, does not automatically refactor code",
+    "Examples are in TypeScript, may not apply directly to other languages",
+    "Does not analyze existing codebases for violations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Junior developers",
+      "title": "Learn SOLID fundamentals",
+      "description": "Understand each principle through practical TypeScript examples and common violations"
+    },
+    {
+      "targetUser": "Senior developers",
+      "title": "Review design decisions",
+      "description": "Validate design choices and identify refactoring opportunities in legacy code"
+    },
+    {
+      "targetUser": "Architecture students",
+      "title": "Study design patterns",
+      "description": "Learn how SOLID principles guide object-oriented and functional design decisions"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Identify violations",
+      "scenario": "Review code for SOLID violations",
+      "prompt": "Analyze this TypeScript class and identify which SOLID principles it violates. Explain each violation and suggest a refactoring approach."
+    },
+    {
+      "title": "Apply Single Responsibility",
+      "scenario": "Split classes with multiple responsibilities",
+      "prompt": "Refactor this class to follow the Single Responsibility Principle. Extract separate functions for each responsibility."
+    },
+    {
+      "title": "Design extensible systems",
+      "scenario": "Make code open for extension",
+      "prompt": "Redesign this switch statement to follow the Open/Closed Principle using strategy pattern or composition."
+    },
+    {
+      "title": "Implement dependency inversion",
+      "scenario": "Remove concrete dependencies",
+      "prompt": "Refactor this service to depend on abstractions instead of concrete implementations. Show the interface design."
+    }
+  ],
+  "bestPractices": [
+    "Start with Single Responsibility - split functions by reason to change",
+    "Use dependency injection to invert dependencies and improve testability",
+    "Prefer composition over inheritance for flexibility"
+  ],
+  "antiPatterns": [
+    "God classes that handle multiple unrelated responsibilities",
+    "Deep inheritance hierarchies that break Liskov substitution",
+    "Fat interfaces that force clients to depend on unused methods"
+  ],
+  "faq": [
+    {
+      "question": "Which SOLID principle should I learn first?",
+      "answer": "Start with Single Responsibility. It provides the foundation for clean code and makes other principles easier to apply."
+    },
+    {
+      "question": "Can I apply SOLID principles to existing code?",
+      "answer": "Yes. Identify violations in critical classes and refactor incrementally. Focus on areas with frequent changes first."
+    },
+    {
+      "question": "Does SOLID apply only to object-oriented code?",
+      "answer": "While designed for OOP, SOLID concepts translate to functional programming. Focus on maintainability and extensibility."
+    },
+    {
+      "question": "How do I avoid over-engineering with SOLID?",
+      "answer": "Apply YAGNI. Use SOLID when you need actual flexibility, not for hypothetical future requirements."
+    },
+    {
+      "question": "What is the relationship between SOLID and design patterns?",
+      "answer": "SOLID principles guide design decisions. Patterns like Strategy, Factory, and Repository help implement these principles."
+    },
+    {
+      "question": "Can I use SOLID with TypeScript?",
+      "answer": "Absolutely. TypeScript interfaces and type system support SOLID principles well. This skill uses TypeScript examples."
+    }
+  ],
+  "seoKeywords": [
+    "SOLID principles",
+    "TypeScript design patterns",
+    "clean architecture",
+    "single responsibility",
+    "dependency injection",
+    "Claude Code",
+    "software design",
+    "maintainable code",
+    "testable code",
+    "interface segregation"
+  ],
+  "sourceUrl": "https://github.com/DoubleslashSE/claude-workflows/tree/main/Plugins/dotnet-tdd/skills/solid-principles",
+  "sourceType": "community",
+  "dependencies": []
+}

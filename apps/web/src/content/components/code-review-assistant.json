@@ -1,0 +1,142 @@
+{
+  "name": "code-review-assistant",
+  "type": "skill",
+  "description": "Comprehensive PR review using multi-agent swarm with specialized reviewers for security, performance, style, tests, and documentation. Provides detailed feedback with auto-fix suggestions and merge readiness assessment.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "multi-agent review",
+  "quality": 5,
+  "qualityReason": "Sophisticated agent system",
+  "bundleHints": [
+    "ai-agents",
+    "code-review"
+  ],
+  "tags": [
+    "auto-fix",
+    "essential",
+    "github",
+    "merge-readiness",
+    "pr",
+    "review",
+    "specialized-reviewers",
+    "swarm",
+    "tier-1"
+  ],
+  "capabilities": [
+    "Coordinates 5 specialized AI agents for parallel code review",
+    "Analyzes security vulnerabilities, performance bottlenecks, code style, test coverage, and documentation",
+    "Posts review comments directly to GitHub pull requests",
+    "Generates automatic fix suggestions using Codex reasoning",
+    "Calculates overall code quality scores and merge readiness assessment",
+    "Approves or requests changes based on quality gates"
+  ],
+  "author": "DNYoussef",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate code review automation skill. Uses GitHub CLI and claude-flow tools to coordinate multi-agent PR reviews. All filesystem operations scoped to temporary review directories. No credential theft, data exfiltration, or persistence mechanisms detected. Static findings are false positives from scanner misinterpreting documentation patterns and metadata.",
+  "valueStatement": "Manual code reviews are slow and inconsistent. The Code Review Assistant uses a multi-agent swarm to analyze pull requests across security, performance, style, tests, and documentation in parallel, then posts detailed feedback with fix suggestions directly to GitHub.",
+  "userTitle": "Review pull requests with AI agents",
+  "limitations": [
+    "Requires GitHub CLI authentication and repository access",
+    "Relies on claude-flow tools being available in the environment",
+    "Does not execute tests or build code locally"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Automated PR feedback",
+      "description": "Get instant, comprehensive feedback on every pull request without waiting for human reviewers."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Quality gates for merge",
+      "description": "Enforce code quality standards automatically before merging pull requests to main branches."
+    },
+    {
+      "targetUser": "Tech leads",
+      "title": "Consistent review standards",
+      "description": "Ensure all team members receive the same thorough analysis across security, performance, and style."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic PR review",
+      "scenario": "Review a pull request",
+      "prompt": "Run code-review-assistant for PR {number}"
+    },
+    {
+      "title": "Security focus",
+      "scenario": "Security-only review",
+      "prompt": "Review PR {number} focusing on security vulnerabilities only"
+    },
+    {
+      "title": "Quick quality check",
+      "scenario": "Fast review with fixes",
+      "prompt": "Run code-review-assistant {number} with security,performance,tests suggestions enabled"
+    },
+    {
+      "title": "Full audit",
+      "scenario": "Complete review with merge",
+      "prompt": "Review PR {number} with all focus areas and auto-merge if score is above 90"
+    }
+  ],
+  "bestPractices": [
+    "Run code reviews early in the development cycle to catch issues before they accumulate",
+    "Combine automated reviews with human expertise for best results",
+    "Address security findings immediately regardless of overall score"
+  ],
+  "antiPatterns": [
+    "Ignoring automated reviews and merging without addressing findings",
+    "Relying solely on automated reviews without human oversight",
+    "Using code review as a gatekeeper rather than a learning opportunity"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools does this skill support?",
+      "answer": "Works with Claude, Codex, and Claude Code for multi-agent coordination."
+    },
+    {
+      "question": "What GitHub permissions are needed?",
+      "answer": "Requires GitHub CLI authentication with repo read/write access for PR comments."
+    },
+    {
+      "question": "How long does a full review take?",
+      "answer": "Typical reviews complete in 2-5 minutes depending on PR size and focus areas."
+    },
+    {
+      "question": "Is my code data sent externally?",
+      "answer": "Code stays within your environment. Only review results are posted to GitHub."
+    },
+    {
+      "question": "What if the review finds critical issues?",
+      "answer": "Critical security issues block merge and generate detailed fix suggestions immediately."
+    },
+    {
+      "question": "How does this compare to GitHub Actions?",
+      "answer": "Provides deeper analysis with AI agents rather than static rule-based checks."
+    }
+  ],
+  "seoKeywords": [
+    "Claude code review",
+    "PR review automation",
+    "GitHub pull request review",
+    "multi-agent code analysis",
+    "security code review",
+    "codex automated review",
+    "Claude Code code quality",
+    "CI/CD code review",
+    "automated PR feedback",
+    "code review assistant"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/code-review-assistant",
+  "sourceType": "community",
+  "dependencies": []
+}

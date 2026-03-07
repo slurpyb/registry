@@ -1,0 +1,140 @@
+{
+  "name": "add-malli-schemas",
+  "type": "skill",
+  "description": "Efficiently add Malli schemas to API endpoints in the Metabase codebase with proper patterns, validation timing, and error handling",
+  "domain": "languages",
+  "subdomain": "other",
+  "specialty": "API validation",
+  "quality": 5,
+  "qualityReason": "Specific to codebase and tool",
+  "bundleHints": [
+    "clojure-stack",
+    "api-validation"
+  ],
+  "tags": [
+    "api",
+    "clojure",
+    "error-handling",
+    "malli",
+    "metabase",
+    "patterns",
+    "validation"
+  ],
+  "capabilities": [
+    "Add route parameter schemas with proper type validation",
+    "Add query parameter schemas with optional flags and default values",
+    "Add request body schemas for POST and PUT endpoints",
+    "Define response schemas using inline or named definitions",
+    "Use existing schema types from the metabase.util.malli.schema namespace",
+    "Apply advanced patterns including custom error messages and complex nested structures"
+  ],
+  "author": "metabase",
+  "icon": "🔐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only guidance and Clojure code examples for adding Malli schemas to Metabase API endpoints. The static scanner incorrectly flagged Clojure syntax (backticks, brackets, keywords like :enum, :map, :or, :and) as security issues. All findings are false positives caused by the scanner's inability to correctly parse Clojure code. No executable code, network calls, filesystem access, or command execution capabilities exist in this skill.",
+  "valueStatement": "Metabase API endpoints need validation schemas for type safety and error handling. This skill provides step-by-step guidance for adding Malli schemas to route parameters, query parameters, request bodies, and response structures with proper patterns and conventions.",
+  "userTitle": "Add Malli Schemas to API Endpoints",
+  "limitations": [
+    "Specific to Metabase codebase conventions and structure",
+    "Focused on Malli schema library only (not other validation libraries)",
+    "Does not generate schemas automatically from existing code"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Metabase Contributors",
+      "title": "Add validation to new endpoints",
+      "description": "Add Malli schemas to new API endpoints following Metabase conventions for type safety."
+    },
+    {
+      "targetUser": "Backend Developers",
+      "title": "Improve existing endpoint schemas",
+      "description": "Enhance existing endpoints with comprehensive request and response schema validation."
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Validate schema patterns",
+      "description": "Review pull requests to ensure Malli schemas follow established patterns and best practices."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Add schema to endpoint",
+      "scenario": "Add validation to simple endpoint",
+      "prompt": "Add Malli schemas to the GET /api/field/:id/related endpoint in the Metabase codebase. Include route parameter validation and response schema."
+    },
+    {
+      "title": "Add body validation",
+      "scenario": "Add request body validation",
+      "prompt": "Add request body schema validation to the POST /api/database endpoint using Malli. Include optional fields with proper :optional true flags."
+    },
+    {
+      "title": "Create named schema",
+      "scenario": "Define reusable schema type",
+      "prompt": "Create a named Malli schema for a paginated response with data array, total count, limit, and offset fields. Use it in multiple endpoints."
+    },
+    {
+      "title": "Advanced error handling",
+      "scenario": "Add custom error messages",
+      "prompt": "Add custom error messages to a complex Malli schema for database engine validation. Include deferred error messages for i18n support."
+    }
+  ],
+  "bestPractices": [
+    "Use existing schema types from ms/ namespace instead of raw Malli predicates",
+    "Define named schemas with mr/def for structures used in multiple places",
+    "Apply :optional true and :default appropriately for query parameters"
+  ],
+  "antiPatterns": [
+    "Forgetting :maybe wrapper for nullable fields causing validation failures",
+    "Using ms/TemporalString for response schemas instead of :any for Java Time objects",
+    "Mixing route, query, and body parameters in a single destructuring map"
+  ],
+  "faq": [
+    {
+      "question": "What Malli types are available in Metabase?",
+      "answer": "Metabase provides ms/PositiveInt, ms/NonBlankString, ms/BooleanValue, ms/TemporalString, ms/Map, and more in metabase.util.malli.schema."
+    },
+    {
+      "question": "When do response schemas validate?",
+      "answer": "Response schemas validate BEFORE JSON serialization, so they see Java objects not strings. Use :any for temporal fields."
+    },
+    {
+      "question": "How are optional query params defined?",
+      "answer": "Use {:optional true} property on the key in the query params map schema. Add :default for fallback values."
+    },
+    {
+      "question": "Is data safe with this skill?",
+      "answer": "This skill only provides guidance. It does not execute code, access files, or send data anywhere. It is read-only documentation."
+    },
+    {
+      "question": "How does it handle complex nested responses?",
+      "answer": "Use mr/def to define complex nested schemas as named schemas, then reference them with ::namespace/SchemaName in endpoint definitions."
+    },
+    {
+      "question": "Can it generate schemas from existing code?",
+      "answer": "No. This skill provides guidance for manually adding schemas following Metabase conventions. It does not analyze code to auto-generate schemas."
+    }
+  ],
+  "seoKeywords": [
+    "malli schemas",
+    "clojure validation",
+    "metabase api",
+    "claude code",
+    "claude",
+    "codex",
+    "api endpoint validation",
+    "data validation",
+    "type checking",
+    "clojure"
+  ],
+  "sourceUrl": "https://github.com/metabase/metabase/tree/master/.claude/skills/add-malli-schemas",
+  "sourceType": "community",
+  "dependencies": []
+}

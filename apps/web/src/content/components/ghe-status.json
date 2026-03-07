@@ -1,0 +1,140 @@
+{
+  "name": "ghe-status",
+  "type": "skill",
+  "description": "READ-ONLY quick overview of GitHub Elements workflow state. Shows active threads, phase distribution, and workflow health at a glance.\n\nUSE THIS SKILL WHEN:\n- User asks \"what's the status\" or \"show me the status\"\n- User asks \"what threads are active\" or \"what am I working on\"\n- User asks \"show me the workflow state\" or \"what's happening\"\n- User wants a quick overview before starting work\n- Starting a session and need context\n\nDO NOT USE THIS SKILL WHEN:\n- User wants to CLAIM an issue (use ghe-claim)\n- User wants to POST a checkpoint (use ghe-checkpoint)\n- User wants to TRANSITION phases (use ghe-transition)\n- User wants DETAILED metrics/health reports (use ghe-report)\n\nEXAMPLES:\n<example>\nContext: User starting a session wants to see current state\nuser: \"What's the github elements status?\"\nassistant: \"I'll use ghe-status to show you the current workflow state\"\n</example>\n<example>\nContext: User wants to know what work is available\nuser: \"Show me what threads are active\"\nassistant: \"I'll use ghe-status to display active and available threads\"\n</example>\n<example>\nContext: Quick check before doing work\nuser: \"What am I currently working on?\"\nassistant: \"I'll use ghe-status to find your in-progress threads\"\n</example>\n",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "workflow overview",
+  "quality": 5,
+  "qualityReason": "Quick, read-only state visibility",
+  "bundleHints": [
+    "workflow-monitoring",
+    "ghe-tools",
+    "status-dashboard"
+  ],
+  "tags": [
+    "ghe",
+    "github-elements",
+    "read-only",
+    "status",
+    "workflow"
+  ],
+  "capabilities": [
+    "Query all GitHub Issues with GitHub Elements labels",
+    "Display active threads across DEV, TEST, and REVIEW phases",
+    "Show phase distribution counts",
+    "List available work (unclaimed ready issues)",
+    "Report workflow health indicators and violations",
+    "Flag checkpoint frequency compliance"
+  ],
+  "author": "Emasoft",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a read-only skill that only queries and displays GitHub Elements workflow state. Static analysis flagged markdown documentation formatting (backticks for file paths and timestamps) and YAML frontmatter text patterns as security issues. All findings are false positives. The skill has no code execution, file system access, or network operations - it only spawns the reporter agent to query GitHub API. Safe for publication.",
+  "valueStatement": "GitHub Elements users need quick visibility into their active threads and workflow state before starting work. This read-only skill provides an instant overview of active threads, phase distribution, and workflow health without modifying anything.",
+  "userTitle": "View GitHub Elements Workflow Status",
+  "limitations": [
+    "Read-only skill - cannot modify issues, claim work, or transition phases",
+    "Cannot provide detailed metrics or health reports (use ghe-report for that)",
+    "Cannot generate epic-specific reports",
+    "Output depends on GitHub API availability"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Any GitHub Elements user starting a session",
+      "title": "Quick Session Start Check",
+      "description": "When starting a Claude session, quickly see what threads are active, what phase work is in, and what is available to claim before beginning new tasks."
+    },
+    {
+      "targetUser": "Project leads and team members tracking progress",
+      "title": "Daily Workflow Overview",
+      "description": "Get a birds-eye view of all ongoing work, identify bottlenecks in TEST or REVIEW phases, and see where attention is needed."
+    },
+    {
+      "targetUser": "Contributors looking for work to pick up",
+      "title": "Before Claiming Work",
+      "description": "Check what is already in progress and what unclaimed work is available before deciding what to work on next."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Status Check",
+      "prompt": "What's the GitHub Elements status?",
+      "scenario": "Simple request for current workflow state"
+    },
+    {
+      "title": "Active Threads Query",
+      "prompt": "Show me what threads are active right now",
+      "scenario": "User wants to see ongoing work"
+    },
+    {
+      "title": "Personal Work Context",
+      "prompt": "What am I currently working on?",
+      "scenario": "User wants personal work context"
+    },
+    {
+      "title": "Workflow Health Check",
+      "prompt": "Show me the workflow state and any violations",
+      "scenario": "User wants health indicators and compliance status"
+    }
+  ],
+  "bestPractices": [
+    "Use ghe-status at the start of every session to establish context before working",
+    "Check phase distribution to identify bottlenecks (accumulation in TEST or REVIEW indicates issues)",
+    "Combine with ghe-report when you need detailed metrics or health analysis"
+  ],
+  "antiPatterns": [
+    "Do not use ghe-status when you need to claim work (use ghe-claim instead)",
+    "Do not expect detailed reports - use ghe-report for comprehensive metrics",
+    "Do not assume this skill can modify issue state - it is purely read-only"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between ghe-status and ghe-report?",
+      "answer": "ghe-status provides a quick read-only overview of active threads and basic workflow state. ghe-report provides detailed metrics, health analysis, and epic-specific reports. Use status for quick checks, report for deep analysis."
+    },
+    {
+      "question": "Can ghe-status modify my issues?",
+      "answer": "No. ghe-status is completely read-only. It only queries GitHub API and displays information. To modify issues, claim work, or transition phases, use other skills like ghe-claim, ghe-checkpoint, or ghe-transition."
+    },
+    {
+      "question": "How often should I check the status?",
+      "answer": "Check status at the start of every session to establish context. Check again after completing work to verify changes propagated correctly. Frequent checks help track workflow health over time."
+    },
+    {
+      "question": "What do the phase distributions mean?",
+      "answer": "Phases represent workflow stages: DEV (active development), TEST (verification), and REVIEW (final approval). Accumulation in any phase indicates potential bottlenecks. Balanced distribution suggests smooth workflow progress."
+    },
+    {
+      "question": "Does ghe-status work with private repositories?",
+      "answer": "Yes. ghe-status works with private repositories as long as the GitHub API token has appropriate read permissions for issues. The skill respects existing GitHub authentication."
+    },
+    {
+      "question": "What are workflow violations?",
+      "answer": "Workflow violations are instances where GitHub Elements conventions were not followed, such as missing checkpoints, improper phase transitions, or missing required labels. The status report flags these for attention."
+    }
+  ],
+  "seoKeywords": [
+    "GitHub Elements status",
+    "workflow status",
+    "active threads",
+    "phase distribution",
+    "CLAUDE",
+    "CODEX",
+    "CLAUDE CODE",
+    "issue tracking",
+    "workflow overview",
+    "thread status"
+  ],
+  "sourceUrl": "https://github.com/Emasoft/ghe-marketplace/tree/main/plugins/ghe/skills/ghe-status",
+  "sourceType": "community",
+  "dependencies": []
+}

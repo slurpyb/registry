@@ -1,0 +1,145 @@
+{
+  "name": "plan-writing",
+  "type": "skill",
+  "description": "Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when implementing features, refactoring, or any multi-step work.",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "task breakdown",
+  "quality": 4,
+  "qualityReason": "Good breakdown methodology",
+  "bundleHints": [
+    "planning-suite",
+    "workflow-tools"
+  ],
+  "tags": [
+    "clear-scope",
+    "dependencies",
+    "development",
+    "multi-step",
+    "planning",
+    "project-management",
+    "refactoring",
+    "structured-planning",
+    "task-management",
+    "verification",
+    "workflow"
+  ],
+  "capabilities": [
+    "Breaks complex tasks into 2-5 minute focused actions with single outcomes",
+    "Defines clear verification criteria for each task",
+    "Identifies task dependencies and critical paths",
+    "Adapts plan structure based on project type (new project, feature, bug fix)",
+    "Generates project-specific plan files saved to project root directory",
+    "Keeps plans concise with maximum 10 tasks per plan"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 20 patterns (17 external_commands, 3 cryptographic) that are all FALSE POSITIVES. The SKILL.md file is documentation-only Markdown containing command examples in tables and code blocks, not executable code. Backticks are Markdown formatting, not shell execution. No cryptographic algorithms exist in the file. This is a safe planning skill that generates task breakdowns with verification criteria.",
+  "valueStatement": "Complex development work often lacks clear structure and verification steps. This skill breaks down tasks into small, verifiable actions with explicit completion criteria.",
+  "userTitle": "Create actionable task plans with verification criteria",
+  "limitations": [
+    "Only works with read-only tools (Read, Glob, Grep) - cannot execute commands",
+    "Plans are documentation only - user must manually execute tasks",
+    "Requires user to provide project context for relevant recommendations",
+    "Not suitable for real-time collaboration or task tracking"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers building new features",
+      "title": "Feature Implementation Planning",
+      "description": "Break down new feature development into discrete, testable tasks with clear dependencies and verification steps for systematic implementation."
+    },
+    {
+      "targetUser": "Senior engineers managing technical debt",
+      "title": "Refactoring Project Organization",
+      "description": "Structure large-scale code refactoring into manageable phases with verification criteria to ensure system stability throughout the process."
+    },
+    {
+      "targetUser": "Debug engineers troubleshooting production issues",
+      "title": "Bug Fix Documentation",
+      "description": "Create clear action plans for complex bug fixes that span multiple files or require understanding intricate system interactions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Feature Plan",
+      "prompt": "Create a task plan for adding user authentication to my Next.js application. Include setup, implementation, and verification steps.",
+      "scenario": "Beginner: Simple feature addition with clear scope"
+    },
+    {
+      "title": "Refactoring Plan",
+      "prompt": "I need to refactor our monolithic service into modular components. Create a phased plan that minimizes risk and allows incremental testing.",
+      "scenario": "Intermediate: Multi-file refactoring with dependency management"
+    },
+    {
+      "title": "Bug Investigation Plan",
+      "prompt": "Users report intermittent 500 errors in our API. Create a systematic investigation plan with hypothesis testing and rollback steps.",
+      "scenario": "Advanced: Complex debugging with multiple potential causes"
+    },
+    {
+      "title": "Full Project Setup",
+      "prompt": "Create a complete development plan for a new React + TypeScript project with testing, linting, and CI/CD configuration from scratch.",
+      "scenario": "Expert: Greenfield project with comprehensive tooling setup"
+    }
+  ],
+  "bestPractices": [
+    "Start each plan with a single-sentence goal that clearly states what you are building or fixing.",
+    "Limit plans to maximum 10 tasks - if work exceeds this, split into multiple focused plans.",
+    "Always include specific verification criteria that anyone can follow to confirm task completion."
+  ],
+  "antiPatterns": [
+    "Creating plans with 50+ micro-tasks that become overwhelming and lose focus on outcomes.",
+    "Writing generic tasks like 'Set up project' without specifying exact commands or expected outputs.",
+    "Copy-pasting template plans without adapting to the specific project context and requirements."
+  ],
+  "faq": [
+    {
+      "question": "What types of tasks are best suited for this planning approach?",
+      "answer": "Complex multi-step work like feature implementation, refactoring across multiple files, bug fixes requiring investigation, and new project setup. Simple one-off tasks do not need formal plans."
+    },
+    {
+      "question": "How detailed should each task be in the plan?",
+      "answer": "Each task should represent 2-5 minutes of focused work with one clear outcome. Tasks should be specific enough that verification is unambiguous but not so granular they become micro-management."
+    },
+    {
+      "question": "Can I modify the plan while working through tasks?",
+      "answer": "Yes, plans should evolve as you learn more during implementation. Update tasks as needed, mark completed items with [x], and add new tasks if you discover additional work."
+    },
+    {
+      "question": "Where should plan files be saved in my project?",
+      "answer": "Save plan files in the project root directory with a descriptive name derived from the task (e.g., auth-feature.md, api-refactor.md). Avoid nesting plans in subdirectories."
+    },
+    {
+      "question": "What if my task requires more than 10 subtasks?",
+      "answer": "Split the work into multiple related plans. For example, separate plans for 'Backend API Setup', 'Frontend Integration', and 'Testing and Validation' that together complete the full feature."
+    },
+    {
+      "question": "How do I handle task dependencies in the plan?",
+      "answer": "List tasks in dependency order so prerequisite work comes first. You can also add inline notes like 'Requires: Task 2' to make dependencies explicit within the task description."
+    }
+  ],
+  "seoKeywords": [
+    "Claude task planning",
+    "Codex project management",
+    "Claude Code workflow",
+    "task breakdown",
+    "verification criteria",
+    "development planning",
+    "feature implementation",
+    "refactoring plan",
+    "agile tasks",
+    "AI productivity"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/plan-writing",
+  "sourceType": "community",
+  "dependencies": []
+}

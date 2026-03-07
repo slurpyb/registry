@@ -1,0 +1,143 @@
+{
+  "name": "skill-rails-upgrade",
+  "type": "skill",
+  "description": "Analyze Rails apps and provide upgrade assessments",
+  "domain": "languages",
+  "subdomain": "ruby",
+  "specialty": "Rails migration",
+  "quality": 5,
+  "qualityReason": "Specific upgrade path",
+  "bundleHints": [
+    "ruby-stack",
+    "migration-toolkit",
+    "legacy-modernization"
+  ],
+  "tags": [
+    "migration",
+    "rails",
+    "ruby",
+    "ruby-on-rails",
+    "upgrade",
+    "versioning"
+  ],
+  "capabilities": [
+    "Detect current Rails version from Gemfile and Gemfile.lock",
+    "Fetch latest Rails version from GitHub API",
+    "Classify upgrade type (patch, minor, or major)",
+    "Fetch and summarize official Rails upgrade guides",
+    "Generate file change diffs from railsdiff.org",
+    "Create selective merge plans that preserve local customizations"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The 'external_commands' detections are shell command examples in documentation (not code execution). The 'network' detections are legitimate Rails documentation URLs. The 'weak cryptographic algorithm' detections are false positives - YAML frontmatter and plain text were incorrectly flagged. This is a legitimate Rails upgrade assistant skill with no security concerns.",
+  "valueStatement": "This skill analyzes your Rails application and provides a comprehensive upgrade assessment with version-specific guidance and a selective file merge plan to safely upgrade to newer Rails versions.",
+  "userTitle": "Upgrade Rails Applications with Confidence",
+  "limitations": [
+    "Does not execute the upgrade - provides guidance only",
+    "Cannot automatically resolve all breaking changes",
+    "Requires user confirmation before making file changes",
+    "Does not test the application after upgrade"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Rails developers planning major version upgrades",
+      "title": "Planning a Rails 7 to 8 upgrade",
+      "description": "Get a comprehensive assessment of what changes are needed to upgrade from Rails 7.x to Rails 8.x, including breaking changes and required file updates."
+    },
+    {
+      "targetUser": "Developers maintaining production Rails applications",
+      "title": "Safe incremental upgrades",
+      "description": "Follow a step-by-step process that checks for local customizations before updating files, ensuring no project-specific changes are lost."
+    },
+    {
+      "targetUser": "Full-stack Rails developers with JavaScript dependencies",
+      "title": "JavaScript dependency alignment",
+      "description": "Check and recommend updates for Rails-related JavaScript packages (Turbo, Stimulus, Action Cable) to match the target Rails version."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Rails upgrade check",
+      "prompt": "Use the rails-upgrade skill to analyze this Rails application and tell me what version it is running and what the latest Rails version is.",
+      "scenario": "Quick version check before planning an upgrade"
+    },
+    {
+      "title": "Full upgrade assessment",
+      "prompt": "Use the rails-upgrade skill to perform a complete upgrade assessment. I want to upgrade from my current version to the latest Rails. Provide a summary of breaking changes, new files needed, and a plan for handling my local customizations.",
+      "scenario": "Comprehensive upgrade planning with detailed analysis"
+    },
+    {
+      "title": "Selective file merge plan",
+      "prompt": "Use the rails-upgrade skill to generate a selective file update plan. Check which config files have local customizations and show me exactly what would change for each file.",
+      "scenario": "Creating a safe upgrade plan with manual merge guidance"
+    },
+    {
+      "title": "JavaScript dependency audit",
+      "prompt": "Use the rails-upgrade skill to check my JavaScript dependencies. I use npm/yarn and want to ensure my Rails-related packages (Turbo, Stimulus) are compatible with the target Rails version.",
+      "scenario": "Checking JS package compatibility before upgrade"
+    }
+  ],
+  "bestPractices": [
+    "Always run the upgrade analysis on a clean git branch before making changes",
+    "Review deprecation warnings in your current version before upgrading",
+    "Test each framework default enablement one at a time",
+    "Keep your JavaScript dependencies aligned with your Rails version"
+  ],
+  "antiPatterns": [
+    "Running rails app:update directly without checking for local customizations",
+    "Skipping the JavaScript dependency audit when using Turbo or Stimulus",
+    "Ignoring deprecation warnings before starting the upgrade",
+    "Enabling all new framework defaults at once without testing"
+  ],
+  "faq": [
+    {
+      "question": "What versions of Rails can this skill help upgrade?",
+      "answer": "This skill can help with upgrades from Rails 5.0 through the latest Rails 8.x. It works for patch, minor, and major version upgrades."
+    },
+    {
+      "question": "Does this skill automatically update my application?",
+      "answer": "No. The skill analyzes your application and creates an upgrade plan. It shows you what will change and requires your confirmation before modifying any files."
+    },
+    {
+      "question": "Will I lose my local customizations?",
+      "answer": "No. The skill specifically checks for local customizations in config files and bin scripts. It never overwrites customized files without showing you what would change first."
+    },
+    {
+      "question": "What if I do not have the gh CLI installed?",
+      "answer": "The skill will still work but you will need to manually check for the latest Rails version. The gh CLI is only used for fetching the most recent release information."
+    },
+    {
+      "question": "Can this skill help with JavaScript dependencies?",
+      "answer": "Yes. The skill checks npm/yarn packages and importmap pins for Rails-related JavaScript libraries like Turbo, Stimulus, Action Cable, and Active Storage."
+    },
+    {
+      "question": "What happens after the file updates?",
+      "answer": "After updating files, the skill guides you through running migrations, testing the application, and enabling new framework defaults one by one."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Rails upgrade",
+    "Ruby on Rails migration",
+    "Rails 7 to 8 upgrade",
+    "Rails upgrade assistant",
+    "Ruby on Rails version upgrade",
+    "Rails upgrade guide",
+    "Rails migration tool"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/web-app/public/skills/skill-rails-upgrade",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "prisma-expert",
+  "type": "skill",
+  "description": "Prisma ORM expert for schema design, migrations, query optimization, relations modeling, and database operations. Use PROACTIVELY for Prisma schema issues, migration problems, query performance, relation design, or database connection issues.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "Prisma ORM",
+  "quality": 5,
+  "qualityReason": "Specific and deep expertise",
+  "bundleHints": [
+    "database-stack",
+    "prisma-tools"
+  ],
+  "tags": [
+    "database",
+    "mysql",
+    "orm",
+    "postgresql",
+    "prisma",
+    "query-optimization",
+    "schema-design"
+  ],
+  "capabilities": [
+    "Design and validate Prisma schemas with proper relations, indexes, and field types",
+    "Create, debug, and resolve database migration conflicts",
+    "Optimize queries to eliminate N+1 problems and reduce over-fetching",
+    "Configure connection pooling for serverless and production environments",
+    "Implement transaction patterns with proper isolation levels",
+    "Review code for Prisma best practices and anti-patterns"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 88 patterns that are all false positives for this legitimate Prisma ORM helper skill. External commands are standard Prisma CLI operations (validate, migrate, generate). Network references are documentation URLs. Environment access is limited to DATABASE_URL and NODE_ENV configuration required for database connectivity. No malicious patterns, credential exfiltration, or dangerous code execution detected.",
+  "valueStatement": "Struggling with Prisma schema errors, migration conflicts, or slow database queries? This skill provides expert guidance for schema design, migration management, and query optimization across PostgreSQL, MySQL, and SQLite.",
+  "userTitle": "Master Prisma ORM for Database Development",
+  "limitations": [
+    "Cannot directly access or modify your database - provides guidance only",
+    "Does not replace database administrators for infrastructure-level configuration",
+    "Raw SQL optimization may require postgres-expert or mongodb-expert for complex cases",
+    "Cannot execute migrations automatically - user must run Prisma CLI commands"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-Stack Developer Building a SaaS Application",
+      "title": "Full-Stack Developer Building a SaaS Application",
+      "description": "Design a scalable Prisma schema with proper user, subscription, and billing models. Create safe migration workflows for production deployments and optimize queries for dashboard performance."
+    },
+    {
+      "targetUser": "Team Lead Resolving Migration Conflicts",
+      "title": "Team Lead Resolving Migration Conflicts",
+      "description": "Debug conflicting migrations from multiple developers. Learn to use prisma migrate resolve, squash migration history, and establish team workflows to prevent future conflicts."
+    },
+    {
+      "targetUser": "Backend Engineer Optimizing API Performance",
+      "title": "Backend Engineer Optimizing API Performance",
+      "description": "Identify and fix N+1 query problems in REST or GraphQL APIs. Implement proper select and include patterns, add strategic indexes, and configure connection pooling for high-traffic endpoints."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Schema Design Review",
+      "prompt": "Review my Prisma schema for best practices. Check relation definitions, index usage, and field types. Suggest improvements for performance and maintainability.",
+      "scenario": "You have a schema.prisma file and want expert feedback before deploying to production."
+    },
+    {
+      "title": "Migration Debugging",
+      "prompt": "My Prisma migration failed with error [paste error]. The database is in an inconsistent state. Help me diagnose the issue and provide step-by-step commands to resolve it.",
+      "scenario": "A migration failed during deployment and you need to recover safely."
+    },
+    {
+      "title": "Query Optimization",
+      "prompt": "I have this Prisma query that is slow [paste query]. Analyze it for N+1 problems, over-fetching, and missing indexes. Show me the optimized version with explain.",
+      "scenario": "Your API endpoint is slow and you suspect database query issues."
+    },
+    {
+      "title": "Connection Pool Configuration",
+      "prompt": "I am deploying to [Vercel/AWS Lambda/Render] and getting connection errors. Help me configure Prisma connection pooling for my serverless environment with the correct DATABASE_URL parameters.",
+      "scenario": "Production deployment is failing due to connection pool exhaustion."
+    }
+  ],
+  "bestPractices": [
+    "Always use explicit @relation with fields and references for clarity and to prevent relation resolution issues",
+    "Enable query logging in development to identify slow queries and N+1 problems early",
+    "Use migrate dev only in development - always use migrate deploy for production with CI/CD pipelines"
+  ],
+  "antiPatterns": [
+    "Using implicit many-to-many relations when you need to store metadata on the join table",
+    "Calling prisma.user.findMany() then looping to fetch related data - causes N+1 queries",
+    "Running migrate dev in production which can cause data loss and is not idempotent"
+  ],
+  "faq": [
+    {
+      "question": "How do I reset my development database without losing production data?",
+      "answer": "Use npx prisma migrate reset in development only. This command drops the database, reapplies all migrations, and reseeds. Never run this in production. For production, create a new migration with the required changes instead."
+    },
+    {
+      "question": "What is the difference between prisma migrate dev and prisma migrate deploy?",
+      "answer": "migrate dev is for development - it creates migration files, applies them, and resets on schema drift. migrate deploy is for production - it only applies pending migrations without creating new files or resetting. Never use migrate dev in production."
+    },
+    {
+      "question": "How do I fix migration conflicts when multiple developers create migrations?",
+      "answer": "Use prisma migrate resolve to mark conflicting migrations as applied or rolled back. For complex conflicts, you may need to manually edit migration SQL files. Establish a team workflow where developers pull and apply migrations before creating new ones."
+    },
+    {
+      "question": "Why am I getting too many connections errors in production?",
+      "answer": "Your connection pool is exhausted. Add connection_limit to your DATABASE_URL (e.g., connection_limit=5). For serverless, use a global PrismaClient instance to reuse connections. For high-traffic apps, consider PgBouncer or your cloud providers connection pooling."
+    },
+    {
+      "question": "Can Prisma work with existing databases?",
+      "answer": "Yes. Use npx prisma db pull to introspect an existing database and generate a schema. Review and customize the generated schema, then run npx prisma generate to create the client. You can also use prisma migrate to manage future schema changes."
+    },
+    {
+      "question": "How do I handle database transactions in Prisma?",
+      "answer": "Use prisma.$transaction with an array for sequential operations, or a callback function for interactive transactions with business logic. Configure maxWait, timeout, and isolationLevel options. Be aware that interactive transactions hold connections longer."
+    }
+  ],
+  "seoKeywords": [
+    "Prisma ORM",
+    "database schema",
+    "migrations",
+    "query optimization",
+    "PostgreSQL",
+    "MySQL",
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "TypeScript"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/prisma-expert",
+  "sourceType": "community",
+  "dependencies": []
+}

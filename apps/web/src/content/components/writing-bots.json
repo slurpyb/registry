@@ -1,0 +1,143 @@
+{
+  "name": "writing-bots",
+  "type": "skill",
+  "description": "Write a bot to continuously listen and respond to events on a public blockchain network.",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "blockchain bots",
+  "quality": 4,
+  "qualityReason": "Specific use case",
+  "bundleHints": [
+    "blockchain-tools",
+    "automation-stack",
+    "cli-utilities"
+  ],
+  "tags": [
+    "automation",
+    "blockchain",
+    "bot",
+    "ethereum",
+    "event-listening",
+    "silverback"
+  ],
+  "capabilities": [
+    "Guide users through blockchain bot design patterns",
+    "Explain event handling for blocks, logs, and cron triggers",
+    "Advise on risk management and circuit breakers",
+    "Help configure environment-based safety limits",
+    "Describe state management for bot operations",
+    "Provide operational monitoring best practices"
+  ],
+  "author": "ApeWorX",
+  "icon": "🤖",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a pure markdown prompt file providing guidance for designing blockchain bots using the Silverback SDK. All static findings are false positives. The scanner misidentified standard blockchain terminology (keccak256, sha256, mainnet) as cryptographic weaknesses, CLI documentation as command injection, and documentation URLs as network exfiltration. The skill contains no executable code and advises best practices including using environment variables and circuit breakers for safety.",
+  "valueStatement": "Creating blockchain bots requires understanding event-driven architecture and risk management. This skill guides AI assistants to help users design, implement, and deploy automated bots that respond to on-chain events.",
+  "userTitle": "Create blockchain monitoring bots with Silverback",
+  "limitations": [
+    "Does not execute blockchain transactions directly",
+    "Requires user to install Silverback CLI separately",
+    "Does not provide pre-built bot templates",
+    "Does not access blockchain networks directly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DeFi developers",
+      "title": "Monitor DeFi protocols",
+      "description": "Build bots that track pool metrics and alert on unusual activity"
+    },
+    {
+      "targetUser": "Crypto traders",
+      "title": "Automate trading responses",
+      "description": "Create bots that execute trades based on on-chain signals"
+    },
+    {
+      "targetUser": "Protocol integrators",
+      "title": "Bridge and sync systems",
+      "description": "Design bots that sync blockchain state with external services"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple event monitor",
+      "scenario": "User wants basic blockchain monitoring",
+      "prompt": "Help me create a Silverback bot that listens for new blocks on Ethereum mainnet and logs block numbers and timestamps."
+    },
+    {
+      "title": "Event filter bot",
+      "scenario": "User needs smart contract event monitoring",
+      "prompt": "Design a bot that watches for specific smart contract events on Uniswap and sends Discord notifications when trades occur."
+    },
+    {
+      "title": "Risk-managed automation",
+      "scenario": "User needs safety controls",
+      "prompt": "Create a bot with circuit breaker protection and configurable limits via environment variables for automated trading."
+    },
+    {
+      "title": "Multi-chain aggregator",
+      "scenario": "Advanced user needs complex setup",
+      "prompt": "Build a bot that monitors multiple chains, tracks derived metrics, and triggers actions based on complex threshold conditions."
+    }
+  ],
+  "bestPractices": [
+    "Start with print debugging before adding automated actions",
+    "Use environment variables for all configurable limits and keys",
+    "Implement circuit breakers for emergency stop conditions",
+    "Test thoroughly before configuring production signer keys"
+  ],
+  "antiPatterns": [
+    "Skipping documentation checks for current SDK version",
+    "Running bots with production keys before testing",
+    "Ignoring error logs during initial deployment",
+    "Hardcoding private keys or secrets in bot code"
+  ],
+  "faq": [
+    {
+      "question": "Which blockchain networks does Silverback support?",
+      "answer": "Silverback supports any EVM-compatible network including Ethereum, Polygon, Arbitrum, and Optimism."
+    },
+    {
+      "question": "What programming language is used for Silverback bots?",
+      "answer": "Silverback bots are written in Python using the Ape framework for blockchain interaction."
+    },
+    {
+      "question": "How do I connect external services like Discord or Telegram?",
+      "answer": "Use Python client libraries in your event handlers to send messages via webhooks or bot APIs."
+    },
+    {
+      "question": "Is it safe to run bots with signing capabilities?",
+      "answer": "Only after thorough testing. Use environment variables for keys and implement circuit breakers for safety."
+    },
+    {
+      "question": "Why is my bot not receiving events?",
+      "answer": "Check network configuration, verify contract addresses, and review logs for connection or filter errors."
+    },
+    {
+      "question": "How does this compare to other blockchain automation tools?",
+      "answer": "Silverback offers full Python flexibility for custom logic whereas alternatives may have limited scripting."
+    }
+  ],
+  "seoKeywords": [
+    "blockchain bot",
+    "Silverback SDK",
+    "Ethereum automation",
+    "smart contract monitoring",
+    "event-driven bot",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "DeFi automation",
+    "crypto trading bot"
+  ],
+  "sourceUrl": "https://github.com/ApeWorX/skills/tree/main/silverback/writing-bots",
+  "sourceType": "community",
+  "dependencies": []
+}

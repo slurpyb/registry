@@ -1,0 +1,142 @@
+{
+  "name": "copy-editing",
+  "type": "skill",
+  "description": "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' or 'copy sweep.' This skill provides a systematic approach to editing marketing copy through multiple focused passes.",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "seven-sweep editing",
+  "quality": 5,
+  "qualityReason": "Structured editing framework",
+  "bundleHints": [
+    "marketing-copy",
+    "content-quality",
+    "editing-tools"
+  ],
+  "tags": [
+    "content",
+    "copywriting",
+    "editing",
+    "marketing",
+    "professional",
+    "proofreading",
+    "systematic"
+  ],
+  "capabilities": [
+    "Apply seven sequential editing sweeps: Clarity, Voice and Tone, So What, Prove It, Specificity, Heightened Emotion, and Zero Risk",
+    "Identify and fix vague language, weak intensifiers, and corporate jargon",
+    "Connect features to benefits with clear 'which means' bridges",
+    "Add specificity with numbers, timeframes, and concrete examples",
+    "Ensure consistent brand voice and tone throughout all content",
+    "Reduce reader risk and friction near calls-to-action"
+  ],
+  "author": "sickn33",
+  "icon": "📝",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation-only file containing instructions for copy editing marketing content. All 7 static analysis findings for 'Weak cryptographic algorithm' are false positives triggered by pattern matching on instructional text, not actual code. The skill contains no executable code, network requests, file operations, or external command execution. Safe for publication.",
+  "valueStatement": "Marketing teams struggle to maintain consistency and impact across their copy. This skill applies a proven seven-sweep editing framework to enhance clarity, voice, and conversion without losing your brand's unique voice.",
+  "userTitle": "Edit and polish marketing copy with expert precision",
+  "limitations": [
+    "Requires existing copy to edit; use the copywriting skill for creating new content from scratch",
+    "Cannot verify factual claims or add proof you do not provide",
+    "Best suited for marketing and conversion copy, not technical documentation or legal content",
+    "Preserves your core message and will not fundamentally change your positioning"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Marketing managers and content teams",
+      "title": "Marketing Team Polish",
+      "description": "Marketing teams can submit landing page copy, email sequences, or ad copy for systematic improvement before launch. The seven-sweep framework catches issues that get missed in rushed reviews."
+    },
+    {
+      "targetUser": "Startup founders and solo entrepreneurs",
+      "title": "Founder-Led Content Review",
+      "description": "Founders writing their own copy can get expert feedback on clarity, emotional impact, and conversion elements without hiring a professional editor."
+    },
+    {
+      "targetUser": "Marketing agencies and freelancers",
+      "title": "Agency Quality Assurance",
+      "description": "Digital agencies can use this as a final QA pass before delivering copy to clients, ensuring consistency and catching last-minute issues."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Copy Review",
+      "prompt": "Review this marketing copy for clarity and voice consistency. Highlight any confusing sentences or tone shifts: [paste copy]",
+      "scenario": "For a fast sanity check before publishing"
+    },
+    {
+      "title": "Full Seven-Sweep Edit",
+      "prompt": "Apply all seven editing sweeps to this landing page copy. For each sweep, list the issues found and recommend specific edits. Preserve my core message and brand voice: [paste copy]",
+      "scenario": "For comprehensive editing of important conversion pages"
+    },
+    {
+      "title": "Benefit Bridge Builder",
+      "prompt": "Review this copy and identify every feature statement that lacks a benefit connection. For each one, add a 'which means...' bridge that explains why the reader should care: [paste copy]",
+      "scenario": "When copy feels too feature-focused and not benefit-driven"
+    },
+    {
+      "title": "Specificity Upgrade",
+      "prompt": "Find all vague language in this copy (words like 'improve,' 'enhance,' 'many,' 'fast'). Replace each with specific numbers, timeframes, or concrete examples. Ask me for any data you need: [paste copy]",
+      "scenario": "When copy feels generic and could apply to any company"
+    }
+  ],
+  "bestPractices": [
+    "Run all seven sweeps sequentially; do not skip any even if copy seems clean",
+    "After each sweep, loop back to verify previous sweeps were not compromised by new edits",
+    "Read copy aloud during the Voice and Tone sweep to hear inconsistencies your eyes might miss"
+  ],
+  "antiPatterns": [
+    "Do not rewrite copy to match your personal style; preserve the author's voice",
+    "Avoid making edits without explaining why each change improves the copy",
+    "Do not add claims or proof you cannot verify; ask the user for supporting evidence instead"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between this skill and the copywriting skill?",
+      "answer": "Use copywriting to create new copy from scratch. Use copy-editing to review and improve existing copy. If you just wrote a first draft, switch to this skill for the polish pass."
+    },
+    {
+      "question": "Do I need to provide brand guidelines?",
+      "answer": "Brand guidelines help but are not required. If you do not provide them, I will maintain the voice and tone present in your existing copy and note any inconsistencies I find."
+    },
+    {
+      "question": "Can you edit technical documentation?",
+      "answer": "This skill is optimized for marketing and conversion copy. For technical documentation, the editing principles apply but the focus on emotional triggers and conversion may not be appropriate."
+    },
+    {
+      "question": "How much of my copy will you change?",
+      "answer": "The goal is enhancement, not rewriting. I preserve your core message and voice while fixing clarity issues, adding specificity, and strengthening conversion elements. You approve all changes."
+    },
+    {
+      "question": "What if I disagree with an edit recommendation?",
+      "answer": "All recommendations are suggestions. You own the final copy. I explain the reasoning behind each edit so you can make informed decisions about what to accept."
+    },
+    {
+      "question": "Can you edit copy in languages other than English?",
+      "answer": "This skill is optimized for English marketing copy. Editing other languages may be less effective due to nuances in voice, tone, and cultural context that the framework does not account for."
+    }
+  ],
+  "seoKeywords": [
+    "Claude copy editing",
+    "Codex marketing content",
+    "Claude Code proofreading",
+    "marketing copy review",
+    "conversion copywriting",
+    "content editing AI",
+    "copy optimization",
+    "brand voice consistency",
+    "marketing content polish",
+    "professional copy editor"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/copy-editing",
+  "sourceType": "community",
+  "dependencies": []
+}

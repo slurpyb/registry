@@ -1,0 +1,140 @@
+{
+  "name": "generate-sparkle-appcast",
+  "type": "skill",
+  "description": "Generate Mos Sparkle appcast.xml from the latest build zip and recent git changes (since a given commit), then sync to docs/ for publishing.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "macOS releases",
+  "quality": 5,
+  "qualityReason": "Specific, niche macOS deployment use",
+  "bundleHints": [
+    "macos-dev-tools",
+    "release-automation",
+    "desktop-cicd"
+  ],
+  "tags": [
+    "appcast",
+    "automation",
+    "macos",
+    "release",
+    "sparkle"
+  ],
+  "capabilities": [
+    "Generate Sparkle appcast.xml from notarized zip archive",
+    "Create Ed25519 cryptographic signatures for release verification",
+    "Extract and format bilingual release notes from git history",
+    "Parse Info.plist for version metadata (CFBundleShortVersionString, CFBundleVersion)",
+    "Copy release artifacts to docs/ directory for web hosting",
+    "Support stable and beta release channels with proper Sparkle filtering"
+  ],
+  "author": "Caldis",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate macOS release automation tool for generating Sparkle appcast files. All static findings are false positives stemming from the scanner's inability to distinguish between legitimate release tooling and malicious patterns. The script operates only within project build/docs directories, uses standard tooling (git, python3, openssl) for release signing, and handles Ed25519 private keys appropriately for Sparkle update signing.",
+  "valueStatement": "Publishing macOS updates requires generating a Sparkle appcast.xml file with cryptographic signatures. This skill automates the entire release process from zip archive to signed appcast with bilingual release notes.",
+  "userTitle": "Generate Sparkle appcast for macOS releases",
+  "limitations": [
+    "Requires Sparkle Ed25519 private key file (sparkle_private_key.txt) to be present",
+    "Only works with zip files matching Mos naming convention (Mos.Versions.*.zip)",
+    "Git history must follow conventional commit format for proper release note categorization",
+    "Limited to Mos project directory structure (build/ and docs/ directories required)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "macOS App Maintainers",
+      "title": "Publish Mos Releases",
+      "description": "Generate signed appcast and release notes when preparing new stable or beta releases for distribution."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Automate Release Pipeline",
+      "description": "Integrate into CI/CD workflows to automatically generate Sparkle update files from build artifacts."
+    },
+    {
+      "targetUser": "Open Source Contributors",
+      "title": "Create Release Candidates",
+      "description": "Generate test appcast files for beta testing before official release publishing."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Release Generation",
+      "scenario": "Generate appcast for stable release",
+      "prompt": "Run the generate-sparkle-appcast skill with --since <commit> to create appcast.xml from the latest build zip. Use the commit hash from the previous release."
+    },
+    {
+      "title": "Beta Channel Release",
+      "scenario": "Generate beta release appcast",
+      "prompt": "Generate a beta channel appcast using generate-sparkle-appcast with --since <commit>. Ensure the beta zip file is in build/ directory."
+    },
+    {
+      "title": "Custom Release Notes",
+      "scenario": "Use pre-written release notes",
+      "prompt": "Run generate-sparkle-appcast with RELEASE_NOTES_ZH_FILE and RELEASE_NOTES_EN_FILE environment variables pointing to custom HTML files instead of auto-generating from git."
+    },
+    {
+      "title": "Debug Release Process",
+      "scenario": "Troubleshoot release generation",
+      "prompt": "Run generate-sparkle-appcast with --help to verify dependencies and check build/ directory for required zip files and Sparkle private key."
+    }
+  ],
+  "bestPractices": [
+    "Always verify the Ed25519 private key file is gitignored and stored securely before running releases.",
+    "Test beta releases with a beta channel appcast before publishing stable releases to users.",
+    "Keep release notes in a separate file for complex releases that require manual editing."
+  ],
+  "antiPatterns": [
+    "Running the skill without verifying the build zip matches the expected naming convention.",
+    "Using an expired or compromised Sparkle private key for signing releases.",
+    "Skipping the step to copy appcast.xml to docs/ before GitHub release publication."
+  ],
+  "faq": [
+    {
+      "question": "What is the Sparkle private key file format?",
+      "answer": "The file must contain a base64-encoded 32-byte Ed25519 seed. Keep this file gitignored and secure."
+    },
+    {
+      "question": "Can this skill sign releases for other macOS apps?",
+      "answer": "No. The script is hardcoded for the Mos project structure and naming conventions."
+    },
+    {
+      "question": "What if git history does not follow conventional commits?",
+      "answer": "The skill falls back to generic categorization (Fix, New, Improved) based on commit message patterns."
+    },
+    {
+      "question": "How are release notes separated by language?",
+      "answer": "The script generates one HTML page with Chinese content followed by English, separated by an <hr/> tag."
+    },
+    {
+      "question": "Does this skill upload files to servers?",
+      "answer": "No. The skill only writes to local build/ and docs/ directories. You must sync docs/ to your web host."
+    },
+    {
+      "question": "What dependencies are required?",
+      "answer": "The skill requires git, python3, and openssl with Ed25519 support to be available in PATH."
+    }
+  ],
+  "seoKeywords": [
+    "generate-sparkle-appcast",
+    "sparkle appcast",
+    "macos software update",
+    "claude code skill",
+    "codex skill",
+    "claude skill",
+    "release automation",
+    "ed25519 signing",
+    "bilingual release notes",
+    "mos app"
+  ],
+  "sourceUrl": "https://github.com/Caldis/Mos/tree/master/.codex/skills/generate-sparkle-appcast",
+  "sourceType": "community",
+  "dependencies": []
+}

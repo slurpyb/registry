@@ -1,0 +1,141 @@
+{
+  "name": "security-bluebook-builder",
+  "type": "skill",
+  "description": "Build security Blue Books for sensitive apps",
+  "domain": "security",
+  "subdomain": "compliance",
+  "specialty": "Blue Book docs",
+  "quality": 4,
+  "qualityReason": "Specific document type with clear use",
+  "bundleHints": [
+    "compliance-documentation",
+    "security-policy"
+  ],
+  "tags": [
+    "appsec",
+    "audit-trail",
+    "bluebook",
+    "compliance",
+    "documentation",
+    "security",
+    "security-policy"
+  ],
+  "capabilities": [
+    "Generate security documentation templates for applications",
+    "Provide guidance on security control documentation",
+    "Structure threat model documentation",
+    "Create compliance mapping frameworks",
+    "Document security requirements and testing procedures",
+    "Organize security architecture decisions"
+  ],
+  "author": "sickn33",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged hardcoded URLs and weak cryptographic algorithms, but evaluation reveals these are false positives. The URLs are legitimate documentation links to the skill's GitHub repository. The cryptographic flag was triggered by the word 'build' in 'build security blue books', which refers to documentation creation, not cryptography. This is a simple documentation skill with no security concerns.",
+  "valueStatement": "Create comprehensive security documentation for sensitive applications. This skill provides patterns and guidance for building security Blue Books that document security controls, threat models, and compliance requirements.",
+  "userTitle": "Build Security Blue Books",
+  "limitations": [
+    "Does not execute security scans or tests",
+    "Does not generate actual code or implementation",
+    "Does not provide real-time security monitoring",
+    "Requires human review for accuracy and completeness"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security engineers and architects documenting new applications",
+      "title": "New Application Security Documentation",
+      "description": "Generate initial security Blue Book structure for a new sensitive application, including security controls, threat model sections, and compliance mappings."
+    },
+    {
+      "targetUser": "Compliance officers and security teams",
+      "title": "Compliance Documentation Update",
+      "description": "Refresh existing security documentation to meet new compliance requirements or update threat model sections."
+    },
+    {
+      "targetUser": "Security auditors and developers",
+      "title": "Security Documentation Review",
+      "description": "Review and improve existing security Blue Books for completeness and accuracy."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create New Blue Book",
+      "prompt": "Create a security Blue Book for my new application [application name]. It handles [sensitive data types] and is deployed on [infrastructure]. Generate a comprehensive documentation structure including threat model, security controls, and compliance sections.",
+      "scenario": "Starting security documentation from scratch"
+    },
+    {
+      "title": "Add Threat Model Section",
+      "prompt": "Add a threat model section to the existing security Blue Book for [application]. Include sections for assets, threat actors, attack vectors, and mitigation strategies.",
+      "scenario": "Expanding existing documentation with threat modeling"
+    },
+    {
+      "title": "Map Compliance Requirements",
+      "prompt": "Create a compliance mapping section for [regulation/standard] in our security Blue Book. Map our existing security controls to the required compliance criteria.",
+      "scenario": "Adding compliance documentation"
+    },
+    {
+      "title": "Review Security Controls",
+      "prompt": "Review the security controls section of our Blue Book for [application]. Identify gaps, suggest improvements, and ensure coverage of OWASP Top 10 and common attack vectors.",
+      "scenario": "Auditing existing security documentation"
+    }
+  ],
+  "bestPractices": [
+    "Start with a clear data classification section to define what needs protection",
+    "Include both technical controls and procedural security measures",
+    "Regularly update threat models as the application evolves"
+  ],
+  "antiPatterns": [
+    "Copy-pasting generic security templates without customization",
+    "Ignoring non-functional security requirements like incident response",
+    "Failing to document security decisions and their rationale"
+  ],
+  "faq": [
+    {
+      "question": "What is a security Blue Book?",
+      "answer": "A security Blue Book is comprehensive documentation that outlines an application's security controls, threat models, compliance requirements, and security architecture decisions."
+    },
+    {
+      "question": "Does this skill perform security testing?",
+      "answer": "No, this skill generates documentation templates and guidance. It does not execute security scans or tests."
+    },
+    {
+      "question": "Which compliance standards does this support?",
+      "answer": "The skill can help document compliance with various standards including SOC 2, HIPAA, PCI-DSS, and ISO 27001."
+    },
+    {
+      "question": "Can I use this for cloud infrastructure documentation?",
+      "answer": "Yes, the skill provides guidance for documenting security controls for cloud-based applications and infrastructure."
+    },
+    {
+      "question": "How detailed is the generated documentation?",
+      "answer": "The skill generates comprehensive outlines and templates. You should expand each section with specific details about your application."
+    },
+    {
+      "question": "Does this work for microservices architectures?",
+      "answer": "Yes, the documentation templates can be adapted for microservices, including service-to-service security and API security sections."
+    }
+  ],
+  "seoKeywords": [
+    "security documentation",
+    "blue book",
+    "security controls",
+    "threat model",
+    "compliance documentation",
+    "appsec",
+    "security engineering",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/web-app/public/skills/security-bluebook-builder",
+  "sourceType": "community",
+  "dependencies": []
+}

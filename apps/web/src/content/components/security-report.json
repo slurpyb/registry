@@ -1,0 +1,139 @@
+{
+  "name": "security-report",
+  "type": "skill",
+  "description": "Generate security assessment reports in docx format with findings, \nrisk ratings, and remediation recommendations.\n\nUse when: User asks for security audit report, vulnerability assessment \ndocument, penetration test report, or compliance gap analysis document.\nKeywords: security report, audit findings, vulnerability report, pentest report\n",
+  "domain": "security",
+  "subdomain": "compliance",
+  "specialty": "Assessment reporting",
+  "quality": 5,
+  "qualityReason": "Clear output format and use cases",
+  "bundleHints": [
+    "compliance-reporting",
+    "security-audit"
+  ],
+  "tags": [
+    "audit",
+    "compliance",
+    "documentation",
+    "findings",
+    "remediation",
+    "reporting",
+    "security"
+  ],
+  "capabilities": [
+    "Generate docx security assessment reports with executive summary and detailed findings",
+    "Apply risk rating color coding for Critical, High, Medium, Low, and Info severities",
+    "Create findings tables sorted by severity with CVSS scores",
+    "Include remediation roadmaps with prioritized timelines",
+    "Format professional documents with page breaks and consistent styling"
+  ],
+  "author": "BytR-Ecosystems",
+  "icon": "🛡️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 37 static findings are false positives. The scanner incorrectly flagged markdown code block delimiters as shell execution, RGB color values as cryptographic algorithms, and hash characters as C2 keywords. This skill contains only documentation files with no executable code, network calls, or external commands.",
+  "valueStatement": "Security teams spend hours formatting audit reports manually. This skill automates professional security report generation with risk ratings, CVSS scores, and remediation roadmaps.",
+  "userTitle": "Generate Security Assessment Reports in Docx",
+  "limitations": [
+    "Does not perform actual vulnerability scanning or security testing",
+    "Does not access external systems, APIs, or network resources",
+    "Requires python-docx library to be available for file generation",
+    "Does not generate charts or data visualizations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security Analysts",
+      "title": "Penetration Test Documentation",
+      "description": "Transform vulnerability findings into formatted penetration test reports with evidence and remediation steps."
+    },
+    {
+      "targetUser": "Compliance Officers",
+      "title": "Compliance Gap Analysis",
+      "description": "Create compliance assessment documents with requirement gaps, risk ratings, and remediation timelines."
+    },
+    {
+      "targetUser": "Security Managers",
+      "title": "Executive Security Briefings",
+      "description": "Generate C-level security summaries with risk overviews and prioritized action plans."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Security Report",
+      "scenario": "Generate a standard vulnerability report",
+      "prompt": "Generate a security assessment report for these findings: SQL Injection (Critical), XSS (High), Missing headers (Medium). Include executive summary and remediation."
+    },
+    {
+      "title": "Pentest Documentation",
+      "scenario": "Document penetration test results",
+      "prompt": "Create a penetration test report with CVSS scores, evidence sections, and a 90-day remediation roadmap. Use risk rating colors."
+    },
+    {
+      "title": "Compliance Gap Report",
+      "scenario": "Assess compliance requirements",
+      "prompt": "Generate a PCI DSS compliance gap analysis. Document each requirement, current state, identified gaps, and remediation steps."
+    },
+    {
+      "title": "Executive Summary",
+      "scenario": "Create leadership briefing",
+      "prompt": "Create an executive security summary for the board. Focus on critical findings, business impact, and prioritized remediation timeline."
+    }
+  ],
+  "bestPractices": [
+    "Include CVSS scores and specific evidence for each finding to support prioritization",
+    "Use executive summaries for stakeholders and detailed sections for technical teams",
+    "Always add remediation timelines based on severity levels"
+  ],
+  "antiPatterns": [
+    "Do not skip executive summary when reporting to leadership audiences",
+    "Do not omit evidence or CVE references from technical findings",
+    "Do not use vague severity ratings without CVSS score justification"
+  ],
+  "faq": [
+    {
+      "question": "Which AI platforms support this skill?",
+      "answer": "This skill works with Claude and Claude Code. It requires computer use capability for docx file generation."
+    },
+    {
+      "question": "What document formats can be generated?",
+      "answer": "The skill generates docx files using python-docx. PDF export requires additional conversion tools."
+    },
+    {
+      "question": "Can I customize the report template?",
+      "answer": "Yes. You can modify risk rating colors, section order, and table structures in the skill instructions."
+    },
+    {
+      "question": "Is my security data kept private?",
+      "answer": "Yes. The skill runs locally with no network calls. All data remains on your machine."
+    },
+    {
+      "question": "Why do table borders not appear correctly?",
+      "answer": "The python-docx library requires setting borders on each cell individually. The skill includes the correct method."
+    },
+    {
+      "question": "What CVSS version does this skill use?",
+      "answer": "The skill supports CVSS 3.1 scoring. You provide the scores and the skill formats them in the report."
+    }
+  ],
+  "seoKeywords": [
+    "security report generator",
+    "vulnerability assessment",
+    "penetration testing report",
+    "security audit documentation",
+    "compliance report",
+    "Claude Code",
+    "Claude security",
+    "docx generator",
+    "CVSS scoring",
+    "remediation planning"
+  ],
+  "sourceUrl": "https://github.com/BytR-Ecosystems/ml-reference-guides/tree/main/llm-platforms/claude/skills/examples/security-report",
+  "sourceType": "community",
+  "dependencies": []
+}

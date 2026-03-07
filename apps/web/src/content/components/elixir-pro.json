@@ -1,0 +1,141 @@
+{
+  "name": "elixir-pro",
+  "type": "skill",
+  "description": "Write idiomatic Elixir code with OTP patterns, supervision trees,",
+  "domain": "languages",
+  "subdomain": "other",
+  "specialty": "OTP & Phoenix",
+  "quality": 5,
+  "qualityReason": "Deep language mastery",
+  "bundleHints": [
+    "elixir-stack",
+    "beam-platform"
+  ],
+  "tags": [
+    "beam",
+    "concurrency",
+    "elixir",
+    "fault-tolerance",
+    "functional-programming",
+    "otp",
+    "phoenix"
+  ],
+  "capabilities": [
+    "Generate idiomatic Elixir code with OTP patterns (GenServer, Supervisor, Application)",
+    "Design Phoenix applications with LiveView and clean context boundaries",
+    "Implement concurrent and fault-tolerant distributed systems",
+    "Optimize performance on the BEAM VM using profiling tools",
+    "Write ExUnit tests with doctests and property-based testing",
+    "Add Telemetry instrumentation for application observability"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Prompt-only skill with no executable code. Provides guidance on Elixir best practices, OTP patterns, and Phoenix development. Static analysis found 0 files scanned (0 lines) with no suspicious patterns detected. This is a safe developer tool skill.",
+  "valueStatement": "Get expert-level Elixir code with OTP patterns, supervision trees, and Phoenix LiveView. The skill provides guidance on concurrency, fault tolerance, and distributed systems for production applications.",
+  "userTitle": "Elixir Development Expert",
+  "limitations": [
+    "Cannot execute or run Elixir code",
+    "Cannot provide live runtime debugging",
+    "Cannot connect to databases or external services",
+    "Does not generate complete project scaffolds"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building scalable Elixir systems",
+      "title": "Build Production OTP Applications",
+      "description": "Create robust Elixir applications with proper supervision trees and fault-tolerant design patterns"
+    },
+    {
+      "targetUser": "Elixir developers maintaining existing codebases",
+      "title": "Refactor to Modern Elixir",
+      "description": "Upgrade legacy Elixir code to use contemporary OTP patterns and best practices"
+    },
+    {
+      "targetUser": "Full-stack developers creating real-time web features",
+      "title": "Develop Real-time Phoenix Apps",
+      "description": "Build interactive web applications with Phoenix LiveView and reactive interfaces"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic OTP Pattern",
+      "prompt": "Create a GenServer that manages a simple counter with increment, decrement, and get functions. Include proper initialization and termination callbacks.",
+      "scenario": "Learn basic OTP patterns with a straightforward stateful process"
+    },
+    {
+      "title": "Supervision Tree Setup",
+      "prompt": "Design a supervision tree for a worker pool application. Include a Supervisor, a dynamic supervisor for workers, and a registry for tracking worker processes.",
+      "scenario": "Understand fault-tolerant application structure"
+    },
+    {
+      "title": "Phoenix LiveView Integration",
+      "prompt": "Create a Phoenix LiveView component for real-time form validation. Include proper LiveView lifecycle handling, form state management, and error display.",
+      "scenario": "Build interactive Phoenix interfaces with LiveView"
+    },
+    {
+      "title": "Distributed System with Nodes",
+      "prompt": "Implement a distributed counter that syncs state across multiple BEAM nodes. Use Registry for node discovery and handle node disconnection gracefully.",
+      "scenario": "Build fault-tolerant distributed Elixir applications"
+    }
+  ],
+  "bestPractices": [
+    "Prefer pattern matching over conditionals in function heads for cleaner, more expressive code",
+    "Embrace the 'let it crash' philosophy with proper supervision to handle failures gracefully",
+    "Use separate processes for isolation and concurrency instead of shared mutable state"
+  ],
+  "antiPatterns": [
+    "Avoid using GenServer for simple utility functions where plain module functions suffice",
+    "Do not skip supervision trees even for small applications to ensure fault tolerance",
+    "Avoid mutable state updates; use immutable data structures and functional updates"
+  ],
+  "faq": [
+    {
+      "question": "What is OTP in Elixir?",
+      "answer": "OTP (Open Telecom Platform) is a set of libraries and design patterns in Elixir for building fault-tolerant, concurrent applications. It includes GenServer, Supervisor, and Application modules."
+    },
+    {
+      "question": "How does supervision work in Elixir?",
+      "answer": "Supervision is a fault-tolerance pattern where a Supervisor process monitors child processes. When a child crashes, the Supervisor can restart it according to configured strategies."
+    },
+    {
+      "question": "What is Phoenix LiveView?",
+      "answer": "Phoenix LiveView is a framework for building real-time web applications with Elixir. It enables server-rendered HTML with live updates over WebSockets without writing JavaScript."
+    },
+    {
+      "question": "Can this skill write complete Elixir projects?",
+      "answer": "This skill provides guidance, code snippets, and best practices. It generates example code and architectural guidance but does not create full project scaffolds."
+    },
+    {
+      "question": "How does the BEAM VM handle concurrency?",
+      "answer": "The BEAM VM uses lightweight processes (not OS threads) for concurrency. These processes communicate via message passing and share no mutable state, enabling massive concurrency with low overhead."
+    },
+    {
+      "question": "What testing frameworks work with Elixir?",
+      "answer": "ExUnit is the standard testing framework. Property-based testing can be done with StreamData. Mix is used for task automation and dependency management."
+    }
+  ],
+  "seoKeywords": [
+    "elixir",
+    "otp",
+    "phoenix",
+    "liveview",
+    "elixirlang",
+    "beam",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "functional programming"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/elixir-pro",
+  "sourceType": "community",
+  "dependencies": []
+}

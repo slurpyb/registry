@@ -1,0 +1,138 @@
+{
+  "name": "troubleshoot",
+  "type": "skill",
+  "description": "Guides diagnosis and resolution when problems occur. Use when user mentions 動かない, エラーが出た, 壊れた, うまくいかない, broken, doesn't work, error. Do NOT load for: 正常なビルド, 新機能実装, レビュー.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "error diagnosis",
+  "quality": 5,
+  "qualityReason": "Critical debugging skill",
+  "bundleHints": [
+    "debug-tools",
+    "support-workflow"
+  ],
+  "tags": [
+    "debug",
+    "diagnosis",
+    "error",
+    "problem-solving",
+    "support",
+    "troubleshoot"
+  ],
+  "capabilities": [
+    "Auto-detect problems from user descriptions like not working or error",
+    "Run diagnostic commands to check environment, dependencies, and build status",
+    "Identify issue categories including dependency, type, build, runtime, and config errors",
+    "Guide users through LSP diagnostics for precise error location",
+    "Suggest appropriate fixes with user confirmation for destructive operations",
+    "Generate escalation reports for complex issues"
+  ],
+  "author": "Chachamaru127",
+  "icon": "🔧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 50 static findings are FALSE POSITIVES. This is a pure documentation skill containing only troubleshooting guidance patterns. No executable code exists. The 'commands' flagged are markdown documentation examples, not actual shell execution. Hash fields using SHA-256 were incorrectly flagged as 'weak cryptographic algorithms'. YAML frontmatter entropy triggered false 'obfuscation' alerts. Legitimate skill with no malicious intent.",
+  "valueStatement": "Technical errors slow down development progress. This skill automatically diagnoses issues, identifies root causes, and guides resolution steps so developers can return to building quickly.",
+  "userTitle": "Diagnose and fix code errors",
+  "limitations": [
+    "Cannot fix issues that require manual server or infrastructure access",
+    "Cannot recover data from crashed systems without existing backups",
+    "Limited to JavaScript and TypeScript project troubleshooting patterns"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Junior developers",
+      "title": "Learn debugging skills",
+      "description": "New developers learn systematic troubleshooting steps instead of guessing solutions"
+    },
+    {
+      "targetUser": "Experienced engineers",
+      "title": "Fast error resolution",
+      "description": "Get quick diagnosis and targeted fixes for common build and runtime issues"
+    },
+    {
+      "targetUser": "Non-technical users",
+      "title": "AI-assisted problem solving",
+      "description": "Resolve issues through guided diagnosis without deep technical knowledge"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick diagnosis",
+      "scenario": "Something is broken",
+      "prompt": "Detect problems like 動かない, エラーが出た, 壊れた and start diagnosis"
+    },
+    {
+      "title": "Build issues",
+      "scenario": "Build failed",
+      "prompt": "npm run build failed. Check error logs, identify root cause, and suggest solution"
+    },
+    {
+      "title": "Dependency problems",
+      "scenario": "Module not found",
+      "prompt": "Cannot find module error. Check dependencies and run npm install if needed"
+    },
+    {
+      "title": "Runtime crashes",
+      "scenario": "App not loading",
+      "prompt": "Screen is blank. Check JavaScript errors, build issues, and routing problems"
+    }
+  ],
+  "bestPractices": [
+    "Provide specific error messages and recent code changes when describing problems",
+    "Confirm before running destructive commands like rm or git reset --hard",
+    "Use dev-browser tool for visual or UI-related issues when available"
+  ],
+  "antiPatterns": [
+    "Running fix commands without first understanding the root cause",
+    "Ignoring repeated failures and continuing without escalating to human review",
+    "Skipping the diagnostic step and jumping straight to code changes"
+  ],
+  "faq": [
+    {
+      "question": "What types of errors can this skill handle?",
+      "answer": "Handles dependency errors, type errors, build failures, runtime crashes, and configuration issues in JS and TS projects."
+    },
+    {
+      "question": "Does this skill modify my code automatically?",
+      "answer": "It suggests fixes but always asks for confirmation before making changes, especially for destructive operations."
+    },
+    {
+      "question": "Can it troubleshoot issues outside this project?",
+      "answer": "Limited to the current project. System-level or infrastructure issues require manual intervention."
+    },
+    {
+      "question": "Is my code or data sent anywhere?",
+      "answer": "No. This skill runs locally using Read, Grep, and Bash tools only. No network calls to external servers."
+    },
+    {
+      "question": "What if automated fixes do not work?",
+      "answer": "After 3 failed attempts, the skill escalates to human review with a detailed problem summary."
+    },
+    {
+      "question": "How is this different from error recovery agents?",
+      "answer": "This skill provides structured diagnosis first, then applies targeted fixes. Error recovery agents typically jump straight to fixes."
+    }
+  ],
+  "seoKeywords": [
+    "troubleshoot",
+    "debug errors",
+    "error resolution",
+    "diagnosis",
+    "Claude Code",
+    "problem solving",
+    "code issues",
+    "fix bugs",
+    "technical support",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/Chachamaru127/claude-code-harness/tree/main/skills/troubleshoot",
+  "sourceType": "community",
+  "dependencies": []
+}

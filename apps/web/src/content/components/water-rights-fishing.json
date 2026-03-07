@@ -1,0 +1,142 @@
+{
+  "name": "water-rights-fishing",
+  "type": "skill",
+  "description": "Clerk for water licenses, irrigation, riparian rights, and fishing restrictions affecting Pukaist/Nlaka'pamux; use for Water_Rights_Fishing queue.",
+  "domain": "business",
+  "subdomain": "legal",
+  "specialty": "water rights",
+  "quality": 4,
+  "qualityReason": "Niche legal compliance area",
+  "bundleHints": [
+    "legal-compliance",
+    "regulatory",
+    "environmental-law"
+  ],
+  "tags": [
+    "fishing-regulations",
+    "indigenous-territories",
+    "irrigation",
+    "legal-clerk",
+    "licensing",
+    "regulatory-compliance",
+    "water-rights"
+  ],
+  "capabilities": [
+    "Process water license applications for agricultural and domestic use",
+    "Verify irrigation permits against regional water allocation rules",
+    "Check fishing restrictions and seasonal closures for affected waterways",
+    "Research riparian rights claims and priority dates",
+    "Maintain records for Water_Rights_Fishing queue processing",
+    "Extract metadata from legal documents including dates, titles, and provenance"
+  ],
+  "author": "ACSKamloops",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 82 potential issues with risk score 100/100. All findings evaluated as false positives from pattern matching on documentation content. The skill contains only instructional documentation (SKILL.md) with example command snippets showing how to use an external Python workflow script. No executable code present. References to PowerShell, SAM database, and crypto patterns are artifacts from scanning example command strings and JSON structure markers. Skill is safe for publication.",
+  "valueStatement": "Administrative workflows for water licenses and fishing restrictions require specialized knowledge of regional Indigenous territory regulations. This skill helps clerks efficiently navigate complex water rights and fishing regulations for Pukaist and Nlaka'pamux territories.",
+  "userTitle": "Process water rights and fishing regulations efficiently",
+  "limitations": [
+    "Does not provide legal advice on water disputes or rights claims",
+    "Cannot override official government determinations or approvals",
+    "Limited to Pukaist and Nlaka'pamux territorial regulations only",
+    "Does not access real-time water quality, flow data, or environmental testing"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Municipal clerks processing water rights applications",
+      "title": "Process incoming water license applications",
+      "description": "Review and categorize water license applications for the queue, checking for required documentation and regional compliance with territorial regulations."
+    },
+    {
+      "targetUser": "Indigenous community land managers and environmental officers",
+      "title": "Verify fishing restrictions for permit requests",
+      "description": "Check proposed activities against current fishing regulations, seasonal closures, protected species requirements, and Indigenous territorial restrictions."
+    },
+    {
+      "targetUser": "Regional water management officers and legal researchers",
+      "title": "Research irrigation permit history and priority dates",
+      "description": "Look up historical irrigation permits, priority dates, water allocation records, and riparian rights claims for specific properties within territorial boundaries."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New water license application",
+      "prompt": "Review this water license application for the Pukaist territory. Check if all required documents are attached and flag any compliance issues with current irrigation regulations.",
+      "scenario": "Processing a new application in the Water_Rights_Fishing queue"
+    },
+    {
+      "title": "Fishing restriction lookup",
+      "prompt": "What are the current fishing restrictions for the Thompson River within Nlaka'pamux territory? Include any seasonal closures, catch limits, and protected species restrictions.",
+      "scenario": "Answering a fishing restriction inquiry from permit applicant"
+    },
+    {
+      "title": "Riparian rights verification",
+      "prompt": "Research the riparian rights status for property along the Bonaparte River. Include priority date, water allocation limits, and any conflicting claims on record.",
+      "scenario": "Verifying existing water rights for a property before approval"
+    },
+    {
+      "title": "Irrigation permit compliance check",
+      "prompt": "Check this irrigation permit application against the regional water allocation matrix for Pukaist Creek watershed. Flag any exceedances of annual allocation limits and document priority conflicts.",
+      "scenario": "Reviewing permit compliance before final approval decision"
+    }
+  ],
+  "bestPractices": [
+    "Always verify the applicable territory (Pukaist vs Nlaka'pamux) before processing requests to ensure correct regulatory framework",
+    "Check for recent regulatory updates and seasonal changes before citing specific limits or closure dates",
+    "Document all sources, reference numbers, and page citations for complete audit trails and legal defensibility"
+  ],
+  "antiPatterns": [
+    "Do not provide definitive legal interpretations of water rights disputes without proper legal authority",
+    "Do not approve permits that exceed stated allocation limits or violate priority date hierarchies",
+    "Do not rely solely on outdated fishing regulation summaries without verifying current status"
+  ],
+  "faq": [
+    {
+      "question": "What territories does this skill cover?",
+      "answer": "This skill covers water rights and fishing regulations for Pukaist and Nlaka'pamux traditional territories in British Columbia, Canada. It does not cover other Indigenous territories or provinces."
+    },
+    {
+      "question": "Can this skill approve water licenses or permits?",
+      "answer": "No. This skill assists with processing, research, and documentation but does not have authority to approve permits or override official government decisions. All approvals require proper legal authority."
+    },
+    {
+      "question": "How current is the fishing regulation data?",
+      "answer": "This skill provides information based on documented regulations in the system. Always verify with official Fisheries and Oceans Canada sources for enforcement purposes and current seasonal restrictions."
+    },
+    {
+      "question": "Does this skill handle water quality testing or environmental data?",
+      "answer": "No. This skill focuses on regulatory and administrative aspects of water rights and fishing permits, not environmental testing, water quality analysis, or real-time flow monitoring."
+    },
+    {
+      "question": "What priority system is used for water rights allocation?",
+      "answer": "First-in-time, first-in-right priority system applies under riparian rights doctrine. Earlier priority dates have superior rights during allocation disputes and drought conditions."
+    },
+    {
+      "question": "Can this skill help with groundwater or well drilling permits?",
+      "answer": "This skill can provide general information about groundwater permitting requirements and allocation rules but does not directly process well drilling permits or groundwater licensing applications."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "water rights",
+    "fishing regulations",
+    "irrigation permits",
+    "riparian rights",
+    "water licenses",
+    "regulatory clerk",
+    "indigenous territories"
+  ],
+  "sourceUrl": "https://github.com/ACSKamloops/shs-engine/tree/master/.codex/skills/water-rights-fishing",
+  "sourceType": "community",
+  "dependencies": []
+}

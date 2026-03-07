@@ -1,0 +1,141 @@
+{
+  "name": "when-documenting-code-use-doc-generator",
+  "type": "skill",
+  "description": "Automated comprehensive code documentation generation with API docs, README files, inline comments, and architecture diagrams",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "auto documentation",
+  "quality": 5,
+  "qualityReason": "Full documentation suite",
+  "bundleHints": [
+    "docs-automation",
+    "code-documentation"
+  ],
+  "tags": [
+    "api-docs",
+    "architecture diagrams",
+    "automation",
+    "comments",
+    "comprehensive",
+    "diagrams",
+    "documentation",
+    "readme"
+  ],
+  "capabilities": [
+    "Analyzes code structure to identify functions, classes, and endpoints",
+    "Generates OpenAPI specifications and JSDoc/TypeDoc comments",
+    "Creates comprehensive README.md files from project metadata",
+    "Adds inline comments to undocumented code sections",
+    "Produces architecture diagrams using Graphviz or Mermaid"
+  ],
+  "author": "DNYoussef",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Documentation generation skill with legitimate shell scripts for code analysis. All static findings are false positives or standard operations for documentation tools. Shell scripts use find/grep/xargs for code scanning, URLs are template references, and credential mentions are documentation only.",
+  "valueStatement": "Manual documentation is time-consuming and often outdated. This skill automatically generates comprehensive API documentation, README files, inline comments, and architecture diagrams by analyzing code structure.",
+  "userTitle": "Generate Documentation Automatically",
+  "limitations": [
+    "Does not execute code or modify runtime behavior",
+    "Requires readable source files in the project directory",
+    "Cannot verify documentation accuracy beyond syntax checking",
+    "Generated diagrams are based on static code analysis only"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers starting new projects who want documentation from day one",
+      "title": "New Project Setup",
+      "description": "Quickly generate initial documentation structure for a new project including README, API specs, and inline comments template."
+    },
+    {
+      "targetUser": "Maintenance developers working with undocumented code",
+      "title": "Legacy Code Documentation",
+      "description": "Add documentation to undocumented legacy codebases by analyzing existing structure and generating appropriate docstrings."
+    },
+    {
+      "targetUser": "Backend developers maintaining API documentation",
+      "title": "API Documentation Refresh",
+      "description": "Update outdated API documentation by regenerating OpenAPI specs from current code endpoints."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Generate API Documentation",
+      "prompt": "Use the documentation generator skill to create OpenAPI 3.0 documentation for this project. Look for Express.js, FastAPI, or NestJS routes and generate a complete API specification in docs/api.yml.",
+      "scenario": "Quick API documentation generation"
+    },
+    {
+      "title": "Create Project README",
+      "prompt": "Generate a comprehensive README.md for this project. Include sections for overview, installation, usage, API reference, and contributing guidelines. Extract project name, version, and dependencies from package.json or pyproject.toml.",
+      "scenario": "Creating project documentation"
+    },
+    {
+      "title": "Add Inline Comments",
+      "prompt": "Analyze the source code and add JSDoc comments to all public functions, classes, and interfaces. Include parameter types, return types, and descriptions where documentation is missing.",
+      "scenario": "Improving code documentation coverage"
+    },
+    {
+      "title": "Full Documentation Suite",
+      "prompt": "Generate complete documentation for this project including: (1) README.md with badges and table of contents, (2) OpenAPI specification for all endpoints, (3) architecture diagram showing component relationships, (4) inline comments for undocumented code.",
+      "scenario": "Comprehensive documentation generation"
+    }
+  ],
+  "bestPractices": [
+    "Run documentation generation on fresh clones to avoid sensitive data exposure",
+    "Review generated documentation before committing to version control",
+    "Use the --overwrite flag cautiously as it replaces existing files"
+  ],
+  "antiPatterns": [
+    "Running documentation generators on production systems with live credentials",
+    "Expecting generated documentation to replace thorough code review",
+    "Ignoring documentation gaps identified by the analysis phase"
+  ],
+  "faq": [
+    {
+      "question": "What programming languages does this skill support?",
+      "answer": "The skill supports JavaScript, TypeScript, Python, and other languages with detectable frameworks like Express.js, FastAPI, NestJS, and React."
+    },
+    {
+      "question": "Does this skill modify my source code?",
+      "answer": "The skill only reads source files to analyze structure. It creates new documentation files without modifying existing source code."
+    },
+    {
+      "question": "Can I customize the output format?",
+      "answer": "Yes, the shell scripts support options like --format for OpenAPI versions, --output for directory, and --no-badges for README generation."
+    },
+    {
+      "question": "Where are documentation files generated?",
+      "answer": "Documentation is typically generated in a docs/ subdirectory or alongside existing files like README.md in the project root."
+    },
+    {
+      "question": "Does this skill require network access?",
+      "answer": "The skill analyzes local files only. It references URLs in templates (like license URLs) but does not make network requests."
+    },
+    {
+      "question": "What happens to existing documentation?",
+      "answer": "By default, existing files are backed up before modification. Use --overwrite flag to replace without backup."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "documentation generator",
+    "API docs",
+    "README generator",
+    "code comments",
+    "docstring generator",
+    "OpenAPI specification",
+    "automated documentation"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/documentation/when-documenting-code-use-doc-generator",
+  "sourceType": "community",
+  "dependencies": []
+}

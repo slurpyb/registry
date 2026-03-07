@@ -1,0 +1,142 @@
+{
+  "name": "x-create",
+  "type": "skill",
+  "description": "Create viral X (Twitter) posts including short tweets, threads, and replies. Use when user wants to write X content, create posts, or mentions \"create tweet\", \"write thread\", \"x-create\", \"写推文\", \"创作推文\". Supports 5 post styles with customizable templates. First-time users go through onboarding to set up profile.",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "viral posts",
+  "quality": 5,
+  "qualityReason": "Highly specific triggers",
+  "bundleHints": [
+    "content-creation-suite",
+    "social-media-tools",
+    "engagement-strategy"
+  ],
+  "tags": [
+    "content-creation",
+    "engagement",
+    "marketing",
+    "social-media",
+    "threads",
+    "twitter",
+    "viral-content"
+  ],
+  "capabilities": [
+    "Generate short tweets under 280 characters with high engagement potential",
+    "Create multi-tweet threads (3-10 tweets) with sequential storytelling",
+    "Write reply posts for trending topics using your established style",
+    "Apply 5 proven post patterns: high-value, sharp opinion, trending comment, story insight, and tech analysis",
+    "Learn your writing style from reference posts for consistent voice",
+    "Suggest optimal posting times and engagement predictions"
+  ],
+  "author": "kangarooking",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 75 static findings are false positives. The scanner misinterpreted markdown code blocks (triple backticks) as shell execution and mixed-language documentation as obfuscation. No actual external commands, cryptographic code, or malicious patterns exist in this X post creation skill.",
+  "valueStatement": "Content creators struggle to consistently produce engaging social media posts. This skill generates viral X (Twitter) content including short tweets, multi-tweet threads, and replies using proven patterns tailored to your personal style.",
+  "userTitle": "Create Viral X Posts and Threads",
+  "limitations": [
+    "Does not actually post to X - generates content for you to publish manually",
+    "Does not access trending topics or current news feeds",
+    "Requires initial onboarding to understand your preferences",
+    "May not capture very niche or highly technical vocabulary specific to your field"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Social media managers and content creators",
+      "title": "Content Creator Workflow",
+      "description": "Generate consistent, on-brand content for your X audience using proven viral patterns adapted to your style."
+    },
+    {
+      "targetUser": "Thought leaders and subject matter experts",
+      "title": "Thread Writing Assistant",
+      "description": "Break down complex topics into structured, engaging multi-tweet threads that drive followers and engagement."
+    },
+    {
+      "targetUser": "News commentators and industry analysts",
+      "title": "Quick Post Generation",
+      "description": "Create rapid-response posts for trending topics or news events while maintaining your authentic voice."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple Short Tweet",
+      "prompt": "Create a short tweet (under 280 characters) about [topic]. Use my [professional/casual/sharp] style. Make it engaging with a clear call to action or question.",
+      "scenario": "Quick single tweet generation"
+    },
+    {
+      "title": "Topic Thread",
+      "prompt": "Write a 5-part thread about [topic]. Each tweet should be under 280 characters. Start with a hook, provide 3 key points, include data or examples, and end with a question. My audience is [description].",
+      "scenario": "Multi-tweet thread on a specific topic"
+    },
+    {
+      "title": "Trending Reply",
+      "prompt": "Write a reply to this trending post: [post content]. My style is [description]. Add value with an insightful comment that encourages engagement.",
+      "scenario": "Responding to other posts"
+    },
+    {
+      "title": "Style Transfer",
+      "prompt": "Create a [high-value/sharp-opinion/trending-comment/story-insight/tech-analysis] post about [topic]. Reference my style from my saved examples. Include specific patterns that made my best posts successful.",
+      "scenario": "Creating posts using learned style"
+    }
+  ],
+  "bestPractices": [
+    "Provide reference posts from accounts you admire so the skill can learn your preferred tone and structure",
+    "Complete the initial onboarding with accurate details about your target audience and content goals",
+    "Iterate on outputs - refine topics and adjust style preferences for better results over time"
+  ],
+  "antiPatterns": [
+    "Do not expect the skill to know current events or trending topics - provide context yourself",
+    "Avoid leaving onboarding incomplete - the skill needs your profile to generate relevant content",
+    "Do not rely on this for real-time news commentary without providing the news context first"
+  ],
+  "faq": [
+    {
+      "question": "Does x-create actually post to my X account?",
+      "answer": "No. x-create generates content for you to review and publish. It does not have access to the X API for posting."
+    },
+    {
+      "question": "How does the skill learn my writing style?",
+      "answer": "Place example posts you like in assets/templates/{category}/ folder. The skill reads these to understand your preferred tone, structure, and vocabulary."
+    },
+    {
+      "question": "What are the 5 post types supported?",
+      "answer": "High-value (educational), Sharp opinion (controversial takes), Trending comment (news response), Story insight (personal experience), and Tech analysis (deep dives)."
+    },
+    {
+      "question": "Can I use this skill for languages other than English?",
+      "answer": "Yes. Set your preferred language during onboarding. The skill works with Chinese, English, or bilingual content."
+    },
+    {
+      "question": "How long should my thread be?",
+      "answer": "Threads typically range from 3 to 10 tweets. Shorter threads (3-5) work for quick tips. Longer threads (6-10) suit detailed analyses."
+    },
+    {
+      "question": "What if I do not have reference posts to share?",
+      "answer": "The skill includes default patterns in references/post-patterns.md. These are proven viral templates you can use directly."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "X post generator",
+    "Twitter thread creator",
+    "social media content",
+    "viral tweets",
+    "thread writing",
+    "content creation",
+    "AI writing assistant"
+  ],
+  "sourceUrl": "https://github.com/kangarooking/x-skills/tree/main/x-create",
+  "sourceType": "community",
+  "dependencies": []
+}

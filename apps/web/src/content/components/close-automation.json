@@ -1,0 +1,135 @@
+{
+  "name": "close-automation",
+  "type": "skill",
+  "description": "Automate Close CRM tasks via Rube MCP (Composio): create leads, manage calls/SMS, handle tasks, and track notes. Always search tools first for current schemas.",
+  "domain": "business",
+  "subdomain": "sales",
+  "specialty": "CRM automation",
+  "quality": 4,
+  "qualityReason": "Clear integration use case",
+  "bundleHints": [
+    "sales-automation",
+    "crm-tools"
+  ],
+  "tags": [
+    "call-tracking",
+    "close-crm",
+    "composio",
+    "lead-management",
+    "rube-mcp",
+    "sales-automation",
+    "sms-logging"
+  ],
+  "capabilities": [
+    "Create new leads with contacts and custom fields in Close CRM",
+    "Log outbound and inbound call activities with duration and status",
+    "Send and track SMS messages linked to leads and contacts",
+    "Create and manage follow-up tasks with due dates and assignments",
+    "Retrieve and manage notes associated with leads",
+    "Delete call activities and manage data integrity"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is documentation for Close CRM automation via Rube MCP (Composio). Static analysis detected 42 external_commands patterns and 1 network pattern, but all are FALSE POSITIVES. The 'backtick execution' patterns are Markdown code formatting (inline code blocks and code fences), not actual shell commands. The URL is a legitimate MCP server endpoint for configuration. No executable code exists in this file - it is purely instructional documentation for CRM operations.",
+  "valueStatement": "Manual CRM data entry and activity logging consume valuable sales time. This skill automates lead creation, call logging, SMS management, and task tracking in Close CRM through Rube MCP integration.",
+  "userTitle": "Automate Close CRM Operations with AI",
+  "limitations": [
+    "Requires active Rube MCP connection with Close toolkit configured",
+    "Cannot auto-detect duplicate leads - manual verification required",
+    "Tasks require Close user IDs, not email addresses or names",
+    "SMS functionality requires Close phone integration to be configured"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Sales representatives managing high call volumes",
+      "title": "Sales Representative Daily Workflow",
+      "description": "Automate post-call documentation by logging calls, creating follow-up tasks, and updating lead notes immediately after customer conversations."
+    },
+    {
+      "targetUser": "Sales operations managers handling lead imports",
+      "title": "Lead Intake Automation",
+      "description": "Streamline new lead creation from web forms or events by automatically creating leads with associated contacts and initial tasks."
+    },
+    {
+      "targetUser": "Account executives managing complex deal cycles",
+      "title": "Multi-Channel Outreach Tracking",
+      "description": "Coordinate and log all customer touchpoints including calls, SMS messages, and tasks in a unified CRM timeline."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a New Lead",
+      "prompt": "Create a new lead in Close CRM for [Company Name] with contact [Contact Name] at [Email] and [Phone]. Set the status to [Status] and add a note about [Context]."
+    },
+    {
+      "title": "Log a Customer Call",
+      "prompt": "Log an [outbound/inbound] call with [Lead Name] that lasted [X] minutes. The call status was [completed/no-answer/busy]. Add notes: [Call summary and next steps]."
+    },
+    {
+      "title": "Send Follow-up SMS",
+      "prompt": "Send an SMS to [Contact Name] at [Lead Name] with the following message: [Message content]. Mark it as outbound and link it to the lead record."
+    },
+    {
+      "title": "Create Task Sequence",
+      "prompt": "Create a series of follow-up tasks for [Lead Name]: (1) Call in 2 days, (2) Send proposal in 5 days, (3) Check in after 1 week. Assign all tasks to [User] with appropriate due dates."
+    }
+  ],
+  "bestPractices": [
+    "Always search for existing leads before creating new ones to prevent duplicates",
+    "Verify Close connection status is ACTIVE before executing any CRM operations",
+    "Include relevant metadata (duration, direction, status) when logging activities for accurate reporting"
+  ],
+  "antiPatterns": [
+    "Creating leads without checking for existing records causes duplicate entries",
+    "Using email addresses instead of user IDs for task assignment will fail",
+    "Deleting activities without confirmation risks permanent data loss"
+  ],
+  "faq": [
+    {
+      "question": "Do I need a Close API key to use this skill?",
+      "answer": "No API key is required directly. You need an active Close connection via Rube MCP using RUBE_MANAGE_CONNECTIONS with the Close toolkit."
+    },
+    {
+      "question": "What is the difference between leads and contacts in Close?",
+      "answer": "In Close, a Lead represents a company or organization. Contacts are individual people nested within a Lead. Activities like calls and SMS are linked to leads, with optional contact association."
+    },
+    {
+      "question": "Can this skill send SMS messages automatically?",
+      "answer": "Yes, but your Close account must have phone/SMS integration configured. Outbound SMS may also require a verified sending number in your Close settings."
+    },
+    {
+      "question": "How do I find the lead_id for an existing lead?",
+      "answer": "Use the Close search API to find leads by name or criteria. Extract the lead_id from results (format: lead_XXXXXXXXXXXXX) for use in activity creation."
+    },
+    {
+      "question": "Can deleted activities be recovered?",
+      "answer": "No. Deletion is permanent and cannot be undone. Only the activity creator or an admin can delete activities. Always confirm before deleting."
+    },
+    {
+      "question": "What happens if I hit Close API rate limits?",
+      "answer": "Close returns 429 responses when rate limited. Implement delays between bulk operations and monitor response headers. Use exponential backoff when rate limited."
+    }
+  ],
+  "seoKeywords": [
+    "Close CRM automation",
+    "Claude Code CRM skill",
+    "Codex sales automation",
+    "Rube MCP integration",
+    "Composio Close toolkit",
+    "lead management AI",
+    "sales workflow automation",
+    "CRM activity logging"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/close-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

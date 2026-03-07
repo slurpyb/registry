@@ -1,0 +1,141 @@
+{
+  "name": "structured-logging",
+  "type": "skill",
+  "description": "Guide for writing effective log messages using wide events / canonical log lines. Use when writing logging code, adding instrumentation, improving observability, or reviewing log statements. Teaches high-cardinality, high-dimensionality structured logging that enables debugging.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "Log message design",
+  "quality": 5,
+  "qualityReason": "Improves system visibility",
+  "bundleHints": [
+    "observability-suite",
+    "devops-toolkit"
+  ],
+  "tags": [
+    "best-practices",
+    "canonical",
+    "debugging",
+    "events",
+    "logging",
+    "monitoring",
+    "observability"
+  ],
+  "capabilities": [
+    "Explains wide event logging pattern with single event per request",
+    "Provides comprehensive field reference for different logging contexts",
+    "Shows anti-patterns to avoid in logging implementation",
+    "Includes SQL query examples for log analysis",
+    "Demonstrates middleware pattern for request tracking",
+    "Covers error context, performance metrics, and business fields"
+  ],
+  "author": "Chemiseblanc",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains pure documentation about structured logging best practices. No executable code, network calls, or file system operations exist. All 148 static findings are false positives caused by the analyzer misinterpreting markdown documentation examples as executable code patterns. The skill teaches logging patterns through documentation only.",
+  "valueStatement": "Traditional scattered log statements make debugging difficult and lack context. This guide teaches you to emit one comprehensive event per request with all debugging context included.",
+  "userTitle": "Implement Structured Logging with Wide Events",
+  "limitations": [
+    "Documentation only - no automated logging implementation",
+    "Requires manual integration into existing codebases",
+    "Field examples focus on web applications and e-commerce",
+    "Assumes familiarity with basic logging concepts"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Improve production debugging",
+      "description": "Replace scattered log statements with contextual wide events that contain all request information in a single searchable record."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Enhance observability pipeline",
+      "description": "Implement structured logging that enables powerful queries and analysis in log management platforms like Elasticsearch or Splunk."
+    },
+    {
+      "targetUser": "Team leads",
+      "title": "Standardize logging practices",
+      "description": "Establish consistent logging patterns across your team with high-cardinality fields for effective debugging and monitoring."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Implementation",
+      "scenario": "Adding structured logging to a Node.js API",
+      "prompt": "Help me implement wide event logging for my Express API. Show me how to create a middleware that builds context throughout the request and emits one comprehensive log event at the end."
+    },
+    {
+      "title": "Error Context",
+      "scenario": "Logging errors with full context",
+      "prompt": "I need to log payment failures with complete context. Show me how to structure an error log that includes user info, cart details, payment attempts, and error codes in a single event."
+    },
+    {
+      "title": "Performance Tracking",
+      "scenario": "Adding timing information to logs",
+      "prompt": "Help me add performance metrics to my wide events. I want to track database queries, external API calls, and cache hits with proper timing breakdowns."
+    },
+    {
+      "title": "Query Optimization",
+      "scenario": "Writing queries for log analysis",
+      "prompt": "Show me SQL queries to analyze my structured logs. I want to find slow requests for enterprise customers, payment failure patterns, and feature flag performance impacts."
+    }
+  ],
+  "bestPractices": [
+    "Build context throughout request lifecycle, emit once in finally block",
+    "Include high-cardinality fields like user_id and request_id for debugging",
+    "Use consistent snake_case naming and appropriate data types"
+  ],
+  "antiPatterns": [
+    "String concatenation logs that lose structure and queryability",
+    "Scattered log statements spread across multiple lines for one request",
+    "Low-cardinality only logs that cannot identify specific users or requests"
+  ],
+  "faq": [
+    {
+      "question": "Which logging libraries support wide events?",
+      "answer": "Any structured logging library works: Winston, Pino, Bunyan for Node.js; Logrus, Zap for Go; SLF4J with JSON layout for Java. The pattern is language-agnostic."
+    },
+    {
+      "question": "How many fields should a wide event contain?",
+      "answer": "Include 50 or more fields for high-dimensionality. Storage is cheap, debugging time is expensive. Include all context that might help troubleshooting."
+    },
+    {
+      "question": "Should I log wide events in development too?",
+      "answer": "Yes, use the same pattern everywhere. In development, set log level to debug to see more events. In production, sample debug but always log info and error."
+    },
+    {
+      "question": "How do I handle sensitive data in logs?",
+      "answer": "Exclude passwords, tokens, and full PII. For necessary data like emails, consider hashing. Always review what you are logging before including user data."
+    },
+    {
+      "question": "What is the difference between trace_id and request_id?",
+      "answer": "Request_id identifies one request in one service. Trace_id spans multiple services in distributed systems. Use both for correlating requests across microservices."
+    },
+    {
+      "question": "How do I query wide events effectively?",
+      "answer": "Use structured log platforms like Elasticsearch or Splunk. Query by specific field values, aggregate by dimensions, and filter by time ranges for powerful analysis."
+    }
+  ],
+  "seoKeywords": [
+    "structured logging",
+    "wide events",
+    "canonical log lines",
+    "observability",
+    "debugging",
+    "Claude Code",
+    "logging best practices",
+    "high cardinality logging",
+    "log analysis",
+    "distributed tracing"
+  ],
+  "sourceUrl": "https://github.com/Chemiseblanc/ai/tree/main/skill/structured-logging",
+  "sourceType": "community",
+  "dependencies": []
+}

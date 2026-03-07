@@ -1,0 +1,143 @@
+{
+  "name": "when-auditing-code-style-use-style-audit",
+  "type": "skill",
+  "description": "Code style and conventions audit with auto-fix capabilities for comprehensive style enforcement",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "style enforcement",
+  "quality": 5,
+  "qualityReason": "Comprehensive style audit",
+  "bundleHints": [
+    "code-quality",
+    "dev-tools"
+  ],
+  "tags": [
+    "auto-fix",
+    "code quality",
+    "compliance",
+    "conventions",
+    "formatting",
+    "linting",
+    "style enforcement"
+  ],
+  "capabilities": [
+    "Scan codebase for ESLint, Prettier, and TypeScript violations",
+    "Compare violations against project coding standards",
+    "Prioritize violations by severity (P0-P3)",
+    "Auto-fix 76% of issues automatically",
+    "Generate compliance reports in JSON, Markdown, HTML, and CSV",
+    "Validate fixes with tests and build verification"
+  ],
+  "author": "DNYoussef",
+  "icon": "palette",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate code quality tool using standard development tools (ESLint, Prettier, TypeScript). All 369 static findings are FALSE POSITIVES - they are documentation examples showing shell command syntax, not actual malicious code. The skill runs standard linting operations, creates backups before auto-fix, and validates with tests. No network calls to suspicious endpoints. No credential access. No data exfiltration patterns.",
+  "valueStatement": "Manual code style reviews are time-consuming and inconsistent. This skill automates comprehensive style auditing across ESLint, Prettier, and TypeScript with auto-fix capabilities that apply 76% of fixes automatically.",
+  "userTitle": "Audit and Fix Code Style Issues",
+  "limitations": [
+    "Only supports JavaScript, TypeScript, JSON, CSS, and Markdown files",
+    "Some violations require manual review (unused variables, console statements)",
+    "Naming convention fixes need reference updates across codebase",
+    "TypeScript strictness issues mostly require manual intervention"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development teams",
+      "title": "PR Style Gate",
+      "description": "Enforce code style consistency on every pull request before merge"
+    },
+    {
+      "targetUser": "Tech leads",
+      "title": "Legacy Code Cleanup",
+      "description": "Automatically improve style compliance across large codebases by 30%"
+    },
+    {
+      "targetUser": "CI/CD engineers",
+      "title": "Automated Compliance",
+      "description": "Integrate style validation into CI pipelines with 90% compliance threshold"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Audit",
+      "scenario": "Run a fast style check",
+      "prompt": "Run style-audit to scan for violations and generate a violation report"
+    },
+    {
+      "title": "Auto-Fix Run",
+      "scenario": "Apply automatic fixes",
+      "prompt": "Use style-audit to scan and auto-fix all ESLint and Prettier violations"
+    },
+    {
+      "title": "Full Compliance",
+      "scenario": "Complete audit with validation",
+      "prompt": "Run style-audit with full workflow: scan, compare standards, report, auto-fix, and validate compliance"
+    },
+    {
+      "title": "CI Integration",
+      "scenario": "CI pipeline compliance check",
+      "prompt": "Run style-audit and validate that compliance meets 90% threshold, failing the build if below"
+    }
+  ],
+  "bestPractices": [
+    "Run style audit on every pull request to catch violations early",
+    "Apply auto-fixes first, then manually address remaining issues",
+    "Set compliance threshold at 90% for pass/fail gates in CI",
+    "Keep coding standards documented and version controlled"
+  ],
+  "antiPatterns": [
+    "Ignoring P0 critical violations (security rules like no-eval)",
+    "Running auto-fix without creating a backup first",
+    "Skipping test validation after applying fixes",
+    "Setting compliance threshold too low (below 80%)"
+  ],
+  "faq": [
+    {
+      "question": "What file types does this skill support?",
+      "answer": "JavaScript, TypeScript, JSX, TSX, JSON, CSS, Markdown, YAML, and SCSS files"
+    },
+    {
+      "question": "What is the compliance threshold?",
+      "answer": "Default threshold is 90%. Fails if compliance drops below this value in CI/CD"
+    },
+    {
+      "question": "How does it integrate with CI/CD?",
+      "answer": "Add npm run style:audit to your pipeline. Check compliance in style-audit-summary.json"
+    },
+    {
+      "question": "Is my data safe during auto-fix?",
+      "answer": "Yes. Creates timestamped backup before fixes. Can rollback with git restore if issues occur"
+    },
+    {
+      "question": "What violations require manual fixes?",
+      "answer": "Unused variables, console statements, variable shadowing, and TypeScript type errors"
+    },
+    {
+      "question": "How does this compare to running eslint directly?",
+      "answer": "Combines ESLint, Prettier, TypeScript checks with standards comparison, auto-fix workflow, and compliance validation"
+    }
+  ],
+  "seoKeywords": [
+    "code style audit",
+    "ESLint auto-fix",
+    "Prettier formatting",
+    "code quality",
+    "linting automation",
+    "style compliance",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "formatting enforcement"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/testing-quality/when-auditing-code-style-use-style-audit",
+  "sourceType": "community",
+  "dependencies": []
+}

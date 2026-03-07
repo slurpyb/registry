@@ -1,0 +1,138 @@
+{
+  "name": "parallel-workflows",
+  "type": "skill",
+  "description": "Optimizes parallel execution of multiple tasks. Use when user mentions 並列で実行, 同時にやって, まとめてやって, run in parallel, do these together. Do NOT load for: 単一タスク, 順次実行が必要な作業, 依存関係のあるタスク.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "concurrent optimization",
+  "quality": 5,
+  "qualityReason": "Clear parallelization logic",
+  "bundleHints": [
+    "workflow-automation",
+    "parallel-processing"
+  ],
+  "tags": [
+    "concurrency",
+    "optimization",
+    "parallel",
+    "parallel-execution",
+    "simultaneous",
+    "task-grouping",
+    "task-management",
+    "workflow",
+    "workflow-optimization"
+  ],
+  "capabilities": [
+    "Analyzes task dependencies to identify parallelizable work",
+    "Launches multiple Task tool agents concurrently",
+    "Generates unified execution reports with timing metrics",
+    "Handles partial task failures with retry options"
+  ],
+  "author": "Chachamaru127",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill is documentation-only, providing guidance on using the Task tool for parallel execution. No shell commands, network requests, or cryptographic operations are performed.",
+  "valueStatement": "Managing multiple independent tasks sequentially wastes time. This skill optimizes parallel execution by identifying independent tasks and running them concurrently using the Task tool, reducing overall execution time by up to 67%.",
+  "userTitle": "Run Multiple Tasks in Parallel",
+  "limitations": [
+    "Only works with independent tasks that have no file or data dependencies",
+    "Does not modify source code directly",
+    "Requires Tasks to be defined in Plans.md format"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers exploring unfamiliar codebases",
+      "title": "Multi-file Project Analysis",
+      "description": "Analyze different directories of a codebase simultaneously. Instead of processing src/components, src/lib, and src/app sequentially, the skill launches three agents in parallel to complete the analysis in one-third the time."
+    },
+    {
+      "targetUser": "DevOps engineers and QA specialists",
+      "title": "Quality Checks Pipeline",
+      "description": "Run linting, type-checking, and tests simultaneously. The skill executes all quality checks in parallel, then reports results in a unified format, ideal for CI/CD pre-commit workflows."
+    },
+    {
+      "targetUser": "Frontend developers and web designers",
+      "title": "Component Development Sprint",
+      "description": "Create multiple independent UI components concurrently. The skill detects independent components from Plans.md and builds them in parallel, significantly accelerating frontend development."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Analyze Project Structure",
+      "prompt": "Analyze this project structure. Use parallel execution to examine different directories concurrently: components/, lib/, and app/. Report findings for each directory.",
+      "scenario": "When you need to understand a large codebase quickly"
+    },
+    {
+      "title": "Run All Quality Checks",
+      "prompt": "Run all quality checks in parallel: lint, type-check, and tests. Wait for all to complete then provide a unified summary of results.",
+      "scenario": "When you need quick feedback on code quality"
+    },
+    {
+      "title": "Build Multiple Features",
+      "prompt": "Create these components in parallel: header, footer, and sidebar. Each component should be built independently without sharing files.",
+      "scenario": "When building multiple independent features"
+    },
+    {
+      "title": "Review Multiple Modules",
+      "prompt": "Review these three modules for code quality issues. Run all three reviews in parallel and compile a combined report.",
+      "scenario": "When conducting comprehensive code reviews"
+    }
+  ],
+  "bestPractices": [
+    "Define independent tasks clearly with no shared file dependencies",
+    "Use Plans.md format to specify tasks for parallel execution",
+    "Review the dependency analysis before running parallel tasks"
+  ],
+  "antiPatterns": [
+    "Attempting to parallelize tasks with shared file dependencies",
+    "Running database migrations in parallel (causes locks)",
+    "Skipping the dependency analysis step"
+  ],
+  "faq": [
+    {
+      "question": "What tasks can be parallelized?",
+      "answer": "Tasks that do not share files, data outputs, or execution order. Each task must be completely independent."
+    },
+    {
+      "question": "How much faster is parallel execution?",
+      "answer": "Performance gains depend on task count. Three independent tasks typically complete 60-67% faster than sequential execution."
+    },
+    {
+      "question": "What happens if one parallel task fails?",
+      "answer": "Successful task results are preserved. Failed tasks show error details with options to retry just those tasks."
+    },
+    {
+      "question": "Can I control how many tasks run in parallel?",
+      "answer": "The skill optimizes based on available resources. For very large task sets, consider breaking into smaller batches."
+    },
+    {
+      "question": "Does this skill execute shell commands?",
+      "answer": "No. This skill provides documentation patterns using the Task tool. Actual command execution depends on the tasks you define."
+    },
+    {
+      "question": "What trigger phrases activate this skill?",
+      "answer": "Japanese: 並列で実行, 同時にやって, まとめてやって. English: run in parallel, do these together, check all."
+    }
+  ],
+  "seoKeywords": [
+    "Claude parallel workflows",
+    "Claude Code parallel execution",
+    "Claude concurrent tasks",
+    "Task tool parallelization",
+    "Claude Codex parallel",
+    "workflow optimization",
+    "concurrent processing",
+    "multiple agent execution"
+  ],
+  "sourceUrl": "https://github.com/Chachamaru127/claude-code-harness/tree/main/skills/parallel-workflows",
+  "sourceType": "community",
+  "dependencies": []
+}

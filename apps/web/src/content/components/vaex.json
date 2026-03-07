@@ -1,0 +1,144 @@
+{
+  "name": "vaex",
+  "type": "skill",
+  "description": "Use this skill for processing and analyzing large tabular datasets (billions of rows) that exceed available RAM. Vaex excels at out-of-core DataFrame operations, lazy evaluation, fast aggregations, efficient visualization of big data, and machine learning on large datasets. Apply when users need to work with large CSV/HDF5/Arrow/Parquet files, perform fast statistics on massive datasets, create visualizations of big data, or build ML pipelines that don't fit in memory.",
+  "domain": "data",
+  "subdomain": "pipelines",
+  "specialty": "big data processing",
+  "quality": 5,
+  "qualityReason": "Handles massive datasets efficiently",
+  "bundleHints": [
+    "big-data",
+    "data-science"
+  ],
+  "tags": [
+    "aggregations",
+    "big-data",
+    "data-science",
+    "dataframes",
+    "lazy-evaluation",
+    "machine-learning",
+    "out-of-core",
+    "performance",
+    "vaex"
+  ],
+  "capabilities": [
+    "Load and process datasets larger than available RAM using memory-mapping",
+    "Perform fast statistical aggregations on billion-row datasets",
+    "Create virtual columns without memory overhead",
+    "Build machine learning pipelines with sklearn, XGBoost, and LightGBM integration",
+    "Visualize large datasets with heatmaps and histograms"
+  ],
+  "author": "davila7",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only reference guides and Python code examples for the Vaex library. All 501 static findings are false positives triggered by documentation patterns. The analyzer misinterprets markdown code examples, placeholder credential documentation, and legitimate feature descriptions as security issues. No executable code, network operations, or credential exposure exists.",
+  "valueStatement": "Working with large datasets that exceed RAM causes memory errors and slow performance. Vaex uses lazy evaluation and memory-mapping to process billions of rows instantly without loading data into memory.",
+  "userTitle": "Process billion-row datasets efficiently",
+  "limitations": [
+    "Not a drop-in replacement for pandas in all scenarios",
+    "Requires converting data to HDF5 or Arrow format for optimal performance",
+    "Some pandas operations not available in Vaex",
+    "May require code changes when migrating from pandas"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data scientists",
+      "title": "Analyze massive datasets",
+      "description": "Explore and analyze datasets with billions of rows without memory errors or sampling."
+    },
+    {
+      "targetUser": "ML engineers",
+      "title": "Train models on big data",
+      "description": "Build and deploy ML pipelines on datasets too large for traditional tools."
+    },
+    {
+      "targetUser": "Financial analysts",
+      "title": "Process time-series data",
+      "description": "Work with large financial time-series data for risk analysis and forecasting."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Load large dataset",
+      "scenario": "Opening massive files",
+      "prompt": "Load a large HDF5/Parquet file with Vaex and show basic statistics and column info."
+    },
+    {
+      "title": "Filter and aggregate",
+      "scenario": "Computing statistics",
+      "prompt": "Filter the dataset by condition and compute groupby aggregations efficiently."
+    },
+    {
+      "title": "Create visualizations",
+      "scenario": "Big data plots",
+      "prompt": "Create a heatmap or histogram visualization of the large dataset."
+    },
+    {
+      "title": "Build ML pipeline",
+      "scenario": "Training on big data",
+      "prompt": "Preprocess features using Vaex ML transformers and train an XGBoost model."
+    }
+  ],
+  "bestPractices": [
+    "Convert CSV files to HDF5 or Arrow format for instant loading",
+    "Use virtual columns instead of materializing data to save memory",
+    "Batch multiple operations with delay=True for single-pass computation",
+    "Leverage selections instead of creating new DataFrames for filtering"
+  ],
+  "antiPatterns": [
+    "Using .to_pandas_df() on large datasets defeats Vaex's purpose",
+    "Converting data to NumPy arrays with .values when not needed",
+    "Exporting to CSV repeatedly instead of using HDF5/Arrow",
+    "Materializing virtual columns without good reason"
+  ],
+  "faq": [
+    {
+      "question": "How does Vaex handle datasets larger than RAM?",
+      "answer": "Vaex memory-maps files, keeping data on disk and reading only accessed portions into memory."
+    },
+    {
+      "question": "What file formats work best with Vaex?",
+      "answer": "HDF5 and Apache Arrow provide instant loading. CSV is slow for large files."
+    },
+    {
+      "question": "Can I use Vaex with pandas code?",
+      "answer": "Vaex has similar API to pandas but some operations differ. Full pandas compatibility is not guaranteed."
+    },
+    {
+      "question": "Is my data safe when using Vaex?",
+      "answer": "Vaex never modifies source files. All transformations create virtual columns or new exports."
+    },
+    {
+      "question": "Why are my operations running slowly?",
+      "answer": "Check that you are using HDF5/Arrow format, not CSV. Use delay=True for multiple aggregations."
+    },
+    {
+      "question": "How does Vaex compare to Dask or Polars?",
+      "answer": "Vaex excels at billion-row datasets with minimal memory. Dask handles distributed computing, Polars is faster for in-memory data."
+    }
+  ],
+  "seoKeywords": [
+    "Vaex",
+    "big data processing",
+    "billion rows",
+    "out-of-core DataFrame",
+    "lazy evaluation",
+    "memory efficient",
+    "data science",
+    "Claude Code",
+    "Codex",
+    "large dataset analysis"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/vaex",
+  "sourceType": "community",
+  "dependencies": []
+}

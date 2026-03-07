@@ -1,0 +1,139 @@
+{
+  "name": "azure-mgmt-apicenter-dotnet",
+  "type": "skill",
+  "description": "Azure API Center SDK for .NET. Centralized API inventory management with governance, versioning, and discovery.",
+  "domain": "web-development",
+  "subdomain": "cms",
+  "specialty": "api-center",
+  "quality": 4,
+  "qualityReason": "Specific to API governance in Azure",
+  "bundleHints": [
+    "api-management",
+    "dotnet-azure"
+  ],
+  "tags": [
+    ".net",
+    "api-center",
+    "api-management",
+    "azure",
+    "discovery",
+    "dotnet",
+    "governance",
+    "sdk",
+    "versioning"
+  ],
+  "capabilities": [
+    "Create and configure API Center services in Azure subscriptions",
+    "Organize APIs into workspaces with logical groupings",
+    "Manage API versions and lifecycle stages (design to retired)",
+    "Import and export OpenAPI specifications",
+    "Define custom metadata schemas for API governance",
+    "Create deployments linking APIs to runtime environments"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing Azure API Center SDK usage examples. Static analysis found no executable code patterns. The SKILL.md file provides legitimate Azure SDK documentation for API governance workflows. Environment variables are standard Azure authentication patterns (AZURE_SUBSCRIPTION_ID, etc.) and pose no security risk.",
+  "valueStatement": "Organize and govern APIs across your enterprise using Azure API Center. This skill provides .NET SDK patterns for creating API inventories, managing versions, and deploying APIs to environments.",
+  "userTitle": "Manage Azure API Center with .NET SDK",
+  "limitations": [
+    "Requires Azure subscription and appropriate RBAC permissions",
+    "Only supports Azure API Center service (not Azure API Management gateway)",
+    "Code examples target .NET SDK only (no Python or TypeScript)",
+    "Does not configure API gateway policies or authentication"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Platform engineering teams managing 100+ APIs",
+      "title": "Enterprise API Catalog",
+      "description": "Build a centralized inventory of all APIs in your organization with metadata, ownership, and lifecycle tracking."
+    },
+    {
+      "targetUser": "API governance leads ensuring compliance",
+      "title": "API Governance Automation",
+      "description": "Enforce metadata requirements and lifecycle policies across API portfolios using custom schemas."
+    },
+    {
+      "targetUser": "Developer experience teams building internal portals",
+      "title": "API Discovery Portal",
+      "description": "Enable developers to discover available APIs with documentation, versions, and deployment endpoints."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Beginner: Create API Center Service",
+      "prompt": "Help me create an Azure API Center service in my subscription. I need to set up API inventory management for my organization. My subscription ID is <subscription-id> and I want to deploy to East US region."
+    },
+    {
+      "title": "Intermediate: Register an API",
+      "prompt": "I have an OpenAPI specification for our Orders API. Show me how to create a workspace, register the API with metadata, add version v1.0.0, and import the specification."
+    },
+    {
+      "title": "Advanced: API Deployment",
+      "prompt": "Create a deployment that links our Orders API v1.0.0 to the production environment. The runtime endpoint is https://api.example.com/orders. Include proper error handling."
+    },
+    {
+      "title": "Expert: Metadata Schema Design",
+      "prompt": "Design a JSON schema for API metadata that requires team ownership, cost center, and data classification. Apply it to all APIs in the workspace as mandatory."
+    }
+  ],
+  "bestPractices": [
+    "Organize APIs by team or domain using workspaces for clear ownership boundaries",
+    "Define metadata schemas early and enforce required fields like team and cost center",
+    "Update API lifecycle stages as APIs progress from design to production to deprecated"
+  ],
+  "antiPatterns": [
+    "Creating all APIs in a single workspace without logical grouping",
+    "Skipping metadata requirements leading to incomplete API documentation",
+    "Leaving deprecated APIs in production stage causing consumer confusion"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between Azure API Center and Azure API Management?",
+      "answer": "API Center provides centralized API inventory and governance. API Management provides API gateway, policies, and runtime. Use both together: API Center for catalog, API Management for gateway."
+    },
+    {
+      "question": "Do I need an Azure subscription to use this skill?",
+      "answer": "Yes. You need an active Azure subscription with permissions to create ApiCenter resources. Use DefaultAzureCredential with appropriate RBAC roles."
+    },
+    {
+      "question": "Can I import OpenAPI specifications from URLs?",
+      "answer": "The SDK examples show inline import. For URL imports, download the specification first then pass the content to ImportSpecificationAsync."
+    },
+    {
+      "question": "How do I grant my team access to manage APIs?",
+      "answer": "Assign Azure RBAC roles at the API Center service or workspace level. Built-in roles include 'API Center Service Contributor' and custom roles for specific operations."
+    },
+    {
+      "question": "What API specification formats are supported?",
+      "answer": "OpenAPI 2.0 and 3.x, GraphQL SDL, gRPC Protobuf, WSDL for SOAP, and WebSocket schemas. Specify the format when importing."
+    },
+    {
+      "question": "Can I automate API Center operations with CI/CD?",
+      "answer": "Yes. Use Azure CLI or .NET SDK in GitHub Actions or Azure DevOps pipelines. Authenticate using service principals or managed identities."
+    }
+  ],
+  "seoKeywords": [
+    "Azure API Center",
+    "API governance",
+    ".NET SDK",
+    "Azure CLI",
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "API management",
+    "Azure ResourceManager",
+    "API inventory"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-mgmt-apicenter-dotnet",
+  "sourceType": "community",
+  "dependencies": []
+}

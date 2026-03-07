@@ -1,0 +1,139 @@
+{
+  "name": "ancplua-docs",
+  "type": "skill",
+  "description": "Search and answer questions about the ANcpLua ecosystem documentation. Use when users ask about ANcpLua.NET.Sdk features, ANcpLua.Analyzers rules, ANcpLua.Roslyn.Utilities APIs, or any configuration/usage questions about these packages.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "Ecosystem docs",
+  "quality": 4,
+  "qualityReason": "Specific documentation ecosystem",
+  "bundleHints": [
+    "dotnet-tools",
+    "roslyn-ecosystem",
+    "sdk-documentation"
+  ],
+  "tags": [
+    "analyzers",
+    "api-reference",
+    "configuration",
+    "documentation",
+    "dotnet",
+    "roslyn",
+    "sdk-features"
+  ],
+  "capabilities": [
+    "Search documentation across ANcpLua.NET.Sdk, Analyzers, and Utilities repositories",
+    "Find analyzer rules AL0001-AL0017 documentation and code fixes",
+    "Locate SDK features like banned APIs, polyfills, and MSBuild properties",
+    "Answer questions about DiagnosticFlow, SemanticGuard, and SymbolPattern APIs"
+  ],
+  "author": "ANcpLua",
+  "icon": "📚",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation lookup skill with no code execution. It restricts the AI to Read, Grep, and Glob tools only for searching local documentation files. The static findings (external_commands, C2 keywords, weak crypto) are all false positives - bash examples in markdown are documentation, not code; C2 detection was a hex hash substring; SHA256 hashes are secure. No network access, no command execution, no file writing.",
+  "valueStatement": "Users need quick answers about ANcpLua .NET SDK, analyzers, and Roslyn utilities. This skill provides structured search strategies and file locations for finding documentation across three repositories.",
+  "userTitle": "Search ANcpLua ecosystem documentation",
+  "limitations": [
+    "Only accesses local documentation files, not online resources",
+    "Cannot execute code or run analyzer tests",
+    "Does not provide configuration for new projects",
+    "Limited to the three ANcpLua repositories"
+  ],
+  "useCases": [
+    {
+      "targetUser": ".NET developers",
+      "title": "Find analyzer rule details",
+      "description": "Look up Roslyn analyzer rules AL0001-AL0017 and their code fixes"
+    },
+    {
+      "targetUser": "SDK users",
+      "title": "Discover SDK features",
+      "description": "Search for banned APIs, polyfills, and MSBuild property documentation"
+    },
+    {
+      "targetUser": "Library authors",
+      "title": "Explore utilities API",
+      "description": "Find information about DiagnosticFlow, guards, and pattern matching utilities"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List analyzer rules",
+      "scenario": "What rules exist",
+      "prompt": "What analyzer rules are available in ANcpLua.Analyzers?"
+    },
+    {
+      "title": "Find banned APIs",
+      "scenario": "SDK API restrictions",
+      "prompt": "Which APIs are banned in ANcpLua.NET.Sdk?"
+    },
+    {
+      "title": "Use DiagnosticFlow",
+      "scenario": "Railway-oriented pattern",
+      "prompt": "How do I use DiagnosticFlow from ANcpLua.Roslyn.Utilities?"
+    },
+    {
+      "title": "Configure tests",
+      "scenario": "Test project setup",
+      "prompt": "How do I configure test projects with the ANcpLua SDK?"
+    }
+  ],
+  "bestPractices": [
+    "Start with the quick reference files: README.md and CLAUDE.md in each repository",
+    "Use the Grep patterns provided for targeted searches",
+    "Check doc-locations.md for the complete file map before searching"
+  ],
+  "antiPatterns": [
+    "Asking the skill to modify source code or configuration files",
+    "Expecting the skill to execute analyzer rules or run tests",
+    "Asking for documentation outside the ANcpLua ecosystem"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work offline?",
+      "answer": "Yes. It only reads local documentation files from your ANcpLua repositories."
+    },
+    {
+      "question": "What repositories does this skill cover?",
+      "answer": "ANcpLua.NET.Sdk, ANcpLua.Analyzers, and ANcpLua.Roslyn.Utilities."
+    },
+    {
+      "question": "Can the skill execute code?",
+      "answer": "No. The skill is restricted to Read, Grep, and Glob tools only."
+    },
+    {
+      "question": "Where are the repositories located?",
+      "answer": "Paths are configured in the skill. Default paths reference local developer directories."
+    },
+    {
+      "question": "How do I update documentation?",
+      "answer": "The skill cannot modify files. Edit documentation directly in the repositories."
+    },
+    {
+      "question": "What tools does this skill use?",
+      "answer": "Read, Grep, and Glob. No external commands or network calls."
+    }
+  ],
+  "seoKeywords": [
+    "ANcpLua documentation",
+    "ANcpLua.NET.Sdk",
+    "ANcpLua.Analyzers",
+    "ANcpLua.Roslyn.Utilities",
+    "Roslyn analyzers",
+    "MSBuild SDK",
+    "Claude Code skill",
+    "dotnet documentation",
+    "code analyzers",
+    "dotnet SDK"
+  ],
+  "sourceUrl": "https://github.com/ANcpLua/ancplua-claude-plugins/tree/main/plugins/ancplua-docs-librarian/skills/ancplua-docs",
+  "sourceType": "community",
+  "dependencies": []
+}

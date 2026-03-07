@@ -1,0 +1,145 @@
+{
+  "name": "darkit-gin",
+  "type": "skill",
+  "description": "基于 gin-gonic/gin 的企业级 Web 框架增强版，提供开箱即用的 JWT 认证、SSE 实时通信、缓存管理、OpenAPI 文档生成等企业级功能。涵盖选项式路由配置、统一响应格式、中间件管理、安全加固、性能优化等完整开发能力。",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "go web framework",
+  "quality": 5,
+  "qualityReason": "Specific framework extension with clear features",
+  "bundleHints": [
+    "go-stack",
+    "backend-toolkit"
+  ],
+  "tags": [
+    "api",
+    "cache",
+    "darkit/gin",
+    "gin",
+    "go",
+    "http",
+    "jwt",
+    "middleware",
+    "openapi",
+    "rest",
+    "security",
+    "sse",
+    "web"
+  ],
+  "capabilities": [
+    "Configure JWT authentication with token creation, validation, and refresh",
+    "Implement SSE real-time communication with client management",
+    "Set up caching systems with TTL and automatic cleanup",
+    "Generate OpenAPI 3.0 documentation with Swagger UI",
+    "Apply middleware patterns for logging, CORS, and rate limiting",
+    "Use unified response formats for consistent API design"
+  ],
+  "author": "DarkiT",
+  "icon": "🚀",
+  "version": "0.1.5",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing markdown guides for the Darkit Gin web framework. All 799 static findings are false positives caused by markdown code blocks using backticks (misidentified as shell execution), Go code examples showing standard JWT/cryptographic patterns in documentation, and example database connection strings in tutorials. No executable code exists in this skill.",
+  "valueStatement": "Building production-ready Go APIs requires extensive boilerplate for authentication, caching, and documentation. This skill teaches you to use Darkit Gin's ready-to-use components for faster development.",
+  "userTitle": "Build Enterprise Go APIs with Enhanced Gin Framework",
+  "limitations": [
+    "Documentation is primarily in Chinese language",
+    "Requires Go 1.23 or higher",
+    "Examples assume familiarity with gin-gonic/gin basics",
+    "No direct code execution - documentation and guidance only"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Go Backend Developer",
+      "title": "Build Production REST APIs",
+      "description": "Create enterprise-grade RESTful APIs with built-in authentication, caching, and automatic documentation generation using Darkit Gin patterns."
+    },
+    {
+      "targetUser": "Full Stack Developer",
+      "title": "Implement Real-time Features",
+      "description": "Add Server-Sent Events to existing Go applications for live notifications, chat systems, or real-time dashboards."
+    },
+    {
+      "targetUser": "API Architect",
+      "title": "Migrate from Gin to Enhanced Framework",
+      "description": "Upgrade existing gin-gonic/gin projects to Darkit Gin for unified responses, built-in JWT, and automatic OpenAPI specs."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic API Setup",
+      "scenario": "Create a new Go API project",
+      "prompt": "Help me create a new Go API using darkit/gin with JWT authentication, rate limiting, and health check endpoints."
+    },
+    {
+      "title": "JWT Implementation",
+      "scenario": "Add authentication to routes",
+      "prompt": "Show me how to implement login, token refresh, and role-based access control using darkit/gin JWT features."
+    },
+    {
+      "title": "SSE Real-time",
+      "scenario": "Add live updates to app",
+      "prompt": "Help me implement Server-Sent Events for real-time notifications using darkit/gin SSE hub with client management."
+    },
+    {
+      "title": "Full API Architecture",
+      "scenario": "Design production system",
+      "prompt": "Design a complete user management API with darkit/gin including CRUD operations, pagination, caching, validation, and OpenAPI documentation."
+    }
+  ],
+  "bestPractices": [
+    "Read JWT secrets from environment variables, never hardcode in source code",
+    "Use specific domain allowlists for CORS in production instead of wildcard",
+    "Apply rate limiting middleware to protect against abuse"
+  ],
+  "antiPatterns": [
+    "Using c.JSON() directly instead of unified response methods like c.Success()",
+    "Forgetting to clear cache after updating or deleting data",
+    "Creating JWT tokens without setting proper expiration times"
+  ],
+  "faq": [
+    {
+      "question": "What Go version is required?",
+      "answer": "Go 1.23 or higher is required. The framework uses modern Go features including generics for type-safe API definitions."
+    },
+    {
+      "question": "Can I migrate from standard gin-gonic/gin?",
+      "answer": "Yes, darkit/gin is fully compatible with gin-gonic/gin. You can gradually adopt enhanced features while keeping existing code."
+    },
+    {
+      "question": "How does SSE differ from WebSockets?",
+      "answer": "SSE is server-to-client only, simpler to implement, and works over standard HTTP. Use WebSockets when you need bidirectional communication."
+    },
+    {
+      "question": "Is the documentation available in English?",
+      "answer": "The primary documentation is in Chinese. Code examples and API method names are in English for universal understanding."
+    },
+    {
+      "question": "How do I generate OpenAPI documentation?",
+      "answer": "Use gin.WithOpenAPI() option and add annotations like gin.Summary(), gin.PathParam(), and gin.Response() to routes."
+    },
+    {
+      "question": "What caching backends are supported?",
+      "answer": "The built-in cache uses an in-memory store with automatic cleanup. Configure TTL and cleanup interval through cache.Config."
+    }
+  ],
+  "seoKeywords": [
+    "Go web framework",
+    "Gin framework",
+    "JWT authentication Go",
+    "REST API Go",
+    "Claude Code",
+    "OpenAPI Go",
+    "SSE realtime",
+    "Go middleware"
+  ],
+  "sourceUrl": "https://github.com/DarkiT/gin/tree/master/docs/darkit-gin",
+  "sourceType": "community",
+  "dependencies": []
+}

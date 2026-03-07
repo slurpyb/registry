@@ -1,0 +1,140 @@
+{
+  "name": "markitdown",
+  "type": "skill",
+  "description": "Convert files and office documents to Markdown. Supports PDF, DOCX, PPTX, XLSX, images (with OCR), audio (with transcription), HTML, CSV, JSON, XML, ZIP, YouTube URLs, EPubs and more.",
+  "domain": "tools",
+  "subdomain": "conversion",
+  "specialty": "document conversion",
+  "quality": 5,
+  "qualityReason": "Extensive format support",
+  "bundleHints": [
+    "document-processing",
+    "conversion-tools"
+  ],
+  "tags": [
+    "conversion",
+    "document-processing",
+    "markdown",
+    "ocr",
+    "office",
+    "pdf",
+    "transcription",
+    "youtube"
+  ],
+  "capabilities": [
+    "Convert PDF, DOCX, PPTX, XLSX to Markdown",
+    "Extract text from images using OCR",
+    "Transcribe audio files to text",
+    "Generate AI-enhanced image descriptions via OpenRouter",
+    "Process YouTube video transcripts",
+    "Batch convert multiple files in parallel"
+  ],
+  "author": "davila7",
+  "icon": "📄",
+  "version": "0.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 735 issues, but all are false positives. Findings originated from documentation files where markdown code formatting was misidentified as shell execution, placeholder API keys were flagged as credentials, and legitimate file+network patterns were marked as dangerous. Actual Python scripts are benign document conversion utilities from Microsoft.",
+  "valueStatement": "Convert PDF, DOCX, PPTX, images, and other documents to clean Markdown format. Supports OCR for images, transcription for audio, and optional AI-enhanced image descriptions for better LLM processing.",
+  "userTitle": "Convert Documents to Markdown",
+  "limitations": [
+    "Requires installation of optional dependencies for specific formats",
+    "AI image descriptions require OpenRouter API key",
+    "OCR quality depends on image clarity and Tesseract installation",
+    "Large files may require additional processing time"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Researchers",
+      "title": "Convert Scientific Papers",
+      "description": "Transform PDF papers to Markdown for literature review and AI analysis with proper formatting preservation."
+    },
+    {
+      "targetUser": "Content Creators",
+      "title": "Extract Presentation Content",
+      "description": "Convert PowerPoint slides to Markdown for republishing, summarization, or content extraction workflows."
+    },
+    {
+      "targetUser": "Data Analysts",
+      "title": "Process Spreadsheet Data",
+      "description": "Convert Excel files to Markdown tables for easier data processing and analysis by AI systems."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Conversion",
+      "scenario": "Convert a single document",
+      "prompt": "Use the markitdown skill to convert {filename.pdf} to Markdown and save it as {filename.md}"
+    },
+    {
+      "title": "Batch Processing",
+      "scenario": "Convert multiple files",
+      "prompt": "Convert all PDF files in the {directory} folder to Markdown using markitdown and save outputs to {output_folder}"
+    },
+    {
+      "title": "With AI Descriptions",
+      "scenario": "AI-enhanced image descriptions",
+      "prompt": "Convert {presentation.pptx} to Markdown with AI-enhanced image descriptions using your OpenRouter API key"
+    },
+    {
+      "title": "Organized Literature Review",
+      "scenario": "Scientific paper organization",
+      "prompt": "Use convert_literature.py to convert all papers in {input_dir} to Markdown, organize by year, and create an index"
+    }
+  ],
+  "bestPractices": [
+    "Install optional dependencies for the file formats you need (pip install 'markitdown[pdf,docx,pptx]')",
+    "Provide your OpenRouter API key via OPENROUTER_API_KEY environment variable for AI features",
+    "Use batch_convert.py with --recursive flag for processing large document collections"
+  ],
+  "antiPatterns": [
+    "Do not convert sensitive documents without reviewing the output first",
+    "Avoid processing files in place - always specify a separate output directory",
+    "Do not share API keys in prompts or commit them to version control"
+  ],
+  "faq": [
+    {
+      "question": "What file formats are supported?",
+      "answer": "PDF, DOCX, PPTX, XLSX, images (JPEG, PNG, GIF, WebP), audio (WAV, MP3), HTML, CSV, JSON, XML, ZIP, EPUB, and YouTube URLs."
+    },
+    {
+      "question": "Do I need to install additional dependencies?",
+      "answer": "Base installation handles basic formats. Install extras like pip install 'markitdown[pdf]' for PDF support or 'markitdown[all]' for everything."
+    },
+    {
+      "question": "How do I enable AI image descriptions?",
+      "answer": "Set OPENROUTER_API_KEY environment variable. The convert_with_ai.py script or MarkItDown with llm_client parameter will use it automatically."
+    },
+    {
+      "question": "Can this process scanned documents?",
+      "answer": "Yes, install Tesseract OCR (brew install tesseract or apt-get install tesseract-ocr) for optical character recognition on scanned PDFs and images."
+    },
+    {
+      "question": "How fast is batch conversion?",
+      "answer": "batch_convert.py supports parallel processing. Use --workers flag to control concurrency. Default is 4 parallel conversions."
+    },
+    {
+      "question": "Are my documents sent to external servers?",
+      "answer": "Only if using AI image descriptions with OpenRouter. Regular conversion runs entirely locally. You control when network access occurs."
+    }
+  ],
+  "seoKeywords": [
+    "markdown conversion",
+    "PDF to markdown",
+    "document conversion",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "OCR",
+    "transcription"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/markitdown",
+  "sourceType": "community",
+  "dependencies": []
+}

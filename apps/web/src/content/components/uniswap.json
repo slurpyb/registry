@@ -1,0 +1,140 @@
+{
+  "name": "uniswap",
+  "type": "skill",
+  "description": "Trade and interact with Uniswap in Python using Ape and the uniswap-sdk package.",
+  "domain": "business",
+  "subdomain": "finance",
+  "specialty": "DeFi trading",
+  "quality": 4,
+  "qualityReason": "Specific DeFi integration",
+  "bundleHints": [
+    "defi-tools",
+    "blockchain"
+  ],
+  "tags": [
+    "ape",
+    "blockchain",
+    "crypto",
+    "defi",
+    "python",
+    "trading",
+    "uniswap"
+  ],
+  "capabilities": [
+    "Guides implementation of Uniswap protocol interactions using Python and Ape framework",
+    "Provides instructions for fetching current documentation from official ApeWorX sources",
+    "Explains token pair indexing and route optimization strategies for efficient swaps",
+    "Teaches integration patterns for Silverback bot development with Uniswap",
+    "Includes risk management guidance for blockchain trading operations"
+  ],
+  "author": "ApeWorX",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 36 potential issues, but manual review confirms these are false positives from markdown formatting and legitimate documentation URLs. The skill contains only instructional content for using the Uniswap SDK with proper risk warnings. Network risk factor is present due to documented references to GitHub documentation URLs.",
+  "valueStatement": "Trading on decentralized exchanges requires complex integrations with smart contracts and liquidity pools. This skill guides Claude Code through using the uniswap-sdk with Ape framework to build safe trading applications with proper indexing and route optimization.",
+  "userTitle": "Build Uniswap Trading Bots with Python and Ape Framework",
+  "limitations": [
+    "Requires Python environment with Ape framework and configured accounts",
+    "Does not include actual trading code, only instructional guidance",
+    "User must have tokenlist installed via ape-tokens package",
+    "Trading operations carry financial risk and require user confirmation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Blockchain developers building automated trading systems",
+      "title": "Build DeFi Trading Bot",
+      "description": "Create automated trading bots that execute Uniswap swaps using Silverback framework with proper liquidity indexing and route optimization."
+    },
+    {
+      "targetUser": "DeFi analytics developers tracking market data",
+      "title": "Price Monitoring Application",
+      "description": "Develop applications that query Uniswap token prices across multiple chains with efficient pair indexing and real-time updates."
+    },
+    {
+      "targetUser": "Application developers adding DeFi features",
+      "title": "Token Swap Integration",
+      "description": "Integrate Uniswap swap functionality into existing Python applications with proper risk management and user confirmation flows."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Check Token Price",
+      "prompt": "Using the uniswap skill, help me check the current price of USDC in terms of ETH on Ethereum mainnet",
+      "scenario": "Query current token prices for specific trading pairs"
+    },
+    {
+      "title": "Set Up Token Indexing",
+      "prompt": "I need to set up Uniswap token pair indexing for WETH, USDC, and USDT on Arbitrum. Guide me through the proper indexing setup.",
+      "scenario": "Configure token pair indexing for a new trading environment"
+    },
+    {
+      "title": "Find Optimal Swap Route",
+      "prompt": "Help me find the most efficient route to swap 1000 DAI for LINK on Polygon, considering intermediate tokens for best liquidity",
+      "scenario": "Optimize multi-hop swap routes for better execution"
+    },
+    {
+      "title": "Build Silverback Trading Bot",
+      "prompt": "I want to create a Silverback bot that monitors WETH-USDC prices and executes trades when certain conditions are met. Walk me through the integration.",
+      "scenario": "Develop automated trading bot with event monitoring"
+    }
+  ],
+  "bestPractices": [
+    "Always fetch current documentation from official sources before implementing Uniswap integrations to ensure API accuracy",
+    "Query token prices and show them to users before executing trades to confirm expected outcomes",
+    "Test trades with small amounts first before executing larger transactions to verify correct behavior"
+  ],
+  "antiPatterns": [
+    "Do not execute trades without first confirming prices with the user, as market conditions can result in unexpected outcomes",
+    "Avoid skipping token pair indexing, as the SDK requires proper indexing via uni.index or uni.install for Silverback",
+    "Do not rely on general knowledge about Ape framework, always fetch current documentation for accurate API usage"
+  ],
+  "faq": [
+    {
+      "question": "What blockchain networks does this skill support?",
+      "answer": "The uniswap-sdk works with any blockchain network where Uniswap is deployed and Ape framework provides support. The skill includes guidance for fetching current documentation to verify network compatibility."
+    },
+    {
+      "question": "Do I need cryptocurrency to use this skill?",
+      "answer": "This skill provides instructional guidance only. To execute actual trades, you need configured Ape accounts with appropriate cryptocurrency balances on your target blockchain network."
+    },
+    {
+      "question": "How does the skill help with trading safety?",
+      "answer": "The skill emphasizes risk management by instructing Claude Code to query prices first, ask for user confirmation, and recommend testing with small amounts before larger trades."
+    },
+    {
+      "question": "Can I use this for automated trading bots?",
+      "answer": "Yes, the skill includes specific guidance for integrating the uniswap-sdk with Silverback framework for building automated trading bots with live indexing and event monitoring."
+    },
+    {
+      "question": "What is token pair indexing and why is it important?",
+      "answer": "Token pair indexing involves the SDK maintaining an in-memory copy of relevant Uniswap pool data for faster queries. It is critical for route finding and price calculations to work correctly."
+    },
+    {
+      "question": "Does this skill write trading code for me?",
+      "answer": "The skill guides Claude Code on how to help you implement Uniswap integrations correctly by fetching current documentation and following best practices. Claude Code writes the actual implementation code based on this guidance."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Uniswap",
+    "DeFi trading",
+    "Python blockchain",
+    "Ape framework",
+    "decentralized exchange",
+    "smart contract integration",
+    "liquidity pools"
+  ],
+  "sourceUrl": "https://github.com/ApeWorX/skills/tree/main/protocols/uniswap",
+  "sourceType": "community",
+  "dependencies": []
+}

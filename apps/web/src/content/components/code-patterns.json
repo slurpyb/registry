@@ -1,0 +1,138 @@
+{
+  "name": "code-patterns",
+  "type": "skill",
+  "description": "Common code patterns and best practices reference for quick lookup",
+  "domain": "languages",
+  "subdomain": "typescript",
+  "specialty": "design patterns",
+  "quality": 4,
+  "qualityReason": "Useful pattern reference",
+  "bundleHints": [
+    "code-quality",
+    "typescript-stack"
+  ],
+  "tags": [
+    "best-practices",
+    "design-patterns",
+    "quick-lookup",
+    "reference",
+    "software-architecture",
+    "typescript"
+  ],
+  "capabilities": [
+    "Provides TypeScript implementations of Gang of Four design patterns",
+    "Includes error handling patterns like Result type and retry with backoff",
+    "Offers async patterns including promise queue and debounce",
+    "Documents data access patterns like Repository and Unit of Work",
+    "Covers creational, structural, and behavioral pattern categories"
+  ],
+  "author": "Benny9193",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The skill contains only documentation with TypeScript code examples. No executable code, network calls, or command execution patterns exist. Scanner misinterpreted template literals in documentation as shell backticks and JSON structure as cryptographic code.",
+  "valueStatement": "Developers waste time reinventing solutions to common problems. This skill provides ready-to-use TypeScript code patterns for creational, structural, and behavioral design patterns along with async and data access patterns.",
+  "userTitle": "Apply Common Design Patterns",
+  "limitations": [
+    "Contains only code examples, does not execute any code",
+    "Patterns are starting points that require adaptation for specific use cases",
+    "Does not include testing patterns or performance optimization techniques"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software architects and senior developers",
+      "title": "Architecture Decisions",
+      "description": "Senior developers use this skill to patterns when select appropriate designing new features or refactoring existing code."
+    },
+    {
+      "targetUser": "Developers learning software design",
+      "title": "Learning Design Patterns",
+      "description": "Intermediate developers reference this skill to learn when and how to apply common software design patterns in their TypeScript projects."
+    },
+    {
+      "targetUser": "All developers",
+      "title": "Quick Pattern Lookup",
+      "description": "Developers quickly find working code examples for patterns like Factory, Observer, Strategy, or Repository when implementing features."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Pattern Request",
+      "prompt": "Show me the [PATTERN_NAME] pattern in TypeScript with a practical example.",
+      "scenario": "Looking for a specific design pattern"
+    },
+    {
+      "title": "Problem-Solution Match",
+      "prompt": "I need to solve [PROBLEM_DESCRIPTION]. Which pattern should I use and show me the implementation.",
+      "scenario": "Matching problems to patterns"
+    },
+    {
+      "title": "Pattern Comparison",
+      "prompt": "What is the difference between [PATTERN_A] and [PATTERN_B]? Show me how to implement both in TypeScript.",
+      "scenario": "Choosing between similar patterns"
+    },
+    {
+      "title": "Real-World Application",
+      "prompt": "Show me how to use the [PATTERN_NAME] pattern in a real-world scenario with [USE_CASE].",
+      "scenario": "Applying patterns to specific contexts"
+    }
+  ],
+  "bestPractices": [
+    "Prefer composition over inheritance when applying structural patterns like Decorator",
+    "Use the Result type pattern for expected failures instead of exceptions",
+    "Apply the Strategy pattern to make algorithms swappable at runtime"
+  ],
+  "antiPatterns": [
+    "Avoid Singleton pattern as a global state solution; prefer dependency injection",
+    "Do not use patterns blindly without understanding the problem they solve",
+    "Avoid over-engineering with patterns for simple one-off solutions"
+  ],
+  "faq": [
+    {
+      "question": "What is the Factory pattern?",
+      "answer": "The Factory pattern creates objects without specifying the exact class. A factory class has a method that returns instances based on input parameters. Use it when object creation logic is complex or when the system should remain flexible about which classes it instantiates."
+    },
+    {
+      "question": "When should I use the Strategy pattern?",
+      "answer": "Use the Strategy pattern when you need to select an algorithm at runtime. It defines a family of algorithms, encapsulates each one, and makes them interchangeable. Common use cases include payment processing, sorting algorithms, and validation strategies."
+    },
+    {
+      "question": "What is the difference between Observer and Pub/Sub?",
+      "answer": "The Observer pattern has a direct relationship between subjects and observers. Pub/Sub adds a message broker or event channel between publishers and subscribers, providing more decoupling. Observer is simpler for direct notification use cases; Pub/Sub scales better for distributed systems."
+    },
+    {
+      "question": "How do I handle transient failures?",
+      "answer": "Use the Retry with Backoff pattern. It attempts an operation multiple times with increasing delays between attempts. Exponential backoff prevents overwhelming failing services while giving them time to recover. Set a maximum attempt count to avoid infinite loops."
+    },
+    {
+      "question": "What is the Repository pattern?",
+      "answer": "The Repository pattern abstracts data access logic behind a clean interface. It separates the domain model from data persistence details. Repositories provide methods like findById, findAll, and save without exposing database-specific queries to the business logic layer."
+    },
+    {
+      "question": "When should I use the Decorator pattern?",
+      "answer": "Use the Decorator pattern when you need to add behavior to objects dynamically without modifying their class. It wraps objects in a decorator class that adds functionality. This is useful for cross-cutting concerns like logging, caching, or validation that should apply to specific objects rather than entire classes."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "design patterns",
+    "software patterns",
+    "TypeScript patterns",
+    "factory pattern",
+    "observer pattern",
+    "strategy pattern",
+    "code best practices"
+  ],
+  "sourceUrl": "https://github.com/Benny9193/devflow/tree/master/skills/code-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

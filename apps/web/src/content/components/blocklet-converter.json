@@ -1,0 +1,142 @@
+{
+  "name": "blocklet-converter",
+  "type": "skill",
+  "description": "Converts static web or Next.js projects into ArcBlock blocklets using provided DID. Analyzes project structure, generates configuration files, and validates setup. Requires blocklet DID as parameter.",
+  "domain": "devops",
+  "subdomain": "deployment",
+  "specialty": "project conversion",
+  "quality": 5,
+  "qualityReason": "Specific deployment workflow",
+  "bundleHints": [
+    "arcblock-tools",
+    "deployment-automation"
+  ],
+  "tags": [
+    "arcblock",
+    "blocklet",
+    "configuration",
+    "deployment",
+    "did",
+    "nextjs",
+    "static-site",
+    "validation"
+  ],
+  "capabilities": [
+    "Detect project type automatically from package.json dependencies",
+    "Generate blocklet.yml configuration files with proper DID and metadata",
+    "Install dependencies and run build processes for web projects",
+    "Create missing README and logo assets using default templates",
+    "Validate blocklet configuration and create release bundles",
+    "Support both static webapps and Next.js server-side applications"
+  ],
+  "author": "ArcBlock",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is safe for publication. The 125 static findings are false positives from template files and documentation examples. The skill executes legitimate build commands for converting web projects to blocklets. No malicious patterns, data exfiltration, or unauthorized network access detected.",
+  "valueStatement": "Manual blocklet configuration is time consuming and error prone. This skill automates the entire conversion process for static web and Next.js projects into ArcBlock blocklets with validation.",
+  "userTitle": "Convert Web Projects to ArcBlock Blocklets",
+  "limitations": [
+    "Requires pre-generated blocklet DID in correct format",
+    "Only supports static webapps and Next.js projects, not backend frameworks",
+    "Requires blocklet CLI to be installed on the system",
+    "Build failures will halt the conversion process immediately"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers deploying React applications",
+      "title": "Deploy React App to ArcBlock",
+      "description": "Convert a Vite or Create React App project into a blocklet for deployment on ArcBlock platform"
+    },
+    {
+      "targetUser": "Full-stack developers working with Next.js",
+      "title": "Migrate Next.js Application",
+      "description": "Transform a Next.js server-side application into a blocklet with proper configuration and validation"
+    },
+    {
+      "targetUser": "Web designers and static site creators",
+      "title": "Package Static Website",
+      "description": "Convert plain HTML/CSS/JS websites into blocklets for distribution on ArcBlock ecosystem"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Static Site Conversion",
+      "prompt": "Convert this static website to a blocklet using DID z8ia4e5vAeDsQEE2P26bQqz9oWR1Lxg9qUMaV",
+      "scenario": "Converting a simple HTML/CSS/JS website"
+    },
+    {
+      "title": "React App with Build Step",
+      "prompt": "Convert this Vite React project to a blocklet using DID z8ia9xB7CjK5mNpQ2RsTuVw3Xy4Za",
+      "scenario": "Converting a modern React application with build process"
+    },
+    {
+      "title": "Next.js Application",
+      "prompt": "Make this Next.js app a blocklet with DID z2qa72hNwqEw43g2VFNLab2Bymk4LwG7AiBhX",
+      "scenario": "Converting a server-side Next.js application"
+    },
+    {
+      "title": "Conversion with Troubleshooting",
+      "prompt": "Convert this project to blocklet using DID z8ia3xD9EkM7oNqS4TuWyZ6Ac and help fix any build errors",
+      "scenario": "Converting a project that may have build issues"
+    }
+  ],
+  "bestPractices": [
+    "Always provide a valid blocklet DID starting with z8ia or z2qa format",
+    "Ensure your project has a package.json with proper dependencies before conversion",
+    "Run the conversion in a clean git repository to track changes made by the skill"
+  ],
+  "antiPatterns": [
+    "Do not attempt to convert backend API projects, only static and Next.js apps are supported",
+    "Do not skip the DID parameter, the skill requires it upfront and will exit immediately",
+    "Do not ignore build failures, fix TypeScript and configuration errors before retrying"
+  ],
+  "faq": [
+    {
+      "question": "What is a blocklet DID and how do I get one?",
+      "answer": "A DID is a decentralized identifier for your blocklet. Generate one using the command: blocklet create --did-only --random"
+    },
+    {
+      "question": "Can I convert Express or Fastify backend apps?",
+      "answer": "No, this skill only supports static webapps and Next.js projects. Backend framework projects will be rejected with an error message."
+    },
+    {
+      "question": "What happens if my build fails during conversion?",
+      "answer": "The skill will exit immediately and display the build error output. Fix the errors and run the conversion again."
+    },
+    {
+      "question": "Do I need to install any tools before using this skill?",
+      "answer": "Yes, you need the blocklet CLI installed globally. Install it with: npm install -g @blocklet/cli"
+    },
+    {
+      "question": "Where does the skill look for my built files?",
+      "answer": "For static sites it checks dist, build, out, public directories. For Next.js it always uses the .next directory."
+    },
+    {
+      "question": "Can I customize the generated blocklet.yml file?",
+      "answer": "Yes, after the skill generates the file you can edit it manually to add custom configurations, environments, or capabilities."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "ArcBlock",
+    "blocklet",
+    "deployment",
+    "Next.js",
+    "static site",
+    "web3",
+    "DID"
+  ],
+  "sourceUrl": "https://github.com/ArcBlock/agent-skills/tree/main/plugins/blocklet/skills/blocklet-converter",
+  "sourceType": "community",
+  "dependencies": []
+}

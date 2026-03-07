@@ -1,0 +1,144 @@
+{
+  "name": "when-verifying-quality-use-verification-quality",
+  "type": "skill",
+  "description": "Comprehensive quality verification and validation through static analysis, dynamic testing, integration validation, and certification gates",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "certification gates",
+  "quality": 5,
+  "qualityReason": "Multi-layer quality gate",
+  "bundleHints": [
+    "quality-assurance",
+    "testing"
+  ],
+  "tags": [
+    "certification",
+    "ci/cd",
+    "code analysis",
+    "dynamic testing",
+    "quality assurance",
+    "static analysis",
+    "testing"
+  ],
+  "capabilities": [
+    "Executes 5-phase quality verification workflow with 3 specialized agents",
+    "Analyzes code quality metrics including maintainability index and cyclomatic complexity",
+    "Runs unit, integration, and E2E tests with coverage tracking",
+    "Validates service health and API contract compliance",
+    "Calculates weighted certification score with pass/fail gates",
+    "Generates compliance documentation and cryptographic signatures"
+  ],
+  "author": "DNYoussef",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Skill contains documentation for quality verification processes. Static scanner flagged compliance terms (SOC2, GDPR, WCAG) as C2 keywords, SHA-256 crypto operations as weak algorithms, and command references in documentation as external commands. All findings are false positives from documentation-only content. No actual malicious code execution patterns detected.",
+  "valueStatement": "Manual quality checks are inconsistent and time-consuming. This skill automates comprehensive quality verification across static analysis, dynamic testing, and integration validation with measurable certification scores and compliance documentation.",
+  "userTitle": "Verify Code Quality Automatically",
+  "limitations": [
+    "Requires existing test infrastructure (Jest, Cypress, SonarQube)",
+    "Does not fix code issues automatically",
+    "Cryptographic signing requires valid private key",
+    "External service dependencies must be available for integration tests"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineers and release managers",
+      "title": "Pre-Release Quality Gate",
+      "description": "Run comprehensive quality verification before production deployment. The skill evaluates static analysis, dynamic testing, and integration validation to calculate a certification score. Build is approved only if score meets threshold."
+    },
+    {
+      "targetUser": "Development teams and QA engineers",
+      "title": "CI/CD Pipeline Integration",
+      "description": "Integrate automated quality checks into GitHub Actions or other CI/CD systems. The skill generates certification reports and can fail builds that do not meet quality thresholds."
+    },
+    {
+      "targetUser": "Compliance officers and security teams",
+      "title": "Compliance Documentation",
+      "description": "Generate audit trails and compliance documentation for regulatory requirements. The skill produces signed certification reports showing quality metrics and stakeholder sign-off."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Quality Check",
+      "prompt": "Use the when-verifying-quality skill to run a complete quality verification on this project. Start with static analysis, then run all tests, validate integrations, and generate a certification report.",
+      "scenario": "Running full quality verification"
+    },
+    {
+      "title": "Quick Regression Check",
+      "prompt": "Run a focused quality check using when-verifying-quality. Execute dynamic testing only and verify the test pass rate meets the 95% threshold. Report coverage metrics.",
+      "scenario": "Quick regression testing"
+    },
+    {
+      "title": "Integration Validation",
+      "prompt": "Validate all service integrations and API contracts using when-verifying-quality. Check database connectivity, message queue operations, and external API availability.",
+      "scenario": "Integration testing"
+    },
+    {
+      "title": "Release Certification",
+      "prompt": "Generate a release certification report using when-verifying-quality. Calculate the weighted certification score, validate all compliance checks, and create signed documentation.",
+      "scenario": "Production release preparation"
+    }
+  ],
+  "bestPractices": [
+    "Run quality verification on every build to catch issues early and maintain consistent standards across releases.",
+    "Set realistic thresholds based on project maturity. New projects may need lower initial targets with gradual improvement.",
+    "Store certification reports and audit trails for compliance audits and historical quality trend analysis.",
+    "Address failing quality gates immediately rather than lowering thresholds to pass."
+  ],
+  "antiPatterns": [
+    "Ignoring quality gate failures and proceeding with deployment anyway defeats the purpose of automated verification.",
+    "Setting thresholds too high without infrastructure investment leads to constant failures and team frustration.",
+    "Running only partial verification phases misses important quality signals from other phases.",
+    "Skipping integration validation because services are mocked can hide production issues."
+  ],
+  "faq": [
+    {
+      "question": "What quality gates does this skill enforce?",
+      "answer": "The skill enforces 8 quality gates: maintainability index (65+), cyclomatic complexity (<10), code duplication (<5%), test pass rate (95%+), test coverage (90%+), branch coverage (85%+), service health (100%), and API contracts (100% verified)."
+    },
+    {
+      "question": "Can I customize the quality thresholds?",
+      "answer": "Yes, thresholds are configurable in the quality-verification.config.js file. You can adjust certification score, maintainability index, test pass rate, and coverage targets based on your project requirements."
+    },
+    {
+      "question": "What testing frameworks are supported?",
+      "answer": "The skill integrates with Jest (unit tests), Cypress and Playwright (E2E tests), SonarQube and ESLint (static analysis), Pact (contract testing), and TestContainers (database integration)."
+    },
+    {
+      "question": "How is the certification score calculated?",
+      "answer": "The certification score is a weighted average: static analysis (35%), dynamic testing (45%), and integration validation (20%). A score of 80+ with all compliance checks passing is required for approval."
+    },
+    {
+      "question": "Does this skill generate compliance documentation?",
+      "answer": "Yes, the skill generates comprehensive certification reports including quality metrics, compliance checklists, stakeholder sign-off records, and cryptographic signatures for audit trails."
+    },
+    {
+      "question": "How do I integrate this with my CI/CD pipeline?",
+      "answer": "Add the quality verification step to your pipeline configuration. The skill outputs quality-verification-summary.json which your pipeline can read to fail builds that do not meet the certification threshold."
+    }
+  ],
+  "seoKeywords": [
+    "quality verification",
+    "code quality",
+    "static analysis",
+    "test coverage",
+    "CI/CD testing",
+    "quality gates",
+    "certification",
+    "compliance",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/testing-quality/when-verifying-quality-use-verification-quality",
+  "sourceType": "community",
+  "dependencies": []
+}

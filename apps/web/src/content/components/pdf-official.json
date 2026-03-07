@@ -1,0 +1,139 @@
+{
+  "name": "pdf-official",
+  "type": "skill",
+  "description": "Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmaticall...",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "official toolkit",
+  "quality": 3,
+  "qualityReason": "Generic toolkit description",
+  "bundleHints": [
+    "document-processing",
+    "pdf-tools"
+  ],
+  "tags": [
+    "document-processing",
+    "form-filling",
+    "merging",
+    "pdf",
+    "pdf-creation",
+    "splitting",
+    "text-extraction"
+  ],
+  "capabilities": [
+    "Extract fillable form field information from PDFs including text fields, checkboxes, radio groups, and dropdown choices",
+    "Convert PDF pages to PNG images for visual analysis of non-fillable forms",
+    "Generate validation images with bounding box overlays to verify text placement accuracy",
+    "Fill PDF forms by updating existing form field values or adding text annotations",
+    "Merge, split, and rotate PDF documents using pypdf library",
+    "Extract text and tables from PDFs using pdfplumber"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "Proprietary. LICENSE.txt has complete terms",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 220 patterns but all are false positives. The 'Ruby backtick' detections are markdown code blocks in documentation, not shell execution. 'Weak crypto' and 'C2 keywords' findings have no basis in actual code. The skill uses legitimate Python PDF libraries (pypdf, pdfplumber, PIL) for expected file operations. No network exfiltration, command injection, or malicious patterns found.",
+  "valueStatement": "Manually filling PDF forms is tedious and error-prone. This skill enables Claude to extract form fields, validate layouts, and populate PDFs programmatically with accurate data.",
+  "userTitle": "Process and Fill PDF Forms with Claude",
+  "limitations": [
+    "Cannot process password-protected PDFs without the password being provided",
+    "OCR for scanned PDFs requires pytesseract installation and may have accuracy limitations",
+    "Annotation-based filling for non-fillable PDFs requires manual bounding box verification",
+    "Cannot execute shell commands directly - relies on Python libraries for all operations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Administrative professionals handling repetitive form processing",
+      "title": "Automated Form Filling for Administrative Work",
+      "description": "Office workers can have Claude extract form fields from employment applications, tax forms, or registration documents, then populate them with user-provided information accurately and consistently."
+    },
+    {
+      "targetUser": "Data analysts and academic researchers",
+      "title": "PDF Data Extraction for Research",
+      "description": "Researchers can extract tables and structured data from academic PDFs, converting them to CSV or Excel format for analysis without manual copy-pasting."
+    },
+    {
+      "targetUser": "Legal and compliance professionals",
+      "title": "Document Preparation for Legal or Compliance",
+      "description": "Legal teams can merge multiple PDF documents, add watermarks, apply consistent annotations, and fill standardized forms with case-specific information."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic: Check PDF Form Fields",
+      "prompt": "Check if this PDF has fillable form fields: [upload PDF]. Run the check_fillable_fields script and tell me what fields are available.",
+      "scenario": "User wants to know if a PDF can be filled programmatically"
+    },
+    {
+      "title": "Intermediate: Extract and Fill Form",
+      "prompt": "Extract the form field information from [input.pdf] to a JSON file, then fill it with these values: [provide field values]. Create the filled PDF as [output.pdf].",
+      "scenario": "User has a fillable PDF and wants to populate it with specific data"
+    },
+    {
+      "title": "Advanced: Non-Fillable Form Processing",
+      "prompt": "This PDF has no fillable fields. Convert it to images, help me identify bounding boxes for text entry areas, create validation images to verify placement, then add annotations to fill in the form with [data].",
+      "scenario": "User needs to fill a static PDF form that lacks interactive form fields"
+    },
+    {
+      "title": "Expert: Batch PDF Operations",
+      "prompt": "I have 50 PDF forms that need the same fields filled with different values from this spreadsheet. Extract the field structure once, then process all PDFs with their corresponding data rows.",
+      "scenario": "User needs to process multiple similar forms with varying data"
+    }
+  ],
+  "bestPractices": [
+    "Always run check_fillable_fields first to determine if the PDF has interactive form fields or requires annotation-based filling",
+    "Generate and visually inspect validation images before finalizing non-fillable form annotations to ensure accurate text placement",
+    "Keep original PDFs as backups before running fill operations, as the process creates new output files"
+  ],
+  "antiPatterns": [
+    "Do not skip validation image inspection - bounding box errors result in text appearing in wrong locations",
+    "Do not assume all PDFs have fillable fields - many scanned forms require manual bounding box identification",
+    "Do not use annotation-based filling for forms that have actual form fields - use the fillable field approach instead"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between fillable and non-fillable PDF forms?",
+      "answer": "Fillable PDFs have interactive form fields (text boxes, checkboxes) that can be programmatically populated. Non-fillable PDFs are static images or text that require visual analysis to determine where text should be placed as annotations."
+    },
+    {
+      "question": "Can this skill handle scanned PDFs or images?",
+      "answer": "Yes, but it requires OCR (pytesseract) to extract text from scanned documents. The accuracy depends on scan quality. For filling scanned forms, annotation-based placement is used."
+    },
+    {
+      "question": "What Python libraries does this skill use?",
+      "answer": "Primary libraries include pypdf for PDF manipulation, pdfplumber for text and table extraction, and PIL (Pillow) for image processing. Optional: pytesseract for OCR, pdf2image for PDF-to-image conversion."
+    },
+    {
+      "question": "How do I validate that filled form fields are positioned correctly?",
+      "answer": "For annotation-based filling, use the create_validation_image script which overlays colored rectangles on your PDF images. Red shows entry areas, blue shows labels. Visually confirm placement before generating the final PDF."
+    },
+    {
+      "question": "Can this skill merge multiple PDFs into one document?",
+      "answer": "Yes, the skill includes merge functionality using pypdf. You can combine multiple PDF files in a specified order into a single output document."
+    },
+    {
+      "question": "What happens if I provide an invalid field value for a form field?",
+      "answer": "The fill_fillable_fields script validates values against field types. For checkboxes, it verifies against checked/unchecked values. For radio groups and dropdowns, it validates against available options. Invalid values cause the script to exit with an error message."
+    }
+  ],
+  "seoKeywords": [
+    "Claude PDF skills",
+    "Codex form filling",
+    "Claude Code PDF",
+    "PDF automation",
+    "form extraction",
+    "PDF manipulation",
+    "document processing",
+    "PDF annotation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/pdf-official",
+  "sourceType": "community",
+  "dependencies": []
+}

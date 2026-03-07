@@ -1,0 +1,142 @@
+{
+  "name": "haskell-pro",
+  "type": "skill",
+  "description": "Expert Haskell engineer specializing in advanced type systems, pure",
+  "domain": "languages",
+  "subdomain": "other",
+  "specialty": "functional design",
+  "quality": 5,
+  "qualityReason": "Expert-level language skill",
+  "bundleHints": [
+    "functional-programming",
+    "haskell-stack"
+  ],
+  "tags": [
+    "architecture",
+    "concurrency",
+    "functional-programming",
+    "haskell",
+    "pure-functional",
+    "reliability",
+    "static-typing",
+    "type-systems"
+  ],
+  "capabilities": [
+    "Design advanced type systems using GADTs, type families, and phantom types",
+    "Architect pure functional applications with explicit IO boundaries",
+    "Implement concurrency patterns using STM, async, and lightweight threads",
+    "Create typeclass hierarchies with law-driven development",
+    "Optimize Haskell code with strictness analysis and profiling techniques",
+    "Structure Cabal/Stack projects with proper dependency management"
+  ],
+  "author": "sickn33",
+  "icon": "λ",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 7 potential issues (1 external_commands, 6 weak cryptographic patterns). All findings are false positives: the 'external_commands' detection was Markdown backticks for file paths, not shell execution. The 'weak cryptographic' detections appear to be scanner errors as no cryptographic code exists in the skill. The skill contains only documentation and instructions for Haskell programming assistance with no executable code, network operations, or security risks.",
+  "valueStatement": "Struggling with complex type systems and pure functional design in Haskell? This skill provides expert guidance on type-level programming, concurrency patterns, and building high-reliability software with strong static guarantees.",
+  "userTitle": "Master Advanced Haskell Programming with Expert Guidance",
+  "limitations": [
+    "Cannot execute or compile Haskell code directly - provides guidance only",
+    "Does not run tests or build projects - offers patterns and examples",
+    "Cannot debug runtime errors without code context and error messages",
+    "Limited to Haskell-specific guidance - does not cover non-Haskell tooling"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Haskell developers building type-safe APIs and domain models",
+      "title": "Type-Level Programming",
+      "description": "Design sophisticated type-level abstractions that encode business logic in the type system, catching errors at compile time"
+    },
+    {
+      "targetUser": "Backend engineers implementing high-performance Haskell services",
+      "title": "Concurrent Systems Design",
+      "description": "Build concurrent and parallel applications using STM, async, and lightweight threads with proper exception safety"
+    },
+    {
+      "targetUser": "Teams maintaining or refactoring Haskell applications",
+      "title": "Codebase Architecture Review",
+      "description": "Evaluate existing Haskell codebases for functional design patterns, type safety, and architectural improvements"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Type-Safe Domain Model",
+      "prompt": "Design a type-safe domain model for a [domain] system. Use newtypes, phantom types, or GADTs to encode invariants at the type level and prevent invalid states.",
+      "scenario": "Starting a new Haskell project that needs strong compile-time guarantees"
+    },
+    {
+      "title": "Refactor to Pure Functions",
+      "prompt": "Review this Haskell code and refactor it to separate pure logic from effectful code. Identify where IO can be isolated and propose a function signature architecture.",
+      "scenario": "Improving code testability by reducing side effects"
+    },
+    {
+      "title": "Concurrent Design Pattern",
+      "prompt": "Design a concurrent [system] using Haskell's STM and async. Show how to handle shared state safely and implement exception-safe resource cleanup.",
+      "scenario": "Building a concurrent system that requires shared state management"
+    },
+    {
+      "title": "Performance Optimization",
+      "prompt": "Analyze this Haskell code for performance bottlenecks. Identify opportunities for strictness analysis, fusion optimizations, or better data structure choices.",
+      "scenario": "Profiling and optimizing a Haskell application for better performance"
+    }
+  ],
+  "bestPractices": [
+    "Start by clarifying your specific Haskell challenge - whether it is type-level design, concurrency, architecture, or performance tuning",
+    "Provide relevant code snippets, error messages, or compiler warnings for more targeted guidance",
+    "Specify your GHC version and key dependencies when requesting architecture or compatibility advice"
+  ],
+  "antiPatterns": [
+    "Asking for non-Haskell programming help - use a general coding skill instead",
+    "Requesting execution of arbitrary system commands or file operations outside your project context",
+    "Expecting complete application implementations without providing project requirements or constraints"
+  ],
+  "faq": [
+    {
+      "question": "Can this skill write and compile Haskell code for me?",
+      "answer": "No, this skill provides expert guidance, patterns, and examples for Haskell programming. It helps you design type systems, architecture, and solutions, but you must implement and compile the code yourself using GHC or your build system."
+    },
+    {
+      "question": "Should I use this skill for learning Haskell basics?",
+      "answer": "This skill focuses on advanced Haskell topics like type-level programming and concurrency. For Haskell fundamentals, consider a beginner-friendly resource first, then use this skill when you are ready for advanced patterns and architecture."
+    },
+    {
+      "question": "What information should I provide for the best guidance?",
+      "answer": "Share your specific challenge, relevant code snippets, GHC version, and constraints. For architecture questions, explain your system requirements. For performance issues, provide profiler output or bottlenecks you have identified."
+    },
+    {
+      "question": "Can this skill help with legacy Haskell codebases?",
+      "answer": "Yes, provide the code you want to refactor or improve. The skill can identify opportunities for better type safety, pure function extraction, and architectural improvements while explaining the reasoning behind changes."
+    },
+    {
+      "question": "Does this skill cover web frameworks like Yesod or Servant?",
+      "answer": "The skill covers Haskell type systems, concurrency, and architecture principles that apply to web development. It can help design type-safe APIs and effectful code patterns, but for framework-specific questions, provide context about your framework choice."
+    },
+    {
+      "question": "Can this skill help me choose between Cabal and Stack?",
+      "answer": "Yes, the skill covers project structure, build tools, and dependency hygiene. Describe your project requirements, team context, and constraints, and it can guide you toward the appropriate tooling choice with rationale."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Haskell expert",
+    "functional programming",
+    "type systems",
+    "GADTs",
+    "Haskell concurrency",
+    "type-level programming",
+    "pure functional design"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/haskell-pro",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "brainstorming-features",
+  "type": "skill",
+  "description": "Facilitates creative ideation sessions for mobile and web app features, generating structured ideas with user stories, technical considerations, and implementation suggestions. Use when planning new features, exploring product direction, generating app ideas, feature discovery, product brainstorming, or when user mentions 'brainstorm', 'ideate', 'app ideas', or 'feature suggestions'.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "feature ideation",
+  "quality": 5,
+  "qualityReason": "Specific to feature development",
+  "bundleHints": [
+    "product-workflow",
+    "feature-design"
+  ],
+  "tags": [
+    "feature-design",
+    "feature-discovery",
+    "ideation",
+    "product-planning",
+    "technical-considerations",
+    "user-stories"
+  ],
+  "capabilities": [
+    "Generates structured feature ideas with user stories and technical considerations",
+    "Provides implementation complexity assessments (Low/Medium/High)",
+    "Offers multiple brainstorming methods (Problem-First, Opportunity-First, Competitive Analysis, User Journey Mapping)",
+    "Creates feature briefs with prioritization matrices and success metrics",
+    "Produces concise feature lists and feature roadmap organization",
+    "Delivers actionable output ready for product team review"
+  ],
+  "author": "Emz1998",
+  "icon": "💡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 24 static findings are false positives. The scanner misidentified markdown code block delimiters as shell commands, technology references as browser storage access, template text as cryptographic algorithms, and prioritization logic as system reconnaissance. This is pure documentation with no executable code or security risks.",
+  "valueStatement": "Planning new app features requires structured ideation. This skill generates actionable feature concepts with user stories, technical considerations, and implementation complexity scores to accelerate product development.",
+  "userTitle": "Generate feature ideas with structure",
+  "limitations": [
+    "Requires user-provided context about app type, tech stack, and target users",
+    "Does not include market research or competitive analysis data",
+    "Generated ideas require human validation for business relevance",
+    "Does not design user interfaces or create technical specifications"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Startup founders and product designers",
+      "title": "Startup MVP Planning",
+      "description": "Founders use this skill to rapidly generate feature ideas for their minimum viable product, ensuring they focus on high-impact features that deliver core value to early adopters."
+    },
+    {
+      "targetUser": "Product managers and business analysts",
+      "title": "Product Team Feature Discovery",
+      "description": "Product managers use the skill to facilitate feature discovery workshops, generating structured ideas that can be evaluated against business goals and technical constraints."
+    },
+    {
+      "targetUser": "Mobile and web developers",
+      "title": "App Enhancement Sessions",
+      "description": "Developers use the skill to explore new features for existing applications, receiving technical considerations and implementation complexity guidance for each idea."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Feature Request",
+      "prompt": "Generate 5 feature ideas for a [app type] that helps [target users] achieve [main goal]. Keep it simple with one-line descriptions.",
+      "scenario": "When user wants a fast list of ideas without detailed context"
+    },
+    {
+      "title": "Detailed Feature Brief",
+      "prompt": "Create detailed feature briefs for 3 features for a [app type] built with [tech stack]. Target users are [user personas]. Focus on [specific problem area]. Include user stories, technical considerations, and implementation complexity.",
+      "scenario": "When user needs comprehensive feature documentation"
+    },
+    {
+      "title": "Competitive Analysis Session",
+      "prompt": "Analyze typical features for [app category] apps and generate 5 unique feature ideas that would differentiate a new app from competitors. Explain how each creates competitive advantage.",
+      "scenario": "When user wants to explore market differentiation"
+    },
+    {
+      "title": "Constrained Ideation",
+      "prompt": "Generate feature ideas for a [app type] with these constraints: tech stack is [stack], budget is [budget], timeline is [timeline]. Focus on [specific goals] and provide effort estimates for each idea.",
+      "scenario": "When user has specific technical or resource constraints"
+    }
+  ],
+  "bestPractices": [
+    "Provide specific context about your app type, target users, and goals to receive focused, relevant ideas.",
+    "Iterate on ideas by adding technical constraints or business goals to refine the output.",
+    "Use the structured feature brief format when ideas need to be reviewed by engineering or stakeholders."
+  ],
+  "antiPatterns": [
+    "Asking for feature ideas without providing any context about the app or users.",
+    "Ignoring the technical considerations and implementation complexity guidance provided.",
+    "Accepting generated ideas without validating against actual user needs and business goals."
+  ],
+  "faq": [
+    {
+      "question": "What context should I provide for best results?",
+      "answer": "Share the app type (mobile, web, PWA), target users, tech stack, core value proposition, and any specific problems you want to solve. More context produces more relevant ideas."
+    },
+    {
+      "question": "Can this skill create full product requirements?",
+      "answer": "No. The skill generates feature ideas with user stories and technical considerations. Full product requirements need additional detail from product managers and stakeholders."
+    },
+    {
+      "question": "How many features should I generate at once?",
+      "answer": "Start with 5-10 ideas in concise format, then select 3-5 for detailed exploration. This prevents overwhelming analysis while ensuring you capture diverse possibilities."
+    },
+    {
+      "question": "Does this skill analyze competitor apps?",
+      "answer": "No. The skill can suggest features based on common patterns, but it does not access external data or analyze specific competitor applications."
+    },
+    {
+      "question": "How does implementation complexity work?",
+      "answer": "Complexity reflects estimated development effort: Low (days), Medium (1-2 weeks), High (weeks to months). Factors include integration needs, new technology, and architectural changes."
+    },
+    {
+      "question": "Can I use this for existing features?",
+      "answer": "Yes. Describe the current feature and what problem or enhancement you want. The skill can suggest improvements, complementary features, or alternative approaches."
+    }
+  ],
+  "seoKeywords": [
+    "feature brainstorming",
+    "app feature ideas",
+    "product ideation",
+    "feature discovery",
+    "user story generation",
+    "product planning",
+    "AI brainstorming",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/Emz1998/avaris-ai/tree/master/.claude/skills/brainstorming-features",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,137 @@
+{
+  "name": "email",
+  "type": "skill",
+  "description": "Email operations skill for sending, fetching, and reading emails via IMAP/SMTP.\nUses curl with OpenSSL/LibreSSL for reliable TLS compatibility with Tencent Enterprise Mail and other providers.\nCredentials are securely stored in macOS Keychain.\n",
+  "domain": "productivity",
+  "subdomain": "communication",
+  "specialty": "IMAP/SMTP operations",
+  "quality": 4,
+  "qualityReason": "Clear technical implementation",
+  "bundleHints": [
+    "email-tools",
+    "communication-stack"
+  ],
+  "tags": [
+    "curl",
+    "email",
+    "imap",
+    "productivity",
+    "smtp",
+    "tls"
+  ],
+  "capabilities": [
+    "Send emails via SMTP with TLS encryption and attachment support",
+    "Fetch email headers from IMAP servers with MIME decoding",
+    "Read full email content including headers and body",
+    "Multi-account support with secure macOS Keychain credential storage"
+  ],
+  "author": "7Sageer, Claude",
+  "icon": "✉️",
+  "version": "0.0.2",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate email operations skill. All static findings are FALSE POSITIVES. The combination of shell scripts, network connections (IMAP/SMTP), and credential access (Keychain) is EXPECTED and INTENTIONAL for email functionality. Passwords are securely stored in macOS Keychain, never in config files. No malicious patterns, data exfiltration, or suspicious external connections detected.",
+  "valueStatement": "This skill enables sending, fetching, and reading emails directly from your terminal using IMAP and SMTP protocols. It securely stores credentials in macOS Keychain and supports multiple email providers including Tencent Enterprise Mail and Gmail.",
+  "userTitle": "Send and manage emails via IMAP and SMTP",
+  "limitations": [
+    "Requires macOS with Keychain for credential management",
+    "No attachment handling or HTML email composition yet",
+    "Server-side IMAP search may be unreliable on some providers",
+    "OAuth2 authentication not yet supported"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Professionals",
+      "title": "Quick email sending",
+      "description": "Send emails directly from terminal without opening a mail client or browser."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Email automation",
+      "description": "Integrate email functionality into workflows and automation scripts."
+    },
+    {
+      "targetUser": "Remote workers",
+      "title": "Inbox monitoring",
+      "description": "Check and read emails from the command line efficiently."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Send email",
+      "scenario": "Quick email request",
+      "prompt": "Send an email to recipient@example.com about project update with the message body."
+    },
+    {
+      "title": "Check inbox",
+      "scenario": "Check for new emails",
+      "prompt": "Check my email and show me the latest 5 messages with their subjects."
+    },
+    {
+      "title": "Read message",
+      "scenario": "Read specific email",
+      "prompt": "Read email number 3 and show me the full content including headers."
+    },
+    {
+      "title": "Search emails",
+      "scenario": "Find specific emails",
+      "prompt": "Search my inbox for emails from last week containing the word 'meeting'."
+    }
+  ],
+  "bestPractices": [
+    "Always confirm recipient addresses before sending important emails",
+    "Store passwords in macOS Keychain instead of config files",
+    "Use app-specific passwords when available for enhanced security"
+  ],
+  "antiPatterns": [
+    "Do not store email passwords in plain text files",
+    "Do not skip TLS verification for email connections",
+    "Do not send emails without confirming the content first"
+  ],
+  "faq": [
+    {
+      "question": "Which email providers are supported?",
+      "answer": "Any provider with IMAP/SMTP access including Gmail, Outlook, Tencent Enterprise Mail, and custom email servers."
+    },
+    {
+      "question": "How are passwords stored?",
+      "answer": "Passwords are stored securely in macOS Keychain using the security command, never in configuration files."
+    },
+    {
+      "question": "Is OAuth2 supported?",
+      "answer": "OAuth2 authentication is not yet implemented. Currently only password-based authentication is supported."
+    },
+    {
+      "question": "Can I send attachments?",
+      "answer": "Attachment handling is planned for future enhancement. Currently only inline text and file-based body content are supported."
+    },
+    {
+      "question": "Does this work on Linux?",
+      "answer": "This skill is designed for macOS due to Keychain integration. Linux users would need to modify credential handling."
+    },
+    {
+      "question": "What ports are used?",
+      "answer": "Standard ports 993 for IMAP and 465 or 587 for SMTP. All connections use TLS encryption."
+    }
+  ],
+  "seoKeywords": [
+    "email skill",
+    "IMAP email",
+    "SMTP email",
+    "curl email",
+    "macOS email automation",
+    "email CLI",
+    "Claude email skill",
+    "Codex email automation",
+    "Claude Code email"
+  ],
+  "sourceUrl": "https://github.com/7Sageer/cc-assistant/tree/main/.claude/skills/email",
+  "sourceType": "community",
+  "dependencies": []
+}

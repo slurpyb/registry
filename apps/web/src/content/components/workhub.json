@@ -1,0 +1,140 @@
+{
+  "name": "workhub",
+  "type": "skill",
+  "description": "工作文档枢纽，强制执行 SSOT（Single Source of Truth）原则，管理 `docs/` 目录下的架构决策、设计文档、Issues（任务规划）、PRs（变更记录）。支持 GitHub 协作开发模式。",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "SSOT management",
+  "quality": 5,
+  "qualityReason": "Strong SSOT enforcement",
+  "bundleHints": [
+    "project-hub",
+    "docs-ops"
+  ],
+  "tags": [
+    "architecture",
+    "documentation",
+    "issues",
+    "prs",
+    "ssot",
+    "task-tracking"
+  ],
+  "capabilities": [
+    "Initialize standardized docs/ directory structure with adr/, architecture/, issues/, pr/ folders",
+    "Create issue files from templates with status tracking and acceptance criteria",
+    "Create pull request files from templates with rollback plans",
+    "List all issues and PRs with their current status",
+    "Search across all issues and PRs for specific keywords",
+    "Audit docs structure for compliance with SSOT governance rules"
+  ],
+  "author": "Dwsy",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation management skill using Node.js fs APIs. Only reads/writes markdown files to local docs/ directory. No network calls, no external commands, no sensitive data access. All 303 static findings are false positives from misclassified markdown examples and path strings.",
+  "valueStatement": "Managing project documentation across multiple files and tracking issues becomes disorganized. Workhub enforces a Single Source of Truth principle with standardized templates for architecture decisions, issues, and pull requests in a structured docs/ directory.",
+  "userTitle": "Manage documentation and track tasks",
+  "limitations": [
+    "Only manages markdown files in the local docs/ directory",
+    "Does not integrate with external issue trackers like GitHub Issues",
+    "No built-in synchronization or backup capabilities",
+    "Status updates require manual file editing"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project Architects",
+      "title": "Architecture Decision Records",
+      "description": "Document architectural decisions with context, alternatives considered, and trade-offs made."
+    },
+    {
+      "targetUser": "Development Leads",
+      "title": "Task Tracking and Planning",
+      "description": "Track implementation phases, acceptance criteria, and status of features and bug fixes."
+    },
+    {
+      "targetUser": "Code Reviewers",
+      "title": "Pull Request Documentation",
+      "description": "Document changes with rollback plans, risk assessments, and test verification results."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Issue",
+      "scenario": "Start a new task",
+      "prompt": "Use workhub to create an issue titled \"[description]\" in the [category] category. Then show me the created file path."
+    },
+    {
+      "title": "Track Progress",
+      "scenario": "Check task status",
+      "prompt": "Run workhub status to show me all open issues and their current phase progress."
+    },
+    {
+      "title": "Review Changes",
+      "scenario": "Before merging code",
+      "prompt": "Run workhub list prs to show pending PRs, then read the PR file for [PR name] to review the rollback plan."
+    },
+    {
+      "title": "Find Context",
+      "scenario": "Search documentation",
+      "prompt": "Search workhub for \"[keyword]\" to find relevant issues and PRs related to this feature."
+    }
+  ],
+  "bestPractices": [
+    "Initialize docs structure before starting any project work",
+    "Create an issue before starting any feature or bug fix",
+    "Update issue status as you complete each phase"
+  ],
+  "antiPatterns": [
+    "Using the wrong directory path when reading or creating files",
+    "Skipping the issue template when creating new tasks",
+    "Not linking PRs to their related issues"
+  ],
+  "faq": [
+    {
+      "question": "Which tools support this skill?",
+      "answer": "Workhub works with Claude, Codex, and Claude Code. Run commands using bun path/to/lib.ts command."
+    },
+    {
+      "question": "What directory structure does it create?",
+      "answer": "It creates docs/ with subdirectories: adr/, architecture/, issues/, and pr/ for organized documentation."
+    },
+    {
+      "question": "Can I organize issues by module?",
+      "answer": "Yes, create issues in subdirectories like docs/issues/frontend/ by specifying a category parameter."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes, the skill only accesses the local docs/ directory. No data leaves your machine."
+    },
+    {
+      "question": "Why is my file not found?",
+      "answer": "Run workhub from your project root where docs/ exists. Use relative paths from docs/ when reading."
+    },
+    {
+      "question": "How is this different from GitHub Issues?",
+      "answer": "Workhub stores issues locally as markdown files following SSOT principle without external service integration."
+    }
+  ],
+  "seoKeywords": [
+    "workhub",
+    "documentation management",
+    "task tracking",
+    "SSOT",
+    "single source of truth",
+    "architecture decisions",
+    "issue tracking",
+    "PR templates",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/Dwsy/agent/tree/main/skills/workhub",
+  "sourceType": "community",
+  "dependencies": []
+}

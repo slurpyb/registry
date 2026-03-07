@@ -1,0 +1,139 @@
+{
+  "name": "css-development",
+  "type": "skill",
+  "description": "This skill should be used when working with CSS, creating components, styling elements, refactoring styles, or reviewing CSS code. Triggers on \"CSS\", \"styles\", \"Tailwind\", \"dark mode\", \"component styling\", \"semantic class\", \"@apply\", \"stylesheet\". Routes to specialized sub-skills for creation, validation, or refactoring.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "CSS component styling",
+  "quality": 5,
+  "qualityReason": "Broad but well-scoped",
+  "bundleHints": [
+    "frontend",
+    "component-library"
+  ],
+  "tags": [
+    "components",
+    "css",
+    "dark-mode",
+    "styling",
+    "tailwind"
+  ],
+  "capabilities": [
+    "Creates semantic CSS component classes using Tailwind @apply directive",
+    "Validates existing CSS against naming and pattern conventions",
+    "Refactors inline styles and utility classes to semantic patterns",
+    "Adds dark mode support with dark: variants automatically",
+    "Generates static CSS tests and component rendering tests",
+    "Routes to specialized sub-skills based on task context"
+  ],
+  "author": "2389-research",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation-only workflow guide for CSS development. All 281 static findings are false positives caused by pattern matching on markdown code examples. The backtick detections match markdown formatting, not shell execution. Cryptographic algorithm detections match file extensions. No executable code, network requests, or file system operations exist in this skill.",
+  "valueStatement": "Managing consistent CSS styles across projects is difficult and error-prone. This skill guides you through creating semantic component classes, adding dark mode support, and maintaining test coverage.",
+  "userTitle": "Create and refactor CSS with Tailwind semantic patterns",
+  "limitations": [
+    "Documentation and workflow guidance only, does not auto-generate CSS without user input",
+    "Assumes Tailwind CSS is already configured in the project",
+    "Does not handle CSS preprocessors like Sass or Less directly",
+    "Requires manual verification of visual output after changes"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend Developer",
+      "title": "Create new styled components",
+      "description": "Build a new button, card, or form component with semantic naming, dark mode support, and proper test coverage from scratch."
+    },
+    {
+      "targetUser": "Tech Lead",
+      "title": "Audit CSS codebase for consistency",
+      "description": "Review existing stylesheets to identify naming issues, missing dark mode variants, and opportunities for consolidation."
+    },
+    {
+      "targetUser": "Full-Stack Developer",
+      "title": "Refactor utility classes to semantic CSS",
+      "description": "Convert scattered Tailwind utilities in markup to maintainable semantic component classes with documentation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Component",
+      "scenario": "Starting a new UI element",
+      "prompt": "Create a button-secondary component that matches our button-primary style but with a gray background for less prominent actions."
+    },
+    {
+      "title": "Validate Styles",
+      "scenario": "Before merging CSS changes",
+      "prompt": "Review the CSS in styles/components.css and check if it follows our semantic naming and dark mode patterns."
+    },
+    {
+      "title": "Refactor CSS",
+      "scenario": "Cleaning up existing code",
+      "prompt": "Refactor the inline Tailwind classes in src/components/Card.tsx to use semantic component classes."
+    },
+    {
+      "title": "Add Dark Mode",
+      "scenario": "Improving accessibility",
+      "prompt": "Add dark mode support to all component classes in styles/components.css that are missing dark: variants."
+    }
+  ],
+  "bestPractices": [
+    "Always check existing components.css before creating new classes to enable reuse",
+    "Include dark: variants for all background, text, and border colors",
+    "Write both static CSS tests and component rendering tests for full coverage"
+  ],
+  "antiPatterns": [
+    "Creating utility-style class names like .btn-blue or .card-sm instead of semantic names",
+    "Adding CSS classes without corresponding test coverage",
+    "Skipping dark mode variants on colored or interactive elements"
+  ],
+  "faq": [
+    {
+      "question": "What is a semantic class name?",
+      "answer": "A class name that describes purpose, not appearance. Use .button-primary instead of .btn-blue. The name should convey what the element does."
+    },
+    {
+      "question": "When should I create a new CSS class vs compose existing ones?",
+      "answer": "First check if existing classes can combine to achieve your goal. Only create a new class if composition does not work or causes excessive duplication."
+    },
+    {
+      "question": "How do I add dark mode support?",
+      "answer": "Use Tailwind dark: prefix for colors and backgrounds. Example: @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-white."
+    },
+    {
+      "question": "What tests should I write for CSS components?",
+      "answer": "Write static tests to verify the class exists in components.css and rendering tests to confirm the class is applied to actual components."
+    },
+    {
+      "question": "Can this skill work with frameworks other than React?",
+      "answer": "Yes. The patterns work with React, Vue, Svelte, and vanilla HTML. The skill provides examples for multiple frameworks."
+    },
+    {
+      "question": "What is the atomic design pattern used here?",
+      "answer": "Components are organized as atoms (button, input), molecules (card, form-field), and organisms (page-layout). This helps scope complexity."
+    }
+  ],
+  "seoKeywords": [
+    "CSS development",
+    "Tailwind CSS",
+    "semantic classes",
+    "dark mode CSS",
+    "CSS refactoring",
+    "component styling",
+    "Claude Code",
+    "Claude",
+    "CSS testing",
+    "atomic design"
+  ],
+  "sourceUrl": "https://github.com/2389-research/claude-plugins/tree/main/css-development/skills",
+  "sourceType": "community",
+  "dependencies": []
+}

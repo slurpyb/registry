@@ -1,0 +1,141 @@
+{
+  "name": "agile-product-owner",
+  "type": "skill",
+  "description": "Agile product ownership toolkit for Senior Product Owner including INVEST-compliant user story generation, sprint planning, backlog management, and velocity tracking. Use for story writing, sprint planning, stakeholder communication, and agile ceremonies.",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "product ownership",
+  "quality": 5,
+  "qualityReason": "Senior PO toolkit defined",
+  "bundleHints": [
+    "product-management",
+    "agile-workflow",
+    "backlog"
+  ],
+  "tags": [
+    "agile",
+    "backlog",
+    "invest",
+    "product-management",
+    "sprint-planning",
+    "user-stories",
+    "velocity"
+  ],
+  "capabilities": [
+    "Generate INVEST-compliant user stories from feature descriptions",
+    "Create automated acceptance criteria using Given-When-Then format",
+    "Plan sprints with capacity limits and stretch goals",
+    "Estimate story points based on complexity indicators",
+    "Prioritize backlog items by critical, high, medium, and low"
+  ],
+  "author": "alirezarezvani",
+  "icon": "🏃",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 37 static findings are false positives. The scanner incorrectly flagged Python dictionary access (`.get()`), method definitions, list iterations, and YAML text as security threats. This is a pure Python user story generator with no cryptographic code, network access, or dangerous patterns. The SKILL.md code fences are documentation, not shell execution. This skill is safe to publish.",
+  "valueStatement": "Transform product ideas into INVEST-compliant user stories with automated acceptance criteria. Plan sprints with capacity metrics and prioritize backlog items based on business value and complexity.",
+  "userTitle": "Generate user stories and plan sprints",
+  "limitations": [
+    "Does not connect to external project management tools like Jira or Linear",
+    "Does not track sprint progress or burndown charts",
+    "Cannot import existing backlogs from files or APIs",
+    "Limited to predefined persona templates without customization"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product Owners",
+      "title": "Backlog Refinement",
+      "description": "Break down large features into manageable user stories with clear acceptance criteria"
+    },
+    {
+      "targetUser": "Scrum Masters",
+      "title": "Sprint Planning",
+      "description": "Calculate sprint capacity and select stories that fit within team velocity"
+    },
+    {
+      "targetUser": "Development Teams",
+      "title": "Story Estimation",
+      "description": "Get consistent story point estimates based on complexity indicators"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Generate Stories",
+      "scenario": "Create stories from epic",
+      "prompt": "Generate user stories for a {feature_name} feature targeting {persona} users"
+    },
+    {
+      "title": "Acceptance Criteria",
+      "scenario": "Add acceptance criteria",
+      "prompt": "Write acceptance criteria for a story about {feature_description}"
+    },
+    {
+      "title": "Plan Sprint",
+      "scenario": "Plan sprint capacity",
+      "prompt": "Plan a sprint with {capacity} story points from this backlog: {story_list}"
+    },
+    {
+      "title": "Story Points",
+      "scenario": "Estimate complexity",
+      "prompt": "Estimate story points for: {feature_description} with these requirements: {requirements}"
+    }
+  ],
+  "bestPractices": [
+    "Break epics into stories with single, independent deliverables",
+    "Use INVEST criteria to validate story quality before sprint planning",
+    "Balance sprint capacity with 10-20 percent buffer for unexpected issues"
+  ],
+  "antiPatterns": [
+    "Creating stories that depend on other stories without clear dependencies",
+    "Writing vague stories without clear acceptance criteria",
+    "Overcommitting to sprint capacity without accounting for technical debt"
+  ],
+  "faq": [
+    {
+      "question": "What is the INVEST criteria?",
+      "answer": "INVEST stands for Independent, Negotiable, Valuable, Estimable, Small, and Testable. These are quality standards for user stories."
+    },
+    {
+      "question": "How are story points calculated?",
+      "answer": "Points are estimated based on complexity indicators like feature type, integration needs, and technical requirements."
+    },
+    {
+      "question": "Can I customize persona templates?",
+      "answer": "The tool uses predefined personas. Edit the script to add custom personas for your specific use case."
+    },
+    {
+      "question": "Does this integrate with Jira?",
+      "answer": "The tool generates stories in text format. Copy output to Jira manually or use JSON output for imports."
+    },
+    {
+      "question": "What complexity words affect story points?",
+      "answer": "Simple, view, display reduce points. Create, edit increase points. Redesign, refactor, architect increase points significantly."
+    },
+    {
+      "question": "How do stretch goals work?",
+      "answer": "Stories up to 20 percent over capacity are marked as stretch goals for optional inclusion in the sprint."
+    }
+  ],
+  "seoKeywords": [
+    "agile user story generator",
+    "sprint planning tool",
+    "INVEST criteria",
+    "backlog management",
+    "story point estimation",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "velocity tracking",
+    "product owner toolkit"
+  ],
+  "sourceUrl": "https://github.com/alirezarezvani/claude-skills/tree/main/product-team/agile-product-owner",
+  "sourceType": "community",
+  "dependencies": []
+}

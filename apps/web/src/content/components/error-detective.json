@@ -1,0 +1,145 @@
+{
+  "name": "error-detective",
+  "type": "skill",
+  "description": "Systematic debugging and error resolution using the TRACE framework (Trace, Read, Analyze, Check, Execute). Use when debugging errors, analyzing stack traces, investigating failures, root cause analysis, or troubleshooting production issues.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "TRACE framework",
+  "quality": 5,
+  "qualityReason": "Structured problem-solving method",
+  "bundleHints": [
+    "debugging-framework",
+    "incident-analysis"
+  ],
+  "tags": [
+    "analysis",
+    "debugging",
+    "error-resolution",
+    "root-cause",
+    "stack-trace",
+    "stack-traces",
+    "systematic",
+    "trace-framework",
+    "troubleshooting"
+  ],
+  "capabilities": [
+    "Parse stack traces from Python, JavaScript, Java, and Go",
+    "Apply TRACE framework for systematic debugging",
+    "Identify error patterns and root causes across languages",
+    "Analyze log files for error frequency and patterns",
+    "Manage debug sessions with timestamped notes",
+    "Follow step-by-step debugging workflow examples"
+  ],
+  "author": "AutumnsGrove",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation and methodology skill with a Python helper script for stack trace parsing. All 260 static findings are false positives - the scanner misinterpreted markdown documentation examples as executable code. The skill does not execute commands, make network calls, or access credentials. File operations in debug_helper.py are limited to user-specified files and a local session directory.",
+  "valueStatement": "Debugging errors takes too long when you do not have a clear process. This skill provides a systematic TRACE framework to trace, read, analyze, check, and execute fixes for any error across Python, JavaScript, Java, and Go.",
+  "userTitle": "Debug errors systematically with TRACE framework",
+  "limitations": [
+    "Does not execute code or modify your application",
+    "Does not connect to external services or APIs",
+    "Does not provide real-time debugging or breakpoints",
+    "Requires you to provide error messages and stack traces"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Debug production errors",
+      "description": "Debug crashes and exceptions in your code using systematic analysis techniques"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Investigate failures",
+      "description": "Analyze application logs and stack traces to find root causes of production incidents"
+    },
+    {
+      "targetUser": "Junior developers",
+      "title": "Learn debugging skills",
+      "description": "Develop systematic debugging habits with structured methodology and real examples"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Debug an error",
+      "scenario": "I have an error to debug",
+      "prompt": "Help me debug this error using the TRACE framework. Error: [paste error message]"
+    },
+    {
+      "title": "Analyze stack trace",
+      "scenario": "I have a stack trace",
+      "prompt": "Parse and analyze this stack trace. Identify the root cause and fix. Stack trace: [paste stack trace]"
+    },
+    {
+      "title": "Find patterns",
+      "scenario": "I see recurring errors",
+      "prompt": "Analyze these log entries for error patterns. What are the most common errors and their causes?"
+    },
+    {
+      "title": "Compare languages",
+      "scenario": "I need language-specific help",
+      "prompt": "Compare how to debug [TypeError/NullPointerException/AttributeError] in Python, JavaScript, and Java"
+    }
+  ],
+  "bestPractices": [
+    "Always read the complete error message before debugging",
+    "Reproduce the error consistently before attempting fixes",
+    "Change one variable at a time when testing hypotheses",
+    "Document your findings and solutions for future reference"
+  ],
+  "antiPatterns": [
+    "Skipping error messages and guessing at the problem",
+    "Making multiple changes before identifying the root cause",
+    "Fixing symptoms without addressing the underlying issue",
+    "Not verifying that the fix resolves the original error"
+  ],
+  "faq": [
+    {
+      "question": "What languages does this skill support?",
+      "answer": "Python, JavaScript, TypeScript, Java, and Go stack traces and error patterns"
+    },
+    {
+      "question": "What is the TRACE framework?",
+      "answer": "Trace, Read, Analyze, Check, Execute - a five-step systematic debugging methodology"
+    },
+    {
+      "question": "Can this skill fix my code automatically?",
+      "answer": "No. It provides analysis and guidance. You implement the fixes based on the recommendations"
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill processes data locally. The helper script reads only files you specify"
+    },
+    {
+      "question": "Why does my error say it worked yesterday?",
+      "answer": "Check recent changes, dependency updates, configuration changes, or time-dependent logic"
+    },
+    {
+      "question": "How is this different from a linter?",
+      "answer": "Linters catch syntax issues. This skill helps debug runtime errors and logical issues"
+    }
+  ],
+  "seoKeywords": [
+    "error detective",
+    "debugging",
+    "stack trace analysis",
+    "error resolution",
+    "TRACE framework",
+    "Claude debugging",
+    "Codex debugging",
+    "Claude Code debugging",
+    "troubleshooting",
+    "root cause analysis"
+  ],
+  "sourceUrl": "https://github.com/AutumnsGrove/ClaudeSkills/tree/master/error-detective",
+  "sourceType": "community",
+  "dependencies": []
+}

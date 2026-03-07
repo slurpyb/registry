@@ -1,0 +1,144 @@
+{
+  "name": "schema-markup",
+  "type": "skill",
+  "description": "When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user mentions \"schema markup,\" \"structured data,\" \"JSON-LD,\" \"rich snippets,\" \"schema.org,\" \"FAQ schema,\" \"product schema,\" \"review schema,\" or \"breadcrumb schema.\" For broader SEO issues, see seo-audit.",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "structured data",
+  "quality": 5,
+  "qualityReason": "SEO-critical, specific",
+  "bundleHints": [
+    "seo-toolkit",
+    "marketing-automation"
+  ],
+  "tags": [
+    "json-ld",
+    "optimization",
+    "rich-snippets",
+    "schema-org",
+    "seo",
+    "structured-data"
+  ],
+  "capabilities": [
+    "Implements JSON-LD schema markup for 10+ schema types including Product, FAQ, Article, and Organization",
+    "Follows Google's structured data guidelines for eligibility in rich results",
+    "Creates valid schema that passes Google Rich Results Test validation",
+    "Combines multiple schema types on a single page using @graph",
+    "Provides implementation patterns for static sites, React/Next.js, and WordPress",
+    "Validates schema against schema.org specifications"
+  ],
+  "author": "coreyhaines31",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. This is a documentation-only skill containing markdown with JSON-LD schema examples. No executable code, network calls, or security risks exist in the skill content.",
+  "valueStatement": "Websites often miss structured data that helps search engines understand content. This skill implements JSON-LD schema markup following Google's guidelines to enable rich results like product cards, FAQ accordions, and event displays in search.",
+  "userTitle": "Add Schema Markup for Rich Results",
+  "limitations": [
+    "Does not modify live website files directly - outputs schema code for manual implementation",
+    "Does not access external APIs or validate URLs exist",
+    "Cannot guarantee rich result appearance as this depends on overall site quality",
+    "Does not analyze existing schema for errors - requires explicit request to review"
+  ],
+  "useCases": [
+    {
+      "targetUser": "E-commerce site owners and SEO specialists",
+      "title": "E-commerce Product Schema",
+      "description": "Add Product schema with offers, ratings, and reviews to enable product rich cards in search results showing price, availability, and aggregate ratings."
+    },
+    {
+      "targetUser": "Content marketers and FAQ page managers",
+      "title": "FAQ Page Markup",
+      "description": "Implement FAQPage schema so questions and answers appear as expandable accordion items directly in search results, increasing click-through rates."
+    },
+    {
+      "targetUser": "Local business owners and agencies",
+      "title": "Local Business Schema",
+      "description": "Add LocalBusiness schema with address, hours, and geo-coordinates to help local businesses appear in map packs and local search results."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Product Schema",
+      "prompt": "Add product schema markup for a product page. The product name is 'Premium Wireless Headphones', price is $199.99, it has 4.8 stars from 245 reviews, and the image is at https://example.com/headphones.jpg.",
+      "scenario": "Creating product schema for an e-commerce page"
+    },
+    {
+      "title": "FAQ Page Implementation",
+      "prompt": "Create FAQPage schema for a page with these questions and answers: 'What is your return policy?' and 'How long does shipping take?'",
+      "scenario": "Implementing FAQ schema for a product or support page"
+    },
+    {
+      "title": "Organization with Social Profiles",
+      "prompt": "Create Organization schema for 'Acme Inc' with logo at https://example.com/logo.png, include Twitter, LinkedIn, and Facebook profile links.",
+      "scenario": "Adding brand schema with social media connections"
+    },
+    {
+      "title": "Multi-Schema Page",
+      "prompt": "Create a combined schema for a blog post page that includes Organization, WebSite with SearchAction, and Article schema types linked together.",
+      "scenario": "Implementing multiple connected schema types for a complex page"
+    }
+  ],
+  "bestPractices": [
+    "Validate all schema with Google Rich Results Test before deploying to production",
+    "Ensure schema accurately reflects visible page content to avoid manual action penalties",
+    "Use @graph to combine multiple schema types that reference each other using @id",
+    "Keep schema updated when page content changes to maintain accuracy"
+  ],
+  "antiPatterns": [
+    "Marking up content that does not exist on the page (hidden text violates guidelines)",
+    "Using schema types not supported by Google for the intended rich result",
+    "Self-serving reviews or ratings that violate schema guidelines",
+    "Forgetting to update schema when product prices or availability change"
+  ],
+  "faq": [
+    {
+      "question": "What is schema markup?",
+      "answer": "Schema markup is structured data vocabulary (schema.org) that you add to HTML to help search engines understand your content better. It can enable rich results like product cards, FAQ accordions, and star ratings in search."
+    },
+    {
+      "question": "What format should I use for schema?",
+      "answer": "Google recommends JSON-LD format for structured data. It is placed in script tags in the HTML head or body and is easier to implement and maintain than microdata."
+    },
+    {
+      "question": "Will schema guarantee rich results?",
+      "answer": "No. Schema markup makes your page eligible for rich results, but Google considers many factors including overall page quality, mobile-friendliness, and content relevance."
+    },
+    {
+      "question": "How do I test if my schema works?",
+      "answer": "Use the Google Rich Results Test (search.google.com/test/rich-results) to validate your schema. You can also check schema.org/validator and monitor Search Console for enhancement reports."
+    },
+    {
+      "question": "Can I use multiple schema types on one page?",
+      "answer": "Yes. You can use @graph to combine multiple schema types on one page. This is common for pages that need Organization, WebSite, and Article schema all connected."
+    },
+    {
+      "question": "What happens if my schema has errors?",
+      "answer": "Schema errors can prevent rich results from appearing. Fix errors promptly by checking Google's documentation for the specific schema type and ensure all required properties are included with valid values."
+    }
+  ],
+  "seoKeywords": [
+    "schema markup",
+    "structured data",
+    "JSON-LD",
+    "rich snippets",
+    "schema.org",
+    "FAQ schema",
+    "product schema",
+    "search engine optimization",
+    "SEO",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/coreyhaines31/marketingskills/tree/main/skills/schema-markup",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "documentation-generator",
+  "type": "skill",
+  "description": "Auto-generate JSDoc, docstrings, README files, and API documentation.",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "auto-generate docs",
+  "quality": 5,
+  "qualityReason": "Clear, high-value automation",
+  "bundleHints": [
+    "ai-docs",
+    "dev-productivity"
+  ],
+  "tags": [
+    "api-docs",
+    "automation",
+    "code-quality",
+    "docstrings",
+    "documentation",
+    "readme"
+  ],
+  "capabilities": [
+    "Generate JSDoc comments for JavaScript and TypeScript",
+    "Create Python docstrings in Google, NumPy, or Sphinx style",
+    "Produce Rustdoc for Rust code",
+    "Write Javadoc for Java methods and classes",
+    "Generate GoDoc for Go functions",
+    "Create complete README files with installation and usage guides"
+  ],
+  "author": "CuriousLearner",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure prompt-based skill containing only documentation generation instructions for AI assistants. The static scanner flagged metadata fields (source URLs, content hashes), markdown code examples (backticks in code fences), and documentation keywords as security issues. All 30 findings are false positives - no executable code, network calls, command execution, or file system access exists in this skill.",
+  "valueStatement": "Writing documentation takes significant time and is often neglected. This skill automates the creation of JSDoc, docstrings, README files, and API documentation across multiple programming languages.",
+  "userTitle": "Generate documentation for code",
+  "limitations": [
+    "Does not execute or modify code files directly",
+    "Cannot access local project files without explicit content sharing",
+    "Documentation quality depends on code clarity and provided context",
+    "May require manual review for complex business logic"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Document existing codebases",
+      "description": "Add comprehensive documentation to undocumented functions and methods in legacy projects"
+    },
+    {
+      "targetUser": "Open source maintainers",
+      "title": "Create project documentation",
+      "description": "Generate README files, API references, and contribution guides for public repositories"
+    },
+    {
+      "targetUser": "Technical writers",
+      "title": "Standardize documentation format",
+      "description": "Ensure consistent documentation style across multiple programming languages in a project"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic documentation",
+      "scenario": "Document a single file",
+      "prompt": "Use the documentation-generator skill to generate JSDoc comments for the following JavaScript file:"
+    },
+    {
+      "title": "Document with format",
+      "scenario": "Specify output format",
+      "prompt": "@documentation-generator --format google-style Generate Python docstrings for this function with type hints and examples:"
+    },
+    {
+      "title": "Generate README only",
+      "scenario": "Create project documentation",
+      "prompt": "@documentation-generator --readme-only Create a complete README.md for my project including features, installation, usage, and API reference:"
+    },
+    {
+      "title": "Multi-language project",
+      "scenario": "Document mixed codebase",
+      "prompt": "Use documentation-generator to document all functions in the src/utils/ directory. Apply appropriate format based on file extension (JSDoc for .js/.ts, Google style for .py, Rustdoc for .rs):"
+    }
+  ],
+  "bestPractices": [
+    "Provide complete function signatures and parameter types for accurate documentation",
+    "Share relevant context about edge cases and performance considerations",
+    "Request documentation in your existing style for consistency across the codebase"
+  ],
+  "antiPatterns": [
+    "Requesting documentation for code with no comments or clear structure",
+    "Generating documentation without reviewing for business logic accuracy",
+    "Using the skill to overwrite carefully crafted custom documentation"
+  ],
+  "faq": [
+    {
+      "question": "What programming languages are supported?",
+      "answer": "JavaScript/TypeScript (JSDoc), Python (Google, NumPy, Sphinx styles), Rust (Rustdoc), Java (Javadoc), and Go (GoDoc)."
+    },
+    {
+      "question": "Can this skill modify my source files?",
+      "answer": "No. The skill generates documentation text that you can copy and paste. It does not have file system access."
+    },
+    {
+      "question": "How does the skill know my project's documentation style?",
+      "answer": "It defaults to standard conventions for each language. Specify your preferred style or share existing documentation as a reference."
+    },
+    {
+      "question": "Is my code data safe?",
+      "answer": "Yes. The skill only processes code you explicitly share in the conversation. Nothing is stored or sent to external services."
+    },
+    {
+      "question": "Why does documentation look different from my existing code?",
+      "answer": "The skill uses standard formats for each language. Provide examples of your project's style or request specific formatting."
+    },
+    {
+      "question": "How is this different from IDE code completion?",
+      "answer": "This skill generates comprehensive documentation with examples and context. IDE completions typically only add basic signatures."
+    }
+  ],
+  "seoKeywords": [
+    "documentation generator",
+    "JSDoc",
+    "docstrings",
+    "API documentation",
+    "README generator",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "code documentation",
+    "auto documentation"
+  ],
+  "sourceUrl": "https://github.com/CuriousLearner/devkit/tree/main/skills/documentation-generator",
+  "sourceType": "community",
+  "dependencies": []
+}

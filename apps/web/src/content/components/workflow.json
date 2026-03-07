@@ -1,0 +1,142 @@
+{
+  "name": "workflow",
+  "type": "skill",
+  "description": "Manages workflow transitions including handoffs between PM and implementation roles, and auto-fixes review comments. Use when user mentions ハンドオフ, handoff, PMに報告, 実装役に渡して, レビュー指摘を自動修正, auto-fix. Triggers: ハンドオフ, handoff, PMに報告, 実装役に渡して, 完了報告, 自動修正, auto-fix. Do not use for 2-Agent setup - use 2agent skill instead.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "handoff management",
+  "quality": 5,
+  "qualityReason": "Clear handoff automation",
+  "bundleHints": [
+    "team-workflow",
+    "dev-collab"
+  ],
+  "tags": [
+    "auto-fix",
+    "collaboration",
+    "handoff",
+    "implementation",
+    "pm",
+    "workflow"
+  ],
+  "capabilities": [
+    "Generate structured handoff messages from PM to implementation role",
+    "Create completion reports from implementation to PM",
+    "Auto-fix code review issues automatically",
+    "Track task status in Plans.md with markers",
+    "Apply consistent formatting for all handoff documents",
+    "Preview and approve fixes before application"
+  ],
+  "author": "Chachamaru127",
+  "icon": "🔄",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-based workflow management skill containing only Markdown documentation templates. No executable code, no file access beyond standard tools, no network activity. Static findings are false positives triggered by markdown code block syntax (git commands in documentation examples) and legitimate content hashes (SHA256 in metadata). All functionality is documented and intended behavior for a 2-Agent workflow coordination skill.",
+  "valueStatement": "Managing handoffs between PM and implementation roles requires consistent templates and clear communication. This skill provides structured handoff templates for task delegation and automated fix workflows for review comments.",
+  "userTitle": "Manage Workflow Handoffs and Auto-Fix Review Issues",
+  "limitations": [
+    "Requires Plans.md to exist for task tracking",
+    "Cannot make decisions about scope without user input",
+    "Git commands require git repository to be present",
+    "Does not execute fixes without user approval"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Project Managers",
+      "title": "Delegate Tasks to Dev Team",
+      "description": "Generate clear handoff documents with requirements and acceptance criteria for implementation teams."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Report Completed Work",
+      "description": "Create structured completion reports showing changes made and acceptance criteria met."
+    },
+    {
+      "targetUser": "QA Engineers",
+      "title": "Auto-Fix Review Issues",
+      "description": "Automatically resolve code review findings for security, performance, and quality issues."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Delegate to Dev",
+      "scenario": "PM needs to hand off task",
+      "prompt": "このタスクを実装役Claudeに渡したい"
+    },
+    {
+      "title": "Report Completion",
+      "scenario": "Dev finished implementation",
+      "prompt": "PMに完了報告を書いて"
+    },
+    {
+      "title": "Fix Security Issues",
+      "scenario": "Security vulnerability found",
+      "prompt": "セキュリティ問題を修正して"
+    },
+    {
+      "title": "Fix Performance",
+      "scenario": "Performance issue found",
+      "prompt": "パフォーマンス問題を改善して"
+    }
+  ],
+  "bestPractices": [
+    "Update Plans.md with task status before and after handoffs",
+    "Include clear acceptance criteria in every handoff",
+    "Preview auto-fix changes before approving application",
+    "Use git commands to accurately report changes made"
+  ],
+  "antiPatterns": [
+    "Handoff without defined acceptance criteria",
+    "Auto-fixing without reviewing the proposed changes",
+    "Skipping the status update in Plans.md",
+    "Using handoffs for non-delegation purposes"
+  ],
+  "faq": [
+    {
+      "question": "What tools does this skill require?",
+      "answer": "This skill uses Read, Write, Edit, and Bash tools. All are standard Claude Code tools with no special permissions."
+    },
+    {
+      "question": "Can this skill modify my code automatically?",
+      "answer": "Auto-fix will preview changes first. You must approve before any modifications are applied to your codebase."
+    },
+    {
+      "question": "Does this skill work with any git provider?",
+      "answer": "Yes. The handoff-to-pm sub-skill runs git status and git diff commands. These work with GitHub, GitLab, Bitbucket, and any git-compatible repository."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. This is a prompt-only skill. It generates text templates and does not send data anywhere. All processing happens locally in your Claude Code session."
+    },
+    {
+      "question": "Why is Plans.md required?",
+      "answer": "Plans.md tracks task status. The skill marks tasks as requested or complete. If Plans.md does not exist, you can create one or use the skill without status tracking."
+    },
+    {
+      "question": "How is this different from 2agent skill?",
+      "answer": "This skill handles handoffs and auto-fix. For actual 2-agent conversations where two Claude instances talk directly, use the separate 2agent skill."
+    }
+  ],
+  "seoKeywords": [
+    "workflow management",
+    "handoff template",
+    "PM implementation handoff",
+    "Claude Code workflow",
+    "auto-fix review",
+    "code review automation",
+    "2-agent workflow",
+    "task delegation",
+    "review comment fix",
+    "team collaboration"
+  ],
+  "sourceUrl": "https://github.com/Chachamaru127/claude-code-harness/tree/main/skills/workflow",
+  "sourceType": "community",
+  "dependencies": []
+}

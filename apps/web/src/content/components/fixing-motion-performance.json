@@ -1,0 +1,143 @@
+{
+  "name": "fixing-motion-performance",
+  "type": "skill",
+  "description": "Fix animation performance issues.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "animation optimization",
+  "quality": 5,
+  "qualityReason": "Performance-critical focus",
+  "bundleHints": [
+    "frontend-performance",
+    "animations"
+  ],
+  "tags": [
+    "60fps",
+    "animations",
+    "css",
+    "frontend",
+    "performance",
+    "rendering",
+    "smooth-animations",
+    "transforms",
+    "web-development"
+  ],
+  "capabilities": [
+    "Reviews code against animation performance best practices",
+    "Identifies layout thrashing and paint-heavy animations",
+    "Suggests concrete fixes using transforms and opacity",
+    "Recommends Scroll Timelines and IntersectionObserver for scroll-linked motion",
+    "Validates CSS variable usage for animations",
+    "Enforces layer promotion best practices with will-change"
+  ],
+  "author": "ibelick",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 7 static findings are false positives. The scanner misidentified slash command documentation as external commands, CSS performance terminology as system reconnaissance, and YAML field names as cryptographic patterns. This is a documentation-only skill containing 128 lines of markdown guidelines for animation performance optimization. No code execution, network calls, file operations, or script execution occurs.",
+  "valueStatement": "Slow animations frustrate users and hurt engagement. This skill provides proven guidelines for achieving smooth 60fps animations by leveraging browser compositor layers and avoiding costly layout operations.",
+  "userTitle": "Optimize Animation Performance",
+  "limitations": [
+    "Does not execute or test animations directly",
+    "Does not migrate animation libraries or rewrite code",
+    "Does not provide browser profiling or real-world metrics",
+    "Cannot validate performance on actual user devices"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Frontend Developer Reviewing Components",
+      "description": "A frontend developer wants to ensure new animations meet performance standards before merging code."
+    },
+    {
+      "targetUser": "UI engineers",
+      "title": "Refactoring Janky Interactions",
+      "description": "A team identifies scroll-linked animations causing jank and needs guidance on optimization approaches."
+    },
+    {
+      "targetUser": "Learning developers",
+      "title": "Learning Animation Best Practices",
+      "description": "A developer new to web animation wants to learn the fundamentals of browser rendering and efficient motion."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Animation Check",
+      "prompt": "Apply the fixing-motion-performance skill to review my animation code in {file}. Identify any violations of performance guidelines and suggest specific fixes.",
+      "scenario": "Quick review of an animation file"
+    },
+    {
+      "title": "Scroll Animation Optimization",
+      "prompt": "Using fixing-motion-performance guidelines, review my scroll-linked animation. Check that it uses appropriate mechanisms like Scroll Timelines or IntersectionObserver, and verify it does not trigger continuous layout or paint.",
+      "scenario": "Optimizing scroll-based motion"
+    },
+    {
+      "title": "CSS Variable Animation Review",
+      "prompt": "Review my use of animated CSS variables against fixing-motion-performance rules. Ensure variables are scoped locally, not inherited, and do not trigger paint on large surfaces.",
+      "scenario": "Auditing CSS variable animations"
+    },
+    {
+      "title": "Layer Promotion Strategy",
+      "prompt": "Apply fixing-motion-performance to analyze my layer usage. Validate that will-change is used surgically, layers are not over-promoted, and compositor animations respect layer boundaries.",
+      "scenario": "Analyzing compositor layer strategy"
+    }
+  ],
+  "bestPractices": [
+    "Always prefer transform and opacity over layout or paint-triggering properties for continuous motion.",
+    "Measure DOM layout once before animating, then batch all writes to avoid interleaved reads and writes.",
+    "Use Scroll Timelines or IntersectionObserver instead of polling scroll position for scroll-linked animations."
+  ],
+  "antiPatterns": [
+    "Driving animations directly from scroll events or scrollTop/scrollY values.",
+    "Mixing multiple animation systems that each measure or mutate layout in the same frame.",
+    "Animating CSS variables for transform, opacity, or position without understanding inheritance implications."
+  ],
+  "faq": [
+    {
+      "question": "What is the most important rule for animation performance?",
+      "answer": "Always prefer transform and opacity for animations. These properties run on the compositor thread, avoiding expensive layout and paint operations."
+    },
+    {
+      "question": "How do I fix layout thrashing?",
+      "answer": "Batch all DOM reads (like getBoundingClientRect) before any writes. Read once, then write all changes. Use the FLIP technique for layout-like effects."
+    },
+    {
+      "question": "Can I animate blur effects?",
+      "answer": "Keep blur animation small (8px or less) and use only for short, one-time effects. Never animate blur continuously or on large surfaces."
+    },
+    {
+      "question": "What should I use for scroll-linked animations?",
+      "answer": "Prefer CSS Scroll Timelines when available. Otherwise use IntersectionObserver for visibility detection. Never poll scroll position in requestAnimationFrame loops."
+    },
+    {
+      "question": "How should I use will-change?",
+      "answer": "Apply will-change temporarily and surgically, not permanently. Avoid promoting too many or large elements as layers due to memory overhead."
+    },
+    {
+      "question": "Does this skill migrate my animation library?",
+      "answer": "No. This skill applies performance guidelines within your existing animation stack. It will not migrate or rewrite animation libraries unless explicitly requested."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "CSS animations",
+    "animation performance",
+    "FPS optimization",
+    "browser rendering",
+    "transform animations",
+    "motion performance",
+    "frontend optimization"
+  ],
+  "sourceUrl": "https://github.com/ibelick/ui-skills/tree/main/skills/fixing-motion-performance/",
+  "sourceType": "community",
+  "dependencies": []
+}

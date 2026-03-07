@@ -1,0 +1,140 @@
+{
+  "name": "baml-integration",
+  "type": "skill",
+  "description": "Generic BAML patterns for type-safe LLM prompting. Covers schema design, DTO generation, client wrappers, and cross-language codegen. Framework-agnostic.",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "Type-safe Prompting",
+  "quality": 5,
+  "qualityReason": "Strong LLM type safety",
+  "bundleHints": [
+    "llm-engineering",
+    "baml-stack"
+  ],
+  "tags": [
+    "baml",
+    "code-generation",
+    "llm",
+    "prompting",
+    "schema-design",
+    "type-safety"
+  ],
+  "capabilities": [
+    "Define BAML schema with classes, enums, and functions for type-safe LLM interactions",
+    "Generate Python and TypeScript client code from BAML definitions",
+    "Create client wrapper patterns with error handling, retry logic, and caching",
+    "Synchronize BAML types with database models and API schemas",
+    "Implement DTO generation patterns for cross-language type consistency",
+    "Configure LLM clients with retry policies and fallback chains"
+  ],
+  "author": "Consiliency",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation and code examples for BAML integration patterns. All static findings are false positives from code examples in markdown files. No executable code, network requests, or filesystem operations exist. Safe for publication.",
+  "valueStatement": "Working with LLM outputs often leads to parsing errors and type mismatches. This skill provides universal BAML patterns for type-safe LLM prompting with automatic code generation for Python and TypeScript.",
+  "userTitle": "Integrate type-safe LLM prompting with BAML",
+  "limitations": [
+    "Provides documentation and patterns only, does not execute BAML commands",
+    "Requires separate installation of baml-cli tool for code generation",
+    "Does not include project-specific domain types or business logic",
+    "Framework-agnostic patterns may need adaptation for specific projects"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Full-stack developers building AI-powered web applications",
+      "title": "Type-safe LLM integration for web applications",
+      "description": "Define BAML types for user requests and AI responses, generate TypeScript client for frontend and Python client for backend, ensuring end-to-end type safety across your application stack."
+    },
+    {
+      "targetUser": "Data engineers working with document processing pipelines",
+      "title": "Structured data extraction from unstructured text",
+      "description": "Create BAML schemas for extracting structured information from documents, emails, or natural language input with automatic validation and type checking of LLM outputs."
+    },
+    {
+      "targetUser": "Backend developers adding LLM capabilities to existing APIs",
+      "title": "API response standardization for LLM features",
+      "description": "Design consistent BAML types that align with your API schemas, generating client code that integrates seamlessly with FastAPI, Express, or other frameworks for reliable LLM-powered endpoints."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create BAML schema for new feature",
+      "prompt": "I need to add LLM-powered analysis to my application. Help me create BAML types for analyzing user feedback with fields for sentiment, topics, and priority score.",
+      "scenario": "Starting a new LLM integration with structured output requirements"
+    },
+    {
+      "title": "Generate client from existing BAML schema",
+      "prompt": "I have BAML types defined in baml_src/types/analysis.baml. Show me how to generate the Python client and use it in my FastAPI endpoint.",
+      "scenario": "Converting BAML definitions into usable client code"
+    },
+    {
+      "title": "Add error handling wrapper to BAML client",
+      "prompt": "My BAML client calls sometimes fail. Help me create a wrapper with retry logic, exponential backoff, and proper error logging for production use.",
+      "scenario": "Improving reliability of existing LLM integrations"
+    },
+    {
+      "title": "Synchronize BAML types with database models",
+      "prompt": "I have SQLAlchemy models for users and want to create corresponding BAML types for LLM operations. Show me how to align these types and generate the client.",
+      "scenario": "Ensuring consistency between database schema and LLM types"
+    }
+  ],
+  "bestPractices": [
+    "Always run baml-cli generate after modifying BAML schema files to keep client code synchronized",
+    "Add detailed @description attributes to BAML fields to guide LLM output and improve type matching accuracy",
+    "Define explicit error types using union types for robust error handling in production LLM integrations"
+  ],
+  "antiPatterns": [
+    "Manually parsing LLM string outputs instead of defining BAML types and using generated clients",
+    "Skipping type validation and assuming LLM outputs will always match expected schema without verification",
+    "Hardcoding LLM prompts in application code instead of defining them in BAML function definitions"
+  ],
+  "faq": [
+    {
+      "question": "What is BAML and why should I use it?",
+      "answer": "BAML is a domain-specific language for defining type-safe LLM interactions. It generates Python and TypeScript client code that validates LLM outputs against your schema, preventing runtime type errors and reducing boilerplate code."
+    },
+    {
+      "question": "Does this skill execute BAML commands automatically?",
+      "answer": "No, this skill provides documentation and patterns for working with BAML. You need to install baml-cli separately and run generation commands yourself. The skill guides you on when and how to use these commands."
+    },
+    {
+      "question": "Can I use this with other LLM providers besides OpenAI?",
+      "answer": "Yes, BAML supports multiple providers including OpenAI, Anthropic Claude, and others. The skill includes patterns for configuring different clients and implementing fallback chains between providers."
+    },
+    {
+      "question": "How do I keep BAML types synchronized with my database models?",
+      "answer": "The skill includes cookbook recipes for schema synchronization. You define BAML types that mirror your database models, using similar field names and types. The generated client code then works seamlessly with your ORM."
+    },
+    {
+      "question": "What happens if the LLM output does not match my BAML type?",
+      "answer": "The generated BAML client validates outputs and raises type errors when mismatches occur. The skill shows you how to handle these errors, add union types for error cases, and improve prompts to reduce validation failures."
+    },
+    {
+      "question": "Can I use this skill for existing projects or only new ones?",
+      "answer": "This skill works for both new and existing projects. It provides framework-agnostic patterns that integrate with any Python or TypeScript codebase. You can incrementally add BAML types to existing LLM integrations."
+    }
+  ],
+  "seoKeywords": [
+    "BAML",
+    "LLM integration",
+    "type-safe prompting",
+    "Claude Code",
+    "Claude",
+    "code generation",
+    "Python",
+    "TypeScript",
+    "AI development",
+    "prompt engineering"
+  ],
+  "sourceUrl": "https://github.com/Consiliency/treesitter-chunker/tree/main/.ai-dev-kit/skills/baml-integration",
+  "sourceType": "community",
+  "dependencies": []
+}

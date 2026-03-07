@@ -1,0 +1,144 @@
+{
+  "name": "flow-nexus-neural",
+  "type": "skill",
+  "description": "Train and deploy neural networks in distributed E2B sandboxes with Flow Nexus",
+  "domain": "ai-ml",
+  "subdomain": "ml-ops",
+  "specialty": "neural training",
+  "quality": 5,
+  "qualityReason": "Advanced ML infrastructure",
+  "bundleHints": [
+    "ml-ops",
+    "flow-nexus"
+  ],
+  "tags": [
+    "deep-learning",
+    "deployment",
+    "distributed",
+    "distributed-training",
+    "e2b",
+    "e2b-sandboxes",
+    "flow-nexus",
+    "machine-learning",
+    "model-training",
+    "neural-networks"
+  ],
+  "capabilities": [
+    "Train custom neural networks with 5 architecture types (feedforward, LSTM, GAN, transformer, autoencoder)",
+    "Deploy distributed training clusters across multiple E2B sandboxes with mesh, ring, star, or hierarchical topology",
+    "Use pre-built templates from marketplace for classification, NLP, vision, time series, and anomaly detection",
+    "Run model inference on trained models with performance benchmarking",
+    "Implement federated learning for privacy-sensitive data with local data processing",
+    "Monitor training progress and cluster status with real-time metrics"
+  ],
+  "author": "ruvnet",
+  "icon": "🧠",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-based documentation skill containing only markdown documentation and MCP tool call examples. No executable code, scripts, or direct system access capabilities are present. The skill provides instructions for using the external Flow Nexus MCP service for neural network training. All static findings are false positives caused by the analyzer misidentifying documentation formatting, documentation links, and markdown code blocks as security issues.",
+  "valueStatement": "Building and training neural networks requires significant computational resources and distributed infrastructure. Flow Nexus provides cloud-based neural network training with support for multiple architectures including feedforward, LSTM, GAN, transformer, and autoencoder models across distributed E2B sandboxes.",
+  "userTitle": "Train neural networks in distributed sandboxes",
+  "limitations": [
+    "Requires Flow Nexus account and authentication for all operations",
+    "Training tier limits apply (nano to large) with resource constraints per tier",
+    "Template marketplace has both free and paid options; premium models require credits",
+    "Distributed cluster management has a maximum node limit of 100 nodes"
+  ],
+  "useCases": [
+    {
+      "targetUser": "ML Engineers",
+      "title": "Custom Model Development",
+      "description": "Build and train custom neural network architectures for specialized classification, regression, or generation tasks"
+    },
+    {
+      "targetUser": "Data Scientists",
+      "title": "Time Series Forecasting",
+      "description": "Deploy LSTM and transformer models for predictive analytics on sequential data and forecasting challenges"
+    },
+    {
+      "targetUser": "AI Researchers",
+      "title": "Distributed Research Clusters",
+      "description": "Scale training across multiple sandboxes with consensus mechanisms for large-scale model experimentation"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Train Simple Classifier",
+      "scenario": "Build a basic feedforward network",
+      "prompt": "Use Flow Nexus to train a feedforward neural network classifier with 3 dense layers (256, 128, 64 units), dropout regularization, and softmax output for 10-class classification. Use adam optimizer with learning rate 0.001 and batch size 32 for 100 epochs."
+    },
+    {
+      "title": "Deploy Template Model",
+      "scenario": "Use pre-built marketplace template",
+      "prompt": "Find and deploy a sentiment analysis template from the Flow Nexus marketplace. Configure it with custom training parameters (30 epochs, batch size 16) and then run inference on these test texts: 'This product exceeded expectations' and 'Would not recommend to anyone'."
+    },
+    {
+      "title": "Create LSTM Forecaster",
+      "scenario": "Build time series prediction model",
+      "prompt": "Create an LSTM neural network for time series forecasting with two LSTM layers (128 and 64 units), dropout regularization, and linear output activation. Train for 150 epochs using adam optimizer with learning rate 0.01 and batch size 64."
+    },
+    {
+      "title": "Distributed Training Cluster",
+      "scenario": "Scale training across multiple nodes",
+      "prompt": "Initialize a mesh topology distributed training cluster for transformer architecture. Deploy 5 worker nodes and 1 parameter server. Start distributed training on imagenet dataset for 100 epochs with federated learning enabled and batch size 128."
+    }
+  ],
+  "bestPractices": [
+    "Start with nano or mini tiers for experimentation before scaling to larger models and clusters",
+    "Use marketplace templates for common tasks to save time and leverage pre-trained weights",
+    "Monitor training progress regularly and benchmark models before production deployment"
+  ],
+  "antiPatterns": [
+    "Training large models without benchmarking performance first may lead to unexpected costs",
+    "Skipping validation workflows before deployment can result in unreliable model behavior",
+    "Using federated learning without proper node synchronization can cause inconsistent model weights"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code through the Flow Nexus MCP server integration."
+    },
+    {
+      "question": "What are the training tier limits?",
+      "answer": "Tiers range from nano (minimal resources) to large (large-scale training). Each tier has different resource limits and pricing."
+    },
+    {
+      "question": "How does federated learning protect data?",
+      "answer": "Federated learning keeps data on local nodes and only shares model updates, never raw data, enabling privacy-sensitive training."
+    },
+    {
+      "question": "Is my training data secure?",
+      "answer": "Data is processed in E2B sandboxes. For federated learning, data never leaves local nodes during training."
+    },
+    {
+      "question": "Why is training stalled?",
+      "answer": "Check cluster status for node failures. Common fixes include reducing batch size, lowering learning rate, or terminating and restarting the cluster."
+    },
+    {
+      "question": "How does this compare to local training?",
+      "answer": "Flow Nexus provides scalable distributed computing without local hardware limits but requires cloud authentication and incurs usage costs."
+    }
+  ],
+  "seoKeywords": [
+    "neural network training",
+    "distributed machine learning",
+    "deep learning",
+    "Flow Nexus",
+    "LSTM networks",
+    "transformer models",
+    "GAN training",
+    "E2B sandboxes",
+    "Claude Code",
+    "AI/ML automation"
+  ],
+  "sourceUrl": "https://github.com/ruvnet/claude-flow/tree/main/.claude/skills/flow-nexus-neural",
+  "sourceType": "community",
+  "dependencies": []
+}

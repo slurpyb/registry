@@ -1,0 +1,141 @@
+{
+  "name": "production-code-audit",
+  "type": "skill",
+  "description": "Autonomously deep-scan entire codebase line-by-line, understand architecture and patterns, then systematically transform it to production-grade, corporate-level professional quality with optimizations",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "codebase audit",
+  "quality": 5,
+  "qualityReason": "Thorough production readiness",
+  "bundleHints": [
+    "security-toolkit",
+    "code-quality"
+  ],
+  "tags": [
+    "architecture",
+    "code-optimization",
+    "code-quality",
+    "deep-scan",
+    "production-ready",
+    "security-audit"
+  ],
+  "capabilities": [
+    "Autonomously scan and analyze entire codebases line-by-line",
+    "Identify security vulnerabilities including SQL injection, XSS, and hardcoded secrets",
+    "Detect performance issues such as N+1 queries, missing indexes, and inefficient algorithms",
+    "Automatically fix identified issues with production-ready solutions",
+    "Refactor architecture and break up god classes into focused services",
+    "Add production infrastructure including logging, monitoring, and health checks"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All 53 static findings are false positives. External command detections are markdown code examples. Network URLs are documentation links. Environment access and cryptographic references describe security fixes to apply to user codebases, not vulnerabilities in this skill itself. This is a documentation skill that explains how to audit and fix production code.",
+  "valueStatement": "Codebases often have hidden security vulnerabilities, performance issues, and architectural problems that are missed during development. This skill autonomously scans entire codebases, identifies all issues, and automatically transforms code to production-grade enterprise quality.",
+  "userTitle": "Audit and Improve Production Code Quality",
+  "limitations": [
+    "Does not execute fixed code - provides instructions for fixes only",
+    "Cannot guarantee all edge cases are covered in auto-generated tests",
+    "May require human review for complex architectural changes",
+    "Does not modify external dependencies or infrastructure configuration"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development teams preparing for production release",
+      "title": "Pre-deployment Code Review",
+      "description": "Scan and fix entire codebase before production deployment to meet enterprise standards"
+    },
+    {
+      "targetUser": "Security-conscious developers and DevSecOps engineers",
+      "title": "Security Hardening",
+      "description": "Identify and fix all security vulnerabilities including injection attacks, weak cryptography, and exposed secrets"
+    },
+    {
+      "targetUser": "Teams maintaining older codebases needing modernization",
+      "title": "Legacy Code Modernization",
+      "description": "Transform legacy codebases into modern, maintainable, production-ready applications"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Production Audit",
+      "prompt": "Use the production-code-audit skill to scan this codebase and make it production-ready. Find all issues across security, performance, architecture, and quality, then fix them automatically.",
+      "scenario": "User wants comprehensive codebase review"
+    },
+    {
+      "title": "Security Focus",
+      "prompt": "Use the production-code-audit skill to audit this codebase for security vulnerabilities. Find SQL injection, XSS, hardcoded secrets, weak authentication, and other security issues, then fix them.",
+      "scenario": "User prioritizes security fixes"
+    },
+    {
+      "title": "Performance Optimization",
+      "prompt": "Use the production-code-audit skill to optimize this codebase for performance. Find N+1 queries, missing indexes, inefficient algorithms, and other performance bottlenecks, then fix them.",
+      "scenario": "User needs performance improvements"
+    },
+    {
+      "title": "Complete Transformation",
+      "prompt": "Use the production-code-audit skill to perform a complete production-grade transformation. Scan all files, identify all issues across every category, fix everything automatically, add production infrastructure, and verify with tests.",
+      "scenario": "User wants full codebase transformation"
+    }
+  ],
+  "bestPractices": [
+    "Run the audit before any production deployment to catch issues early",
+    "Review the generated report to understand what was fixed and why",
+    "Run tests after audit to verify fixes did not break existing functionality",
+    "Schedule regular quarterly audits to maintain code quality over time"
+  ],
+  "antiPatterns": [
+    "Do not ignore critical and high-priority findings - they represent real risks",
+    "Do not skip the verification step - always run tests after making changes",
+    "Do not rely solely on auto-generated tests - add manual test coverage for complex logic"
+  ],
+  "faq": [
+    {
+      "question": "What does this skill actually do?",
+      "answer": "This skill scans your entire codebase, identifies issues across security, performance, architecture, and quality, then automatically fixes them to meet production standards."
+    },
+    {
+      "question": "Is the skill safe to use on production code?",
+      "answer": "Yes. The skill reads and analyzes code, then provides fixes. It does not execute arbitrary code or make external network requests. Always backup your code before running."
+    },
+    {
+      "question": "What security issues can it find and fix?",
+      "answer": "It detects SQL injection, XSS, hardcoded secrets, weak password hashing (MD5/SHA1), missing authentication/authorization, input validation gaps, and insecure dependencies."
+    },
+    {
+      "question": "Does it work with all programming languages?",
+      "answer": "The skill analyzes code patterns and can work across many languages. Best results are seen with JavaScript, TypeScript, Python, Java, and Go codebases."
+    },
+    {
+      "question": "How long does a complete audit take?",
+      "answer": "Audit time depends on codebase size. A typical 100-file project takes 2-5 minutes. Larger codebases may take longer but the skill works autonomously."
+    },
+    {
+      "question": "What happens if the skill breaks my code?",
+      "answer": "The skill provides fixes but does not execute them automatically. You can review each change before applying. Always run tests after to verify everything works correctly."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "code audit",
+    "production code",
+    "security audit",
+    "code quality",
+    "code optimization",
+    "software audit",
+    "enterprise code"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/production-code-audit",
+  "sourceType": "community",
+  "dependencies": []
+}

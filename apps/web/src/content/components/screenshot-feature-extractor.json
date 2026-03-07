@@ -1,0 +1,141 @@
+{
+  "name": "screenshot-feature-extractor",
+  "type": "skill",
+  "description": "Analyze product screenshots to extract feature lists and generate development task checklists. Use when: (1) Analyzing competitor product screenshots for feature extraction, (2) Generating PRD/task lists from UI designs, (3) Batch analyzing multiple app screens, (4) Conducting competitive analysis from visual references.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "Feature extraction",
+  "quality": 4,
+  "qualityReason": "Actionable workflow with defined triggers",
+  "bundleHints": [
+    "product-discovery",
+    "agent-workflow"
+  ],
+  "tags": [
+    "automation",
+    "competitive-analysis",
+    "feature-extraction",
+    "multi-agent",
+    "prd",
+    "task-generation",
+    "ui-analysis"
+  ],
+  "capabilities": [
+    "Analyze UI components, layout structure, and design patterns from screenshots",
+    "Identify user interactions, navigation flows, and state transitions",
+    "Extract business functions, data entities, and domain logic",
+    "Synthesize parallel analyses into a unified feature list",
+    "Generate development task checklists with checkbox format",
+    "Review output for completeness and quality validation"
+  ],
+  "author": "notedit",
+  "icon": "📸",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is pure documentation with no executable code. It only contains markdown prompts that orchestrate AI agents. No Ruby, shell, Python, JavaScript, or TypeScript files exist. All static findings are false positives from the scanner misinterpreting markdown backticks and JSON structures. The skill reads user-provided screenshots and writes output to predictable local paths.",
+  "valueStatement": "Analyzing screenshots manually to extract features and create task lists is time-consuming and error-prone. This multi-agent skill analyzes UI screenshots in parallel from three perspectives to identify features, interactions, and business logic, then generates a ready-to-use development task checklist.",
+  "userTitle": "Extract features from UI screenshots",
+  "limitations": [
+    "Only analyzes image files, not design files like Figma or Sketch",
+    "Cannot interact with live applications or websites",
+    "Requires clear, readable screenshots for accurate analysis",
+    "Output quality depends on screenshot clarity and context provided"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product Managers",
+      "title": "Create requirements from mockups",
+      "description": "Turn UI mockups or screenshots into feature specs and task lists for engineering teams"
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Understand feature scope quickly",
+      "description": "Analyze competitor apps or reference designs to understand feature scope before implementation"
+    },
+    {
+      "targetUser": "Business Analysts",
+      "title": "Document existing products",
+      "description": "Reverse-engineer existing products by analyzing their screens to document capabilities"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic screenshot analysis",
+      "scenario": "Analyze a single app screen",
+      "prompt": "Analyze this screenshot and extract all visible features, UI components, and interactions. Output file: docs/plans/YYYY-MM-DD-app-features.md"
+    },
+    {
+      "title": "Multi-screen analysis",
+      "scenario": "Analyze multiple screens from same app",
+      "prompt": "Analyze these screenshots from the same application. Identify all features across screens and create a consolidated task list. Deduplicate similar features."
+    },
+    {
+      "title": "Competitive analysis",
+      "scenario": "Compare competitor screenshots",
+      "prompt": "Analyze these competitor screenshots. Identify unique features and gaps compared to our product. Create a feature comparison matrix with development task priorities."
+    },
+    {
+      "title": "Detailed feature breakdown",
+      "scenario": "Generate granular tasks",
+      "prompt": "Perform deep analysis on this screenshot. Break down each feature into 3-5 granular subtasks focusing on user interactions and business logic. Output detailed development checklist."
+    }
+  ],
+  "bestPractices": [
+    "Provide context about the product purpose and target users for better analysis",
+    "Use high-resolution screenshots with clear text for accurate feature detection",
+    "Include multiple related screens to capture navigation and state transitions"
+  ],
+  "antiPatterns": [
+    "Using low-resolution or blurry screenshots that obscure UI details",
+    "Analyzing screenshots without providing product context or user goals",
+    "Expecting implementation-level details like tech stack or database schema"
+  ],
+  "faq": [
+    {
+      "question": "What image formats are supported?",
+      "answer": "PNG, JPG, and common image formats are supported. Use high-resolution images for best results."
+    },
+    {
+      "question": "How many screenshots can I analyze at once?",
+      "answer": "No strict limit, but best results come from 3-10 related screens for comprehensive feature coverage."
+    },
+    {
+      "question": "Can I integrate this with my design tools?",
+      "answer": "Export screenshots from Figma, Sketch, or Adobe XD as PNG/JPG files before analysis."
+    },
+    {
+      "question": "Is my data sent to external servers?",
+      "answer": "No. All analysis happens locally through Claude Code. Screenshots are not uploaded to external services."
+    },
+    {
+      "question": "Why are my screenshots not detecting features accurately?",
+      "answer": "Ensure screenshots are high-resolution, well-lit, and include relevant context. Add product details in your prompt."
+    },
+    {
+      "question": "How does this compare to manual feature mapping?",
+      "answer": "This skill uses multiple AI agents in parallel for faster, more comprehensive analysis with consistent output format."
+    }
+  ],
+  "seoKeywords": [
+    "screenshot analyzer",
+    "feature extraction",
+    "UI analysis",
+    "competitive analysis",
+    "task generation",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "product development",
+    "PRD generation"
+  ],
+  "sourceUrl": "https://github.com/notedit/happy-coding-agent/tree/main/skills/screenshot-feature-extractor",
+  "sourceType": "community",
+  "dependencies": []
+}

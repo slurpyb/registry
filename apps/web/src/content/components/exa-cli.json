@@ -1,0 +1,138 @@
+{
+  "name": "exa-cli",
+  "type": "skill",
+  "description": "使用 Exa 搜索与代码上下文命令行进行信息检索与编程资料检索。适用于需要从实时网页获取资料、定位权威来源、或查询具体代码示例/库用法的任务（如技术调研、API 使用方式确认、示例代码查找）。",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "code search",
+  "quality": 5,
+  "qualityReason": "Targeted CLI research tool",
+  "bundleHints": [
+    "dev-toolkit",
+    "research-cli"
+  ],
+  "tags": [
+    "coding",
+    "command-line",
+    "research",
+    "search",
+    "web"
+  ],
+  "capabilities": [
+    "Search the web for real-time information and content",
+    "Retrieve code context and programming examples",
+    "Filter searches by type (auto, fast, deep)",
+    "Control result count and context length",
+    "Cache results locally for faster repeated queries",
+    "Output results as plain text or JSON"
+  ],
+  "author": "DCjanus",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate CLI tool that connects to Exa's documented MCP API for web search and code context retrieval. All static findings are false positives: network calls target documented API endpoint, environment variable access retrieves API keys for authentication, no cryptographic operations or external command execution present. The combination of network access and credential retrieval is standard for authenticated API clients.",
+  "valueStatement": "Need to find real-time information or code examples for your coding tasks. This skill connects to Exa's search API to retrieve web content and programming context directly from your CLI.",
+  "userTitle": "Search web and code with Exa",
+  "limitations": [
+    "Requires an Exa API key (EXA_API_KEY or EXA_MCP_TOKEN environment variable)",
+    "Searches are limited to Exa's indexed content and web crawl data",
+    "Live web crawling requires specific API access and may have rate limits"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developers",
+      "title": "Find code examples",
+      "description": "Look up how to use specific libraries or APIs with real-world code examples"
+    },
+    {
+      "targetUser": "Technical Researchers",
+      "title": "Web research",
+      "description": "Search for real-time information on technologies and tools"
+    },
+    {
+      "targetUser": "Documentation Writers",
+      "title": "API reference lookup",
+      "description": "Find authoritative documentation and usage patterns"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Web Search",
+      "scenario": "Search for general information",
+      "prompt": "Search the web for information about [TOPIC] using exa-cli web-search-exa"
+    },
+    {
+      "title": "Code Pattern Search",
+      "scenario": "Find programming examples",
+      "prompt": "Find code examples for [PATTERN] using exa-cli get-code-context-exa with 500 tokens"
+    },
+    {
+      "title": "API Documentation Search",
+      "scenario": "Research API usage",
+      "prompt": "Search for [API_NAME] documentation and usage examples using exa-cli"
+    },
+    {
+      "title": "Deep Technical Research",
+      "scenario": "In-depth technical queries",
+      "prompt": "Conduct deep research on [TECHNOLOGY] focusing on best practices and common patterns using exa-cli with type=deep"
+    }
+  ],
+  "bestPractices": [
+    "Set the EXA_API_KEY environment variable before running searches",
+    "Use JSON output (--json) for programmatic processing of results",
+    "Enable caching (default) to reduce API calls for repeated queries"
+  ],
+  "antiPatterns": [
+    "Sharing your API key in public repositories or chat messages",
+    "Running searches without checking result relevance first",
+    "Ignoring rate limits or terms of service for Exa API"
+  ],
+  "faq": [
+    {
+      "question": "What platforms support this skill?",
+      "answer": "Works with Claude, Codex, and Claude Code CLI tools."
+    },
+    {
+      "question": "How many search results can I get?",
+      "answer": "Default is automatic. You can set --num-results to control the count."
+    },
+    {
+      "question": "How do I integrate with other tools?",
+      "answer": "Use --json flag to get machine-readable output for scripting."
+    },
+    {
+      "question": "Is my search data stored?",
+      "answer": "Results are cached locally for 1 hour. Configure with --cache-ttl or disable with --no-cache."
+    },
+    {
+      "question": "Why are my searches failing?",
+      "answer": "Check that EXA_API_KEY is set. Verify network connectivity to https://mcp.exa.ai/mcp."
+    },
+    {
+      "question": "How is this different from regular search?",
+      "answer": "Exa provides AI-enhanced search with code-specific context and content extraction beyond simple links."
+    }
+  ],
+  "seoKeywords": [
+    "exa search",
+    "web search cli",
+    "code context search",
+    "programmer search tool",
+    "Claude Code search",
+    "technical research",
+    "API documentation search",
+    "code examples finder",
+    "real-time web search",
+    "programming resource lookup"
+  ],
+  "sourceUrl": "https://github.com/DCjanus/prompts/tree/master/skills/exa-cli",
+  "sourceType": "community",
+  "dependencies": []
+}

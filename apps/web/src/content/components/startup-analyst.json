@@ -1,0 +1,141 @@
+{
+  "name": "startup-analyst",
+  "type": "skill",
+  "description": "Expert startup business analyst specializing in market sizing,",
+  "domain": "business",
+  "subdomain": "finance",
+  "specialty": "Startup analysis",
+  "quality": 5,
+  "qualityReason": "Expert business analysis",
+  "bundleHints": [
+    "startup-toolkit",
+    "finance-suite"
+  ],
+  "tags": [
+    "business-analysis",
+    "financial-modeling",
+    "fundraising",
+    "market-sizing",
+    "planning",
+    "startup",
+    "strategy"
+  ],
+  "capabilities": [
+    "Calculate TAM/SAM/SOM using bottom-up and top-down methodologies with credible data sources",
+    "Build 3-5 year cohort-based financial models with scenario planning",
+    "Analyze unit economics including CAC, LTV, payback period, and burn multiple",
+    "Map competitive landscapes using Porter's Five Forces and positioning frameworks",
+    "Create hiring plans and compensation benchmarks by startup stage",
+    "Define and track KPIs specific to SaaS, marketplace, consumer, and B2B models"
+  ],
+  "author": "sickn33",
+  "icon": "📊",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Prompt-only skill with no executable code. Static analysis correctly identified zero security risk. The skill uses web search for market data research, which is a standard AI assistant capability and not a security concern.",
+  "valueStatement": "First-time founders struggle with market sizing and financial projections that investors trust. This skill delivers data-driven analysis using proven frameworks to build credible business cases for fundraising.",
+  "userTitle": "Analyze startup opportunities and build investor-ready financial models",
+  "limitations": [
+    "Cannot access private company data or internal financial records",
+    "Market data from web search may have publication date lag",
+    "Financial projections are estimates based on stated assumptions, not guarantees",
+    "Cannot execute actual financial modeling software or spreadsheet applications"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Pre-seed to Series A founders raising capital",
+      "title": "Fundraising Preparation",
+      "description": "Prepare investor-ready market sizing and financial projections for seed or Series A pitch decks with defensible assumptions and benchmark comparisons."
+    },
+    {
+      "targetUser": "Startup founders and early employees making strategic decisions",
+      "title": "Strategic Planning",
+      "description": "Evaluate go-to-market strategies, pricing models, and customer segmentation with data-driven recommendations for resource allocation."
+    },
+    {
+      "targetUser": "CEOs and CFOs preparing board materials",
+      "title": "Board Reporting",
+      "description": "Generate structured analysis of key metrics, competitive positioning, and milestone progress for board meetings and investor updates."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Market Sizing",
+      "prompt": "Calculate the TAM, SAM, and SOM for a [business type] targeting [customer segment] in [geographic market]. Use bottom-up methodology with credible data sources and show all calculations.",
+      "scenario": "Early founder validating market opportunity for pitch deck"
+    },
+    {
+      "title": "Unit Economics Analysis",
+      "prompt": "Analyze the unit economics for my [SaaS/marketplace/consumer] business. Current metrics: CAC $[X], MRR $[Y], churn [Z]%. Calculate LTV, payback period, and compare to industry benchmarks for [stage] companies.",
+      "scenario": "Seed-stage founder assessing business model health"
+    },
+    {
+      "title": "Competitive Positioning",
+      "prompt": "Map the competitive landscape for [product category]. Identify top 5 competitors, analyze their positioning using a 2x2 matrix, and recommend differentiation strategies based on Blue Ocean framework.",
+      "scenario": "Founder preparing go-to-market strategy"
+    },
+    {
+      "title": "Financial Model Review",
+      "prompt": "Review my 3-year financial model assumptions for a [business type] with current $[X] MRR. Evaluate growth rate, margin projections, and hiring plan against benchmarks for companies at my stage raising [round size]. Flag unrealistic assumptions.",
+      "scenario": "Series A founder stress-testing financials before fundraising"
+    }
+  ],
+  "bestPractices": [
+    "Always document assumptions explicitly and cite data sources with publication dates for credibility",
+    "Use multiple methodologies to triangulate market size and validate findings against benchmarks",
+    "Present findings in structured tables with clear headers, formulas shown, and actionable next steps"
+  ],
+  "antiPatterns": [
+    "Relying solely on top-down market research reports without bottom-up validation",
+    "Using overly optimistic growth assumptions without benchmark comparison or scenario analysis",
+    "Presenting analysis without acknowledging data limitations or competitive context"
+  ],
+  "faq": [
+    {
+      "question": "What company stages does this skill support?",
+      "answer": "This skill focuses on pre-seed through Series A startups. Each stage has different investor expectations and metric benchmarks that the analysis accounts for."
+    },
+    {
+      "question": "Can this skill create actual spreadsheet financial models?",
+      "answer": "No, it cannot create Excel or Google Sheets files directly. It provides the analysis, assumptions, and formulas you need to build models in your preferred spreadsheet application."
+    },
+    {
+      "question": "How current is the market data used in analysis?",
+      "answer": "The skill uses web search to find current market data. Data sources are always cited with publication dates so you can assess recency and relevance."
+    },
+    {
+      "question": "What business models does this skill cover?",
+      "answer": "Primary focus on SaaS, marketplace, consumer, and B2B business models. Each has specific metrics, benchmarks, and analytical frameworks applied appropriately."
+    },
+    {
+      "question": "Can this skill help with pitch deck creation?",
+      "answer": "It provides the analytical content for market sizing, financial projections, and competitive analysis sections. You will need to integrate this content into your pitch deck design tool."
+    },
+    {
+      "question": "Does this skill replace a financial analyst or consultant?",
+      "answer": "It provides framework-based analysis and data-driven insights but does not replace human judgment for complex strategic decisions or regulatory compliance requirements."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code startup analyst",
+    "Claude business analysis",
+    "Codex financial modeling",
+    "startup TAM SAM SOM calculator",
+    "unit economics analysis",
+    "fundraising preparation",
+    "market sizing tool",
+    "financial projections AI",
+    "competitive analysis Claude",
+    "startup metrics dashboard"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/startup-analyst",
+  "sourceType": "community",
+  "dependencies": []
+}

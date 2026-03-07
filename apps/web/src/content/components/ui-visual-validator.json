@@ -1,0 +1,145 @@
+{
+  "name": "ui-visual-validator",
+  "type": "skill",
+  "description": "Rigorous visual validation expert specializing in UI testing,",
+  "domain": "testing",
+  "subdomain": "e2e",
+  "specialty": "visual testing",
+  "quality": 5,
+  "qualityReason": "Clear visual validation focus",
+  "bundleHints": [
+    "visual-testing",
+    "e2e-suite"
+  ],
+  "tags": [
+    "component analysis",
+    "component-verification",
+    "design verification",
+    "design-consistency",
+    "layout checking",
+    "mockup-comparison",
+    "screenshot-analysis",
+    "ui validation",
+    "ui-testing",
+    "visual testing",
+    "visual-validation"
+  ],
+  "capabilities": [
+    "Analyzes UI component structures and identifies visual hierarchies",
+    "Verifies element relationships and spacing consistency",
+    "Checks design token usage across components",
+    "Validates responsive behavior descriptions",
+    "Identifies potential layout issues and alignment problems",
+    "Compares component variations for consistency"
+  ],
+  "author": "sickn33",
+  "icon": "🎨",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis found no executable code, no suspicious patterns, and no risk factors. This is a prompt-only skill that generates content descriptions. Risk score is 0/100. The skill operates purely in the AI content generation domain with no system-level access.",
+  "valueStatement": "Manual UI validation is time-consuming and prone to human error. This skill uses AI to automatically analyze visual structures, verify element relationships, and ensure design consistency across components.",
+  "userTitle": "Validate UI Components Visually",
+  "limitations": [
+    "Cannot process actual image files directly - works with text descriptions",
+    "Relies on accurate prompt input for best results",
+    "Cannot execute code or run visual tests",
+    "Analysis is based on structural descriptions, not pixel-perfect validation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Frontend Developer Validation",
+      "description": "Frontend developers use this skill to validate their component implementations match design specifications by analyzing structure descriptions."
+    },
+    {
+      "targetUser": "Design system teams",
+      "title": "Design System Auditors",
+      "description": "Design system maintainers verify component consistency across libraries by checking structural patterns and design token usage."
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "QA Visual Testing",
+      "description": "QA engineers validate UI changes by comparing component descriptions and identifying unexpected visual differences."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Component Validation",
+      "prompt": "Analyze this UI component description and validate its structure: [INSERT COMPONENT DESCRIPTION]. Check for proper hierarchy, spacing, and element relationships.",
+      "scenario": "Validating a single component against design rules"
+    },
+    {
+      "title": "Design Token Verification",
+      "prompt": "Review these component styles [INSERT STYLES] and verify they follow our design system tokens. List any deviations found.",
+      "scenario": "Checking component styles against design system"
+    },
+    {
+      "title": "Layout Consistency Check",
+      "prompt": "Compare these two component descriptions [INSERT DESCRIPTION 1] and [INSERT DESCRIPTION 2]. Identify any layout or spacing inconsistencies.",
+      "scenario": "Comparing components for visual consistency"
+    },
+    {
+      "title": "Accessibility Structure Review",
+      "prompt": "Analyze this component structure [INSERT DESCRIPTION] for proper heading hierarchy, landmark usage, and semantic element placement. Suggest improvements.",
+      "scenario": "Validating accessibility structure"
+    }
+  ],
+  "bestPractices": [
+    "Provide detailed component descriptions including all relevant style properties and structural elements for accurate validation",
+    "Use consistent naming conventions when describing components to improve analysis accuracy",
+    "Include context about the design system or style guide being used for validation"
+  ],
+  "antiPatterns": [
+    "Providing vague descriptions like 'a nice button' without specific properties or measurements",
+    "Skipping design system context - always reference the standards being validated against",
+    "Ignoring the validation results - use the output to actually improve component quality"
+  ],
+  "faq": [
+    {
+      "question": "Can this skill validate actual image files?",
+      "answer": "No, this skill works with text descriptions of UI components, not actual image files. For image validation, use dedicated screenshot comparison tools."
+    },
+    {
+      "question": "What design systems are supported?",
+      "answer": "The skill can validate against any design system described in the prompt. Provide your design tokens and rules for best results."
+    },
+    {
+      "question": "Does this replace visual regression testing?",
+      "answer": "No, this skill provides structural and design token validation, not pixel-perfect comparison. Use it alongside visual regression testing tools."
+    },
+    {
+      "question": "Can it validate accessibility?",
+      "answer": "It can check for structural accessibility patterns like heading hierarchy and semantic elements, but not full accessibility compliance."
+    },
+    {
+      "question": "How accurate is the validation?",
+      "answer": "Accuracy depends on the detail in your component descriptions. More detailed inputs yield more accurate validation results."
+    },
+    {
+      "question": "Is this skill suitable for automated testing pipelines?",
+      "answer": "Yes, you can integrate the skill outputs into CI/CD pipelines by capturing validation results as part of your component review process."
+    }
+  ],
+  "seoKeywords": [
+    "Claude UI validator",
+    "Codex visual testing",
+    "Claude Code UI validation",
+    "visual component checker",
+    "UI layout validation",
+    "design consistency tool",
+    "mockup validation",
+    "element relationship checker",
+    "UI visual verification",
+    "component structure analysis"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ui-visual-validator",
+  "sourceType": "community",
+  "dependencies": []
+}

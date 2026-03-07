@@ -1,0 +1,141 @@
+{
+  "name": "stripe-agent",
+  "type": "skill",
+  "description": "Manages all Stripe billing operations for Unite-Hub including product/price creation, subscription management, checkout sessions, webhooks, and dual-mode (test/live) billing for staff vs. customer ...",
+  "domain": "business",
+  "subdomain": "sales",
+  "specialty": "Stripe automation",
+  "quality": 5,
+  "qualityReason": "Comprehensive payment automation",
+  "bundleHints": [
+    "payment-integrations",
+    "sales-automation"
+  ],
+  "tags": [
+    "billing",
+    "dual-mode",
+    "payments",
+    "stripe",
+    "subscriptions",
+    "webhook",
+    "webhooks"
+  ],
+  "capabilities": [
+    "Create and manage Stripe products and pricing tiers with monthly and annual billing options",
+    "Generate checkout sessions for customer subscription sign-ups with customizable success and cancel URLs",
+    "Process Stripe webhook events including subscription lifecycle changes and payment status updates",
+    "Manage customer records and subscription upgrades or downgrades with proration calculations",
+    "Support dual-mode billing with separate test and live environments for staff and customer separation",
+    "Generate billing reports with revenue breakdowns by tier and subscription metrics"
+  ],
+  "author": "CleanExpo",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill provides legitimate Stripe payment integration functionality. Static analyzer flagged 102 potential issues, but manual review confirms these are false positives from documentation patterns and markdown code blocks. The skill properly uses environment variables for API credentials and follows Stripe integration best practices. Network access is legitimate for Stripe API communication.",
+  "valueStatement": "Managing Stripe billing manually is time-consuming and error-prone. This skill automates product setup, subscription lifecycle management, checkout sessions, and webhook processing with support for dual test and live environments.",
+  "userTitle": "Automate Stripe Billing and Subscription Management",
+  "limitations": [
+    "Requires valid Stripe API credentials configured in environment variables",
+    "Depends on the @stripe/mcp server being properly installed and configured",
+    "Does not handle payment method updates or customer portal access directly",
+    "Webhook processing requires proper endpoint configuration in Stripe dashboard"
+  ],
+  "useCases": [
+    {
+      "targetUser": "SaaS founders launching subscription-based products",
+      "title": "SaaS Subscription Setup",
+      "description": "Set up complete subscription billing for a SaaS product with multiple pricing tiers, automated checkout, and webhook-driven subscription activation."
+    },
+    {
+      "targetUser": "DevOps engineers managing production billing infrastructure",
+      "title": "Billing System Audit",
+      "description": "Audit existing Stripe configuration to verify all products, prices, and webhooks are properly configured across test and live environments."
+    },
+    {
+      "targetUser": "Backend developers building customer billing portals",
+      "title": "Subscription Lifecycle Management",
+      "description": "Handle customer subscription upgrades, downgrades, and cancellations with proper proration and database synchronization."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Setup Stripe Products",
+      "prompt": "Create three Stripe products: Starter at $495/month, Professional at $895/month, and Elite at $1,295/month. Include both monthly and annual pricing with annual discount.",
+      "scenario": "Initial product catalog setup for new SaaS launch"
+    },
+    {
+      "title": "Create Checkout Session",
+      "prompt": "Create a Stripe checkout session for user email@example.com subscribing to the Professional tier with monthly billing. Use workspace ID ws_123 and redirect to /dashboard on success.",
+      "scenario": "User clicks subscribe button on pricing page"
+    },
+    {
+      "title": "Process Subscription Upgrade",
+      "prompt": "Upgrade subscription sub_abc123 from Starter to Professional tier with proration. Update the workspace tier in the database after successful upgrade.",
+      "scenario": "Existing customer wants to upgrade their plan"
+    },
+    {
+      "title": "Generate Billing Report",
+      "prompt": "Generate a billing report for the current month showing total revenue, revenue by tier, active subscriptions, new subscriptions, churned subscriptions, and MRR.",
+      "scenario": "Monthly financial reporting and metrics analysis"
+    }
+  ],
+  "bestPractices": [
+    "Always use separate test and live API keys and configure them properly in environment variables to avoid mixing test and production data",
+    "Implement webhook signature verification using webhook secrets to ensure incoming webhook events are genuine Stripe requests",
+    "Store subscription and customer data in your database synchronized with Stripe to enable fast queries without repeated API calls"
+  ],
+  "antiPatterns": [
+    "Avoid hardcoding API keys or price IDs directly in code instead of using environment variables and configuration management",
+    "Do not process subscription changes without webhook confirmation as payments may fail or require additional authentication steps",
+    "Never skip webhook signature verification as this exposes your billing system to forged webhook attacks and data manipulation"
+  ],
+  "faq": [
+    {
+      "question": "What Stripe API credentials do I need to configure?",
+      "answer": "You need to set up test and live secret keys, webhook secrets, publishable keys, and price IDs for each tier in your environment variables. The skill documentation lists all 12 required variables."
+    },
+    {
+      "question": "How does the dual-mode billing system work?",
+      "answer": "The skill automatically routes staff users with specific roles or internal email domains to test mode, while real customers use live mode. This prevents test charges from mixing with production billing."
+    },
+    {
+      "question": "Can this skill handle subscription upgrades and downgrades?",
+      "answer": "Yes, the skill can process subscription changes with proration calculations and update your database to reflect the new tier. Users are charged or credited based on time remaining in the billing period."
+    },
+    {
+      "question": "What webhook events does this skill handle?",
+      "answer": "The skill processes checkout completion, subscription creation, updates and deletion, invoice paid and payment failed events. Each event triggers appropriate actions like activating subscriptions or sending notifications."
+    },
+    {
+      "question": "Do I need the @stripe/mcp server installed?",
+      "answer": "Yes, this skill depends on the official Stripe MCP server to communicate with the Stripe API. You need to install and configure it before using this skill."
+    },
+    {
+      "question": "How can I test the billing flow without real payments?",
+      "answer": "Use Stripe test mode with test card numbers provided in the documentation. The skill supports separate test webhooks and products for safe testing without affecting production data."
+    }
+  ],
+  "seoKeywords": [
+    "Stripe integration",
+    "payment automation",
+    "subscription management",
+    "billing automation",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "webhook handling",
+    "checkout sessions",
+    "Stripe API"
+  ],
+  "sourceUrl": "https://github.com/CleanExpo/Unite-Hub/tree/main/.claude/skills/stripe-agent",
+  "sourceType": "community",
+  "dependencies": []
+}

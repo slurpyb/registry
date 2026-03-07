@@ -1,0 +1,141 @@
+{
+  "name": "create-svg-from-prompt",
+  "type": "skill",
+  "description": "Generate an SVG of a user-requested image or scene",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "vector image generation",
+  "quality": 4,
+  "qualityReason": "Good specificity, generative focus",
+  "bundleHints": [
+    "design-generation",
+    "ui-tools"
+  ],
+  "tags": [
+    "autotrace",
+    "gemini",
+    "image-generation",
+    "prompt-to-design",
+    "svg",
+    "vector-graphics"
+  ],
+  "capabilities": [
+    "Generate SVG images from text prompts using Google Gemini AI",
+    "Convert raster images to SVG format using autotrace",
+    "Transform natural language descriptions into vector graphics",
+    "Handle prompt modifications to optimize for image generation models",
+    "Save SVG output to user-specified filenames"
+  ],
+  "author": "0x6a77",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "All static findings evaluated as false positives. The skill uses legitimate API calls to Google Gemini and standard CLI tools for SVG generation. Sudo commands are for dependency installation only. No malicious behavior detected.",
+  "valueStatement": "This skill generates scalable vector graphics from natural language descriptions. Users describe what they want to see, and the skill uses AI to create SVG files.",
+  "userTitle": "Create SVG Images from Text Prompts",
+  "limitations": [
+    "Requires valid GEMINI_API_KEY environment variable for API access",
+    "Requires autotrace CLI tool to be installed on the system",
+    "Output quality depends on Gemini model interpretation of prompts",
+    "Complex images may produce less detailed SVG results"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Designers and developers who need quick vector graphic mockups",
+      "title": "Create custom icons and logos",
+      "description": "Generate simple icons and logo concepts from text descriptions. Useful for prototyping or creating starting points for graphic design work."
+    },
+    {
+      "targetUser": "Developers and content creators working with responsive web graphics",
+      "title": "Convert images to vector format",
+      "description": "Transform raster images into scalable SVG files. Helpful for simplifying complex images or preparing graphics for different output sizes."
+    },
+    {
+      "targetUser": "Product managers and ideation teams doing rapid prototyping",
+      "title": "Rapid visual prototyping",
+      "description": "Quickly generate visual representations of ideas described in text. Supports iterative refinement through prompt adjustments."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Simple SVG request",
+      "prompt": "Create an SVG of a red apple with a green leaf on a white background.",
+      "scenario": "Generate a basic vector graphic from a simple description"
+    },
+    {
+      "title": "Detailed scene description",
+      "prompt": "Create an SVG of a sunset over the ocean with orange and purple colors, showing the sun partially setting with waves in the foreground.",
+      "scenario": "Generate a more complex scene with multiple elements"
+    },
+    {
+      "title": "Icon or symbol request",
+      "prompt": "Create an SVG of a simple house icon with a chimney and smoke coming out.",
+      "scenario": "Generate icons or symbols for UI or documentation"
+    },
+    {
+      "title": "Abstract design request",
+      "prompt": "Create an SVG of geometric patterns with blue triangles and circles arranged in a modern abstract composition.",
+      "scenario": "Generate abstract or artistic vector designs"
+    }
+  ],
+  "bestPractices": [
+    "Provide clear, specific descriptions of what you want in the image",
+    "Mention specific colors and basic shapes for better results",
+    "Keep descriptions simple for icons and symbols for cleaner SVG output",
+    "Check that GEMINI_API_KEY is set before requesting complex images"
+  ],
+  "antiPatterns": [
+    "Avoid asking for photorealistic images, as SVG is vector-based",
+    "Do not request extremely complex scenes with many small details",
+    "Avoid descriptions that require precise human faces or text rendering",
+    "Do not expect the skill to install autotrace without sudo access available"
+  ],
+  "faq": [
+    {
+      "question": "What is required to use this skill?",
+      "answer": "You need a Google Gemini API key set as the GEMINI_API_KEY environment variable, and the autotrace CLI tool must be installed on your system."
+    },
+    {
+      "question": "Can I generate SVGs without an API key?",
+      "answer": "No. This skill requires a GEMINI_API_KEY to access Google Gemini for image generation. The autotrace tool alone converts existing images, but cannot generate new ones from text."
+    },
+    {
+      "question": "What types of images work best?",
+      "answer": "Simple shapes, icons, logos, and abstract designs work best. Complex scenes with many details may produce less clean vector results."
+    },
+    {
+      "question": "How do I install autotrace if it is missing?",
+      "answer": "The SKILL.md includes setup instructions. You will need sudo access to install the required packages including git, build-essential, imagemagick, libmagickcore-dev, pstoedit, and libpstoedit-dev."
+    },
+    {
+      "question": "Where are the SVG files saved?",
+      "answer": "SVG files are saved with an 8-30 character filename based on your prompt description, in the current working directory."
+    },
+    {
+      "question": "Can I convert my own images to SVG?",
+      "answer": "This skill focuses on generating SVGs from text prompts. To convert existing images, you would need to provide the image content to Gemini first, then use autotrace for vectorization."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "SVG generator",
+    "text to SVG",
+    "vector graphics",
+    "image conversion",
+    "autotrace",
+    "Google Gemini",
+    "AI image generation"
+  ],
+  "sourceUrl": "https://github.com/0x6a77/pelican-rides-a-bicycle/tree/main/.claude/skills/create-svg-from-prompt",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "stripe-automation",
+  "type": "skill",
+  "description": "Automate Stripe tasks via Rube MCP (Composio): customers, charges, subscriptions, invoices, products, refunds. Always search tools first for current schemas.",
+  "domain": "business",
+  "subdomain": "sales",
+  "specialty": "Stripe tasks",
+  "quality": 5,
+  "qualityReason": "Robust automation capability",
+  "bundleHints": [
+    "payment-integrations",
+    "sales-automation"
+  ],
+  "tags": [
+    "automation",
+    "billing",
+    "customers",
+    "finance",
+    "payments",
+    "schemas",
+    "stripe"
+  ],
+  "capabilities": [
+    "Create and update Stripe customers with email, name, and metadata",
+    "List and search customers, charges, subscriptions, invoices, products, and prices",
+    "Create payment intents and confirm payments through Stripe API",
+    "Manage subscriptions including creation, updates, and cancellation",
+    "Generate and manage invoices with automatic or manual collection methods",
+    "Process partial and full refunds on charges with reason tracking"
+  ],
+  "author": "sickn33",
+  "icon": "💳",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 75 static findings are false positives. The 'external_commands' patterns are Markdown code formatting backticks in documentation, not executable code. 'Weak cryptographic algorithm' detections are false positives from API tool names containing 'create', 'search', 'list'. The hardcoded URL is the legitimate Rube MCP endpoint. This is a documentation-only skill with no executable code, no security risks, and clear intent to help users automate Stripe operations through official APIs.",
+  "valueStatement": "Stop manually managing Stripe through dashboards. This skill enables AI agents to handle customer management, subscription billing, invoicing, and payment operations through natural language commands, reducing billing workflow time by 80%.",
+  "userTitle": "Automate Stripe payments via AI",
+  "limitations": [
+    "Requires active Rube MCP server connection and authenticated Stripe account",
+    "Cannot execute Stripe operations without completing OAuth authentication flow first",
+    "Rate limits imposed by Stripe API may affect bulk operations",
+    "Tool schemas may change over time; requires searching tools before each operation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "SaaS founders and indie developers",
+      "title": "Customer Onboarding Automation",
+      "description": "SaaS founders use natural language to create Stripe customers, set up subscriptions, and generate invoices during user signup without leaving their development environment."
+    },
+    {
+      "targetUser": "Customer support teams",
+      "title": "Billing Support Workflows",
+      "description": "Support teams query customer payment history, process refunds, update subscription plans, and generate invoice links through conversational AI commands."
+    },
+    {
+      "targetUser": "Finance and accounting professionals",
+      "title": "Financial Reconciliation",
+      "description": "Finance professionals list charges, search transactions by date range, export payment data, and audit subscriptions across multiple customers using AI queries."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a new customer",
+      "prompt": "Create a Stripe customer for john@example.com with name 'John Smith' and metadata set to {source: 'website', plan: 'premium'}",
+      "scenario": "User wants to add a new customer to their Stripe account during signup"
+    },
+    {
+      "title": "Set up subscription billing",
+      "prompt": "Create a subscription for customer cus_12345 using price_id price_abc123 with quantity 2",
+      "scenario": "User needs to start billing a customer for a recurring subscription"
+    },
+    {
+      "title": "Process a refund",
+      "prompt": "Issue a full refund for charge ch_67890 with reason 'requested_by_customer'",
+      "scenario": "User wants to refund a payment due to customer request or cancellation"
+    },
+    {
+      "title": "Generate invoice report",
+      "prompt": "List all invoices for customer cus_12345 from the last 30 days and show their status and amounts",
+      "scenario": "User needs to review billing history for a specific customer"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first before executing any Stripe operation to get current API schemas",
+    "Search for existing customers by email before creating new ones to prevent duplicate customer records",
+    "Verify Rube MCP connection status shows ACTIVE before running any Stripe workflows",
+    "Use payment intents instead of direct charges for better security and 3D Secure support"
+  ],
+  "antiPatterns": [
+    "Creating customers without searching first - this leads to duplicate customer records in Stripe",
+    "Using uppercase currency codes like 'USD' instead of lowercase 'usd' - this causes API validation errors",
+    "Forgetting that amounts are in cents (100 = $1.00) - entering decimal amounts like '10.50' will be interpreted as 1050 cents",
+    "Assuming subscriptions work immediately - customers must have valid payment methods attached before subscriptions can be created"
+  ],
+  "faq": [
+    {
+      "question": "Do I need a Stripe API key?",
+      "answer": "No. This skill uses Rube MCP which handles Stripe authentication through OAuth. You just need to connect your Stripe account via RUBE_MANAGE_CONNECTIONS."
+    },
+    {
+      "question": "What happens if my Stripe account is not connected?",
+      "answer": "The skill will instruct you to authenticate via RUBE_MANAGE_CONNECTIONS. You must complete the OAuth flow before any Stripe operations will work."
+    },
+    {
+      "question": "Can I process real payments with this skill?",
+      "answer": "Yes, if your Stripe connection is active and in live mode. Be cautious as operations affect your actual Stripe account and cannot be undone."
+    },
+    {
+      "question": "Why do I need to search tools before every operation?",
+      "answer": "Rube MCP tool schemas may change. Calling RUBE_SEARCH_TOOLS ensures the AI has the latest parameter names and requirements for each Stripe API call."
+    },
+    {
+      "question": "How do currency amounts work?",
+      "answer": "Stripe uses the smallest currency unit. For USD/EUR, enter amounts in cents (10000 = $100.00). For zero-decimal currencies like JPY, enter the exact amount (1000 = ¥1000)."
+    },
+    {
+      "question": "Can I batch process multiple customers?",
+      "answer": "Yes, but Stripe has rate limits. Use pagination with limit parameters (max 100) and process in batches to avoid hitting API rate limits."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Claude Code",
+    "Stripe automation",
+    "payment automation",
+    "billing AI",
+    "subscription management",
+    "invoice automation",
+    "Rube MCP",
+    "Composio",
+    "payment workflows"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/stripe-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "context-save",
+  "type": "skill",
+  "description": "当用户发送\"换窗口处理-\"时调用。总结当前窗口的上下文信息、已完成任务、未完成任务，保存到 docs/context-sessions/ 目录，便于新窗口恢复。",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "context continuity",
+  "quality": 5,
+  "qualityReason": "Essential for multi-window work",
+  "bundleHints": [
+    "workflow-continuity",
+    "productivity-stack",
+    "session-management"
+  ],
+  "tags": [
+    "context",
+    "continuity",
+    "productivity",
+    "sessions",
+    "task-tracking",
+    "window-switching",
+    "workflow"
+  ],
+  "capabilities": [
+    "Summarize current session context including tasks and progress",
+    "Generate structured markdown files in docs/context-sessions/",
+    "Track completed and pending tasks with priority levels",
+    "Document key files and technical decisions",
+    "Provide actionable next steps for resuming work"
+  ],
+  "author": "Claudate",
+  "icon": "📋",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-based skill with no executable code. SKILL.md contains only natural language instructions for generating markdown session summaries. No file system access, network calls, or command execution capabilities exist in the skill itself. The static analyzer produced false positives by misinterpreting Chinese text and markdown formatting as security vulnerabilities. All findings are dismissed as false positives.",
+  "valueStatement": "Context switching between AI sessions causes lost progress and repeated work. This skill automatically generates structured markdown summaries that capture tasks, files, and next steps so new AI windows can resume work instantly.",
+  "userTitle": "Save session context for new windows",
+  "limitations": [
+    "Requires the context-resume skill to restore sessions",
+    "Only creates files in the docs/context-sessions/ directory",
+    "Does not handle binary files or media content",
+    "Requires user to trigger with the specific phrase"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Multi-project developers",
+      "title": "Switch between projects",
+      "description": "Save progress on one project and resume exactly where you left off when returning"
+    },
+    {
+      "targetUser": "Long-running task handlers",
+      "title": "Preserve complex workflows",
+      "description": "Document ongoing work so context is never lost during extended development sessions"
+    },
+    {
+      "targetUser": "Team collaborators",
+      "title": "Hand off work seamlessly",
+      "description": "Create session summaries that help others quickly understand current project state"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic session save",
+      "scenario": "Save current work context",
+      "prompt": "换窗口处理-"
+    },
+    {
+      "title": "Before break",
+      "scenario": "Save before taking a break",
+      "prompt": "我需要休息一下，换窗口处理-"
+    },
+    {
+      "title": "Milestone reached",
+      "scenario": "Save after completing a milestone",
+      "prompt": "完成了主要功能，换窗口处理-"
+    },
+    {
+      "title": "EOD summary",
+      "scenario": "End of day wrap-up",
+      "prompt": "今天工作结束了，换窗口处理-"
+    }
+  ],
+  "bestPractices": [
+    "Trigger context-save before switching tasks or taking breaks",
+    "Keep task descriptions specific and actionable",
+    "Review the generated markdown for accuracy before resuming"
+  ],
+  "antiPatterns": [
+    "Calling context-save without meaningful progress to document",
+    "Leaving vague or outdated task descriptions in summaries",
+    "Skipping the context-resume step when starting a new window"
+  ],
+  "faq": [
+    {
+      "question": "Which AI platforms support this skill?",
+      "answer": "Works with Claude, Codex, and Claude Code. No additional configuration required."
+    },
+    {
+      "question": "How many sessions can I save?",
+      "answer": "Unlimited sessions can be saved. Each creates a separate markdown file in docs/context-sessions/."
+    },
+    {
+      "question": "How do I resume a saved session?",
+      "answer": "Use the context-resume skill to load a session file and restore all context information."
+    },
+    {
+      "question": "Is my data safe?",
+      "answer": "Yes. All data stays local. Files are saved in your project directory without any external network calls."
+    },
+    {
+      "question": "Why is my saved file not showing up?",
+      "answer": "Check that docs/context-sessions/ directory exists. Verify the filename format matches YYYYMMDD-HHMM-description.md"
+    },
+    {
+      "question": "How does this compare to Claudes memory feature?",
+      "answer": "This skill creates persistent, project-specific files you can version control and share with team members."
+    }
+  ],
+  "seoKeywords": [
+    "context save",
+    "session continuity",
+    "Claude Code",
+    "AI workflow",
+    "task tracking",
+    "context switch",
+    "session resume",
+    "work progress",
+    "productivity",
+    "multitasking"
+  ],
+  "sourceUrl": "https://github.com/Claudate/claude-code-context-sync/tree/main/skills/context-save",
+  "sourceType": "community",
+  "dependencies": []
+}

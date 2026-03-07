@@ -1,0 +1,140 @@
+{
+  "name": "crafting-effective-readmes",
+  "type": "skill",
+  "description": "Use when writing or improving README files. Not all READMEs are the same — provides templates and guidance matched to your audience and project type.",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "README templates",
+  "quality": 5,
+  "qualityReason": "Audience-tailored guidance",
+  "bundleHints": [
+    "documentation",
+    "onboarding",
+    "open-source"
+  ],
+  "tags": [
+    "audience-matching",
+    "documentation",
+    "guides",
+    "project-type",
+    "readme",
+    "templates",
+    "writing"
+  ],
+  "capabilities": [
+    "Select appropriate README templates based on project type (OSS, internal, personal)",
+    "Apply style guide best practices for clear technical writing",
+    "Structure documentation with required sections (installation, usage, contributing)",
+    "Incorporate references from industry-standard documentation guides",
+    "Format code examples and command snippets for readability"
+  ],
+  "author": "softaworks",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill. Static findings are false positives: markdown code formatting (backticks), reference URLs in documentation, and template placeholders. No executable code, network calls, or credential access. Safe for publication.",
+  "valueStatement": "Many projects suffer from unclear or incomplete documentation that frustrates users and contributors. This skill provides curated templates, style guides, and reference materials matched to your project type and audience.",
+  "userTitle": "Create professional README documentation",
+  "limitations": [
+    "Does not generate code or implementation details",
+    "Does not access external documentation or APIs",
+    "Does not validate existing project structure or files",
+    "Does not enforce documentation updates in repositories"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Open source maintainers and developers",
+      "title": "New open source project launch",
+      "description": "Create a comprehensive README for a public repository that includes installation instructions, contribution guidelines, and example usage."
+    },
+    {
+      "targetUser": "DevOps engineers and team leads",
+      "title": "Internal team documentation",
+      "description": "Generate workplace-appropriate documentation for proprietary tools with security notes, deployment steps, and internal resource links."
+    },
+    {
+      "targetUser": "Software engineers maintaining older projects",
+      "title": "Legacy project improvement",
+      "description": "Review and enhance existing README files with missing sections, clearer instructions, and better organization."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic README request",
+      "prompt": "Use the crafting-effective-readmes skill to create a README for my [language/framework] project. The project [brief description of what it does]. Target audience is [developers/end users/both].",
+      "scenario": "Starting a new project and need initial documentation"
+    },
+    {
+      "title": "Open source README",
+      "prompt": "Use the crafting-effective-readmes skill to write an open source README for my project. Include sections for installation, usage examples, testing, contributing guidelines, and license. The project is at [GitHub URL].",
+      "scenario": "Preparing a public repository for open source release"
+    },
+    {
+      "title": "Internal tool documentation",
+      "prompt": "Use the crafting-effective-readmes skill to create an internal team README. Focus on deployment steps, environment variables, and security considerations. Mark sections as [internal only] where appropriate.",
+      "scenario": "Documenting proprietary tools for team use"
+    },
+    {
+      "title": "Improve existing README",
+      "prompt": "Use the crafting-effective-readmes skill to review and improve my current README at [file path or content]. Suggest better structure, clearer language, and add any missing essential sections based on project type.",
+      "scenario": "Enhancing documentation for an existing project"
+    }
+  ],
+  "bestPractices": [
+    "Match template selection to audience: OSS projects need contribution guidelines, internal projects need security notes, personal projects can be more casual",
+    "Include concrete code examples showing common use cases rather than generic placeholders",
+    "Organize sections by reader priority: installation and quick start first, deep reference material last"
+  ],
+  "antiPatterns": [
+    "Using generic placeholder text like 'Add your description here' instead of specific guidance",
+    "Including installation steps that are outdated or untested",
+    "Omitting the target audience, which leaves readers unsure if the project is for them"
+  ],
+  "faq": [
+    {
+      "question": "What templates are available in this skill?",
+      "answer": "The skill includes templates for open source projects, internal team tools, personal projects, and XDG config documentation. Each template has appropriate sections for its audience."
+    },
+    {
+      "question": "Can I use this skill for non-code documentation?",
+      "answer": "Yes. While designed for software projects, the templates work for any project needing clear documentation including installation steps, usage examples, and contribution guidelines."
+    },
+    {
+      "question": "Does this skill generate code examples?",
+      "answer": "No. The skill provides documentation structure and guidance. You provide the actual code examples based on your project implementation."
+    },
+    {
+      "question": "How do I choose the right template?",
+      "answer": "Consider your audience: public OSS projects need full contribution guides, internal tools need security notes, personal projects can be minimal, and config files need environment-specific setup."
+    },
+    {
+      "question": "Can I customize the templates?",
+      "answer": "Yes. The templates are starting points. Add, remove, or modify sections based on your project needs. The skill provides guidance on what sections are essential versus optional."
+    },
+    {
+      "question": "Does this skill work with any programming language?",
+      "answer": "Yes. The documentation templates are language-agnostic. Only the code examples you provide are language-specific."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "README",
+    "documentation",
+    "technical writing",
+    "project documentation",
+    "open source",
+    "developer guides"
+  ],
+  "sourceUrl": "https://github.com/softaworks/agent-toolkit/tree/main/skills/crafting-effective-readmes/",
+  "sourceType": "community",
+  "dependencies": []
+}

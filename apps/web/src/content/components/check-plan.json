@@ -1,0 +1,144 @@
+{
+  "name": "check-plan",
+  "type": "skill",
+  "description": "Audit implementation progress against a plan, verify completed work, identify remaining tasks, and validate quality. Use when user asks to check plan status, verify implementation, see what's left to do, or validate plan completion.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "state recovery",
+  "quality": 5,
+  "qualityReason": "Robust workflow continuity保障",
+  "bundleHints": [
+    "agent-workflow",
+    "state-preserving"
+  ],
+  "tags": [
+    "audit",
+    "interruption-handling",
+    "persistence",
+    "planning",
+    "project-management",
+    "quality-assurance",
+    "recovery",
+    "state-management",
+    "validation",
+    "workflow"
+  ],
+  "capabilities": [
+    "Systematically audit implementation progress against defined plans by reading plan files and comparing to actual code changes",
+    "Verify that removal specifications are complete by checking that old code and deprecated files have been deleted",
+    "Map original issue requirements to implementation to identify coverage gaps that may have been missed during planning",
+    "Generate detailed progress reports with completion percentages, quality assessments, and structured remaining work lists",
+    "Run validation checks including TypeScript compilation, linting, and build verification to ensure code quality standards",
+    "Identify scope creep by detecting unplanned file changes and assessing whether they were necessary"
+  ],
+  "author": "Cygnusfear",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is safe for publication. Static analysis detected 92 potential issues, but all are false positives. The skill contains only markdown documentation with instructional content and example bash commands in code blocks. No executable code, network calls, or security risks are present. All flagged patterns are documentation examples showing legitimate git, npm, and file system commands for auditing purposes.",
+  "valueStatement": "Implementation teams often lose track of progress and miss requirements from original plans. This skill provides systematic auditing that verifies completed work, identifies gaps, validates quality, and generates actionable task lists to ensure 100% plan completion.",
+  "userTitle": "Verify Implementation Progress Against Plans",
+  "limitations": [
+    "Requires pre-existing plan files in the plans directory with structured implementation steps",
+    "Cannot verify functional correctness or runtime behavior, only checks implementation completeness and code quality",
+    "Relies on access to git history and project build tools which may not be available in all environments",
+    "Quality assessment is based on static analysis and may miss logic errors or business requirement mismatches"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers implementing planned features",
+      "title": "Verify Feature Implementation Completeness",
+      "description": "A developer completes work on a planned feature and wants to verify all steps were implemented before submitting for review. The skill audits each plan step, checks removal specifications, runs validation, and generates a report showing what is complete and what remains."
+    },
+    {
+      "targetUser": "Project managers and team leads",
+      "title": "Track Long-Running Project Progress",
+      "description": "A project manager needs to assess progress on a multi-week implementation effort. The skill generates progress reports showing completion percentages by plan step, identifies blocking issues, and produces actionable task lists for the remaining work."
+    },
+    {
+      "targetUser": "Quality assurance engineers and code reviewers",
+      "title": "Validate Plan Readiness for Code Review",
+      "description": "Before submitting a pull request, a developer uses this skill to verify the implementation meets all original issue requirements, passes quality checks, and has no pending removal specifications. The skill confirms whether the work is truly ready for review."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Plan Status Check",
+      "prompt": "Check the status of my current implementation plan",
+      "scenario": "Quick status check when you want to see overall progress without detailed analysis"
+    },
+    {
+      "title": "Full Quality Audit with Validation",
+      "prompt": "Run a complete audit of the authentication-refactor plan including TypeScript checks and linting",
+      "scenario": "Before submitting code for review, verify implementation quality and completeness"
+    },
+    {
+      "title": "Removal Specification Verification",
+      "prompt": "Verify that all old code marked for removal in the database-migration plan has been deleted",
+      "scenario": "When refactoring or migrating code, ensure deprecated implementations are fully removed"
+    },
+    {
+      "title": "Original Issue Coverage Analysis",
+      "prompt": "Check if the implementation covers all requirements from issue #245 and identify any gaps",
+      "scenario": "Validate that nothing from the original requirements was missed during implementation"
+    }
+  ],
+  "bestPractices": [
+    "Run plan checks after completing each major implementation step to catch issues early rather than at the end",
+    "Always verify removal specifications are complete to avoid leaving deprecated code that could cause bugs or confusion",
+    "Compare implementation against the original issue requirements, not just the plan steps, to catch planning gaps"
+  ],
+  "antiPatterns": [
+    "Do not mark a plan as complete based only on plan step completion without verifying the original issue requirements are fully addressed",
+    "Do not skip validation checks like TypeScript compilation and linting, as passing these is required for plan completion",
+    "Do not ignore unplanned file changes as scope creep, as they may indicate missing plan steps or necessary adjustments"
+  ],
+  "faq": [
+    {
+      "question": "What is a removal specification and why is it important?",
+      "answer": "A removal specification lists old code, deprecated functions, and files that should be deleted as part of a refactoring or migration. Verifying removals is critical because leftover old code can cause bugs, confusion, and maintenance burden."
+    },
+    {
+      "question": "Can this skill automatically fix issues it finds?",
+      "answer": "No, this skill is read-only and performs auditing only. It identifies issues and generates task lists, but does not modify code. This separation ensures audit integrity and prevents unintended changes."
+    },
+    {
+      "question": "What does original issue coverage verification check?",
+      "answer": "It compares the implementation against the requirements from the original GitHub issue or task that triggered the plan. This catches cases where the plan itself was incomplete and missed some requirements from the original request."
+    },
+    {
+      "question": "How does the skill calculate completion percentage?",
+      "answer": "Completion is calculated as completed plan steps divided by total plan steps. A weighted completion metric also counts partially complete steps as 0.5 to give a more nuanced progress view."
+    },
+    {
+      "question": "What validation checks does this skill run?",
+      "answer": "The skill runs TypeScript type checking, linting, and build verification if applicable. It also checks for strict typing compliance by detecting any types and verifies adherence to project coding guidelines."
+    },
+    {
+      "question": "Where are the detailed progress reports saved?",
+      "answer": "Detailed reports are saved as markdown files in the plans directory with the naming pattern plan-name.progress.md. These reports include step-by-step status, quality assessments, and remaining work."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "plan verification",
+    "implementation audit",
+    "progress tracking",
+    "quality assurance",
+    "gap analysis",
+    "task validation",
+    "project completion"
+  ],
+  "sourceUrl": "https://github.com/Cygnusfear/claude-stuff/tree/main/skills/check-plan",
+  "sourceType": "community",
+  "dependencies": []
+}

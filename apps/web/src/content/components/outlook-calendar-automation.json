@@ -1,0 +1,144 @@
+{
+  "name": "outlook-calendar-automation",
+  "type": "skill",
+  "description": "Automate Outlook Calendar tasks via Rube MCP (Composio): create events, manage attendees, find meeting times, and handle invitations. Always search tools first for current schemas.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "event scheduling",
+  "quality": 5,
+  "qualityReason": "Precise calendar functionality",
+  "bundleHints": [
+    "mcp-automation",
+    "scheduling-tools"
+  ],
+  "tags": [
+    "attendees",
+    "automation",
+    "calendar",
+    "calendar-events",
+    "composio",
+    "invitations",
+    "meeting-scheduling",
+    "microsoft",
+    "outlook",
+    "scheduling"
+  ],
+  "capabilities": [
+    "Create new calendar events with subject, time, location, and attendees",
+    "List, search, and filter calendar events by date range or keywords",
+    "Update existing events including time, location, and attendee changes",
+    "Delete events or decline meeting invitations",
+    "Find available meeting times across multiple attendees",
+    "Generate Microsoft Teams meeting links for events"
+  ],
+  "author": "sickn33",
+  "icon": "📅",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The detected 'external_commands' patterns are markdown code formatting (backtick-enclosed tool names like `RUBE_SEARCH_TOOLS`), not actual shell execution. The 'network' finding is a legitimate MCP server URL required for skill configuration. No cryptographic code or malicious patterns present. This is a standard documentation file for an Outlook Calendar automation skill.",
+  "valueStatement": "Schedule meetings, manage attendees, and find optimal meeting times directly from Claude without manually opening Outlook. This skill streamlines calendar operations through a simple MCP integration.",
+  "userTitle": "Automate Outlook Calendar Tasks",
+  "limitations": [
+    "Requires Rube MCP connection with Outlook toolkit configured",
+    "Only works with Microsoft Outlook calendars (not Google Calendar)",
+    "Cannot access calendars without proper OAuth authentication",
+    "Event search is limited to OData filter-supported fields only"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Team leads, project managers, and employees who schedule frequent meetings",
+      "title": "Schedule Team Meetings",
+      "description": "Quickly create calendar events for team syncs, project reviews, or one-on-ones without switching to Outlook"
+    },
+    {
+      "targetUser": "Meeting organizers coordinating across multiple team members",
+      "title": "Find Meeting Availability",
+      "description": "Automatically find optimal meeting times that work for all attendees based on their calendars"
+    },
+    {
+      "targetUser": "Administrative assistants and anyone who frequently modifies meetings",
+      "title": "Manage Calendar Events",
+      "description": "Update meeting times, locations, or attendee lists and handle invitation responses"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create Simple Event",
+      "prompt": "Create a calendar event for [meeting title] on [date] from [start time] to [end time] in [timezone]",
+      "scenario": "Schedule a basic meeting with required details"
+    },
+    {
+      "title": "Schedule Meeting with Attendees",
+      "prompt": "Schedule [meeting title] for [date] at [time] with [email1, email2] as attendees. Include [any additional details] in the description.",
+      "scenario": "Create an event and invite specific people"
+    },
+    {
+      "title": "Find Available Time Slot",
+      "prompt": "Find available meeting times for [number] attendees ([email list]) next week for a [duration] meeting",
+      "scenario": "Discover optimal meeting times across multiple calendars"
+    },
+    {
+      "title": "Update Existing Event",
+      "prompt": "Find my meeting titled '[event title]' and update the time to [new start] to [new end], or change the location to [new location]",
+      "scenario": "Modify an existing calendar event"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before making API calls",
+    "Verify connection status shows ACTIVE before running any calendar workflows",
+    "Use ISO 8601 datetime format with timezone for all time-related parameters"
+  ],
+  "antiPatterns": [
+    "Attempting to use the skill without configuring Rube MCP with Outlook toolkit",
+    "Using invalid timezone names (must be valid IANA or Windows timezone identifiers)",
+    "Forgetting that updating attendees replaces the entire list, not just adding new ones"
+  ],
+  "faq": [
+    {
+      "question": "Do I need an Outlook account to use this skill?",
+      "answer": "Yes, you need a Microsoft Outlook account. The skill uses OAuth to connect to your Outlook calendar through the Rube MCP service."
+    },
+    {
+      "question": "Is this skill affiliated with Microsoft?",
+      "answer": "No, this is a community-built skill that uses Composio's Rube MCP to interact with Outlook. It is not an official Microsoft product."
+    },
+    {
+      "question": "Can I use this skill with Google Calendar?",
+      "answer": "No, this skill specifically targets Microsoft Outlook. For Google Calendar, you would need a different skill or MCP provider."
+    },
+    {
+      "question": "Does this skill send emails to attendees?",
+      "answer": "Yes, when you add attendees to an event or modify existing attendees, Microsoft Outlook automatically sends invitation emails to those attendees."
+    },
+    {
+      "question": "Can I create Teams meetings with this skill?",
+      "answer": "Yes, set is_online_meeting to true and online_meeting_provider to 'teamsForBusiness' when creating an event to automatically generate a Teams meeting link."
+    },
+    {
+      "question": "What happens if I delete a recurring event?",
+      "answer": "Deleting a recurring event master will delete all occurrences of that event. The skill does not currently support deleting single instances of recurring events."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Outlook calendar automation",
+    "Microsoft Outlook",
+    "calendar scheduling",
+    "meeting scheduler",
+    "Rube MCP",
+    "Composio",
+    "calendar integration"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/outlook-calendar-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

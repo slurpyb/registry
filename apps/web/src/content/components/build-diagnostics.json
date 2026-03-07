@@ -1,0 +1,140 @@
+{
+  "name": "build-diagnostics",
+  "type": "skill",
+  "description": "When given a blocker:",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "build troubleshooting",
+  "quality": 4,
+  "qualityReason": "Generic but useful diagnostics",
+  "bundleHints": [
+    "devops-tools",
+    "ci-cd"
+  ],
+  "tags": [
+    "blocker-resolution",
+    "build",
+    "debugging",
+    "diagnostics",
+    "root-cause",
+    "troubleshooting"
+  ],
+  "capabilities": [
+    "Reproduce errors exactly with full output capture",
+    "Gather context from configs, logs, and environment",
+    "Identify root cause versus symptoms in build failures",
+    "Research known issues via MCP and web search",
+    "Implement minimal, verified fixes",
+    "Escalate when root cause cannot be determined"
+  ],
+  "author": "CleanExpo",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only Markdown documentation describing a troubleshooting workflow. No executable code, no file system access, no network calls, and no external dependencies. The static findings are all false positives caused by the analyzer misinterpreting documentation text (code fences, placeholders, and solution descriptions) as actual code vulnerabilities. The skill-report.json already correctly assessed this as safe.",
+  "valueStatement": "Build failures waste hours of developer time. This agent systematically investigates blockers using all available tools, identifies the true root cause, and implements verified fixes without introducing new problems.",
+  "userTitle": "Diagnose build issues and find root causes",
+  "limitations": [
+    "Cannot execute code directly - depends on available tools",
+    "Requires access to logs, configs, and error messages",
+    "Cannot make architectural decisions without human input",
+    "Only handles build and debugging related issues"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software developers",
+      "title": "Fix build failures fast",
+      "description": "Diagnose cryptic build errors like Turbopack manifest issues or memory allocation failures with systematic investigation."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Resolve CI/CD pipeline issues",
+      "description": "Investigate pipeline failures by reproducing errors, checking configurations, and identifying environment-related problems."
+    },
+    {
+      "targetUser": "Engineering leads",
+      "title": "Prevent recurring blockers",
+      "description": "Ensure fixes address root causes rather than symptoms, reducing repeat issues across the development team."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Capture build error",
+      "scenario": "Quick error check",
+      "prompt": "Build failed with: [paste error message]. Investigate this blocker. Reproduce the error, find the root cause, and propose a fix."
+    },
+    {
+      "title": "Debug type errors",
+      "scenario": "TypeScript issues",
+      "prompt": "TypeScript is reporting type mismatches in [file or component]. Run typecheck, examine the type definitions, identify the root cause, and suggest how to fix it."
+    },
+    {
+      "title": "Investigate test failures",
+      "scenario": "Test suite debugging",
+      "prompt": "Tests are failing in [module or test file]. Run the tests, examine the test structure, find why tests are failing, and implement a fix."
+    },
+    {
+      "title": "Full diagnosis workflow",
+      "scenario": "Complex blocker analysis",
+      "prompt": "We have a blocker: [description]. Follow your full investigation workflow. Reproduce the error, gather all context (configs, environment, related code), identify root cause with confidence level, propose solution with risk assessment, and verify the fix works."
+    }
+  ],
+  "bestPractices": [
+    "Reproduce the error exactly using the same conditions before attempting any fix",
+    "Gather comprehensive context from configs, logs, and environment before diagnosing",
+    "Report confidence levels and always verify fixes before claiming success"
+  ],
+  "antiPatterns": [
+    "Making changes without understanding the root cause",
+    "Trying random fixes until something appears to work",
+    "Assuming an error is unrelated to recent changes without evidence"
+  ],
+  "faq": [
+    {
+      "question": "What build systems does this support?",
+      "answer": "Works with any build tool including npm, Turbopack, Vite, Webpack, TypeScript compiler, and CI/CD pipelines."
+    },
+    {
+      "question": "How long does diagnosis typically take?",
+      "answer": "Simple issues resolve in minutes. Complex blockers may require 15-30 minutes of systematic investigation."
+    },
+    {
+      "question": "Does this integrate with CI/CD tools?",
+      "answer": "Yes, the agent can analyze CI/CD logs and errors from GitHub Actions, GitLab CI, CircleCI, and similar platforms."
+    },
+    {
+      "question": "Is my code or data accessed during diagnosis?",
+      "answer": "The agent only reads files you explicitly reference. No data leaves your environment."
+    },
+    {
+      "question": "What if the agent cannot find the root cause?",
+      "answer": "The agent follows stop criteria and escalates with a detailed investigation summary when root cause cannot be determined."
+    },
+    {
+      "question": "How is this different from regular debugging?",
+      "answer": "This follows a structured investigation workflow with confidence levels, verification steps, and documented escalation paths."
+    }
+  ],
+  "seoKeywords": [
+    "build diagnostics",
+    "debugging",
+    "troubleshooting",
+    "root cause analysis",
+    "build failures",
+    "Claude Code",
+    "error resolution",
+    "DevOps tools",
+    "CI/CD debugging",
+    "system diagnostics"
+  ],
+  "sourceUrl": "https://github.com/CleanExpo/Unite-Hub/tree/main/.claude/skills/build-diagnostics",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "remotion",
+  "type": "skill",
+  "description": "Generate walkthrough videos from Stitch projects using Remotion with smooth transitions, zooming, and text overlays",
+  "domain": "gaming",
+  "subdomain": "game-dev",
+  "specialty": "video walkthroughs",
+  "quality": 4,
+  "qualityReason": "Creative media production",
+  "bundleHints": [
+    "video-tools",
+    "animation-stack"
+  ],
+  "tags": [
+    "animation",
+    "react-animation",
+    "remotion",
+    "stitch",
+    "text-overlays",
+    "transitions",
+    "ui-demo",
+    "video-creation",
+    "video-walkthrough",
+    "zoom-effects"
+  ],
+  "capabilities": [
+    "Retrieve Stitch project screens and metadata through MCP calls.",
+    "Generate Remotion composition files for screen walkthroughs with transitions.",
+    "Create a screen manifest with timing and asset paths.",
+    "Provide guidance for previewing and rendering videos with Remotion.",
+    "Offer a template for screen slide components and animations."
+  ],
+  "author": "google-labs-code",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged weak cryptography and backtick execution patterns, but review shows these are documentation or template literals with no cryptographic use or runtime command execution. A helper script downloads assets with curl and writes to a user provided path, which is expected but implies network and filesystem activity.",
+  "valueStatement": "Teams need fast, consistent walkthrough videos for app screens, but manual editing is slow. This skill automates screen retrieval and Remotion composition to produce ready to render videos with transitions and overlays.",
+  "userTitle": "Create Remotion walkthrough videos from Stitch screens",
+  "limitations": [
+    "Requires access to Stitch and Remotion MCP servers or the Remotion CLI.",
+    "Does not create or edit design assets beyond using existing Stitch screens.",
+    "Rendering quality depends on provided screenshots and Remotion configuration.",
+    "Assumes a standard Remotion project layout and file structure."
+  ],
+  "useCases": [
+    {
+      "targetUser": "Product marketer",
+      "title": "Produce a product walkthrough video",
+      "description": "Generate a narrated screen-by-screen video to explain an app flow."
+    },
+    {
+      "targetUser": "Design lead",
+      "title": "Create a design review demo",
+      "description": "Compile Stitch screens into a timed walkthrough for stakeholder review."
+    },
+    {
+      "targetUser": "Developer advocate",
+      "title": "Ship a release highlight clip",
+      "description": "Render a short video that showcases new features with callouts."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Build a basic walkthrough",
+      "prompt": "Create a Remotion walkthrough video for my Stitch project and include fade transitions and screen titles.",
+      "scenario": "Beginner"
+    },
+    {
+      "title": "Tune timing and transitions",
+      "prompt": "Adjust the composition so each screen shows for 4 seconds and use slide transitions between major steps.",
+      "scenario": "Intermediate"
+    },
+    {
+      "title": "Add text callouts from HTML",
+      "prompt": "Extract key labels from Stitch HTML and add timed callouts to each screen.",
+      "scenario": "Advanced"
+    },
+    {
+      "title": "Render deliverables",
+      "prompt": "Render the walkthrough to MP4 and WebM formats and summarize the output locations.",
+      "scenario": "Advanced"
+    }
+  ],
+  "bestPractices": [
+    "Keep screen metadata aligned with actual image dimensions.",
+    "Preview in Remotion Studio before final rendering.",
+    "Store assets in a dedicated public folder with stable paths."
+  ],
+  "antiPatterns": [
+    "Do not reference missing or moved asset paths in the manifest.",
+    "Do not mix screen sizes without explicit scaling rules.",
+    "Do not render without verifying timing and transition pacing."
+  ],
+  "faq": [
+    {
+      "question": "What inputs do I need to start?",
+      "answer": "You need a Stitch project ID or name and access to Remotion tooling."
+    },
+    {
+      "question": "Can it work without the Remotion MCP server?",
+      "answer": "Yes, it can use the Remotion CLI if it is installed."
+    },
+    {
+      "question": "Does it download images automatically?",
+      "answer": "It can download screenshots when given Stitch download URLs."
+    },
+    {
+      "question": "Can I customize transitions and timing?",
+      "answer": "Yes, the manifest and composition settings control timing and effects."
+    },
+    {
+      "question": "Will it generate voiceovers?",
+      "answer": "No, it only outlines how to add voiceovers in Remotion."
+    },
+    {
+      "question": "What formats can I render?",
+      "answer": "It can guide rendering to common formats such as MP4 and WebM."
+    }
+  ],
+  "seoKeywords": [
+    "Remotion walkthrough videos",
+    "Stitch screens",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "video composition",
+    "UI demo video",
+    "Remotion transitions",
+    "product walkthrough"
+  ],
+  "sourceUrl": "https://github.com/google-labs-code/stitch-skills/tree/main/skills/remotion/",
+  "sourceType": "community",
+  "dependencies": []
+}

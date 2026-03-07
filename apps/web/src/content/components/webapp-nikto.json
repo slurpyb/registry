@@ -1,0 +1,142 @@
+{
+  "name": "webapp-nikto",
+  "type": "skill",
+  "description": "Web server vulnerability scanner for identifying security issues, misconfigurations, and outdated software versions. Use when: (1) Conducting authorized web server security assessments, (2) Identifying common web vulnerabilities and misconfigurations, (3) Detecting outdated server software and known vulnerabilities, (4) Performing compliance scans for web server hardening, (5) Enumerating web server information and enabled features, (6) Validating security controls and patch levels.\n",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "server scanning",
+  "quality": 5,
+  "qualityReason": "Specific, security-hardening tool",
+  "bundleHints": [
+    "security-toolkit",
+    "pentesting",
+    "devsecops"
+  ],
+  "tags": [
+    "auditing",
+    "misconfigurations",
+    "nikto",
+    "server-security",
+    "vulnerability-scanner",
+    "web-assessment",
+    "web-security"
+  ],
+  "capabilities": [
+    "Scan web servers for known vulnerabilities and misconfigurations",
+    "Detect outdated server software and security patches",
+    "Perform SSL/TLS security assessments",
+    "Generate reports in multiple formats (HTML, XML, CSV, TXT)",
+    "Execute authenticated scans with credentials",
+    "Apply evasion techniques for authorized testing"
+  ],
+  "author": "AgentSecOps",
+  "icon": "🛡️",
+  "version": "0.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill providing guidance for the Nikto open-source web server scanner. All code examples are shell commands for the external Nikto tool which users install and run separately. Contains no executable scripts. Includes explicit authorization requirements and ethical usage guidelines. The static findings (external commands, network URLs, security vocabulary) are expected documentation content for a vulnerability scanning skill, not malicious patterns.",
+  "valueStatement": "Nikto is an open-source web server scanner that identifies dangerous files, outdated software versions, and server misconfigurations. Use this skill to conduct authorized security assessments and compliance scans against web servers and applications.",
+  "userTitle": "Scan web servers for vulnerabilities with Nikto",
+  "limitations": [
+    "Requires external Nikto installation (Perl-based tool)",
+    "Cannot scan without explicit written authorization",
+    "Limited to web server-level vulnerabilities, not application logic",
+    "No native integration with CI/CD pipelines (manual setup required)"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security consultants",
+      "title": "Authorized penetration testing",
+      "description": "Conduct comprehensive web server security assessments for clients with proper authorization documentation"
+    },
+    {
+      "targetUser": "DevSecOps engineers",
+      "title": "Compliance vulnerability scans",
+      "description": "Scan internal web applications to verify security controls meet PCI-DSS and OWASP requirements"
+    },
+    {
+      "targetUser": "System administrators",
+      "title": "Internal security hardening",
+      "description": "Identify and remediate web server misconfigurations in pre-production environments"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic scan",
+      "scenario": "Scan a web server",
+      "prompt": "Run a Nikto scan against http://example.com and output results to a text file"
+    },
+    {
+      "title": "SSL assessment",
+      "scenario": "SSL/TLS security check",
+      "prompt": "Perform an SSL-focused Nikto scan on https://secure.example.com with detailed SSL checks"
+    },
+    {
+      "title": "Authenticated scan",
+      "scenario": "Internal application scan",
+      "prompt": "Run an authenticated Nikto scan against http://internalapp.local using credentials admin:password123"
+    },
+    {
+      "title": "Compliance report",
+      "scenario": "Generate compliance report",
+      "prompt": "Scan web1.example.com and web2.example.com, generate an HTML compliance report with vulnerability classifications"
+    }
+  ],
+  "bestPractices": [
+    "Always obtain written authorization before scanning any system",
+    "Schedule scans during maintenance windows to minimize production impact",
+    "Document all findings with remediation steps for compliance reporting"
+  ],
+  "antiPatterns": [
+    "Scanning systems without documented authorization",
+    "Running full scans on production systems during business hours",
+    "Ignoring false positive verification before reporting"
+  ],
+  "faq": [
+    {
+      "question": "Is Nikto installed by default?",
+      "answer": "No. Nikto is a Perl-based tool that must be installed separately. Install via package manager (apt install nikto) or from source at cirt.net."
+    },
+    {
+      "question": "What authorization do I need?",
+      "answer": "You need written authorization from the system owner that explicitly covers web server vulnerability scanning and specifies target scope."
+    },
+    {
+      "question": "Does this skill run scans automatically?",
+      "answer": "No. This skill provides documentation and command templates. Users must run nikto commands directly after installing the tool."
+    },
+    {
+      "question": "Is my scan data stored or transmitted?",
+      "answer": "All scan results are saved locally to files you specify. No data is transmitted to external servers by this skill."
+    },
+    {
+      "question": "Why does Nikto trigger so many alerts?",
+      "answer": "Nikto tests for thousands of known vulnerabilities and uses simple pattern matching, causing false positives. Always verify findings manually."
+    },
+    {
+      "question": "How does Nikto compare to other scanners?",
+      "answer": "Nikto is fast and comprehensive for server-level issues but does not analyze application logic. Combine with tools like ZAP or Burp for complete coverage."
+    }
+  ],
+  "seoKeywords": [
+    "nikto scanner",
+    "web vulnerability scanner",
+    "claude code skill",
+    "web server security",
+    "penetration testing",
+    "claude",
+    "codex",
+    "claude-code",
+    "security assessment",
+    "vulnerability enumeration"
+  ],
+  "sourceUrl": "https://github.com/AgentSecOps/SecOpsAgentKit/tree/main/skills/offsec/webapp-nikto",
+  "sourceType": "community",
+  "dependencies": []
+}

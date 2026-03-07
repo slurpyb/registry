@@ -1,0 +1,144 @@
+{
+  "name": "latchbio-integration",
+  "type": "skill",
+  "description": "Latch platform for bioinformatics workflows. Build pipelines with Latch SDK, @workflow/@task decorators, deploy serverless workflows, LatchFile/LatchDir, Nextflow/Snakemake integration.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "bioinformatics pipelines",
+  "quality": 5,
+  "qualityReason": "Specialized bioinformatics integration",
+  "bundleHints": [
+    "bioinformatics-tools",
+    "pipeline-orchestration",
+    "data-science"
+  ],
+  "tags": [
+    "bioinformatics",
+    "data-science",
+    "latch sdk",
+    "nextflow",
+    "pipelines",
+    "serverless",
+    "snakemake",
+    "task decorators",
+    "workflow",
+    "workflows"
+  ],
+  "capabilities": [
+    "Create serverless bioinformatics workflows using @workflow and @task decorators",
+    "Deploy Python, Nextflow, or Snakemake pipelines with automatic Docker containerization",
+    "Configure compute resources including CPU, memory, and GPU (K80, V100, A100)",
+    "Integrate pre-built verified workflows for RNA-seq, AlphaFold, DESeq2, and single-cell analysis",
+    "Manage cloud data with LatchFile and LatchDir abstractions",
+    "Organize experimental data using the Registry system with Projects, Tables, and Records"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing only markdown files (.md) and JSON metadata. No executable source code present. All 285 static findings are false positives caused by the scanner misinterpreting markdown code block syntax and documentation examples as executable code. The 'backtick execution' findings are markdown code delimiters, 'weak cryptographic algorithm' findings are misinterpreted Python decorators, and 'credential access' findings demonstrate legitimate Latch SDK APIs. This is standard bioinformatics documentation teaching users how to use a cloud-based workflow platform.",
+  "valueStatement": "Deploy production-ready bioinformatics workflows without managing infrastructure. Create serverless pipelines using Python decorators with automatic containerization, GPU support, and integrated cloud storage.",
+  "userTitle": "Build bioinformatics pipelines with Latch SDK",
+  "limitations": [
+    "Requires Latch account and Docker installation for workflow registration",
+    "Verified workflows are platform-specific and may require additional configuration",
+    "Task resource decorators must be statically defined at registration time"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Bioinformatics researchers",
+      "title": "Deploy RNA-seq analysis pipelines",
+      "description": "Build complete transcriptomics workflows from quality control through differential expression analysis."
+    },
+    {
+      "targetUser": "Computational biologists",
+      "title": "Run protein structure prediction",
+      "description": "Execute AlphaFold or ColabFold jobs with automatic GPU resource allocation and cloud storage."
+    },
+    {
+      "targetUser": "Data scientists",
+      "title": "Integrate verified bioinformatics tools",
+      "description": "Combine pre-built workflows with custom steps for specialized analysis pipelines."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create basic workflow",
+      "scenario": "Build your first Latch workflow",
+      "prompt": "Create a Latch workflow that processes files using the @small_task decorator and returns a LatchFile result."
+    },
+    {
+      "title": "Configure GPU resources",
+      "scenario": "Set up GPU-accelerated tasks",
+      "prompt": "Configure a Latch task to use an A100 GPU for deep learning model execution with custom resource specifications."
+    },
+    {
+      "title": "Import existing pipeline",
+      "scenario": "Convert Nextflow/Snakemake pipelines",
+      "prompt": "Show how to register an existing Nextflow or Snakemake pipeline to the Latch platform."
+    },
+    {
+      "title": "Build multi-step pipeline",
+      "scenario": "Create complex analysis workflows",
+      "prompt": "Create a complete RNA-seq pipeline with quality control, alignment, and quantification tasks using Latch decorators."
+    }
+  ],
+  "bestPractices": [
+    "Start with standard task decorators (@small_task, @large_task) and scale resources only when profiling shows need",
+    "Use type annotations and docstrings for all parameters to auto-generate workflow interfaces",
+    "Test workflows locally with Docker before registering to the platform"
+  ],
+  "antiPatterns": [
+    "Avoid over-provisioning resources - GPU tasks cost significantly more than CPU tasks",
+    "Do not use dynamic resource configuration at runtime - decorators must be static",
+    "Avoid mixing multiple workflow frameworks in a single pipeline without clear separation"
+  ],
+  "faq": [
+    {
+      "question": "What bioinformatics tools are available as verified workflows?",
+      "answer": "Latch provides verified workflows for bulk RNA-seq, DESeq2, AlphaFold, ColabFold, MAFFT, Trim Galore, ArchR, scVelo, CRISPResso2, and phylogenetics."
+    },
+    {
+      "question": "How do I configure GPU resources for my workflow?",
+      "answer": "Use @small_gpu_task or @large_gpu_task decorators, or specify gpu and gpu_type parameters in @custom_task for precise control."
+    },
+    {
+      "question": "Can I import existing Nextflow or Snakemake pipelines?",
+      "answer": "Yes, use latch register --nextflow or latch register --snakemake commands to import existing pipelines with automatic containerization."
+    },
+    {
+      "question": "How does LatchFile differ from local file paths?",
+      "answer": "LatchFile is a cloud storage reference. The SDK automatically downloads files to local paths during execution and uploads results back to cloud storage."
+    },
+    {
+      "question": "What compute resources are available?",
+      "answer": "CPU up to 96 cores, memory up to 768 GB, GPU options include K80, V100, and A100, with configurable ephemeral storage."
+    },
+    {
+      "question": "How do I organize experimental data in the Registry?",
+      "answer": "Create Projects containing Tables with Records. Use column types like string, number, file, link, and enum to structure your data model."
+    }
+  ],
+  "seoKeywords": [
+    "Latch bioinformatics workflows",
+    "Claude scientific skills",
+    "Codex data pipelines",
+    "workflow automation",
+    "bioinformatics platform",
+    "Snakemake Nextflow integration",
+    "AlphaFold ColabFold",
+    "RNA-seq pipeline",
+    "serverless workflows",
+    "GPU-accelerated analysis"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/latchbio-integration",
+  "sourceType": "community",
+  "dependencies": []
+}

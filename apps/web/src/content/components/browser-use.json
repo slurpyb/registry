@@ -1,0 +1,139 @@
+{
+  "name": "browser-use",
+  "type": "skill",
+  "description": "Browser automation using Playwright MCP. Navigate websites, fill forms, click elements, take screenshots, and extract data. Use when tasks require web browsing, form submission, web scraping, UI testing, or any browser interaction.",
+  "domain": "tools",
+  "subdomain": "browser",
+  "specialty": "Playwright automation",
+  "quality": 5,
+  "qualityReason": "Well-defined Playwright use",
+  "bundleHints": [
+    "browser-tools",
+    "automation-suite"
+  ],
+  "tags": [
+    "automation",
+    "browser",
+    "playwright",
+    "testing",
+    "ui-testing",
+    "web-scraping"
+  ],
+  "capabilities": [
+    "Navigate to URLs and traverse browser history",
+    "Click, type, hover, and drag web page elements",
+    "Fill forms with multiple fields and handle dropdowns",
+    "Take screenshots of pages or specific elements",
+    "Extract page content via accessibility snapshots",
+    "Execute JavaScript for complex browser workflows"
+  ],
+  "author": "92Bilal26",
+  "icon": "🌐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate browser automation skill with transparent code. Static findings are false positives: JSON schema URLs with $ prefix were misidentified as shell backticks; subprocess usage is controlled (user-specified commands only); all network activity is limited to local MCP server on localhost:8808. No malicious intent detected.",
+  "valueStatement": "Browser automation requires repetitive manual interactions with web pages. This skill provides MCP-powered tools to navigate websites, fill forms, click elements, take screenshots, and extract data programmatically through Playwright MCP server.",
+  "userTitle": "Automate browser tasks with Playwright",
+  "limitations": [
+    "Requires running Playwright MCP server on port 8808",
+    "Cannot automate browser extensions or browser-specific features",
+    "Limited to single browser window per server instance"
+  ],
+  "useCases": [
+    {
+      "targetUser": "QA Engineers",
+      "title": "Automate UI testing workflows",
+      "description": "Create end-to-end tests that navigate sites, fill forms, and verify page content programmatically."
+    },
+    {
+      "targetUser": "Data Researchers",
+      "title": "Extract data from web pages",
+      "description": "Navigate to pages, extract structured data from tables and lists, and save results."
+    },
+    {
+      "targetUser": "Business Users",
+      "title": "Automate form submissions",
+      "description": "Fill and submit web forms automatically without manual browser interaction."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Navigate and explore",
+      "scenario": "When user wants to browse a website",
+      "prompt": "Use the browser-use skill to navigate to {url}. Take a snapshot to see the page structure. Tell me what interactive elements are available."
+    },
+    {
+      "title": "Fill a form",
+      "scenario": "When user needs to complete a web form",
+      "prompt": "Navigate to {url}. Get a snapshot to find form fields. Fill the form with these values: {field-values}. Submit it."
+    },
+    {
+      "title": "Extract data",
+      "scenario": "When user needs data from a webpage",
+      "prompt": "Go to {url}. Get a snapshot or take a screenshot. Extract all {specific-data-type} from the page and format it as a list."
+    },
+    {
+      "title": "Multi-step workflow",
+      "scenario": "When user has complex browser automation",
+      "prompt": "Use browser_run_code to execute this Playwright workflow: {javascript-code}. Report the results."
+    }
+  ],
+  "bestPractices": [
+    "Start the Playwright MCP server before any browser task and stop it when complete",
+    "Always take a snapshot before clicking or typing to get current element references",
+    "Use browser_run_code for complex multi-step operations that should be atomic"
+  ],
+  "antiPatterns": [
+    "Do not navigate to untrusted websites that may execute malicious scripts",
+    "Do not submit sensitive credentials without verifying the target page",
+    "Do not leave the browser server running unattended for long periods"
+  ],
+  "faq": [
+    {
+      "question": "What tools does browser-use provide?",
+      "answer": "22 Playwright MCP tools for navigation, interaction, screenshots, JavaScript execution, and more."
+    },
+    {
+      "question": "Does browser-use work offline?",
+      "answer": "The skill works offline but requires the Playwright MCP server to be running locally."
+    },
+    {
+      "question": "Can browser-use handle CAPTCHAs?",
+      "answer": "No, browser-use cannot bypass CAPTCHAs or other anti-bot protections."
+    },
+    {
+      "question": "Is my browsing data private?",
+      "answer": "All browser activity stays on your local machine through the local MCP server connection."
+    },
+    {
+      "question": "Why do I need to start a server?",
+      "answer": "The Playwright MCP server provides persistent browser state across multiple automation calls."
+    },
+    {
+      "question": "How is browser-use different from curl or wget?",
+      "answer": "Browser-use can interact with JavaScript-heavy sites and maintain session state like a real browser."
+    }
+  ],
+  "seoKeywords": [
+    "browser automation",
+    "Playwright MCP",
+    "web scraping",
+    "form automation",
+    "UI testing",
+    "Claude Code skill",
+    "browser interaction",
+    "web navigation",
+    "screenshot automation",
+    "data extraction"
+  ],
+  "sourceUrl": "https://github.com/92Bilal26/TaskPilotAI/tree/main/.claude/skills/browser-use",
+  "sourceType": "community",
+  "dependencies": []
+}

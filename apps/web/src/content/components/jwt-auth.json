@@ -1,0 +1,143 @@
+{
+  "name": "jwt-auth",
+  "type": "skill",
+  "description": "Use when implementing JWT authentication in FastAPI or Python projects.\nTriggers for: token generation, verification middleware, current user extraction,\naccess token creation, token decoding, or role-based auth.\nNOT for: OAuth2 provider setup, OpenID Connect, or non-Python backends.\n",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "token management",
+  "quality": 5,
+  "qualityReason": "Critical security implementation",
+  "bundleHints": [
+    "python-security",
+    "api-auth",
+    "backend-auth"
+  ],
+  "tags": [
+    "access tokens",
+    "authentication",
+    "authorization",
+    "decoding",
+    "fastapi",
+    "jwt",
+    "python",
+    "roles",
+    "verification"
+  ],
+  "capabilities": [
+    "Generate secure JWT access tokens with configurable expiry using HS256 algorithm",
+    "Create FastAPI dependencies for token verification and user extraction",
+    "Implement role-based access control (RBAC) with RoleChecker",
+    "Validate JWT structure, expiration claims, and token blacklisting",
+    "Configure JWT secret keys and algorithm settings via environment variables",
+    "Extract user identity from JWT payload claims"
+  ],
+  "author": "Awais68",
+  "icon": "🔐",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing JWT authentication patterns and a SKILL.md validation script. The verify.py script only reads and validates its own SKILL.md file using standard Python file I/O and regex operations. No network calls, no external command execution, no credential access. All 58 static findings are false positives: regex functions (re.match/re.search) were misclassified as cryptographic algorithms, markdown inline code backticks were misclassified as shell execution, and environment variable documentation was misclassified as credential access.",
+  "valueStatement": "Building secure JWT authentication requires understanding token creation, verification, and role-based access control patterns. This skill provides expert implementations and workflows for adding authentication to FastAPI and Python applications with minimal security risks.",
+  "userTitle": "Implement JWT authentication in FastAPI",
+  "limitations": [
+    "Does not implement OAuth2 provider or OpenID Connect flows",
+    "Frontend token storage and refresh logic handled by separate auth-integration skill",
+    "Does not include database integration for user persistence"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "Add auth to FastAPI APIs",
+      "description": "Protect endpoints with JWT bearer token validation and extract user identity from tokens"
+    },
+    {
+      "targetUser": "Full-stack engineers",
+      "title": "Build secure API backends",
+      "description": "Implement authentication layer that integrates with frontend auth context for complete auth flow"
+    },
+    {
+      "targetUser": "Security-focused developers",
+      "title": "Enforce role-based access",
+      "description": "Restrict endpoint access based on user roles with minimal configuration overhead"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic token generation",
+      "scenario": "Need to create a JWT access token",
+      "prompt": "Create a JWT access token with subject user@example.com and 30 minute expiry using HS256 algorithm"
+    },
+    {
+      "title": "Protect endpoint",
+      "scenario": "Adding authentication to API route",
+      "prompt": "Add JWT authentication to my FastAPI endpoint using HTTPBearer dependency and get_current_user"
+    },
+    {
+      "title": "Role-based access",
+      "scenario": "Restricting admin endpoints",
+      "prompt": "Create a RoleChecker that allows only admin users to access a delete endpoint"
+    },
+    {
+      "title": "User extraction",
+      "scenario": "Getting user from JWT payload",
+      "prompt": "Extract user email and roles from JWT payload and return in response with User from_payload"
+    }
+  ],
+  "bestPractices": [
+    "Set short token expiration (15-30 minutes) and implement refresh token flow for longer sessions",
+    "Never store passwords, PII, or secrets in JWT claims - keep payloads small and public",
+    "Always verify token expiration and implement token blacklist for logout functionality"
+  ],
+  "antiPatterns": [
+    "Using algorithm='none' - always use HS256 or RS256 for production",
+    "Storing sensitive data in JWT tokens - anyone can decode the payload",
+    "Skipping expiration verification - expired tokens should be rejected immediately"
+  ],
+  "faq": [
+    {
+      "question": "Which Python frameworks work with this skill?",
+      "answer": "This skill targets FastAPI and general Python projects. Other frameworks like Django require different patterns."
+    },
+    {
+      "question": "What JWT algorithms are supported?",
+      "answer": "HS256 (HMAC-SHA256) is recommended for symmetric key setups. RS256 support requires additional key handling."
+    },
+    {
+      "question": "How do I integrate with frontend authentication?",
+      "answer": "Use the separate auth-integration skill for React and Next.js. Backend handles verification, frontend handles storage."
+    },
+    {
+      "question": "Is this skill safe for production use?",
+      "answer": "Yes - follow the security checklist: use strong secrets (32+ chars), short expiry, and implement token blacklisting."
+    },
+    {
+      "question": "Why are my tokens being rejected?",
+      "answer": "Common causes: expired token, wrong secret key, missing Bearer prefix, or clock skew between servers."
+    },
+    {
+      "question": "How does this compare to session-based auth?",
+      "answer": "JWT is stateless and scalable for APIs. Sessions store state server-side but work better for traditional web apps."
+    }
+  ],
+  "seoKeywords": [
+    "jwt authentication",
+    "fastapi jwt",
+    "python token auth",
+    "claude jwt skill",
+    "codex authentication",
+    "claude code security",
+    "role based access control",
+    "access token python",
+    "token verification",
+    "bearer token fastapi"
+  ],
+  "sourceUrl": "https://github.com/Awais68/hackathon-2-phase-ii-full-stack-web-app/tree/main/.claude/skills/jwt-auth",
+  "sourceType": "community",
+  "dependencies": []
+}

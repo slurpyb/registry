@@ -1,0 +1,142 @@
+{
+  "name": "ru",
+  "type": "skill",
+  "description": "Repo Updater - Multi-repo synchronization with AI-assisted review orchestration. Parallel sync, agent-sweep for dirty repos, ntm integration, git plumbing. 17K LOC Bash CLI.",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "multi-repo sync",
+  "quality": 5,
+  "qualityReason": "Scalable repo management",
+  "bundleHints": [
+    "dev-workflow",
+    "automation-suite"
+  ],
+  "tags": [
+    "agent-sweep",
+    "automation",
+    "code-review",
+    "devops",
+    "git",
+    "github",
+    "multi-repo",
+    "repository-management"
+  ],
+  "capabilities": [
+    "Synchronize dozens or hundreds of GitHub repositories in parallel with configurable workers",
+    "Orchestrate AI-assisted code review across multiple repositories using Claude Code integration",
+    "Automatically process repositories with uncommitted changes using agent-sweep workflow",
+    "Generate structured commit messages using AI analysis of uncommitted work",
+    "Prioritize issues and pull requests using configurable scoring algorithms based on labels and age",
+    "Integrate with tmux and ntm for multi-agent workflow management and session orchestration"
+  ],
+  "author": "Dicklesworthstone",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Evaluated 221 static findings as false positives. This is a legitimate multi-repository synchronization and automation tool. Scanner flagged documentation examples, security feature implementations (file denylist patterns for secrets), and standard DevOps operations as threats. The skill implements security best practices including secret scanning, file denylists, and quality gates. No actual vulnerabilities found.",
+  "valueStatement": "Managing dozens of GitHub repositories manually is time-consuming and error-prone. RU automates repository synchronization, orchestrates AI-powered code reviews, and processes uncommitted changes across your entire project portfolio using Claude Code.",
+  "userTitle": "Synchronize Multiple GitHub Repositories with AI Review",
+  "limitations": [
+    "Requires GitHub CLI installed and authenticated with valid credentials",
+    "Only supports GitHub repositories, not other Git hosting providers",
+    "AI review and agent-sweep features require Claude Code to be available",
+    "Quality gate execution limited to supported project types with standard tooling"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers managing multiple repositories",
+      "title": "Maintain Repository Hygiene at Scale",
+      "description": "Keep dozens of personal projects and forks synchronized without manual git pull commands. Detect stale branches and merge conflicts early before they accumulate into larger problems."
+    },
+    {
+      "targetUser": "Engineering leads and project maintainers",
+      "title": "Automate Code Review Workflows",
+      "description": "Schedule AI-powered code reviews across all repositories in your portfolio. Use priority scoring to focus on critical security issues and urgent pull requests first."
+    },
+    {
+      "targetUser": "Developers with high commit frequency",
+      "title": "Process Uncommitted Changes Automatically",
+      "description": "Let AI agents analyze, stage, and commit work-in-progress across all repositories with uncommitted changes. Optionally create releases with automatic version bumps based on commit history."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Repository Sync",
+      "prompt": "Use the ru skill to sync all configured repositories. Run ru sync with 8 parallel workers for faster execution.",
+      "scenario": "Daily repository synchronization routine"
+    },
+    {
+      "title": "Check Repository Status",
+      "prompt": "Use the ru skill to check the status of all repositories without making any changes. Output results in JSON format for review and analysis.",
+      "scenario": "Read-only status check before planning work"
+    },
+    {
+      "title": "Plan AI Code Reviews",
+      "prompt": "Use the ru skill to plan AI-assisted code reviews across all repositories. Focus on high-priority issues and pull requests scored by age, labels, and urgency.",
+      "scenario": "Weekly code review planning session"
+    },
+    {
+      "title": "Process Uncommitted Work",
+      "prompt": "Use the ru skill to run agent-sweep on repositories with uncommitted changes. Use dry-run mode first to preview the planned actions before execution.",
+      "scenario": "Automated commit processing for work-in-progress"
+    }
+  ],
+  "bestPractices": [
+    "Always run ru sync with dry-run flag before actual synchronization to preview changes and avoid surprises",
+    "Configure secret scanning with block mode to prevent credential leaks and enforce security policies",
+    "Create per-repository configuration files for project-specific rules and custom workflows"
+  ],
+  "antiPatterns": [
+    "Avoid running ru sync without understanding the update strategy as different strategies handle diverged branches differently",
+    "Do not process repositories without first reviewing the file denylist to ensure secrets are not committed",
+    "Never interrupt agent-sweep sessions manually as this can leave repositories in inconsistent states"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between ru sync and ru agent-sweep?",
+      "answer": "The ru sync command pulls upstream changes from remote repositories into local clones. The ru agent-sweep command processes uncommitted local changes and uses AI to analyze, stage, and create commits for work-in-progress."
+    },
+    {
+      "question": "How does the secret denylist protect against credential leaks?",
+      "answer": "Files matching patterns like .env, *.pem, *.key, id_rsa*, and credentials.json are automatically blocked from commits regardless of what the AI agent proposes. This provides a security guardrail against accidental credential exposure."
+    },
+    {
+      "question": "Can I use this tool without Claude Code installed?",
+      "answer": "Yes. The basic ru sync and ru status commands work without AI integration. Only the agent-sweep and review orchestration features require Claude Code to be available for AI-powered analysis."
+    },
+    {
+      "question": "What update strategies are available for synchronization?",
+      "answer": "Three strategies are supported: ff-only (safest, fails if branches diverged), rebase (rebases local commits on top of remote), and merge (creates merge commits when needed)."
+    },
+    {
+      "question": "How does parallel processing improve performance?",
+      "answer": "Use the -j flag to specify parallel worker count. RU implements a work-stealing queue for efficient distribution of repository operations across multiple workers, significantly reducing total synchronization time."
+    },
+    {
+      "question": "Where is configuration data stored?",
+      "answer": "Configuration follows XDG Base Directory specification: ~/.config/ru/ for configuration and repository lists, ~/.local/state/ru/ for logs and runtime state. This ensures clean separation and portability."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "multi-repo sync",
+    "GitHub automation",
+    "git automation",
+    "repository management",
+    "code review automation",
+    "DevOps tools",
+    "parallel git operations"
+  ],
+  "sourceUrl": "https://github.com/Dicklesworthstone/agent_flywheel_clawdbot_skills_and_integrations/tree/main/skills/ru",
+  "sourceType": "community",
+  "dependencies": []
+}

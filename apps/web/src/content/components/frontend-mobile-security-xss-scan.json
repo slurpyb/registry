@@ -1,0 +1,139 @@
+{
+  "name": "frontend-mobile-security-xss-scan",
+  "type": "skill",
+  "description": "You are a frontend security specialist focusing on Cross-Site Scripting (XSS) vulnerability detection and prevention. Analyze React, Vue, Angular, and vanilla JavaScript code to identify injection poi",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "XSS detection",
+  "quality": 5,
+  "qualityReason": "Specific vulnerability focus",
+  "bundleHints": [
+    "security-toolkit",
+    "appsec-bundle"
+  ],
+  "tags": [
+    "frontend",
+    "frontend-security",
+    "injection",
+    "react",
+    "security",
+    "vue",
+    "vulnerability-scanning",
+    "web-security",
+    "xss"
+  ],
+  "capabilities": [
+    "Detect unsafe HTML manipulation patterns (innerHTML, outerHTML, document.write)",
+    "Identify React vulnerabilities (dangerouslySetInnerHTML without sanitization)",
+    "Find Vue template vulnerabilities (v-html directive risks)",
+    "Detect URL injection risks (location.href manipulation)",
+    "Generate detailed vulnerability reports with severity levels",
+    "Provide secure coding alternatives and fixes"
+  ],
+  "author": "sickn33",
+  "icon": "🛡️",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate defensive security skill for XSS vulnerability detection. The static analyzer flagged patterns are educational examples of vulnerable code that the skill teaches users how to detect. These patterns include innerHTML usage, fs.readFile for scanning files, and security best practices - all defensive security content, not malicious code. The skill provides guidance on identifying and fixing XSS vulnerabilities in frontend codebases.",
+  "valueStatement": "This skill helps developers identify Cross-Site Scripting (XSS) vulnerabilities in React, Vue, Angular, and vanilla JavaScript code, providing actionable fixes and secure coding patterns.",
+  "userTitle": "Scan Frontend Code for XSS Vulnerabilities",
+  "limitations": [
+    "Does not perform dynamic runtime analysis",
+    "Cannot detect vulnerabilities in compiled or minified code",
+    "May produce false positives in complex frameworks",
+    "Does not test for context-specific bypasses"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers and security engineers",
+      "title": "Security Audit for Web Application",
+      "description": "Scan a React or Vue codebase before production release to identify and fix XSS vulnerabilities."
+    },
+    {
+      "targetUser": "DevOps engineers and SDETs",
+      "title": "CI/CD Security Integration",
+      "description": "Integrate XSS scanning into build pipelines to catch vulnerabilities before deployment."
+    },
+    {
+      "targetUser": "Software developers",
+      "title": "Secure Code Review Assistant",
+      "description": "Use as a coding companion to review code changes for security issues during development."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic XSS Scan",
+      "prompt": "Scan this JavaScript code for XSS vulnerabilities:\n\n```\n[PASTE CODE HERE]\n```\n\nIdentify any innerHTML usage, document.write calls, or unsanitized user input rendering."
+    },
+    {
+      "title": "React Component Security Check",
+      "prompt": "Review this React component for XSS vulnerabilities:\n\n```\n[PASTE REACT CODE HERE]\n```\n\nCheck for dangerouslySetInnerHTML usage, event handler injection, and prop-based data handling."
+    },
+    {
+      "title": "Full Security Report",
+      "prompt": "Perform a comprehensive XSS security audit on the following codebase. Include severity levels, CWE references, and recommended fixes:\n\n```\n[PASTE CODE HERE]\n```"
+    },
+    {
+      "title": "Secure Coding Guidance",
+      "prompt": "What are the secure alternatives to this potentially vulnerable code pattern?\n\n```\n[PASTE VULNERABLE CODE]\n```\n\nProvide specific fixes using DOMPurify or framework-safe methods."
+    }
+  ],
+  "bestPractices": [
+    "Always sanitize user input before rendering HTML using DOMPurify or similar libraries",
+    "Prefer textContent over innerHTML for rendering plain text content",
+    "Validate and whitelist URL protocols (http, https) before assigning to href or location"
+  ],
+  "antiPatterns": [
+    "Using innerHTML with direct user input without sanitization",
+    "Using dangerouslySetInnerHTML without DOMPurify sanitization",
+    "Assigning user-controlled URLs to location.href without validation"
+  ],
+  "faq": [
+    {
+      "question": "What is XSS?",
+      "answer": "Cross-Site Scripting (XSS) is a vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users."
+    },
+    {
+      "question": "Does this skill work with TypeScript?",
+      "answer": "Yes, the skill analyzes TypeScript code and identifies the same vulnerability patterns as in JavaScript."
+    },
+    {
+      "question": "Can this scan Vue applications?",
+      "answer": "Yes, the skill includes detection for Vue-specific vulnerabilities like v-html directive misuse."
+    },
+    {
+      "question": "What severity levels are used?",
+      "answer": "Findings are categorized as Critical, High, Medium, or Low based on exploitability and potential impact."
+    },
+    {
+      "question": "Does it provide fixes for vulnerabilities?",
+      "answer": "Yes, each finding includes specific remediation guidance with code examples using secure alternatives."
+    },
+    {
+      "question": "Can this replace manual security reviews?",
+      "answer": "This skill is a helpful assistant but should complement, not replace, comprehensive security audits and penetration testing."
+    }
+  ],
+  "seoKeywords": [
+    "xss scanner",
+    "frontend security",
+    "cross-site scripting",
+    "vulnerability detection",
+    "web security",
+    "JavaScript security",
+    "React security",
+    "Vue security",
+    "Claude Code",
+    "Codex"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/frontend-mobile-security-xss-scan",
+  "sourceType": "community",
+  "dependencies": []
+}

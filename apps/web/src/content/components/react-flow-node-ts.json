@@ -1,0 +1,142 @@
+{
+  "name": "react-flow-node-ts",
+  "type": "skill",
+  "description": "Create React Flow node components with TypeScript types, handles, and Zustand integration. Use when building custom nodes for React Flow canvas, creating visual workflow editors, or implementing node-based UI components.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "Node components",
+  "quality": 5,
+  "qualityReason": "Precise component creation for visual editors",
+  "bundleHints": [
+    "graph-tools",
+    "react-ecosystem",
+    "visual-workflow"
+  ],
+  "tags": [
+    "frontend",
+    "handles",
+    "node-components",
+    "nodes",
+    "react-flow",
+    "typescript",
+    "visual-editor",
+    "zustand"
+  ],
+  "capabilities": [
+    "Generate TypeScript type definitions for custom React Flow nodes",
+    "Create node component templates with Handle connections",
+    "Integrate with Zustand app store for state management",
+    "Provide integration steps for registering nodes in React Flow canvas",
+    "Support NodeResizer for resizable node components"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 20 patterns as potential security issues, but all are false positives. The 'external_commands' detections (14) are Markdown code block backticks used for documentation formatting, not shell execution. The 'weak cryptographic algorithm' findings (6) are misidentified text patterns with no actual cryptographic code present. This skill is a documentation template for creating React Flow node components and poses no security risk.",
+  "valueStatement": "Creating visual workflow editors requires consistent node component patterns. This skill provides TypeScript templates with proper type definitions, handles, and Zustand store integration.",
+  "userTitle": "Build React Flow Node Components with TypeScript",
+  "limitations": [
+    "Only generates frontend React components, not backend workflow logic",
+    "Requires existing React Flow and Zustand setup in your project",
+    "Templates assume specific project structure (src/frontend/src/)",
+    "Does not create actual workflow execution or business logic"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers building internal tools",
+      "title": "Visual Workflow Builder",
+      "description": "Create custom nodes for a drag-and-drop workflow editor where users can connect blocks to define automation sequences."
+    },
+    {
+      "targetUser": "SaaS product teams",
+      "title": "Diagram and Flowchart Editor",
+      "description": "Build interactive diagramming tools with custom node types for technical documentation or process mapping applications."
+    },
+    {
+      "targetUser": "Data platform engineers",
+      "title": "Data Pipeline Visualizer",
+      "description": "Design visual interfaces for data processing pipelines where each node represents a transformation or data source."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Node Component",
+      "prompt": "Create a React Flow node component called 'ProcessNode' with a title and status indicator. Include target and source handles for connections.",
+      "scenario": "Beginner: Creating your first custom node type"
+    },
+    {
+      "title": "Data-Driven Node",
+      "prompt": "Generate a 'DataNode' component that displays dynamic data from the node's data prop. Include TypeScript interfaces for the data structure with optional fields.",
+      "scenario": "Intermediate: Working with node data and TypeScript types"
+    },
+    {
+      "title": "Interactive Node with Store",
+      "prompt": "Create a 'ConfigNode' component that uses useAppStore to read canvasMode and update node properties. Include resize handles visible only in edit mode.",
+      "scenario": "Advanced: Integrating with Zustand store"
+    },
+    {
+      "title": "Complete Node Integration",
+      "prompt": "Generate all files needed for a 'DecisionNode' including: type definitions, component with conditional rendering, store defaults, and menu registration steps.",
+      "scenario": "Expert: Full integration workflow"
+    }
+  ],
+  "bestPractices": [
+    "Always wrap node components with memo to prevent unnecessary re-renders during canvas interactions",
+    "Use TypeScript generics for Node type to ensure type-safe data access throughout your application",
+    "Check canvasMode before showing interactive elements to prevent conflicts during canvas panning"
+  ],
+  "antiPatterns": [
+    "Avoid direct DOM manipulation in node components - use React state and props instead",
+    "Do not skip TypeScript type definitions - they are essential for catching data structure errors",
+    "Never modify node data directly - always use store actions like updateNode for state changes"
+  ],
+  "faq": [
+    {
+      "question": "What is React Flow and when should I use this skill?",
+      "answer": "React Flow is a React library for building interactive node-based editors. Use this skill when you need custom node types beyond the default rectangular nodes."
+    },
+    {
+      "question": "Do I need to install additional dependencies?",
+      "answer": "Yes, you need reactflow (or @xyflow/react) for the core components and Zustand for state management. The skill assumes these are already set up."
+    },
+    {
+      "question": "Can I customize the visual appearance of generated nodes?",
+      "answer": "Yes, the templates provide the structural pattern. You customize the inner div content, CSS classes, and styling to match your design system."
+    },
+    {
+      "question": "How do multiple handles work for complex connections?",
+      "answer": "Add multiple Handle components with unique id props. Position them at Top, Bottom, Left, or Right. Use the id to identify which handle triggered a connection."
+    },
+    {
+      "question": "What is the purpose of NodeResizer?",
+      "answer": "NodeResizer provides resize handles around your node when visible. It is typically shown only when the node is selected and canvas is in editing mode."
+    },
+    {
+      "question": "How do I handle node interactions like clicks or edits?",
+      "answer": "Add onClick handlers to elements within your node. Use the store's updateNode action to persist changes. Access selected state from node props for conditional styling."
+    }
+  ],
+  "seoKeywords": [
+    "React Flow",
+    "TypeScript components",
+    "visual workflow editor",
+    "Claude Code skills",
+    "Claude marketplace",
+    "Codex tools",
+    "node components",
+    "Zustand integration",
+    "React canvas",
+    "diagram editor"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/react-flow-node-ts",
+  "sourceType": "community",
+  "dependencies": []
+}

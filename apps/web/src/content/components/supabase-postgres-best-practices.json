@@ -1,0 +1,140 @@
+{
+  "name": "supabase-postgres-best-practices",
+  "type": "skill",
+  "description": "Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "query optimization",
+  "quality": 5,
+  "qualityReason": "Highly specific and technical",
+  "bundleHints": [
+    "database-optimization",
+    "postgres-pro"
+  ],
+  "tags": [
+    "database",
+    "indexing",
+    "optimization",
+    "performance",
+    "postgres",
+    "schema-design",
+    "sql"
+  ],
+  "capabilities": [
+    "Provides 26 categorized rules for Postgres performance optimization across query design, indexing, and schema",
+    "Offers incorrect vs. correct SQL examples with performance metrics (10-1000x improvements documented)",
+    "Covers connection management, Row-Level Security (RLS), and monitoring with specific configuration guidance",
+    "Includes EXPLAIN output analysis and query plan diagnostics for slow query troubleshooting",
+    "Delivers Supabase-specific recommendations for multi-tenant applications and managed Postgres environments"
+  ],
+  "author": "supabase",
+  "icon": "🐘",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 710 static findings are false positives. This is a documentation-only skill containing Postgres best practices in Markdown format. The flagged patterns (backticks, MD5 references, URLs, system queries) are all legitimate SQL examples, documentation links, and monitoring queries. No executable code, no data exfiltration, no malicious intent detected.",
+  "valueStatement": "Slow queries and poor schema design plague Postgres applications. This skill provides 26 prioritized rules from Supabase experts to achieve 10-1000x performance improvements.",
+  "userTitle": "Optimize Postgres Performance with Expert Best Practices",
+  "limitations": [
+    "Documentation-only skill with no executable code or automated optimization tools",
+    "Rules require manual application to your database schema and queries",
+    "Performance improvements depend on your specific data distribution and access patterns",
+    "Does not replace professional database tuning for complex or high-scale scenarios"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developer",
+      "title": "Query Performance Troubleshooting",
+      "description": "Developer experiencing slow API endpoints uses query optimization rules to add indexes and rewrite queries for 100-1000x improvement."
+    },
+    {
+      "targetUser": "Database Architect",
+      "title": "Database Schema Design Review",
+      "description": "Database architect reviews schema design rules before launching multi-tenant SaaS application to avoid costly refactoring."
+    },
+    {
+      "targetUser": "DevOps Engineer",
+      "title": "Postgres Migration Planning",
+      "description": "DevOps engineer plans migration from single-tenant to multi-tenant architecture using RLS and connection pooling guidelines."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Query Optimization",
+      "prompt": "I have a slow Postgres query. Help me optimize it using best practices from the supabase-postgres-best-practices skill.\n\nMy query:\n```sql\nSELECT * FROM orders WHERE customer_id = 123 AND status = 'pending'\n```\n\nTable has 10 million rows. Query takes 5 seconds.",
+      "scenario": "New user needs help with first query optimization"
+    },
+    {
+      "title": "Index Strategy Review",
+      "prompt": "Review my indexing strategy for this schema using the supabase-postgres-best-practices skill. Focus on composite indexes, partial indexes, and foreign key indexing.\n\nSchema:\n- users table (1M rows)\n- orders table (5M rows, foreign key to users)\n- Query pattern:经常 filter by user_id + created_at + status",
+      "scenario": "Intermediate user designing multi-column index strategy"
+    },
+    {
+      "title": "RLS Policy Optimization",
+      "prompt": "I'm implementing Row-Level Security for multi-tenant data using supabase-postgres-best-practices. Help me optimize RLS policies.\n\nCurrent policy:\n```sql\nCREATE POLICY user_isolation ON documents\n  USING (auth.uid() = user_id)\n  WITH CHECK (auth.uid() = user_id);\n```\n\nQuery performance degraded 5x after enabling RLS.",
+      "scenario": "Advanced user working with Supabase RLS at scale"
+    },
+    {
+      "title": "Connection Pooling Configuration",
+      "prompt": "Help me configure connection pooling for a Node.js application with Supabase using supabase-postgres-best-practices.\n\nRequirements:\n- 1000 concurrent users\n- Average query time: 50ms\n- Using PgBouncer\n- Experiencing connection exhaustion errors\n\nProvide specific configuration values and explain trade-offs.",
+      "scenario": "Production tuning for high-traffic applications"
+    }
+  ],
+  "bestPractices": [
+    "Always create indexes on WHERE, JOIN, and ORDER BY columns before deploying to production",
+    "Use cursor-based pagination with indexed columns instead of OFFSET for large result sets",
+    "Keep transactions short (under 1 second) and avoid user interaction mid-transaction to prevent lock contention"
+  ],
+  "antiPatterns": [
+    "Using SELECT * on large tables when only specific columns are needed (causes unnecessary I/O and prevents covering index optimization)",
+    "Running individual INSERT statements inside loops instead of batching rows or using COPY",
+    "Creating indexes without analyzing query patterns with EXPLAIN ANALYZE (some indexes may hurt write performance without helping reads)"
+  ],
+  "faq": [
+    {
+      "question": "How do I know which columns need indexes?",
+      "answer": "Use the missing indexes query from query-missing-indexes.md to identify frequently accessed columns without indexes. Run EXPLAIN ANALYZE on slow queries to spot sequential scans. Prioritize WHERE and JOIN columns used in application-critical queries."
+    },
+    {
+      "question": "Should I index every foreign key?",
+      "answer": "Almost always yes. According to schema-foreign-key-indexes.md, foreign key indexes provide 5-20x improvement for JOINs and prevent cascading DELETE performance issues. Only skip if the column is never queried or joined."
+    },
+    {
+      "question": "Why is cursor-based pagination better than OFFSET?",
+      "answer": "OFFSET requires scanning and discarding all previous rows, becoming slower with deeper pagination. Cursor-based pagination (using indexed WHERE clauses) has O(1) performance regardless of page depth. See data-pagination.md for implementation examples."
+    },
+    {
+      "question": "How many connection poolers do I need for Supabase?",
+      "answer": "From conn-pooling.md: Use PgBouncer in transaction mode. Pool size should be (number of application servers × connections per server). For 1000 concurrent users with 50ms queries, start with pool size of 20-50 and monitor for exhaustion errors."
+    },
+    {
+      "question": "Does Row-Level Security (RLS) impact performance?",
+      "answer": "Yes, RLS can add 2-5x overhead if policies are suboptimal. security-rls-performance.md explains to use indexes on policy columns, avoid subqueries in policies, and use security_invoker views. Properly tuned RLS policies maintain security with minimal performance cost."
+    },
+    {
+      "question": "Can I use these rules with raw PostgreSQL or only Supabase?",
+      "answer": "All core rules apply to raw PostgreSQL. Supabase-specific notes (connection pooling defaults, managed RLS) are clearly marked. The indexing, query optimization, and schema design rules work identically in any Postgres 14+ deployment."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Postgres optimization",
+    "database performance",
+    "SQL best practices",
+    "query optimization",
+    "Supabase",
+    "indexing strategies",
+    "database tuning"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/web-app/public/skills/postgres-best-practices",
+  "sourceType": "community",
+  "dependencies": []
+}

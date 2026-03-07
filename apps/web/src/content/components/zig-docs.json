@@ -1,0 +1,139 @@
+{
+  "name": "zig-docs",
+  "type": "skill",
+  "description": "Fetches Zig language and standard library documentation via CLI. Activates when needing Zig API details, std lib function signatures, or language reference content that isn't covered in zig-best-practices.",
+  "domain": "languages",
+  "subdomain": "rust",
+  "specialty": "Zig documentation",
+  "quality": 5,
+  "qualityReason": "Essential dev resource",
+  "bundleHints": [
+    "zig-development",
+    "documentation-tools",
+    "language-reference"
+  ],
+  "tags": [
+    "api-reference",
+    "cli",
+    "documentation",
+    "programming",
+    "standard-library",
+    "zig"
+  ],
+  "capabilities": [
+    "Fetch Zig standard library source with doc comments from GitHub",
+    "Retrieve language reference content from ziglang.org using pandoc",
+    "List all std lib modules via GitHub API",
+    "Extract function documentation and signatures from Zig source",
+    "Access version-specific documentation for stable releases"
+  ],
+  "author": "0xBigBoss",
+  "icon": "🔷",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation/guide skill containing only markdown instructions. No executable code, no network requests, no filesystem access, and no external command execution. All static findings are false positives: backticks are markdown syntax delimiters, URLs are legitimate Zig documentation sources, and JSON field patterns are incorrectly flagged. The skill only provides reference guidance for fetching Zig documentation.",
+  "valueStatement": "Need to look up Zig API details or standard library function signatures. This skill provides curl and pandoc commands to fetch Zig language and standard library documentation from authoritative GitHub sources.",
+  "userTitle": "Fetch Zig documentation via CLI",
+  "limitations": [
+    "Does not provide interactive documentation search within the terminal",
+    "Requires curl, pandoc, and jq installed on the system",
+    "HTML documentation at ziglang.org is JavaScript-rendered and cannot be fetched directly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Zig Developers",
+      "title": "Look up std lib API",
+      "description": "Quickly fetch function signatures and documentation for std lib modules like mem, fs, or log."
+    },
+    {
+      "targetUser": "Learning Zig",
+      "title": "Read language reference",
+      "description": "Access the Zig language reference and beginner guide for learning the language syntax and concepts."
+    },
+    {
+      "targetUser": "Claude Code Users",
+      "title": "Get Zig help",
+      "description": "Enable Claude to fetch authoritative Zig documentation when writing or reviewing Zig code."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Fetch std lib module",
+      "scenario": "Need documentation for a specific module",
+      "prompt": "Get the documentation for the Zig std lib [module_name] module, including function signatures and doc comments."
+    },
+    {
+      "title": "Look up function",
+      "scenario": "Need details about a specific function",
+      "prompt": "Find documentation for [function_name] in the Zig standard library and show its signature and usage."
+    },
+    {
+      "title": "Language reference",
+      "scenario": "Need language reference content",
+      "prompt": "Fetch the Zig language reference section about [topic] and explain the key concepts."
+    },
+    {
+      "title": "Version-specific docs",
+      "scenario": "Need docs for a specific Zig version",
+      "prompt": "Get the Zig [version] documentation for the [module/function] from the official release."
+    }
+  ],
+  "bestPractices": [
+    "Use raw.githubusercontent.com for std lib source - most reliable with doc comments",
+    "Specify version tags like 0.14.0 for stable documentation across sessions",
+    "Pipe to grep and head for quick lookups instead of fetching full files"
+  ],
+  "antiPatterns": [
+    "Avoid fetching JavaScript-rendered HTML docs from ziglang.org/std - they return empty content",
+    "Do not rely on GitHub API for raw content - use raw.githubusercontent.com to avoid rate limits",
+    "Do not fetch full language reference without piping to head - it is approximately 500KB of text"
+  ],
+  "faq": [
+    {
+      "question": "Which documentation source is most reliable?",
+      "answer": "Raw GitHub source files from raw.githubusercontent.com are most reliable and include doc comments."
+    },
+    {
+      "question": "What tools are required?",
+      "answer": "This skill requires curl, pandoc, and jq installed on your system to fetch and parse documentation."
+    },
+    {
+      "question": "Can I get version-specific docs?",
+      "answer": "Yes. Replace master with a version tag like 0.14.0 in URLs for stable release documentation."
+    },
+    {
+      "question": "Does this skill store any data?",
+      "answer": "No. This skill only provides instructions for fetching documentation. No data is stored or cached."
+    },
+    {
+      "question": "Why is ziglang.org documentation empty?",
+      "answer": "The std lib HTML docs at ziglang.org are JavaScript-rendered. Use raw GitHub source instead."
+    },
+    {
+      "question": "How is this different from zig-best-practices?",
+      "answer": "zig-best-practices covers coding patterns and idioms. zig-docs provides raw documentation lookup."
+    }
+  ],
+  "seoKeywords": [
+    "Zig documentation",
+    "Zig standard library",
+    "Zig API reference",
+    "Zig std lib",
+    "Zig language reference",
+    "Claude Code Zig",
+    "Zig programming",
+    "Zig documentation CLI",
+    "Zig guide",
+    "Zig language"
+  ],
+  "sourceUrl": "https://github.com/0xBigBoss/claude-code/tree/main/.claude/skills/zig-docs",
+  "sourceType": "community",
+  "dependencies": []
+}

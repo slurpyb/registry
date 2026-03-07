@@ -1,0 +1,141 @@
+{
+  "name": "tdd-workflow",
+  "type": "skill",
+  "description": "Test-Driven Development methodology for Node.js/TypeScript projects.",
+  "domain": "testing",
+  "subdomain": "unit",
+  "specialty": "Node.js TDD",
+  "quality": 4,
+  "qualityReason": "Good but overlaps with others",
+  "bundleHints": [
+    "typescript-testing",
+    "tdd-workflow",
+    "nodejs-stack"
+  ],
+  "tags": [
+    "jest",
+    "nodejs",
+    "red-green-refactor",
+    "tdd",
+    "testing",
+    "typescript",
+    "workflow"
+  ],
+  "capabilities": [
+    "Guide the RED-GREEN-REFACTOR cycle step by step",
+    "Enforce test naming conventions and AAA pattern",
+    "Provide test double patterns (mock, stub, fake, spy)",
+    "Suggest project structure for test organization",
+    "Identify and fix common TDD anti-patterns"
+  ],
+  "author": "DoubleslashSE",
+  "icon": "🧪",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown files with TDD guidance. No executable code, no network calls, no file system modifications. All static findings are false positives caused by the scanner misclassifying markdown code fence delimiters as Ruby backticks and test pattern terminology as security threats.",
+  "valueStatement": "Writing tests after code leads to gaps in coverage and fragile designs. This skill guides you through the disciplined RED-GREEN-REFACTOR cycle to build tested, well-designed Node.js and TypeScript applications from the start.",
+  "userTitle": "Apply TDD workflow for Node.js",
+  "limitations": [
+    "Does not execute tests automatically",
+    "Does not generate production code directly",
+    "Does not configure test frameworks",
+    "Focused on Node.js and TypeScript specifically"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Node.js developers",
+      "title": "Build features with TDD",
+      "description": "Implement new features by writing failing tests first, then making them pass, then refactoring."
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Create test scenarios",
+      "description": "Design effective test cases using naming conventions, AAA pattern, and parameterized tests."
+    },
+    {
+      "targetUser": "Legacy code maintainers",
+      "title": "Add tests safely",
+      "description": "Introduce tests to existing codebases by understanding test doubles and fixture patterns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic TDD cycle",
+      "scenario": "Start new feature",
+      "prompt": "Help me apply TDD to implement a [feature name]. Guide me through RED-GREEN-REFACTOR."
+    },
+    {
+      "title": "Write failing test",
+      "scenario": "RED phase",
+      "prompt": "I am in the RED phase. Write a failing Jest test for [method name] with [scenario] expecting [behavior]."
+    },
+    {
+      "title": "Make test pass",
+      "scenario": "GREEN phase",
+      "prompt": "My test is failing. Help me write minimal production code to pass the test without over-engineering."
+    },
+    {
+      "title": "Refactor safely",
+      "scenario": "REFACTOR phase",
+      "prompt": "My test passes. Help me refactor this code for better design while keeping all tests green."
+    }
+  ],
+  "bestPractices": [
+    "Write one failing test at a time before writing any production code",
+    "Keep production code minimal in GREEN phase, improve design only in REFACTOR",
+    "Run tests after every change to maintain the safety net"
+  ],
+  "antiPatterns": [
+    "Testing implementation details instead of behavior",
+    "Using mocks for everything without understanding trade-offs",
+    "Skipping the REFACTOR phase and leaving ugly code"
+  ],
+  "faq": [
+    {
+      "question": "What test frameworks does this skill support?",
+      "answer": "Jest, Vitest, and Mocha. Focus is on Jest as the most popular Node.js testing framework."
+    },
+    {
+      "question": "What are the limits of TDD for this skill?",
+      "answer": "TDD works best for business logic. UI, integration, and database code require different approaches."
+    },
+    {
+      "question": "How do I integrate with my existing project?",
+      "answer": "The skill guides workflow. You need Jest or your chosen framework installed and configured."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only provides guidance. It does not read, write, or transmit any files."
+    },
+    {
+      "question": "Why are my tests failing?",
+      "answer": "Check test setup, assertions, and dependencies. The skill helps identify common mistakes."
+    },
+    {
+      "question": "How is this different from other testing skills?",
+      "answer": "This skill enforces the full TDD cycle with specific patterns for Node.js and TypeScript."
+    }
+  ],
+  "seoKeywords": [
+    "tdd",
+    "test-driven development",
+    "node.js",
+    "typescript",
+    "jest",
+    "RED-GREEN-REFACTOR",
+    "unit testing",
+    "testing patterns",
+    "claude code",
+    "claude"
+  ],
+  "sourceUrl": "https://github.com/DoubleslashSE/claude-workflows/tree/main/Plugins/dotnet-tdd/skills/tdd-workflow",
+  "sourceType": "community",
+  "dependencies": []
+}

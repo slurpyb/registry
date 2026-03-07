@@ -1,0 +1,144 @@
+{
+  "name": "uniprot-database",
+  "type": "skill",
+  "description": "Direct REST API access to UniProt. Protein searches, FASTA retrieval, ID mapping, Swiss-Prot/TrEMBL. For Python workflows with multiple databases, prefer bioservices (unified interface to 40+ services). Use this for direct HTTP/REST work or UniProt-specific control.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "protein database",
+  "quality": 5,
+  "qualityReason": "Precise bioinformatics API access",
+  "bundleHints": [
+    "bioinformatics",
+    "protein-research"
+  ],
+  "tags": [
+    "api",
+    "api-access",
+    "bioinformatics",
+    "database",
+    "fasta",
+    "id-mapping",
+    "proteins",
+    "sequences",
+    "swiss-prot",
+    "trembl",
+    "uniprot"
+  ],
+  "capabilities": [
+    "Search proteins by name, gene, accession, or organism using UniProt query syntax",
+    "Retrieve protein sequences in FASTA, JSON, TSV, XML, or other formats",
+    "Map protein identifiers between UniProt and external databases like PDB, RefSeq, Ensembl",
+    "Access Swiss-Prot reviewed entries and TrEMBL unreviewed entries separately",
+    "Stream large result sets for batch protein downloads",
+    "Build complex queries with field-specific search syntax and boolean operators"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Legitimate bioinformatics skill providing access to UniProt, the trusted public protein database. All 616 static findings are false positives. The scanner misinterpreted markdown code block delimiters as shell commands and flagged standard HTTP requests to rest.uniprot.org as network activity. No malicious patterns, data exfiltration, or security threats exist in the codebase.",
+  "valueStatement": "Search protein databases, retrieve sequences, and map identifiers across biological databases. This skill provides direct access to UniProt, the comprehensive protein sequence and functional information resource.",
+  "userTitle": "Query UniProt protein database via REST API",
+  "limitations": [
+    "Does not provide graphical interface; operates through API calls only",
+    "Rate limits apply to large batch operations; proper delays required",
+    "Results from ID mapping jobs are stored for 7 days maximum"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Bioinformatics researchers",
+      "title": "Retrieve protein sequences",
+      "description": "Look up protein sequences by gene name or accession number for downstream analysis"
+    },
+    {
+      "targetUser": "Computational biologists",
+      "title": "Map database identifiers",
+      "description": "Convert protein identifiers between UniProt, PDB, RefSeq, and Ensembl formats"
+    },
+    {
+      "targetUser": "Life science educators",
+      "title": "Explore protein annotations",
+      "description": "Access GO terms, functional descriptions, and domain information for teaching"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic protein search",
+      "scenario": "Search for human insulin",
+      "prompt": "Find human insulin proteins in UniProt and return their accessions and sequences in FASTA format"
+    },
+    {
+      "title": "Gene-specific query",
+      "scenario": "Find BRCA1 proteins",
+      "prompt": "Search for reviewed human BRCA1 proteins and show gene names, organism, and length"
+    },
+    {
+      "title": "ID mapping",
+      "scenario": "Convert UniProt to PDB",
+      "prompt": "Map these UniProt accessions P01308 and P04637 to their corresponding PDB entries"
+    },
+    {
+      "title": "Complex query",
+      "scenario": "Filter by properties",
+      "prompt": "Find all reviewed human membrane proteins with kinase activity that have PDB structures"
+    }
+  ],
+  "bestPractices": [
+    "Use reviewed:true filter for Swiss-Prot entries to ensure data quality",
+    "Request only needed fields to reduce bandwidth and processing time",
+    "Implement delays between batch requests to respect API rate limits"
+  ],
+  "antiPatterns": [
+    "Avoid requesting all fields for large queries; specify needed fields only",
+    "Do not ignore rate limits; implement proper delays for batch operations",
+    "Avoid mixing Swiss-Prot and TrEMBL without understanding curation differences"
+  ],
+  "faq": [
+    {
+      "question": "What is UniProt?",
+      "answer": "UniProt is the leading comprehensive protein sequence and functional information database maintained by the European Bioinformatics Institute."
+    },
+    {
+      "question": "What formats are supported?",
+      "answer": "FASTA, JSON, TSV, XML, Excel, RDF, TXT, and GFF formats are available for different use cases."
+    },
+    {
+      "question": "What is the difference between Swiss-Prot and TrEMBL?",
+      "answer": "Swiss-Prot entries are manually curated and reviewed; TrEMBL entries are computationally predicted annotations."
+    },
+    {
+      "question": "How many proteins can I retrieve at once?",
+      "answer": "Search queries return up to 500 results per request; use streaming for larger datasets or pagination."
+    },
+    {
+      "question": "How long are ID mapping results available?",
+      "answer": "ID mapping job results are stored for 7 days before being automatically deleted."
+    },
+    {
+      "question": "Is an API key required?",
+      "answer": "No API key is required for basic UniProt API usage; the service is free for academic and commercial use."
+    }
+  ],
+  "seoKeywords": [
+    "UniProt",
+    "protein database",
+    "protein search",
+    "FASTA retrieval",
+    "ID mapping",
+    "bioinformatics",
+    "sequence database",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/uniprot-database",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "analyzing-projects",
+  "type": "skill",
+  "description": "Analyzes codebases to understand structure, tech stack, patterns, and conventions. Use when onboarding to a new project, exploring unfamiliar code, or when asked \"how does this work?\" or \"what's the architecture?",
+  "domain": "productivity",
+  "subdomain": "workflow",
+  "specialty": "Codebase analysis",
+  "quality": 5,
+  "qualityReason": "Critical project understanding tool",
+  "bundleHints": [
+    "onboarding",
+    "codebase-navigation",
+    "reverse-engineering"
+  ],
+  "tags": [
+    "architecture",
+    "code-exploration",
+    "codebase",
+    "conventions",
+    "documentation",
+    "onboarding",
+    "project-analysis",
+    "project-structure",
+    "tech-stack"
+  ],
+  "capabilities": [
+    "Detect technology stack from package files and dependencies",
+    "Map project structure with annotated directory trees",
+    "Identify architectural patterns and code conventions",
+    "Document development workflows and build commands",
+    "Generate comprehensive project analysis reports"
+  ],
+  "author": "CloudAI-X",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a documentation-only skill containing no executable code. All 54 static findings are FALSE POSITIVES caused by the scanner misinterpreting markdown syntax and template placeholders. The SKILL.md file contains only documentation, checklists, and example formatting - no actual shell commands, cryptographic algorithms, or network operations are present. The skill provides a structured workflow for codebase analysis.",
+  "valueStatement": "Understanding unfamiliar codebases takes significant time and effort. This skill provides a systematic 6-step approach to analyze project structure, identify technology stacks, and document architecture patterns for faster onboarding.",
+  "userTitle": "Analyze Codebases with Structured Workflow",
+  "limitations": [
+    "Analysis is read-only and requires manual command execution",
+    "Cannot analyze binary or compiled code directly",
+    "Accuracy depends on user providing correct file paths",
+    "Limited to visible project files and documentation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "New team members",
+      "title": "Onboard to New Projects",
+      "description": "Quickly understand project structure, tech stack, and development workflow when joining a new codebase."
+    },
+    {
+      "targetUser": "Senior developers",
+      "title": "Prepare for Code Reviews",
+      "description": "Analyze unfamiliar repositories before reviews to understand context and architectural decisions."
+    },
+    {
+      "targetUser": "Technical leads",
+      "title": "Document Project Architecture",
+      "description": "Generate structured documentation for existing projects to help team members understand system design."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Analysis",
+      "scenario": "First time exploring a codebase",
+      "prompt": "Analyze this project structure and tell me what type of application this is, what technologies it uses, and how it is organized."
+    },
+    {
+      "title": "Tech Stack Detection",
+      "scenario": "Identify project dependencies",
+      "prompt": "Look at the package files and configuration to identify all the technologies, frameworks, and tools this project uses."
+    },
+    {
+      "title": "Architecture Overview",
+      "scenario": "Understand system design",
+      "prompt": "Map out the high-level architecture of this project. Show me the main components, how they connect, and the overall design pattern."
+    },
+    {
+      "title": "Development Workflow",
+      "scenario": "Set up development environment",
+      "prompt": "Find and document all the development commands, build processes, testing setup, and deployment configuration for this project."
+    }
+  ],
+  "bestPractices": [
+    "Always start with README and documentation files for project context",
+    "Verify tech stack detection by checking multiple configuration files",
+    "Document assumptions and uncertainties in the analysis report"
+  ],
+  "antiPatterns": [
+    "Skipping the validation checklist reduces analysis accuracy",
+    "Making assumptions without evidence from the codebase",
+    "Ignoring configuration files that reveal important project details"
+  ],
+  "faq": [
+    {
+      "question": "What types of projects can this analyze?",
+      "answer": "Works with any text-based codebase including web apps, APIs, libraries, and scripts in all major languages."
+    },
+    {
+      "question": "How long does a typical analysis take?",
+      "answer": "Simple projects: 5-10 minutes. Complex applications: 20-30 minutes depending on size."
+    },
+    {
+      "question": "Can it analyze private repositories?",
+      "answer": "Yes, if you have local access to the code. Works on any directory you can navigate to."
+    },
+    {
+      "question": "What if the project uses uncommon technologies?",
+      "answer": "Identifies common patterns but flags unknown configurations for manual investigation."
+    },
+    {
+      "question": "Does it modify any project files?",
+      "answer": "No, this is read-only analysis. It examines files and generates reports without changes."
+    },
+    {
+      "question": "How detailed should the analysis be?",
+      "answer": "Follow the 6-step workflow for comprehensive results. Adjust depth based on your needs."
+    }
+  ],
+  "seoKeywords": [
+    "codebase analysis",
+    "project structure",
+    "tech stack detection",
+    "code architecture",
+    "Claude Code",
+    "developer onboarding",
+    "code exploration",
+    "project documentation",
+    "repository analysis",
+    "code review"
+  ],
+  "sourceUrl": "https://github.com/CloudAI-X/claude-workflow/tree/main/skills/analyzing-projects",
+  "sourceType": "community",
+  "dependencies": []
+}

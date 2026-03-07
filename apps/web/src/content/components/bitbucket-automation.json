@@ -1,0 +1,144 @@
+{
+  "name": "bitbucket-automation",
+  "type": "skill",
+  "description": "Automate Bitbucket repositories, pull requests, branches, issues, and workspace management via Rube MCP (Composio). Always search tools first for current schemas.",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "repo automation",
+  "quality": 5,
+  "qualityReason": "Clear MCP integration",
+  "bundleHints": [
+    "mcp-integrations",
+    "devops-automation"
+  ],
+  "tags": [
+    "bitbucket",
+    "devops",
+    "git",
+    "integration",
+    "issues",
+    "mcp",
+    "pull-requests",
+    "version-control"
+  ],
+  "capabilities": [
+    "Create and manage pull requests with reviewers and diff analysis",
+    "List and create branches in Bitbucket repositories",
+    "Create, update, and comment on issues with priority tracking",
+    "Search and filter repositories using BBQL query language",
+    "Add inline code review comments to pull requests",
+    "Manage workspace members and repository permissions"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 271 static findings are false positives from Markdown code formatting. The file is documentation-only with no executable code. External command detections are backticks around tool names, not actual execution. The single network reference is a legitimate MCP endpoint URL. Skill safely provides Bitbucket automation workflows through Rube MCP server.",
+  "valueStatement": "Eliminate manual Bitbucket tasks with intelligent automation. Create pull requests, manage branches, track issues, and administer workspaces through natural language commands.",
+  "userTitle": "Automate Bitbucket Workflows",
+  "limitations": [
+    "Requires Rube MCP server connection and active Bitbucket OAuth",
+    "Reads tool schemas dynamically - tool availability may change",
+    "Cannot execute code directly on Bitbucket infrastructure",
+    "Destructive operations (delete repository/issue) are irreversible"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developer",
+      "title": "Create Pull Requests with Reviewers",
+      "description": "Developers can create pull requests from feature branches to main, assign reviewers by UUID, and set proper destination branches without navigating the web interface."
+    },
+    {
+      "targetUser": "Project Manager",
+      "title": "Track and Manage Issues",
+      "description": "Project managers can create bug reports with priorities, assign issues to team members, update issue states, and add comments for issue resolution tracking."
+    },
+    {
+      "targetUser": "DevOps Engineer",
+      "title": "Audit Repository Access",
+      "description": "DevOps engineers can list workspace members, filter repositories by project or privacy settings, and verify branch structures for compliance auditing."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List Open Pull Requests",
+      "prompt": "List all open pull requests in the {workspace} repository named {repo_slug}. Show PR title, author, and creation date.",
+      "scenario": "Developer wants to see what code is currently under review"
+    },
+    {
+      "title": "Create Pull Request",
+      "prompt": "Create a pull request in {workspace}/{repo_slug} from {feature_branch} to {main_branch}. Title it '{title}' and assign these reviewers: {reviewer_list}.",
+      "scenario": "Developer completes feature work and requests code review"
+    },
+    {
+      "title": "Create Bug Report",
+      "prompt": "Create a critical bug issue in {workspace}/{repo_slug} titled '{bug_title}'. Describe it as '{description}' and assign to {assignee_username}.",
+      "scenario": "QA tester discovers a critical production bug"
+    },
+    {
+      "title": "Review PR Code Changes",
+      "prompt": "Get the pull request diff for PR {pr_id} in {workspace}/{repo_slug}. Limit to 50000 characters and show which files changed most.",
+      "scenario": "Code reviewer needs to analyze changes before approving"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to verify available tool schemas before executing workflows",
+    "Use BBQL filters with double quotes around string values: name~\"api\" instead of name~api",
+    "Confirm with users before destructive operations like BITBUCKET_DELETE_REPOSITORY or BITBUCKET_DELETE_ISSUE",
+    "Set max_chars parameter on GET_PULL_REQUEST_DIFF to prevent large diffs from overwhelming context"
+  ],
+  "antiPatterns": [
+    "Do not omit destination_branch in PR creation if the repo main branch is not named 'main'",
+    "Do not use usernames for issue updates - UPDATE_ISSUE requires assignee_account_id UUID not assignee username",
+    "Do not include refs/heads/ prefix when creating branches - use 'feature/name' not 'refs/heads/feature/name'",
+    "Do not pull full pagination without checking response metadata - verify total count to avoid excessive API calls"
+  ],
+  "faq": [
+    {
+      "question": "What is Rube MCP and why do I need it?",
+      "answer": "Rube MCP is a Model Context Protocol server that provides Bitbucket API integration. Add https://rube.app/mcp as an MCP server, then connect your Bitbucket account through OAuth to enable automation."
+    },
+    {
+      "question": "Why does the skill say to search tools first?",
+      "answer": "Tool schemas may change as Rube MCP updates. Calling RUBE_SEARCH_TOOLS ensures you have the current parameter names and required fields for each Bitbucket operation."
+    },
+    {
+      "question": "What is BBQL and how do I use it?",
+      "answer": "BBQL (Bitbucket Query Language) filters list results. Use double quotes for strings: name~\"api\" finds names containing 'api'. Combine with AND/OR: name~\"api\" AND is_private=true."
+    },
+    {
+      "question": "How do I assign reviewers to a pull request?",
+      "answer": "Use BITBUCKET_LIST_WORKSPACE_MEMBERS to get UUIDs, then pass them as objects: [{\"uuid\": \"{123e4567-e89b-12d3-a456-426614174000}\"}]. UUIDs must include curly braces."
+    },
+    {
+      "question": "Can I undo delete operations?",
+      "answer": "No. BITBUCKET_DELETE_REPOSITORY and BITBUCKET_DELETE_ISSUE are permanent. The skill warns about irreversible operations - always confirm with users before executing these commands."
+    },
+    {
+      "question": "Why do issue creation and update use different assignee fields?",
+      "answer": "Bitbucket API inconsistency: CREATE_ISSUE uses 'assignee' (username string), while UPDATE_ISSUE uses 'assignee_account_id' (UUID). Always use LIST_WORKSPACE_MEMBERS to get the correct format."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Bitbucket automation",
+    "pull request automation",
+    "Git workflow",
+    "MCP integration",
+    "DevOps automation",
+    "branch management",
+    "issue tracking"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/bitbucket-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

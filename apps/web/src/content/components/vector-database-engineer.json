@@ -1,0 +1,145 @@
+{
+  "name": "vector-database-engineer",
+  "type": "skill",
+  "description": "Expert in vector databases, embedding strategies, and semantic search implementation. Masters Pinecone, Weaviate, Qdrant, Milvus, and pgvector for RAG applications, recommendation systems, and similar",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "vector databases",
+  "quality": 5,
+  "qualityReason": "Expert-level focus",
+  "bundleHints": [
+    "rag-pipeline",
+    "ai-infrastructure"
+  ],
+  "tags": [
+    "embeddings",
+    "pgvector",
+    "pinecone",
+    "qdrant",
+    "rag",
+    "rag-implementation",
+    "semantic-search",
+    "vector-database",
+    "weaviate"
+  ],
+  "capabilities": [
+    "Design vector database architecture for RAG applications",
+    "Select and optimize embedding models for specific use cases",
+    "Configure index types (HNSW, IVF, PQ) for performance",
+    "Implement hybrid search combining vector and keyword queries",
+    "Design document chunking strategies with overlap",
+    "Optimize vector search latency and recall tradeoffs"
+  ],
+  "author": "sickn33",
+  "icon": "🔍",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static analysis findings are false positives. The skill contains only documentation text with no executable code, network requests, or security risks. The 'external_commands' flag was triggered by the word 'open' in a documentation sentence, not actual command execution. This is a legitimate educational skill about vector database engineering.",
+  "valueStatement": "Implement production-ready vector databases and semantic search. This skill provides expert guidance on embedding strategies, index optimization, and RAG architecture for modern AI applications.",
+  "userTitle": "Build scalable vector search systems",
+  "limitations": [
+    "Cannot directly execute vector database queries",
+    "Does not install or configure vector database software",
+    "Cannot access external vector database APIs",
+    "Limited to guidance and code generation, not runtime execution"
+  ],
+  "useCases": [
+    {
+      "targetUser": "ML Engineer building chatbots",
+      "title": "Build a RAG knowledge base",
+      "description": "Design semantic search over documentation for AI-powered question answering"
+    },
+    {
+      "targetUser": "Data Scientist at e-commerce company",
+      "title": "Implement recommendation engine",
+      "description": "Create similarity-based product recommendations using vector embeddings"
+    },
+    {
+      "targetUser": "Backend Engineer scaling search systems",
+      "title": "Optimize vector search performance",
+      "description": "Tune indexing and chunking strategies for millions of vectors"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Select a vector database",
+      "prompt": "Help me choose between Pinecone, Weaviate, and Qdrant for a document search system with 1 million vectors",
+      "scenario": "Choosing the right vector database for your use case"
+    },
+    {
+      "title": "Design embedding strategy",
+      "prompt": "Design an embedding pipeline for technical documentation. Recommend chunking size, overlap, and model selection",
+      "scenario": "Planning how to convert documents to vectors"
+    },
+    {
+      "title": "Configure HNSW index",
+      "prompt": "Configure HNSW index parameters for 90% recall at under 50ms latency on 5 million vectors",
+      "scenario": "Tuning index performance for your requirements"
+    },
+    {
+      "title": "Implement hybrid search",
+      "prompt": "Implement hybrid search combining vector similarity with keyword filters for product search",
+      "scenario": "Building search with both semantic and exact matching"
+    }
+  ],
+  "bestPractices": [
+    "Always test embedding models on your specific domain before production deployment",
+    "Start with simple chunking strategies before optimizing for complex document structures",
+    "Monitor vector drift and plan periodic re-embedding cycles",
+    "Use metadata filtering to reduce search space before vector queries"
+  ],
+  "antiPatterns": [
+    "Using larger embedding dimensions without testing if smaller models work for your use case",
+    "Chunking documents without overlap, losing context between segments",
+    "Skipping recall testing and only measuring latency",
+    "Storing embeddings without their source text or metadata references"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between HNSW and IVF indexing?",
+      "answer": "HNSW (Hierarchical Navigable Small World) provides faster queries with higher memory usage. IVF (Inverted File) uses less memory but has slower query speed. Use HNSW for real-time applications, IVF for cost-sensitive large-scale deployments."
+    },
+    {
+      "question": "How do I choose embedding dimensions?",
+      "answer": "Higher dimensions (1536) capture more semantic nuance but increase storage and latency. Start with 384-768 dimensions for most use cases. Only use 1536 if you have complex semantic relationships and sufficient infrastructure budget."
+    },
+    {
+      "question": "Should I use pre-filtering or post-filtering for metadata?",
+      "answer": "Pre-filtering reduces search space and improves performance but may miss relevant results. Post-filtering ensures recall but wastes computation on filtered results. Use pre-filtering for strict constraints, post-filtering for soft preferences."
+    },
+    {
+      "question": "What vector database should I use?",
+      "answer": "Pinecone for managed simplicity, Weaviate for hybrid search features, Qdrant for performance and filtering, pgvector if you already use PostgreSQL. Choose based on your team's expertise and infrastructure preferences."
+    },
+    {
+      "question": "How do I handle embedding drift?",
+      "answer": "Embedding drift occurs when your data distribution changes over time. Monitor search quality metrics monthly and schedule quarterly re-embedding for critical applications. Use A/B testing to compare old and new embeddings before full migration."
+    },
+    {
+      "question": "Can I use this skill to directly query my vector database?",
+      "answer": "No, this skill provides guidance and code generation for vector database architecture and optimization. It does not execute queries or connect to your database directly. You must implement the suggested code in your application."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "vector database",
+    "semantic search",
+    "embeddings",
+    "RAG",
+    "Pinecone",
+    "Weaviate",
+    "Qdrant"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/vector-database-engineer",
+  "sourceType": "community",
+  "dependencies": []
+}

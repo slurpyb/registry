@@ -1,0 +1,141 @@
+{
+  "name": "qiskit",
+  "type": "skill",
+  "description": "IBM quantum computing framework. Use when targeting IBM Quantum hardware, working with Qiskit Runtime for production workloads, or needing IBM optimization tools. Best for IBM hardware execution, quantum error mitigation, and enterprise quantum computing. For Google hardware use cirq; for gradient-based quantum ML use pennylane; for open quantum system simulations use qutip.",
+  "domain": "science",
+  "subdomain": "quantum computing",
+  "specialty": "IBM hardware execution",
+  "quality": 5,
+  "qualityReason": "Specific platform focus",
+  "bundleHints": [
+    "quantum-stack",
+    "science-tools"
+  ],
+  "tags": [
+    "hardware",
+    "ibm quantum",
+    "ibm-quantum",
+    "optimization",
+    "qiskit",
+    "qiskit-runtime",
+    "quantum circuits",
+    "quantum computing",
+    "quantum-circuits"
+  ],
+  "capabilities": [
+    "Create quantum circuits with gates (H, X, Y, Z, CNOT, rotations)",
+    "Execute circuits on local simulators or IBM Quantum hardware",
+    "Transpile and optimize circuits for specific quantum backends",
+    "Implement algorithms like VQE, QAOA, and Grover's search",
+    "Visualize circuits, results, and quantum states (Bloch sphere, histograms)"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "⚛️",
+  "version": "1.0.0",
+  "license": "Apache-2.0 license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 426 static findings are FALSE POSITIVES. This skill is pure markdown documentation containing legitimate Python code examples for IBM Qiskit quantum computing. The static analyzer incorrectly interprets markdown code block delimiters (backticks) as command execution and flags standard quantum computing terminology as C2 or weak crypto indicators. No executable code or malicious patterns exist.",
+  "valueStatement": "Quantum computing enables solving complex optimization, chemistry, and machine learning problems that are intractable for classical computers. Qiskit provides the tools to build quantum circuits, optimize them for IBM hardware, and execute on real quantum processors or simulators.",
+  "userTitle": "Build quantum circuits with Qiskit",
+  "limitations": [
+    "Requires IBM Quantum account for hardware access (free tier available)",
+    "Real quantum hardware has limited qubit counts and error rates",
+    "Not suitable for classical computing problems better solved by traditional methods"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Chemistry researchers",
+      "title": "Simulate molecular systems",
+      "description": "Use VQE algorithm to compute ground state energies of molecules for drug discovery and materials science research."
+    },
+    {
+      "targetUser": "Optimization specialists",
+      "title": "Solve combinatorial problems",
+      "description": "Apply QAOA to solve MaxCut, portfolio optimization, and scheduling problems that benefit from quantum speedup."
+    },
+    {
+      "targetUser": "ML engineers",
+      "title": "Build quantum classifiers",
+      "description": "Create quantum kernels and neural networks for machine learning tasks using Qiskit Machine Learning."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create basic circuit",
+      "scenario": "Getting started with quantum circuits",
+      "prompt": "Show me how to create a Bell state entangled circuit with Qiskit that measures both qubits"
+    },
+    {
+      "title": "Run on hardware",
+      "scenario": "Executing on quantum backend",
+      "prompt": "Help me transpile my circuit for ibm_brisbane backend and run it using the SamplerV2 primitive"
+    },
+    {
+      "title": "Implement VQE",
+      "scenario": "Variational algorithm",
+      "prompt": "Write a complete VQE implementation using Qiskit Runtime Session to find the ground state energy of H2 molecule"
+    },
+    {
+      "title": "Optimize circuits",
+      "scenario": "Transpilation best practices",
+      "prompt": "Show me how to optimize a quantum circuit for hardware execution using optimization_level=3 and best practices"
+    }
+  ],
+  "bestPractices": [
+    "Start with local simulators (StatevectorSampler) to validate circuits before using expensive hardware time",
+    "Always transpile circuits before execution on hardware with optimization_level=3 for production workloads",
+    "Use Session mode for iterative algorithms (VQE, QAOA) and Batch mode for parallel independent jobs"
+  ],
+  "antiPatterns": [
+    "Running untranspiled circuits directly on hardware (causes high error rates and queue rejections)",
+    "Using Estimator for sampling tasks or Sampler for expectation values (mismatched primitives)",
+    "Skipping error mitigation on real hardware (resilience_level should match accuracy requirements)"
+  ],
+  "faq": [
+    {
+      "question": "Do I need an IBM Quantum account?",
+      "answer": "No account needed for local simulators. Create free IBM Quantum account at quantum.ibm.com for hardware access."
+    },
+    {
+      "question": "How many qubits are available?",
+      "answer": "IBM Quantum offers 100+ qubit systems. Free tier provides access to smaller devices for learning."
+    },
+    {
+      "question": "What is the difference between Sampler and Estimator?",
+      "answer": "Sampler returns measurement outcomes (counts). Estimator returns expectation values of observables (energies)."
+    },
+    {
+      "question": "Can I run circuits without internet?",
+      "answer": "Yes, local simulators (StatevectorSampler, Aer) work offline. Cloud backends require internet connection."
+    },
+    {
+      "question": "What is transpilation?",
+      "answer": "Transpilation converts circuits to the native gate set and topology of target quantum hardware for execution."
+    },
+    {
+      "question": "How long do quantum jobs take?",
+      "answer": "Simulator jobs are instant. Hardware jobs queue based on system load, typically minutes to hours."
+    }
+  ],
+  "seoKeywords": [
+    "qiskit",
+    "quantum computing",
+    "IBM Quantum",
+    "quantum circuits",
+    "Claude Code",
+    "Codex",
+    "quantum algorithms",
+    "VQE",
+    "QAOA",
+    "quantum programming"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/qiskit",
+  "sourceType": "community",
+  "dependencies": []
+}

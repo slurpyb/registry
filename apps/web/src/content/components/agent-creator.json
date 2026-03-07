@@ -1,0 +1,143 @@
+{
+  "name": "agent-creator",
+  "type": "skill",
+  "description": "Creates specialized AI agents with optimized system prompts using the official 4-phase SOP methodology from Desktop .claude-flow, combined with evidence-based prompting techniques and Claude Agent SDK implementation. Use this skill when creating production-ready agents for specific domains, workflows, or tasks requiring consistent high-quality performance with deeply embedded domain knowledge.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "agent design",
+  "quality": 5,
+  "qualityReason": "Well-defined creation methodology",
+  "bundleHints": [
+    "agent-creation",
+    "claude-tools"
+  ],
+  "tags": [
+    "agent-creation",
+    "claude-code",
+    "claude-sdk",
+    "creation",
+    "optimization",
+    "prompt-engineering",
+    "sop",
+    "specialized-agents",
+    "system-prompts"
+  ],
+  "capabilities": [
+    "Creates AI agents using the official 4-phase SOP methodology from Desktop .claude-flow",
+    "Develops optimized system prompts with evidence-based prompting techniques",
+    "Implements agents using Claude Agent SDK for production deployments",
+    "Embeds deep domain knowledge into agent system prompts",
+    "Defines agent workflows, toolsets, and constraints for specific tasks",
+    "Validates agent configurations against best practices"
+  ],
+  "author": "DNYoussef",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 81 potential issues in documentation and diagram files. All findings are false positives: DOT files contain GraphViz workflow diagrams, SKILL.md is documentation with no executable code, and metadata fields triggered false positives. The skill is a prompt/documentation skill for agent creation with no actual security risks.",
+  "valueStatement": "Building AI agents with consistent, high-quality performance requires deep domain knowledge and optimized system prompts. This skill provides a structured 4-phase methodology to create production-ready agents with embedded expertise.",
+  "userTitle": "Create Specialized AI Agents",
+  "limitations": [
+    "Does not execute agent code - only generates agent configurations and prompts",
+    "Does not install or manage dependencies for created agents",
+    "Does not integrate with external APIs or services directly",
+    "Requires manual review and testing of generated agent prompts"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Researchers and knowledge workers",
+      "title": "Build Domain-Specific Research Agents",
+      "description": "Create AI agents optimized for specific research domains like legal document review, scientific literature analysis, or market research. The agent embeds domain-specific terminology, constraints, and workflow patterns."
+    },
+    {
+      "targetUser": "Software engineers and DevOps teams",
+      "title": "Develop Code Review Automation Agents",
+      "description": "Generate specialized agents for code review tasks with embedded coding standards, language-specific rules, and security scanning patterns. Agents follow consistent review workflows."
+    },
+    {
+      "targetUser": "Support team leads and operations managers",
+      "title": "Create Customer Support Workflow Agents",
+      "description": "Build agents trained on support scripts, knowledge base content, and escalation procedures. These agents handle common queries with consistent responses and proper handoff logic."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Agent Creation",
+      "prompt": "Create a new AI agent named [agent-name] for [task-description]. Use the 4-phase SOP methodology to define its system prompt with embedded domain knowledge about [domain-area].",
+      "scenario": "Starting a new agent project from scratch"
+    },
+    {
+      "title": "Agent with Tools",
+      "prompt": "Design an agent that can [primary-capability]. Include tools for [tool-list]. Define the agent constraints and response formats for [use-case].",
+      "scenario": "Creating an agent with specific tool requirements"
+    },
+    {
+      "title": "Multi-Phase Agent Workflow",
+      "prompt": "Create an agent that follows this workflow: Phase 1 [phase-1-description], Phase 2 [phase-2-description], Phase 3 [phase-3-description]. Embed evidence-based prompting for quality outputs.",
+      "scenario": "Building complex multi-step agent workflows"
+    },
+    {
+      "title": "Production-Ready Agent",
+      "prompt": "Generate a production-ready Claude Code agent with: name=[agent-name], purpose=[purpose], constraints=[constraints], escalation-rules=[rules]. Include error handling and validation prompts.",
+      "scenario": "Preparing agents for deployment"
+    }
+  ],
+  "bestPractices": [
+    "Define clear agent boundaries and constraints before generating the system prompt",
+    "Use evidence-based prompting to embed verifiable domain knowledge",
+    "Test agent responses with edge cases before deployment"
+  ],
+  "antiPatterns": [
+    "Avoid creating agents without defined escalation paths for unknown inputs",
+    "Do not skip the 4-phase methodology for complex agent requirements",
+    "Avoid overloading agents with too many conflicting constraints"
+  ],
+  "faq": [
+    {
+      "question": "What is the 4-phase SOP methodology?",
+      "answer": "The 4-phase SOP methodology structures agent creation into four phases: analysis, design, implementation, and validation. Each phase adds layers of domain knowledge and constraints to the system prompt."
+    },
+    {
+      "question": "Can I use this skill with Claude Code?",
+      "answer": "Yes. This skill is compatible with Claude Code and generates agents using Claude Agent SDK patterns. The output includes ready-to-use configuration files."
+    },
+    {
+      "question": "Does this skill execute code?",
+      "answer": "No. This skill generates agent configurations, system prompts, and documentation. You must manually implement and test the generated agent code."
+    },
+    {
+      "question": "What makes evidence-based prompting different?",
+      "answer": "Evidence-based prompting requires agents to cite sources and verify claims. This improves response quality and makes agent outputs auditable and trustworthy."
+    },
+    {
+      "question": "Can I modify generated prompts?",
+      "answer": "Yes. All generated prompts are templates meant for customization. Review and adjust constraints, workflows, and domain knowledge for your specific use case."
+    },
+    {
+      "question": "How do I deploy created agents?",
+      "answer": "Export the generated system prompt and configuration. Deploy using your preferred method: Claude Code, custom integration, or Claude Agent SDK deployment pipeline."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code agent creation",
+    "system prompt optimization",
+    "Claude agent SDK",
+    "prompt engineering",
+    "AI agent development",
+    "Claude Codex",
+    "Claude",
+    "specialized AI agents",
+    "SOP methodology",
+    "agent workflow"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/agent-creator",
+  "sourceType": "community",
+  "dependencies": []
+}

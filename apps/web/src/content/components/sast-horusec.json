@@ -1,0 +1,143 @@
+{
+  "name": "sast-horusec",
+  "type": "skill",
+  "description": "Multi-language static application security testing using Horusec with support for 18+ programming languages and 20+ security analysis tools. Performs SAST scans, secret detection in git history, and provides vulnerability findings with severity classification. Use when: (1) Analyzing code for security vulnerabilities across multiple languages simultaneously, (2) Detecting exposed secrets and credentials in git history, (3) Integrating SAST into CI/CD pipelines for secure SDLC, (4) Performing comprehensive security analysis during development, (5) Managing false positives and prioritizing security findings.\n",
+  "domain": "security",
+  "subdomain": "devsecops",
+  "specialty": "multi-language SAST",
+  "quality": 5,
+  "qualityReason": "Broad coverage, powerful",
+  "bundleHints": [
+    "devsecops",
+    "security-toolkit"
+  ],
+  "tags": [
+    "git-history",
+    "horusec",
+    "multi-language",
+    "sast",
+    "secrets",
+    "secrets-detection",
+    "secure-sdlc",
+    "static-analysis",
+    "vulnerability-scanning"
+  ],
+  "capabilities": [
+    "Run static application security tests across 18+ programming languages",
+    "Detect exposed secrets and credentials in git history",
+    "Generate vulnerability reports with severity classification",
+    "Integrate security scanning into CI/CD pipelines",
+    "Configure false positive suppression and risk acceptance workflows",
+    "Map findings to OWASP Top 10 and CWE classifications"
+  ],
+  "author": "AgentSecOps",
+  "icon": "🛡️",
+  "version": "0.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing no executable code. All static findings are false positives - patterns detected are legitimate documentation examples showing vulnerable code patterns that Horusec scanner is designed to detect. Docker socket references and command examples are for running Horusec CLI tool, not for malicious purposes. All URLs point to legitimate security resources (Horusec, OWASP, CWE).",
+  "valueStatement": "Manual security reviews miss common vulnerabilities. This skill provides Horusec-based SAST workflows to automatically scan code across 18+ languages, detect secrets in git history, and integrate security scanning into CI/CD pipelines for continuous protection.",
+  "userTitle": "Scan code for security vulnerabilities",
+  "limitations": [
+    "Does not execute scans directly - requires Horusec CLI installation",
+    "Scanner runs outside the skill context after installation",
+    "No automatic remediation of found vulnerabilities",
+    "Requires Docker or manual tool installation for full functionality"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security Engineers",
+      "title": "Configure CI/CD security scanning",
+      "description": "Set up automated security scanning in GitHub Actions, GitLab CI, or Jenkins pipelines with severity thresholds and artifact reporting."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Scan local code for vulnerabilities",
+      "description": "Run pre-commit security scans on local projects to identify and fix vulnerabilities before committing code."
+    },
+    {
+      "targetUser": "Auditors",
+      "title": "Detect secrets in git history",
+      "description": "Scan entire git history for exposed credentials, API keys, and tokens that may have been accidentally committed."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick security scan",
+      "scenario": "Run a basic Horusec scan on the current project",
+      "prompt": "Help me run Horusec to scan this codebase for security vulnerabilities. Show me the commands to start a scan and explain how to interpret the severity levels in the output."
+    },
+    {
+      "title": "Configure CI pipeline",
+      "scenario": "Add Horusec to GitHub Actions workflow",
+      "prompt": "Help me add Horusec security scanning to a GitHub Actions workflow. I need to configure it to fail builds on high-severity findings and upload results as artifacts."
+    },
+    {
+      "title": "Scan for secrets",
+      "scenario": "Check git history for exposed credentials",
+      "prompt": "Show me how to use Horusec to scan git history for secrets and exposed credentials. Include commands to enable git history analysis and handle any found secrets."
+    },
+    {
+      "title": "Manage false positives",
+      "scenario": "Configure Horusec to ignore false positives",
+      "prompt": "Help me configure Horusec to suppress false positive findings. Show me how to create a config.json file with ignore rules and risk acceptance hashes."
+    }
+  ],
+  "bestPractices": [
+    "Run Horusec scans before every code commit to catch vulnerabilities early in the development cycle",
+    "Configure severity thresholds in CI/CD to fail builds on high and critical findings",
+    "Store scan results securely and restrict access to authorized security personnel only"
+  ],
+  "antiPatterns": [
+    "Ignoring informational findings without review - they may indicate deeper architectural issues",
+    "Running security scans only at deployment time instead of continuously during development",
+    "Committing Horusec configuration files with production credentials or sensitive data"
+  ],
+  "faq": [
+    {
+      "question": "What languages does Horusec support?",
+      "answer": "Horusec supports 18+ languages including Python, Java, Go, JavaScript, TypeScript, Ruby, Kotlin, C#, PHP, C, HTML, JSON, Dart, Elixir, Shell, Terraform, Kubernetes, and Nginx."
+    },
+    {
+      "question": "How do I install Horusec?",
+      "answer": "Install via Docker (recommended): docker run -v $(pwd):/src horuszup/horusec-cli:latest horusec start -p /src. Or install CLI directly via brew, curl, or download from GitHub releases."
+    },
+    {
+      "question": "Does Horusec modify my source code?",
+      "answer": "No, Horusec only reads and analyzes your code. It does not modify any files. Configuration files are created separately in .horusec/ directory."
+    },
+    {
+      "question": "Can I use Horusec offline?",
+      "answer": "Yes, Horusec can run offline after initial Docker image download. No network calls are made during analysis. Ensure images are pulled before air-gapped usage."
+    },
+    {
+      "question": "How do I reduce false positives?",
+      "answer": "Create .horusec/config.json with horusecCliFalsePositiveHashes and horusecCliFilesOrPathsToIgnore. Exclude test directories, vendor folders, and known false positive patterns."
+    },
+    {
+      "question": "How does Horusec compare to other SAST tools?",
+      "answer": "Horusec combines 20+ security tools into one interface, supporting more languages than most single-tool solutions. It provides unified reporting across all integrated scanners."
+    }
+  ],
+  "seoKeywords": [
+    "sast scanner",
+    "horusec",
+    "static analysis",
+    "secrets detection",
+    "code security",
+    "vulnerability scanning",
+    "ci cd security",
+    "secure sdlc",
+    "Claude",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/AgentSecOps/SecOpsAgentKit/tree/main/skills/secsdlc/sast-horusec",
+  "sourceType": "community",
+  "dependencies": []
+}

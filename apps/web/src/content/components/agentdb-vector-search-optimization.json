@@ -1,0 +1,144 @@
+{
+  "name": "agentdb-vector-search-optimization",
+  "type": "skill",
+  "description": "Optimize AgentDB vector search performance using quantization for 4-32x memory reduction, HNSW indexing for 150x faster search, caching, and batch operations for scaling to millions of vectors.",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "search performance",
+  "quality": 5,
+  "qualityReason": "Measurable optimization techniques",
+  "bundleHints": [
+    "agentdb-suite",
+    "performance-optimization",
+    "vector-search"
+  ],
+  "tags": [
+    "agentdb",
+    "batch-ops",
+    "caching",
+    "hnsw",
+    "optimization",
+    "performance",
+    "quantization",
+    "scaling",
+    "vector-search"
+  ],
+  "capabilities": [
+    "Measure baseline performance metrics including latency, throughput, and memory usage",
+    "Apply product, scalar, or binary quantization for 4-32x memory reduction",
+    "Implement HNSW indexing for 150x faster search speed",
+    "Configure query caching with LRU and TTL eviction policies",
+    "Validate accuracy remains above 95% after optimization",
+    "Generate performance benchmarks comparing before and after results"
+  ],
+  "author": "DNYoussef",
+  "icon": "🚀",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing process guides and code examples. No executable code, network calls, file system access, or external commands detected. All 24 static findings are false positives - the scanner misidentified TypeScript template literals as shell backticks, SHA256 hashes as C2 keywords, and URL strings as network calls.",
+  "valueStatement": "Vector search becomes slow and memory-intensive at scale. This skill provides a systematic 5-phase approach to achieve 4-32x memory reduction and 150x faster search using quantization, HNSW indexing, and intelligent caching.",
+  "userTitle": "Optimize AgentDB vector search performance",
+  "limitations": [
+    "Requires AgentDB installation and basic familiarity with vector databases",
+    "Binary quantization at 32x compression may reduce search precision",
+    "HNSW index building requires memory overhead during construction phase",
+    "Optimal parameters depend on specific dataset characteristics and require tuning"
+  ],
+  "useCases": [
+    {
+      "targetUser": "ML Engineers",
+      "title": "Scale vector databases",
+      "description": "Optimize production vector databases to handle millions of embeddings efficiently with reduced infrastructure costs."
+    },
+    {
+      "targetUser": "AI Application Developers",
+      "title": "Speed up RAG systems",
+      "description": "Accelerate retrieval-augmented generation systems with faster vector similarity search and caching layers."
+    },
+    {
+      "targetUser": "Data Infrastructure Teams",
+      "title": "Reduce memory costs",
+      "description": "Achieve significant memory reduction while maintaining search quality for large-scale vector workloads."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Optimization",
+      "scenario": "Start basic optimization",
+      "prompt": "When optimizing vector search, apply quantization and HNSW indexing to reduce memory by 4x and speed up search by 10x."
+    },
+    {
+      "title": "Measure Baseline",
+      "scenario": "Establish performance baseline",
+      "prompt": "When optimizing vector search, first measure baseline metrics including p95 latency, memory usage, and throughput for 1000 queries."
+    },
+    {
+      "title": "Configure Quantization",
+      "scenario": "Apply compression",
+      "prompt": "When optimizing vector search, configure product quantization with codebook size 256 and 8 subvectors to achieve 4x compression while maintaining accuracy above 95%."
+    },
+    {
+      "title": "Full Optimization",
+      "scenario": "Complete optimization workflow",
+      "prompt": "When optimizing vector search for production, execute the full 5-phase workflow: baseline measurement, quantization, HNSW indexing, caching setup, and comprehensive benchmarking with before-after comparison."
+    }
+  ],
+  "bestPractices": [
+    "Always measure baseline performance before applying optimizations to establish improvement benchmarks",
+    "Start with product quantization (4x compression) before trying aggressive binary quantization to balance memory savings and accuracy",
+    "Monitor cache hit rates and adjust TTL/eviction policies based on query patterns for optimal performance"
+  ],
+  "antiPatterns": [
+    "Skipping baseline measurement makes it impossible to validate improvement claims or detect regressions",
+    "Applying aggressive 32x binary quantization without accuracy validation destroys search quality",
+    "Ignoring cache warm-up period after deployment causes cold-start latency spikes for initial queries"
+  ],
+  "faq": [
+    {
+      "question": "Which quantization method should I start with?",
+      "answer": "Start with product quantization for 4x compression and minimal accuracy loss. Move to binary quantization only if you need extreme compression."
+    },
+    {
+      "question": "What HNSW parameters optimize speed?",
+      "answer": "Increase M (16-64) for higher recall and efSearch (100-500) for faster queries. Higher values increase memory but improve accuracy."
+    },
+    {
+      "question": "How do I integrate with existing AgentDB code?",
+      "answer": "Import Quantization and QueryCache from agentdb-optimization package and apply before creating your index or querying."
+    },
+    {
+      "question": "Is my data safe during optimization?",
+      "answer": "Yes. Quantization creates compressed copies. Original vectors remain intact until you explicitly replace them."
+    },
+    {
+      "question": "Why is accuracy dropping after optimization?",
+      "answer": "Check compression ratio (lower is more accurate), validate codebook training on representative data, and adjust subvector count."
+    },
+    {
+      "question": "How does this compare to other vector databases?",
+      "answer": "AgentDB optimization achieves comparable results to specialized solutions. HNSW indexing provides similar speedups as pgvector and Milvus."
+    }
+  ],
+  "seoKeywords": [
+    "AgentDB optimization",
+    "vector search",
+    "quantization",
+    "HNSW indexing",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "performance tuning",
+    "vector database",
+    "embedding search"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/agentdb/when-optimizing-vector-search-use-agentdb-optimization",
+  "sourceType": "community",
+  "dependencies": []
+}

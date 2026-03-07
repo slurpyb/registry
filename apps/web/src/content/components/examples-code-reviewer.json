@@ -1,0 +1,142 @@
+{
+  "name": "examples-code-reviewer",
+  "type": "skill",
+  "description": "AI-powered code review tool that analyzes code for bugs, style issues, and improvements",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "AI code review",
+  "quality": 4,
+  "qualityReason": "Useful automated review",
+  "bundleHints": [
+    "code-quality-suite",
+    "dev-ai-tools"
+  ],
+  "tags": [
+    "ai-powered",
+    "bug-detection",
+    "code-quality",
+    "code-review",
+    "security-analysis",
+    "static-analysis"
+  ],
+  "capabilities": [
+    "Identifies logic errors like null pointer risks, off-by-one errors, and race conditions",
+    "Detects security issues including injection vulnerabilities and hardcoded secrets",
+    "Flags style problems such as naming conventions and code organization",
+    "Spots performance issues like inefficient algorithms and N+1 queries",
+    "Provides severity levels and specific line numbers for each issue",
+    "Suggests concrete fixes and improvements with code examples"
+  ],
+  "author": "Enact Examples",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure prompt-based code analysis skill with no code execution capabilities. All 14 static findings are false positives: markdown code fences were misidentified as shell backtick execution, the word 'description' was flagged due to substring matching, and example bug code was misidentified as system reconnaissance. The skill only analyzes code text and returns structured JSON output.",
+  "valueStatement": "Manual code review is time-consuming and error-prone. This AI code reviewer automatically analyzes source code to identify bugs, security vulnerabilities, style issues, and performance problems with actionable fix suggestions.",
+  "userTitle": "Review Code for Issues",
+  "limitations": [
+    "Does not execute code, only performs static analysis on text",
+    "Cannot detect issues in dynamically generated or compiled code",
+    "May miss context-dependent bugs that require runtime understanding",
+    "Language detection is automatic and may not work for unusual codebases"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers and engineering teams",
+      "title": "Quick Code Audits",
+      "description": "Run automated checks on pull requests or commits to catch issues before human review"
+    },
+    {
+      "targetUser": "Junior developers and coding students",
+      "title": "Learning and Improvement",
+      "description": "Junior developers learn best practices by seeing detailed explanations of code issues and fixes"
+    },
+    {
+      "targetUser": "Security engineers and DevSecOps teams",
+      "title": "Security Scanning",
+      "description": "Focus on security aspects to identify potential vulnerabilities like injection flaws and secret exposure"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Code Review",
+      "prompt": "Review this code for bugs, style issues, and potential improvements:\n\n```\n{code}\n```\n\nLanguage: {language}",
+      "scenario": "Quick review of any code snippet"
+    },
+    {
+      "title": "Security-Focused Review",
+      "prompt": "Perform a security analysis on this code. Look for:\n- Injection vulnerabilities\n- Hardcoded secrets\n- Unsafe operations\n- Authentication issues\n\n```\n{code}\n```\n\nLanguage: {language}",
+      "scenario": "Security vulnerability assessment"
+    },
+    {
+      "title": "Performance Review",
+      "prompt": "Analyze this code for performance issues:\n- Inefficient algorithms\n- Unnecessary allocations\n- N+1 queries\n- Memory leaks\n\n```\n{code}\n```\n\nLanguage: {language}",
+      "scenario": "Performance optimization review"
+    },
+    {
+      "title": "Comprehensive Review",
+      "prompt": "Perform a full code review on this snippet. Cover bugs, style, performance, and security. For each issue found, provide:\n- Severity (error, warning, or info)\n- Line number\n- Problem explanation\n- Suggested fix\n\n```\n{code}\n```\n\nLanguage: {language}\nFocus: all",
+      "scenario": "Complete code quality assessment"
+    }
+  ],
+  "bestPractices": [
+    "Provide the programming language explicitly for more accurate analysis",
+    "Use the focus parameter to target specific issue types when you have particular concerns",
+    "Review high-severity issues first as they often indicate critical bugs or security vulnerabilities",
+    "Use the suggestions to learn and improve your coding practices over time"
+  ],
+  "antiPatterns": [
+    "Do not rely solely on automated review without understanding the underlying issues",
+    "Avoid using the code reviewer as a replacement for human architectural review",
+    "Do not ignore informational warnings as they often indicate technical debt",
+    "Avoid reviewing code in isolation without understanding the broader system context"
+  ],
+  "faq": [
+    {
+      "question": "What programming languages does this code reviewer support?",
+      "answer": "The code reviewer works with any programming language by analyzing the text structure. However, it has deeper knowledge of common languages like JavaScript, Python, Java, Go, and Ruby."
+    },
+    {
+      "question": "How accurate is the AI code review?",
+      "answer": "The AI catches most common bugs and style issues with high accuracy. Some edge cases or context-dependent issues may require human review for final validation."
+    },
+    {
+      "question": "Can this replace human code review?",
+      "answer": "No. This tool is designed to augment human review by catching common issues faster. Human reviewers are still needed for architectural decisions and complex logic validation."
+    },
+    {
+      "question": "Does the code reviewer execute any code?",
+      "answer": "No. The code reviewer only performs static analysis on the text you provide. It never executes the code being reviewed."
+    },
+    {
+      "question": "How are severity levels determined?",
+      "answer": "Errors indicate bugs that will cause failures or security issues. Warnings point to code quality problems or potential future issues. Info suggestions are best practice recommendations."
+    },
+    {
+      "question": "Can I integrate this into my CI/CD pipeline?",
+      "answer": "Yes. You can call this skill as part of your pipeline to get automated feedback on code changes. The structured JSON output is designed for programmatic processing."
+    }
+  ],
+  "seoKeywords": [
+    "AI code reviewer",
+    "automated code review",
+    "bug detection tool",
+    "code analysis",
+    "Claude Code",
+    "code quality checker",
+    "static analysis",
+    "security vulnerability scan",
+    "code review automation",
+    "programming assistant"
+  ],
+  "sourceUrl": "https://github.com/EnactProtocol/enact/tree/main/examples/code-reviewer",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "datacommons-client",
+  "type": "skill",
+  "description": "Work with Data Commons, a platform providing programmatic access to public statistical data from global sources. Use this skill when working with demographic data, economic indicators, health statistics, environmental data, or any public datasets available through Data Commons. Applicable for querying population statistics, GDP figures, unemployment rates, disease prevalence, geographic entity resolution, and exploring relationships between statistical entities.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "public statistics",
+  "quality": 5,
+  "qualityReason": "Specific access to rich public datasets",
+  "bundleHints": [
+    "public-data",
+    "research-toolkit"
+  ],
+  "tags": [
+    "api",
+    "api-integration",
+    "data-querying",
+    "demographics",
+    "economic",
+    "global",
+    "health",
+    "statistics"
+  ],
+  "capabilities": [
+    "Query statistical observations by variable and entity",
+    "Resolve place names and coordinates to Data Commons IDs",
+    "Explore knowledge graph relationships between entities",
+    "Access time-series data for historical trends",
+    "Filter data by source for consistency"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "📊",
+  "version": "2.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation wrapper for the Data Commons Python client library. All static findings are FALSE POSITIVES: the scanner misinterprets markdown code block delimiters as shell commands, API call examples as network threats, and legitimate documentation patterns as credential exposure. The skill enables read-only access to public statistical data with no code execution capabilities beyond package installation documentation.",
+  "valueStatement": "Access global statistical data from Data Commons including demographics, economics, health, and environmental indicators. Query population figures, GDP, unemployment rates, and geographic relationships using Python client methods.",
+  "userTitle": "Query public statistics from Data Commons",
+  "limitations": [
+    "Requires Data Commons API key for datacommons.org access",
+    "Only supports place entities for resolution (countries, states, cities)",
+    "Cannot query non-place entities directly without DCID knowledge"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data analysts",
+      "title": "Compare regional statistics",
+      "description": "Query and compare population, income, and unemployment data across multiple states or countries."
+    },
+    {
+      "targetUser": "Researchers",
+      "title": "Access historical trends",
+      "description": "Retrieve time-series data for economic indicators, health statistics, or environmental measurements."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Build data-driven applications",
+      "description": "Integrate public statistical data into applications using Python client library methods."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic query",
+      "scenario": "Get latest population",
+      "prompt": "Get the latest population for California, Texas, and New York using the Data Commons client."
+    },
+    {
+      "title": "Time series",
+      "scenario": "Historical unemployment",
+      "prompt": "Query the unemployment rate time series for the United States from 2010 to 2023."
+    },
+    {
+      "title": "Geographic hierarchy",
+      "scenario": "All counties in state",
+      "prompt": "Get median household income for all counties in California for year 2020."
+    },
+    {
+      "title": "Multi-variable",
+      "scenario": "State comparison",
+      "prompt": "Compare population, median income, and median age across Florida, Georgia, and South Carolina."
+    }
+  ],
+  "bestPractices": [
+    "Always resolve place names to DCIDs before querying to handle ambiguous names",
+    "Use entity expressions to query hierarchies efficiently (all counties in a state at once)",
+    "Cache DCID resolutions when querying the same entities repeatedly"
+  ],
+  "antiPatterns": [
+    "Hardcoding DCIDs instead of resolving names dynamically",
+    "Making individual queries for each entity instead of batch queries",
+    "Ignoring data source facets when consistency matters"
+  ],
+  "faq": [
+    {
+      "question": "What is Data Commons?",
+      "answer": "Data Commons is a platform aggregating public statistical data from sources like census bureaus and health organizations into a unified knowledge graph."
+    },
+    {
+      "question": "Do I need an API key?",
+      "answer": "Yes, for datacommons.org. Request one at apikeys.datacommons.org and set it via DC_API_KEY environment variable."
+    },
+    {
+      "question": "What data types are available?",
+      "answer": "Population, income, unemployment, health statistics, environmental data, and geographic relationships for places worldwide."
+    },
+    {
+      "question": "How do I find statistical variables?",
+      "answer": "Use fetch_available_statistical_variables() to check what data exists for an entity, or browse at datacommons.org/tools/statvar."
+    },
+    {
+      "question": "Can I query historical data?",
+      "answer": "Yes, set date parameter to 'all' to retrieve complete time series for trend analysis."
+    },
+    {
+      "question": "What are DCIDs?",
+      "answer": "Data Commons Identifiers are unique keys for entities. Use the Resolve API to convert place names to DCIDs."
+    }
+  ],
+  "seoKeywords": [
+    "datacommons",
+    "statistical data",
+    "demographic data",
+    "population statistics",
+    "economic indicators",
+    "API integration",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "public datasets"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/datacommons-client",
+  "sourceType": "community",
+  "dependencies": []
+}

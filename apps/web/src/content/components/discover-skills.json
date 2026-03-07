@@ -1,0 +1,149 @@
+{
+  "name": "discover-skills",
+  "type": "skill",
+  "description": "当你发现当前可用的技能都不够合适（或用户明确要求你寻找技能）时使用。本技能会基于任务目标和约束，给出一份精简的候选技能清单，帮助你选出最适配当前任务的技能。",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "skill discovery",
+  "quality": 5,
+  "qualityReason": "Meta-skill with high utility",
+  "bundleHints": [
+    "agent-config",
+    "skill-discovery",
+    "meta"
+  ],
+  "tags": [
+    "agent routing",
+    "api client",
+    "api-client",
+    "skill discovery",
+    "skill marketplace",
+    "skill-discovery",
+    "skill-marketplace",
+    "skillradar",
+    "task finder",
+    "task-finder"
+  ],
+  "capabilities": [
+    "Queries the SkillRadar API to find skills matching your task goals and constraints",
+    "Returns candidate skills with names, descriptions, match scores, and installation URLs",
+    "Provides installation instructions for different AI tools (Claude Code, Codex, OpenCode, Gemini)",
+    "Helps filter and validate returned skills to ensure they solve your actual problem",
+    "Supports custom keywords and search parameters for targeted skill discovery"
+  ],
+  "author": "zhiyuzi",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "The skill is safe to publish. Static analyzer detected network usage (API calls) and documentation showing shell command examples. All findings are false positives - the code is a legitimate Python HTTP client with no security issues. The heuristics for dangerous combinations do not apply as there is no code execution, credential access, or obfuscation.",
+  "valueStatement": "When you cannot find suitable skills for your current task, this skill helps you discover and install matching skills from the SkillRadar marketplace. It analyzes your task goals and constraints to find the best available skills.",
+  "userTitle": "Find the Right Skills for Your Task",
+  "limitations": [
+    "Requires internet connectivity to access the SkillRadar API service",
+    "Only searches the SkillRadar marketplace, not all available skills",
+    "Relies on accurate task description from the user for good recommendations",
+    "Cannot modify or update existing skills, only installs new ones",
+    "Installation requires user confirmation to avoid unexpected changes"
+  ],
+  "useCases": [
+    {
+      "targetUser": "developer",
+      "title": "Developer searching for automation skills",
+      "description": "A developer wants to automate file merging but doesn't know which skill exists. They trigger this skill with task goal 'merge files' and constraints 'must support PDF format' to find the right tool."
+    },
+    {
+      "targetUser": "analyst",
+      "title": "Analyst finding data extraction tools",
+      "description": "An analyst needs to extract data from multiple PDF reports but is unsure which skill to use. They search with keywords 'pdf, extract, data' and constraints 'must preserve formatting' to discover available tools."
+    },
+    {
+      "targetUser": "project_manager",
+      "title": "Project manager discovering action-item skills",
+      "description": "A project manager has meeting notes and needs to extract action items. They search for skills that handle meeting documentation and task tracking to find appropriate tools."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Beginner - Basic Search",
+      "prompt": "I want to find skills for this task: [describe your task]. What skills can help me do this?",
+      "scenario": "User provides a high-level task description without specific constraints"
+    },
+    {
+      "title": "Intermediate - With Constraints",
+      "prompt": "I need to [task goal] with these constraints: [list constraints]. Please search for skills that can handle this and tell me what's available.",
+      "scenario": "User knows their requirements but needs help finding appropriate tools"
+    },
+    {
+      "title": "Advanced - Keyword-Based Search",
+      "prompt": "Search for skills with these parameters: Task Goal: [goal], Constraints: [constraints], Keywords: [keywords, comma-separated]. Report the top 5 most relevant skills and their installation instructions.",
+      "scenario": "User wants detailed matching information with specific parameters"
+    },
+    {
+      "title": "Expert - Verification and Selection",
+      "prompt": "Find skills for my task [describe task and constraints], then select the best 2-3 options and verify they actually solve my problem. Do not install anything - just recommend the best choices with reasoning.",
+      "scenario": "User wants expert guidance on selecting the right skill from candidates"
+    }
+  ],
+  "bestPractices": [
+    "Be specific about your task goals to get better skill recommendations",
+    "Include relevant constraints like required file formats or processing methods",
+    "Review match scores to understand how well each skill fits your needs",
+    "Verify the skill description before installation to ensure it solves your problem",
+    "Ask for installation guidance if you're unsure about the deployment process"
+  ],
+  "antiPatterns": [
+    "Never install a skill without reading its description and understanding what it does",
+    "Avoid installing skills with low match scores if you have better alternatives",
+    "Don't ignore skills that return no results - consider refining your search parameters",
+    "Never proceed with installation without user confirmation, especially for global skills",
+    "Avoid installing multiple conflicting skills for the same task type"
+  ],
+  "faq": [
+    {
+      "question": "What happens if the SkillRadar service is unavailable?",
+      "answer": "If the service cannot be reached, the skill returns an empty candidates list with an error note explaining the connection issue. You can then try again later or search for skills manually."
+    },
+    {
+      "question": "Can I install skills globally or just in my current project?",
+      "answer": "You can install skills either in your current project directory or globally depending on your AI tool's configuration. Project-level skills are tool-specific (e.g., .claude/skills/ for Claude Code). Global skills apply to all projects."
+    },
+    {
+      "question": "How do I know if a skill will actually work for my task?",
+      "answer": "Review the skill's name, description, and match reasons. Check if the description mentions your specific task or use case. Low match scores may indicate poor relevance. You can also read the skill's documentation if available."
+    },
+    {
+      "question": "What is the ?v= parameter in the installation URL?",
+      "answer": "The ?v= parameter is a cache-busting timestamp that ensures you download the latest version of the skill from the CDN. Do not remove this parameter when downloading."
+    },
+    {
+      "question": "Why are there so many shell command examples in the documentation?",
+      "answer": "The shell command examples are documentation showing how to use the skill, not actual code execution. They illustrate command-line usage patterns for different AI tools."
+    },
+    {
+      "question": "Can I update or modify skills after installation?",
+      "answer": "Skills are downloaded as ZIP files and cannot be updated through the marketplace interface. To get updates, you would need to re-download the skill from the URL and replace the existing skill files."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "skill discovery",
+    "skill marketplace",
+    "find skills",
+    "skill recommendation",
+    "task automation",
+    "skill installation",
+    "SkillRadar"
+  ],
+  "sourceUrl": "https://github.com/zhiyuzi/Skillradar/tree/main/discover-skills",
+  "sourceType": "community",
+  "dependencies": []
+}

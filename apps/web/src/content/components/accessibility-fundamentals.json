@@ -1,0 +1,145 @@
+{
+  "name": "accessibility-fundamentals",
+  "type": "skill",
+  "description": "Auto-invoke when reviewing JSX with interactive elements, forms, buttons, or navigation. Enforces WCAG compliance and inclusive design.",
+  "domain": "design",
+  "subdomain": "accessibility",
+  "specialty": "JSX enforcement",
+  "quality": 4,
+  "qualityReason": "Context-specific with clear triggers",
+  "bundleHints": [
+    "react-accessibility",
+    "ui-compliance"
+  ],
+  "tags": [
+    "a11y",
+    "accessibility",
+    "auto-invoke",
+    "buttons",
+    "forms",
+    "jsx",
+    "navigation",
+    "react",
+    "wcag"
+  ],
+  "capabilities": [
+    "Reviews JSX components for keyboard accessibility (Tab, Enter, Space)",
+    "Validates semantic HTML usage (buttons vs div onClick)",
+    "Checks form labels and ARIA attributes for screen readers",
+    "Identifies missing alt text on images",
+    "Reviews focus management and visible focus indicators",
+    "Provides WCAG 2.1 compliance checklist for interactive elements"
+  ],
+  "author": "DanielPodolsky",
+  "icon": "♿",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 63 static findings are false positives. The scanner misinterpreted markdown code block delimiters as shell execution, ARIA attributes as cryptographic patterns, and CSS color hex values as IP addresses. This is a legitimate accessibility documentation skill containing only static guidance and code examples.",
+  "valueStatement": "Many developers unintentionally create barriers for users with disabilities. This skill provides a systematic checklist for reviewing JSX components against WCAG guidelines, ensuring your code is inclusive and legally compliant.",
+  "userTitle": "Review JSX for Accessibility",
+  "limitations": [
+    "Does not run automated accessibility tests like axe-core",
+    "Cannot validate color contrast ratios (requires visual inspection)",
+    "Does not test with actual screen readers",
+    "Does not modify code automatically"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers and code reviewers",
+      "title": "Code Review for React Components",
+      "description": "Before merging pull requests, invoke this skill to verify new interactive components meet accessibility standards. Catches issues like missing labels, div-as-button anti-patterns, and poor focus management."
+    },
+    {
+      "targetUser": "Junior developers and onboarding engineers",
+      "title": "Learning Inclusive Design Patterns",
+      "description": "New team members use this skill to understand accessibility requirements. The skill provides concrete examples of accessible vs inaccessible code patterns with explanations."
+    },
+    {
+      "targetUser": "QA engineers and product managers",
+      "title": "Accessibility Audit for Features",
+      "description": "Before launching new features, use this skill to verify compliance with accessibility requirements. Covers modals, forms, navigation menus, and dynamic content updates."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Component Check",
+      "prompt": "Review this JSX component for accessibility issues. Check for keyboard accessibility, proper form labels, semantic HTML, and screen reader support.",
+      "scenario": "When you have a single component to review quickly"
+    },
+    {
+      "title": "Form Accessibility Review",
+      "prompt": "Review this form component. Check that every input has a label, error messages are linked with aria-describedby, and required fields are marked appropriately.",
+      "scenario": "When reviewing form components with multiple inputs"
+    },
+    {
+      "title": "Modal Dialog Audit",
+      "prompt": "Check this modal component. Verify focus trapping works, escape key closes it, keyboard focus is managed, and it has proper ARIA attributes.",
+      "scenario": "When reviewing modal or dialog components"
+    },
+    {
+      "title": "Navigation Menu Review",
+      "prompt": "Review this navigation component. Check keyboard navigation works, active states are announced, and menu structure is semantic.",
+      "scenario": "When reviewing navigation, menus, or dropdowns"
+    }
+  ],
+  "bestPractices": [
+    "Use native semantic elements (<button>, <a>, <input>) instead of divs with event handlers",
+    "Every form input must have a visible, associated label",
+    "All interactive elements must be keyboard accessible with visible focus states"
+  ],
+  "antiPatterns": [
+    "Using <div onClick> instead of <button> - breaks keyboard and screen reader support",
+    "Removing outline: none without replacement - leaves keyboard users lost",
+    "Using color alone to convey information - fails for colorblind users"
+  ],
+  "faq": [
+    {
+      "question": "What is the minimum color contrast ratio for text?",
+      "answer": "Normal text requires 4.5:1 contrast ratio against the background. Large text (18px bold or 24px regular) requires 3:1 ratio."
+    },
+    {
+      "question": "How do I make a modal accessible?",
+      "answer": "Trap focus within the modal while open, return focus to trigger element when closed, include Escape key to close, and add aria-modal=\"true\"."
+    },
+    {
+      "question": "What is the first rule of ARIA?",
+      "answer": "No ARIA is better than bad ARIA. Use native semantic HTML first. Only add ARIA when HTML cannot express what you need."
+    },
+    {
+      "question": "How do I test accessibility without tools?",
+      "answer": "Navigate your entire page using only Tab and keyboard. Verify you can complete all actions, focus is always visible, and you cannot get trapped."
+    },
+    {
+      "question": "What is focus-visible and when should I use it?",
+      "answer": "focus-visible shows focus indicators only when navigating by keyboard, hiding them for mouse users. Use :focus-visible for best of both worlds."
+    },
+    {
+      "question": "How do I make error messages accessible?",
+      "answer": "Link errors to inputs with aria-describedby, set aria-invalid=\"true\" on invalid inputs, and use role=\"alert\" or aria-live for announcements."
+    }
+  ],
+  "seoKeywords": [
+    "accessibility",
+    "wcag",
+    "a11y",
+    "jsx accessibility",
+    "react accessibility",
+    "inclusive design",
+    "screen reader support",
+    "keyboard navigation",
+    "aria labels",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/DanielPodolsky/mentor-spec/tree/main/.claude/skills/fundamentals/accessibility",
+  "sourceType": "community",
+  "dependencies": []
+}

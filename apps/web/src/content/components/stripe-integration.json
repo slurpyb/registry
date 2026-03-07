@@ -1,0 +1,144 @@
+{
+  "name": "stripe-integration",
+  "type": "skill",
+  "description": "Implement Stripe payment processing for robust, PCI-compliant payment flows including checkout, subscriptions, and webhooks. Use when integrating Stripe payments, building subscription systems, or implementing secure checkout flows.",
+  "domain": "business",
+  "subdomain": "sales",
+  "specialty": "Payment processing",
+  "quality": 5,
+  "qualityReason": "Essential payment integration",
+  "bundleHints": [
+    "payment-integrations",
+    "sales-automation"
+  ],
+  "tags": [
+    "billing",
+    "checkout",
+    "e-commerce",
+    "payments",
+    "pci-compliant",
+    "stripe",
+    "subscriptions"
+  ],
+  "capabilities": [
+    "Create Stripe checkout sessions for one-time and recurring payments",
+    "Implement custom payment intents with full UI control",
+    "Handle Stripe webhooks securely with signature verification",
+    "Manage customer subscriptions and billing cycles",
+    "Process refunds and handle payment disputes",
+    "Implement Strong Customer Authentication (SCA) for European payments"
+  ],
+  "author": "sickn33",
+  "icon": "💳",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 47 static findings are false positives. The skill contains legitimate Stripe payment integration documentation with Python code examples. Detected patterns (backtick execution, hardcoded URLs, API key access) are benign documentation artifacts: backticks are markdown code fences, URLs are placeholder examples, and API key patterns are documented placeholders showing where users should insert their own keys.",
+  "valueStatement": "This skill provides comprehensive Stripe payment integration guidance for implementing checkout, subscriptions, webhooks, and refund handling with PCI-compliant best practices.",
+  "userTitle": "Integrate Stripe Payments",
+  "limitations": [
+    "Skill provides code examples and guidance only - does not execute payment processing itself",
+    "Does not include a pre-built payment UI component library",
+    "Does not provide backend server implementation - users must implement their own server",
+    "Does not include Stripe Connect marketplace functionality documentation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Web developers building e-commerce sites",
+      "title": "E-commerce Checkout Implementation",
+      "description": "Add Stripe checkout to web applications for accepting one-time payments with hosted checkout pages."
+    },
+    {
+      "targetUser": "SaaS founders and backend developers",
+      "title": "SaaS Subscription Management",
+      "description": "Set up recurring billing for SaaS products with customer portal access and subscription lifecycle management."
+    },
+    {
+      "targetUser": "Backend engineers building payment infrastructure",
+      "title": "Webhook Event Processing",
+      "description": "Process payment events securely with signature verification and idempotent handling for production systems."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Checkout Setup",
+      "prompt": "Help me set up a basic Stripe checkout flow for a one-time payment of $29. Show me how to create a checkout session and redirect the user.",
+      "scenario": "Setting up simple payment flow"
+    },
+    {
+      "title": "Subscription Creation",
+      "prompt": "Create a subscription checkout flow for a monthly service at $19/month. Include customer creation and subscription activation.",
+      "scenario": "Building recurring billing"
+    },
+    {
+      "title": "Webhook Handler",
+      "prompt": "Write a secure webhook handler in Python that verifies the Stripe signature and processes payment_intent.succeeded events.",
+      "scenario": "Processing payment events"
+    },
+    {
+      "title": "Refund Processing",
+      "prompt": "Show me how to implement partial refunds and handle the refund workflow including the reason codes.",
+      "scenario": "Handling refunds and disputes"
+    }
+  ],
+  "bestPractices": [
+    "Always verify webhook signatures using stripe.Webhook.construct_event to prevent spoofed events",
+    "Use Stripe's hosted checkout pages to minimize PCI compliance burden",
+    "Handle webhook events idempotently by checking for duplicate event IDs before processing",
+    "Store only payment method IDs, never raw card data, to maintain PCI compliance",
+    "Use test mode keys during development and verify all payment flows with test card numbers"
+  ],
+  "antiPatterns": [
+    "Do not rely on client-side payment confirmation alone - always verify via webhooks",
+    "Do not hardcode API keys in source code - use environment variables or secrets management",
+    "Do not process the same webhook event twice - implement idempotency checks",
+    "Do not use production API keys in test mode or test cards in production"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between Checkout Sessions and Payment Intents?",
+      "answer": "Checkout Sessions use Stripe's hosted payment page for minimal implementation effort and PCI compliance. Payment Intents give you full control to build a custom payment UI within your app."
+    },
+    {
+      "question": "How do I verify that webhooks actually come from Stripe?",
+      "answer": "Use stripe.Webhook.construct_event() with your endpoint secret to verify the Stripe-Signature header. This ensures the request genuinely came from Stripe."
+    },
+    {
+      "question": "What are test card numbers I can use?",
+      "answer": "Use 4242424242424242 for successful payments, 4000000000000002 for declined cards, and 4000002500003155 for 3D Secure required cards."
+    },
+    {
+      "question": "How do I handle Strong Customer Authentication (SCA) for European customers?",
+      "answer": "Stripe automatically handles SCA when you use Checkout Sessions or enable automatic_payment_methods. For custom flows, use Stripe Elements with the new authentication flows."
+    },
+    {
+      "question": "Can I process partial refunds?",
+      "answer": "Yes, provide the amount parameter in cents when creating a refund. Without it, Stripe processes a full refund. You can issue multiple partial refunds up to the original payment amount."
+    },
+    {
+      "question": "How do I give customers access to manage their subscriptions?",
+      "answer": "Use Stripe Billing Portal by calling stripe.billing_portal.Session.create() with the customer ID. This provides a Stripe-hosted page for customers to update payment methods, cancel, or pause subscriptions."
+    }
+  ],
+  "seoKeywords": [
+    "Stripe payment integration",
+    "Stripe checkout",
+    "Stripe subscriptions",
+    "Stripe webhooks",
+    "payment processing",
+    "PCI compliance",
+    "Claude Code",
+    "Codex",
+    "Claude",
+    "recurring billing"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/stripe-integration",
+  "sourceType": "community",
+  "dependencies": []
+}

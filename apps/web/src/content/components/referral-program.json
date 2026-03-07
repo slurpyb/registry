@@ -1,0 +1,141 @@
+{
+  "name": "referral-program",
+  "type": "skill",
+  "description": "When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' or 'partner program.' This skill covers program design, incentive structure, and growth optimization.",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "viral growth",
+  "quality": 4,
+  "qualityReason": "Clear business use case",
+  "bundleHints": [
+    "growth-marketing",
+    "customer-acquisition"
+  ],
+  "tags": [
+    "affiliate-programs",
+    "ambassador",
+    "customer-acquisition",
+    "growth",
+    "growth-hacking",
+    "marketing",
+    "viral-loops",
+    "word-of-mouth"
+  ],
+  "capabilities": [
+    "Design referral and affiliate program structures with appropriate incentive models",
+    "Calculate optimal reward amounts based on customer LTV and target CAC",
+    "Create email templates for referral program launch and nurture sequences",
+    "Identify trigger moments when customers are most likely to refer others",
+    "Implement fraud prevention measures to protect program integrity",
+    "Measure referral program ROI and optimize for viral coefficient"
+  ],
+  "author": "coreyhaines31",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation-only marketing guide containing no executable code, network calls, or file system operations. All static scanner detections (backtick characters, cryptographic terms, reconnaissance keywords) are false positives from markdown documentation content including ASCII diagrams, email templates, and business terminology.",
+  "valueStatement": "Referral programs drive lower customer acquisition costs and higher lifetime value, yet most companies struggle to design incentives that motivate sharing. This skill provides frameworks, templates, and proven strategies to build programs that turn customers into active growth advocates.",
+  "userTitle": "Design High-Converting Referral Programs",
+  "limitations": [
+    "Does not implement referral tracking or attribution code",
+    "Does not integrate with specific referral software platforms",
+    "Does not provide legal terms of service for program compliance",
+    "Does not execute customer data analysis or import customer lists"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Growth marketers and product managers launching new referral initiatives",
+      "title": "Launching a New Customer Referral Program",
+      "description": "A SaaS company wants to launch their first referral program. They need help designing the incentive structure, creating email templates, and setting up tracking before going to market."
+    },
+    {
+      "targetUser": "Marketing directors and affiliate program managers seeking performance improvements",
+      "title": "Optimizing an Underperforming Affiliate Program",
+      "description": "An e-commerce brand has an affiliate program with low conversion rates. They need guidance on commission structures, affiliate recruitment templates, and strategies to improve partner performance."
+    },
+    {
+      "targetUser": "Operations teams and business owners managing existing referral programs",
+      "title": "Preventing Referral Program Fraud",
+      "description": "A subscription business noticed suspicious referral patterns indicating abuse. They need to implement verification measures, set appropriate limits, and establish fraud prevention policies."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Getting Started with Referral Program Design",
+      "prompt": "I want to design a referral program for my [B2B/B2C] [product/service type] with a customer LTV of $[amount]. Our current CAC from paid channels is $[amount]. We currently [have/do not have] an existing referral program.\n\nPlease help me:\n1. Calculate the maximum referral reward we can afford\n2. Recommend an incentive structure (single vs double-sided, reward type)\n3. Identify the best trigger moments to ask for referrals\n4. Outline the key steps to launch",
+      "scenario": "Initial consultation for a new referral program"
+    },
+    {
+      "title": "Creating Affiliate Program Commission Structure",
+      "prompt": "We are setting up an affiliate program for our [product type] priced at $[amount] per [unit]. Our profit margin is [percentage]%.\n\nPlease help me design:\n1. A competitive commission structure (percentage vs flat fee)\n2. Tiered commission levels for top performers\n3. Recommended cookie duration for our sales cycle\n4. An affiliate recruitment outreach template",
+      "scenario": "Designing affiliate program compensation and recruitment"
+    },
+    {
+      "title": "Writing Referral Program Email Sequences",
+      "prompt": "We are launching a referral program with the following reward: [reward details]. Our target audience is [description].\n\nPlease create:\n1. A launch announcement email to existing customers\n2. A nurture sequence for customers who sign up but have not yet referred\n3. A re-engagement email for past referrers\n\nFor each email include subject line, body copy, and call-to-action.",
+      "scenario": "Creating email copy for referral program communications"
+    },
+    {
+      "title": "Analyzing and Optimizing Referral Program Performance",
+      "prompt": "Our referral program has the following metrics:\n- Referral rate: [percentage]%\n- Conversion rate: [percentage]%\n- Average referrals per referrer: [number]\n- K-factor: [number]\n\n[Describe the specific problem: low awareness, low share rate, low conversion, or fraud concerns]\n\nPlease analyze what might be causing this issue and recommend specific optimizations we can test.",
+      "scenario": "Diagnosing and fixing underperforming referral programs"
+    }
+  ],
+  "bestPractices": [
+    "Lead with double-sided incentives where both referrer and referred benefit, as these consistently show higher conversion rates than single-sided rewards",
+    "Identify and activate at the specific moments when customers achieve success or express satisfaction, rather than prompting at arbitrary intervals",
+    "Track referred customers separately from other channels to measure their higher LTV and lower churn, which validates continued investment in the program"
+  ],
+  "antiPatterns": [
+    "Waiting until customers are about to churn to ask for referrals, which feels desperate and reduces participation rates",
+    "Offering rewards so generous they attract fraudsters rather than genuine customers, requiring expensive verification systems",
+    "Making the referral process require multiple steps or account creation, which dramatically drops completion rates"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between a referral program and an affiliate program?",
+      "answer": "Referral programs target existing customers who recommend to their personal networks, motivated by rewards plus helping friends. Affiliate programs target external partners like bloggers and influencers who may not be customers, motivated primarily by commissions. Many companies run both simultaneously with different structures."
+    },
+    {
+      "question": "How much should I offer for a referral reward?",
+      "answer": "Calculate your maximum: (Customer LTV × Gross Margin) - Target CAC. Typical ranges are $10-50 for B2C, $50-500 for B2B SaaS, with higher for enterprise. Start with double-sided rewards and test different amounts."
+    },
+    {
+      "question": "What is a good referral rate benchmark?",
+      "answer": "Good referral rates are 10-25% of customers making at least one referral. Great programs achieve 25-50%. Exceptional programs with strong product-market fit and optimal timing reach 50% or higher."
+    },
+    {
+      "question": "How do I prevent referral fraud and abuse?",
+      "answer": "Implement email verification, device fingerprinting, IP monitoring, delayed reward payouts, and require meaningful action before rewarding. Set clear terms, maximum referral limits per period, and consider paying rewards in non-transferable product credit."
+    },
+    {
+      "question": "What tools should I use for referral program management?",
+      "answer": "Popular options include ReferralCandy and Friendbuy for e-commerce, Ambassador for enterprise programs, Viral Loops for template-based campaigns, and Rewardful for Stripe-integrated affiliate tracking. Choose based on your integration needs and scale."
+    },
+    {
+      "question": "How do I measure referral program ROI?",
+      "answer": "Track (Revenue from referred customers - Program costs) / Program costs. Monitor cost per referred customer (CAC via referral), LTV of referred customers, payback period, and viral coefficient (K-factor). Referred customers typically show 16-25% higher LTV."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "referral program",
+    "affiliate marketing",
+    "viral loop",
+    "customer acquisition",
+    "referral marketing strategy",
+    "partner program"
+  ],
+  "sourceUrl": "https://github.com/coreyhaines31/marketingskills/tree/main/skills/referral-program",
+  "sourceType": "community",
+  "dependencies": []
+}

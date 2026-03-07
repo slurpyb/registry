@@ -1,0 +1,145 @@
+{
+  "name": "last30days",
+  "type": "skill",
+  "description": "Research a topic from the last 30 days on Reddit + X + Web, become an expert, and write copy-paste-ready prompts for the user's target tool.",
+  "domain": "science",
+  "subdomain": "research",
+  "specialty": "trending topics",
+  "quality": 5,
+  "qualityReason": "Timely research capability",
+  "bundleHints": [
+    "trend-analysis",
+    "community-research",
+    "market-intel"
+  ],
+  "tags": [
+    "community",
+    "discussions",
+    "engagement",
+    "prompts",
+    "recommendations",
+    "reddit",
+    "research",
+    "trends",
+    "twitter",
+    "x"
+  ],
+  "capabilities": [
+    "Search Reddit and X for discussions from the last 30 days using official APIs",
+    "Enrich results with real engagement metrics (upvotes, comments, likes, reposts)",
+    "Filter and rank results by recency, relevance, and popularity scores",
+    "Synthesize findings into actionable insights and copy-paste prompts",
+    "Support WebSearch fallback when API keys are not configured",
+    "Cache results for 24 hours to reduce API calls and improve response time"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer detected 484 pattern matches, but 480+ are false positives from markdown documentation (backtick code blocks misidentified as shell execution) and test fixtures. The skill legitimately accesses user-configured API keys (OPENAI_API_KEY, XAI_API_KEY) from ~/.config/last30days/.env and makes HTTP requests to Reddit/X APIs for research. No malicious intent detected. Risk limited to expected behavior for an API-based research tool.",
+  "valueStatement": "Stay current with fast-moving AI trends without drowning in noise. This skill surfaces what people are actually upvoting and discussing right now, then writes copy-paste prompts tailored to your target tool.",
+  "userTitle": "Research trending topics from the last 30 days",
+  "limitations": [
+    "Requires OPENAI_API_KEY for Reddit data and XAI_API_KEY for X data (optional but recommended)",
+    "Limited to content from the last 30 days - not suitable for historical research",
+    "Output quality depends on available discussions in the target topic",
+    "Cannot access private or paywalled content from Reddit/X"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI practitioners and prompt engineers",
+      "title": "Prompt Engineering Research",
+      "description": "Research the latest prompting techniques for specific AI tools by analyzing what the community shares and upvotes"
+    },
+    {
+      "targetUser": "Researchers and buyers evaluating options",
+      "title": "Product Recommendation Discovery",
+      "description": "Find specific tools and products people recommend, ranked by engagement signals rather than SEO"
+    },
+    {
+      "targetUser": "Content creators and marketers",
+      "title": "Trend Monitoring",
+      "description": "Track what is currently being discussed in fast-moving domains like AI tools, viral content, or news"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Topic Research",
+      "prompt": "Research the best [topic] from the last 30 days and summarize what people are recommending",
+      "scenario": "Quick research for general topic understanding"
+    },
+    {
+      "title": "Tool-Specific Prompt Research",
+      "prompt": "Research [topic] techniques for [target tool] and write copy-paste prompts I can use",
+      "scenario": "Learning prompting techniques for a specific AI tool"
+    },
+    {
+      "title": "Comparative Product Analysis",
+      "prompt": "Find discussions comparing [product A] vs [product B] from the last 30 days on Reddit and X",
+      "scenario": "Making informed purchasing decisions"
+    },
+    {
+      "title": "Deep Dive with All Sources",
+      "prompt": "Do comprehensive research on [topic] using Reddit, X, and web sources. Include engagement metrics and identify patterns across all three sources",
+      "scenario": "Thorough research requiring cross-validation of findings"
+    }
+  ],
+  "bestPractices": [
+    "Specify both topic and target tool for most relevant prompt recommendations",
+    "Review the engagement metrics to identify community-validated insights",
+    "Use the --deep flag for comprehensive research on important topics"
+  ],
+  "antiPatterns": [
+    "Do not expect historical data beyond the 30-day window",
+    "Do not use for topics with minimal online discussion",
+    "Do not skip reviewing the raw sources before acting on recommendations"
+  ],
+  "faq": [
+    {
+      "question": "Do I need API keys to use this skill?",
+      "answer": "No. The skill works with WebSearch fallback when no keys are configured. However, adding OPENAI_API_KEY unlocks Reddit data with real upvotes and comments, while XAI_API_KEY unlocks X posts with likes and reposts."
+    },
+    {
+      "question": "How does the skill enforce the 30-day window?",
+      "answer": "The skill passes date constraints to API searches and applies hard date filtering as a safety net. Items with verified dates outside the range are excluded from results."
+    },
+    {
+      "question": "Can I cache results to avoid repeated API calls?",
+      "answer": "Yes. Results are automatically cached for 24 hours keyed by topic and date range. Use the --refresh flag to bypass cache and fetch fresh data."
+    },
+    {
+      "question": "What if my topic has little recent discussion?",
+      "answer": "The skill will show a limited data warning and include older evergreen content. It is honest about sparse results rather than fabricating findings."
+    },
+    {
+      "question": "Can other skills use the research output?",
+      "answer": "Yes. Output files are written to ~/.local/share/last30days/out/ and can be imported via --emit=context or --emit=json for programmatic use in other skills."
+    },
+    {
+      "question": "Is my research topic sent to external APIs?",
+      "answer": "Yes. Your topic query is sent to OpenAI and xAI APIs for research. Do not include sensitive information in research topics."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code skill",
+    "Codex research tool",
+    "Reddit trend research",
+    "Twitter X analysis",
+    "AI prompt research",
+    "Claude marketplace skill",
+    "trending topics tool",
+    "community insights",
+    "prompt engineering",
+    "real-time research"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/last30days",
+  "sourceType": "community",
+  "dependencies": []
+}

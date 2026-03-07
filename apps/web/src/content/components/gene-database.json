@@ -1,0 +1,141 @@
+{
+  "name": "gene-database",
+  "type": "skill",
+  "description": "Query NCBI Gene via E-utilities/Datasets API. Search by symbol/ID, retrieve gene info (RefSeqs, GO, locations, phenotypes), batch lookups, for gene annotation and functional analysis.",
+  "domain": "science",
+  "subdomain": "bioinformatics",
+  "specialty": "gene annotation",
+  "quality": 5,
+  "qualityReason": "Highly specific, research-grade API use",
+  "bundleHints": [
+    "bioinformatics-suite",
+    "genomics-tools",
+    "ncbi-integration"
+  ],
+  "tags": [
+    "api",
+    "bioinformatics",
+    "data-retrieval",
+    "gene-info",
+    "genomics",
+    "ncbi"
+  ],
+  "capabilities": [
+    "Search NCBI Gene by symbol, name, or ID across species",
+    "Retrieve gene sequences, RefSeqs, and metadata via official APIs",
+    "Fetch Gene Ontology annotations and phenotype associations",
+    "Process batch gene lookups with rate limiting and error handling",
+    "Output data in JSON, XML, or text formats",
+    "Query by chromosomal location, disease, or pathway"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🧬",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate bioinformatics tool for querying NCBI Gene database. All 374 static findings are false positives: markdown backticks in documentation are code formatting (not shell execution), API keys are user-provided CLI arguments (not hardcoded secrets), hardcoded URLs are official NCBI API endpoints, and the network+credential+file pattern is standard API client behavior. No data exfiltration or malicious patterns detected.",
+  "valueStatement": "Access comprehensive gene data from NCBI including sequences, annotations, and functional information. Search by gene symbol, ID, or biological context to retrieve RefSeqs, Gene Ontology, chromosomal locations, and phenotypes for bioinformatics research.",
+  "userTitle": "Query NCBI Gene Database",
+  "limitations": [
+    "Rate limited to 3 requests per second without API key",
+    "Only accesses NCBI Gene database, not other genomic resources",
+    "No built-in data analysis or visualization capabilities",
+    "Requires internet connection to access NCBI APIs"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Bioinformatics researchers",
+      "title": "Gene annotation workflows",
+      "description": "Retrieve comprehensive gene data including sequences, GO terms, and phenotypes for functional analysis."
+    },
+    {
+      "targetUser": "Computational biologists",
+      "title": "Batch gene data collection",
+      "description": "Process gene lists efficiently with rate limiting for large-scale genomic studies."
+    },
+    {
+      "targetUser": "Life science educators",
+      "title": "Gene information lookup",
+      "description": "Query gene symbols and retrieve detailed information for educational purposes."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Find a gene symbol",
+      "scenario": "Search for a specific gene",
+      "prompt": "Find information about the {gene_symbol} gene in {organism} including its chromosomal location and function."
+    },
+    {
+      "title": "Get sequence data",
+      "scenario": "Retrieve gene sequence details",
+      "prompt": "Retrieve RefSeq accession numbers and gene sequence data for {gene_id} in JSON format."
+    },
+    {
+      "title": "Batch gene lookup",
+      "scenario": "Process multiple genes",
+      "prompt": "Look up gene information for the following genes from {organism}: {gene_list}. Return the results as JSON."
+    },
+    {
+      "title": "Gene function search",
+      "scenario": "Find genes by biological context",
+      "prompt": "Find genes associated with {biological_process} in {organism} using Gene Ontology terms."
+    }
+  ],
+  "bestPractices": [
+    "Include the organism in your query to avoid ambiguous results from gene symbols that exist in multiple species",
+    "Use Gene IDs instead of symbols when precision is required, as gene symbols can change over time",
+    "Include your NCBI API key for faster batch processing (up to 10 requests per second)"
+  ],
+  "antiPatterns": [
+    "Do not make individual requests in a loop without rate limiting, as this will trigger NCBI rate limits",
+    "Do not rely solely on gene symbols for permanent storage, as official nomenclature can change",
+    "Do not assume all gene symbols are unique within an organism without verifying"
+  ],
+  "faq": [
+    {
+      "question": "How do I get an NCBI API key?",
+      "answer": "Register for a free API key at https://www.ncbi.nlm.nih.gov/account to increase rate limits from 3 to 10 requests per second."
+    },
+    {
+      "question": "What gene formats are supported?",
+      "answer": "You can search by official gene symbol (BRCA1), Gene ID (672), or use complex queries with GO terms and disease keywords."
+    },
+    {
+      "question": "Can I retrieve protein sequences?",
+      "answer": "Yes, the skill retrieves RefSeq accessions for transcripts and proteins associated with the gene."
+    },
+    {
+      "question": "How many genes can I query at once?",
+      "answer": "The batch script supports hundreds of genes with automatic rate limiting. ESummary accepts up to 500 IDs per request."
+    },
+    {
+      "question": "What output formats are available?",
+      "answer": "Data can be returned as JSON for programmatic use, XML for detailed metadata, or human-readable text summaries."
+    },
+    {
+      "question": "Does this skill store any data?",
+      "answer": "No, this skill only queries NCBI APIs in real-time. All data is returned directly to the user or written to a user-specified output file."
+    }
+  ],
+  "seoKeywords": [
+    "NCBI Gene database",
+    "gene sequence retrieval",
+    "Claude scientific skill",
+    "bioinformatics API",
+    "genomic data lookup",
+    "E-utilities",
+    "gene annotation",
+    "Claude Code skill",
+    "gene ontology",
+    "research data retrieval"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/gene-database",
+  "sourceType": "community",
+  "dependencies": []
+}

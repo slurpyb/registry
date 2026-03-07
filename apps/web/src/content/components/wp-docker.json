@@ -1,0 +1,141 @@
+{
+  "name": "wp-docker",
+  "type": "skill",
+  "description": "Docker-based WordPress development environment. Use when setting up new WordPress sites, managing Docker containers, or automating site deployment with WP-CLI.",
+  "domain": "devops",
+  "subdomain": "containers",
+  "specialty": "Docker setup",
+  "quality": 5,
+  "qualityReason": "Clear container workflow",
+  "bundleHints": [
+    "docker-dev",
+    "wordpress-ops"
+  ],
+  "tags": [
+    "containers",
+    "development",
+    "docker",
+    "local-development",
+    "local-env",
+    "wordpress",
+    "wp-cli"
+  ],
+  "capabilities": [
+    "Generate Docker Compose files with MariaDB, WordPress, and WP-CLI containers",
+    "Run automated WordPress installation with WP-CLI commands",
+    "Install and activate WordPress plugins via command line",
+    "Create pages, posts, and configure site options programmatically",
+    "Manage database exports, imports, and search-replace operations",
+    "Configure PHP upload limits and memory settings"
+  ],
+  "author": "CrazySwami",
+  "icon": "🐳",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This skill provides Docker Compose templates and a bash setup script for WordPress local development. All static findings are false positives triggered by documentation patterns, standard Docker variable syntax, and legitimate devops tooling. No actual malicious behavior or intent found. The skill only generates configuration files and runs pre-defined docker-compose commands within controlled containers.",
+  "valueStatement": "Setting up WordPress locally requires configuring Docker containers, databases, and WP-CLI commands. This skill provides ready-to-use Docker Compose templates and automation scripts so you can start developing WordPress sites in minutes instead of hours.",
+  "userTitle": "Set up WordPress Docker environments",
+  "limitations": [
+    "Requires Docker and Docker Compose to be installed on the host system",
+    "Cannot manage remote WordPress installations without Docker access",
+    "Setup script is designed for initial installation only, not ongoing management",
+    "Does not provide monitoring, backups, or security scanning features"
+  ],
+  "useCases": [
+    {
+      "targetUser": "WordPress developers",
+      "title": "Local development environment",
+      "description": "Spin up isolated WordPress environments for testing themes, plugins, and custom code without affecting production sites."
+    },
+    {
+      "targetUser": "Plugin developers",
+      "title": "Plugin testing workflow",
+      "description": "Quickly test plugins across fresh WordPress installations using WP-CLI to automate installation and configuration."
+    },
+    {
+      "targetUser": "Site builders",
+      "title": "Site migration testing",
+      "description": "Export databases and content from existing sites, then import to local environments for safe testing before deployment."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Start new WordPress site",
+      "scenario": "Create fresh development environment",
+      "prompt": "Use wp-docker skill to set up a new WordPress Docker environment at /path/to/your/project. Start containers, run the setup script with site URL http://localhost:8080, title 'My Site', admin user 'admin', password 'secure-password-here', and email 'admin@example.com'."
+    },
+    {
+      "title": "Install specific plugins",
+      "scenario": "Add plugins to existing installation",
+      "prompt": "Use wp-docker skill to install these WordPress plugins using WP-CLI: yoast-seo, woocommerce, elementor. Activate them after installation."
+    },
+    {
+      "title": "Export database",
+      "scenario": "Backup WordPress database",
+      "prompt": "Use wp-docker skill to export the WordPress database to a file named backup.sql in the project directory."
+    },
+    {
+      "title": "Migrate site URLs",
+      "scenario": "Replace URLs after domain change",
+      "prompt": "Use wp-docker skill to search and replace all occurrences of 'old-domain.com' with 'new-domain.com' in the database."
+    }
+  ],
+  "bestPractices": [
+    "Always change default admin passwords from password123 to strong unique passwords before deployment",
+    "Keep Docker and WordPress versions updated to patch security vulnerabilities",
+    "Use separate docker-compose files for development and production environments"
+  ],
+  "antiPatterns": [
+    "Using default passwords or weak credentials in any environment beyond initial testing",
+    "Leaving debug mode enabled (WP_DEBUG=true) on production or publicly accessible sites",
+    "Skipping database backups before making major changes to themes or plugins"
+  ],
+  "faq": [
+    {
+      "question": "What Docker version is required?",
+      "answer": "Docker Engine 20.x or newer and Docker Compose V2 are required. Most modern Docker installations include both."
+    },
+    {
+      "question": "Can I use this for production deployments?",
+      "answer": "The templates are designed for local development. Production deployments require additional security hardening, HTTPS, and backup configuration."
+    },
+    {
+      "question": "How do I connect to the database from my host?",
+      "answer": "The database port 3306 is internal to Docker by default. Use docker-compose exec db mysql to access the database from the command line."
+    },
+    {
+      "question": "Is my data safe when containers are stopped?",
+      "answer": "Database data persists in Docker volumes (db_data). Use docker-compose down -v to remove volumes and destroy all data."
+    },
+    {
+      "question": "Why is the setup script not running?",
+      "answer": "Ensure Docker containers are running first with docker-compose up -d. Wait for database health check to pass before running setup."
+    },
+    {
+      "question": "How does this compare to Local by Flywheel or XAMPP?",
+      "answer": "This approach uses standard Docker containers for maximum flexibility and portability. It requires more command-line familiarity but offers greater control and matches production deployment patterns."
+    }
+  ],
+  "seoKeywords": [
+    "WordPress Docker",
+    "WordPress local development",
+    "WP-CLI",
+    "Docker Compose WordPress",
+    "Claude WordPress",
+    "Codex WordPress",
+    "Claude Code WordPress",
+    "WordPress development environment",
+    "WordPress containers",
+    "local WordPress setup"
+  ],
+  "sourceUrl": "https://github.com/CrazySwami/wordpress-dev-skills/tree/main/skills/wp-docker",
+  "sourceType": "community",
+  "dependencies": []
+}

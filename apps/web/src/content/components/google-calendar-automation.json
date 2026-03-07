@@ -1,0 +1,144 @@
+{
+  "name": "google-calendar-automation",
+  "type": "skill",
+  "description": "Automate Google Calendar events, scheduling, availability checks, and attendee management via Rube MCP (Composio). Create events, find free slots, manage attendees, and list calendars programmatically.",
+  "domain": "productivity",
+  "subdomain": "automation",
+  "specialty": "event scheduling",
+  "quality": 5,
+  "qualityReason": "Actionable automation workflow",
+  "bundleHints": [
+    "productivity-automation",
+    "calendar-tools"
+  ],
+  "tags": [
+    "automation",
+    "availability",
+    "composio",
+    "events",
+    "google-calendar",
+    "mcp",
+    "productivity",
+    "rube-mcp",
+    "scheduling"
+  ],
+  "capabilities": [
+    "Create and update Google Calendar events with ISO 8601 timestamps",
+    "Find available time slots using free/busy queries",
+    "Search and list events by date range or keywords",
+    "Add and remove attendees from existing events",
+    "List and manage multiple Google Calendars",
+    "Handle timezone-aware datetime conversions"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 125 potential issues, all of which are false positives from markdown code formatting. The skill is documentation-only (SKILL.md) with no executable code. The 'external_commands' detections are backticks used for markdown code spans like `GOOGLECALENDAR_CREATE_EVENT`. The single network reference is a legitimate MCP endpoint configuration URL. No security risks identified.",
+  "valueStatement": "Manage your Google Calendar programmatically through Claude Code. Create events, check availability, manage attendees, and sync calendars without leaving your development workflow.",
+  "userTitle": "Automate Google Calendar with Claude Code",
+  "limitations": [
+    "Requires active Google Calendar connection via Rube MCP",
+    "Does not support natural language dates (requires ISO 8601 format)",
+    "Cannot resolve attendee names to emails (requires email addresses)",
+    "Google Meet link creation may fail on personal Gmail accounts"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Engineering managers",
+      "title": "Schedule Development Sprints",
+      "description": "Create recurring sprint planning events, automatically add team members, and find time slots that work for everyone."
+    },
+    {
+      "targetUser": "Productivity-focused developers",
+      "title": "Calendar-Driven Task Automation",
+      "description": "Check availability before scheduling meetings, avoid conflicts, and maintain a clean calendar workflow."
+    },
+    {
+      "targetUser": "Project coordinators",
+      "title": "Team Meeting Coordination",
+      "description": "Find common free slots across multiple calendars, add attendees, and send meeting invitations."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a Simple Event",
+      "prompt": "Create a Google Calendar event tomorrow at 2pm PST called 'Team Standup' that lasts 30 minutes.",
+      "scenario": "Basic event creation with natural language description"
+    },
+    {
+      "title": "Find Available Time Slots",
+      "prompt": "Find all available time slots between 9am and 5pm tomorrow that are at least 1 hour long.",
+      "scenario": "Availability checking for scheduling meetings"
+    },
+    {
+      "title": "Search and Update Events",
+      "prompt": "Search for events titled 'Sprint Review' and add john@example.com as an attendee.",
+      "scenario": "Finding events by keyword and modifying attendees"
+    },
+    {
+      "title": "Multi-Calendar Availability",
+      "prompt": "Check availability for next week across my primary calendar and work calendar, then find a 2-hour free slot.",
+      "scenario": "Advanced scheduling across multiple calendars"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to verify MCP connection and get current tool schemas",
+    "Use IANA timezone identifiers like 'America/New_York' instead of abbreviations like 'EST'",
+    "Specify dates in ISO 8601 format (YYYY-MM-DDTHH:MM:SS) rather than natural language",
+    "Search for events by title first to get the event_id before updating or deleting"
+  ],
+  "antiPatterns": [
+    "Do not use natural language dates like 'tomorrow' or 'next week' in API calls",
+    "Do not set event_duration_minutes to 60 or higher; use event_duration_hour instead",
+    "Do not assume event titles can be used as identifiers; always search to get event_id",
+    "Do not use UTC timestamps (ending in 'Z') for local date queries without timezone offset"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work without the Rube MCP server?",
+      "answer": "No, this skill requires the Rube MCP server to be connected. Add https://rube.app/mcp as an MCP server in your configuration."
+    },
+    {
+      "question": "Can I use natural language dates like 'tomorrow at 3pm'?",
+      "answer": "No, the Google Calendar API requires ISO 8601 format dates. You must convert 'tomorrow at 3pm' to '2026-02-26T15:00:00' with the appropriate timezone."
+    },
+    {
+      "question": "How do I add attendees by name instead of email?",
+      "answer": "The Google Calendar API only accepts email addresses. Use a contact lookup tool like GMAIL_SEARCH_PEOPLE to resolve names to emails first."
+    },
+    {
+      "question": "Why does my event show at the wrong time?",
+      "answer": "You may be using UTC timestamps (ending in 'Z') instead of local timezone offsets. Use RFC3339 format with offsets like '2026-02-26T15:00:00-08:00' for PST."
+    },
+    {
+      "question": "What is the difference between PATCH_EVENT and UPDATE_EVENT?",
+      "answer": "PATCH_EVENT updates only specific fields while keeping existing values. UPDATE_EVENT replaces the entire event. Use PATCH for partial updates to avoid losing data."
+    },
+    {
+      "question": "Can this skill create Google Meet links automatically?",
+      "answer": "Yes, Google Meet link creation is enabled by default. However, it may fail on personal Gmail accounts and will gracefully fall back to creating the event without a meet link."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Google Calendar automation",
+    "calendar integration",
+    "scheduling automation",
+    "MCP server",
+    "Composio",
+    "event management"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/google-calendar-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "error-resolver",
+  "type": "skill",
+  "description": "Systematic error diagnosis and resolution using first-principle analysis. Use when encountering any error message, stack trace, or unexpected behavior. Supports replay functionality to record and reuse solutions.",
+  "domain": "tools",
+  "subdomain": "cli",
+  "specialty": "diagnosis",
+  "quality": 5,
+  "qualityReason": "Actionable debugging workflow",
+  "bundleHints": [
+    "dev-toolkit",
+    "troubleshooting-suite"
+  ],
+  "tags": [
+    "debugging",
+    "development",
+    "diagnostics",
+    "error-resolution",
+    "replay",
+    "troubleshooting"
+  ],
+  "capabilities": [
+    "Classify errors into categories like syntax, type, network, permission, and dependency issues",
+    "Parse stack traces and error messages to extract file paths, line numbers, and root causes",
+    "Match errors against known patterns across Node.js, Python, React, Docker, Git, databases, and more",
+    "Apply root cause analysis using the 5 Whys technique to identify underlying problems",
+    "Generate immediate fixes, proper solutions, and prevention strategies for each error",
+    "Record and replay successful solutions for future reference using YAML templates"
+  ],
+  "author": "davila7",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains only documentation and reference materials for error resolution patterns. All 1284 static findings are false positives - they are code examples in markdown files showing common errors and debugging commands, not executable code. The skill provides educational content about error diagnosis across multiple programming languages and does not execute any commands or access system resources.",
+  "valueStatement": "Encountering cryptic error messages wastes valuable development time. This skill provides a structured 5-step methodology and comprehensive pattern library to quickly diagnose and resolve errors across all major programming languages and frameworks.",
+  "userTitle": "Diagnose and Resolve Errors Systematically",
+  "limitations": [
+    "Requires manual application of suggested debugging commands and solutions",
+    "Pattern library is not exhaustive and may not cover all edge cases or newer frameworks",
+    "Root cause analysis depends on quality of context provided by the user",
+    "Cannot automatically execute fixes or verify solutions without user intervention"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineer",
+      "title": "Debug Production Incidents",
+      "description": "When a production error occurs, use the skill to quickly classify the error type, parse the stack trace, and match against known patterns to find solutions that have worked for similar issues."
+    },
+    {
+      "targetUser": "Junior Developer",
+      "title": "Resolve Development Blockers",
+      "description": "Junior developers can use the comprehensive pattern library to understand common errors in Node.js, Python, React, and other frameworks, learning not just fixes but also prevention strategies."
+    },
+    {
+      "targetUser": "Engineering Team Lead",
+      "title": "Build Team Knowledge Base",
+      "description": "Record successful error resolutions using the replay system to create a team-specific knowledge base of solutions, reducing time spent on recurring issues."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Error Diagnosis",
+      "prompt": "I encountered this error: [paste full error message]. I was trying to [describe what you were doing]. Can you help me diagnose and resolve it?",
+      "scenario": "Use when you have a clear error message but are unsure how to proceed"
+    },
+    {
+      "title": "Stack Trace Analysis",
+      "prompt": "Analyze this stack trace: [paste stack trace]. The error occurs in [file/function name]. What is the root cause and how do I fix it?",
+      "scenario": "Use when you have a complete stack trace and need detailed analysis"
+    },
+    {
+      "title": "Recurring Issue Pattern Match",
+      "prompt": "I keep getting [error type] in my [language/framework] project. Check if there is a known pattern for this and suggest a permanent fix with prevention strategies.",
+      "scenario": "Use for errors that happen repeatedly or across multiple projects"
+    },
+    {
+      "title": "Record Solution for Replay",
+      "prompt": "I resolved an error: [describe error and solution]. Create a replay YAML file following the solution template format so I can reference this in the future.",
+      "scenario": "Use after successfully resolving an error to build your knowledge base"
+    }
+  ],
+  "bestPractices": [
+    "Provide complete error messages including stack traces when asking for help, as missing context can lead to incorrect diagnoses",
+    "Record successful solutions using the replay YAML template to build a searchable knowledge base for your team",
+    "Apply the 5 Whys technique to find root causes rather than just patching symptoms, which leads to more robust solutions"
+  ],
+  "antiPatterns": [
+    "Do not skip the classification step and jump directly to searching for solutions, as misdiagnosing the error type wastes time",
+    "Avoid applying fixes without understanding the root cause, which often leads to recurring issues or new problems",
+    "Do not ignore prevention strategies after fixing errors, as this results in repeatedly solving the same problems"
+  ],
+  "faq": [
+    {
+      "question": "What programming languages does this skill support?",
+      "answer": "The skill includes error patterns for Node.js, Python, React, Go, Rust, Docker, Git, databases (SQL, MongoDB, Redis), and network/API errors. The methodology works for any language."
+    },
+    {
+      "question": "How does the replay system work?",
+      "answer": "After resolving an error, you create a YAML file using the solution template. This records the error signature, diagnosis, solution, and prevention strategies. Future similar errors can be matched against this library for faster resolution."
+    },
+    {
+      "question": "Can this skill automatically fix errors in my code?",
+      "answer": "No, this skill provides diagnosis methodology and solution guidance. You must manually apply the suggested fixes and run the verification steps. It is a reference and decision support tool, not an automated repair system."
+    },
+    {
+      "question": "What is the 5 Whys technique mentioned in the skill?",
+      "answer": "The 5 Whys is a root cause analysis method where you ask why five times to drill down from symptoms to underlying causes. This helps identify the real problem rather than just treating surface-level issues."
+    },
+    {
+      "question": "How do I use this skill for production incidents?",
+      "answer": "Copy the error message and stack trace, classify the error type, match it against the pattern library for your technology stack, and apply the immediate fix to restore service. Then implement the proper fix and prevention strategies."
+    },
+    {
+      "question": "Do I need to install any tools to use this skill?",
+      "answer": "No installation required. This skill is a documentation and methodology resource. However, the debugging commands shown (like npm, git, docker commands) require those tools to be installed on your system."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "error resolution",
+    "debugging",
+    "troubleshooting",
+    "stack trace analysis",
+    "error diagnosis",
+    "bug fixing",
+    "development workflow"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/error-resolver",
+  "sourceType": "community",
+  "dependencies": []
+}

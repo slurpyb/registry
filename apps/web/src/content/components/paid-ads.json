@@ -1,0 +1,146 @@
+{
+  "name": "paid-ads",
+  "type": "skill",
+  "description": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ad copy,' 'ad creative,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, ad creation, audience targeting, and optimization.",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "PPC campaigns",
+  "quality": 5,
+  "qualityReason": "Specific marketing execution",
+  "bundleHints": [
+    "digital-marketing",
+    "ad-campaigns"
+  ],
+  "tags": [
+    "ad-platforms",
+    "digital marketing",
+    "google ads",
+    "google-ads",
+    "linkedin",
+    "meta ads",
+    "meta-ads",
+    "paid advertising",
+    "paid-media",
+    "ppc"
+  ],
+  "capabilities": [
+    "Guide campaign strategy and platform selection based on business goals",
+    "Provide ad copy frameworks (PAS, BAB, Social Proof) for high-converting ads",
+    "Recommend audience targeting strategies for each platform",
+    "Explain campaign structure best practices and naming conventions",
+    "Detail creative best practices for images and video ads",
+    "Outline optimization strategies and key metrics by campaign objective"
+  ],
+  "author": "sickn33",
+  "icon": "📢",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a comprehensive paid advertising guide. All 23 static findings are FALSE POSITIVES. The scanner misidentified markdown code blocks as shell commands, marketing terminology ('targeting', 'bidding') as system reconnaissance, and YAML frontmatter as cryptographic algorithms. This is a pure documentation/marketing guide with no executable code, network requests, or security risks.",
+  "valueStatement": "This skill provides expert guidance for creating, managing, and scaling paid advertising campaigns across major platforms including Google Ads, Meta, LinkedIn, Twitter/X, and TikTok.",
+  "userTitle": "Create and Optimize Paid Ad Campaigns",
+  "limitations": [
+    "Does not provide access to ad platform accounts or APIs",
+    "Cannot create actual ad campaigns or make direct platform changes",
+    "Does not include real-time bidding or automated optimization",
+    "Does not provide specific financial projections or budget recommendations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Marketing managers and small business owners new to paid advertising",
+      "title": "New Campaign Planning",
+      "description": "A marketing manager launching their first paid advertising campaign can use this skill to select the right platform, structure their campaigns correctly, and follow best practices from the start."
+    },
+    {
+      "targetUser": "Digital marketers handling multi-platform ad campaigns",
+      "title": "Multi-Platform Strategy",
+      "description": "A digital marketer managing campaigns across Google, Meta, and LinkedIn can use this skill to understand platform-specific nuances and optimize each channel effectively."
+    },
+    {
+      "targetUser": "Advertising specialists seeking to improve campaign performance",
+      "title": "Campaign Optimization",
+      "description": "An advertising specialist looking to improve underperforming campaigns can use this skill to diagnose issues and apply proven optimization techniques."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New Campaign Setup",
+      "prompt": "Help me set up a paid advertising campaign for [product/service]. I want to [goal: drive sales/leads/traffic]. My monthly budget is [amount]. Which platform should I use and how should I structure my campaign?",
+      "scenario": "When starting a new paid advertising initiative and needing platform selection and structure guidance"
+    },
+    {
+      "title": "Ad Copy Creation",
+      "prompt": "Write ad copy for a [platform] campaign promoting [product]. The target audience is [description]. Use a Problem-Agitate-Solution framework and include a strong call to action.",
+      "scenario": "When needing to create compelling ad copy for a specific platform and audience"
+    },
+    {
+      "title": "Audience Targeting",
+      "prompt": "What audience targeting strategies should I use for [platform] when advertising [product] to [target audience description]? Include both core audience and custom audience options.",
+      "scenario": "When developing audience targeting strategy for a specific platform"
+    },
+    {
+      "title": "Campaign Optimization",
+      "prompt": "My [platform] campaign has [issue: high CPA/low CTR/high CPM]. The current metrics are [data]. What optimization steps should I take to improve performance?",
+      "scenario": "When diagnosing and fixing underperforming campaign metrics"
+    }
+  ],
+  "bestPractices": [
+    "Start with clear campaign objectives and measurable KPIs before launching",
+    "Implement conversion tracking before spending any budget",
+    "Test one variable at a time to isolate what improves performance",
+    "Allow campaigns 2-4 weeks in learning phase before major optimizations"
+  ],
+  "antiPatterns": [
+    "Launching campaigns without proper conversion tracking in place",
+    "Trying to optimize for multiple metrics simultaneously",
+    "Making large budget changes that disrupt algorithmic learning",
+    "Neglecting mobile experience in creative and landing page design"
+  ],
+  "faq": [
+    {
+      "question": "Which platform should I start with for paid advertising?",
+      "answer": "Start with the platform where your audience spends time and where you have existing data. Google Ads is best for high-intent search traffic. Meta is best for visual products and demand generation. LinkedIn is best for B2B targeting."
+    },
+    {
+      "question": "How much budget do I need to run effective campaigns?",
+      "answer": "Minimum budgets vary by platform. Google Ads typically needs $1,000+/month minimum for meaningful data. Meta can work with $500+/month. LinkedIn requires higher budgets due to higher CPCs, typically $2,000+/month."
+    },
+    {
+      "question": "How long does it take to see results from paid ads?",
+      "answer": "Plan for 2-4 weeks of learning phase before algorithms optimize. Significant results typically appear after 4-8 weeks. For conversion campaigns, you need 50+ conversions per variation for statistical significance."
+    },
+    {
+      "question": "What metrics should I track for conversion campaigns?",
+      "answer": "Track CPA (cost per acquisition), ROAS (return on ad spend), conversion rate, and cost per click. Compare these against your target CPA/ROAS to determine campaign health."
+    },
+    {
+      "question": "How often should I refresh my ad creative?",
+      "answer": "Monitor frequency metrics. Refresh creative when frequency exceeds 3-4x per week for the same audience, or when CTR drops below 1% on Google or 0.5% on Meta."
+    },
+    {
+      "question": "Can I manage multiple platforms at once?",
+      "answer": "Yes, but start with one platform until you have stable performance data. Managing multiple platforms requires more budget to gather enough data for optimization. Focus on dominating one platform before expanding."
+    }
+  ],
+  "seoKeywords": [
+    "paid ads",
+    "google ads",
+    "meta advertising",
+    "facebook ads",
+    "linkedin ads",
+    "ppc",
+    "paid media",
+    "claude",
+    "codex",
+    "claude code"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/paid-ads",
+  "sourceType": "community",
+  "dependencies": []
+}

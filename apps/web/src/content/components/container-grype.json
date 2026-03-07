@@ -1,0 +1,146 @@
+{
+  "name": "container-grype",
+  "type": "skill",
+  "description": "Container vulnerability scanning and dependency risk assessment using Grype with CVSS severity ratings, EPSS exploit probability, and CISA KEV indicators. Use when: (1) Scanning container images and filesystems for known vulnerabilities, (2) Integrating vulnerability scanning into CI/CD pipelines with severity thresholds, (3) Analyzing SBOMs (Syft, SPDX, CycloneDX) for security risks, (4) Prioritizing remediation based on threat metrics (CVSS, EPSS, KEV), (5) Generating vulnerability reports in multiple formats (JSON, SARIF, CycloneDX) for security toolchain integration.\n",
+  "domain": "security",
+  "subdomain": "devsecops",
+  "specialty": "vulnerability scanning",
+  "quality": 5,
+  "qualityReason": "Critical security scanning tool",
+  "bundleHints": [
+    "security-toolkit",
+    "devsecops-suite",
+    "container-security"
+  ],
+  "tags": [
+    "container-security",
+    "cve",
+    "cvss",
+    "docker",
+    "epss",
+    "grype",
+    "sbom",
+    "sca",
+    "vulnerability-scanning"
+  ],
+  "capabilities": [
+    "Scan container images for CVEs using the Grype vulnerability scanner",
+    "Interpret CVSS severity scores and EPSS exploit probability ratings",
+    "Identify CISA Known Exploited Vulnerabilities (KEV) in scan results",
+    "Configure CI/CD pipeline security gates with severity-based fail thresholds",
+    "Prioritize vulnerability remediation using threat intelligence indicators",
+    "Generate vulnerability reports in JSON, SARIF, and CycloneDX formats"
+  ],
+  "author": "AgentSecOps",
+  "icon": "🛡️",
+  "version": "0.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing markdown files and YAML configuration templates for the open-source Grype vulnerability scanner. All 332 static findings are false positives - the scanner flagged shell command examples (177), URL references (45), and environment variable patterns (27) in documentation as security issues. No executable code exists. This skill provides documentation and workflows for container vulnerability scanning but performs no actual scanning, network access, or file system operations beyond reading its own documentation files.",
+  "valueStatement": "Container images often contain known security vulnerabilities in operating system packages and application dependencies. This skill provides guided workflows for scanning images with Grype, interpreting CVSS scores, prioritizing based on CISA KEV indicators, and integrating security gates into CI/CD pipelines.",
+  "userTitle": "Scan container images for vulnerabilities with Grype",
+  "limitations": [
+    "Requires external installation of Grype and Docker tools",
+    "Does not perform actual scanning itself - provides documentation and workflows",
+    "No automatic remediation - only guidance on fixing identified vulnerabilities",
+    "Relies on external vulnerability databases (NVD, CISA) for CVE data"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevSecOps Engineers",
+      "title": "CI/CD Security Gates",
+      "description": "Integrate container scanning into build pipelines with severity-based fail thresholds to block vulnerable images from reaching production."
+    },
+    {
+      "targetUser": "Security Teams",
+      "title": "Vulnerability Triage",
+      "description": "Prioritize remediation efforts using CVSS scores, EPSS probabilities, and CISA KEV indicators to focus on actively exploited vulnerabilities."
+    },
+    {
+      "targetUser": "Developers",
+      "title": "Pre-Deployment Scans",
+      "description": "Scan local container images before pushing to registries to catch and fix vulnerabilities early in the development cycle."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Scan",
+      "scenario": "Scan a container image",
+      "prompt": "How do I scan a Docker image with Grype to find vulnerabilities? Show me the basic command and explain how to interpret the output severity ratings."
+    },
+    {
+      "title": "CI/CD Integration",
+      "scenario": "Set up pipeline security",
+      "prompt": "Help me configure a GitHub Actions workflow that runs Grype vulnerability scans and fails the build if critical or high severity vulnerabilities are found."
+    },
+    {
+      "title": "Risk Prioritization",
+      "scenario": "Sort vulnerabilities by threat",
+      "prompt": "Explain how to prioritize container vulnerabilities using CVSS scores, EPSS exploit probability, and CISA KEV indicators. Show me the recommended remediation hierarchy."
+    },
+    {
+      "title": "Report Generation",
+      "scenario": "Export scan results",
+      "prompt": "Generate a SARIF report from Grype scan results that integrates with GitHub Security tab. Also show JSON output options for SIEM ingestion."
+    }
+  ],
+  "bestPractices": [
+    "Set fail-on thresholds appropriate for each environment - critical for production, high for staging, medium for development pipelines.",
+    "Use SBOM-based scanning with Syft for faster re-scans during development without re-analyzing full container image layers each time.",
+    "Document all suppressed vulnerabilities with justification and review expiration dates to maintain audit trail and prevent forgotten exceptions.",
+    "Integrate SARIF output with GitHub Security or security dashboards for centralized vulnerability tracking across all projects."
+  ],
+  "antiPatterns": [
+    "Ignoring low-severity vulnerabilities without assessment - some may indicate deeper security misconfigurations or deprecated packages.",
+    "Using overly broad ignore rules that suppress legitimate vulnerabilities across all packages instead of targeting specific false positives.",
+    "Scanning only new images during deployment - re-scan production images weekly to catch newly disclosed CVEs affecting existing deployments.",
+    "Setting fail-on thresholds too high (critical only) in CI/CD, allowing high-severity vulnerabilities to reach production environments."
+  ],
+  "faq": [
+    {
+      "question": "What container platforms does Grype support for scanning?",
+      "answer": "Grype scans images from Docker, podman, OCI registries including ECR, GCR, and Docker Hub. It analyzes Alpine, Ubuntu, Red Hat, Debian, and other Linux distributions."
+    },
+    {
+      "question": "How often should I update the vulnerability database?",
+      "answer": "Run grype db update before each scan or at minimum once daily. New CVEs are published continuously, so daily updates ensure you catch recent disclosures."
+    },
+    {
+      "question": "Can I use Grype without Docker installed?",
+      "answer": "Yes, Grype can scan directories, SBOM files in Syft, SPDX, or CycloneDX formats, and local tar archives. Docker is only required for live container image scanning."
+    },
+    {
+      "question": "How is my scan data handled and transmitted?",
+      "answer": "Grype downloads vulnerability metadata from public databases like NVD and GitHub Advisory Database. No scan results are transmitted anywhere unless you explicitly configure output to external systems."
+    },
+    {
+      "question": "Why does Grype report vulnerabilities in packages I do not use?",
+      "answer": "Grype scans all packages present in the image including transitive dependencies. Use the --only-fixed flag to show only vulnerabilities with available patches or create .grype.yaml ignore rules for confirmed false positives."
+    },
+    {
+      "question": "How does Grype compare to other container scanners like Trivy or Snyk?",
+      "answer": "Grype is open-source, lightweight, and integrates well with CI/CD systems. Trivy offers more integrated registry scanning features and commercial options. All three scanners use similar vulnerability database sources."
+    }
+  ],
+  "seoKeywords": [
+    "container vulnerability scanning",
+    "Grype vulnerability scanner",
+    "CVE scanner for containers",
+    "Docker security scanning",
+    "CI/CD security gates",
+    "container security",
+    "claude code",
+    "claude",
+    "codex",
+    "SBOM vulnerability scanning"
+  ],
+  "sourceUrl": "https://github.com/AgentSecOps/SecOpsAgentKit/tree/main/skills/devsecops/container-grype",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,140 @@
+{
+  "name": "sop-api-development",
+  "type": "skill",
+  "description": "Complete REST API development workflow coordinating backend, database, testing, documentation, and DevOps agents. 2-week timeline with TDD approach.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "REST API workflow",
+  "quality": 5,
+  "qualityReason": "Comprehensive API development SOP",
+  "bundleHints": [
+    "backend-workflow",
+    "api-stack",
+    "tdd-process"
+  ],
+  "tags": [
+    "api",
+    "backend",
+    "devops",
+    "documentation",
+    "multi-agent",
+    "rest",
+    "tdd"
+  ],
+  "capabilities": [
+    "Coordinates 8-12 AI agents across planning, design, implementation, testing, and deployment phases",
+    "Creates OpenAPI 3.0 specifications and database schemas with proper relationships and indexes",
+    "Implements TDD cycles with unit, integration, E2E, performance, and security tests",
+    "Sets up CI/CD pipelines with GitHub Actions, Docker containers, and blue-green deployment",
+    "Generates complete API documentation including Swagger UI, developer guides, and operations runbooks"
+  ],
+  "author": "DNYoussef",
+  "icon": "🔌",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation file containing workflow instructions for AI agents. Contains no executable code, network operations, filesystem access, or environment variable reading. All 84 static findings are false positives from documentation pattern matching. References to bcrypt, JWT, and RBAC are standard security practices, not weak algorithms. Backticks are JavaScript template syntax, not shell execution.",
+  "valueStatement": "Building REST APIs from scratch requires coordinating multiple specialists across backend, database, testing, and DevOps. This skill provides a complete 2-week workflow that coordinates AI agents to design, implement, test, document, and deploy production-ready APIs using test-driven development.",
+  "userTitle": "Build production REST APIs with AI agents",
+  "limitations": [
+    "Requires Claude Code subscription and appropriate agent access",
+    "Execution depends on available agent types in your Claude setup",
+    "Provides workflow guidance only; actual code generation depends on agent capabilities"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Engineering managers",
+      "title": "Ship APIs on schedule",
+      "description": "Coordinate team of AI agents to build production REST APIs within 2-week sprints using proven TDD workflow"
+    },
+    {
+      "targetUser": "Backend developers",
+      "title": "Accelerate API delivery",
+      "description": "Automate API development lifecycle from requirements to deployment with integrated testing and documentation"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Automate deployment",
+      "description": "Set up CI/CD pipelines, monitoring, and blue-green deployment with pre-configured validation checks"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "New API project",
+      "scenario": "Start new REST API project",
+      "prompt": "Use sop-api-development skill to build a new REST API for [PROJECT_NAME]. Requirements: [LIST REQUIREMENTS]"
+    },
+    {
+      "title": "Add endpoints",
+      "scenario": "Extend existing API",
+      "prompt": "Add new endpoints to existing REST API. Follow TDD cycle: create tests first at [TEST_PATH], then implement at [IMPL_PATH]"
+    },
+    {
+      "title": "Setup CI/CD",
+      "scenario": "Configure deployment pipeline",
+      "prompt": "Set up CI/CD pipeline for REST API project using GitHub Actions, Docker, and blue-green deployment strategy"
+    },
+    {
+      "title": "Security audit",
+      "scenario": "Validate API security",
+      "prompt": "Run security testing on existing REST API following OWASP API Security Top 10. Include SQL injection, XSS, and RBAC validation"
+    }
+  ],
+  "bestPractices": [
+    "Follow TDD cycle: write tests first, implement to pass tests, then refactor",
+    "Store all artifacts in memory namespaces for agent coordination",
+    "Run security scans and performance benchmarks before deployment"
+  ],
+  "antiPatterns": [
+    "Skipping documentation or test writing for speed",
+    "Deploying without security audit or code review",
+    "Implementing endpoints without following the TDD cycle"
+  ],
+  "faq": [
+    {
+      "question": "What does this skill do?",
+      "answer": "Provides a complete workflow for building REST APIs with AI agents using test-driven development over 2 weeks."
+    },
+    {
+      "question": "Which AI tools are supported?",
+      "answer": "Fully compatible with Claude, Codex, and Claude Code. Requires Claude Code subscription for full agent coordination."
+    },
+    {
+      "question": "How long does API development take?",
+      "answer": "The skill outlines a 2-week timeline. Actual duration depends on API complexity and available agent resources."
+    },
+    {
+      "question": "What security measures are included?",
+      "answer": "Security testing includes OWASP checks, SQL injection tests, XSS vulnerability scans, and RBAC validation."
+    },
+    {
+      "question": "Can I customize the workflow?",
+      "answer": "Yes. Modify phases, agent types, test requirements, and deployment strategy to match your project needs."
+    },
+    {
+      "question": "What prerequisites are needed?",
+      "answer": "Claude Code subscription, access to appropriate agent types, and environment for running tests and deployments."
+    }
+  ],
+  "seoKeywords": [
+    "REST API development",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "test-driven development",
+    "multi-agent",
+    "API design",
+    "backend development",
+    "CI/CD pipeline",
+    "OpenAPI"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/sop-api-development",
+  "sourceType": "community",
+  "dependencies": []
+}

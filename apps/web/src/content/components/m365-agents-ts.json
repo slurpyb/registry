@@ -1,0 +1,141 @@
+{
+  "name": "m365-agents-ts",
+  "type": "skill",
+  "description": "Build multichannel agents for Microsoft 365, Teams, and Copilot Studio using the Microsoft 365 Agents SDK for TypeScript with Express hosting and streaming capabilities.",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "TypeScript agents",
+  "quality": 5,
+  "qualityReason": "Highly specific and actionable",
+  "bundleHints": [
+    "m365-agent-stack",
+    "ts-ai"
+  ],
+  "tags": [
+    "agents",
+    "copilot-studio",
+    "express",
+    "microsoft-365",
+    "streaming",
+    "teams",
+    "typescript"
+  ],
+  "capabilities": [
+    "Generate AgentApplication code with conversation update and message handlers",
+    "Create streaming response implementations with Azure OpenAI integration",
+    "Build Copilot Studio client connections for Direct to Engine scenarios",
+    "Produce Express server configurations for hosting Microsoft 365 agents",
+    "Generate invoke activity handlers for feedback and custom actions",
+    "Create WebChat integration code for Copilot Studio deployments"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill with no executable code. Static analysis found zero patterns. The skill provides guidance for Microsoft 365 Agents SDK development. Environment variable usage and npm commands are expected for this development workflow skill.",
+  "valueStatement": "Develop enterprise-grade agents for Microsoft 365, Teams, and Copilot Studio. Streamline agent creation with Express hosting, routing, and streaming response capabilities.",
+  "userTitle": "Build Microsoft 365 Agents with TypeScript",
+  "limitations": [
+    "Requires valid Microsoft 365 tenant and Azure OpenAI resource for deployment",
+    "Does not handle authentication setup - users must configure Azure AD app registrations separately",
+    "Code samples target Node.js runtime and require TypeScript compilation",
+    "Does not provide debugging support for Microsoft 365 service-side issues"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Enterprise developers building internal Teams applications",
+      "title": "Enterprise Teams Bot Development",
+      "description": "Build custom bots for Microsoft Teams that handle employee requests, automate workflows, and integrate with internal systems using AgentApplication routing."
+    },
+    {
+      "targetUser": "Solutions architects extending Copilot capabilities",
+      "title": "Copilot Studio Extension",
+      "description": "Create custom actions and plugins for Microsoft Copilot Studio using Direct to Engine integration with proper token handling and streaming responses."
+    },
+    {
+      "targetUser": "Full-stack developers building customer-facing agents",
+      "title": "Multichannel Agent Deployment",
+      "description": "Deploy agents across multiple Microsoft 365 channels including Teams, Outlook, and web with consistent routing logic and streaming support."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Agent Setup",
+      "prompt": "Create a Microsoft 365 agent using AgentApplication that welcomes new members and responds to 'hello' messages. Include Express server setup with startServer.",
+      "scenario": "Starting a new Teams bot project with minimal configuration"
+    },
+    {
+      "title": "Streaming Response with Azure OpenAI",
+      "prompt": "Build an agent handler that streams responses from Azure OpenAI using the AI SDK. Include proper error handling, feedback loop enablement, and sensitivity labels.",
+      "scenario": "Implementing a creative assistant that generates content with real-time streaming"
+    },
+    {
+      "title": "Copilot Studio Client Integration",
+      "prompt": "Generate code to connect to Copilot Studio using CopilotStudioClient with environment-based configuration and token provider function. Include conversation start and question flow.",
+      "scenario": "Building a Direct to Engine integration for custom Copilot extensions"
+    },
+    {
+      "title": "Invoke Activity Handler with Validation",
+      "prompt": "Create an onActivity handler for 'invoke' type activities that validates the payload, returns an InvokeResponse with status 200, and sends a confirmation message.",
+      "scenario": "Handling feedback submissions or custom invoke actions from Teams clients"
+    }
+  ],
+  "bestPractices": [
+    "Use AgentApplication for routing and keep handlers focused on single responsibilities",
+    "Prefer streamingResponse for long-running completions and call endStream in finally blocks",
+    "Keep secrets out of source code and load tokens from environment variables or secure stores"
+  ],
+  "antiPatterns": [
+    "Hardcoding credentials or tokens directly in source files instead of using environment variables",
+    "Blocking the event loop with synchronous operations in message handlers",
+    "Skipping error handling in stream iteration which can leave connections hanging"
+  ],
+  "faq": [
+    {
+      "question": "What packages do I need to install for Microsoft 365 agent development?",
+      "answer": "Install @microsoft/agents-hosting, @microsoft/agents-hosting-express, and @microsoft/agents-activity for core functionality. Add @microsoft/agents-copilotstudio-client for Copilot Studio integrations."
+    },
+    {
+      "question": "How do I configure Azure OpenAI for streaming responses?",
+      "answer": "Set AZURE_RESOURCE_NAME, AZURE_API_KEY, and AZURE_OPENAI_DEPLOYMENT_NAME environment variables. Use the AI SDK with azure() provider pointing to your deployment."
+    },
+    {
+      "question": "What is the difference between AgentApplication and direct activity handlers?",
+      "answer": "AgentApplication provides routing, state management, and lifecycle handling. Direct handlers require manual routing logic and are only recommended for advanced scenarios."
+    },
+    {
+      "question": "How do I test my Teams bot locally before deployment?",
+      "answer": "Run the Express server locally and use ngrok to expose your PORT 3978 endpoint. Register the ngrok URL in your Azure Bot Service configuration for testing."
+    },
+    {
+      "question": "What authentication is required for Copilot Studio client connections?",
+      "answer": "You need a valid bearer token for the Copilot environment. Configure CLIENT_ID, CLIENT_SECRET, and TENANT_ID for Azure AD authentication, then use a token provider function."
+    },
+    {
+      "question": "Can I use this skill with Claude, Codex, or Claude Code?",
+      "answer": "Yes, this skill is compatible with Claude, Codex, and Claude Code. All three AI assistants can generate the TypeScript code patterns shown in the templates."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Microsoft 365 Agents",
+    "Teams bots",
+    "Copilot Studio",
+    "TypeScript agents",
+    "AgentApplication",
+    "Bot Framework",
+    "Microsoft Bot Service"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/m365-agents-ts",
+  "sourceType": "community",
+  "dependencies": []
+}

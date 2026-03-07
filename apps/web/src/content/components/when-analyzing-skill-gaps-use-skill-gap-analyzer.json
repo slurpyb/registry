@@ -1,0 +1,140 @@
+{
+  "name": "when-analyzing-skill-gaps-use-skill-gap-analyzer",
+  "type": "skill",
+  "description": "Analyze skill library to identify coverage gaps, redundant overlaps, optimization opportunities, and provide recommendations for skill portfolio improvement",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "skill portfolio",
+  "quality": 5,
+  "qualityReason": "Strategic skill optimization",
+  "bundleHints": [
+    "agent-config",
+    "learning-system"
+  ],
+  "tags": [
+    "coverage",
+    "gap-analysis",
+    "meta-tool",
+    "portfolio-optimization",
+    "redundancy",
+    "skill-management"
+  ],
+  "capabilities": [
+    "Map domain coverage and identify missing capabilities",
+    "Detect duplicate functionality across skills",
+    "Find under-utilized and over-complex skills",
+    "Test scenario execution readiness",
+    "Generate prioritized recommendations",
+    "Track skill usage metrics and patterns"
+  ],
+  "author": "DNYoussef",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation and analysis skill with no executable code. Only reads local SKILL.md files from ~/.claude/skills/ directory. No network calls, no external commands, no environment access beyond documented skill paths. Static findings are false positives from misinterpreting GraphViz diagram syntax and markdown code block delimiters as security threats.",
+  "valueStatement": "Skill libraries often grow organically, creating gaps and redundancies. This skill systematically analyzes your skill portfolio to identify missing capabilities, duplicate functionality, and optimization opportunities. Get actionable recommendations to improve your skill ecosystem.",
+  "userTitle": "Analyze skill library gaps",
+  "limitations": [
+    "Analyzes only local SKILL.md files in ~/.claude/skills/",
+    "Does not create or modify skills automatically",
+    "Requires claude-flow hooks and memory MCP for full integration",
+    "Does not access external APIs or remote skill repositories"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Skill Library Maintainers",
+      "title": "Portfolio Health Check",
+      "description": "Conduct quarterly reviews of skill coverage, identify gaps, and plan new skill development"
+    },
+    {
+      "targetUser": "AI Development Teams",
+      "title": "Before Adding New Skills",
+      "description": "Analyze existing capabilities to avoid redundancy and ensure new skills fill real gaps"
+    },
+    {
+      "targetUser": "System Architects",
+      "title": "Architecture Optimization",
+      "description": "Identify over-complex skills that should be broken down and find composability improvements"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Analysis",
+      "scenario": "Quick portfolio review",
+      "prompt": "Use the skill gap analyzer to scan my skill library and identify the main coverage gaps and redundancies"
+    },
+    {
+      "title": "Scenario Coverage",
+      "scenario": "Test execution readiness",
+      "prompt": "Run scenario coverage analysis to see if my skill library can handle full-stack web app development and ML pipeline deployment"
+    },
+    {
+      "title": "Optimization Focus",
+      "scenario": "Find improvement opportunities",
+      "prompt": "Analyze my skill library for under-utilized skills and over-complex skills that need refactoring"
+    },
+    {
+      "title": "Full Report",
+      "scenario": "Comprehensive analysis",
+      "prompt": "Perform a complete skill gap analysis: inventory, coverage gaps, redundancy detection, optimization opportunities, and generate a prioritized recommendation report"
+    }
+  ],
+  "bestPractices": [
+    "Run quarterly analysis to maintain healthy skill coverage above 85%",
+    "Address critical gaps first to achieve 90% domain coverage goals",
+    "Consolidate skills with over 70% overlap to reduce redundancy below 10%"
+  ],
+  "antiPatterns": [
+    "Adding new skills without checking for existing overlapping capabilities",
+    "Ignoring under-utilized skills (below 5% usage) for too long",
+    "Allowing complex skills with low success rates to remain unimproved"
+  ],
+  "faq": [
+    {
+      "question": "Which AI tools work with this skill?",
+      "answer": "Compatible with Claude, Claude Code, and Codex. Requires claude-flow for full hook integration."
+    },
+    {
+      "question": "How many skills can it analyze?",
+      "answer": "Handles any size library. Large libraries (50+ skills) use sampling and clustering for efficiency."
+    },
+    {
+      "question": "Does it integrate with other tools?",
+      "answer": "Yes, works with claude-flow hooks, memory MCP, and spawns researcher agent for optimization analysis."
+    },
+    {
+      "question": "Is my skill data safe?",
+      "answer": "Yes, only reads local SKILL.md files. No data is sent externally or stored outside configured memory."
+    },
+    {
+      "question": "Why are some skills marked over-complex?",
+      "answer": "Skills averaging over 5000 tokens with below 70% success rate are flagged for simplification or decomposition."
+    },
+    {
+      "question": "How is this different from prompt optimization?",
+      "answer": "Skill gap analyzer evaluates portfolio-level health. Prompt optimization analyzes individual skill effectiveness."
+    }
+  ],
+  "seoKeywords": [
+    "skill gap analyzer",
+    "Claude skill management",
+    "skill portfolio optimization",
+    "capability mapping",
+    "skill redundancy detection",
+    "Claude Code meta-tools",
+    "skill library analysis",
+    "AI skill optimization",
+    "skill ecosystem health",
+    "Claude Codex tools"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/meta-tools/when-analyzing-skill-gaps-use-skill-gap-analyzer",
+  "sourceType": "community",
+  "dependencies": []
+}

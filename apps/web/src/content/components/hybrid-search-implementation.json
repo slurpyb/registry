@@ -1,0 +1,142 @@
+{
+  "name": "hybrid-search-implementation",
+  "type": "skill",
+  "description": "Combine vector and keyword search for improved retrieval. Use when implementing RAG systems, building search engines, or when neither approach alone provides sufficient recall.",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "Vector + keyword",
+  "quality": 5,
+  "qualityReason": "Combined search approach",
+  "bundleHints": [
+    "search-systems",
+    "rag"
+  ],
+  "tags": [
+    "hybrid-search",
+    "information",
+    "information-retrieval",
+    "rag",
+    "recall",
+    "retrieval",
+    "search-engine",
+    "search-engines",
+    "vector-search"
+  ],
+  "capabilities": [
+    "Provide Reciprocal Rank Fusion (RRF) implementation for merging ranked results",
+    "Show PostgreSQL pgvector hybrid search patterns with full-text search",
+    "Demonstrate Elasticsearch hybrid search with dense vectors",
+    "Build complete hybrid RAG pipelines with optional cross-encoder reranking",
+    "Explain fusion methods including RRF, linear combination, and cascade approaches"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 55 patterns but all are false positives. Files are markdown documentation with Python code samples. Backticks are markdown formatting not shell execution. URLs are documentation references not network calls. No cryptographic operations, credential access, or system commands detected. Skill is safe for publication.",
+  "valueStatement": "Pure vector or keyword search alone often misses relevant results. This skill provides proven patterns for combining both approaches to achieve superior retrieval accuracy.",
+  "userTitle": "Implement Hybrid Search for RAG Systems",
+  "limitations": [
+    "Provides implementation patterns and code samples, not a deployable library",
+    "Requires external dependencies like pgvector, Elasticsearch, or vector databases",
+    "Does not include embedding model training or fine-tuning guidance",
+    "Code samples require adaptation for specific production environments"
+  ],
+  "useCases": [
+    {
+      "targetUser": "AI engineers building LLM applications",
+      "title": "RAG System Developer",
+      "description": "Build retrieval-augmented generation systems with improved recall by combining semantic vector search with exact keyword matching for technical terms and product codes."
+    },
+    {
+      "targetUser": "Backend developers building search features",
+      "title": "Search Engine Builder",
+      "description": "Implement enterprise search that handles both conceptual queries (via embeddings) and precise term matching (via BM25) for comprehensive results."
+    },
+    {
+      "targetUser": "Platform engineers managing documentation",
+      "title": "Knowledge Base Architect",
+      "description": "Create documentation search that understands user intent semantically while still finding exact matches for error codes, API names, and version numbers."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Hybrid Search Setup",
+      "prompt": "I need to implement hybrid search for my RAG system. Show me how to combine vector embeddings with keyword search using Reciprocal Rank Fusion in Python.",
+      "scenario": "Getting started with hybrid search fundamentals"
+    },
+    {
+      "title": "PostgreSQL pgvector Implementation",
+      "prompt": "Help me set up hybrid search in PostgreSQL using pgvector for embeddings and built-in full-text search. I need SQL schema creation and query examples with RRF fusion.",
+      "scenario": "Implementing hybrid search with existing PostgreSQL database"
+    },
+    {
+      "title": "Elasticsearch Hybrid Search Configuration",
+      "prompt": "Show me how to configure Elasticsearch for hybrid search combining dense vector similarity with BM25 text search. Include index mapping, search queries, and RRF configuration for Elasticsearch 8.x.",
+      "scenario": "Leveraging Elasticsearch for production hybrid search"
+    },
+    {
+      "title": "Advanced RAG Pipeline with Reranking",
+      "prompt": "Build a complete hybrid RAG pipeline that retrieves candidates with vector and keyword search, fuses results with RRF, then reranks top candidates using a cross-encoder model. Include async Python implementation with configurable weights.",
+      "scenario": "Production-grade RAG system with maximum retrieval quality"
+    }
+  ],
+  "bestPractices": [
+    "Tune fusion weights empirically on your dataset - RRF with k=60 works well as a starting point but optimal balance depends on your content",
+    "Always include cross-encoder reranking for production systems - the quality improvement justifies the additional latency for top-k candidates",
+    "Log both individual scores and fused scores during development to understand which queries benefit from each search method"
+  ],
+  "antiPatterns": [
+    "Using only vector search for domains with exact-match requirements like product codes, error messages, or version numbers",
+    "Fetching too many candidates before fusion which increases latency without improving result quality",
+    "Assuming fixed fusion weights work across all query types without A/B testing or query-level optimization"
+  ],
+  "faq": [
+    {
+      "question": "When should I use RRF versus linear fusion?",
+      "answer": "RRF is simpler and requires no tuning - it works well out of the box. Linear fusion offers more control but requires empirical weight tuning on your data. Start with RRF, switch to linear if you need fine-grained control."
+    },
+    {
+      "question": "How many candidates should I retrieve before fusion?",
+      "answer": "Typically 3x your final limit per method. For top-10 results, retrieve 30 from each search method. This provides sufficient overlap for effective fusion without excessive latency."
+    },
+    {
+      "question": "Is cross-encoder reranking worth the computational cost?",
+      "answer": "Yes for production RAG. Reranking 50 candidates adds ~100-500ms but significantly improves relevance. Apply reranking only to fused top-k candidates, not the full candidate set."
+    },
+    {
+      "question": "Can I use hybrid search with existing vector databases?",
+      "answer": "Most vector databases now support hybrid search natively. Pinecone, Weaviate, Qdrant, and pgvector all offer built-in hybrid search with configurable fusion parameters."
+    },
+    {
+      "question": "What embedding models work best for hybrid search?",
+      "answer": "Any embedding model works since hybrid search combines embeddings with keyword search. OpenAI text-embedding-3, Cohere embed-v3, or open-source models like BGE all work effectively."
+    },
+    {
+      "question": "How do I handle queries that are purely semantic or purely keyword-based?",
+      "answer": "For short exact queries (error codes, IDs), increase keyword weight. For natural language questions, increase vector weight. Advanced systems use query classification to set dynamic weights."
+    }
+  ],
+  "seoKeywords": [
+    "hybrid search",
+    "vector search",
+    "keyword search",
+    "RAG implementation",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "reciprocal rank fusion",
+    "embedding search",
+    "retrieval augmented generation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hybrid-search-implementation",
+  "sourceType": "community",
+  "dependencies": []
+}

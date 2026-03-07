@@ -1,0 +1,140 @@
+{
+  "name": "threat-modeling-expert",
+  "type": "skill",
+  "description": "Expert in threat modeling methodologies, security architecture review, and risk assessment. Masters STRIDE, PASTA, attack trees, and security requirement extraction. Use for security architecture reviews, threat identification, and secure-by-design planning.",
+  "domain": "security",
+  "subdomain": "pentesting",
+  "specialty": "threat modeling",
+  "quality": 5,
+  "qualityReason": "Expert-level security architecture analysis",
+  "bundleHints": [
+    "security-toolkit",
+    "architecture",
+    "risk-assessment"
+  ],
+  "tags": [
+    "attack-trees",
+    "methodologies",
+    "pasta",
+    "risk-assessment",
+    "security-architecture",
+    "stride",
+    "threat-modeling"
+  ],
+  "capabilities": [
+    "Conduct STRIDE threat analysis on system architectures",
+    "Build attack trees for critical application paths",
+    "Extract security requirements from data flow diagrams",
+    "Prioritize threats using risk scoring methodologies",
+    "Design mitigation strategies aligned with security controls",
+    "Document residual risks with clear ownership"
+  ],
+  "author": "sickn33",
+  "icon": "🛡️",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains documentation-only content (SKILL.md) describing threat modeling methodologies. All 7 static analysis findings for 'Weak cryptographic algorithm' and 'System reconnaissance' are false positives caused by security terminology in documentation text matching pattern detectors. No executable code, cryptographic operations, or actual reconnaissance capabilities exist. Safe for publication.",
+  "valueStatement": "Security teams struggle to identify threats systematically during system design. This skill applies structured methodologies like STRIDE and attack trees to find vulnerabilities before deployment.",
+  "userTitle": "Perform expert threat modeling for secure system design",
+  "limitations": [
+    "Cannot perform automated scanning or penetration testing",
+    "Requires human input for system scope and trust boundaries",
+    "Does not replace formal security certification or audits",
+    "Cannot access external systems or validate configurations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security architects designing new microservices or cloud infrastructure",
+      "title": "Security Architecture Review",
+      "description": "Perform comprehensive threat modeling during system design phase to identify vulnerabilities before development begins."
+    },
+    {
+      "targetUser": "Development teams implementing security-sensitive features like authentication or payment processing",
+      "title": "Attack Surface Analysis",
+      "description": "Build attack trees for critical features to understand potential exploitation paths and prioritize defenses."
+    },
+    {
+      "targetUser": "Compliance officers preparing for SOC2, ISO27001, or other security certifications",
+      "title": "Security Documentation",
+      "description": "Generate structured threat models and security requirements for compliance audits and handoff to operations teams."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Threat Brainstorming",
+      "prompt": "Analyze this system description using STRIDE methodology: [describe your system]. List potential threats for each STRIDE category with one-sentence descriptions.",
+      "scenario": "Quick security review of a simple feature or component"
+    },
+    {
+      "title": "Data Flow Threat Analysis",
+      "prompt": "Here is my data flow diagram: [describe data flows, trust boundaries, and components]. Apply STRIDE to each data flow and component. For each threat identified, provide a risk score (1-5) and recommended mitigation.",
+      "scenario": "Designing a new API or microservice with clear data boundaries"
+    },
+    {
+      "title": "Attack Tree Construction",
+      "prompt": "Build an attack tree for this scenario: [describe the attack goal, e.g., 'Unauthorized access to user database']. Start with the root goal, identify main attack paths as first-level nodes, then expand each path with specific techniques. Include likelihood estimates for leaf nodes.",
+      "scenario": "Deep analysis of a high-value target requiring layered defenses"
+    },
+    {
+      "title": "Security Requirements Extraction",
+      "prompt": "Based on this threat model: [paste threats], extract specific security requirements for each identified risk. Format each requirement as: 'The system SHALL [action] to prevent/mitigate [threat]'. Organize requirements by functional area and prioritize by risk score.",
+      "scenario": "Translating threat findings into actionable engineering requirements"
+    }
+  ],
+  "bestPractices": [
+    "Involve developers and architects in threat modeling sessions for accurate system understanding",
+    "Focus analysis on data flows and trust boundaries rather than just component lists",
+    "Update threat models after every significant architecture change or new feature addition"
+  ],
+  "antiPatterns": [
+    "Performing threat modeling only once at project start without follow-up reviews",
+    "Creating overly detailed attack trees that become unmaintainable documentation",
+    "Identifying threats without linking them to specific mitigations and owners"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between STRIDE and PASTA methodologies?",
+      "answer": "STRIDE categorizes threats (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege) for systematic coverage. PASTA is a risk-centric, seven-stage process that aligns threats with business objectives. Use STRIDE for component-level analysis and PASTA for business-aligned risk assessments."
+    },
+    {
+      "question": "How do I prioritize which threats to address first?",
+      "answer": "Score each threat using DREAD or similar: consider Damage potential, Reproducibility, Exploitability, Affected users, and Discoverability. Address high-damage, high-likelihood threats first. Factor in business context and regulatory requirements when prioritizing."
+    },
+    {
+      "question": "Can this skill replace a professional security audit?",
+      "answer": "No. This skill provides structured threat modeling guidance but cannot replace certified security audits, penetration testing, or compliance assessments. Use it as a proactive design tool alongside formal security processes."
+    },
+    {
+      "question": "How detailed should attack trees be for practical use?",
+      "answer": "Focus on 2-3 levels of depth for actionable insights. Too shallow misses attack paths; too deep becomes unmanageable. Stop expanding when leaf nodes represent specific, testable attack techniques with clear mitigations."
+    },
+    {
+      "question": "What inputs do I need to provide for effective threat modeling?",
+      "answer": "Provide system architecture diagrams, data flow descriptions, trust boundaries, asset lists, and known constraints. The more context about system design and business requirements, the more accurate and relevant the threat analysis will be."
+    },
+    {
+      "question": "How often should threat models be reviewed and updated?",
+      "answer": "Review threat models after every significant architecture change, new feature addition, or security incident. Schedule quarterly reviews for stable systems. Treat threat models as living documents that evolve with your system."
+    }
+  ],
+  "seoKeywords": [
+    "Claude threat modeling",
+    "Codex security analysis",
+    "Claude Code STRIDE",
+    "attack tree generation",
+    "security architecture review",
+    "risk assessment AI",
+    "secure system design",
+    "threat identification"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/threat-modeling-expert",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,142 @@
+{
+  "name": "baseline-ui",
+  "type": "skill",
+  "description": "Enforces an opinionated UI baseline to prevent AI-generated interface slop.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "UI consistency",
+  "quality": 5,
+  "qualityReason": "Strong opinionated best practices",
+  "bundleHints": [
+    "frontend-stack",
+    "design-system"
+  ],
+  "tags": [
+    "accessibility",
+    "code-quality",
+    "design",
+    "design-system",
+    "frontend",
+    "react",
+    "tailwind",
+    "ui"
+  ],
+  "capabilities": [
+    "Enforces Tailwind CSS defaults and utility patterns",
+    "Validates accessible component primitives from Base UI, React Aria, or Radix",
+    "Reviews animation performance by restricting compositor-only properties",
+    "Checks typography standards including text-balance and tabular-nums",
+    "Verifies layout constraints like fixed z-index scales and safe-area-insets",
+    "Validates interaction patterns including error placement and accessible dialogs"
+  ],
+  "author": "ibelick",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 54 static findings are FALSE POSITIVES. The scanner misinterpreted Markdown documentation syntax (backtick characters) as Ruby shell commands and UI terminology as security threats. This skill is pure documentation with no executable code, network requests, or security risks.",
+  "valueStatement": "AI-generated interfaces often lack consistency and accessibility. This skill enforces opinionated UI standards for Tailwind CSS, accessible components, performance best practices, and design constraints.",
+  "userTitle": "Apply UI Quality Standards",
+  "limitations": [
+    "Does not execute code or modify files directly",
+    "Does not integrate with design systems beyond the documented constraints",
+    "Does not provide visual previews or rendered output",
+    "Assumes existing project has Tailwind CSS and compatible component libraries"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Front-end developers building React applications with Tailwind CSS",
+      "title": "Front-End Developer Review",
+      "description": "Use /baseline-ui to review React components against established quality standards before committing code."
+    },
+    {
+      "targetUser": "Engineering teams using Claude or Codex for code generation",
+      "title": "AI Assistant Guidelines",
+      "description": "Configure AI assistants to follow consistent UI patterns when generating interface code."
+    },
+    {
+      "targetUser": "Engineering managers and design system maintainers",
+      "title": "Design System Documentation",
+      "description": "Establish and enforce team-wide UI standards for React component development."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Quick Constraint Check",
+      "prompt": "/baseline-ui\n\nReview all UI code in this conversation against the baseline constraints. Report any violations with the exact line, why it matters, and a concrete fix.",
+      "scenario": "Quick check of generated UI code"
+    },
+    {
+      "title": "Component Review",
+      "prompt": "/baseline-ui <file>\n\nApply the baseline constraints to this file. For each violation provide: the exact code snippet, one sentence explaining the impact, and a specific code-level suggestion.",
+      "scenario": "Reviewing a specific file"
+    },
+    {
+      "title": "Animation Audit",
+      "prompt": "Review the following React components for animation violations:\n- Are only compositor props animated?\n- Are layout properties avoided?\n- Does animation respect reduced-motion preferences?\n\nIdentify any issues and suggest fixes.",
+      "scenario": "Auditing animation performance"
+    },
+    {
+      "title": "Accessibility Validation",
+      "prompt": "Check these components for accessibility compliance:\n- Icon-only buttons have aria-labels?\n- AlertDialog is used for destructive actions?\n- Error messages appear near their inputs?\n- Keyboard and focus behavior uses primitives?",
+      "scenario": "Validating accessibility patterns"
+    }
+  ],
+  "bestPractices": [
+    "Use the /baseline-ui command at the start of UI-focused conversations to establish constraints upfront",
+    "Run /baseline-ui before submitting PRs that include React component changes",
+    "Combine with component library documentation to ensure compatibility with Base UI, React Aria, or Radix primitives"
+  ],
+  "antiPatterns": [
+    "Ignoring animation constraints that trigger layout reflow, causing janky user experiences",
+    "Mixing primitive systems (Base UI + Radix) within the same interaction surface",
+    "Using arbitrary z-index values instead of a documented scale"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill modify my code files?",
+      "answer": "No. The skill only reviews code and provides recommendations. You must apply fixes manually."
+    },
+    {
+      "question": "Which CSS frameworks are supported?",
+      "answer": "The skill is designed for Tailwind CSS. It can be adapted to other utility-first frameworks with custom configuration."
+    },
+    {
+      "question": "What React component libraries work best?",
+      "answer": "Base UI, React Aria, and Radix Primitives are officially supported. The skill requires accessible primitives for keyboard and focus behavior."
+    },
+    {
+      "question": "Can I skip constraints for specific components?",
+      "answer": "Yes. The skill can be invoked selectively. Document exceptions in code comments for team clarity."
+    },
+    {
+      "question": "Does this work with Next.js or other frameworks?",
+      "answer": "Yes. The constraints are framework-agnostic. Only the animation guidelines depend on React and framer-motion."
+    },
+    {
+      "question": "How do I add custom constraints?",
+      "answer": "Fork the skill and modify SKILL.md. Your team can maintain a private version with additional rules."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "UI standards",
+    "Tailwind CSS",
+    "React accessibility",
+    "component library",
+    "UI guidelines",
+    "interface design",
+    "front-end development"
+  ],
+  "sourceUrl": "https://github.com/ibelick/ui-skills/tree/main/skills/baseline-ui/",
+  "sourceType": "community",
+  "dependencies": []
+}

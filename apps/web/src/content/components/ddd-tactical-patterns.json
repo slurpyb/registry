@@ -1,0 +1,138 @@
+{
+  "name": "ddd-tactical-patterns",
+  "type": "skill",
+  "description": "Apply DDD tactical patterns in code using entities, value objects, aggregates, repositories, and domain events with explicit invariants.",
+  "domain": "software-design",
+  "subdomain": "patterns",
+  "specialty": "domain primitives",
+  "quality": 4,
+  "qualityReason": "Code-level DDD patterns",
+  "bundleHints": [
+    "domain-modeling",
+    "clean-architecture",
+    "tactical-ddd"
+  ],
+  "tags": [
+    "aggregates",
+    "ddd",
+    "domain-events",
+    "entities",
+    "repositories",
+    "tactical",
+    "value-objects"
+  ],
+  "capabilities": [
+    "Identify invariants and design aggregates around them",
+    "Model immutable value objects with validation",
+    "Keep domain behavior in domain objects, not controllers",
+    "Emit domain events for meaningful state transitions",
+    "Define repository contracts at aggregate boundaries"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static analysis findings are false positives. The 'external_commands' detections were Markdown backticks around code examples (e.g., `OrderSubmitted`), not actual shell execution. The 'blocker' findings for weak cryptography and system reconnaissance were triggered by documentation text, not executable code. This is a safe educational skill containing only DDD pattern guidance and TypeScript examples.",
+  "valueStatement": "Struggling to translate domain rules into clean code structures? This skill guides you through DDD tactical patterns including entities, value objects, aggregates, repositories, and domain events.",
+  "userTitle": "Apply DDD Tactical Patterns to Your Code",
+  "limitations": [
+    "Does not define deployment architecture or infrastructure decisions",
+    "Does not choose databases or transport protocols",
+    "Requires pairing with testing patterns for invariant coverage",
+    "Assumes basic understanding of object-oriented programming"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers working with legacy anemic models",
+      "title": "Refactor Anemic Domain Models",
+      "description": "Transform data-only classes into behavior-rich domain objects that enforce business rules."
+    },
+    {
+      "targetUser": "Software architects designing new bounded contexts",
+      "title": "Design New Aggregates",
+      "description": "Structure new domain code with proper aggregate boundaries and invariant enforcement."
+    },
+    {
+      "targetUser": "Developers building event-sourced or CQRS systems",
+      "title": "Implement Domain Events",
+      "description": "Add event-driven communication between aggregates using past-tense domain events."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Aggregate Design",
+      "prompt": "I need to model an Order aggregate. Help me identify the invariants, design the entity with behavior methods, and define appropriate value objects for this domain."
+    },
+    {
+      "title": "Value Object Modeling",
+      "prompt": "Create an immutable value object for Money that includes currency and amount. Include validation at construction and equality by value."
+    },
+    {
+      "title": "Repository Contract Design",
+      "description": "For aggregate root persistence",
+      "prompt": "Design a repository interface for the Order aggregate that exposes domain-friendly query methods without leaking ORM implementation details."
+    },
+    {
+      "title": "Domain Event Implementation",
+      "prompt": "Help me define domain events for Order state transitions. Include past-tense naming, minimal payloads, and schema versioning strategy."
+    }
+  ],
+  "bestPractices": [
+    "Identify invariants first, then design aggregate boundaries around them",
+    "Keep value objects immutable with validation at construction time",
+    "Name domain events in past tense with minimal, stable payloads"
+  ],
+  "antiPatterns": [
+    "Cross-aggregate synchronous consistency rules that violate transaction boundaries",
+    "Leaking ORM entities into the domain layer",
+    "Controllers containing domain business logic instead of domain objects"
+  ],
+  "faq": [
+    {
+      "question": "When should I use aggregates versus simple entities?",
+      "answer": "Use aggregates when you have invariants that must be enforced transactionally. An aggregate root is the entry point that ensures consistency across all objects within its boundary."
+    },
+    {
+      "question": "Should value objects be mutable?",
+      "answer": "No. Value objects should be immutable by default. Any modification creates a new instance. This ensures thread safety and simplifies reasoning about state."
+    },
+    {
+      "question": "How do I handle cross-aggregate communication?",
+      "answer": "Use domain events for eventual consistency between aggregates. Avoid synchronous calls that couple aggregates and break transaction boundaries."
+    },
+    {
+      "question": "What belongs in a repository interface?",
+      "answer": "Repository interfaces should expose domain-friendly query methods and only persist or load aggregate roots. They should not leak ORM-specific implementation details."
+    },
+    {
+      "question": "How do I know if I need domain events?",
+      "answer": "Use domain events when other parts of the system need to react to state changes without tight coupling. They are essential for audit trails, notifications, and CQRS patterns."
+    },
+    {
+      "question": "Can I use this skill for microservices architecture?",
+      "answer": "Yes. DDD tactical patterns work well with microservices. Each service can have its own aggregates, and domain events can facilitate inter-service communication."
+    }
+  ],
+  "seoKeywords": [
+    "DDD tactical patterns",
+    "Domain-Driven Design",
+    "aggregates",
+    "value objects",
+    "domain events",
+    "Claude Code skill",
+    "Codex assistant",
+    "software architecture",
+    "domain modeling",
+    "repositories"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ddd-tactical-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,144 @@
+{
+  "name": "airtable-automation",
+  "type": "skill",
+  "description": "Automate Airtable tasks via Rube MCP (Composio): records, bases, tables, fields, views. Always search tools first for current schemas.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "Airtable scripts",
+  "quality": 4,
+  "qualityReason": "Specific database automation",
+  "bundleHints": [
+    "no-code-automation",
+    "crm-tools",
+    "data-sync"
+  ],
+  "tags": [
+    "airtable",
+    "automation",
+    "bases",
+    "composio",
+    "crm",
+    "database",
+    "records",
+    "rube-mcp",
+    "tables"
+  ],
+  "capabilities": [
+    "Discover and list Airtable bases and tables with schema inspection",
+    "Create, read, update, and delete records with batch support (max 10 per request)",
+    "Search and filter records using Airtable formula syntax",
+    "Manage table fields including creation and metadata updates",
+    "Handle pagination for large datasets with offset tracking",
+    "List and manage comments on Airtable records"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged 62 external_commands and 6 cryptographic patterns, but all are FALSE POSITIVES. The SKILL.md file is documentation-only (Markdown format). Detected backticks are code formatting, not shell execution. No executable code or cryptographic functions exist. Network reference is documented MCP endpoint URL. Safe to publish with documented external_dependencies on Rube MCP and Airtable API.",
+  "valueStatement": "Manage Airtable bases, tables, and records without manual API calls. This skill handles schema discovery, record operations, and batch processing through Rube MCP integration.",
+  "userTitle": "Automate Airtable Database Operations",
+  "limitations": [
+    "Requires active Rube MCP server connection with Airtable toolkit authorization",
+    "Batch operations limited to 10 records per request by Airtable API",
+    "Cannot create computed fields (formulas, rollups, lookups) via API",
+    "Field type modifications require creating new field and migrating data"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Sales operations managers",
+      "title": "CRM Contact Management",
+      "description": "Automatically sync and update customer records, track interaction history, and manage sales pipeline stages in Airtable"
+    },
+    {
+      "targetUser": "Project coordinators",
+      "title": "Project Task Tracking",
+      "description": "Create and update project tasks, assign team members, track status changes, and generate progress reports"
+    },
+    {
+      "targetUser": "Content marketing teams",
+      "title": "Content Calendar Automation",
+      "description": "Schedule content publishing, manage editorial workflows, and track content status across multiple channels"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List Available Bases",
+      "prompt": "Show me all Airtable bases I have access to and their table structures",
+      "scenario": "Getting started with a new Airtable workspace"
+    },
+    {
+      "title": "Find Records by Criteria",
+      "prompt": "Find all records in the Projects table where Status equals 'In Progress' and sort by Due Date",
+      "scenario": "Filtering records with specific conditions"
+    },
+    {
+      "title": "Batch Create Records",
+      "prompt": "Create 5 new task records in the Tasks table with the following data: [list task details with name, assignee, due date]",
+      "scenario": "Importing multiple records at once"
+    },
+    {
+      "title": "Update Records with Formula",
+      "prompt": "Update all records where the Due Date is before today and Status is not 'Complete' to mark them as 'Overdue'",
+      "scenario": "Bulk updating records based on conditions"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before any operation",
+    "Verify field names match schema exactly - they are case-sensitive",
+    "Handle pagination by checking for offset in responses and passing it unchanged to subsequent requests"
+  ],
+  "antiPatterns": [
+    "Do not change filters or sort order between paginated requests - this causes skipped or duplicated records",
+    "Avoid exceeding Airtable rate limits (approximately 5 requests per second per base)",
+    "Do not assume field names - always inspect schema with AIRTABLE_GET_BASE_SCHEMA first"
+  ],
+  "faq": [
+    {
+      "question": "How do I connect my Airtable account to this skill?",
+      "answer": "Add https://rube.app/mcp as an MCP server in your client, then call RUBE_MANAGE_CONNECTIONS with toolkit 'airtable' and follow the authorization link if connection status is not ACTIVE."
+    },
+    {
+      "question": "What is the maximum number of records I can create at once?",
+      "answer": "Airtable limits batch operations to 10 records per request. For larger imports, the skill will automatically chunk data into batches of 10."
+    },
+    {
+      "question": "Why am I getting UNKNOWN_FIELD_NAME errors?",
+      "answer": "Field names are case-sensitive and must match the schema exactly. Use AIRTABLE_GET_BASE_SCHEMA to verify exact field names before creating or updating records."
+    },
+    {
+      "question": "How do I filter records using conditions?",
+      "answer": "Use the filterByFormula parameter with Airtable formula syntax. Example: {Status}='Active' for equals, AND({A}='x', {B}='y') for multiple conditions."
+    },
+    {
+      "question": "Can I modify formula or rollup fields?",
+      "answer": "No, computed fields (formula, rollup, lookup) cannot be created or modified via the Airtable API. These must be configured in the Airtable interface."
+    },
+    {
+      "question": "What happens if I hit Airtable's rate limit?",
+      "answer": "The skill will receive a 429 response with a Retry-After header. Operations will pause and retry after the specified delay."
+    }
+  ],
+  "seoKeywords": [
+    "Airtable automation",
+    "Claude Code",
+    "Codex",
+    "database management",
+    "Rube MCP",
+    "Composio",
+    "record operations",
+    "API integration",
+    "no-code automation",
+    "workflow automation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/airtable-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

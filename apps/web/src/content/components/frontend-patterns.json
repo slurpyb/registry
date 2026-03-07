@@ -1,0 +1,139 @@
+{
+  "name": "frontend-patterns",
+  "type": "skill",
+  "description": "Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices.",
+  "domain": "web-development",
+  "subdomain": "frontend",
+  "specialty": "development patterns",
+  "quality": 4,
+  "qualityReason": "Broad but useful patterns",
+  "bundleHints": [
+    "frontend-standards",
+    "pattern-library"
+  ],
+  "tags": [
+    "best-practices",
+    "frontend",
+    "next.js",
+    "nextjs",
+    "performance",
+    "react",
+    "state-management",
+    "typescript",
+    "ui patterns"
+  ],
+  "capabilities": [
+    "Generate compound component patterns with TypeScript context for reusable UI libraries",
+    "Create custom React hooks for state management, data fetching, and debouncing",
+    "Implement Context + Reducer patterns for application state management",
+    "Apply performance optimizations including memoization, code splitting, and virtualization",
+    "Build accessible components with keyboard navigation and focus management",
+    "Generate form handling patterns with validation and error boundaries"
+  ],
+  "author": "affaan-m",
+  "icon": "📦",
+  "version": "1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill contains educational frontend development patterns for React and Next.js. All static analysis findings were false positives: backtick detections were TypeScript template literals in code examples, dynamic imports are React lazy() patterns for code splitting, and fetch calls are standard browser API usage for data fetching. No security risks identified.",
+  "valueStatement": "Frontend developers struggle with inconsistent code architecture and reinventing solutions for common problems. This skill provides battle-tested React patterns for components, hooks, state management, and performance optimization.",
+  "userTitle": "Build Modern React Applications with Proven Patterns",
+  "limitations": [
+    "Patterns require React 18+ for optimal hook and context behavior",
+    "Does not provide backend integration or API design guidance",
+    "Focused on TypeScript patterns, not vanilla JavaScript implementations",
+    "Assumes familiarity with React fundamentals and JSX syntax"
+  ],
+  "useCases": [
+    {
+      "targetUser": "UI Library Developers",
+      "title": "Build a Reusable Component Library",
+      "description": "Generate compound components for cards, tabs, and modals that enforce consistent design patterns across your organization."
+    },
+    {
+      "targetUser": "Frontend Engineers",
+      "title": "Optimize Slow React Application",
+      "description": "Apply memoization, code splitting, and virtualization patterns to improve rendering performance for data-heavy interfaces."
+    },
+    {
+      "targetUser": "React Developers",
+      "title": "Migrate Class Components to Hooks",
+      "description": "Convert legacy class-based components and state management to modern functional components with custom hooks."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Generate a Basic Compound Component",
+      "prompt": "Create a compound Select component with Select, SelectOption, and SelectLabel subcomponents using React context for state management. Include TypeScript interfaces and basic styling."
+    },
+    {
+      "title": "Create a Custom Data Fetching Hook",
+      "prompt": "Build a useQuery hook that handles loading states, error handling, and caching. Include options for onSuccess and onError callbacks, plus a manual refetch function."
+    },
+    {
+      "title": "Implement Performance Optimization",
+      "prompt": "Optimize a dashboard component that displays 1000+ rows of market data. Apply React.memo, useMemo for sorting, useVirtualizer for list virtualization, and Suspense with lazy loading for heavy chart components."
+    },
+    {
+      "title": "Build Accessible Modal with Focus Management",
+      "prompt": "Create a modal component using Framer Motion for animations that implements proper focus trapping, keyboard escape handling, and restores focus to the triggering element on close. Include ARIA attributes and TypeScript types."
+    }
+  ],
+  "bestPractices": [
+    "Prefer composition over inheritance by breaking UIs into small, focused components that accept children",
+    "Use useCallback with empty dependency arrays for functions passed to memoized child components",
+    "Implement error boundaries around feature sections to prevent full application crashes from component errors"
+  ],
+  "antiPatterns": [
+    "Avoid prop drilling through multiple component levels - use Context or component composition instead",
+    "Do not call hooks conditionally or inside loops - always call hooks at the top level of components",
+    "Never store derived state in useState - compute it during render or use useMemo for expensive calculations"
+  ],
+  "faq": [
+    {
+      "question": "What React version do these patterns require?",
+      "answer": "These patterns work best with React 18+ which includes concurrent rendering and improved hook behavior. Some patterns like Suspense for data fetching require React 18 features."
+    },
+    {
+      "question": "Can I use these patterns with Next.js App Router?",
+      "answer": "Yes, most patterns work with Next.js App Router. Client components can use all hooks and context patterns. Server components can pass data to client components that implement these patterns."
+    },
+    {
+      "question": "Are these patterns suitable for large applications?",
+      "answer": "Yes, these patterns scale well. Compound components and Context + Reducer patterns are specifically designed for complex applications with many interconnected components."
+    },
+    {
+      "question": "Do I need TypeScript to use these patterns?",
+      "answer": "While TypeScript is recommended for type safety and better IDE support, the patterns can be adapted to JavaScript by removing type annotations and interfaces."
+    },
+    {
+      "question": "How do I test components using these patterns?",
+      "answer": "Test compound components by rendering the parent with children and asserting expected output. Test custom hooks using React Testing Library's renderHook utility with appropriate wrapper providers."
+    },
+    {
+      "question": "Can I combine multiple patterns together?",
+      "answer": "Yes, patterns are designed to be composable. For example, use custom hooks inside compound components, or apply memoization to components using Context for optimal performance."
+    }
+  ],
+  "seoKeywords": [
+    "React patterns",
+    "Next.js components",
+    "Claude Code frontend",
+    "Codex React skills",
+    "TypeScript hooks",
+    "state management",
+    "performance optimization",
+    "Claude Code patterns",
+    "compound components",
+    "custom hooks"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/web-app/public/skills/cc-skill-frontend-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

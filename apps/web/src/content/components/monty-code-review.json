@@ -1,0 +1,143 @@
+{
+  "name": "monty-code-review",
+  "type": "skill",
+  "description": "Hyper-pedantic code review skill that emulates Monty's Django4Lyfe backend engineering philosophy and review style. Use this when reviewing or refactoring Python/Django code in this backend repo and you want a strict, correctness-first, multi-tenant-safe, deeply nitpicky review.\n",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "Django code review",
+  "quality": 5,
+  "qualityReason": "Specific review philosophy",
+  "bundleHints": [
+    "python-review",
+    "django-tools"
+  ],
+  "tags": [
+    "backend",
+    "code standards",
+    "code-review",
+    "django",
+    "pedantic",
+    "python",
+    "quality",
+    "refactoring"
+  ],
+  "capabilities": [
+    "Reviews Django code with correctness-first priority and multi-tenant safety focus",
+    "Checks time dimension invariants and organization scoping for data integrity",
+    "Validates SOLID principle compliance with specific Django patterns",
+    "Flags security issues including permission checks and PII handling",
+    "Identifies performance problems like N+1 queries and batch optimization opportunities",
+    "Provides severity-tagged feedback: BLOCKING, SHOULD_FIX, and NIT"
+  ],
+  "author": "DiversioTeam",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based documentation skill containing only markdown files that instruct AI assistants how to perform code reviews. No executable code, no network calls, no credential access. All static findings are FALSE POSITIVES triggered by documentation patterns (backticks for code formatting, legitimate code review terminology, and standard metadata). The skill operates entirely within the AI assistant's context and does not interact with external systems.",
+  "valueStatement": "Code reviews often miss subtle correctness issues, especially around multi-tenant safety and data integrity. This skill provides a structured, hyper-pedantic review framework that catches correctness bugs, SOLID violations, and security risks before they reach production.",
+  "userTitle": "Review Django code with strict correctness checks",
+  "limitations": [
+    "Optimized for Django and Python codebases specifically",
+    "Requires context about repository structure for full effectiveness",
+    "Does not execute tests or run static analysis tools directly",
+    "Focuses on backend code patterns, not frontend or infrastructure"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers",
+      "title": "PR Review for Django Apps",
+      "description": "Review PRs for dashboard, survey, or optimo apps with focus on data integrity and multi-tenant safety"
+    },
+    {
+      "targetUser": "Tech leads",
+      "title": "Code Quality Standards",
+      "description": "Enforce consistent code quality standards across the team with structured severity-tagged feedback"
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Migration Safety Checks",
+      "description": "Validate Django migrations for downtime safety and large-table schema change risks"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Full Pedantic Review",
+      "scenario": "Complete review with all severity levels",
+      "prompt": "Use your monty-code-review skill to review this Django PR like Monty would, and be fully pedantic with your usual severity tags"
+    },
+    {
+      "title": "Quick Pass",
+      "scenario": "Skip minor nits, focus on blockers",
+      "prompt": "Use your monty-code-review skill to skim this PR and only flag blocking or should-fix issues; skip most nits"
+    },
+    {
+      "title": "Migration Review",
+      "scenario": "Review schema changes safely",
+      "prompt": "Use monty-code-review to check this Django migration for downtime risks and large-table column additions"
+    },
+    {
+      "title": "SOLID Check",
+      "scenario": "Check architecture patterns",
+      "prompt": "Review this code for SOLID principle violations, specifically Dependency Inversion and Single Responsibility"
+    }
+  ],
+  "bestPractices": [
+    "Provide PR descriptions and ticket context for more focused reviews",
+    "Use severity tags to prioritize fixes effectively",
+    "Apply SOLID checks early when designing new services",
+    "Run the skill on migrations before deploying to production"
+  ],
+  "antiPatterns": [
+    "Skipping reviews for small PRs to avoid correctness bugs",
+    "Merging code with BLOCKING multi-tenant issues",
+    "Adding new platform support via if/elif chains instead of registry patterns",
+    "Using tight coupling that requires extensive @patch calls in tests"
+  ],
+  "faq": [
+    {
+      "question": "What AI tools support this skill?",
+      "answer": "This skill supports Claude, Claude Code, and OpenAI Codex with platform-specific invocation commands"
+    },
+    {
+      "question": "How strict is the default review?",
+      "answer": "The default review is hyper-pedantic, flagging style nits in addition to correctness issues"
+    },
+    {
+      "question": "Can I use this for non-Django code?",
+      "answer": "Optimized for Django backends but provides general code review guidance for other codebases"
+    },
+    {
+      "question": "Is my code data sent anywhere?",
+      "answer": "No. This is a prompt-only skill that operates within your AI tool. Code stays in your environment"
+    },
+    {
+      "question": "What severity levels are used?",
+      "answer": "BLOCKING for correctness/security issues, SHOULD_FIX for important problems, NIT for style"
+    },
+    {
+      "question": "How does this compare to linters?",
+      "answer": "Complements tools like ruff by catching semantic issues and architectural patterns linters miss"
+    }
+  ],
+  "seoKeywords": [
+    "claude code review",
+    "codex django review",
+    "claude python review",
+    "code review skill",
+    "django code review",
+    "multi-tenant security",
+    "solid principles",
+    "code quality",
+    "monty code review"
+  ],
+  "sourceUrl": "https://github.com/DiversioTeam/agent-skills-marketplace/tree/main/plugins/monty-code-review/skills/monty-code-review",
+  "sourceType": "community",
+  "dependencies": []
+}

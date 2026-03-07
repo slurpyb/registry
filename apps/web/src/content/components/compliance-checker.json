@@ -1,0 +1,142 @@
+{
+  "name": "compliance-checker",
+  "type": "skill",
+  "description": "Check code against security compliance standards and best practices.",
+  "domain": "security",
+  "subdomain": "compliance",
+  "specialty": "security audit",
+  "quality": 5,
+  "qualityReason": "Clear compliance and security focus",
+  "bundleHints": [
+    "security-toolkit",
+    "devsecops"
+  ],
+  "tags": [
+    "audit",
+    "best-practices",
+    "code-audit",
+    "compliance",
+    "owasp",
+    "regulatory",
+    "security",
+    "standards"
+  ],
+  "capabilities": [
+    "Check code against OWASP Top 10 security vulnerabilities",
+    "Validate compliance with PCI-DSS, HIPAA, GDPR, SOC 2 standards",
+    "Detect SQL injection, XSS, authentication flaws, and other vulnerabilities",
+    "Generate comprehensive compliance assessment reports with gap analysis",
+    "Provide code examples showing violations and compliant implementations",
+    "Apply CWE Top 25 and NIST Cybersecurity Framework checks"
+  ],
+  "author": "CuriousLearner",
+  "icon": "🛡️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based skill containing security compliance guidance with educational code examples. The static scanner flagged patterns in code comments that intentionally demonstrate security violations - this is the skill's core purpose. No actual executable code, network calls, filesystem access, or credential handling exists. All flagged patterns are false positives from educational content.",
+  "valueStatement": "Developers need to verify their code meets security and regulatory standards. This skill checks code against OWASP Top 10, PCI-DSS, HIPAA, GDPR, and other frameworks with actionable compliance reports.",
+  "userTitle": "Check code security compliance",
+  "limitations": [
+    "Does not execute code or scan files directly",
+    "Does not modify code or fix vulnerabilities automatically",
+    "Does not access external APIs or databases",
+    "Relies on user-provided code snippets for analysis"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software Developers",
+      "title": "Pre-release security review",
+      "description": "Verify code meets security standards before deployment to production environments."
+    },
+    {
+      "targetUser": "Security Engineers",
+      "title": "Compliance audit support",
+      "description": "Prepare evidence and checklists for regulatory compliance audits and certifications."
+    },
+    {
+      "targetUser": "DevOps Teams",
+      "title": "CI/CD security gates",
+      "description": "Integrate security compliance checks into development workflows and pipelines."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic compliance check",
+      "scenario": "Check code for OWASP vulnerabilities",
+      "prompt": "Check this code for security compliance issues related to OWASP Top 10: [paste code here]"
+    },
+    {
+      "title": "Framework-specific audit",
+      "scenario": "Validate against specific regulation",
+      "prompt": "Validate this code for [PCI-DSS|HIPAA|GDPR|SOC 2] compliance. List any violations and required fixes."
+    },
+    {
+      "title": "Generate compliance report",
+      "scenario": "Create detailed assessment",
+      "prompt": "Generate a comprehensive compliance report for this codebase against OWASP Top 10, HIPAA, and GDPR standards."
+    },
+    {
+      "title": "Remediation guidance",
+      "scenario": "Get fix recommendations",
+      "prompt": "Analyze these compliance violations and provide step-by-step remediation guidance with code examples."
+    }
+  ],
+  "bestPractices": [
+    "Provide complete code snippets including function context for accurate analysis",
+    "Specify which compliance frameworks are relevant to your use case",
+    "Review generated reports before applying fixes to understand context"
+  ],
+  "antiPatterns": [
+    "Submitting incomplete code fragments without proper context",
+    "Expecting the skill to automatically fix vulnerabilities in your codebase",
+    "Using compliance checks as a replacement for penetration testing"
+  ],
+  "faq": [
+    {
+      "question": "What compliance standards does this skill support?",
+      "answer": "Supports OWASP Top 10, PCI-DSS, HIPAA, GDPR, SOC 2, CWE Top 25, SANS Top 25, NIST CSF, ISO 27001, CCPA, and FERPA."
+    },
+    {
+      "question": "Can this skill scan my entire codebase at once?",
+      "answer": "The skill analyzes code snippets you provide. For large codebases, submit key files or functions separately for targeted analysis."
+    },
+    {
+      "question": "Does this skill integrate with CI/CD pipelines?",
+      "answer": "The skill itself does not integrate directly. Use compliance reports as documentation for pipeline security gates and audit trails."
+    },
+    {
+      "question": "Is my code data sent to external servers?",
+      "answer": "No. This is a prompt-based skill. Code analysis happens within your AI session and is not transmitted externally."
+    },
+    {
+      "question": "What should I do when violations are found?",
+      "answer": "Review the severity, understand the vulnerability, apply the suggested fix, and re-run the check to verify the remediation."
+    },
+    {
+      "question": "How does this compare to static analysis tools?",
+      "answer": "This skill provides contextual guidance and compliance mapping. Use with SAST tools like SonarQube or Snyk for automated scanning."
+    }
+  ],
+  "seoKeywords": [
+    "compliance checker",
+    "security audit",
+    "OWASP compliance",
+    "PCI-DSS validation",
+    "HIPAA compliance",
+    "GDPR compliance",
+    "code security review",
+    "vulnerability assessment",
+    "Claude Code",
+    "Claude"
+  ],
+  "sourceUrl": "https://github.com/CuriousLearner/devkit/tree/main/skills/compliance-checker",
+  "sourceType": "community",
+  "dependencies": []
+}

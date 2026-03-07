@@ -1,0 +1,142 @@
+{
+  "name": "azure-resource-manager-playwright-dotnet",
+  "type": "skill",
+  "description": "Management plane SDK for provisioning and managing Microsoft Playwright Testing workspaces via Azure Resource Manager in .NET. Use for creating workspaces, checking name availability, and managing workspace quotas.",
+  "domain": "testing",
+  "subdomain": "e2e",
+  "specialty": "playwright",
+  "quality": 4,
+  "qualityReason": "Specific Playwright workspace management",
+  "bundleHints": [
+    "e2e-testing",
+    "playwright-stack"
+  ],
+  "tags": [
+    "arm",
+    "azure",
+    "cloud-testing",
+    "dotnet",
+    "playwright",
+    "provisioning",
+    "testing-infrastructure",
+    "workspace"
+  ],
+  "capabilities": [
+    "Create new Playwright Testing workspaces in Azure Resource Manager",
+    "Check name availability for workspace names before creation",
+    "List and retrieve existing workspaces within subscriptions and resource groups",
+    "Update workspace properties including tags and configuration",
+    "Query subscription-level and workspace-level quota information",
+    "Delete workspaces and manage their lifecycle"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a prompt-only skill containing documentation and guidance for using the Azure.ResourceManager.Playwright .NET SDK. No executable code is present. The skill provides management plane operations documentation (creating workspaces, checking quotas, name availability). Static analysis scanned 0 files (0 lines) with no suspicious patterns detected. Risk score is 0/100.",
+  "valueStatement": "Automate the provisioning and management of Microsoft Playwright Testing workspaces in Azure using the .NET Resource Manager SDK. This skill enables CI/CD pipelines and DevOps workflows to create, update, and monitor Playwright Testing resources without manual Azure portal configuration.",
+  "userTitle": "Manage Azure Playwright Testing Workspaces",
+  "limitations": [
+    "This skill provides management plane operations only, not test execution",
+    "Does not include test running capabilities - use Azure.Developer.MicrosoftPlaywrightTesting.NUnit for that",
+    "Requires valid Azure subscription and appropriate RBAC permissions",
+    "No built-in retry logic or advanced resilience patterns"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps engineers building automated testing pipelines",
+      "title": "DevOps Engineer Automation",
+      "description": "Automate Playwright Testing workspace provisioning as part of CI/CD pipelines. Create workspaces on-demand for test environments and clean them up after tests complete."
+    },
+    {
+      "targetUser": "Azure administrators managing cloud testing infrastructure",
+      "title": "Azure Administrator",
+      "description": "Manage multiple Playwright Testing workspaces across subscriptions. Check quotas, update configurations, and monitor workspace provisioning states."
+    },
+    {
+      "targetUser": "Software developers needing on-demand testing infrastructure",
+      "title": "Developer Self-Service",
+      "description": "Enable developers to quickly provision dedicated Playwright Testing workspaces for their projects without needing direct Azure portal access."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create a new Playwright workspace",
+      "prompt": "Help me create a new Azure Playwright Testing workspace named 'my-workspace' in the 'test-rg' resource group using the Azure.ResourceManager.Playwright SDK. Include tags for Team=QA and Environment=Staging.",
+      "scenario": "Basic workspace creation with tagging"
+    },
+    {
+      "title": "Check workspace name availability",
+      "prompt": "Write C# code to check if the workspace name 'my-playwright-tests' is available in our subscription using Azure Resource Manager. Show how to handle both available and unavailable cases.",
+      "scenario": "Name availability checking before creation"
+    },
+    {
+      "title": "List all workspaces in subscription",
+      "prompt": "Show me how to list all Playwright Testing workspaces in our Azure subscription and display their current provisioning state, location, and data plane URI.",
+      "scenario": "Inventory and monitoring of existing workspaces"
+    },
+    {
+      "title": "Get quota information",
+      "prompt": "How do I query the available quota for parallel test execution in our subscription? I need to check both subscription-level and workspace-level quotas using the Azure.ResourceManager.Playwright SDK.",
+      "scenario": "Quota monitoring and capacity planning"
+    }
+  ],
+  "bestPractices": [
+    "Always use DefaultAzureCredential for authentication instead of hardcoding keys or secrets",
+    "Use WaitUntil.Completed for create/update/delete operations to ensure they finish before proceeding",
+    "Store the DataplaneUri returned from workspace creation for configuring test execution SDKs"
+  ],
+  "antiPatterns": [
+    "Using hardcoded Azure credentials instead of managed identity or DefaultAzureCredential",
+    "Ignoring RequestFailedException error handling for ARM API failures",
+    "Attempting to run Playwright tests using this management SDK instead of the test execution SDK"
+  ],
+  "faq": [
+    {
+      "question": "What is Azure.ResourceManager.Playwright used for?",
+      "answer": "This SDK manages Playwright Testing workspaces in Azure. It handles the management plane: creating workspaces, checking name availability, managing quotas, and updating workspace properties. It does NOT run tests."
+    },
+    {
+      "question": "How do I run Playwright tests after creating a workspace?",
+      "answer": "After creating a workspace, use the Azure.Developer.MicrosoftPlaywrightTesting.NUnit package to run tests. Set the PLAYWRIGHT_SERVICE_URL environment variable to the DataplaneUri from your workspace."
+    },
+    {
+      "question": "What authentication method should I use?",
+      "answer": "Always use DefaultAzureCredential. It automatically handles authentication via managed identity, Visual Studio credentials, Azure CLI, or environment variables without hardcoding secrets."
+    },
+    {
+      "question": "Can I use this skill to manage existing workspaces?",
+      "answer": "Yes, you can use GetAsync to retrieve existing workspaces, ExistsAsync to check if a workspace exists, and UpdateAsync to modify workspace properties like tags."
+    },
+    {
+      "question": "What are the key workspace properties I need to know?",
+      "answer": "The most important properties are: DataplaneUri (for test execution configuration), WorkspaceId (unique identifier), RegionalAffinity (enable/disable), LocalAuth (token-based access), and ProvisioningState (creation status)."
+    },
+    {
+      "question": "How do I handle workspace creation failures?",
+      "answer": "Catch RequestFailedException and check the Status code. Common codes: 409 (already exists), 400 (bad request), 403 (forbidden), 404 (resource group not found). Handle each case appropriately in your code."
+    }
+  ],
+  "seoKeywords": [
+    "Azure Playwright Testing",
+    "Claude Code",
+    "Codex",
+    "Azure Resource Manager",
+    ".NET SDK",
+    "Playwright workspace management",
+    "Azure DevOps",
+    "cloud testing infrastructure",
+    "ARM SDK",
+    "CI/CD automation"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-resource-manager-playwright-dotnet",
+  "sourceType": "community",
+  "dependencies": []
+}

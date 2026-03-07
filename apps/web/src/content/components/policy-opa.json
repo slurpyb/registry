@@ -1,0 +1,146 @@
+{
+  "name": "policy-opa",
+  "type": "skill",
+  "description": "Policy-as-code enforcement and compliance validation using Open Policy Agent (OPA). Use when: (1) Enforcing security and compliance policies across infrastructure and applications, (2) Validating Kubernetes admission control policies, (3) Implementing policy-as-code for compliance frameworks (SOC2, PCI-DSS, GDPR, HIPAA), (4) Testing and evaluating OPA Rego policies, (5) Integrating policy checks into CI/CD pipelines, (6) Auditing configuration drift against organizational security standards, (7) Implementing least-privilege access controls.\n",
+  "domain": "security",
+  "subdomain": "compliance",
+  "specialty": "policy-as-code enforcement",
+  "quality": 5,
+  "qualityReason": "Critical for secure systems",
+  "bundleHints": [
+    "security-toolkit",
+    "devsecops"
+  ],
+  "tags": [
+    "admission-control",
+    "compliance",
+    "compliance-validation",
+    "gdpr",
+    "hipaa",
+    "infrastructure-policy",
+    "kubernetes",
+    "opa",
+    "pci-dss",
+    "policy-as-code",
+    "rego",
+    "soc2"
+  ],
+  "capabilities": [
+    "Evaluate OPA Rego policies against configuration files",
+    "Enforce Kubernetes pod security standards via admission control",
+    "Validate Terraform infrastructure-as-code for security compliance",
+    "Map policies to SOC2, PCI-DSS, GDPR, and HIPAA control frameworks",
+    "Integrate policy validation into GitHub Actions and GitLab CI pipelines",
+    "Generate compliance reports from policy evaluation results"
+  ],
+  "author": "AgentSecOps",
+  "icon": "🛡️",
+  "version": "0.1.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation and policy template skill containing only Rego policy definitions and reference materials. The static scanner flagged compliance terminology as security issues due to keyword-based detection without semantic understanding. All 382 findings are false positives: 'C2 keywords' are SOC2 control codes (CC6.1, CC7.2), 'weak cryptographic algorithm' flags TLS configurations (valid security controls), and 'certificate/key files' references are Kubernetes annotations, not actual sensitive files. No executable code, network calls, or command execution present.",
+  "valueStatement": "Manual compliance checks are slow and error-prone. This skill provides ready-to-use Rego policies for SOC2, PCI-DSS, GDPR, and HIPAA compliance that can be enforced automatically in CI/CD pipelines and Kubernetes admission controllers.",
+  "userTitle": "Enforce policy-as-code with Open Policy Agent",
+  "limitations": [
+    "Requires OPA binary to be installed separately",
+    "Does not include pre-built container images or binaries",
+    "Policy enforcement depends on OPA Gatekeeper for Kubernetes runtime",
+    "Does not automatically remediate violations"
+  ],
+  "useCases": [
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Validate IaC Security",
+      "description": "Run policy checks on Terraform plans before deployment to catch misconfigurations early."
+    },
+    {
+      "targetUser": "Security Architects",
+      "title": "Define Compliance Policies",
+      "description": "Create centralized policy templates mapped to regulatory frameworks for organization-wide enforcement."
+    },
+    {
+      "targetUser": "Platform Teams",
+      "title": "Enforce K8s Standards",
+      "description": "Block non-compliant workloads from running in Kubernetes clusters using admission controllers."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Policy Check",
+      "scenario": "Evaluate a config file",
+      "prompt": "Evaluate this Kubernetes deployment against the pod security policies in the policy-opa skill and report any violations."
+    },
+    {
+      "title": "Compliance Mapping",
+      "scenario": "Map to framework",
+      "prompt": "Show me how the Rego policies in policy-opa map to SOC2 CC6.1 access control requirements."
+    },
+    {
+      "title": "CI/CD Integration",
+      "scenario": "Add to pipeline",
+      "prompt": "How do I add OPA policy validation to my GitHub Actions workflow using the examples from policy-opa?"
+    },
+    {
+      "title": "Custom Policy",
+      "scenario": "Write new policy",
+      "prompt": "Create a custom Rego policy using the patterns from policy-opa that denies AWS S3 buckets without versioning enabled."
+    }
+  ],
+  "bestPractices": [
+    "Store policies in version control with peer review requirements for all changes",
+    "Maintain at least 80 percent test coverage for all Rego policy rules",
+    "Map each policy to specific compliance controls for audit traceability"
+  ],
+  "antiPatterns": [
+    "Embedding secrets or credentials directly in policy files",
+    "Using wildcard permissions in RBAC policies without justification",
+    "Skipping policy validation in production deployments"
+  ],
+  "faq": [
+    {
+      "question": "What tools does this skill require?",
+      "answer": "OPA binary, Docker for container testing, kubectl for Kubernetes integration, and jq/yq for data processing."
+    },
+    {
+      "question": "What is the maximum policy bundle size?",
+      "answer": "OPA supports bundles up to 50MB. For larger policy sets, split into domain-specific bundles evaluated separately."
+    },
+    {
+      "question": "Can policies be applied to existing resources?",
+      "answer": "OPA Gatekeeper supports audit mode to check existing resources. Remediation must be done manually or through separate automation."
+    },
+    {
+      "question": "How is sensitive data handled?",
+      "answer": "Policies should never embed secrets. Use external data sources or encrypted configuration files for sensitive parameters."
+    },
+    {
+      "question": "Why are my policies not matching input data?",
+      "answer": "Check input structure matches policy expectations. Use opa eval --explain full to trace evaluation and identify mismatches."
+    },
+    {
+      "question": "How does this compare to native cloud policies?",
+      "answer": "OPA provides unified policy language across clouds. AWS has IAM Access Analyzer, Azure has Policy, GCP has Organization Policies. OPA integrates with all."
+    }
+  ],
+  "seoKeywords": [
+    "opa",
+    "open policy agent",
+    "policy-as-code",
+    "compliance automation",
+    "kubernetes admission control",
+    "rego",
+    "soc2 compliance",
+    "pci-dss",
+    "gdpr",
+    "claude code"
+  ],
+  "sourceUrl": "https://github.com/AgentSecOps/SecOpsAgentKit/tree/main/skills/compliance/policy-opa",
+  "sourceType": "community",
+  "dependencies": []
+}

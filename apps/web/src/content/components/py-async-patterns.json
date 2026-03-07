@@ -1,0 +1,143 @@
+{
+  "name": "py-async-patterns",
+  "type": "skill",
+  "description": "Async/await patterns for FastAPI and SQLAlchemy. Use when working with async code, database sessions, concurrent operations, or debugging async issues in Python.",
+  "domain": "languages",
+  "subdomain": "python",
+  "specialty": "async concurrency",
+  "quality": 5,
+  "qualityReason": "Essential modern Python patterns",
+  "bundleHints": [
+    "python-async",
+    "backend-development"
+  ],
+  "tags": [
+    "async",
+    "asyncio",
+    "concurrent",
+    "database",
+    "fastapi",
+    "patterns",
+    "python",
+    "sessions",
+    "sqlalchemy"
+  ],
+  "capabilities": [
+    "Guide AsyncSession lifecycle management and dependency injection",
+    "Optimize concurrent versus sequential database queries",
+    "Implement proper transaction boundaries with commit and rollback",
+    "Configure connection pool settings for asyncpg compatibility",
+    "Use BackgroundTasks for non-blocking post-response operations",
+    "Prevent deadlocks with consistent lock ordering"
+  ],
+  "author": "CJHarmath",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing markdown patterns and Python code examples. Contains no executable code, scripts, network calls, or file modifications. All external command references are in markdown code blocks showing grep/ruff commands for detection purposes only. The skill provides guidance through prompts and does not access or execute anything on user systems.",
+  "valueStatement": "Async Python code often suffers from race conditions, session leaks, and connection pool issues. This skill provides battle-tested patterns for FastAPI and SQLAlchemy that prevent common async pitfalls.",
+  "userTitle": "Apply Python Async Patterns",
+  "limitations": [
+    "Does not generate new async code from scratch",
+    "Does not execute or test async code",
+    "Does not modify existing codebase files",
+    "Does not integrate with async debugging tools"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend Developer",
+      "title": "Fix Session Leaks",
+      "description": "Identify and resolve async session management issues that cause stale data and connection exhaustion."
+    },
+    {
+      "targetUser": "API Engineer",
+      "title": "Optimize Query Performance",
+      "description": "Transform sequential database queries into parallel operations using asyncio.gather for faster endpoints."
+    },
+    {
+      "targetUser": "Full-Stack Developer",
+      "title": "Implement Safe Transactions",
+      "description": "Handle multi-step database operations with proper commit, rollback, and refresh patterns."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Session Management",
+      "scenario": "Fix session lifecycle issues",
+      "prompt": "Help me fix session lifecycle issues in my FastAPI app. I am seeing 'Session is closed' errors and connection timeouts."
+    },
+    {
+      "title": "Query Optimization",
+      "scenario": "Parallelize database queries",
+      "prompt": "I have multiple independent database queries in my endpoint that are running slowly. Show me how to use asyncio.gather to run them in parallel."
+    },
+    {
+      "title": "Transaction Safety",
+      "scenario": "Handle complex transactions",
+      "prompt": "I need to implement a multi-step transfer operation between accounts. Show me the correct pattern for transactions with commit, rollback, and refresh."
+    },
+    {
+      "title": "Background Operations",
+      "scenario": "Offload slow tasks",
+      "prompt": "My endpoint is slow because it sends emails and updates analytics after processing. Show me how to use BackgroundTasks or asyncio.create_task for non-blocking operations."
+    }
+  ],
+  "bestPractices": [
+    "Always scope AsyncSession to individual requests using dependency injection",
+    "Use asyncio.gather for independent queries but sequential await for dependent queries",
+    "Acquire database locks in consistent order to prevent deadlocks in concurrent transfers"
+  ],
+  "antiPatterns": [
+    "Storing global session references that survive across requests",
+    "Running independent queries sequentially instead of using asyncio.gather",
+    "Forgetting to call session.refresh() after commit to get database-generated values"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill work with synchronous SQLAlchemy?",
+      "answer": "No. This skill covers async SQLAlchemy patterns with create_async_engine and AsyncSession. Synchronous patterns use different session management."
+    },
+    {
+      "question": "What connection pool settings does this skill recommend?",
+      "answer": "For asyncpg, NullPool is recommended to avoid connection reuse issues. This creates new connections per request and closes them after."
+    },
+    {
+      "question": "Can I use these patterns with other async frameworks?",
+      "answer": "Yes. The session lifecycle and transaction patterns apply to any async Python framework using SQLAlchemy async."
+    },
+    {
+      "question": "Does this skill access my data or files?",
+      "answer": "No. This skill only provides guidance through prompts. It does not read, write, or execute any code on your system."
+    },
+    {
+      "question": "Why am I getting connection timeouts with my async code?",
+      "answer": "Timeouts usually indicate connection pool exhaustion from session leaks. Check that sessions are closed properly and not stored globally."
+    },
+    {
+      "question": "How is this different from the official SQLAlchemy async documentation?",
+      "answer": "This skill provides battle-tested patterns specifically for FastAPI web applications including common pitfalls and detection commands."
+    }
+  ],
+  "seoKeywords": [
+    "python async",
+    "async await patterns",
+    "fastapi async",
+    "sqlalchemy async",
+    "asyncio best practices",
+    "async database",
+    "concurrent python",
+    "claude async code",
+    "codex async python",
+    "claude-code async"
+  ],
+  "sourceUrl": "https://github.com/CJHarmath/claude-agents-skills/tree/main/skills/py-async-patterns",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,145 @@
+{
+  "name": "aippt",
+  "type": "skill",
+  "description": "AIPPT - 基于模板定制化生成 PPT。垫图约束风格 → 提示词替换内容 → AI 生图 → 打包 PPTX。",
+  "domain": "productivity",
+  "subdomain": "documentation",
+  "specialty": "PPT generation",
+  "quality": 4,
+  "qualityReason": "Clear presentation automation flow",
+  "bundleHints": [
+    "presentation-ai",
+    "docs-automation",
+    "business-tools"
+  ],
+  "tags": [
+    "ai-image",
+    "ai-images",
+    "automation",
+    "content-replacement",
+    "design-constraints",
+    "ppt",
+    "pptx",
+    "presentation",
+    "presentation-automation",
+    "template",
+    "template-based"
+  ],
+  "capabilities": [
+    "Export PPT templates as reference images for style consistency",
+    "Analyze templates and create reusable layout libraries",
+    "Segment content into logical page structures",
+    "Map content to appropriate template layouts",
+    "Upload images to cloud hosts for AI processing",
+    "Bundle generated images into PPTX files"
+  ],
+  "author": "Ceeon",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate PPT generation workflow skill. Static findings are false positives triggered by documentation code blocks (curl commands), placeholder API keys, and Chinese text. All network operations are documented API calls for image generation. No actual command injection, credential exfiltration, or malicious code present.",
+  "valueStatement": "Creating professional presentations manually is time-consuming and often inconsistent. This skill provides a complete workflow to generate on-brand PPT slides using AI image generation. Start from template images and end with a ready-to-use PPTX file.",
+  "userTitle": "Generate PPT from templates with AI",
+  "limitations": [
+    "Requires external API access for AI image generation",
+    "Text accuracy in generated images depends on AI model capabilities",
+    "Style consistency depends on quality of reference template images"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Business professionals",
+      "title": "Rapid presentation creation",
+      "description": "Quickly generate professional presentations from existing brand templates without manual design work"
+    },
+    {
+      "targetUser": "Content creators",
+      "title": "Consistent visual content",
+      "description": "Create multiple slides with uniform style using AI-assisted image generation and template guidelines"
+    },
+    {
+      "targetUser": "Educators and trainers",
+      "title": "Educational materials",
+      "description": "Convert articles and training content into visually engaging presentation decks automatically"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create cover slide",
+      "scenario": "Generate title slide",
+      "prompt": "Create a [style] presentation cover slide with large title \"[title]\" in bold white font, subtitle \"[subtitle]\" below in smaller text, clean minimalist design, 16:9 ratio, no watermark"
+    },
+    {
+      "title": "Section divider",
+      "scenario": "Create chapter transition",
+      "prompt": "Create a [style] section divider slide with gradient background, large centered text \"[chapter number]\" and \"[chapter title]\", clean design, 16:9 ratio"
+    },
+    {
+      "title": "Content illustration",
+      "scenario": "Generate supporting visual",
+      "prompt": "Create a [style] illustration for [topic description], [color] color palette, no text, clean background suitable for presentation slide, 4:3 ratio"
+    },
+    {
+      "title": "4K upscale image",
+      "scenario": "Enhance image resolution",
+      "prompt": "[image_url] Upscale this image to 4K resolution while maintaining all details and content exactly unchanged"
+    }
+  ],
+  "bestPractices": [
+    "Export template slides at 150-300 DPI to ensure high-quality reference images",
+    "Test image generation with one slide before processing the entire presentation",
+    "Use consistent style keywords across all prompts for visual coherence"
+  ],
+  "antiPatterns": [
+    "Do not skip the template analysis phase - it defines critical style constraints",
+    "Do not use low-resolution template images - they cause quality loss",
+    "Do not generate more than 3-4 pages before checking for style consistency"
+  ],
+  "faq": [
+    {
+      "question": "Which AI image models are supported?",
+      "answer": "The skill works with Gemini image models including gemini-3-pro-image-preview, 2K, and 4K variants via the API."
+    },
+    {
+      "question": "What image formats are accepted?",
+      "answer": "JPG, PNG, GIF, and WEBP formats are supported for both input images and generated outputs."
+    },
+    {
+      "question": "Does this skill require internet access?",
+      "answer": "Yes. Internet is required for uploading images to image hosts and calling AI generation APIs."
+    },
+    {
+      "question": "Is my data sent to third parties?",
+      "answer": "Images are uploaded to public image hosts (freeimage.host, catbox.moe) for AI processing. No local data is stored externally."
+    },
+    {
+      "question": "Why is text sometimes incorrect in generated images?",
+      "answer": "AI image models have limited text accuracy. Use specific prompts with quoted text, clear positions, and retry 2-3 times for best results."
+    },
+    {
+      "question": "How does this compare to manual PPT creation?",
+      "answer": "This skill automates visual design while you focus on content. It ensures style consistency but requires content planning upfront."
+    }
+  ],
+  "seoKeywords": [
+    "AI PPT generator",
+    "Claude Code skill",
+    "presentation automation",
+    "template-based PPT",
+    "AI image generation",
+    "slideshow maker",
+    "PPT workflow",
+    "automated presentations",
+    "Codex skill",
+    "document to slides"
+  ],
+  "sourceUrl": "https://github.com/Ceeon/AIPPT-Enterprise/tree/main/",
+  "sourceType": "community",
+  "dependencies": []
+}

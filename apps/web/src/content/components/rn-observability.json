@@ -1,0 +1,143 @@
+{
+  "name": "rn-observability",
+  "type": "skill",
+  "description": "Logging, error messages, and debugging patterns for React Native. Use when adding logging, designing error messages, debugging production issues, or improving code observability.",
+  "domain": "devops",
+  "subdomain": "monitoring",
+  "specialty": "debug logging",
+  "quality": 5,
+  "qualityReason": "Strong observability focus",
+  "bundleHints": [
+    "mobile-devops",
+    "observability"
+  ],
+  "tags": [
+    "debugging",
+    "error-handling",
+    "error-messages",
+    "logging",
+    "observability",
+    "production-issues",
+    "react-native"
+  ],
+  "capabilities": [
+    "Generate structured logging functions with context objects",
+    "Design error messages with diagnostic information",
+    "Implement flow tracing for multi-step operations",
+    "Add state snapshots for debugging complex flows",
+    "Create assertion helpers with visibility",
+    "Integrate production error reporting services"
+  ],
+  "author": "CJHarmath",
+  "icon": "👁️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown patterns and code examples. No executable code, no file system access, no network calls, no external commands. All 75 static findings are false positives caused by the scanner misinterpreting documentation syntax (backticks for code blocks, Object.keys() method calls, YAML frontmatter) as security threats. This is a documentation-only skill providing observability guidance.",
+  "valueStatement": "Silent failures create debugging nightmares. Use logging patterns, error message design, and structured debugging techniques to diagnose production issues fast.",
+  "userTitle": "Add observability to React Native",
+  "limitations": [
+    "Does not execute code or access file systems",
+    "Does not connect to external logging services",
+    "Does not modify existing code automatically",
+    "Provides patterns only, user must implement"
+  ],
+  "useCases": [
+    {
+      "targetUser": "React Native developers",
+      "title": "Add logging to new features",
+      "description": "Generate observability code for new features with structured logging and proper error handling"
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Debug production issues",
+      "description": "Apply debugging patterns to diagnose issues using logs, flow traces, and state snapshots"
+    },
+    {
+      "targetUser": "Backend developers",
+      "title": "Design error messages",
+      "description": "Create error messages that include diagnostic context for faster resolution"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic logging setup",
+      "scenario": "Add logging to a new React Native function",
+      "prompt": "Generate a structured logger for React Native with debug, info, warn, and error levels. Include a logging wrapper that respects environment. Use rn-observability patterns."
+    },
+    {
+      "title": "Error handling",
+      "scenario": "Design error messages with context",
+      "prompt": "Write error handling for a data fetch function using rn-observability patterns. Include function name, what failed, relevant state, and possible cause."
+    },
+    {
+      "title": "Flow tracing",
+      "scenario": "Trace multi-step async operations",
+      "prompt": "Implement flow tracing for a multi-step operation in React Native. Use flow IDs, step logging, and error capturing. Follow rn-observability patterns."
+    },
+    {
+      "title": "Secure logging",
+      "scenario": "Handle sensitive data in logs",
+      "prompt": "Create a secure logging utility that redacts sensitive fields like passwords, tokens, and API keys before logging. Use rn-observability patterns."
+    }
+  ],
+  "bestPractices": [
+    "Log every early return with why it returned and relevant context",
+    "Include function name, diagnostic state, and hypothesis in error messages",
+    "Use flow IDs to trace multi-step operations across async boundaries",
+    "Redact sensitive data before logging to prevent credential exposure"
+  ],
+  "antiPatterns": [
+    "Silent early returns without logging why execution stopped",
+    "Generic error messages without diagnostic context",
+    "Console.log without structured data for searching",
+    "Logging sensitive data like passwords, tokens, or API keys"
+  ],
+  "faq": [
+    {
+      "question": "Which React Native versions are supported?",
+      "answer": "Patterns work with React Native 0.70+ using modern TypeScript and async/await patterns."
+    },
+    {
+      "question": "What logging levels should I use?",
+      "answer": "Error for exceptions, warn for unexpected conditions, info for business events, debug for diagnostics."
+    },
+    {
+      "question": "Can this integrate with Sentry or Crashlytics?",
+      "answer": "Yes. Use the captureError pattern to send errors to services while maintaining local logging."
+    },
+    {
+      "question": "Is sensitive data safe with these patterns?",
+      "answer": "Yes when using the secureLogger pattern with redaction for keys like password, token, and apiKey."
+    },
+    {
+      "question": "Why are my logs not appearing in production?",
+      "answer": "Check log levels. Production typically uses warn/error only. Use captureError for production visibility."
+    },
+    {
+      "question": "How is this different from React Native Debugger?",
+      "answer": "This provides code patterns for persistent observability. Debugger is for interactive debugging sessions."
+    }
+  ],
+  "seoKeywords": [
+    "React Native logging",
+    "React Native debugging",
+    "observability",
+    "error handling",
+    "structured logging",
+    "Claude Code",
+    "Claude",
+    "Codex",
+    "debugging patterns",
+    "production debugging"
+  ],
+  "sourceUrl": "https://github.com/CJHarmath/claude-agents-skills/tree/main/skills/rn-observability",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,139 @@
+{
+  "name": "x-article-publisher",
+  "type": "skill",
+  "description": "Publish Markdown articles to X (Twitter) Articles editor with proper formatting. Use when user wants to publish a Markdown file/URL to X Articles, or mentions \"publish to X\", \"post article to Twitter\", \"X article\", or wants help with X Premium article publishing. Handles cover image upload and converts Markdown to rich text automatically.",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "X publishing",
+  "quality": 5,
+  "qualityReason": "Specific format and platform",
+  "bundleHints": [
+    "social-media-tools",
+    "content-marketing",
+    "x-publishing"
+  ],
+  "tags": [
+    "articles",
+    "content-distribution",
+    "markdown",
+    "publishing",
+    "social-media",
+    "twitter",
+    "x"
+  ],
+  "capabilities": [
+    "Parse Markdown files and extract title, images, and content",
+    "Convert Markdown to HTML for rich text paste",
+    "Copy images and HTML to system clipboard",
+    "Insert images at precise positions using block index",
+    "Compress images before uploading for better performance"
+  ],
+  "author": "wshuyi",
+  "icon": "📝",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate content publishing skill with two Python scripts for Markdown parsing and clipboard operations. Both scripts only access user-specified files via command-line arguments, perform no network requests, no command execution, and no sensitive data access. All 103 static findings are false positives: argparse parsers were misidentified as cryptographic algorithms, and markdown code formatting was misidentified as shell execution.",
+  "valueStatement": "Converts Markdown files to rich text and publishes them to X (Twitter) Articles. Automates the workflow of parsing content, uploading images, and formatting for the X Articles editor.",
+  "userTitle": "Publish Markdown articles to X",
+  "limitations": [
+    "Requires macOS for clipboard operations",
+    "Requires X Premium Plus subscription",
+    "Requires Playwright MCP for browser automation",
+    "Only saves as draft, never auto-publishes"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content creators",
+      "title": "Publish blog posts",
+      "description": "Convert Markdown blog posts and publish them to X Articles with full formatting preserved"
+    },
+    {
+      "targetUser": "Technical writers",
+      "title": "Share documentation",
+      "description": "Publish technical documentation with code blocks and images to X Articles"
+    },
+    {
+      "targetUser": "Social media managers",
+      "title": "Cross-post articles",
+      "description": "Transform existing Markdown content into X Articles format for broader reach"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic publish",
+      "scenario": "Publish a Markdown article",
+      "prompt": "Publish the Markdown file at [path_to_file] to X Articles"
+    },
+    {
+      "title": "With custom images",
+      "scenario": "Specify cover image",
+      "prompt": "Publish [markdown_file] with [image_path] as the cover image to X Articles"
+    },
+    {
+      "title": "Draft workflow",
+      "scenario": "Save as draft",
+      "prompt": "Parse [article.md] and prepare it for X Articles, then save it as a draft"
+    },
+    {
+      "title": "Multi-image article",
+      "scenario": "Handle complex article",
+      "prompt": "Publish [long_article.md] to X Articles. Make sure to insert all content images at their correct positions."
+    }
+  ],
+  "bestPractices": [
+    "Always verify the draft before publishing manually",
+    "Insert images in reverse order of block_index to maintain positioning",
+    "Use image compression (--quality 85) for faster uploads"
+  ],
+  "antiPatterns": [
+    "Do not try to publish directly without reviewing the draft first",
+    "Do not skip the Markdown parsing step before editing",
+    "Do not insert images in ascending block_index order"
+  ],
+  "faq": [
+    {
+      "question": "Which platforms support this skill?",
+      "answer": "This skill works with Claude, Codex, and Claude Code when Playwright MCP is available."
+    },
+    {
+      "question": "What are the size limits for X Articles?",
+      "answer": "X Articles have a content length limit. Very long articles may need to be split across multiple posts."
+    },
+    {
+      "question": "How does it integrate with the browser?",
+      "answer": "It uses Playwright MCP tools for navigation, clicks, file uploads, and keyboard shortcuts."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "Yes. The skill only accesses files you explicitly specify and never sends data to external servers."
+    },
+    {
+      "question": "Why is my image upload failing?",
+      "answer": "Ensure the image path is correct and the file exists. Use absolute paths for best results."
+    },
+    {
+      "question": "How is this different from manual publishing?",
+      "answer": "Automates Markdown parsing, image positioning, and clipboard operations for faster publishing."
+    }
+  ],
+  "seoKeywords": [
+    "X Articles publisher",
+    "Twitter Articles markdown",
+    "publish to X",
+    "markdown to twitter",
+    "claude code skill",
+    "claude skill",
+    "codex skill",
+    "content publishing"
+  ],
+  "sourceUrl": "https://github.com/wshuyi/x-article-publisher-skill/tree/main/skills/x-article-publisher/",
+  "sourceType": "community",
+  "dependencies": []
+}

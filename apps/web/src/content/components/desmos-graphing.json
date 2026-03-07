@@ -1,0 +1,143 @@
+{
+  "name": "desmos-graphing",
+  "type": "skill",
+  "description": "Create interactive Desmos graphs in Obsidian using desmos-graph code blocks. Use when visualizing functions, parametric curves, inequalities, or mathematical relationships with customizable styling and settings.",
+  "domain": "science",
+  "subdomain": "research",
+  "specialty": "interactive math visualization",
+  "quality": 4,
+  "qualityReason": "Niche but valuable integration",
+  "bundleHints": [
+    "math-tools",
+    "research-aid"
+  ],
+  "tags": [
+    "desmos",
+    "functions",
+    "graphing",
+    "mathematics",
+    "obsidian",
+    "parametric-curves",
+    "visualization"
+  ],
+  "capabilities": [
+    "Create function graphs with y=f(x) syntax",
+    "Add parametric and polar curves",
+    "Plot points with custom labels",
+    "Apply colors, line styles, and restrictions",
+    "Configure graph viewport and axis settings",
+    "Define piecewise functions with conditions"
+  ],
+  "author": "BitYoungjae",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill with no executable code. Contains only markdown documentation explaining Desmos graph syntax. Static findings are false positives from markdown code formatting (backticks) and LaTeX math notation being misinterpreted as security issues.",
+  "valueStatement": "Creating mathematical graphs for documentation is time-consuming and error-prone. This skill provides complete reference syntax for rendering interactive Desmos graphs directly in Obsidian markdown using desmos-graph code blocks with full styling and customization support.",
+  "userTitle": "Create Desmos mathematical graphs in Obsidian",
+  "limitations": [
+    "Cannot render graphs directly (requires obsidian-desmos plugin)",
+    "Does not provide interactive graph editing",
+    "No built-in formula solving or calculation",
+    "Cannot import external graph definitions"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Students",
+      "title": "Visualize math concepts",
+      "description": "Create graphs of functions, trig curves, and equations to illustrate mathematical concepts in study notes."
+    },
+    {
+      "targetUser": "Teachers",
+      "title": "Build interactive lessons",
+      "description": "Design educational content with labeled points, multiple curves, and annotations for classroom materials."
+    },
+    {
+      "targetUser": "Technical writers",
+      "title": "Document mathematical models",
+      "description": "Include professional graphs in technical documentation showing relationships, constraints, and solutions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic sine wave",
+      "scenario": "Plot trigonometric function",
+      "prompt": "Create a desmos-graph code block showing y=sin(x) and y=cos(x) on the same plot from -2π to 2π."
+    },
+    {
+      "title": "Labeled points",
+      "scenario": "Mark special coordinates",
+      "prompt": "Add a desmos-graph with a circle x²+y²=25 and mark the point (3,4) with label 'Point A'."
+    },
+    {
+      "title": "Trigonometric identities",
+      "scenario": "Compare phase shifts",
+      "prompt": "Show three sine curves with phase shifts of π/4, π/2, and π in different colors on one graph."
+    },
+    {
+      "title": "Piecewise function",
+      "scenario": "Define conditional function",
+      "prompt": "Create a piecewise function graph that shows y={x<0: -x, x>=0: √x} with the junction point labeled."
+    }
+  ],
+  "bestPractices": [
+    "Use \\pi (LaTeX) in equations and points, but pi (mathjs) in settings",
+    "Apply restrictions with plain math only - no LaTeX commands like \\sqrt",
+    "Separate settings from equations with --- on its own line",
+    "Use hex colors for gray, pink, brown and other unsupported names"
+  ],
+  "antiPatterns": [
+    "Using | in labels (causes parsing errors - use Unicode ∥ instead)",
+    "Mixing LaTeX \\sqrt in restrictions (use x^0.5 instead)",
+    "Putting multiple --- separators in one code block",
+    "Using r² or r³ in polar equations (convert to parametric form)"
+  ],
+  "faq": [
+    {
+      "question": "Which colors are supported in desmos-graph?",
+      "answer": "Only 10 colors by name: red, green, blue, yellow, orange, purple, cyan, magenta, black, white. Use hex codes for gray, pink, brown."
+    },
+    {
+      "question": "What is the difference between pi and \\pi?",
+      "answer": "Use pi in settings (mathjs syntax) and \\pi in equations and points (LaTeX). This is the most common source of errors."
+    },
+    {
+      "question": "Can I use Desmos sliders in Obsidian?",
+      "answer": "Yes, define variables like a=2 and b=3, then use them in equations. Sliders will appear in the rendered graph."
+    },
+    {
+      "question": "How do I limit where a curve is drawn?",
+      "answer": "Add restrictions after | using plain math: y=x²|0<x<5. Use ^0.5 for square root, numeric values for π."
+    },
+    {
+      "question": "Is my data safe when rendering graphs?",
+      "answer": "Yes, graphs are rendered locally by the obsidian-desmos plugin. No data is sent to external servers."
+    },
+    {
+      "question": "How does this compare to Mermaid or TikZ?",
+      "answer": "Desmos provides fully interactive graphs with zoom, pan, and sliders. Mermaid is simpler but less interactive. TikZ offers more control but requires LaTeX knowledge."
+    }
+  ],
+  "seoKeywords": [
+    "Desmos graphing",
+    "Obsidian plugin",
+    "mathematical visualization",
+    "function graphs",
+    "parametric curves",
+    "LaTeX equations",
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "Obsidian documentation"
+  ],
+  "sourceUrl": "https://github.com/BitYoungjae/marketplace/tree/main/plugins/obsidian-blocks/skills/desmos-graphing",
+  "sourceType": "community",
+  "dependencies": []
+}

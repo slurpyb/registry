@@ -1,0 +1,144 @@
+{
+  "name": "seaborn",
+  "type": "skill",
+  "description": "Statistical visualization with pandas integration. Use for quick exploration of distributions, relationships, and categorical comparisons with attractive defaults. Best for box plots, violin plots, pair plots, heatmaps. Built on matplotlib. For interactive plots use plotly; for publication styling use scientific-visualization.",
+  "domain": "data",
+  "subdomain": "visualization",
+  "specialty": "Statistical plots",
+  "quality": 5,
+  "qualityReason": "Well-defined library with clear use cases",
+  "bundleHints": [
+    "data-visualization",
+    "python-eda"
+  ],
+  "tags": [
+    "box-plots",
+    "data-analysis",
+    "matplotlib",
+    "pandas",
+    "statistics",
+    "violin-plots",
+    "visualization"
+  ],
+  "capabilities": [
+    "Generate box plots for comparing distributions across categories with automatic styling",
+    "Create violin plots that combine box plot and kernel density estimation visualizations",
+    "Build heatmaps for visualizing matrix data with annotated color scales",
+    "Produce pair plots for exploring relationships between multiple variables",
+    "Apply seaborn theme settings for consistent, publication-quality figure styling",
+    "Integrate seamlessly with pandas DataFrames for direct data visualization workflows"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "BSD-3-Clause license",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All static findings are false positives. The scanner incorrectly identified markdown documentation formatting (backticks for inline code) as shell command execution, library names as cryptographic algorithms, and standard metadata as network indicators. This is a legitimate statistical visualization skill with no malicious code or risky operations.",
+  "valueStatement": "Creating publication-quality statistical visualizations requires significant boilerplate code and design decisions. This skill provides optimized access to seaborn library functions for generating box plots, violin plots, heatmaps, and pair plots with attractive defaults and pandas integration.",
+  "userTitle": "Create Statistical Visualizations with Seaborn",
+  "limitations": [
+    "Does not provide interactive visualizations (use plotly skill for interactive plots)",
+    "Requires matplotlib and pandas dependencies to be installed in the environment",
+    "Does not support 3D visualization (use mayavi or plotly for 3D plots)",
+    "Limited to 2D statistical visualization techniques included in seaborn library"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data analysts and researchers working with experimental or survey datasets",
+      "title": "Explore Dataset Distributions for Analysis",
+      "description": "Quickly generate distribution comparisons across categorical groups using box plots and violin plots to identify outliers and patterns in experimental or survey data."
+    },
+    {
+      "targetUser": "Machine learning engineers and data scientists preparing feature engineering",
+      "title": "Visualize Correlation Matrices in Notebooks",
+      "description": "Create annotated heatmaps showing correlation coefficients between variables to support feature selection and multicollinearity assessment in machine learning workflows."
+    },
+    {
+      "targetUser": "Academic researchers and technical writers creating data-driven publications",
+      "title": "Generate Publication-Quality Figures",
+      "description": "Produce styled statistical figures with consistent aesthetics for academic papers, reports, and presentations using seaborn theme customization."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Box Plot",
+      "prompt": "Use the seaborn skill to create a box plot comparing values across a categorical variable. Use the sample_data DataFrame with 'category' as the x-axis and 'value' as the y-axis. Apply the seaborn default theme and add appropriate labels.",
+      "scenario": "Quick distribution comparison task"
+    },
+    {
+      "title": "Styled Violin Plot",
+      "prompt": "Generate a violin plot with the seaborn skill showing the distribution of 'scores' by 'treatment_group' from experiment_data. Include the inner='box' option to show quartiles. Use a professional color palette and set figure size to 10x6.",
+      "scenario": "Detailed distribution visualization with styling"
+    },
+    {
+      "title": "Correlation Heatmap",
+      "prompt": "Create a heatmap using seaborn to visualize the correlation matrix from features_df. Annotate cells with correlation values, use a diverging colormap centered at 0, and include a colorbar legend. Set the figure size appropriately for readability.",
+      "scenario": "Feature correlation analysis"
+    },
+    {
+      "title": "Multi-Variable Pair Plot",
+      "prompt": "Generate a pair plot using seaborn for the columns ['sepal_length', 'sepal_width', 'petal_length', 'petal_width'] from iris_data. Color points by species, show scatter plots on lower triangle and distributions on diagonal, and use a subplot grid size of 12x12.",
+      "scenario": "Exploratory data analysis with multiple variables"
+    }
+  ],
+  "bestPractices": [
+    "Use consistent figure sizes (set via matplotlib figure parameters) when creating multiple related visualizations for reports",
+    "Apply seaborn theme settings (sns.set_theme) once at the beginning of sessions for consistent styling across all generated figures",
+    "Choose appropriate color palettes (diverging for correlations, sequential for magnitudes) to accurately represent data relationships"
+  ],
+  "antiPatterns": [
+    "Avoid creating overly complex visualizations with too many categories (consider aggregating or filtering data first)",
+    "Do not use box plots for very small sample sizes where violin or strip plots would show the distribution better",
+    "Avoid overwhelming figures with excessive annotations; keep labels and titles clear and concise"
+  ],
+  "faq": [
+    {
+      "question": "What is the difference between box plots and violin plots in seaborn?",
+      "answer": "Box plots show summary statistics (median, quartiles, outliers) as a box with whiskers. Violin plots show the full distribution shape using kernel density estimation, making them better for understanding data distribution beyond summary statistics."
+    },
+    {
+      "question": "Can I use seaborn with data stored in pandas DataFrames?",
+      "answer": "Yes, seaborn is designed for pandas integration. Pass the DataFrame to functions along with column names for x, y, and hue parameters. Seaborn automatically handles data access from the DataFrame."
+    },
+    {
+      "question": "How do I save seaborn figures for publication?",
+      "answer": "Use matplotlib's savefig function after creating your seaborn plot. Set dpi=300 for high resolution, specify the format (PNG, PDF, SVG) in the filename, and adjust figure size before saving."
+    },
+    {
+      "question": "What color palettes are available in seaborn?",
+      "answer": "Seaborn provides named palettes like 'deep', 'muted', 'pastel', 'bright', 'dark', and 'colorblind'. You can also create custom palettes using sns.color_palette() with specific colors or using built-in palettes like 'husl' or 'cubehelix'."
+    },
+    {
+      "question": "How do I customize seaborn figure styling globally?",
+      "answer": "Use sns.set_theme() or sns.set_style(), sns.set_context(), and sns.set_palette() to control the theme, plotting context (paper, talk, poster), and color palette across all figures in your session."
+    },
+    {
+      "question": "Can I combine matplotlib and seaborn in the same figure?",
+      "answer": "Yes, seaborn returns matplotlib axes objects that can be customized with matplotlib functions. You can add annotations, modify axis limits, or layer additional plots using standard matplotlib commands on seaborn-generated axes."
+    }
+  ],
+  "seoKeywords": [
+    "seaborn",
+    "statistical visualization",
+    "data visualization",
+    "box plot",
+    "violin plot",
+    "heatmap",
+    "pair plot",
+    "pandas integration",
+    "matplotlib",
+    "data analysis",
+    "Claude",
+    "Codex",
+    "Claude Code"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/seaborn",
+  "sourceType": "community",
+  "dependencies": []
+}

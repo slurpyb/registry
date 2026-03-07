@@ -1,0 +1,141 @@
+{
+  "name": "shap",
+  "type": "skill",
+  "description": "Model interpretability and explainability using SHAP (SHapley Additive exPlanations). Use this skill when explaining machine learning model predictions, computing feature importance, generating SHAP plots (waterfall, beeswarm, bar, scatter, force, heatmap), debugging models, analyzing model bias or fairness, comparing models, or implementing explainable AI. Works with tree-based models (XGBoost, LightGBM, Random Forest), deep learning (TensorFlow, PyTorch), linear models, and any black-box model.",
+  "domain": "ai-ml",
+  "subdomain": "ml-ops",
+  "specialty": "model explainability",
+  "quality": 5,
+  "qualityReason": "Critical ML transparency",
+  "bundleHints": [
+    "ml-interpretability",
+    "model-debugging"
+  ],
+  "tags": [
+    "explainable-ai",
+    "feature-importance",
+    "interpretability",
+    "machine-learning",
+    "ml",
+    "model-interpretation",
+    "predictions",
+    "shapley",
+    "xai"
+  ],
+  "capabilities": [
+    "Select appropriate SHAP explainer based on model type (TreeExplainer, DeepExplainer, KernelExplainer, LinearExplainer)",
+    "Generate SHAP visualizations including waterfall, beeswarm, bar, scatter, force, and heatmap plots",
+    "Debug machine learning models by identifying prediction errors and unexpected feature importance",
+    "Analyze model fairness and bias across demographic groups using feature importance comparison",
+    "Implement production-ready explanation services with cached explainers and API endpoints"
+  ],
+  "author": "davila7",
+  "icon": "📊",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill with no code execution, network calls, file access, or external dependencies. All 297 static findings are false positives: markdown backticks (code formatting), SHA in SHAP (Shapley values, not cryptography), and documentation file references.",
+  "valueStatement": "Machine learning models often work as black boxes. SHAP provides a unified framework to understand which features drive predictions and how much each feature contributes. This skill helps you compute feature importance, generate visualizations, debug models, and implement explainable AI in your projects.",
+  "userTitle": "Explain model predictions with SHAP",
+  "limitations": [
+    "KernelExplainer can be slow for models with many features due to exponential complexity",
+    "Does not include the SHAP library itself - requires installation via pip or uv",
+    "SHAP measures association, not causation - explanations require domain knowledge for causal interpretation"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data Scientists",
+      "title": "Debug model predictions",
+      "description": "Identify why your model makes specific predictions by visualizing feature contributions for individual samples."
+    },
+    {
+      "targetUser": "ML Engineers",
+      "title": "Deploy explainable AI",
+      "description": "Integrate SHAP explanations into production APIs with cached explainers and efficient batch processing."
+    },
+    {
+      "targetUser": "Domain Experts",
+      "title": "Analyze model fairness",
+      "description": "Detect bias by comparing feature importance across demographic groups to ensure fair predictions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic feature importance",
+      "scenario": "Understanding model drivers",
+      "prompt": "Generate SHAP values and a beeswarm plot to show which features are most important for my [XGBoost/LightGBM/Random Forest] model trained on [describe your dataset]."
+    },
+    {
+      "title": "Individual prediction",
+      "scenario": "Explaining specific decisions",
+      "prompt": "Explain why my model predicted [specific outcome] for a single sample. Show me a waterfall plot with the feature contributions for sample index [number]."
+    },
+    {
+      "title": "Model comparison",
+      "scenario": "Comparing model behavior",
+      "prompt": "Compare feature importance between my [Model A] and [Model B]. Generate bar plots showing which features each model relies on most and how their explanations differ."
+    },
+    {
+      "title": "Fairness analysis",
+      "scenario": "Detecting bias",
+      "prompt": "Analyze my model for potential bias across [protected attribute like gender/age/race]. Compare SHAP values for [Group A] and [Group B] to see if certain groups are treated differently."
+    }
+  ],
+  "bestPractices": [
+    "Use TreeExplainer for tree-based models (XGBoost, LightGBM, Random Forest) - it is exact and much faster than KernelExplainer",
+    "Start with global visualizations (beeswarm) to understand overall patterns, then drill into individual predictions with waterfall plots",
+    "Validate SHAP explanations against domain knowledge - SHAP shows model behavior, not causation"
+  ],
+  "antiPatterns": [
+    "Using KernelExplainer for tree-based models when TreeExplainer is available (slower and unnecessary)",
+    "Interpreting log-odds as probabilities for classifier models without checking model output type",
+    "Assuming high feature importance indicates causation rather than model-learned associations"
+  ],
+  "faq": [
+    {
+      "question": "Which SHAP explainer should I use for my model?",
+      "answer": "TreeExplainer for tree models (XGBoost, LightGBM, Random Forest), DeepExplainer for neural networks, LinearExplainer for linear models, KernelExplainer as fallback for any model type."
+    },
+    {
+      "question": "How many background samples do I need for KernelExplainer?",
+      "answer": "Use 50-1000 representative samples from your training data. More samples improve accuracy but increase computation time."
+    },
+    {
+      "question": "Can I use SHAP with PyTorch or TensorFlow models?",
+      "answer": "Yes, use DeepExplainer for TensorFlow/PyTorch models or GradientExplainer for expected gradients approximation."
+    },
+    {
+      "question": "Is my data safe when using SHAP?",
+      "answer": "SHAP computations happen locally on your machine. The skill contains only documentation - no data is sent anywhere."
+    },
+    {
+      "question": "Why are my XGBoost SHAP values in log-odds instead of probabilities?",
+      "answer": "XGBoost classifiers explain margin output by default. Use model_output='probability' in TreeExplainer to get probability-scale values."
+    },
+    {
+      "question": "How does SHAP compare to LIME or permutation importance?",
+      "answer": "SHAP provides both local and global explanations with theoretical guarantees. LIME approximates SHAP but without consistency. Permutation importance only provides global importance without instance-level explanations."
+    }
+  ],
+  "seoKeywords": [
+    "SHAP explainability",
+    "SHAP machine learning",
+    "model interpretability",
+    "feature importance",
+    "XGBoost explainer",
+    "SHAP plots",
+    "explainable AI",
+    "Claude Code",
+    "model debugging",
+    "SHAP values"
+  ],
+  "sourceUrl": "https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/shap",
+  "sourceType": "community",
+  "dependencies": []
+}

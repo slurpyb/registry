@@ -1,0 +1,143 @@
+{
+  "name": "devops-quality",
+  "type": "skill",
+  "description": "Code quality standards, linting rules, and CI/CD principles.",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "code quality",
+  "quality": 4,
+  "qualityReason": "Good but overlaps with linting tools",
+  "bundleHints": [
+    "devops-quality",
+    "code-quality",
+    "ci-cd"
+  ],
+  "tags": [
+    "best practices",
+    "best-practices",
+    "ci-cd",
+    "ci/cd",
+    "code quality",
+    "code-quality",
+    "linting",
+    "static analysis"
+  ],
+  "capabilities": [
+    "Enforces ESLint configuration for code quality",
+    "Guides semantic commit message formatting",
+    "Provides CI/CD pipeline recommendations",
+    "Documents secrets management practices",
+    "Explains feature branch workflow",
+    "Covers testing strategies for unit and E2E tests"
+  ],
+  "author": "AbdulSamad94",
+  "icon": "🔧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill containing only markdown guidance on DevOps best practices. All 28 static findings are FALSE POSITIVES triggered by documentation references that the pattern matcher misclassified. The skill contains no executable code, scripts, network calls, or file system access beyond reading its own file. The skill-report.json explicitly lists zero risk factors and the audit confirms it is safe to publish.",
+  "valueStatement": "This skill helps teams establish consistent code quality standards. It provides guidance on linting rules, version control workflows, and CI/CD practices to improve code reliability and maintainability.",
+  "userTitle": "Apply DevOps code quality standards",
+  "limitations": [
+    "Does not execute linting or testing commands automatically",
+    "Does not modify project configuration files",
+    "Does not connect to CI/CD services or APIs",
+    "Does not manage secrets or credentials"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development teams",
+      "title": "Establish code standards",
+      "description": "Set up consistent linting rules and code quality checks across your development team."
+    },
+    {
+      "targetUser": "DevOps engineers",
+      "title": "Design CI/CD pipelines",
+      "description": "Plan GitHub Actions workflows that run lint and build checks on every pull request."
+    },
+    {
+      "targetUser": "New developers",
+      "title": "Learn best practices",
+      "description": "Understand proper version control workflow and commit message conventions."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Setup linting",
+      "scenario": "Configure code linting",
+      "prompt": "How do I configure ESLint with strict type checking for my TypeScript project?"
+    },
+    {
+      "title": "Semantic commits",
+      "scenario": "Write commit messages",
+      "prompt": "What is the semantic commit message format? Give me examples for features, fixes, and documentation changes."
+    },
+    {
+      "title": "CI pipeline",
+      "scenario": "Set up CI/CD",
+      "prompt": "How do I set up GitHub Actions to run npm run lint and npm run build on every pull request?"
+    },
+    {
+      "title": "Secrets handling",
+      "scenario": "Manage credentials",
+      "prompt": "What are the best practices for managing secrets locally and in production environments? How do I avoid committing secrets?"
+    }
+  ],
+  "bestPractices": [
+    "Run linting before every commit to catch issues early in development",
+    "Use semantic commit messages for clear changelog generation and team coordination",
+    "Never commit .env files or secrets to version control systems"
+  ],
+  "antiPatterns": [
+    "Skipping lint checks to save time during development phases",
+    "Committing sensitive data like API keys or passwords to the repository",
+    "Merging code without running build and test steps in CI pipeline"
+  ],
+  "faq": [
+    {
+      "question": "Which linting tools are supported?",
+      "answer": "This skill covers ESLint configuration for JavaScript and TypeScript projects with strict type checking enabled."
+    },
+    {
+      "question": "What commit message format should I use?",
+      "answer": "Use semantic commits with format: type(scope): description. Types include feat, fix, docs, style, refactor, test, and chore."
+    },
+    {
+      "question": "How do I integrate with CI/CD?",
+      "answer": "Create GitHub Actions workflows that run npm install, npm run lint, and npm run build on every pull request to main branch."
+    },
+    {
+      "question": "Is my data safe when using this skill?",
+      "answer": "Yes. This skill only reads its own documentation and provides guidance. It does not access files, execute code, or transmit data externally."
+    },
+    {
+      "question": "Why is my build failing after enabling strict linting?",
+      "answer": "Strict linting enforces type safety. Fix type errors by adding proper TypeScript types, using noImplicitAny, and resolving all lint warnings."
+    },
+    {
+      "question": "How does this compare to other DevOps skills?",
+      "answer": "This skill focuses on code quality and CI/CD fundamentals. It complements deployment skills by establishing quality gates before code reaches production."
+    }
+  ],
+  "seoKeywords": [
+    "DevOps",
+    "code quality",
+    "linting",
+    "CI/CD",
+    "ESLint",
+    "GitHub Actions",
+    "Claude",
+    "code standards",
+    "best practices",
+    "software development"
+  ],
+  "sourceUrl": "https://github.com/AbdulSamad94/Hackhaton-SpecsKitPlus/tree/master/.claude/skills/devops",
+  "sourceType": "community",
+  "dependencies": []
+}

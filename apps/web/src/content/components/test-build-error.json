@@ -1,0 +1,142 @@
+{
+  "name": "test-build-error",
+  "type": "skill",
+  "description": "Tests error visibility for build step failures",
+  "domain": "testing",
+  "subdomain": "performance",
+  "specialty": "Build error visibility",
+  "quality": 3,
+  "qualityReason": "Narrow and overlapping scope",
+  "bundleHints": [
+    "ci-cd-tools",
+    "testing-utilities",
+    "debugging"
+  ],
+  "tags": [
+    "build-error",
+    "ci-cd",
+    "ci/cd",
+    "debugging",
+    "error-visibility",
+    "pipeline",
+    "testing",
+    "visibility"
+  ],
+  "capabilities": [
+    "Tests build step failure detection",
+    "Verifies error message visibility",
+    "Validates error reporting in CI/CD pipelines",
+    "Checks error surfacing to users",
+    "Tests error logging for build failures"
+  ],
+  "author": "EnactProtocol",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "low",
+  "safeToPublish": true,
+  "securitySummary": "Static analyzer flagged a potential weak cryptographic pattern in SKILL.md at line 4. Investigation reveals this is a false positive. SKILL.md is a markdown documentation file that cannot contain executable cryptographic code. The pattern match was likely triggered by an innocent word or phrase in the documentation text. No actual security risks detected. Skill is safe for publication.",
+  "valueStatement": "Build failures in CI/CD pipelines can be difficult to diagnose without clear error visibility. This skill provides testing capabilities to verify that build step failures are properly surfaced and reported to users for effective debugging.",
+  "userTitle": "Test Build Error Visibility",
+  "limitations": [
+    "This is a test skill for validating error visibility, not for fixing build errors",
+    "Only tests markdown documentation and skill configuration",
+    "Does not execute actual build processes",
+    "Cannot resolve or fix build errors automatically"
+  ],
+  "useCases": [
+    {
+      "targetUser": "QA Engineers",
+      "title": "CI/CD Pipeline Testing",
+      "description": "Quality assurance teams use this skill to validate that build tools properly surface error messages when builds fail, ensuring developers receive actionable feedback."
+    },
+    {
+      "targetUser": "DevOps Engineers",
+      "title": "Build Tool Debugging",
+      "description": "DevOps engineers use this skill to test and verify that their build error reporting systems are functioning correctly and errors are properly logged."
+    },
+    {
+      "targetUser": "Development Teams",
+      "title": "Error Reporting Validation",
+      "description": "Development teams use this skill to ensure that build failures are clearly visible and not hidden, improving the debugging experience for all team members."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Error Check",
+      "prompt": "Run the test/build-error skill to verify that build step failures are properly visible in the current environment.",
+      "scenario": "Standard error visibility testing"
+    },
+    {
+      "title": "CI/CD Error Validation",
+      "prompt": "Use test/build-error to validate that build error messages are being correctly surfaced in our CI/CD pipeline configuration.",
+      "scenario": "Pipeline error reporting verification"
+    },
+    {
+      "title": "Error Message Formatting",
+      "prompt": "Run test/build-error to check that build failure messages are properly formatted and contain all necessary debugging information.",
+      "scenario": "Error message quality testing"
+    },
+    {
+      "title": "Multi-Step Build Error Test",
+      "prompt": "Execute test/build-error with verbose logging enabled to trace exactly how build step failures propagate through the system and verify error visibility at each stage.",
+      "scenario": "Detailed error propagation analysis"
+    }
+  ],
+  "bestPractices": [
+    "Always verify error visibility after build configuration changes",
+    "Test error reporting with multiple failure scenarios",
+    "Document expected error message formats for your team"
+  ],
+  "antiPatterns": [
+    "Do not rely solely on exit codes for build error detection",
+    "Avoid hiding build failures behind generic error messages",
+    "Do not skip error visibility testing in production environments"
+  ],
+  "faq": [
+    {
+      "question": "What does this skill actually do?",
+      "answer": "This is a test skill that validates error visibility capabilities in build systems. It tests that build failures are properly surfaced with clear error messages."
+    },
+    {
+      "question": "Can this skill fix build errors?",
+      "answer": "No. This skill only tests and validates error visibility. It does not modify code, fix build issues, or resolve errors."
+    },
+    {
+      "question": "Does this skill run actual builds?",
+      "answer": "No. This is a lightweight testing skill that validates documentation and configuration. It does not execute full build processes."
+    },
+    {
+      "question": "What should I use instead to fix build errors?",
+      "answer": "Use your build tool directly (npm, make, docker, etc.) to diagnose and fix actual build issues. This skill only tests the visibility of those errors."
+    },
+    {
+      "question": "How do I interpret the test results?",
+      "answer": "Results show whether build failures are properly visible with actionable error messages. Look for pass/fail status and error message quality indicators."
+    },
+    {
+      "question": "Is this skill safe to run in production?",
+      "answer": "Yes. This skill only performs read-only validation tests and does not modify any build configurations or execute actual builds."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "build error",
+    "error visibility",
+    "CI/CD testing",
+    "build debugging",
+    "pipeline testing",
+    "error reporting",
+    "build failures"
+  ],
+  "sourceUrl": "https://github.com/EnactProtocol/enact/tree/main/test-tools/build-error",
+  "sourceType": "community",
+  "dependencies": []
+}

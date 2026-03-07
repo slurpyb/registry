@@ -1,0 +1,137 @@
+{
+  "name": "miro-automation",
+  "type": "skill",
+  "description": "Automate Miro tasks via Rube MCP (Composio): boards, items, sticky notes, frames, sharing, connectors. Always search tools first for current schemas.",
+  "domain": "tools",
+  "subdomain": "mcp",
+  "specialty": "Whiteboard automation",
+  "quality": 5,
+  "qualityReason": "Complete automation suite",
+  "bundleHints": [
+    "mcp-toolkit",
+    "collaboration-tools"
+  ],
+  "tags": [
+    "automation",
+    "collaboration",
+    "composio",
+    "miro",
+    "whiteboard"
+  ],
+  "capabilities": [
+    "List and search boards with pagination support",
+    "Create boards, sticky notes, frames, and other items",
+    "Browse and filter board items by type",
+    "Share boards with team members and manage access roles",
+    "Create visual connectors between items",
+    "Resolve board names to IDs automatically"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis flagged 68 external_commands patterns and 1 network pattern, but all are false positives. The SKILL.md file is documentation describing MCP tool usage (MIRO_GET_BOARDS2, MIRO_CREATE_BOARD, etc.), not executable shell code. The hardcoded URL is the legitimate Rube MCP server endpoint required for configuration. No actual command execution or security risks present.",
+  "valueStatement": "Streamline collaborative whiteboard workflows by automating repetitive Miro tasks. Create boards, organize content, and manage team access without manual clicks.",
+  "userTitle": "Automate Miro whiteboards with AI assistance",
+  "limitations": [
+    "Requires Rube MCP server connection to be configured",
+    "Miro OAuth authentication must be completed before use",
+    "Board IDs must be resolved through search, not hardcoded",
+    "Rate limits apply based on Miro API token constraints"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Workshop facilitators",
+      "title": "Team workshop setup",
+      "description": "Automatically create workshop boards with pre-organized frames and sticky notes for brainstorming sessions."
+    },
+    {
+      "targetUser": "Project managers",
+      "title": "Project documentation",
+      "description": "Generate visual project boards with connected items showing dependencies and workflows."
+    },
+    {
+      "targetUser": "UX designers",
+      "title": "Design sprint automation",
+      "description": "Rapidly create and populate design sprint boards with templates for each phase."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "List available boards",
+      "prompt": "Show me all Miro boards I have access to, sorted by most recently modified.",
+      "scenario": "Quick board discovery"
+    },
+    {
+      "title": "Create a new workshop board",
+      "prompt": "Create a new Miro board called 'Sprint Planning' with three frames labeled 'To Do', 'In Progress', and 'Done'.",
+      "scenario": "Board creation with structure"
+    },
+    {
+      "title": "Add content to existing board",
+      "prompt": "Find my 'Sprint Planning' board and add sticky notes for each task in the backlog to the 'To Do' frame.",
+      "scenario": "Content population"
+    },
+    {
+      "title": "Share board with team",
+      "prompt": "Share the 'Sprint Planning' board with my team members (alice@example.com, bob@example.com) as editors with a welcome message.",
+      "scenario": "Team collaboration"
+    }
+  ],
+  "bestPractices": [
+    "Always call RUBE_SEARCH_TOOLS first to get current tool schemas before executing workflows",
+    "Use MIRO_CREATE_ITEMS_IN_BULK for adding multiple items instead of individual calls",
+    "Implement pagination handling for large boards with many items"
+  ],
+  "antiPatterns": [
+    "Hardcoding board IDs instead of resolving them dynamically through search",
+    "Creating items one-by-one when bulk operations are available",
+    "Ignoring pagination cursors and missing items on large boards"
+  ],
+  "faq": [
+    {
+      "question": "Do I need an API key to use this skill?",
+      "answer": "No API key is required. You need to add the Rube MCP server endpoint (https://rube.app/mcp) to your MCP configuration and complete Miro OAuth authentication through RUBE_MANAGE_CONNECTIONS."
+    },
+    {
+      "question": "How do I find a specific board?",
+      "answer": "Use the MIRO_GET_BOARDS2 tool with a query parameter to search by board name. The skill will return matching boards with their IDs for further operations."
+    },
+    {
+      "question": "Can I create multiple items at once?",
+      "answer": "Yes, use MIRO_CREATE_ITEMS_IN_BULK to add multiple items in a single API call. This is more efficient than creating items individually and helps avoid rate limits."
+    },
+    {
+      "question": "What item types can I create on a Miro board?",
+      "answer": "You can create sticky notes, frames, shapes, text, images, and cards. Each type has different required fields - check the tool schema for specific requirements."
+    },
+    {
+      "question": "How do I share a board with my team?",
+      "answer": "Use MIRO_SHARE_BOARD with the board ID, an array of email addresses, and the desired role (viewer, commenter, or editor). You can include an optional invitation message."
+    },
+    {
+      "question": "Why are some items not appearing in my board items list?",
+      "answer": "Large boards use pagination. Follow the cursor in each response until it is absent to retrieve all items. You can also filter by item type to narrow results."
+    }
+  ],
+  "seoKeywords": [
+    "Miro automation",
+    "Claude Code Miro",
+    "Codex whiteboard tools",
+    "MCP integration",
+    "Composio Miro",
+    "AI collaboration",
+    "board automation",
+    "sticky notes API"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/miro-automation",
+  "sourceType": "community",
+  "dependencies": []
+}

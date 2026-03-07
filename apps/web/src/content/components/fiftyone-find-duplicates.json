@@ -1,0 +1,144 @@
+{
+  "name": "fiftyone-find-duplicates",
+  "type": "skill",
+  "description": "Find duplicate or near-duplicate images in FiftyOne datasets using brain similarity computation. Use when users want to deduplicate datasets, find similar images, cluster visually similar content, or remove redundant samples. Requires FiftyOne MCP server with @voxel51/brain plugin installed.",
+  "domain": "productivity",
+  "subdomain": "project-management",
+  "specialty": "issue validation",
+  "quality": 5,
+  "qualityReason": "Actionable triage workflow",
+  "bundleHints": [
+    "fiftyone-tools",
+    "dev-workflow"
+  ],
+  "tags": [
+    "bug-triaging",
+    "computer-vision",
+    "dataset-cleaning",
+    "duplicates",
+    "fiftyone",
+    "github",
+    "image-processing",
+    "issue-triage",
+    "response-generation",
+    "status-validation"
+  ],
+  "capabilities": [
+    "Find exact duplicate images by file content",
+    "Detect near-duplicate images using deep learning embeddings",
+    "Sort images by visual similarity to a reference sample",
+    "Generate duplicate group IDs for review and cleanup",
+    "Deduplicate datasets while keeping one representative per group",
+    "Launch and interact with FiftyOne App for visual review"
+  ],
+  "author": "AdonaiVera",
+  "icon": "🔍",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Documentation-only skill containing only SKILL.md and skill-report.json. All 92 static findings are false positives triggered by markdown code fences, documentation URLs, and JSON metadata fields. No executable code, scripts, network calls, or file system access exists. The skill guides AI assistants to use pre-existing FiftyOne MCP server tools for dataset operations.",
+  "valueStatement": "Duplicate images waste storage space and bias machine learning models. This skill uses deep learning embeddings to identify and remove exact duplicates and near-duplicate images from FiftyOne datasets. It automates the detection process and helps you clean datasets before training.",
+  "userTitle": "Find Duplicate Images in Datasets",
+  "limitations": [
+    "Requires FiftyOne MCP server with @voxel51/brain plugin installed",
+    "Embedding computation time scales with dataset size",
+    "Does not run standalone; depends on external MCP tools",
+    "Only works with image datasets in FiftyOne format"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Machine Learning Engineers",
+      "title": "Clean Training Datasets",
+      "description": "Remove duplicate images to prevent model bias and reduce storage costs before training."
+    },
+    {
+      "targetUser": "Data Scientists",
+      "title": "Analyze Image Collections",
+      "description": "Find visually similar images in large datasets for clustering and analysis tasks."
+    },
+    {
+      "targetUser": "Research Teams",
+      "title": "Deduplicate Research Data",
+      "description": "Clean up collected image data by removing redundant or near-identical samples."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Duplicate Search",
+      "scenario": "Find all duplicates in a dataset",
+      "prompt": "Find and remove duplicate images in my FiftyOne dataset called '[dataset-name]'. First compute embeddings, then find near duplicates, and show me the results in the app."
+    },
+    {
+      "title": "Threshold Tuning",
+      "scenario": "Adjust duplicate sensitivity",
+      "prompt": "Find near-duplicate images in [dataset-name] with a lower threshold of 0.1 to catch only very similar images. Show the duplicate groups in the app for review."
+    },
+    {
+      "title": "Exact vs Near Duplicates",
+      "scenario": "Handle both duplicate types",
+      "prompt": "First find and remove exact duplicate files in [dataset-name], then find near-duplicates with threshold 0.3 and show me the groups."
+    },
+    {
+      "title": "Similarity Search",
+      "scenario": "Find images similar to a sample",
+      "prompt": "Find the 20 images most similar to sample ID [sample-id] in [dataset-name]. Sort them by similarity and display in the app."
+    }
+  ],
+  "bestPractices": [
+    "Start with the default threshold of 0.3 and adjust based on results",
+    "Review duplicates visually in the FiftyOne App before deleting",
+    "Use the same brain_key when reusing embeddings for multiple operations"
+  ],
+  "antiPatterns": [
+    "Do not skip the visual review step before deleting duplicates",
+    "Do not use thresholds above 0.5 for large datasets without testing",
+    "Do not forget to close the app after completing operations"
+  ],
+  "faq": [
+    {
+      "question": "What FiftyOne version do I need?",
+      "answer": "FiftyOne 0.21 or later with MCP server installed and @voxel51/brain plugin enabled."
+    },
+    {
+      "question": "How many images can this process?",
+      "answer": "Works with any size. Expect ~1-2 minutes per 1,000 images for embedding computation."
+    },
+    {
+      "question": "Can I use my own embedding model?",
+      "answer": "Yes. Specify any model supported by FiftyOne when calling compute_similarity operator."
+    },
+    {
+      "question": "Is my data safe during processing?",
+      "answer": "All processing happens locally on your machine. No data is sent to external servers."
+    },
+    {
+      "question": "Why do I need to launch the app?",
+      "answer": "Brain operators are delegated and require the FiftyOne App executor for UI operations."
+    },
+    {
+      "question": "How is this different from simple hash matching?",
+      "answer": "Uses deep learning embeddings to find visually similar images, not just identical files."
+    }
+  ],
+  "seoKeywords": [
+    "fiftyone duplicate finder",
+    "image deduplication",
+    "duplicate detection Claude",
+    "dataset cleaning tool",
+    "computer vision data prep",
+    "similarity search FiftyOne",
+    "image clustering tool",
+    "remove duplicate images",
+    "AI dataset management",
+    "duplicate finder Codex"
+  ],
+  "sourceUrl": "https://github.com/AdonaiVera/fiftyone-skills/tree/main/find-duplicates/skills/fiftyone-find-duplicates",
+  "sourceType": "community",
+  "dependencies": []
+}

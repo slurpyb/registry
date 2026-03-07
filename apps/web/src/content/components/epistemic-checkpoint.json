@@ -1,0 +1,143 @@
+{
+  "name": "epistemic-checkpoint",
+  "type": "skill",
+  "description": "Force verification before answering questions involving versions, dates, status, or \"current\" state. Prevents hallucinations at the reasoning level by checking assertions.yaml and WebSearch before forming beliefs. Triggers on software versions, release status, dates, and package versions.",
+  "domain": "meta",
+  "subdomain": "learning",
+  "specialty": "hallucination prevention",
+  "quality": 5,
+  "qualityReason": "Critical for AI reliability",
+  "bundleHints": [
+    "trustworthy-ai",
+    "quality-assurance"
+  ],
+  "tags": [
+    "accuracy",
+    "assertions",
+    "fact-check",
+    "fact-verification",
+    "hallucination-prevention",
+    "metacognition",
+    "software-versions",
+    "versions",
+    "websearch"
+  ],
+  "capabilities": [
+    "Detects questions about software versions, release status, dates, and current state",
+    "Checks local assertions.yaml for verified ground truth before answering",
+    "Uses WebSearch to verify facts from official documentation sources",
+    "Forces verification before forming beliefs or making claims",
+    "Provides structured verification output with confidence levels",
+    "Prevents reasoning-level hallucinations by requiring source verification"
+  ],
+  "author": "ANcpLua",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "medium",
+  "safeToPublish": true,
+  "securitySummary": "All 21 static findings are false positives. The skill is a legitimate metacognitive guard for hallucination prevention. Network access (WebSearch) is controlled and intentional for fact verification. All \"external_commands\" detections are documentation examples in markdown, not actual shell execution.",
+  "valueStatement": "AI assistants often produce incorrect answers about software versions, release dates, and current states because their training data is stale. This skill forces verification at the reasoning level using assertions.yaml and WebSearch, preventing the root cause of hallucinations.",
+  "userTitle": "Verify facts before answering",
+  "limitations": [
+    "Only triggers on configured topics (software versions, dates, release status)",
+    "Depends on assertions.yaml being populated with known values",
+    "WebSearch results depend on source availability and freshness",
+    "Does not verify user-provided claims without additional verification"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Developers working with multiple software ecosystems",
+      "title": "Software version verification",
+      "description": "When asked about .NET, React, Node, Python, or other software versions, this skill forces verification of the actual current version and release status before answering."
+    },
+    {
+      "targetUser": "Technical writers and architects",
+      "title": "Release status checking",
+      "description": "Before claiming something is preview, LTS, GA, deprecated, or in beta, the skill verifies the actual release status from official sources."
+    },
+    {
+      "targetUser": "Researchers and support engineers",
+      "title": "Date-sensitive fact validation",
+      "description": "When answering questions that involve dates after the AI training cutoff, this skill ensures facts are verified against current information."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic version check",
+      "prompt": "What is the current LTS version of Node.js and when was it released?",
+      "scenario": "Asking about current software versions"
+    },
+    {
+      "title": "Release status verification",
+      "prompt": "Is React 19 still in beta or has it been released as stable?",
+      "scenario": "Checking release status of a software package"
+    },
+    {
+      "title": "Multiple version comparison",
+      "prompt": "Compare the latest Python 3.x version with the previous release. What are the key differences?",
+      "scenario": "Comparing multiple software versions"
+    },
+    {
+      "title": "Deprecation checking",
+      "prompt": "Is the use of the old authentication method deprecated? What should we use instead?",
+      "scenario": "Verifying API or feature deprecation status"
+    }
+  ],
+  "bestPractices": [
+    "Enable this skill for projects that span multiple software ecosystems to catch version-related hallucinations",
+    "Populate assertions.yaml with known versions and facts specific to your project",
+    "Trust the verification process even when you feel confident about your knowledge"
+  ],
+  "antiPatterns": [
+    "Assuming your training knowledge is current for version and release questions",
+    "Accepting user-provided version information without independent verification",
+    "Skipping verification for 'simple factual questions'"
+  ],
+  "faq": [
+    {
+      "question": "What triggers this skill to activate?",
+      "answer": "The skill activates when questions involve software versions, release status, 'current' or 'latest' references, dates after training cutoff, package versions, or API deprecations."
+    },
+    {
+      "question": "What is assertions.yaml and why is it important?",
+      "answer": "assertions.yaml is a local file containing verified ground truth about your project's dependencies and configurations. The skill checks this file first before using WebSearch."
+    },
+    {
+      "question": "Does this skill make network requests?",
+      "answer": "Yes, the skill uses WebSearch to verify facts from official documentation sources when the information is not found in assertions.yaml. This is intentional for accuracy."
+    },
+    {
+      "question": "What sources does WebSearch use?",
+      "answer": "The skill prefers official sources like microsoft.com/dotnet for .NET, nodejs.org for Node, python.org for Python, and similar authoritative documentation sites."
+    },
+    {
+      "question": "How does this prevent hallucinations?",
+      "answer": "Most AI hallucinations come from stale training data about versions and release status. By forcing verification before forming beliefs, this skill prevents the root cause of incorrect answers."
+    },
+    {
+      "question": "Can I override the verification step?",
+      "answer": "The skill is designed to enforce verification. Forcing overrides would defeat the purpose of hallucination prevention, but you can skip by not using triggering keywords."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "hallucination prevention",
+    "fact verification",
+    "software version check",
+    "accuracy",
+    "metacognitive",
+    "release status",
+    "version validation"
+  ],
+  "sourceUrl": "https://github.com/ANcpLua/ancplua-claude-plugins/tree/main/plugins/metacognitive-guard/skills/epistemic-checkpoint",
+  "sourceType": "community",
+  "dependencies": []
+}

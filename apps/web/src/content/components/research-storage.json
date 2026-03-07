@@ -1,0 +1,139 @@
+{
+  "name": "research-storage",
+  "type": "skill",
+  "description": "Research file storage conventions and templates for dokhak agents. Use when: (1) saving research results from research-collector or researcher agents, (2) reading cached research files, (3) checking if research exists for a section. Provides directory structure, file format templates, and naming conventions.",
+  "domain": "data",
+  "subdomain": "databases",
+  "specialty": "research conventions",
+  "quality": 4,
+  "qualityReason": "Specific file handling guidance",
+  "bundleHints": [
+    "research-data",
+    "agent-storage"
+  ],
+  "tags": [
+    "caching",
+    "conventions",
+    "dokhak",
+    "research",
+    "storage",
+    "templates"
+  ],
+  "capabilities": [
+    "Define research directory structure for .research/ folder",
+    "Apply canonical naming patterns (01-2-section-name format)",
+    "Create standardized research.md, summary.md, and sources.md templates",
+    "Resolve research directories using multi-tier search algorithm",
+    "Normalize chapter and section names for consistency"
+  ],
+  "author": "BitYoungjae",
+  "icon": "📁",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is pure documentation with no executable code. The static scanner flagged 117 issues, but all are false positives: markdown code fences were misidentified as shell backticks, metadata strings as weak crypto, and YAML frontmatter as obfuscation. The skill only describes conventions and uses Read, Write, Glob scoped to .research/ directory.",
+  "valueStatement": "Research files become scattered and hard to find. This skill provides consistent storage conventions, naming patterns, and templates so research data stays organized and reusable across dokhak sessions.",
+  "userTitle": "Store and organize research files",
+  "limitations": [
+    "Does not perform actual research or web searches",
+    "Does not execute code or run external processes",
+    "Only provides conventions, requires other skills for research collection",
+    "Requires researcher or research-collector agent to create initial files"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content Creators",
+      "title": "Organize research cache",
+      "description": "Keep research organized across writing sessions so information can be reused and updated efficiently."
+    },
+    {
+      "targetUser": "Documentation Writers",
+      "title": "Standardize file naming",
+      "description": "Apply consistent naming conventions so research files are easy to locate by chapter and section."
+    },
+    {
+      "targetUser": "AI Agent Developers",
+      "title": "Share research templates",
+      "description": "Provide standardized templates for research output so all agents produce consistent, reusable research files."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Save new research",
+      "scenario": "Store research for a new section",
+      "prompt": "Save research for section {chapter}.{section} {title} to .research/sections/{path}/ using the research-storage conventions."
+    },
+    {
+      "title": "Check existing research",
+      "scenario": "Find cached research",
+      "prompt": "Check if research exists for section {chapter}.{section} {title} using the multi-tier resolution strategy."
+    },
+    {
+      "title": "Read init research",
+      "scenario": "Access initial project research",
+      "prompt": "Read the init research summary from .research/init/summary.md and sources from .research/init/sources.md."
+    },
+    {
+      "title": "Apply naming format",
+      "scenario": "Generate canonical path",
+      "prompt": "Generate the canonical directory path for chapter {chapter}, section {section}, title {title} using the buildCanonicalPath function."
+    }
+  ],
+  "bestPractices": [
+    "Use canonical naming format (zero-padded chapter, no-padded section, kebab-case slug)",
+    "Apply the multi-tier resolution strategy when checking for existing research",
+    "Follow the provided markdown templates for consistent research file structure"
+  ],
+  "antiPatterns": [
+    "Using hardcoded paths instead of buildCanonicalPath function",
+    "Skipping the multi-tier search when checking for existing research",
+    "Storing research outside the .research/ directory structure"
+  ],
+  "faq": [
+    {
+      "question": "Is this skill compatible with Claude Code?",
+      "answer": "Yes. The research-storage skill works with Claude, Codex, and Claude Code using Read, Write, and Glob tools."
+    },
+    {
+      "question": "How many research files can this skill manage?",
+      "answer": "The skill manages unlimited research files organized by chapter and section within the .research/ directory structure."
+    },
+    {
+      "question": "Can I integrate this with other dokhak skills?",
+      "answer": "Yes. Research-storage works with researcher, research-collector, writer, and structure-designer agents."
+    },
+    {
+      "question": "Is my research data safe with this skill?",
+      "answer": "Yes. The skill only reads and writes to the .research/ directory. No data leaves your local project."
+    },
+    {
+      "question": "Why is my research not being found?",
+      "answer": "Use the multi-tier resolution strategy. The skill handles naming variations like 1-2-intro vs 01-2-intro automatically."
+    },
+    {
+      "question": "How is this different from a simple file storage tool?",
+      "answer": "This skill provides standardized naming, templates, and resolution algorithms specifically designed for research workflows."
+    }
+  ],
+  "seoKeywords": [
+    "research storage",
+    "file organization",
+    "research cache",
+    "dokhak plugin",
+    "Claude documentation",
+    "Codex research",
+    "Claude Code skill",
+    "file naming conventions",
+    "directory structure",
+    "research templates"
+  ],
+  "sourceUrl": "https://github.com/BitYoungjae/marketplace/tree/main/plugins/dokhak/skills/research-storage",
+  "sourceType": "community",
+  "dependencies": []
+}

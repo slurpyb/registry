@@ -1,0 +1,143 @@
+{
+  "name": "wireshark-network-traffic-analysis",
+  "type": "skill",
+  "description": "This skill should be used when the user asks to \"analyze network traffic with Wireshark\", \"capture packets for troubleshooting\", \"filter PCAP files\", \"follow TCP/UDP streams\", \"detect network anomalies\", \"investigate suspicious traffic\", or \"perform protocol analysis\". It provides comprehensive techniques for network packet capture, filtering, and analysis using Wireshark.",
+  "domain": "security",
+  "subdomain": "appsec",
+  "specialty": "traffic inspection",
+  "quality": 4,
+  "qualityReason": "Useful but overlaps with analysis",
+  "bundleHints": [
+    "network-security",
+    "troubleshooting-suite"
+  ],
+  "tags": [
+    "anomaly detection",
+    "network analysis",
+    "packet capture",
+    "pcap",
+    "security",
+    "tcp-udp",
+    "wireshark"
+  ],
+  "capabilities": [
+    "Generate Wireshark capture filters to limit packet collection before capture",
+    "Create display filters to analyze specific protocols, IPs, ports, and traffic patterns",
+    "Guide TCP/UDP stream reconstruction to view complete network conversations",
+    "Provide statistical analysis techniques for protocol hierarchy and traffic patterns",
+    "Explain security detection methods for malware C2 traffic, port scanning, and ARP spoofing",
+    "Document troubleshooting procedures for common network connectivity and performance issues"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis detected 76 potential security issues but all are false positives. This is a documentation-only skill containing Wireshark filter syntax examples and network analysis procedures. No executable code, external commands, or network operations exist. All flagged patterns are markdown code blocks showing educational examples of Wireshark display filters, protocol syntax, and security investigation techniques.",
+  "valueStatement": "Network troubleshooting and security investigations require deep packet inspection. This skill provides comprehensive Wireshark techniques to capture, filter, and analyze network traffic for incident response and performance optimization.",
+  "userTitle": "Analyze Network Traffic with Wireshark",
+  "limitations": [
+    "Cannot directly execute Wireshark or capture packets without manual user action",
+    "Cannot analyze encrypted TLS/SSL traffic without decryption keys",
+    "Requires Wireshark application to be installed on the user's system",
+    "High-speed networks may drop packets during capture depending on hardware"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Security analysts and incident responders",
+      "title": "Security Incident Investigation",
+      "description": "Analyze captured network traffic to identify malicious patterns, detect data exfiltration, and reconstruct attack sequences for forensic evidence collection"
+    },
+    {
+      "targetUser": "Network engineers and system administrators",
+      "title": "Network Troubleshooting",
+      "description": "Diagnose connectivity issues, identify packet loss, analyze TCP retransmissions, and locate performance bottlenecks in application traffic"
+    },
+    {
+      "targetUser": "Network students and IT professionals learning protocols",
+      "title": "Protocol Analysis Education",
+      "description": "Learn network protocols by examining real packet captures, understanding protocol handshakes, and visualizing communication patterns between hosts"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Traffic Filtering",
+      "prompt": "I have a PCAP file and need to find all HTTP traffic. Show me how to filter for HTTP requests and responses in Wireshark.",
+      "scenario": "New user starting with basic protocol filtering"
+    },
+    {
+      "title": "Stream Reconstruction",
+      "prompt": "Help me follow the TCP stream for this packet to see the complete conversation between the client and server, including all transmitted data.",
+      "scenario": "Investigating specific network conversation"
+    },
+    {
+      "title": "Security Analysis",
+      "prompt": "I suspect malware C2 communication. Show me Wireshark filters to detect beaconing patterns, unusual DNS queries, and high-frequency connections to suspicious IPs.",
+      "scenario": "Malware traffic investigation and detection"
+    },
+    {
+      "title": "Performance Diagnostics",
+      "prompt": "Our web application is slow. Help me analyze packet captures to identify TCP retransmissions, zero window issues, and high latency problems.",
+      "scenario": "Network performance troubleshooting"
+    }
+  ],
+  "bestPractices": [
+    "Always use capture filters before starting packet capture to limit data collection and reduce memory usage",
+    "Apply display filters incrementally to isolate specific traffic rather than deleting packets from the capture",
+    "Document analysis findings with annotated screenshots and exported packet dissections for reporting",
+    "Save captures regularly during long analysis sessions to prevent data loss if Wireshark crashes"
+  ],
+  "antiPatterns": [
+    "Capturing traffic on networks without proper authorization violates privacy laws and organizational policies",
+    "Deleting packets from captures instead of using display filters permanently loses analysis context",
+    "Analyzing encrypted TLS traffic without decryption keys wastes time since payload content is inaccessible",
+    "Opening large multi-gigabyte PCAP files without filtering first can exhaust system memory"
+  ],
+  "faq": [
+    {
+      "question": "Do I need administrator or root privileges to capture packets?",
+      "answer": "Yes, live packet capture requires administrator privileges on Windows or root access on Linux/macOS to put network interfaces into promiscuous mode."
+    },
+    {
+      "question": "Can this skill decrypt HTTPS and TLS traffic?",
+      "answer": "No. Encrypted traffic content cannot be viewed without the server private key or pre-master secret. This skill shows how to analyze metadata and handshake information only."
+    },
+    {
+      "question": "Why is my filter showing in red color?",
+      "answer": "Red text indicates invalid filter syntax. Check field names, operators, and use the Expression button to browse valid protocol fields for your Wireshark version."
+    },
+    {
+      "question": "Can I analyze captured packets without Wireshark installed?",
+      "answer": "No. This skill provides guidance and techniques for Wireshark, but you must have Wireshark installed to open PCAP files and apply filters."
+    },
+    {
+      "question": "What is the difference between capture filters and display filters?",
+      "answer": "Capture filters limit what packets are collected before saving, reducing file size. Display filters search and highlight packets already captured, letting you analyze without data loss."
+    },
+    {
+      "question": "How do I share my analysis findings with team members?",
+      "answer": "Use File > Export Specified Packets to save filtered traffic, export packet dissections as text or CSV, and annotate with screenshots showing filters and statistics."
+    }
+  ],
+  "seoKeywords": [
+    "Wireshark network analysis",
+    "packet capture tutorial",
+    "PCAP file analysis",
+    "network troubleshooting",
+    "Claude security skills",
+    "Claude Code network tools",
+    "TCP stream analysis",
+    "protocol inspection",
+    "network forensics",
+    "Wireshark filters"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/web-app/public/skills/wireshark-analysis",
+  "sourceType": "community",
+  "dependencies": []
+}

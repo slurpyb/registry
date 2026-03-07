@@ -1,0 +1,147 @@
+{
+  "name": "javascript-sdk",
+  "type": "skill",
+  "description": "JavaScript/TypeScript SDK for inference.sh - run AI apps, build agents, integrate 150+ models. Package: @inferencesh/sdk (npm install). Full TypeScript support, streaming, file uploads. Build agents with template or ad-hoc patterns, tool builder API, skills, human approval. Use for: JavaScript integration, TypeScript, Node.js, React, Next.js, frontend apps. Triggers: javascript sdk, typescript sdk, npm install, node.js api, js client, react ai, next.js ai, frontend sdk, @inferencesh/sdk, typescript agent, browser sdk, js integration",
+  "domain": "ai-ml",
+  "subdomain": "llm",
+  "specialty": "AI SDK integration",
+  "quality": 5,
+  "qualityReason": "Actionable with clear use case",
+  "bundleHints": [
+    "ai-integration",
+    "typescript-stack",
+    "agent-tools"
+  ],
+  "tags": [
+    "agent building",
+    "ai",
+    "api-client",
+    "file uploads",
+    "inference.sh",
+    "javascript",
+    "model integration",
+    "node.js",
+    "react",
+    "sdk",
+    "streaming",
+    "typescript"
+  ],
+  "capabilities": [
+    "Run AI applications from inference.sh marketplace (150+ models)",
+    "Build autonomous agents with tool calling and human approval",
+    "Handle streaming responses for real-time AI output",
+    "Upload files for AI processing (images, documents, audio)",
+    "Create React components with AI integration hooks",
+    "Use TypeScript types for compile-time safety"
+  ],
+  "author": "inference-sh-9",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate JavaScript/TypeScript SDK documentation skill for inference.sh. The static analyzer detected patterns that are false positives (JavaScript template literals in code examples misinterpreted as shell commands) or legitimate SDK functionality (API key authentication via environment variables, network calls to inference API, file operations for uploads). No malicious intent detected.",
+  "valueStatement": "Integrate 150+ AI models into JavaScript and TypeScript applications using the inference.sh SDK. Build agents, handle streaming responses, and manage file uploads with full TypeScript support.",
+  "userTitle": "Build AI Apps with JavaScript SDK",
+  "limitations": [
+    "Requires inference.sh API key for authentication",
+    "Only supports inference.sh hosted models",
+    "Browser usage requires proxy server for API calls",
+    "Some advanced features require server-side Node.js"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Web developers building AI-powered UIs",
+      "title": "Add AI Image Generation to Web Apps",
+      "description": "Integrate flux-schnell or other image generation models into Next.js or React applications with streaming progress updates."
+    },
+    {
+      "targetUser": "Backend developers creating AI microservices",
+      "title": "Build AI-Powered Node.js Services",
+      "description": "Create backend services that use Claude, GPT, and other models for text generation, analysis, and automation tasks."
+    },
+    {
+      "targetUser": "AI engineers building agent systems",
+      "title": "Create Multi-Agent AI Systems",
+      "description": "Orchestrate multiple specialized AI agents that collaborate on complex tasks like research and content creation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic AI Image Generation",
+      "prompt": "Use the javascript-sdk skill to generate an image with the flux-schnell model. Create a prompt for 'a futuristic city at sunset' and display the result.",
+      "scenario": "Simple image generation task"
+    },
+    {
+      "title": "Agent with Tool Calling",
+      "prompt": "Use the javascript-sdk skill to create an agent that can search the web and write content. Set up a researcher tool and a writer tool, then ask the agent to create a blog post about machine learning.",
+      "scenario": "Multi-tool agent setup"
+    },
+    {
+      "title": "Streaming Text Response",
+      "prompt": "Use the javascript-sdk skill to run a text generation model with streaming enabled. Show how to handle the streaming response and display chunks as they arrive.",
+      "scenario": "Real-time AI output handling"
+    },
+    {
+      "title": "File Upload with AI Processing",
+      "prompt": "Use the javascript-sdk skill to upload an image file and process it with a vision model. Show how to handle the file upload and receive the AI analysis.",
+      "scenario": "Multimodal file processing"
+    }
+  ],
+  "bestPractices": [
+    "Store API keys in environment variables, never commit them to version control",
+    "Use streaming for long-running tasks to provide real-time progress updates",
+    "Implement error handling for network failures and API rate limits"
+  ],
+  "antiPatterns": [
+    "Hardcoding API keys directly in source code",
+    "Blocking on streaming responses instead of handling chunks asynchronously",
+    "Ignoring TypeScript types that provide compile-time safety"
+  ],
+  "faq": [
+    {
+      "question": "How do I get an API key?",
+      "answer": "Sign up at inference.sh, go to Settings, then API Keys, and create a new key."
+    },
+    {
+      "question": "Can I use this in browser apps?",
+      "answer": "Yes, but you need a proxy server to avoid exposing your API key. Use the proxyUrl option."
+    },
+    {
+      "question": "What models are available?",
+      "answer": "The SDK supports 150+ models including flux-schnell, Claude, GPT, and vision models."
+    },
+    {
+      "question": "Does it support streaming?",
+      "answer": "Yes, pass { stream: true } to the run method and iterate over the async iterator."
+    },
+    {
+      "question": "Is TypeScript supported?",
+      "answer": "Yes, full TypeScript definitions are included. Import types like TaskDTO and ChatMessageDTO."
+    },
+    {
+      "question": "Can I build agents with tools?",
+      "answer": "Yes, use the agentTool() builder to create tools that can call external APIs or other AI apps."
+    }
+  ],
+  "seoKeywords": [
+    "javascript sdk",
+    "typescript ai",
+    "claude code",
+    "codex",
+    "node.js ai",
+    "react ai",
+    "ai integration",
+    "inference.sh",
+    "api client",
+    "ai models"
+  ],
+  "sourceUrl": "https://github.com/inference-sh-9/skills/tree/main/skills/javascript-sdk/",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,143 @@
+{
+  "name": "pixi-package-manager",
+  "type": "skill",
+  "description": "Fast, reproducible scientific Python environments with pixi - conda and PyPI unified",
+  "domain": "languages",
+  "subdomain": "python",
+  "specialty": "scientific environments",
+  "quality": 5,
+  "qualityReason": "Clear scientific use case",
+  "bundleHints": [
+    "python-stack",
+    "data-science"
+  ],
+  "tags": [
+    "conda",
+    "dependencies",
+    "environment-management",
+    "fast-install",
+    "package-manager",
+    "pypi",
+    "python",
+    "reproducible",
+    "scientific-computing"
+  ],
+  "capabilities": [
+    "Create reproducible Python environments with unified conda and PyPI support",
+    "Configure feature-based environments for dev, test, prod, and GPU workflows",
+    "Define automated tasks for scientific pipelines and testing",
+    "Generate cross-platform lockfiles for team collaboration",
+    "Migrate existing conda or requirements.txt projects to pixi",
+    "Integrate with CI/CD systems for automated testing"
+  ],
+  "author": "CodingKaiser",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "BSD-3-Clause",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown documentation about the pixi package manager. No executable code, no network calls, no file system access, no command execution capabilities. All 169 static findings are false positives triggered by documentation examples containing bash command syntax, URLs, and file path references.",
+  "valueStatement": "Complex scientific Python dependencies slow down research. Pixi unifies conda and PyPI ecosystems with fast dependency resolution, reproducible lockfiles, and seamless environment management for scientific computing projects.",
+  "userTitle": "Manage scientific Python with pixi",
+  "limitations": [
+    "Pixi must be installed separately on the target system",
+    "Cannot execute shell commands directly - provides documentation only",
+    "Does not manage environments directly - user must run pixi commands",
+    "Only provides guidance; actual package installation requires pixi CLI"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data Scientists",
+      "title": "Reproducible Research",
+      "description": "Create exact environment snapshots for research papers that anyone can reproduce identically."
+    },
+    {
+      "targetUser": "ML Engineers",
+      "title": "Multi-Config ML Workflows",
+      "description": "Manage CPU and GPU environments with PyTorch, TensorFlow, and scientific stack in one project."
+    },
+    {
+      "targetUser": "Scientific Developers",
+      "title": "Complex Dependency Projects",
+      "description": "Handle compiled dependencies like GDAL, netCDF4, and HDF5 alongside pure Python packages."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Setup Project",
+      "scenario": "Initialize new scientific project",
+      "prompt": "How do I set up a new scientific Python project with pixi? Show me how to initialize the project, add numpy and pandas, and create a dev environment with testing tools."
+    },
+    {
+      "title": "Add Dependencies",
+      "scenario": "Add packages from different sources",
+      "prompt": "What is the correct way to add scientific packages to my pixi project? I need NumPy from conda-forge and a custom private package from PyPI."
+    },
+    {
+      "title": "Create Environment",
+      "scenario": "Configure multiple environments",
+      "prompt": "Help me configure a pixi project with three environments: default for production, dev with Jupyter and ruff, and test with pytest. Show me the pyproject.toml configuration."
+    },
+    {
+      "title": "Build Pipeline",
+      "scenario": "Create scientific workflow",
+      "prompt": "Create a pixi task workflow that runs: download data, clean data, train model, and evaluate results. Show task dependencies and how to run the complete pipeline."
+    }
+  ],
+  "bestPractices": [
+    "Use pixi init --format pyproject for new projects to leverage standard Python packaging",
+    "Pin exact versions in dependencies when creating reproducible research environments",
+    "Commit pixi.lock to version control so all team members get identical environments"
+  ],
+  "antiPatterns": [
+    "Mixing system packages with conda packages - let pixi manage all dependencies",
+    "Using loose version constraints without understanding update implications",
+    "Skipping lockfile commits - leads to environment drift across team members"
+  ],
+  "faq": [
+    {
+      "question": "Is pixi faster than conda?",
+      "answer": "Yes, pixi uses the Rust-based rattler resolver and performs parallel downloads, making it 10-100x faster than traditional conda."
+    },
+    {
+      "question": "Can I use both conda-forge and PyPI packages together?",
+      "answer": "Yes, pixi seamlessly integrates both sources. Use pixi add numpy for conda packages and pixi add --pypi for PyPI packages."
+    },
+    {
+      "question": "How does pixi ensure reproducibility?",
+      "answer": "Pixi generates a pixi.lock file with exact versions and checksums across all platforms. Commit this file for identical environments."
+    },
+    {
+      "question": "Does this skill install pixi?",
+      "answer": "No, this skill provides documentation. Users must install pixi separately from pixi.sh or their system's package manager."
+    },
+    {
+      "question": "Can I migrate from conda environment.yml to pixi?",
+      "answer": "Yes, use pixi init --format pyproject --import-environment environment.yml to convert existing conda environments."
+    },
+    {
+      "question": "When should I choose pixi over uv?",
+      "answer": "Choose pixi for compiled scientific libraries (NumPy, SciPy, GDAL), multi-language support, or cross-platform reproducibility."
+    }
+  ],
+  "seoKeywords": [
+    "pixi package manager",
+    "scientific python",
+    "conda alternative",
+    "python environment management",
+    "reproducible research",
+    "dependency management",
+    "claude code",
+    "claude",
+    "codex",
+    "pyproject.toml"
+  ],
+  "sourceUrl": "https://github.com/CodingKaiser/claude-kaiser-skills/tree/main/pixi",
+  "sourceType": "community",
+  "dependencies": []
+}

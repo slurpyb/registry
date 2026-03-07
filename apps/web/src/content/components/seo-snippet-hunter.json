@@ -1,0 +1,141 @@
+{
+  "name": "seo-snippet-hunter",
+  "type": "skill",
+  "description": "Formats content to be eligible for featured snippets and SERP",
+  "domain": "business",
+  "subdomain": "marketing",
+  "specialty": "featured snippets",
+  "quality": 5,
+  "qualityReason": "SERP feature targeting",
+  "bundleHints": [
+    "seo-content",
+    "snippet-optimization"
+  ],
+  "tags": [
+    "content-blocks",
+    "content-optimization",
+    "featured-snippets",
+    "formatting",
+    "optimization",
+    "rankings",
+    "search",
+    "search-ranking",
+    "seo",
+    "serp",
+    "serp-features"
+  ],
+  "capabilities": [
+    "Creates paragraph-style snippet content (40-60 words) with direct answers",
+    "Formats list-based snippets with numbered steps or bullet points",
+    "Generates table-structured content for comparison data",
+    "Optimizes question-answer pairs for People Also Ask sections",
+    "Suggests FAQPage and HowTo schema markup",
+    "Provides competitor snippet analysis and recommendations"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Static analysis scanned 0 files (0 lines) with no suspicious patterns detected. This is a prompt-only skill with no executable code, network access, file system operations, or external command execution. Risk score: 0/100. The skill focuses on content formatting and SEO optimization through natural language prompts only. Safe for publication.",
+  "valueStatement": "Content creators struggle to rank in position zero on search results. This skill transforms your content into snippet-optimized formats that increase visibility and drive organic traffic.",
+  "userTitle": "Optimize Content for Featured Snippets",
+  "limitations": [
+    "Cannot guarantee position zero ranking as search algorithms change frequently",
+    "Requires existing content or topics to optimize - does not conduct keyword research",
+    "Schema markup suggestions require manual implementation on your website",
+    "Results depend on content quality and domain authority factors"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Content marketers and SEO specialists",
+      "title": "Blog Post Optimization",
+      "description": "Transform existing blog posts into featured snippet candidates by restructuring answers, adding FAQ sections, and implementing proper header hierarchy for search engine parsing."
+    },
+    {
+      "targetUser": "E-commerce managers and product marketers",
+      "title": "Product Comparison Content",
+      "description": "Create table-based comparison snippets for product pages, specifications, and feature lists that search engines can easily extract for rich results."
+    },
+    {
+      "targetUser": "Technical writers and documentation teams",
+      "title": "How-To Guide Formatting",
+      "description": "Structure step-by-step tutorials with numbered lists, clear headers, and HowTo schema markup to capture instructional search queries and voice search results."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Snippet Optimization",
+      "prompt": "I have content about [TOPIC]. Format it into a 40-60 word paragraph snippet that directly answers the question: [QUESTION]. Include the keyword in the first sentence and provide a clear, definitive answer."
+    },
+    {
+      "title": "List Snippet Creator",
+      "prompt": "Create a numbered list snippet (5-8 items) for [TOPIC]. Each item should have a clear header and concise description. Add a brief introductory sentence before the list that includes the target keyword."
+    },
+    {
+      "title": "Comparison Table Generator",
+      "prompt": "Generate a comparison table for [PRODUCTS/SERVICES] with columns for [CRITERIA]. Include specifications, pricing, and key differentiators that search engines can extract for comparison snippets."
+    },
+    {
+      "title": "Complete FAQ Schema Package",
+      "prompt": "Analyze my content about [TOPIC] and create 6 FAQ question-answer pairs optimized for People Also Ask. Provide the FAQPage JSON-LD schema markup and suggest placement strategy for maximum snippet visibility."
+    }
+  ],
+  "bestPractices": [
+    "Place direct answers within the first 100 words of content sections for better snippet extraction",
+    "Use question-based headers (H2, H3) that match actual search queries from your keyword research",
+    "Implement structured data markup (FAQPage, HowTo, Article) to help search engines understand content structure"
+  ],
+  "antiPatterns": [
+    "Avoid lengthy introductions before answering the main question - search engines prefer immediate, direct responses",
+    "Do not use vague or conditional language like 'might' or 'could' - featured snippets favor definitive statements",
+    "Avoid embedding answers in images or complex layouts that search engines cannot parse as text"
+  ],
+  "faq": [
+    {
+      "question": "What is a featured snippet and why does it matter?",
+      "answer": "A featured snippet is a highlighted answer box that appears at position zero on Google search results, above organic listings. It drives 8-12% more clicks than position one and establishes authority for your content."
+    },
+    {
+      "question": "Can this skill guarantee position zero ranking?",
+      "answer": "No skill can guarantee featured snippet placement. Google's algorithm determines snippet selection based on content quality, relevance, authority, and user signals. This skill optimizes your content formatting to maximize eligibility."
+    },
+    {
+      "question": "What types of content work best for featured snippets?",
+      "answer": "Definition content (40-60 words), numbered lists for processes, bullet points for features, tables for comparisons, and FAQ sections perform best. Content must directly answer specific questions users search for."
+    },
+    {
+      "question": "How long does it take to see results after optimization?",
+      "answer": "Snippet optimization results typically appear within 2-8 weeks after Google recrawls your content. Monitor performance through Google Search Console and adjust based on impression and click data."
+    },
+    {
+      "question": "Do I need technical skills to implement the recommendations?",
+      "answer": "Basic implementation requires only content editing skills. Schema markup and structured data may require developer assistance or CMS plugins, though the skill provides copy-paste ready code snippets."
+    },
+    {
+      "question": "Can this skill optimize content for voice search?",
+      "answer": "Yes, featured snippet optimization directly supports voice search since voice assistants often read featured snippet content as answers. The skill includes voice search optimization tactics in advanced recommendations."
+    }
+  ],
+  "seoKeywords": [
+    "Claude",
+    "Codex",
+    "Claude Code",
+    "featured snippets",
+    "SEO optimization",
+    "position zero",
+    "SERP ranking",
+    "content formatting",
+    "search visibility",
+    "snippet optimization"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seo-snippet-hunter",
+  "sourceType": "community",
+  "dependencies": []
+}

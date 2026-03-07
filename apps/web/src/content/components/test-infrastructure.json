@@ -1,0 +1,143 @@
+{
+  "name": "test-infrastructure",
+  "type": "skill",
+  "description": "When invoked:",
+  "domain": "testing",
+  "subdomain": "quality",
+  "specialty": "test setup",
+  "quality": 4,
+  "qualityReason": "Broad but essential infrastructure focus",
+  "bundleHints": [
+    "test-automation-suite",
+    "ci-cd",
+    "devops"
+  ],
+  "tags": [
+    "ci-integration",
+    "coverage",
+    "framework-setup",
+    "quality-assurance",
+    "tdd",
+    "test-automation",
+    "testing",
+    "testing-pipeline"
+  ],
+  "capabilities": [
+    "Audit existing test files to identify stubs and gaps",
+    "Write unit tests for functions and business logic",
+    "Write integration tests for API routes and database operations",
+    "Write component tests for React UI rendering and interactions",
+    "Prioritize tests by critical path and risk level",
+    "Enforce quality gates for meaningful test assertions"
+  ],
+  "author": "CleanExpo",
+  "icon": "🧪",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure prompt-based documentation skill containing only testing guidelines. No executable code, no file system access, no network calls, no command execution. The static findings are false positives caused by the scanner misinterpreting Markdown code fences and example test code. The skill-report.json already classified this as safe with no risk factors.",
+  "valueStatement": "Teams waste time on stub files that count toward coverage but catch no bugs. This skill creates real tests with actual assertions that verify behavior and catch regressions before production.",
+  "userTitle": "Build real test coverage",
+  "limitations": [
+    "Does not execute tests or verify they pass",
+    "Does not modify production code to improve testability",
+    "Does not configure CI/CD pipelines or test runners",
+    "Does not generate mock data or test fixtures"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Development teams",
+      "title": "Audit test coverage gaps",
+      "description": "Analyze codebase to find empty test files and identify critical paths missing coverage"
+    },
+    {
+      "targetUser": "QA engineers",
+      "title": "Create test specifications",
+      "description": "Write comprehensive tests for API endpoints, components, and service layers following best practices"
+    },
+    {
+      "targetUser": "Tech leads",
+      "title": "Enforce quality standards",
+      "description": "Establish testing guidelines that prevent stubs and ensure meaningful assertions"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Assess current coverage",
+      "scenario": "Audit existing tests",
+      "prompt": "Audit our test suite. Count real test lines in each file, identify stub files with less than 50 lines, and report: total tests with coverage, empty test files, critical gaps, and estimated hours to fix."
+    },
+    {
+      "title": "Write unit tests",
+      "scenario": "Add function tests",
+      "prompt": "Write unit tests for the contactScoringEngine function. Include tests for high engagement contacts, zero engagement contacts, and error cases. Use real assertions that verify exact scores."
+    },
+    {
+      "title": "Write API tests",
+      "scenario": "Test REST endpoints",
+      "prompt": "Write integration tests for POST /api/contacts endpoint. Test happy path (creates contact with valid data), auth rejection (missing token), and validation errors (invalid email format). Verify database writes."
+    },
+    {
+      "title": "Write component tests",
+      "scenario": "Test React components",
+      "prompt": "Write component tests for HotLeadsPanel. Test that it renders leads, filtering interaction works, and empty state displays correctly. Use React Testing Library with fireEvent for interactions."
+    }
+  ],
+  "bestPractices": [
+    "Write tests that actually assert something meaningful, not just that code runs",
+    "Prioritize critical revenue and security paths first, then features",
+    "Test error cases and boundaries, not just happy paths"
+  ],
+  "antiPatterns": [
+    "Empty test files that inflate coverage percentage without testing behavior",
+    "Mocking the thing you are supposed to be testing",
+    "Tests that pass whether the code works or not"
+  ],
+  "faq": [
+    {
+      "question": "Which testing frameworks does this skill support?",
+      "answer": "Works with Jest, Vitest, React Testing Library, and any describe/it syntax. Can adapt to other frameworks."
+    },
+    {
+      "question": "What coverage percentage should we target?",
+      "answer": "Target 75%+ real coverage with 100% on critical paths like auth, payments, and data operations."
+    },
+    {
+      "question": "Can this skill integrate with our CI/CD pipeline?",
+      "answer": "This skill generates tests. Run them in CI using your existing test runner and coverage reporting."
+    },
+    {
+      "question": "Is my production data safe during testing?",
+      "answer": "The skill creates test definitions. Test execution with real data depends on your test environment configuration."
+    },
+    {
+      "question": "Why are my tests not catching bugs?",
+      "answer": "Check that tests have real assertions, test actual behavior not implementation, and include error cases."
+    },
+    {
+      "question": "How is this different from auto-generated tests?",
+      "answer": "This skill creates meaningful tests with real assertions. Auto-generated tests often just call functions without verifying outcomes."
+    }
+  ],
+  "seoKeywords": [
+    "test coverage",
+    "testing framework",
+    "Claude Code",
+    "test automation",
+    "unit tests",
+    "integration tests",
+    "component tests",
+    "TDD",
+    "BDD",
+    "quality assurance"
+  ],
+  "sourceUrl": "https://github.com/CleanExpo/Unite-Hub/tree/main/.claude/skills/test-infrastructure",
+  "sourceType": "community",
+  "dependencies": []
+}

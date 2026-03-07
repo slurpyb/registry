@@ -1,0 +1,141 @@
+{
+  "name": "mapreduce",
+  "type": "skill",
+  "description": "The MapReduce skill enables parallel task execution across multiple AI providers or agent instances, followed by intelligent consolidation of results. This produces higher-quality outputs by levera...",
+  "domain": "ai-ml",
+  "subdomain": "agents",
+  "specialty": "parallel orchestration",
+  "quality": 5,
+  "qualityReason": "Innovative parallel execution",
+  "bundleHints": [
+    "ai-orchestrator-suite",
+    "distributed-ai"
+  ],
+  "tags": [
+    "consolidation",
+    "coordination",
+    "multi-provider",
+    "orchestration",
+    "parallel",
+    "quality-output"
+  ],
+  "capabilities": [
+    "Execute parallel tasks across Claude, Codex, Gemini, and other providers",
+    "Coordinate timeout-based collection of worker outputs",
+    "Consolidate multiple implementations or plans into unified results",
+    "Apply scoring rubrics to evaluate and select best outputs",
+    "Generate attribution reports showing which provider contributed what"
+  ],
+  "author": "Consiliency",
+  "icon": "⚡",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 201 static findings are FALSE POSITIVES. This is a documentation-only skill containing markdown files that teach the MapReduce pattern. No executable code exists. Shell command examples, scoring rubric references, and file operations are instructional documentation showing how to invoke external AI providers. The skill contains no actual network calls, command executions, or file operations.",
+  "valueStatement": "Complex tasks benefit from multiple perspectives. This skill enables you to fan out work to different AI providers simultaneously, then intelligently consolidate the results into a single high-quality output.",
+  "userTitle": "Execute tasks in parallel across AI providers",
+  "limitations": [
+    "Subagents cannot spawn other subagents; all orchestration happens in main thread",
+    "Requires CLI tools to be installed for non-Claude providers",
+    "User must manage provider-specific authentication and configuration",
+    "No built-in error recovery; timeouts and failures must be handled explicitly"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Software architects",
+      "title": "Multi-strategy planning",
+      "description": "Get conservative, aggressive, and security-focused plans simultaneously, then merge into optimal roadmap"
+    },
+    {
+      "targetUser": "Code reviewers",
+      "title": "Implementation comparison",
+      "description": "Generate same feature with multiple models, evaluate quality, and select or merge the best implementation"
+    },
+    {
+      "targetUser": "Debugging engineers",
+      "title": "Bug diagnosis consensus",
+      "description": "Get multiple diagnoses of complex bugs from different models and synthesize the best fix"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic parallel planning",
+      "scenario": "Get multiple planning perspectives",
+      "prompt": "Use MapReduce pattern to create an implementation plan for FEATURE. Launch 3 workers: conservative, aggressive, and security-focused. Consolidate into specs/ROADMAP.md"
+    },
+    {
+      "title": "Multi-model implementation",
+      "scenario": "Compare implementations",
+      "prompt": "Generate UserService implementation with Claude, Codex, and Gemini. Evaluate each on correctness, performance, and security. Select best and document comparison in implementations/COMPARISON.md"
+    },
+    {
+      "title": "Consensus debugging",
+      "scenario": "Diagnose bugs with multiple models",
+      "prompt": "Diagnose this bug with 3 workers. Each should: identify root cause, propose fix, estimate confidence. Consolidate into diagnoses/RESOLUTION.md with selected fix and rationale"
+    },
+    {
+      "title": "Domain expert synthesis",
+      "scenario": "Get diverse expertise",
+      "prompt": "Create implementation plan for API. Workers: backend, frontend, devops, security specialists. Consolidate into unified architecture document with attribution table"
+    }
+  ],
+  "bestPractices": [
+    "Define clear specifications that all workers will follow before launching parallel tasks",
+    "Use strategic biases (conservative, aggressive, security) to ensure diverse perspectives",
+    "Keep intermediate artifacts for auditing and future reference before cleanup",
+    "Set generous timeouts for complex tasks and handle missing outputs gracefully"
+  ],
+  "antiPatterns": [
+    "Launching too many workers (3-4 diverse perspectives is optimal)",
+    "Launching workers with similar or ambiguous biases (produces redundant outputs)",
+    "Deleting intermediate files before verifying consolidation is complete",
+    "Not applying scoring rubrics and proceeding on gut feeling alone"
+  ],
+  "faq": [
+    {
+      "question": "Which AI providers are supported?",
+      "answer": "Claude via Task tool, OpenAI Codex via CLI, Google Gemini via CLI, and any provider with command-line interface."
+    },
+    {
+      "question": "What happens if a worker times out?",
+      "answer": "The MapReduce proceeds with available outputs. Confidence scores are reduced for sections that would have benefited from the missing perspective."
+    },
+    {
+      "question": "Can I use this with Claude Code subagents?",
+      "answer": "Yes, spawn multiple subagents with run_in_background=true, then use TaskOutput to collect results before reduce phase."
+    },
+    {
+      "question": "Is my data sent to external providers?",
+      "answer": "Data flows through whatever providers you configure. Claude Code does not share your data with external providers automatically."
+    },
+    {
+      "question": "Why not just use a single powerful model?",
+      "answer": "MapReduce provides diversity, cross-validation, and the ability to leverage each provider's strengths. Higher quality through consensus."
+    },
+    {
+      "question": "How is this different from multi-agent orchestration?",
+      "answer": "MapReduce specifically handles parallel fan-out followed by consolidation. Other orchestration patterns may not include the reduce phase."
+    }
+  ],
+  "seoKeywords": [
+    "Claude MapReduce",
+    "parallel AI agents",
+    "multi-provider orchestration",
+    "Claude Code workflow",
+    "OpenAI Codex integration",
+    "Google Gemini tasks",
+    "AI agent coordination",
+    "parallel planning",
+    "result consolidation",
+    "multi-agent orchestration"
+  ],
+  "sourceUrl": "https://github.com/Consiliency/treesitter-chunker/tree/main/.ai-dev-kit/skills/mapreduce",
+  "sourceType": "community",
+  "dependencies": []
+}

@@ -1,0 +1,141 @@
+{
+  "name": "firebase-development-add-feature",
+  "type": "skill",
+  "description": "This skill should be used when adding features to existing Firebase projects. Triggers on \"add function\", \"create endpoint\", \"new tool\", \"add api\", \"new collection\", \"implement\", \"build feature\". Guides TDD workflow with test-first development, security rules, and emulator verification.",
+  "domain": "web-development",
+  "subdomain": "backend",
+  "specialty": "feature implementation",
+  "quality": 5,
+  "qualityReason": "Clear triggers and scope",
+  "bundleHints": [
+    "firebase-stack",
+    "backend-features"
+  ],
+  "tags": [
+    "api",
+    "cloud-functions",
+    "feature-dev",
+    "firebase",
+    "firestore",
+    "tdd",
+    "testing"
+  ],
+  "capabilities": [
+    "Guide developers through 12-step workflow for adding Firebase features",
+    "Provide code templates for Cloud Functions, Firestore rules, and authentication",
+    "Enforce test-first development with unit and integration test examples",
+    "Generate consistent response patterns for API endpoints",
+    "Create Firestore security rules for server-write and client-write scenarios",
+    "Configure Firebase emulator testing workflows"
+  ],
+  "author": "2389-research",
+  "icon": "📦",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This skill is a documentation-only guidance file for Firebase development workflows. All static findings are false positives from code examples in markdown. The skill contains TypeScript and bash code snippets as educational examples, not executable code. No actual security risks detected.",
+  "valueStatement": "Adding new features to Firebase projects requires careful planning and testing. This skill guides developers through a structured workflow for adding Cloud Functions, Firestore collections, and API endpoints using test-driven development practices.",
+  "userTitle": "Build Firebase Features with Test-Driven Development",
+  "limitations": [
+    "Requires existing Firebase project setup, does not create new projects",
+    "Focused on JavaScript and TypeScript Firebase development only",
+    "Does not handle deployment configuration or CI/CD pipelines",
+    "Assumes familiarity with Firebase architecture and concepts"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building Firebase APIs",
+      "title": "Add HTTP API Endpoint",
+      "description": "Create a new REST API endpoint with authentication, validation, and testing for your Firebase Cloud Functions project."
+    },
+    {
+      "targetUser": "Full-stack developers managing database schemas",
+      "title": "Create Firestore Collection with Rules",
+      "description": "Set up a new Firestore collection with proper security rules, indexes, and integration tests to ensure data access control."
+    },
+    {
+      "targetUser": "Mobile and web developers integrating backend logic",
+      "title": "Implement Callable Function",
+      "description": "Build a Firebase callable function that client SDKs can invoke with built-in authentication and structured error handling."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Add Simple HTTP Endpoint",
+      "prompt": "Add a new HTTP endpoint called getUserProfile that accepts a user ID and returns profile data from Firestore",
+      "scenario": "Basic API endpoint creation with Firestore read operation"
+    },
+    {
+      "title": "Create Collection with Security",
+      "prompt": "Create a new Firestore collection called notifications with server-write-only rules and an index on userId and createdAt",
+      "scenario": "Setting up secure Firestore collection with proper access control"
+    },
+    {
+      "title": "Build Authenticated Callable Function",
+      "prompt": "Implement a callable function named updateUserSettings that validates authentication and updates user preferences in Firestore",
+      "scenario": "Client-callable function with authentication and data validation"
+    },
+    {
+      "title": "Add Scheduled Background Task",
+      "prompt": "Create a scheduled function that runs daily at midnight to clean up expired session tokens from the database",
+      "scenario": "Advanced cron-based Cloud Function with database operations"
+    }
+  ],
+  "bestPractices": [
+    "Always write tests before implementation to ensure features work as expected",
+    "Use consistent response patterns with success, message, and optional data fields",
+    "Add security rules for every new Firestore collection to prevent unauthorized access"
+  ],
+  "antiPatterns": [
+    "Skipping emulator testing and deploying directly to production without verification",
+    "Writing implementation code before creating failing tests violates TDD principles",
+    "Omitting authentication checks or assuming all requests are from trusted sources"
+  ],
+  "faq": [
+    {
+      "question": "Does this skill create new Firebase projects?",
+      "answer": "No, this skill is designed for adding features to existing Firebase projects. For initial project setup, use the firebase-development:project-setup skill."
+    },
+    {
+      "question": "What testing framework does this skill use?",
+      "answer": "The skill provides examples using Vitest for unit tests and integration tests with Firebase emulators. You can adapt the patterns to other testing frameworks."
+    },
+    {
+      "question": "Can I use this skill for Firebase Realtime Database?",
+      "answer": "This skill focuses on Firestore collections and Cloud Functions. The patterns can be adapted for Realtime Database but examples are Firestore-specific."
+    },
+    {
+      "question": "How does authentication work in the generated code?",
+      "answer": "The skill supports both Firebase Authentication tokens and API key-based authentication. It provides templates for both patterns based on your project architecture."
+    },
+    {
+      "question": "Will this skill deploy my functions automatically?",
+      "answer": "No, the skill guides you through development and emulator testing. You control when to deploy to production using firebase deploy commands."
+    },
+    {
+      "question": "What is the standard response pattern mentioned?",
+      "answer": "All handlers return objects with success (boolean), message (string), and optional data fields to ensure consistent API responses across your application."
+    }
+  ],
+  "seoKeywords": [
+    "Firebase",
+    "Cloud Functions",
+    "Firestore",
+    "Claude Code",
+    "Claude",
+    "TDD",
+    "test-driven development",
+    "API development",
+    "security rules",
+    "Firebase emulator"
+  ],
+  "sourceUrl": "https://github.com/2389-research/claude-plugins/tree/main/firebase-development/skills/add-feature",
+  "sourceType": "community",
+  "dependencies": []
+}

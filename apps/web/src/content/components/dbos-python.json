@@ -1,0 +1,145 @@
+{
+  "name": "dbos-python",
+  "type": "skill",
+  "description": "DBOS Python SDK for building reliable, fault-tolerant applications with durable workflows. Use this skill when writing Python code with DBOS, creating workflows and steps, using queues, using DBOSClient from external applications, or building applications that need to be resilient to failures.",
+  "domain": "languages",
+  "subdomain": "python",
+  "specialty": "durable workflows",
+  "quality": 5,
+  "qualityReason": "Clear SDK integration",
+  "bundleHints": [
+    "python-stack",
+    "workflow-engine",
+    "fault-tolerant-systems"
+  ],
+  "tags": [
+    "dbos",
+    "durable-execution",
+    "fault-tolerance",
+    "python",
+    "queues",
+    "sdk",
+    "workflows"
+  ],
+  "capabilities": [
+    "Create durable workflows that automatically recover from failures",
+    "Define workflow steps with automatic retry logic",
+    "Implement queues for concurrency control and rate limiting",
+    "Handle workflow communication via events, messages, and streams",
+    "Configure DBOS with FastAPI integration",
+    "Test workflows with built-in test fixtures"
+  ],
+  "author": "sickn33",
+  "icon": "📦",
+  "version": "1.0.1",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "All 483 static findings are false positives. The skill is a documentation guide for the DBOS Python SDK. Detected patterns (external commands, weak crypto, Windows SAM) are markdown code fences, documentation text, and unrelated keywords - not actual security issues. No malicious behavior detected.",
+  "valueStatement": "DBOS Python provides durable workflow execution that automatically recovers from failures. Write workflows that survive crashes, restarts, and retries without data loss or corruption.",
+  "userTitle": "Build Reliable Python Apps with DBOS",
+  "limitations": [
+    "Requires PostgreSQL database for workflow state storage",
+    "Workflows must be deterministic - cannot use random or external time",
+    "Limited to Python applications, not language-agnostic",
+    "Cannot call external APIs directly in workflows without steps"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Backend developers building distributed systems",
+      "title": "Build resilient microservices",
+      "description": "Create microservices that automatically retry failed operations and maintain data consistency across distributed systems."
+    },
+    {
+      "targetUser": "DevOps engineers implementing job workers",
+      "title": "Implement reliable job processing",
+      "description": "Process background jobs with guaranteed execution, automatic retries, and exactly-once semantics using queues."
+    },
+    {
+      "targetUser": "Application architects designing business logic",
+      "title": "Create long-running business workflows",
+      "description": "Build multi-step business processes that survive infrastructure failures and maintain audit trails."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Add DBOS to existing Python app",
+      "prompt": "I have an existing Python FastAPI application. Show me how to add DBOS for durable workflow execution. Include the setup steps, how to convert a function to a workflow, and how to test it.",
+      "scenario": "Adding durable execution to an existing project"
+    },
+    {
+      "title": "Create a retry-enabled workflow",
+      "prompt": "Create a workflow that calls an external API. Include step definitions with retry configuration, error handling, and compensation logic for failures.",
+      "scenario": "Building a workflow with external dependencies"
+    },
+    {
+      "title": "Implement queue-based processing",
+      "prompt": "Show me how to implement a queue with concurrency limits, priority levels, and rate limiting using DBOS queues. Include the producer and consumer code.",
+      "scenario": "Setting up background job processing"
+    },
+    {
+      "title": "Test DBOS workflows",
+      "prompt": "Write tests for a DBOS workflow that verifies retry behavior, workflow idempotency, and transaction rollback. Use the DBOS test fixtures.",
+      "scenario": "Testing workflow reliability"
+    }
+  ],
+  "bestPractices": [
+    "Keep workflows deterministic by avoiding random values and external time calls",
+    "Use idempotent steps to enable safe retries without duplicate side effects",
+    "Configure appropriate timeouts for long-running workflows to prevent resource leaks",
+    "Test workflows with various failure scenarios including crashes and network failures",
+    "Store critical workflow state in the workflow context, not external variables"
+  ],
+  "antiPatterns": [
+    "Using random values or current time directly in workflows - breaks determinism",
+    "Calling external APIs directly in workflow body instead of in steps - loses retry capability",
+    "Not setting timeouts on long-running workflows - risks resource exhaustion",
+    "Skipping workflow testing with failure injection - won't catch reliability issues"
+  ],
+  "faq": [
+    {
+      "question": "What is DBOS?",
+      "answer": "DBOS (Database-Oriented Operating System) is a Python framework that provides durable workflow execution. Workflows automatically recover from failures without data loss."
+    },
+    {
+      "question": "How does DBOS handle failures?",
+      "answer": "DBOS records every workflow step to a database. If a workflow crashes or is interrupted, it automatically resumes from the last completed step when restarted."
+    },
+    {
+      "question": "What databases does DBOS support?",
+      "answer": "DBOS requires PostgreSQL for storing workflow state and execution history. It does not support other databases in the current version."
+    },
+    {
+      "question": "Can I use DBOS with FastAPI?",
+      "answer": "Yes, DBOS provides built-in FastAPI integration. You can initialize DBOS in your FastAPI app and use decorators on your route handlers."
+    },
+    {
+      "question": "How do DBOS queues work?",
+      "answer": "DBOS queues provide reliable message processing with concurrency limits, priority levels, and rate limiting. Messages are persisted to the database for durability."
+    },
+    {
+      "question": "What are the key constraints for DBOS workflows?",
+      "answer": "Workflows must be deterministic - they cannot use random values, external time, or non-deterministic operations. All external calls must happen in steps with retry logic."
+    }
+  ],
+  "seoKeywords": [
+    "dbos",
+    "python",
+    "durable execution",
+    "workflow",
+    "fault tolerant",
+    "claude",
+    "codex",
+    "claude code",
+    "queue",
+    "step function"
+  ],
+  "sourceUrl": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dbos-python",
+  "sourceType": "community",
+  "dependencies": []
+}

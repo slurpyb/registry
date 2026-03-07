@@ -1,0 +1,140 @@
+{
+  "name": "github-multi-repo",
+  "type": "skill",
+  "description": "Multi-repository coordination, synchronization, and architecture management with AI swarm orchestration",
+  "domain": "devops",
+  "subdomain": "ci-cd",
+  "specialty": "multi-repo sync",
+  "quality": 5,
+  "qualityReason": "Complex coordination solved",
+  "bundleHints": [
+    "multi-repo",
+    "swarm-orchestration"
+  ],
+  "tags": [
+    "architecture",
+    "coordination",
+    "cross-repo",
+    "github",
+    "multi-repo",
+    "swarm",
+    "synchronization"
+  ],
+  "capabilities": [
+    "Coordinate changes across multiple GitHub repositories using AI swarm orchestration",
+    "Synchronize package versions and dependencies across repositories",
+    "Analyze and optimize repository architecture with automated templates",
+    "Create standardized project templates for new repositories",
+    "Deploy security patches and dependency updates across all repositories",
+    "Generate cross-repository dependency graphs and health reports"
+  ],
+  "author": "Claude Flow Team",
+  "icon": "🔗",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a pure documentation skill (SKILL.md) with no executable code. All security patterns detected are false positives - the file contains documentation examples showing how to use external tools (gh CLI, claude-flow MCP). These examples require explicit user invocation and operate only on repositories the user has access to via authenticated gh CLI. The pre-computed skill-report.json correctly shows risk_level: 'safe' with zero findings.",
+  "valueStatement": "Managing multiple GitHub repositories requires coordinating changes, dependencies, and releases across repositories. This skill uses AI swarm orchestration to synchronize packages, standardize architecture, and coordinate cross-repository operations automatically.",
+  "userTitle": "Coordinate multi-repository GitHub workflows",
+  "limitations": [
+    "Requires GitHub CLI (gh) and claude-flow MCP server installation",
+    "Cannot access private repositories without proper gh authentication",
+    "Operates on repositories you have explicit access to via gh CLI",
+    "Swarm operations depend on available MCP server resources"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Platform engineers",
+      "title": "Synchronize microservices",
+      "description": "Keep shared libraries and API contracts consistent across all microservices in your organization"
+    },
+    {
+      "targetUser": "Release managers",
+      "title": "Coordinate cross-repo releases",
+      "description": "Deploy coordinated releases across multiple repositories with synchronized version bumps"
+    },
+    {
+      "targetUser": "Security teams",
+      "title": "Deploy security patches",
+      "description": "Apply security updates to all repositories and create automated pull requests"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Initialize coordination",
+      "scenario": "Set up multi-repo tracking",
+      "prompt": "Use github-multi-repo to initialize coordination for repositories: org/frontend, org/backend, org/shared with hierarchical topology"
+    },
+    {
+      "title": "Sync packages",
+      "scenario": "Align dependencies",
+      "prompt": "Synchronize package versions for claude-code-flow and ruv-swarm. Align versions and update documentation across both repositories"
+    },
+    {
+      "title": "Standardize structure",
+      "scenario": "Create templates",
+      "prompt": "Analyze repository structure and create standardized templates for new Claude Code projects in my organization"
+    },
+    {
+      "title": "Deploy security updates",
+      "scenario": "Organization-wide patches",
+      "prompt": "Scan all my organization repositories for vulnerabilities, apply npm audit fixes, and create pull requests with security updates"
+    }
+  ],
+  "bestPractices": [
+    "Use hierarchical topology for clear ownership and mesh for peer-to-peer coordination",
+    "Create tracking issues before organization-wide changes to monitor progress",
+    "Test changes in a single repository before propagating across all repositories"
+  ],
+  "antiPatterns": [
+    "Running swarm operations without specifying repository boundaries",
+    "Applying strong consistency sync for documentation changes",
+    "Ignoring failed tests in individual repositories before propagating changes"
+  ],
+  "faq": [
+    {
+      "question": "What permissions does this skill need?",
+      "answer": "GitHub CLI authentication for repos you access. No additional permissions beyond gh CLI."
+    },
+    {
+      "question": "How many repositories can this skill coordinate?",
+      "answer": "Scales to hundreds of repositories. Adjust maxAgents based on system resources."
+    },
+    {
+      "question": "Can I use this with private repositories?",
+      "answer": "Yes, if gh CLI is authenticated and you have access to those repositories."
+    },
+    {
+      "question": "Is my data safe with this skill?",
+      "answer": "All operations are explicit via gh CLI. No hidden data collection or external calls."
+    },
+    {
+      "question": "What sync strategies are available?",
+      "answer": "Eventual consistency for documentation, strong consistency for security updates, hybrid for mixed workloads."
+    },
+    {
+      "question": "How does this compare to manual coordination?",
+      "answer": "Automates repetitive tasks across repos. Reduces errors and ensures consistency compared to manual approaches."
+    }
+  ],
+  "seoKeywords": [
+    "GitHub multi-repo",
+    "Claude Code skill",
+    "repository coordination",
+    "cross-repo synchronization",
+    "package management",
+    "swarm orchestration",
+    "claude-flow",
+    "AI agents",
+    "Claude Code",
+    "GitHub automation"
+  ],
+  "sourceUrl": "https://github.com/ruvnet/claude-flow/tree/main/.claude/skills/github-multi-repo",
+  "sourceType": "community",
+  "dependencies": []
+}

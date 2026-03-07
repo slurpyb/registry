@@ -1,0 +1,143 @@
+{
+  "name": "design-component",
+  "type": "skill",
+  "description": "Design Component skill for Empathy Ledger. Use for storyteller cards, story cards, profile displays, and any UI component requiring cultural sensitivity. Provides data mapping, AI enrichment patterns, and design system guidelines.",
+  "domain": "design",
+  "subdomain": "ui-ux",
+  "specialty": "cultural sensitivity",
+  "quality": 4,
+  "qualityReason": "Unique focus on empathy and culture",
+  "bundleHints": [
+    "design-system",
+    "inclusive-design"
+  ],
+  "tags": [
+    "ai enrichment",
+    "ai-enrichment",
+    "cultural sensitivity",
+    "data-mapping",
+    "design system",
+    "storyteller cards",
+    "ui components"
+  ],
+  "capabilities": [
+    "Design storyteller card components with cultural context display",
+    "Implement AI enrichment patterns for profile enhancement",
+    "Apply cultural color meanings and accessibility standards",
+    "Create card variants for different display contexts",
+    "Build consent and syndication dashboard interfaces",
+    "Implement dark mode and responsive design patterns"
+  ],
+  "author": "Acurioustractor",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown files with design guidelines and code examples. The static analyzer incorrectly flagged documentation as executable code. Backticks in markdown are for code block syntax, not shell execution. SQL examples are database schema documentation, not system reconnaissance. Interface field names containing words like 'connection' were misidentified as cryptographic algorithms. This skill has no executable code, network calls, filesystem operations, or environment access.",
+  "valueStatement": "Build accessible storyteller and story cards with proper data mapping, cultural indicators, and AI enrichment. This skill provides design system patterns and component guidelines for Indigenous storytelling platforms.",
+  "userTitle": "Design culturally sensitive UI components",
+  "limitations": [
+    "Does not generate production code directly",
+    "Requires React/Next.js project context",
+    "Cultural guidelines specific to Indigenous storytelling context",
+    "Database schema examples require Supabase backend"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Frontend developers",
+      "title": "Build storyteller cards",
+      "description": "Create card components for displaying storyteller profiles with cultural indicators and AI insights."
+    },
+    {
+      "targetUser": "UI designers",
+      "title": "Design system guidelines",
+      "description": "Apply color palettes, accessibility standards, and cultural sensitivity patterns to component designs."
+    },
+    {
+      "targetUser": "Product managers",
+      "title": "Component standards",
+      "description": "Establish design patterns for AI-enriched content and consent management interfaces in storytelling platforms."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create storyteller card",
+      "scenario": "Build new card component",
+      "prompt": "Design a StorytellerCard component that displays cultural background, elder status, story count, and specialties with proper fallbacks for missing data."
+    },
+    {
+      "title": "Add AI enrichment",
+      "scenario": "Enhance profiles with AI",
+      "prompt": "Show me how to implement AI enrichment for storyteller profiles including quote extraction, theme expertise, and connection suggestions."
+    },
+    {
+      "title": "Cultural indicators",
+      "scenario": "Display cultural context",
+      "prompt": "How should I display traditional territory, cultural affiliations, and language skills on a storyteller profile card?"
+    },
+    {
+      "title": "Consent dashboard",
+      "scenario": "Build syndication UI",
+      "prompt": "Design a consent management dashboard with consent status badges, revocation workflows, and cultural permission indicators."
+    }
+  ],
+  "bestPractices": [
+    "Always show cultural background with traditional territory acknowledgment",
+    "Mark AI-generated content clearly with visual indicators",
+    "Provide fallback states for missing avatar, bio, and specialty data",
+    "Implement dark mode using semantic CSS variables for all colors"
+  ],
+  "antiPatterns": [
+    "Hardcoding colors instead of using CSS variables",
+    "Displaying AI-generated content without indicating its origin",
+    "Omitting elder status or cultural context from storyteller cards",
+    "Missing accessibility labels on status badges and interactive elements"
+  ],
+  "faq": [
+    {
+      "question": "What platforms does this skill support?",
+      "answer": "Works with Claude, Codex, and Claude Code for component design and documentation tasks."
+    },
+    {
+      "question": "What data fields are required for storyteller cards?",
+      "answer": "Required: display_name, cultural_background, avatar_url. Recommended: story_count, specialties, elder/featured status."
+    },
+    {
+      "question": "Can I integrate with external design systems?",
+      "answer": "Yes. Patterns use Tailwind CSS conventions but can adapt to any design system with CSS variable mapping."
+    },
+    {
+      "question": "Is user data safe with AI enrichment?",
+      "answer": "AI content is marked visually. Storytellers can override suggestions. Sacred content is excluded from extraction."
+    },
+    {
+      "question": "Why do my cards look different in dark mode?",
+      "answer": "Use semantic colors like --background, --card, --foreground instead of hardcoded hex values for proper theme support."
+    },
+    {
+      "question": "How does this compare to generic card components?",
+      "answer": "Adds cultural sensitivity layers, AI enrichment indicators, and Indigenous storytelling context specific to the platform."
+    }
+  ],
+  "seoKeywords": [
+    "design components",
+    "storyteller cards",
+    "cultural sensitivity",
+    "UI design system",
+    "AI enrichment",
+    "claude code",
+    "claude",
+    "codex",
+    "design patterns",
+    "accessibility"
+  ],
+  "sourceUrl": "https://github.com/Acurioustractor/empathy-ledger-v2/tree/main/.claude/skills/local/design-component",
+  "sourceType": "community",
+  "dependencies": []
+}

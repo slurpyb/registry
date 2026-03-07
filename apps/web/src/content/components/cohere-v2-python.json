@@ -1,0 +1,141 @@
+{
+  "name": "cohere-v2-python",
+  "type": "skill",
+  "description": "Master Cohere v2 Chat API with Python, specializing in entity extraction using JSON Schema mode for structured outputs. Use when extracting entities from text, building data extraction pipelines, implementing NER systems, or requiring validated JSON responses from LLMs.",
+  "domain": "ai-ml",
+  "subdomain": "nlp",
+  "specialty": "entity extraction",
+  "quality": 5,
+  "qualityReason": "Specific API and use case",
+  "bundleHints": [
+    "nlp-pipeline",
+    "data-extraction"
+  ],
+  "tags": [
+    "cohere",
+    "data-pipelines",
+    "entity-extraction",
+    "json-schema",
+    "llm",
+    "structured-outputs",
+    "text-processing"
+  ],
+  "capabilities": [
+    "Initialize Cohere v2 Chat Client with Python SDK",
+    "Configure JSON Schema mode for validated structured outputs",
+    "Extract entities (people, organizations, locations, dates) from text",
+    "Build classification systems using enum constraints",
+    "Design nested schemas with $ref for reusable structures",
+    "Create production pipelines for batch document processing"
+  ],
+  "author": "ActiveInferenceInstitute",
+  "icon": "🔧",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Pure documentation skill containing only markdown reference guides with example code snippets. All static findings are false positives: backticks are markdown code fences, URLs are official documentation links, and API key placeholders are instructional examples. No executable code, scripts, or file system access exists.",
+  "valueStatement": "Building data extraction pipelines with LLMs requires consistent, validated JSON outputs. This skill provides expert guidance on using Cohere v2 JSON Schema mode for reliable entity extraction, classification, and structured data pipelines.",
+  "userTitle": "Extract Structured Data with Cohere v2",
+  "limitations": [
+    "RAG not supported in JSON Schema mode",
+    "Maximum 200 fields in tools mode",
+    "Schema mode adds initial latency overhead",
+    "Numeric ranges and array length constraints not supported"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Data Engineers",
+      "title": "Build Extraction Pipelines",
+      "description": "Create automated document processing pipelines that extract structured data from unstructured text sources."
+    },
+    {
+      "targetUser": "ML Engineers",
+      "title": "Implement NER Systems",
+      "description": "Deploy named entity recognition systems with guaranteed JSON output formats for downstream applications."
+    },
+    {
+      "targetUser": "Application Developers",
+      "title": "Integrate LLM Data Extraction",
+      "description": "Add reliable data extraction capabilities to applications with validated schema enforcement."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic Entity Extraction",
+      "scenario": "Extract named entities from text",
+      "prompt": "Use the Cohere v2 Python SDK with JSON Schema mode to extract entities from this text: [INSERT TEXT]. Define a schema with person, organization, location, and date fields."
+    },
+    {
+      "title": "Batch Document Processing",
+      "scenario": "Process multiple documents",
+      "prompt": "Create a Python function using Cohere v2 that extracts structured data from documents. Include error handling, schema definition for [INSERT DATA STRUCTURE], and batch processing logic."
+    },
+    {
+      "title": "Classification with Enums",
+      "scenario": "Categorize content into fixed categories",
+      "prompt": "Set up a classification system with Cohere v2 JSON Schema mode. Use enum constraints to categorize content into: [LIST CATEGORIES]. Show how to enforce valid outputs."
+    },
+    {
+      "title": "Advanced Pipeline Integration",
+      "scenario": "Full production extraction workflow",
+      "prompt": "Design a complete entity extraction pipeline using Cohere v2. Include schema design best practices, SurrealDB integration for storage, error handling, retry logic, and production monitoring considerations."
+    }
+  ],
+  "bestPractices": [
+    "Define required fields in every schema to ensure essential data is always extracted",
+    "Use enum constraints for classification to guarantee valid category values",
+    "Reuse schemas across multiple requests to benefit from caching and reduce latency"
+  ],
+  "antiPatterns": [
+    "Using JSON mode without explicit schema enforcement when structured output is needed",
+    "Missing the required array in schema definition causes API errors",
+    "Not wrapping JSON parsing in try-except blocks for production resilience"
+  ],
+  "faq": [
+    {
+      "question": "What models support JSON Schema mode?",
+      "answer": "command-a-03-2025 and newer models support structured outputs with JSON Schema mode enforcement."
+    },
+    {
+      "question": "What are the schema field limits?",
+      "answer": "No explicit limit for response_format schemas. Tools mode supports maximum 200 fields across all tools."
+    },
+    {
+      "question": "Can I use RAG with structured outputs?",
+      "answer": "RAG is not supported when using JSON Schema mode. Use basic JSON mode or standard chat for RAG scenarios."
+    },
+    {
+      "question": "Is my data sent to third parties?",
+      "answer": "Data is sent to Cohere API for processing. Review Cohere privacy policy for data handling details."
+    },
+    {
+      "question": "Why does first request take longer?",
+      "answer": "Initial request incurs schema processing overhead. Subsequent requests use cached schemas for faster responses."
+    },
+    {
+      "question": "How does this compare to OpenAI structured outputs?",
+      "answer": "Both enforce schema compliance, but Cohere uses JSON Schema format while OpenAI uses JSON Schema with slight variations."
+    }
+  ],
+  "seoKeywords": [
+    "cohere",
+    "entity extraction",
+    "json schema",
+    "structured outputs",
+    "llm data extraction",
+    "ner system",
+    "claude code",
+    "claude",
+    "codex",
+    "python"
+  ],
+  "sourceUrl": "https://github.com/ActiveInferenceInstitute/Journal-Utilities/tree/main/.claude/skills/cohere-v2-python",
+  "sourceType": "community",
+  "dependencies": []
+}

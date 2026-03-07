@@ -1,0 +1,143 @@
+{
+  "name": "skill-forge",
+  "type": "skill",
+  "description": "Advanced skill creation system for Claude Code that combines deep intent analysis, evidence-based prompting principles, and systematic skill engineering. Use when creating new skills or refining existing skills to ensure they are well-structured, follow best practices, and incorporate sophisticated prompt engineering techniques. This skill transforms skill creation from template filling into a strategic design process.",
+  "domain": "meta",
+  "subdomain": "agent-config",
+  "specialty": "systematic engineering",
+  "quality": 5,
+  "qualityReason": "Advanced creation system",
+  "bundleHints": [
+    "agent-orchestration",
+    "skill-creation",
+    "prompt-engineering"
+  ],
+  "tags": [
+    "agent-orchestration",
+    "claude-code",
+    "deep-intent",
+    "prompt-engineering",
+    "skill-creation",
+    "sop"
+  ],
+  "capabilities": [
+    "7-phase systematic skill creation methodology",
+    "Explicit agent orchestration for multi-agent workflows",
+    "Evidence-based prompting techniques including self-consistency, program-of-thought, plan-and-solve",
+    "Memory-based coordination between skill creation phases",
+    "Skill validation and packaging utilities",
+    "Progressive disclosure design for optimal skill structure"
+  ],
+  "author": "DNYoussef",
+  "icon": "🛠️",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "Skill Forge is a legitimate skill creation system containing Python validation and packaging utilities. The code performs standard file operations for skill validation and packaging. No network calls, credential access, code execution vulnerabilities, or malicious patterns detected. All 786 static findings are false positives - the scanner misinterprets markdown documentation code blocks as Ruby/shell backtick execution, and documentation references to paths like ~/.claude/skills/ as hidden file access. The two Python scripts (validate_skill.py:217 lines, package_skill.py:88 lines) are standard utility scripts for skill structure validation and distribution packaging.",
+  "valueStatement": "Creating effective Claude Code skills requires systematic methodology rather than ad-hoc templates. Skill Forge provides a 7-phase process with evidence-based prompting techniques to transform skill requests into strategically designed, production-ready capabilities that follow best practices and deliver consistent results.",
+  "userTitle": "Create production-ready Claude Code skills",
+  "limitations": [
+    "Requires Claude Flow integration for full agent orchestration",
+    "Process assumes familiarity with Claude Code skill architecture",
+    "GraphViz required for process diagram visualization",
+    "Python 3.7+ required for validation and packaging scripts"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Skill Developers",
+      "title": "Build new skills",
+      "description": "Transform abstract skill requests into production-ready capabilities using systematic 7-phase methodology."
+    },
+    {
+      "targetUser": "AI Engineers",
+      "title": "Apply prompting patterns",
+      "description": "Incorporate evidence-based techniques like self-consistency and program-of-thought into skill design."
+    },
+    {
+      "targetUser": "Team Leads",
+      "title": "Standardize skill creation",
+      "description": "Establish consistent skill engineering practices across teams with clear quality gates and validation."
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Create basic skill",
+      "scenario": "Build a simple skill",
+      "prompt": "Use Skill Forge to create a skill for [purpose]. Follow the 7-phase process starting with intent archaeology. Focus on core functionality first."
+    },
+    {
+      "title": "Refine existing skill",
+      "scenario": "Improve existing skill",
+      "prompt": "Apply Skill Forge methodology to refine [existing-skill-name]. Start with intent archaeology to verify alignment, then proceed through validation phases."
+    },
+    {
+      "title": "Complex multi-agent skill",
+      "scenario": "Build complex workflow skill",
+      "prompt": "Create a sophisticated skill using Skill Forge that orchestrates multiple agents. Include structural architecture for agent handoffs and memory coordination."
+    },
+    {
+      "title": "Enterprise skill with resources",
+      "scenario": "Create enterprise-ready skill",
+      "prompt": "Build a production-ready skill using Skill Forge with full resource development including scripts, references, assets, and GraphViz process diagram."
+    }
+  ],
+  "bestPractices": [
+    "Begin each skill with intent archaeology to understand true user goals before designing solutions",
+    "Apply progressive disclosure by keeping metadata minimal, instructions actionable, and detailed references bundled separately",
+    "Include self-consistency mechanisms for analytical skills by validating conclusions from multiple perspectives",
+    "Validate every phase against success criteria before proceeding to ensure quality throughout the process"
+  ],
+  "antiPatterns": [
+    "Using passive voice in skill instructions instead of imperative voice that clearly directs action",
+    "Creating flat structure without hierarchy instead of progressive disclosure across metadata, instructions, and resources",
+    "Omitting concrete examples with real data instead of placeholders that do not guide implementation",
+    "Skipping validation phases and deploying skills without structural and functional testing"
+  ],
+  "faq": [
+    {
+      "question": "What tools does Skill Forge integrate with?",
+      "answer": "Skill Forge works with Claude Flow for agent orchestration, memory coordination for phase handoffs, and Python scripts for validation and packaging."
+    },
+    {
+      "question": "How long does skill creation take?",
+      "answer": "Average skill takes 1.5-2.5 hours. Simple skills may take 90 minutes while complex enterprise skills may require 3-4 hours."
+    },
+    {
+      "question": "Can I use Skill Forge with existing skills?",
+      "answer": "Yes. Apply the diagnostic framework to analyze current performance, identify issues, and use the 7-phase process to refine and improve existing skills."
+    },
+    {
+      "question": "Is my data safe during skill creation?",
+      "answer": "Skill Forge only accesses specified skill directories. Validation and packaging scripts operate locally with no network calls or external data transmission."
+    },
+    {
+      "question": "Why is my validation failing?",
+      "answer": "Common causes include missing YAML frontmatter, incorrect file structure, undeclared resource directories, or non-imperative voice in instructions."
+    },
+    {
+      "question": "How does Skill Forge differ from basic skill templates?",
+      "answer": "Skill Forge provides strategic design methodology rather than templates. It analyzes intent, applies evidence-based prompting, orchestrates agents, and includes quality gates."
+    }
+  ],
+  "seoKeywords": [
+    "Claude Code skill creation",
+    "Claude skill development",
+    "prompt engineering",
+    "skill forge",
+    "SOP methodology",
+    "agent orchestration",
+    "Claude Flow",
+    "evidence-based prompting",
+    "skill architecture",
+    "progressive disclosure"
+  ],
+  "sourceUrl": "https://github.com/DNYoussef/ai-chrome-extension/tree/main/.claude/skills/skill-forge",
+  "sourceType": "community",
+  "dependencies": []
+}

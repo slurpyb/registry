@@ -1,0 +1,144 @@
+{
+  "name": "pubchem-database",
+  "type": "skill",
+  "description": "Query PubChem via PUG-REST API/PubChemPy (110M+ compounds). Search by name/CID/SMILES, retrieve properties, similarity/substructure searches, bioactivity, for cheminformatics.",
+  "domain": "science",
+  "subdomain": "chemistry",
+  "specialty": "compound search",
+  "quality": 5,
+  "qualityReason": "Rich scientific data access",
+  "bundleHints": [
+    "cheminformatics",
+    "drug-discovery"
+  ],
+  "tags": [
+    "bioactivity",
+    "bioinformatics",
+    "cheminformatics",
+    "chemistry",
+    "drug discovery",
+    "drug-discovery",
+    "molecular-properties",
+    "pubchem",
+    "similarity",
+    "smiles"
+  ],
+  "capabilities": [
+    "Search 110M+ chemical compounds by name, CID, SMILES, or InChI",
+    "Retrieve molecular properties (MW, LogP, TPSA, hydrogen bonding)",
+    "Perform similarity and substructure searches",
+    "Access bioactivity data from screening assays",
+    "Convert between chemical identifier formats",
+    "Download molecular structures as images or SDF files"
+  ],
+  "author": "K-Dense-AI",
+  "icon": "🧪",
+  "version": "1.0.0",
+  "license": "MIT",
+  "supportedTools": [
+    "claude",
+    "codex",
+    "claude-code"
+  ],
+  "riskLevel": "safe",
+  "safeToPublish": true,
+  "securitySummary": "This is a legitimate scientific tool for querying the PubChem chemical database. Static analysis findings are false positives: the 'external commands' are Python code examples in markdown documentation, 'network' calls go to official NIH/NCBI servers, and 'weak cryptographic algorithm' detections are keyword false positives in a non-cryptographic context. No actual cryptographic code, command injection risks, or malicious behavior exists.",
+  "valueStatement": "Researchers need quick access to molecular properties and chemical structures. This skill connects to PubChem's 110M+ compound database for instant cheminformatics queries.",
+  "userTitle": "Query PubChem Chemical Database",
+  "limitations": [
+    "Requires internet connection to access PubChem API",
+    "Rate limited to 5 requests per second maximum",
+    "Similarity searches may take 15-30 seconds",
+    "Some properties unavailable for certain compounds"
+  ],
+  "useCases": [
+    {
+      "targetUser": "Medicinal chemist",
+      "title": "Drug candidate screening",
+      "description": "Screen compounds for drug-like properties using Lipinski's Rule of Five"
+    },
+    {
+      "targetUser": "Research scientist",
+      "title": "Structure-activity analysis",
+      "description": "Find structurally similar compounds and compare their bioactivities"
+    },
+    {
+      "targetUser": "Graduate student",
+      "title": "Chemical identifier conversion",
+      "description": "Convert between SMILES, InChI, and compound names for publications"
+    }
+  ],
+  "promptTemplates": [
+    {
+      "title": "Basic compound search",
+      "scenario": "Find aspirin in PubChem",
+      "prompt": "Search PubChem for aspirin and show its molecular formula, weight, and SMILES"
+    },
+    {
+      "title": "Property comparison",
+      "scenario": "Compare NSAIDs properties",
+      "prompt": "Get molecular properties for aspirin, ibuprofen, and naproxen. Compare their LogP values"
+    },
+    {
+      "title": "Similarity search",
+      "scenario": "Find drug-like candidates",
+      "prompt": "Search for compounds similar to imatinib with 85% similarity threshold, then filter by MW 200-600"
+    },
+    {
+      "title": "Substructure screening",
+      "scenario": "Find pharmacophores",
+      "prompt": "Find all compounds containing a benzene ring and calculate their average molecular weight"
+    }
+  ],
+  "bestPractices": [
+    "Use CIDs instead of names for repeated queries to improve performance",
+    "Implement 0.2-0.3 second delays between requests to respect rate limits",
+    "Cache results locally for frequently accessed compounds"
+  ],
+  "antiPatterns": [
+    "Don't make more than 5 requests per second to avoid rate limits",
+    "Avoid searching by common names without checking synonyms first",
+    "Don't ignore error handling for compounds that might not exist"
+  ],
+  "faq": [
+    {
+      "question": "What is PubChem?",
+      "answer": "PubChem is the world's largest freely available chemical database with over 110 million compounds, maintained by NCBI/NIH."
+    },
+    {
+      "question": "How do I search by chemical structure?",
+      "answer": "Use SMILES strings or InChI notation. Example: 'CC(=O)OC1=CC=CC=C1C(=O)O' for aspirin."
+    },
+    {
+      "question": "What properties can I retrieve?",
+      "answer": "Molecular weight, LogP, TPSA, hydrogen bond counts, and over 50 other molecular descriptors."
+    },
+    {
+      "question": "Why am I getting timeout errors?",
+      "answer": "Similarity and substructure searches are asynchronous and may take 15-30 seconds. Reduce MaxRecords if needed."
+    },
+    {
+      "question": "Can I download molecular structures?",
+      "answer": "Yes, you can download as PNG images, SDF files, or JSON format using the download functions."
+    },
+    {
+      "question": "Is there a rate limit?",
+      "answer": "Yes, maximum 5 requests per second and 400 requests per minute to ensure fair usage."
+    }
+  ],
+  "seoKeywords": [
+    "PubChem",
+    "chemical database",
+    "molecular properties",
+    "SMILES",
+    "cheminformatics",
+    "drug discovery",
+    "Claude Code",
+    "scientific research",
+    "compound search",
+    "bioactivity"
+  ],
+  "sourceUrl": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/pubchem-database",
+  "sourceType": "community",
+  "dependencies": []
+}
