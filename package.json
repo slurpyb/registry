@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "type": "module",
   "private": true,
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": ["packages/*"],
   "scripts": {
     "build": "bunx ocx build . --out dist && bun packages/scripts/enrich-index.ts",
     "deploy": "bun run build && wrangler deploy",
@@ -14,12 +14,12 @@
     "browse": "bun packages/scripts/browse.ts"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20260301.1",
+    "@cloudflare/workers-types": "^4.20260307.1",
     "@types/bun": "latest",
-    "wrangler": "^4.54.0"
+    "wrangler": "^4.71.0"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.27.1",
